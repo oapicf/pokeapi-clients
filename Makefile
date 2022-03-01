@@ -23,9 +23,9 @@ local-generate:
 
 generate:
 	if [ "${LOCAL}" = "true" ]; then \
-	  make  generate-langs GEN_BASE_DIR=/Users/cliffano/dev/workspace-studio/pokeapi-client; \
+	  make  generate-langs GEN_BASE_DIR=/Users/cliffano/dev/workspace-studio/pokeapi-clients; \
 	elif [ "${GITHUB_ACTIONS}" = "true" ]; then \
-	  make generate-langs GEN_BASE_DIR=/home/runner/work/pokeapi-client/pokeapi-client; \
+	  make generate-langs GEN_BASE_DIR=/home/runner/work/pokeapi-clients/pokeapi-clients; \
 	fi
 
 generate-langs:
@@ -43,9 +43,9 @@ generate-langs:
 
 generate-primary:
 	if [ "${LOCAL}" = "true" ]; then \
-	  make  generate-langs-primary GEN_BASE_DIR=/Users/cliffano/dev/workspace-studio/pokeapi-client; \
+	  make  generate-langs-primary GEN_BASE_DIR=/Users/cliffano/dev/workspace-studio/pokeapi-clients; \
 	elif [ "${GITHUB_ACTIONS}" = "true" ]; then \
-	  make generate-langs-primary GEN_BASE_DIR=/home/runner/work/pokeapi-client/pokeapi-client; \
+	  make generate-langs-primary GEN_BASE_DIR=/home/runner/work/pokeapi-clients/pokeapi-clients; \
 	fi
 
 generate-langs-primary:
