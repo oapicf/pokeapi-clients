@@ -13,14 +13,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -34,7 +34,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this ability.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -47,14 +47,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -68,7 +68,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this berry firmness.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -81,14 +81,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -102,7 +102,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this berry flavor.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -115,14 +115,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -136,7 +136,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this berry.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -149,14 +149,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -170,7 +170,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this characteristic.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -183,14 +183,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -204,7 +204,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this contest effect.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -217,14 +217,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -238,7 +238,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this contest type.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -251,14 +251,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -272,7 +272,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this egg group.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -285,14 +285,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -307,7 +307,7 @@ paths:
         schema:
           description: A unique integer value identifying this encounter condition
             value.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -320,14 +320,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -341,7 +341,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this encounter condition.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -354,14 +354,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -375,7 +375,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this encounter method.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -388,14 +388,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -409,7 +409,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this evolution chain.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -422,14 +422,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -443,7 +443,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this evolution trigger.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -456,14 +456,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -477,7 +477,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this gender.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -490,14 +490,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -511,7 +511,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this generation.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -524,14 +524,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -545,7 +545,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this growth rate.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -558,14 +558,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -579,7 +579,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this item attribute.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -592,14 +592,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -613,7 +613,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this item category.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -626,14 +626,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -647,7 +647,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this item fling effect.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -660,14 +660,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -681,7 +681,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this item pocket.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -694,14 +694,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -715,7 +715,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this item.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -728,14 +728,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -749,7 +749,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this language.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -762,14 +762,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -783,7 +783,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this location area.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -796,14 +796,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -817,7 +817,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this location.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -830,14 +830,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -851,7 +851,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this machine.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -864,14 +864,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -885,7 +885,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this move meta ailment.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -898,14 +898,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -919,7 +919,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this move battle style.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -932,14 +932,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -953,7 +953,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this move meta category.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -966,14 +966,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -987,7 +987,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this move damage class.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1000,14 +1000,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1021,7 +1021,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this move learn method.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1034,14 +1034,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1055,7 +1055,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this move target.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1068,14 +1068,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1089,7 +1089,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this move.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1102,14 +1102,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1123,7 +1123,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this nature.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1136,14 +1136,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1157,7 +1157,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this pal park area.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1170,14 +1170,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1191,7 +1191,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this pokeathlon stat.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1204,14 +1204,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1225,7 +1225,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this pokedex.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1238,14 +1238,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1259,7 +1259,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this pokemon color.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1272,14 +1272,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1293,7 +1293,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this pokemon form.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1306,14 +1306,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1327,7 +1327,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this pokemon habitat.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1340,14 +1340,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1361,7 +1361,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this pokemon shape.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1374,14 +1374,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1395,7 +1395,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this pokemon species.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1408,14 +1408,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1429,7 +1429,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this pokemon.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1442,14 +1442,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1463,7 +1463,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this region.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1476,14 +1476,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1497,7 +1497,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this stat.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1510,14 +1510,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1531,7 +1531,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this super contest effect.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1544,14 +1544,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1565,7 +1565,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this type.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1578,14 +1578,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1599,7 +1599,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this version group.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
@@ -1612,14 +1612,14 @@ paths:
         name: limit
         schema:
           description: Number of results to return per page.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Limit
           type: integer
       - in: query
         name: offset
         schema:
           description: The initial index from which to return the results.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - Offset
           type: integer
       tags:
@@ -1633,7 +1633,7 @@ paths:
         required: true
         schema:
           description: A unique integer value identifying this version.
-          title: !!python/tuple
+          title: "!!python/tuple"
           - ID
           type: integer
       tags:
