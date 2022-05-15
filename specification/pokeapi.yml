@@ -2167,4 +2167,4 @@ paths:
       tags:
       - version
 servers:
-- url: ''
+- url: 'https://pokeapi.co/api/v2/'
