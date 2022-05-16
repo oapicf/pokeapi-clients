@@ -1,4 +1,4 @@
-# OpenapiClient::PokemonColorApi
+# PokeApiClient::PokemonColorApi
 
 All URIs are relative to *https://pokeapi.co/api/v2*
 
@@ -18,9 +18,9 @@ All URIs are relative to *https://pokeapi.co/api/v2*
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'pokeapi_client'
 
-api_instance = OpenapiClient::PokemonColorApi.new
+api_instance = PokeApiClient::PokemonColorApi.new
 opts = {
   limit: 56, # Integer | 
   offset: 56 # Integer | 
@@ -30,7 +30,7 @@ begin
   
   result = api_instance.pokemon_color_list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue PokeApiClient::ApiError => e
   puts "Error when calling PokemonColorApi->pokemon_color_list: #{e}"
 end
 ```
@@ -48,7 +48,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => String
-rescue OpenapiClient::ApiError => e
+rescue PokeApiClient::ApiError => e
   puts "Error when calling PokemonColorApi->pokemon_color_list_with_http_info: #{e}"
 end
 ```
@@ -84,16 +84,16 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'pokeapi_client'
 
-api_instance = OpenapiClient::PokemonColorApi.new
+api_instance = PokeApiClient::PokemonColorApi.new
 id = 56 # Integer | 
 
 begin
   
   result = api_instance.pokemon_color_read(id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue PokeApiClient::ApiError => e
   puts "Error when calling PokemonColorApi->pokemon_color_read: #{e}"
 end
 ```
@@ -111,7 +111,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => String
-rescue OpenapiClient::ApiError => e
+rescue PokeApiClient::ApiError => e
   puts "Error when calling PokemonColorApi->pokemon_color_read_with_http_info: #{e}"
 end
 ```

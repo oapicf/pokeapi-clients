@@ -17,7 +17,7 @@ import ApiClient from "../ApiClient";
 /**
 * Nature service.
 * @module api/NatureApi
-* @version 1.0.0
+* @version 1.0.0-pre.0
 */
 export default class NatureApi {
 

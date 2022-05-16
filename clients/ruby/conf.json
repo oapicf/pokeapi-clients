@@ -1,3 +1,10 @@
 {
-    
-}
+    "gemName": "pokeapi_client",
+    "moduleName": "PokeApiClient",
+    "gemVersion": "1.0.0-pre.0",
+    "gemAuthor": "Cliffano Subagio",
+    "gemAuthorEmail": "blah@cliffano.com",
+    "gemHomepage": "https://github.com/cliffano/pokeapi-clients",
+    "gemLicense": "MIT",
+    "gemRequiredRubyVersion": ">= 2.0"
+  }

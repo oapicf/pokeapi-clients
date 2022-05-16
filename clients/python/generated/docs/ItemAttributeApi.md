@@ -1,4 +1,4 @@
-# openapi_client.ItemAttributeApi
+# pokeapiclient.ItemAttributeApi
 
 All URIs are relative to *https://pokeapi.co/api/v2*
 
@@ -18,18 +18,18 @@ Method | HTTP request | Description
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import item_attribute_api
+import pokeapiclient
+from pokeapiclient.api import item_attribute_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://pokeapi.co/api/v2
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = pokeapiclient.Configuration(
     host = "https://pokeapi.co/api/v2"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with pokeapiclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = item_attribute_api.ItemAttributeApi(api_client)
     limit = 1 # int |  (optional)
@@ -40,7 +40,7 @@ with openapi_client.ApiClient() as api_client:
     try:
         api_response = api_instance.item_attribute_list(limit=limit, offset=offset)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except pokeapiclient.ApiException as e:
         print("Exception when calling ItemAttributeApi->item_attribute_list: %s\n" % e)
 ```
 
@@ -84,18 +84,18 @@ No authorization required
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import item_attribute_api
+import pokeapiclient
+from pokeapiclient.api import item_attribute_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://pokeapi.co/api/v2
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = pokeapiclient.Configuration(
     host = "https://pokeapi.co/api/v2"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with pokeapiclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = item_attribute_api.ItemAttributeApi(api_client)
     id = 1 # int | 
@@ -104,7 +104,7 @@ with openapi_client.ApiClient() as api_client:
     try:
         api_response = api_instance.item_attribute_read(id)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except pokeapiclient.ApiException as e:
         print("Exception when calling ItemAttributeApi->item_attribute_read: %s\n" % e)
 ```
 

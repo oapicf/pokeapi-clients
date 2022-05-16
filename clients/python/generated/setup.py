@@ -9,8 +9,8 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "openapi-client"
-VERSION = "1.0.0"
+NAME = "pokeapiclient"
+VERSION = "1.0.0-pre.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -29,7 +29,7 @@ setup(
     description="",
     author="OpenAPI Generator community",
     author_email="team@openapitools.org",
-    url="",
+    url="https://github.com/cliffano/pokeapi-clients",
     keywords=["OpenAPI", "OpenAPI-Generator", ""],
     python_requires=">=3.6",
     install_requires=REQUIRES,

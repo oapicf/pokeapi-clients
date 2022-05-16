@@ -3,8 +3,8 @@ apply plugin: 'eclipse'
 apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
 
-group = 'org.openapitools'
-version = '1.0.0'
+group = 'com.cliffano'
+version = '1.0.0-pre.0'
 
 buildscript {
     repositories {
@@ -89,7 +89,7 @@ if(hasProperty('target') && target == 'android') {
     publishing {
         publications {
             maven(MavenPublication) {
-               artifactId = 'openapi-java-client'
+               artifactId = 'pokeapiclient'
                from components.java
             }
         }

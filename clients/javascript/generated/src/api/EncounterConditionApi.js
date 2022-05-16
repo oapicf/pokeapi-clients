@@ -17,7 +17,7 @@ import ApiClient from "../ApiClient";
 /**
 * EncounterCondition service.
 * @module api/EncounterConditionApi
-* @version 1.0.0
+* @version 1.0.0-pre.0
 */
 export default class EncounterConditionApi {
 

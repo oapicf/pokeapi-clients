@@ -17,7 +17,7 @@ import ApiClient from "../ApiClient";
 /**
 * Ability service.
 * @module api/AbilityApi
-* @version 1.0.0
+* @version 1.0.0-pre.0
 */
 export default class AbilityApi {
 

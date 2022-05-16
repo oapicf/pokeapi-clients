@@ -17,7 +17,7 @@ import ApiClient from "../ApiClient";
 /**
 * PokemonSpecies service.
 * @module api/PokemonSpeciesApi
-* @version 1.0.0
+* @version 1.0.0-pre.0
 */
 export default class PokemonSpeciesApi {
 

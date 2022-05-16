@@ -1,4 +1,4 @@
-# OpenapiClient::ItemFlingEffectApi
+# PokeApiClient::ItemFlingEffectApi
 
 All URIs are relative to *https://pokeapi.co/api/v2*
 
@@ -18,9 +18,9 @@ All URIs are relative to *https://pokeapi.co/api/v2*
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'pokeapi_client'
 
-api_instance = OpenapiClient::ItemFlingEffectApi.new
+api_instance = PokeApiClient::ItemFlingEffectApi.new
 opts = {
   limit: 56, # Integer | 
   offset: 56 # Integer | 
@@ -30,7 +30,7 @@ begin
   
   result = api_instance.item_fling_effect_list(opts)
   p result
-rescue OpenapiClient::ApiError => e
+rescue PokeApiClient::ApiError => e
   puts "Error when calling ItemFlingEffectApi->item_fling_effect_list: #{e}"
 end
 ```
@@ -48,7 +48,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => String
-rescue OpenapiClient::ApiError => e
+rescue PokeApiClient::ApiError => e
   puts "Error when calling ItemFlingEffectApi->item_fling_effect_list_with_http_info: #{e}"
 end
 ```
@@ -84,16 +84,16 @@ No authorization required
 
 ```ruby
 require 'time'
-require 'openapi_client'
+require 'pokeapi_client'
 
-api_instance = OpenapiClient::ItemFlingEffectApi.new
+api_instance = PokeApiClient::ItemFlingEffectApi.new
 id = 56 # Integer | 
 
 begin
   
   result = api_instance.item_fling_effect_read(id)
   p result
-rescue OpenapiClient::ApiError => e
+rescue PokeApiClient::ApiError => e
   puts "Error when calling ItemFlingEffectApi->item_fling_effect_read: #{e}"
 end
 ```
@@ -111,7 +111,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => String
-rescue OpenapiClient::ApiError => e
+rescue PokeApiClient::ApiError => e
   puts "Error when calling ItemFlingEffectApi->item_fling_effect_read_with_http_info: #{e}"
 end
 ```

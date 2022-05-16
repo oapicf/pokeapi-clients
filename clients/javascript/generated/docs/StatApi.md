@@ -1,4 +1,4 @@
-# OpenapiJsClient.StatApi
+# PokeapiClient.StatApi
 
 All URIs are relative to *https://pokeapi.co/api/v2*
 
@@ -18,9 +18,9 @@ Method | HTTP request | Description
 ### Example
 
 ```javascript
-import OpenapiJsClient from 'openapi-js-client';
+import PokeapiClient from 'pokeapi-client';
 
-let apiInstance = new OpenapiJsClient.StatApi();
+let apiInstance = new PokeapiClient.StatApi();
 let opts = {
   'limit': 56, // Number | 
   'offset': 56 // Number | 
@@ -65,9 +65,9 @@ No authorization required
 ### Example
 
 ```javascript
-import OpenapiJsClient from 'openapi-js-client';
+import PokeapiClient from 'pokeapi-client';
 
-let apiInstance = new OpenapiJsClient.StatApi();
+let apiInstance = new PokeapiClient.StatApi();
 let id = 56; // Number | 
 apiInstance.statRead(id, (error, data, response) => {
   if (error) {

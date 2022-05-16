@@ -1,4 +1,4 @@
-# OpenapiJsClient.PokemonSpeciesApi
+# PokeapiClient.PokemonSpeciesApi
 
 All URIs are relative to *https://pokeapi.co/api/v2*
 
@@ -18,9 +18,9 @@ Method | HTTP request | Description
 ### Example
 
 ```javascript
-import OpenapiJsClient from 'openapi-js-client';
+import PokeapiClient from 'pokeapi-client';
 
-let apiInstance = new OpenapiJsClient.PokemonSpeciesApi();
+let apiInstance = new PokeapiClient.PokemonSpeciesApi();
 let opts = {
   'limit': 56, // Number | 
   'offset': 56 // Number | 
@@ -65,9 +65,9 @@ No authorization required
 ### Example
 
 ```javascript
-import OpenapiJsClient from 'openapi-js-client';
+import PokeapiClient from 'pokeapi-client';
 
-let apiInstance = new OpenapiJsClient.PokemonSpeciesApi();
+let apiInstance = new PokeapiClient.PokemonSpeciesApi();
 let id = 56; // Number | 
 apiInstance.pokemonSpeciesRead(id, (error, data, response) => {
   if (error) {

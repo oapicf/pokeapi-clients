@@ -1,3 +1,22 @@
 {
-    
-}
+    "artifactId": "pokeapiclient",
+    "artifactVersion": "1.0.0-pre.0",
+    "artifactUrl": "https://github.com/cliffano/pokeapi-clients",
+    "artifactDescription": "Pinterest SDK generated from OpenAPI specification",
+    "groupId": "com.cliffano",
+    "invokerPackage": "com.cliffano.pokeapiclient",
+    "apiPackage": "com.cliffano.pokeapiclient.api",
+    "modelPackage": "com.cliffano.pokeapiclient.model",
+    "licenseName": "MIT",
+    "licenseUrl": "https://github.com/cliffano/pokeapi-clients/blob/master/LICENSE",
+    "developerName": "Cliffano Subagio",
+    "developerEmail": "blah@cliffano.com",
+    "developerOrganization": "Studio Cliffano",
+    "developerOrganizationUrl": "http://cliffano.com",
+    "scmConnection": "scm:git:git@github.com:cliffano/pokeapi-clients.git",
+    "scmDeveloperConnection": "scm:git:git@github.com:cliffano/pokeapi-clients.git",
+    "scmUrl": "https://github.com/cliffano/pokeapi-clients",
+    "distributionManagementRepositoryId": "sonatype-release",
+    "distributionManagementRepositoryName": "Sonatype Release",
+    "distributionManagementRepositoryUrl": "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+  }

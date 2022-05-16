@@ -69,9 +69,9 @@ import VersionGroupApi from './api/VersionGroupApi';
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
 * <pre>
-* var OpenapiJsClient = require('index'); // See note below*.
-* var xxxSvc = new OpenapiJsClient.XxxApi(); // Allocate the API class we're going to use.
-* var yyyModel = new OpenapiJsClient.Yyy(); // Construct a model instance.
+* var PokeapiClient = require('index'); // See note below*.
+* var xxxSvc = new PokeapiClient.XxxApi(); // Allocate the API class we're going to use.
+* var yyyModel = new PokeapiClient.Yyy(); // Construct a model instance.
 * yyyModel.someProperty = 'someValue';
 * ...
 * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
@@ -83,8 +83,8 @@ import VersionGroupApi from './api/VersionGroupApi';
 * <p>
 * A non-AMD browser application (discouraged) might do something like this:
 * <pre>
-* var xxxSvc = new OpenapiJsClient.XxxApi(); // Allocate the API class we're going to use.
-* var yyy = new OpenapiJsClient.Yyy(); // Construct a model instance.
+* var xxxSvc = new PokeapiClient.XxxApi(); // Allocate the API class we're going to use.
+* var yyy = new PokeapiClient.Yyy(); // Construct a model instance.
 * yyyModel.someProperty = 'someValue';
 * ...
 * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
@@ -92,7 +92,7 @@ import VersionGroupApi from './api/VersionGroupApi';
 * </pre>
 * </p>
 * @module index
-* @version 1.0.0
+* @version 1.0.0-pre.0
 */
 export {
     /**
