@@ -1,0 +1,5 @@
+.openapi-generator-ignore
+README.md
+build.gradle
+ktorm_schema.sql
+settings.gradle

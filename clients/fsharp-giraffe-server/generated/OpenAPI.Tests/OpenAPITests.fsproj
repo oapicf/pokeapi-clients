@@ -1,0 +1,122 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>OpenAPI.Tests</AssemblyName>
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.*" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="2.2.*" />
+    <PackageReference Include="xunit" Version="2.4.*" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.*" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OpenAPI\src\OpenAPI.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="TestHelper.fs"/>
+    <Compile Include="AbilityApiTestsHelper.fs" />
+    <Compile Include="AbilityApiTests.fs" />
+    <Compile Include="BerryApiTestsHelper.fs" />
+    <Compile Include="BerryApiTests.fs" />
+    <Compile Include="BerryFirmnessApiTestsHelper.fs" />
+    <Compile Include="BerryFirmnessApiTests.fs" />
+    <Compile Include="BerryFlavorApiTestsHelper.fs" />
+    <Compile Include="BerryFlavorApiTests.fs" />
+    <Compile Include="CharacteristicApiTestsHelper.fs" />
+    <Compile Include="CharacteristicApiTests.fs" />
+    <Compile Include="ContestEffectApiTestsHelper.fs" />
+    <Compile Include="ContestEffectApiTests.fs" />
+    <Compile Include="ContestTypeApiTestsHelper.fs" />
+    <Compile Include="ContestTypeApiTests.fs" />
+    <Compile Include="EggGroupApiTestsHelper.fs" />
+    <Compile Include="EggGroupApiTests.fs" />
+    <Compile Include="EncounterConditionApiTestsHelper.fs" />
+    <Compile Include="EncounterConditionApiTests.fs" />
+    <Compile Include="EncounterConditionValueApiTestsHelper.fs" />
+    <Compile Include="EncounterConditionValueApiTests.fs" />
+    <Compile Include="EncounterMethodApiTestsHelper.fs" />
+    <Compile Include="EncounterMethodApiTests.fs" />
+    <Compile Include="EvolutionChainApiTestsHelper.fs" />
+    <Compile Include="EvolutionChainApiTests.fs" />
+    <Compile Include="EvolutionTriggerApiTestsHelper.fs" />
+    <Compile Include="EvolutionTriggerApiTests.fs" />
+    <Compile Include="GenderApiTestsHelper.fs" />
+    <Compile Include="GenderApiTests.fs" />
+    <Compile Include="GenerationApiTestsHelper.fs" />
+    <Compile Include="GenerationApiTests.fs" />
+    <Compile Include="GrowthRateApiTestsHelper.fs" />
+    <Compile Include="GrowthRateApiTests.fs" />
+    <Compile Include="ItemApiTestsHelper.fs" />
+    <Compile Include="ItemApiTests.fs" />
+    <Compile Include="ItemAttributeApiTestsHelper.fs" />
+    <Compile Include="ItemAttributeApiTests.fs" />
+    <Compile Include="ItemCategoryApiTestsHelper.fs" />
+    <Compile Include="ItemCategoryApiTests.fs" />
+    <Compile Include="ItemFlingEffectApiTestsHelper.fs" />
+    <Compile Include="ItemFlingEffectApiTests.fs" />
+    <Compile Include="ItemPocketApiTestsHelper.fs" />
+    <Compile Include="ItemPocketApiTests.fs" />
+    <Compile Include="LanguageApiTestsHelper.fs" />
+    <Compile Include="LanguageApiTests.fs" />
+    <Compile Include="LocationApiTestsHelper.fs" />
+    <Compile Include="LocationApiTests.fs" />
+    <Compile Include="LocationAreaApiTestsHelper.fs" />
+    <Compile Include="LocationAreaApiTests.fs" />
+    <Compile Include="MachineApiTestsHelper.fs" />
+    <Compile Include="MachineApiTests.fs" />
+    <Compile Include="MoveApiTestsHelper.fs" />
+    <Compile Include="MoveApiTests.fs" />
+    <Compile Include="MoveAilmentApiTestsHelper.fs" />
+    <Compile Include="MoveAilmentApiTests.fs" />
+    <Compile Include="MoveBattleStyleApiTestsHelper.fs" />
+    <Compile Include="MoveBattleStyleApiTests.fs" />
+    <Compile Include="MoveCategoryApiTestsHelper.fs" />
+    <Compile Include="MoveCategoryApiTests.fs" />
+    <Compile Include="MoveDamageClassApiTestsHelper.fs" />
+    <Compile Include="MoveDamageClassApiTests.fs" />
+    <Compile Include="MoveLearnMethodApiTestsHelper.fs" />
+    <Compile Include="MoveLearnMethodApiTests.fs" />
+    <Compile Include="MoveTargetApiTestsHelper.fs" />
+    <Compile Include="MoveTargetApiTests.fs" />
+    <Compile Include="NatureApiTestsHelper.fs" />
+    <Compile Include="NatureApiTests.fs" />
+    <Compile Include="PalParkAreaApiTestsHelper.fs" />
+    <Compile Include="PalParkAreaApiTests.fs" />
+    <Compile Include="PokeathlonStatApiTestsHelper.fs" />
+    <Compile Include="PokeathlonStatApiTests.fs" />
+    <Compile Include="PokedexApiTestsHelper.fs" />
+    <Compile Include="PokedexApiTests.fs" />
+    <Compile Include="PokemonApiTestsHelper.fs" />
+    <Compile Include="PokemonApiTests.fs" />
+    <Compile Include="PokemonColorApiTestsHelper.fs" />
+    <Compile Include="PokemonColorApiTests.fs" />
+    <Compile Include="PokemonFormApiTestsHelper.fs" />
+    <Compile Include="PokemonFormApiTests.fs" />
+    <Compile Include="PokemonHabitatApiTestsHelper.fs" />
+    <Compile Include="PokemonHabitatApiTests.fs" />
+    <Compile Include="PokemonShapeApiTestsHelper.fs" />
+    <Compile Include="PokemonShapeApiTests.fs" />
+    <Compile Include="PokemonSpeciesApiTestsHelper.fs" />
+    <Compile Include="PokemonSpeciesApiTests.fs" />
+    <Compile Include="RegionApiTestsHelper.fs" />
+    <Compile Include="RegionApiTests.fs" />
+    <Compile Include="StatApiTestsHelper.fs" />
+    <Compile Include="StatApiTests.fs" />
+    <Compile Include="SuperContestEffectApiTestsHelper.fs" />
+    <Compile Include="SuperContestEffectApiTests.fs" />
+    <Compile Include="TypeApiTestsHelper.fs" />
+    <Compile Include="TypeApiTests.fs" />
+    <Compile Include="VersionApiTestsHelper.fs" />
+    <Compile Include="VersionApiTests.fs" />
+    <Compile Include="VersionGroupApiTestsHelper.fs" />
+    <Compile Include="VersionGroupApiTests.fs" />
+  </ItemGroup>
+
+</Project>

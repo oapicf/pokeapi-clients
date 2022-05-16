@@ -1,0 +1,8 @@
+.openapi-generator-ignore
+README.md
+inflector.yaml
+pom.xml
+src/gen/java/org/openapitools/controllers/StringUtil.java
+src/main/java/org/openapitools/controllers/ApiController.java
+src/main/openapi/openapi.yaml
+src/main/webapp/WEB-INF/web.xml

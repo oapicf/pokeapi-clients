@@ -1,0 +1,137 @@
+# OpenapiClient::CharacteristicApi
+
+All URIs are relative to *https://pokeapi.co/api/v2*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**characteristic_list**](CharacteristicApi.md#characteristic_list) | **GET** /api/v2/characteristic/ |  |
+| [**characteristic_read**](CharacteristicApi.md#characteristic_read) | **GET** /api/v2/characteristic/{id}/ |  |
+
+
+## characteristic_list
+
+> String characteristic_list(opts)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'openapi_client'
+
+api_instance = OpenapiClient::CharacteristicApi.new
+opts = {
+  limit: 56, # Integer | 
+  offset: 56 # Integer | 
+}
+
+begin
+  
+  result = api_instance.characteristic_list(opts)
+  p result
+rescue OpenapiClient::ApiError => e
+  puts "Error when calling CharacteristicApi->characteristic_list: #{e}"
+end
+```
+
+#### Using the characteristic_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(String, Integer, Hash)> characteristic_list_with_http_info(opts)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.characteristic_list_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => String
+rescue OpenapiClient::ApiError => e
+  puts "Error when calling CharacteristicApi->characteristic_list_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **limit** | **Integer** |  | [optional] |
+| **offset** | **Integer** |  | [optional] |
+
+### Return type
+
+**String**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain
+
+
+## characteristic_read
+
+> String characteristic_read(id)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'openapi_client'
+
+api_instance = OpenapiClient::CharacteristicApi.new
+id = 56 # Integer | 
+
+begin
+  
+  result = api_instance.characteristic_read(id)
+  p result
+rescue OpenapiClient::ApiError => e
+  puts "Error when calling CharacteristicApi->characteristic_read: #{e}"
+end
+```
+
+#### Using the characteristic_read_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(String, Integer, Hash)> characteristic_read_with_http_info(id)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.characteristic_read_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => String
+rescue OpenapiClient::ApiError => e
+  puts "Error when calling CharacteristicApi->characteristic_read_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+
+### Return type
+
+**String**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain
+

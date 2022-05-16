@@ -1,0 +1,7 @@
+.openapi-generator-ignore
+pom.xml
+src/gen/java/org/openapitools/api/ApiApi.java
+src/gen/java/org/openapitools/api/ApiApiService.java
+src/main/java/org/openapitools/api/RestApplication.java
+src/main/java/org/openapitools/api/impl/ApiApiServiceImpl.java
+src/main/webapp/WEB-INF/beans.xml

@@ -1,0 +1,222 @@
+dependencies:
+  factories:
+    Mezzio\Router\RouterInterface: Articus\PathHandler\RouteInjectionFactory
+    Articus\PathHandler\MetadataProviderInterface: Articus\PathHandler\MetadataProvider\Factory\Annotation
+    Articus\PathHandler\Handler\PluginManager: Articus\PathHandler\Handler\Factory\PluginManager
+    Articus\PathHandler\Consumer\PluginManager: Articus\PathHandler\Consumer\Factory\PluginManager
+    Articus\PathHandler\Attribute\PluginManager: Articus\PathHandler\Attribute\Factory\PluginManager
+    Articus\PathHandler\Producer\PluginManager: Articus\PathHandler\Producer\Factory\PluginManager
+
+Articus\PathHandler\RouteInjectionFactory:
+  paths:
+    '/api/v2':
+    - App\Handler\ApiV2Ability
+    - App\Handler\ApiV2AbilityId
+    - App\Handler\ApiV2BerryFirmness
+    - App\Handler\ApiV2BerryFirmnessId
+    - App\Handler\ApiV2BerryFlavor
+    - App\Handler\ApiV2BerryFlavorId
+    - App\Handler\ApiV2Berry
+    - App\Handler\ApiV2BerryId
+    - App\Handler\ApiV2Characteristic
+    - App\Handler\ApiV2CharacteristicId
+    - App\Handler\ApiV2ContestEffect
+    - App\Handler\ApiV2ContestEffectId
+    - App\Handler\ApiV2ContestType
+    - App\Handler\ApiV2ContestTypeId
+    - App\Handler\ApiV2EggGroup
+    - App\Handler\ApiV2EggGroupId
+    - App\Handler\ApiV2EncounterConditionValue
+    - App\Handler\ApiV2EncounterConditionValueId
+    - App\Handler\ApiV2EncounterCondition
+    - App\Handler\ApiV2EncounterConditionId
+    - App\Handler\ApiV2EncounterMethod
+    - App\Handler\ApiV2EncounterMethodId
+    - App\Handler\ApiV2EvolutionChain
+    - App\Handler\ApiV2EvolutionChainId
+    - App\Handler\ApiV2EvolutionTrigger
+    - App\Handler\ApiV2EvolutionTriggerId
+    - App\Handler\ApiV2Gender
+    - App\Handler\ApiV2GenderId
+    - App\Handler\ApiV2Generation
+    - App\Handler\ApiV2GenerationId
+    - App\Handler\ApiV2GrowthRate
+    - App\Handler\ApiV2GrowthRateId
+    - App\Handler\ApiV2ItemAttribute
+    - App\Handler\ApiV2ItemAttributeId
+    - App\Handler\ApiV2ItemCategory
+    - App\Handler\ApiV2ItemCategoryId
+    - App\Handler\ApiV2ItemFlingEffect
+    - App\Handler\ApiV2ItemFlingEffectId
+    - App\Handler\ApiV2ItemPocket
+    - App\Handler\ApiV2ItemPocketId
+    - App\Handler\ApiV2Item
+    - App\Handler\ApiV2ItemId
+    - App\Handler\ApiV2Language
+    - App\Handler\ApiV2LanguageId
+    - App\Handler\ApiV2LocationArea
+    - App\Handler\ApiV2LocationAreaId
+    - App\Handler\ApiV2Location
+    - App\Handler\ApiV2LocationId
+    - App\Handler\ApiV2Machine
+    - App\Handler\ApiV2MachineId
+    - App\Handler\ApiV2MoveAilment
+    - App\Handler\ApiV2MoveAilmentId
+    - App\Handler\ApiV2MoveBattleStyle
+    - App\Handler\ApiV2MoveBattleStyleId
+    - App\Handler\ApiV2MoveCategory
+    - App\Handler\ApiV2MoveCategoryId
+    - App\Handler\ApiV2MoveDamageClass
+    - App\Handler\ApiV2MoveDamageClassId
+    - App\Handler\ApiV2MoveLearnMethod
+    - App\Handler\ApiV2MoveLearnMethodId
+    - App\Handler\ApiV2MoveTarget
+    - App\Handler\ApiV2MoveTargetId
+    - App\Handler\ApiV2Move
+    - App\Handler\ApiV2MoveId
+    - App\Handler\ApiV2Nature
+    - App\Handler\ApiV2NatureId
+    - App\Handler\ApiV2PalParkArea
+    - App\Handler\ApiV2PalParkAreaId
+    - App\Handler\ApiV2PokeathlonStat
+    - App\Handler\ApiV2PokeathlonStatId
+    - App\Handler\ApiV2Pokedex
+    - App\Handler\ApiV2PokedexId
+    - App\Handler\ApiV2PokemonColor
+    - App\Handler\ApiV2PokemonColorId
+    - App\Handler\ApiV2PokemonForm
+    - App\Handler\ApiV2PokemonFormId
+    - App\Handler\ApiV2PokemonHabitat
+    - App\Handler\ApiV2PokemonHabitatId
+    - App\Handler\ApiV2PokemonShape
+    - App\Handler\ApiV2PokemonShapeId
+    - App\Handler\ApiV2PokemonSpecies
+    - App\Handler\ApiV2PokemonSpeciesId
+    - App\Handler\ApiV2Pokemon
+    - App\Handler\ApiV2PokemonId
+    - App\Handler\ApiV2Region
+    - App\Handler\ApiV2RegionId
+    - App\Handler\ApiV2Stat
+    - App\Handler\ApiV2StatId
+    - App\Handler\ApiV2SuperContestEffect
+    - App\Handler\ApiV2SuperContestEffectId
+    - App\Handler\ApiV2Type
+    - App\Handler\ApiV2TypeId
+    - App\Handler\ApiV2VersionGroup
+    - App\Handler\ApiV2VersionGroupId
+    - App\Handler\ApiV2Version
+    - App\Handler\ApiV2VersionId
+
+Articus\PathHandler\Handler\PluginManager:
+  abstract_factories:
+  - Laminas\ServiceManager\AbstractFactory\ConfigAbstractFactory
+
+#Articus\PathHandler\Consumer\PluginManager:
+#  factories:
+#  invokables:
+
+#Articus\PathHandler\Attribute\PluginManager:
+#  factories:
+#  invokables:
+
+#Articus\PathHandler\Producer\PluginManager:
+#  factories:
+#  invokables:
+
+Laminas\ServiceManager\AbstractFactory\ConfigAbstractFactory:
+  App\Handler\ApiV2Ability: []
+  App\Handler\ApiV2AbilityId: []
+  App\Handler\ApiV2BerryFirmness: []
+  App\Handler\ApiV2BerryFirmnessId: []
+  App\Handler\ApiV2BerryFlavor: []
+  App\Handler\ApiV2BerryFlavorId: []
+  App\Handler\ApiV2Berry: []
+  App\Handler\ApiV2BerryId: []
+  App\Handler\ApiV2Characteristic: []
+  App\Handler\ApiV2CharacteristicId: []
+  App\Handler\ApiV2ContestEffect: []
+  App\Handler\ApiV2ContestEffectId: []
+  App\Handler\ApiV2ContestType: []
+  App\Handler\ApiV2ContestTypeId: []
+  App\Handler\ApiV2EggGroup: []
+  App\Handler\ApiV2EggGroupId: []
+  App\Handler\ApiV2EncounterConditionValue: []
+  App\Handler\ApiV2EncounterConditionValueId: []
+  App\Handler\ApiV2EncounterCondition: []
+  App\Handler\ApiV2EncounterConditionId: []
+  App\Handler\ApiV2EncounterMethod: []
+  App\Handler\ApiV2EncounterMethodId: []
+  App\Handler\ApiV2EvolutionChain: []
+  App\Handler\ApiV2EvolutionChainId: []
+  App\Handler\ApiV2EvolutionTrigger: []
+  App\Handler\ApiV2EvolutionTriggerId: []
+  App\Handler\ApiV2Gender: []
+  App\Handler\ApiV2GenderId: []
+  App\Handler\ApiV2Generation: []
+  App\Handler\ApiV2GenerationId: []
+  App\Handler\ApiV2GrowthRate: []
+  App\Handler\ApiV2GrowthRateId: []
+  App\Handler\ApiV2ItemAttribute: []
+  App\Handler\ApiV2ItemAttributeId: []
+  App\Handler\ApiV2ItemCategory: []
+  App\Handler\ApiV2ItemCategoryId: []
+  App\Handler\ApiV2ItemFlingEffect: []
+  App\Handler\ApiV2ItemFlingEffectId: []
+  App\Handler\ApiV2ItemPocket: []
+  App\Handler\ApiV2ItemPocketId: []
+  App\Handler\ApiV2Item: []
+  App\Handler\ApiV2ItemId: []
+  App\Handler\ApiV2Language: []
+  App\Handler\ApiV2LanguageId: []
+  App\Handler\ApiV2LocationArea: []
+  App\Handler\ApiV2LocationAreaId: []
+  App\Handler\ApiV2Location: []
+  App\Handler\ApiV2LocationId: []
+  App\Handler\ApiV2Machine: []
+  App\Handler\ApiV2MachineId: []
+  App\Handler\ApiV2MoveAilment: []
+  App\Handler\ApiV2MoveAilmentId: []
+  App\Handler\ApiV2MoveBattleStyle: []
+  App\Handler\ApiV2MoveBattleStyleId: []
+  App\Handler\ApiV2MoveCategory: []
+  App\Handler\ApiV2MoveCategoryId: []
+  App\Handler\ApiV2MoveDamageClass: []
+  App\Handler\ApiV2MoveDamageClassId: []
+  App\Handler\ApiV2MoveLearnMethod: []
+  App\Handler\ApiV2MoveLearnMethodId: []
+  App\Handler\ApiV2MoveTarget: []
+  App\Handler\ApiV2MoveTargetId: []
+  App\Handler\ApiV2Move: []
+  App\Handler\ApiV2MoveId: []
+  App\Handler\ApiV2Nature: []
+  App\Handler\ApiV2NatureId: []
+  App\Handler\ApiV2PalParkArea: []
+  App\Handler\ApiV2PalParkAreaId: []
+  App\Handler\ApiV2PokeathlonStat: []
+  App\Handler\ApiV2PokeathlonStatId: []
+  App\Handler\ApiV2Pokedex: []
+  App\Handler\ApiV2PokedexId: []
+  App\Handler\ApiV2PokemonColor: []
+  App\Handler\ApiV2PokemonColorId: []
+  App\Handler\ApiV2PokemonForm: []
+  App\Handler\ApiV2PokemonFormId: []
+  App\Handler\ApiV2PokemonHabitat: []
+  App\Handler\ApiV2PokemonHabitatId: []
+  App\Handler\ApiV2PokemonShape: []
+  App\Handler\ApiV2PokemonShapeId: []
+  App\Handler\ApiV2PokemonSpecies: []
+  App\Handler\ApiV2PokemonSpeciesId: []
+  App\Handler\ApiV2Pokemon: []
+  App\Handler\ApiV2PokemonId: []
+  App\Handler\ApiV2Region: []
+  App\Handler\ApiV2RegionId: []
+  App\Handler\ApiV2Stat: []
+  App\Handler\ApiV2StatId: []
+  App\Handler\ApiV2SuperContestEffect: []
+  App\Handler\ApiV2SuperContestEffectId: []
+  App\Handler\ApiV2Type: []
+  App\Handler\ApiV2TypeId: []
+  App\Handler\ApiV2VersionGroup: []
+  App\Handler\ApiV2VersionGroupId: []
+  App\Handler\ApiV2Version: []
+  App\Handler\ApiV2VersionId: []

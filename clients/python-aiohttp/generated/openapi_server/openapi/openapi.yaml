@@ -1,0 +1,2648 @@
+openapi: 3.0.0
+info: {}
+servers:
+- url: https://pokeapi.co/api/v2/
+paths:
+  /api/v2/ability/:
+    get:
+      operationId: ability_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - ability
+      x-openapi-router-controller: openapi_server.controllers.ability_controller
+  /api/v2/ability/{id}/:
+    get:
+      operationId: ability_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this ability.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - ability
+      x-openapi-router-controller: openapi_server.controllers.ability_controller
+  /api/v2/berry-firmness/:
+    get:
+      operationId: berry_firmness_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - berry-firmness
+      x-openapi-router-controller: openapi_server.controllers.berry_firmness_controller
+  /api/v2/berry-firmness/{id}/:
+    get:
+      operationId: berry_firmness_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this berry firmness.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - berry-firmness
+      x-openapi-router-controller: openapi_server.controllers.berry_firmness_controller
+  /api/v2/berry-flavor/:
+    get:
+      operationId: berry_flavor_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - berry-flavor
+      x-openapi-router-controller: openapi_server.controllers.berry_flavor_controller
+  /api/v2/berry-flavor/{id}/:
+    get:
+      operationId: berry_flavor_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this berry flavor.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - berry-flavor
+      x-openapi-router-controller: openapi_server.controllers.berry_flavor_controller
+  /api/v2/berry/:
+    get:
+      operationId: berry_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - berry
+      x-openapi-router-controller: openapi_server.controllers.berry_controller
+  /api/v2/berry/{id}/:
+    get:
+      operationId: berry_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this berry.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - berry
+      x-openapi-router-controller: openapi_server.controllers.berry_controller
+  /api/v2/characteristic/:
+    get:
+      operationId: characteristic_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - characteristic
+      x-openapi-router-controller: openapi_server.controllers.characteristic_controller
+  /api/v2/characteristic/{id}/:
+    get:
+      operationId: characteristic_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this characteristic.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - characteristic
+      x-openapi-router-controller: openapi_server.controllers.characteristic_controller
+  /api/v2/contest-effect/:
+    get:
+      operationId: contest_effect_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - contest-effect
+      x-openapi-router-controller: openapi_server.controllers.contest_effect_controller
+  /api/v2/contest-effect/{id}/:
+    get:
+      operationId: contest_effect_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this contest effect.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - contest-effect
+      x-openapi-router-controller: openapi_server.controllers.contest_effect_controller
+  /api/v2/contest-type/:
+    get:
+      operationId: contest_type_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - contest-type
+      x-openapi-router-controller: openapi_server.controllers.contest_type_controller
+  /api/v2/contest-type/{id}/:
+    get:
+      operationId: contest_type_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this contest type.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - contest-type
+      x-openapi-router-controller: openapi_server.controllers.contest_type_controller
+  /api/v2/egg-group/:
+    get:
+      operationId: egg_group_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - egg-group
+      x-openapi-router-controller: openapi_server.controllers.egg_group_controller
+  /api/v2/egg-group/{id}/:
+    get:
+      operationId: egg_group_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this egg group.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - egg-group
+      x-openapi-router-controller: openapi_server.controllers.egg_group_controller
+  /api/v2/encounter-condition-value/:
+    get:
+      operationId: encounter_condition_value_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - encounter-condition-value
+      x-openapi-router-controller: openapi_server.controllers.encounter_condition_value_controller
+  /api/v2/encounter-condition-value/{id}/:
+    get:
+      operationId: encounter_condition_value_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this encounter condition
+            value.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - encounter-condition-value
+      x-openapi-router-controller: openapi_server.controllers.encounter_condition_value_controller
+  /api/v2/encounter-condition/:
+    get:
+      operationId: encounter_condition_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - encounter-condition
+      x-openapi-router-controller: openapi_server.controllers.encounter_condition_controller
+  /api/v2/encounter-condition/{id}/:
+    get:
+      operationId: encounter_condition_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this encounter condition.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - encounter-condition
+      x-openapi-router-controller: openapi_server.controllers.encounter_condition_controller
+  /api/v2/encounter-method/:
+    get:
+      operationId: encounter_method_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - encounter-method
+      x-openapi-router-controller: openapi_server.controllers.encounter_method_controller
+  /api/v2/encounter-method/{id}/:
+    get:
+      operationId: encounter_method_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this encounter method.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - encounter-method
+      x-openapi-router-controller: openapi_server.controllers.encounter_method_controller
+  /api/v2/evolution-chain/:
+    get:
+      operationId: evolution_chain_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - evolution-chain
+      x-openapi-router-controller: openapi_server.controllers.evolution_chain_controller
+  /api/v2/evolution-chain/{id}/:
+    get:
+      operationId: evolution_chain_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this evolution chain.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - evolution-chain
+      x-openapi-router-controller: openapi_server.controllers.evolution_chain_controller
+  /api/v2/evolution-trigger/:
+    get:
+      operationId: evolution_trigger_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - evolution-trigger
+      x-openapi-router-controller: openapi_server.controllers.evolution_trigger_controller
+  /api/v2/evolution-trigger/{id}/:
+    get:
+      operationId: evolution_trigger_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this evolution trigger.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - evolution-trigger
+      x-openapi-router-controller: openapi_server.controllers.evolution_trigger_controller
+  /api/v2/gender/:
+    get:
+      operationId: gender_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - gender
+      x-openapi-router-controller: openapi_server.controllers.gender_controller
+  /api/v2/gender/{id}/:
+    get:
+      operationId: gender_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this gender.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - gender
+      x-openapi-router-controller: openapi_server.controllers.gender_controller
+  /api/v2/generation/:
+    get:
+      operationId: generation_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - generation
+      x-openapi-router-controller: openapi_server.controllers.generation_controller
+  /api/v2/generation/{id}/:
+    get:
+      operationId: generation_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this generation.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - generation
+      x-openapi-router-controller: openapi_server.controllers.generation_controller
+  /api/v2/growth-rate/:
+    get:
+      operationId: growth_rate_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - growth-rate
+      x-openapi-router-controller: openapi_server.controllers.growth_rate_controller
+  /api/v2/growth-rate/{id}/:
+    get:
+      operationId: growth_rate_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this growth rate.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - growth-rate
+      x-openapi-router-controller: openapi_server.controllers.growth_rate_controller
+  /api/v2/item-attribute/:
+    get:
+      operationId: item_attribute_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item-attribute
+      x-openapi-router-controller: openapi_server.controllers.item_attribute_controller
+  /api/v2/item-attribute/{id}/:
+    get:
+      operationId: item_attribute_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this item attribute.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item-attribute
+      x-openapi-router-controller: openapi_server.controllers.item_attribute_controller
+  /api/v2/item-category/:
+    get:
+      operationId: item_category_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item-category
+      x-openapi-router-controller: openapi_server.controllers.item_category_controller
+  /api/v2/item-category/{id}/:
+    get:
+      operationId: item_category_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this item category.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item-category
+      x-openapi-router-controller: openapi_server.controllers.item_category_controller
+  /api/v2/item-fling-effect/:
+    get:
+      operationId: item_fling_effect_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item-fling-effect
+      x-openapi-router-controller: openapi_server.controllers.item_fling_effect_controller
+  /api/v2/item-fling-effect/{id}/:
+    get:
+      operationId: item_fling_effect_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this item fling effect.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item-fling-effect
+      x-openapi-router-controller: openapi_server.controllers.item_fling_effect_controller
+  /api/v2/item-pocket/:
+    get:
+      operationId: item_pocket_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item-pocket
+      x-openapi-router-controller: openapi_server.controllers.item_pocket_controller
+  /api/v2/item-pocket/{id}/:
+    get:
+      operationId: item_pocket_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this item pocket.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item-pocket
+      x-openapi-router-controller: openapi_server.controllers.item_pocket_controller
+  /api/v2/item/:
+    get:
+      operationId: item_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item
+      x-openapi-router-controller: openapi_server.controllers.item_controller
+  /api/v2/item/{id}/:
+    get:
+      operationId: item_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this item.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item
+      x-openapi-router-controller: openapi_server.controllers.item_controller
+  /api/v2/language/:
+    get:
+      operationId: language_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - language
+      x-openapi-router-controller: openapi_server.controllers.language_controller
+  /api/v2/language/{id}/:
+    get:
+      operationId: language_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this language.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - language
+      x-openapi-router-controller: openapi_server.controllers.language_controller
+  /api/v2/location-area/:
+    get:
+      operationId: location_area_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - location-area
+      x-openapi-router-controller: openapi_server.controllers.location_area_controller
+  /api/v2/location-area/{id}/:
+    get:
+      operationId: location_area_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this location area.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - location-area
+      x-openapi-router-controller: openapi_server.controllers.location_area_controller
+  /api/v2/location/:
+    get:
+      operationId: location_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - location
+      x-openapi-router-controller: openapi_server.controllers.location_controller
+  /api/v2/location/{id}/:
+    get:
+      operationId: location_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this location.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - location
+      x-openapi-router-controller: openapi_server.controllers.location_controller
+  /api/v2/machine/:
+    get:
+      operationId: machine_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - machine
+      x-openapi-router-controller: openapi_server.controllers.machine_controller
+  /api/v2/machine/{id}/:
+    get:
+      operationId: machine_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this machine.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - machine
+      x-openapi-router-controller: openapi_server.controllers.machine_controller
+  /api/v2/move-ailment/:
+    get:
+      operationId: move_ailment_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-ailment
+      x-openapi-router-controller: openapi_server.controllers.move_ailment_controller
+  /api/v2/move-ailment/{id}/:
+    get:
+      operationId: move_ailment_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this move meta ailment.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-ailment
+      x-openapi-router-controller: openapi_server.controllers.move_ailment_controller
+  /api/v2/move-battle-style/:
+    get:
+      operationId: move_battle_style_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-battle-style
+      x-openapi-router-controller: openapi_server.controllers.move_battle_style_controller
+  /api/v2/move-battle-style/{id}/:
+    get:
+      operationId: move_battle_style_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this move battle style.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-battle-style
+      x-openapi-router-controller: openapi_server.controllers.move_battle_style_controller
+  /api/v2/move-category/:
+    get:
+      operationId: move_category_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-category
+      x-openapi-router-controller: openapi_server.controllers.move_category_controller
+  /api/v2/move-category/{id}/:
+    get:
+      operationId: move_category_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this move meta category.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-category
+      x-openapi-router-controller: openapi_server.controllers.move_category_controller
+  /api/v2/move-damage-class/:
+    get:
+      operationId: move_damage_class_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-damage-class
+      x-openapi-router-controller: openapi_server.controllers.move_damage_class_controller
+  /api/v2/move-damage-class/{id}/:
+    get:
+      operationId: move_damage_class_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this move damage class.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-damage-class
+      x-openapi-router-controller: openapi_server.controllers.move_damage_class_controller
+  /api/v2/move-learn-method/:
+    get:
+      operationId: move_learn_method_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-learn-method
+      x-openapi-router-controller: openapi_server.controllers.move_learn_method_controller
+  /api/v2/move-learn-method/{id}/:
+    get:
+      operationId: move_learn_method_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this move learn method.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-learn-method
+      x-openapi-router-controller: openapi_server.controllers.move_learn_method_controller
+  /api/v2/move-target/:
+    get:
+      operationId: move_target_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-target
+      x-openapi-router-controller: openapi_server.controllers.move_target_controller
+  /api/v2/move-target/{id}/:
+    get:
+      operationId: move_target_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this move target.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-target
+      x-openapi-router-controller: openapi_server.controllers.move_target_controller
+  /api/v2/move/:
+    get:
+      operationId: move_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move
+      x-openapi-router-controller: openapi_server.controllers.move_controller
+  /api/v2/move/{id}/:
+    get:
+      operationId: move_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this move.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move
+      x-openapi-router-controller: openapi_server.controllers.move_controller
+  /api/v2/nature/:
+    get:
+      operationId: nature_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - nature
+      x-openapi-router-controller: openapi_server.controllers.nature_controller
+  /api/v2/nature/{id}/:
+    get:
+      operationId: nature_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this nature.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - nature
+      x-openapi-router-controller: openapi_server.controllers.nature_controller
+  /api/v2/pal-park-area/:
+    get:
+      operationId: pal_park_area_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pal-park-area
+      x-openapi-router-controller: openapi_server.controllers.pal_park_area_controller
+  /api/v2/pal-park-area/{id}/:
+    get:
+      operationId: pal_park_area_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pal park area.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pal-park-area
+      x-openapi-router-controller: openapi_server.controllers.pal_park_area_controller
+  /api/v2/pokeathlon-stat/:
+    get:
+      operationId: pokeathlon_stat_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokeathlon-stat
+      x-openapi-router-controller: openapi_server.controllers.pokeathlon_stat_controller
+  /api/v2/pokeathlon-stat/{id}/:
+    get:
+      operationId: pokeathlon_stat_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pokeathlon stat.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokeathlon-stat
+      x-openapi-router-controller: openapi_server.controllers.pokeathlon_stat_controller
+  /api/v2/pokedex/:
+    get:
+      operationId: pokedex_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokedex
+      x-openapi-router-controller: openapi_server.controllers.pokedex_controller
+  /api/v2/pokedex/{id}/:
+    get:
+      operationId: pokedex_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pokedex.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokedex
+      x-openapi-router-controller: openapi_server.controllers.pokedex_controller
+  /api/v2/pokemon-color/:
+    get:
+      operationId: pokemon_color_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-color
+      x-openapi-router-controller: openapi_server.controllers.pokemon_color_controller
+  /api/v2/pokemon-color/{id}/:
+    get:
+      operationId: pokemon_color_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pokemon color.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-color
+      x-openapi-router-controller: openapi_server.controllers.pokemon_color_controller
+  /api/v2/pokemon-form/:
+    get:
+      operationId: pokemon_form_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-form
+      x-openapi-router-controller: openapi_server.controllers.pokemon_form_controller
+  /api/v2/pokemon-form/{id}/:
+    get:
+      operationId: pokemon_form_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pokemon form.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-form
+      x-openapi-router-controller: openapi_server.controllers.pokemon_form_controller
+  /api/v2/pokemon-habitat/:
+    get:
+      operationId: pokemon_habitat_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-habitat
+      x-openapi-router-controller: openapi_server.controllers.pokemon_habitat_controller
+  /api/v2/pokemon-habitat/{id}/:
+    get:
+      operationId: pokemon_habitat_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pokemon habitat.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-habitat
+      x-openapi-router-controller: openapi_server.controllers.pokemon_habitat_controller
+  /api/v2/pokemon-shape/:
+    get:
+      operationId: pokemon_shape_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-shape
+      x-openapi-router-controller: openapi_server.controllers.pokemon_shape_controller
+  /api/v2/pokemon-shape/{id}/:
+    get:
+      operationId: pokemon_shape_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pokemon shape.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-shape
+      x-openapi-router-controller: openapi_server.controllers.pokemon_shape_controller
+  /api/v2/pokemon-species/:
+    get:
+      operationId: pokemon_species_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-species
+      x-openapi-router-controller: openapi_server.controllers.pokemon_species_controller
+  /api/v2/pokemon-species/{id}/:
+    get:
+      operationId: pokemon_species_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pokemon species.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-species
+      x-openapi-router-controller: openapi_server.controllers.pokemon_species_controller
+  /api/v2/pokemon/:
+    get:
+      operationId: pokemon_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon
+      x-openapi-router-controller: openapi_server.controllers.pokemon_controller
+  /api/v2/pokemon/{id}/:
+    get:
+      operationId: pokemon_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pokemon.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon
+      x-openapi-router-controller: openapi_server.controllers.pokemon_controller
+  /api/v2/region/:
+    get:
+      operationId: region_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - region
+      x-openapi-router-controller: openapi_server.controllers.region_controller
+  /api/v2/region/{id}/:
+    get:
+      operationId: region_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this region.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - region
+      x-openapi-router-controller: openapi_server.controllers.region_controller
+  /api/v2/stat/:
+    get:
+      operationId: stat_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - stat
+      x-openapi-router-controller: openapi_server.controllers.stat_controller
+  /api/v2/stat/{id}/:
+    get:
+      operationId: stat_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this stat.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - stat
+      x-openapi-router-controller: openapi_server.controllers.stat_controller
+  /api/v2/super-contest-effect/:
+    get:
+      operationId: super_contest_effect_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - super-contest-effect
+      x-openapi-router-controller: openapi_server.controllers.super_contest_effect_controller
+  /api/v2/super-contest-effect/{id}/:
+    get:
+      operationId: super_contest_effect_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this super contest effect.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - super-contest-effect
+      x-openapi-router-controller: openapi_server.controllers.super_contest_effect_controller
+  /api/v2/type/:
+    get:
+      operationId: type_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - type
+      x-openapi-router-controller: openapi_server.controllers.type_controller
+  /api/v2/type/{id}/:
+    get:
+      operationId: type_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this type.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - type
+      x-openapi-router-controller: openapi_server.controllers.type_controller
+  /api/v2/version-group/:
+    get:
+      operationId: version_group_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - version-group
+      x-openapi-router-controller: openapi_server.controllers.version_group_controller
+  /api/v2/version-group/{id}/:
+    get:
+      operationId: version_group_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this version group.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - version-group
+      x-openapi-router-controller: openapi_server.controllers.version_group_controller
+  /api/v2/version/:
+    get:
+      operationId: version_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - version
+      x-openapi-router-controller: openapi_server.controllers.version_controller
+  /api/v2/version/{id}/:
+    get:
+      operationId: version_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this version.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - version
+      x-openapi-router-controller: openapi_server.controllers.version_controller
+components:
+  schemas: {}

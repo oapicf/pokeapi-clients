@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-responsive.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script src="assets/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+  <script src="assets/js/main.js" type="text/javascript"></script>
+
+  <title>REST API Resources</title>
+</head>
+<body>
+  <div class="header">
+    <div class="top-bar">
+      <h1 id="logo"><a class="logo" href="/"><span>OpenAPI</span><span class="light">API Docs</span></a></h1>
+    </div>
+  </div>
+  <div class="model-container"></div>
+  <div class="content">
+    <div class="box clearfix">
+      <div class="sidebar">
+        <div class="section-box">
+          <div class="section-header">
+            Overview
+          </div>
+          <ul>
+            <li>Getting Started</li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/AbilityApi">AbilityApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/AbilityApi#abilityList">abilityList</a></li>
+            <li><a href="#!/AbilityApi#abilityRead">abilityRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/BerryApi">BerryApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/BerryApi#berryList">berryList</a></li>
+            <li><a href="#!/BerryApi#berryRead">berryRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/BerryFirmnessApi">BerryFirmnessApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/BerryFirmnessApi#berryFirmnessList">berryFirmnessList</a></li>
+            <li><a href="#!/BerryFirmnessApi#berryFirmnessRead">berryFirmnessRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/BerryFlavorApi">BerryFlavorApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/BerryFlavorApi#berryFlavorList">berryFlavorList</a></li>
+            <li><a href="#!/BerryFlavorApi#berryFlavorRead">berryFlavorRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/CharacteristicApi">CharacteristicApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/CharacteristicApi#characteristicList">characteristicList</a></li>
+            <li><a href="#!/CharacteristicApi#characteristicRead">characteristicRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/ContestEffectApi">ContestEffectApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/ContestEffectApi#contestEffectList">contestEffectList</a></li>
+            <li><a href="#!/ContestEffectApi#contestEffectRead">contestEffectRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/ContestTypeApi">ContestTypeApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/ContestTypeApi#contestTypeList">contestTypeList</a></li>
+            <li><a href="#!/ContestTypeApi#contestTypeRead">contestTypeRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/EggGroupApi">EggGroupApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/EggGroupApi#eggGroupList">eggGroupList</a></li>
+            <li><a href="#!/EggGroupApi#eggGroupRead">eggGroupRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/EncounterConditionApi">EncounterConditionApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/EncounterConditionApi#encounterConditionList">encounterConditionList</a></li>
+            <li><a href="#!/EncounterConditionApi#encounterConditionRead">encounterConditionRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/EncounterConditionValueApi">EncounterConditionValueApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/EncounterConditionValueApi#encounterConditionValueList">encounterConditionValueList</a></li>
+            <li><a href="#!/EncounterConditionValueApi#encounterConditionValueRead">encounterConditionValueRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/EncounterMethodApi">EncounterMethodApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/EncounterMethodApi#encounterMethodList">encounterMethodList</a></li>
+            <li><a href="#!/EncounterMethodApi#encounterMethodRead">encounterMethodRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/EvolutionChainApi">EvolutionChainApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/EvolutionChainApi#evolutionChainList">evolutionChainList</a></li>
+            <li><a href="#!/EvolutionChainApi#evolutionChainRead">evolutionChainRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/EvolutionTriggerApi">EvolutionTriggerApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/EvolutionTriggerApi#evolutionTriggerList">evolutionTriggerList</a></li>
+            <li><a href="#!/EvolutionTriggerApi#evolutionTriggerRead">evolutionTriggerRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/GenderApi">GenderApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/GenderApi#genderList">genderList</a></li>
+            <li><a href="#!/GenderApi#genderRead">genderRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/GenerationApi">GenerationApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/GenerationApi#generationList">generationList</a></li>
+            <li><a href="#!/GenerationApi#generationRead">generationRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/GrowthRateApi">GrowthRateApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/GrowthRateApi#growthRateList">growthRateList</a></li>
+            <li><a href="#!/GrowthRateApi#growthRateRead">growthRateRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/ItemApi">ItemApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/ItemApi#itemList">itemList</a></li>
+            <li><a href="#!/ItemApi#itemRead">itemRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/ItemAttributeApi">ItemAttributeApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/ItemAttributeApi#itemAttributeList">itemAttributeList</a></li>
+            <li><a href="#!/ItemAttributeApi#itemAttributeRead">itemAttributeRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/ItemCategoryApi">ItemCategoryApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/ItemCategoryApi#itemCategoryList">itemCategoryList</a></li>
+            <li><a href="#!/ItemCategoryApi#itemCategoryRead">itemCategoryRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/ItemFlingEffectApi">ItemFlingEffectApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/ItemFlingEffectApi#itemFlingEffectList">itemFlingEffectList</a></li>
+            <li><a href="#!/ItemFlingEffectApi#itemFlingEffectRead">itemFlingEffectRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/ItemPocketApi">ItemPocketApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/ItemPocketApi#itemPocketList">itemPocketList</a></li>
+            <li><a href="#!/ItemPocketApi#itemPocketRead">itemPocketRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/LanguageApi">LanguageApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/LanguageApi#languageList">languageList</a></li>
+            <li><a href="#!/LanguageApi#languageRead">languageRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/LocationApi">LocationApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/LocationApi#locationList">locationList</a></li>
+            <li><a href="#!/LocationApi#locationRead">locationRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/LocationAreaApi">LocationAreaApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/LocationAreaApi#locationAreaList">locationAreaList</a></li>
+            <li><a href="#!/LocationAreaApi#locationAreaRead">locationAreaRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/MachineApi">MachineApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/MachineApi#machineList">machineList</a></li>
+            <li><a href="#!/MachineApi#machineRead">machineRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/MoveApi">MoveApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/MoveApi#moveList">moveList</a></li>
+            <li><a href="#!/MoveApi#moveRead">moveRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/MoveAilmentApi">MoveAilmentApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/MoveAilmentApi#moveAilmentList">moveAilmentList</a></li>
+            <li><a href="#!/MoveAilmentApi#moveAilmentRead">moveAilmentRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/MoveBattleStyleApi">MoveBattleStyleApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/MoveBattleStyleApi#moveBattleStyleList">moveBattleStyleList</a></li>
+            <li><a href="#!/MoveBattleStyleApi#moveBattleStyleRead">moveBattleStyleRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/MoveCategoryApi">MoveCategoryApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/MoveCategoryApi#moveCategoryList">moveCategoryList</a></li>
+            <li><a href="#!/MoveCategoryApi#moveCategoryRead">moveCategoryRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/MoveDamageClassApi">MoveDamageClassApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/MoveDamageClassApi#moveDamageClassList">moveDamageClassList</a></li>
+            <li><a href="#!/MoveDamageClassApi#moveDamageClassRead">moveDamageClassRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/MoveLearnMethodApi">MoveLearnMethodApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/MoveLearnMethodApi#moveLearnMethodList">moveLearnMethodList</a></li>
+            <li><a href="#!/MoveLearnMethodApi#moveLearnMethodRead">moveLearnMethodRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/MoveTargetApi">MoveTargetApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/MoveTargetApi#moveTargetList">moveTargetList</a></li>
+            <li><a href="#!/MoveTargetApi#moveTargetRead">moveTargetRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/NatureApi">NatureApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/NatureApi#natureList">natureList</a></li>
+            <li><a href="#!/NatureApi#natureRead">natureRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/PalParkAreaApi">PalParkAreaApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/PalParkAreaApi#palParkAreaList">palParkAreaList</a></li>
+            <li><a href="#!/PalParkAreaApi#palParkAreaRead">palParkAreaRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/PokeathlonStatApi">PokeathlonStatApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/PokeathlonStatApi#pokeathlonStatList">pokeathlonStatList</a></li>
+            <li><a href="#!/PokeathlonStatApi#pokeathlonStatRead">pokeathlonStatRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/PokedexApi">PokedexApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/PokedexApi#pokedexList">pokedexList</a></li>
+            <li><a href="#!/PokedexApi#pokedexRead">pokedexRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/PokemonApi">PokemonApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/PokemonApi#pokemonList">pokemonList</a></li>
+            <li><a href="#!/PokemonApi#pokemonRead">pokemonRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/PokemonColorApi">PokemonColorApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/PokemonColorApi#pokemonColorList">pokemonColorList</a></li>
+            <li><a href="#!/PokemonColorApi#pokemonColorRead">pokemonColorRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/PokemonFormApi">PokemonFormApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/PokemonFormApi#pokemonFormList">pokemonFormList</a></li>
+            <li><a href="#!/PokemonFormApi#pokemonFormRead">pokemonFormRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/PokemonHabitatApi">PokemonHabitatApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/PokemonHabitatApi#pokemonHabitatList">pokemonHabitatList</a></li>
+            <li><a href="#!/PokemonHabitatApi#pokemonHabitatRead">pokemonHabitatRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/PokemonShapeApi">PokemonShapeApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/PokemonShapeApi#pokemonShapeList">pokemonShapeList</a></li>
+            <li><a href="#!/PokemonShapeApi#pokemonShapeRead">pokemonShapeRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/PokemonSpeciesApi">PokemonSpeciesApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/PokemonSpeciesApi#pokemonSpeciesList">pokemonSpeciesList</a></li>
+            <li><a href="#!/PokemonSpeciesApi#pokemonSpeciesRead">pokemonSpeciesRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/RegionApi">RegionApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/RegionApi#regionList">regionList</a></li>
+            <li><a href="#!/RegionApi#regionRead">regionRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/StatApi">StatApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/StatApi#statList">statList</a></li>
+            <li><a href="#!/StatApi#statRead">statRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/SuperContestEffectApi">SuperContestEffectApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/SuperContestEffectApi#superContestEffectList">superContestEffectList</a></li>
+            <li><a href="#!/SuperContestEffectApi#superContestEffectRead">superContestEffectRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/TypeApi">TypeApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/TypeApi#typeList">typeList</a></li>
+            <li><a href="#!/TypeApi#typeRead">typeRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/VersionApi">VersionApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/VersionApi#versionList">versionList</a></li>
+            <li><a href="#!/VersionApi#versionRead">versionRead</a></li>
+          </ul>
+        </div>
+        <div class="section-box">
+          <div class="section-header">
+            <a href="#!/VersionGroupApi">VersionGroupApi</a>
+          </div>
+          <ul>
+            <li><a href="#!/VersionGroupApi#versionGroupList">versionGroupList</a></li>
+            <li><a href="#!/VersionGroupApi#versionGroupRead">versionGroupRead</a></li>
+          </ul>
+        </div>
+      </div>
+    <div class="non-sidebar">
+      <div class="main-content">
+        <h2>Getting Started</h2>
+        <p>To begin using your fancy HTTP API, follow the steps below.</p>
+        <p>You can add some helpful tips, here</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

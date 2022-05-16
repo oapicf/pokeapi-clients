@@ -1,0 +1,132 @@
+# MoveApi
+
+All URIs are relative to *https://pokeapi.co/api/v2*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**moveList**](MoveApi.md#moveList) | **GET** /api/v2/move/ | 
+[**moveRead**](MoveApi.md#moveRead) | **GET** /api/v2/move/{id}/ | 
+
+
+<a name="moveList"></a>
+# **moveList**
+> String moveList(limit, offset)
+
+
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.MoveApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://pokeapi.co/api/v2");
+
+    MoveApi apiInstance = new MoveApi(defaultClient);
+    Integer limit = 56; // Integer | 
+    Integer offset = 56; // Integer | 
+    try {
+      String result = apiInstance.moveList(limit, offset);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MoveApi#moveList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Integer**|  | [optional]
+ **offset** | **Integer**|  | [optional]
+
+### Return type
+
+**String**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**0** | Default response |  -  |
+
+<a name="moveRead"></a>
+# **moveRead**
+> String moveRead(id)
+
+
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.MoveApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://pokeapi.co/api/v2");
+
+    MoveApi apiInstance = new MoveApi(defaultClient);
+    Integer id = 56; // Integer | 
+    try {
+      String result = apiInstance.moveRead(id);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MoveApi#moveRead");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Integer**|  |
+
+### Return type
+
+**String**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**0** | Default response |  -  |
+

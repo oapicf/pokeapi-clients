@@ -1,0 +1,221 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <Description>OpenAPI</Description>
+    <Copyright>OpenAPI</Copyright>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <DebugType>portable</DebugType>
+    <EnableDefaultContentItems>false</EnableDefaultContentItems>
+    <RunWorkingDirectory>$(MSBuildThisFileDirectory)</RunWorkingDirectory>
+    <AssemblyName>OpenAPI</AssemblyName>
+    <PackageId>OpenAPI</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" />
+    <PackageReference Include="Giraffe" Version="3.4.*" />
+    <PackageReference Include="TaskBuilder.fs" Version="2.1.*" />
+    <PackageReference Include="AspNet.Security.OAuth.GitHub" Version="2.0.1" />
+    <PackageReference Include="AspNet.Security.ApiKey.Providers" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="openapi.yaml"/>
+    <Compile Include="helpers/Helpers.fs" />
+    <Compile Include="api/AbilityApiHandlerParams.fs" />
+    <Compile Include="api/AbilityApiServiceInterface.fs" />
+    <Compile Include="impl/AbilityApiService.fs" />
+    <Compile Include="api/AbilityApiHandler.fs" />
+    <Compile Include="api/BerryApiHandlerParams.fs" />
+    <Compile Include="api/BerryApiServiceInterface.fs" />
+    <Compile Include="impl/BerryApiService.fs" />
+    <Compile Include="api/BerryApiHandler.fs" />
+    <Compile Include="api/BerryFirmnessApiHandlerParams.fs" />
+    <Compile Include="api/BerryFirmnessApiServiceInterface.fs" />
+    <Compile Include="impl/BerryFirmnessApiService.fs" />
+    <Compile Include="api/BerryFirmnessApiHandler.fs" />
+    <Compile Include="api/BerryFlavorApiHandlerParams.fs" />
+    <Compile Include="api/BerryFlavorApiServiceInterface.fs" />
+    <Compile Include="impl/BerryFlavorApiService.fs" />
+    <Compile Include="api/BerryFlavorApiHandler.fs" />
+    <Compile Include="api/CharacteristicApiHandlerParams.fs" />
+    <Compile Include="api/CharacteristicApiServiceInterface.fs" />
+    <Compile Include="impl/CharacteristicApiService.fs" />
+    <Compile Include="api/CharacteristicApiHandler.fs" />
+    <Compile Include="api/ContestEffectApiHandlerParams.fs" />
+    <Compile Include="api/ContestEffectApiServiceInterface.fs" />
+    <Compile Include="impl/ContestEffectApiService.fs" />
+    <Compile Include="api/ContestEffectApiHandler.fs" />
+    <Compile Include="api/ContestTypeApiHandlerParams.fs" />
+    <Compile Include="api/ContestTypeApiServiceInterface.fs" />
+    <Compile Include="impl/ContestTypeApiService.fs" />
+    <Compile Include="api/ContestTypeApiHandler.fs" />
+    <Compile Include="api/EggGroupApiHandlerParams.fs" />
+    <Compile Include="api/EggGroupApiServiceInterface.fs" />
+    <Compile Include="impl/EggGroupApiService.fs" />
+    <Compile Include="api/EggGroupApiHandler.fs" />
+    <Compile Include="api/EncounterConditionApiHandlerParams.fs" />
+    <Compile Include="api/EncounterConditionApiServiceInterface.fs" />
+    <Compile Include="impl/EncounterConditionApiService.fs" />
+    <Compile Include="api/EncounterConditionApiHandler.fs" />
+    <Compile Include="api/EncounterConditionValueApiHandlerParams.fs" />
+    <Compile Include="api/EncounterConditionValueApiServiceInterface.fs" />
+    <Compile Include="impl/EncounterConditionValueApiService.fs" />
+    <Compile Include="api/EncounterConditionValueApiHandler.fs" />
+    <Compile Include="api/EncounterMethodApiHandlerParams.fs" />
+    <Compile Include="api/EncounterMethodApiServiceInterface.fs" />
+    <Compile Include="impl/EncounterMethodApiService.fs" />
+    <Compile Include="api/EncounterMethodApiHandler.fs" />
+    <Compile Include="api/EvolutionChainApiHandlerParams.fs" />
+    <Compile Include="api/EvolutionChainApiServiceInterface.fs" />
+    <Compile Include="impl/EvolutionChainApiService.fs" />
+    <Compile Include="api/EvolutionChainApiHandler.fs" />
+    <Compile Include="api/EvolutionTriggerApiHandlerParams.fs" />
+    <Compile Include="api/EvolutionTriggerApiServiceInterface.fs" />
+    <Compile Include="impl/EvolutionTriggerApiService.fs" />
+    <Compile Include="api/EvolutionTriggerApiHandler.fs" />
+    <Compile Include="api/GenderApiHandlerParams.fs" />
+    <Compile Include="api/GenderApiServiceInterface.fs" />
+    <Compile Include="impl/GenderApiService.fs" />
+    <Compile Include="api/GenderApiHandler.fs" />
+    <Compile Include="api/GenerationApiHandlerParams.fs" />
+    <Compile Include="api/GenerationApiServiceInterface.fs" />
+    <Compile Include="impl/GenerationApiService.fs" />
+    <Compile Include="api/GenerationApiHandler.fs" />
+    <Compile Include="api/GrowthRateApiHandlerParams.fs" />
+    <Compile Include="api/GrowthRateApiServiceInterface.fs" />
+    <Compile Include="impl/GrowthRateApiService.fs" />
+    <Compile Include="api/GrowthRateApiHandler.fs" />
+    <Compile Include="api/ItemApiHandlerParams.fs" />
+    <Compile Include="api/ItemApiServiceInterface.fs" />
+    <Compile Include="impl/ItemApiService.fs" />
+    <Compile Include="api/ItemApiHandler.fs" />
+    <Compile Include="api/ItemAttributeApiHandlerParams.fs" />
+    <Compile Include="api/ItemAttributeApiServiceInterface.fs" />
+    <Compile Include="impl/ItemAttributeApiService.fs" />
+    <Compile Include="api/ItemAttributeApiHandler.fs" />
+    <Compile Include="api/ItemCategoryApiHandlerParams.fs" />
+    <Compile Include="api/ItemCategoryApiServiceInterface.fs" />
+    <Compile Include="impl/ItemCategoryApiService.fs" />
+    <Compile Include="api/ItemCategoryApiHandler.fs" />
+    <Compile Include="api/ItemFlingEffectApiHandlerParams.fs" />
+    <Compile Include="api/ItemFlingEffectApiServiceInterface.fs" />
+    <Compile Include="impl/ItemFlingEffectApiService.fs" />
+    <Compile Include="api/ItemFlingEffectApiHandler.fs" />
+    <Compile Include="api/ItemPocketApiHandlerParams.fs" />
+    <Compile Include="api/ItemPocketApiServiceInterface.fs" />
+    <Compile Include="impl/ItemPocketApiService.fs" />
+    <Compile Include="api/ItemPocketApiHandler.fs" />
+    <Compile Include="api/LanguageApiHandlerParams.fs" />
+    <Compile Include="api/LanguageApiServiceInterface.fs" />
+    <Compile Include="impl/LanguageApiService.fs" />
+    <Compile Include="api/LanguageApiHandler.fs" />
+    <Compile Include="api/LocationApiHandlerParams.fs" />
+    <Compile Include="api/LocationApiServiceInterface.fs" />
+    <Compile Include="impl/LocationApiService.fs" />
+    <Compile Include="api/LocationApiHandler.fs" />
+    <Compile Include="api/LocationAreaApiHandlerParams.fs" />
+    <Compile Include="api/LocationAreaApiServiceInterface.fs" />
+    <Compile Include="impl/LocationAreaApiService.fs" />
+    <Compile Include="api/LocationAreaApiHandler.fs" />
+    <Compile Include="api/MachineApiHandlerParams.fs" />
+    <Compile Include="api/MachineApiServiceInterface.fs" />
+    <Compile Include="impl/MachineApiService.fs" />
+    <Compile Include="api/MachineApiHandler.fs" />
+    <Compile Include="api/MoveApiHandlerParams.fs" />
+    <Compile Include="api/MoveApiServiceInterface.fs" />
+    <Compile Include="impl/MoveApiService.fs" />
+    <Compile Include="api/MoveApiHandler.fs" />
+    <Compile Include="api/MoveAilmentApiHandlerParams.fs" />
+    <Compile Include="api/MoveAilmentApiServiceInterface.fs" />
+    <Compile Include="impl/MoveAilmentApiService.fs" />
+    <Compile Include="api/MoveAilmentApiHandler.fs" />
+    <Compile Include="api/MoveBattleStyleApiHandlerParams.fs" />
+    <Compile Include="api/MoveBattleStyleApiServiceInterface.fs" />
+    <Compile Include="impl/MoveBattleStyleApiService.fs" />
+    <Compile Include="api/MoveBattleStyleApiHandler.fs" />
+    <Compile Include="api/MoveCategoryApiHandlerParams.fs" />
+    <Compile Include="api/MoveCategoryApiServiceInterface.fs" />
+    <Compile Include="impl/MoveCategoryApiService.fs" />
+    <Compile Include="api/MoveCategoryApiHandler.fs" />
+    <Compile Include="api/MoveDamageClassApiHandlerParams.fs" />
+    <Compile Include="api/MoveDamageClassApiServiceInterface.fs" />
+    <Compile Include="impl/MoveDamageClassApiService.fs" />
+    <Compile Include="api/MoveDamageClassApiHandler.fs" />
+    <Compile Include="api/MoveLearnMethodApiHandlerParams.fs" />
+    <Compile Include="api/MoveLearnMethodApiServiceInterface.fs" />
+    <Compile Include="impl/MoveLearnMethodApiService.fs" />
+    <Compile Include="api/MoveLearnMethodApiHandler.fs" />
+    <Compile Include="api/MoveTargetApiHandlerParams.fs" />
+    <Compile Include="api/MoveTargetApiServiceInterface.fs" />
+    <Compile Include="impl/MoveTargetApiService.fs" />
+    <Compile Include="api/MoveTargetApiHandler.fs" />
+    <Compile Include="api/NatureApiHandlerParams.fs" />
+    <Compile Include="api/NatureApiServiceInterface.fs" />
+    <Compile Include="impl/NatureApiService.fs" />
+    <Compile Include="api/NatureApiHandler.fs" />
+    <Compile Include="api/PalParkAreaApiHandlerParams.fs" />
+    <Compile Include="api/PalParkAreaApiServiceInterface.fs" />
+    <Compile Include="impl/PalParkAreaApiService.fs" />
+    <Compile Include="api/PalParkAreaApiHandler.fs" />
+    <Compile Include="api/PokeathlonStatApiHandlerParams.fs" />
+    <Compile Include="api/PokeathlonStatApiServiceInterface.fs" />
+    <Compile Include="impl/PokeathlonStatApiService.fs" />
+    <Compile Include="api/PokeathlonStatApiHandler.fs" />
+    <Compile Include="api/PokedexApiHandlerParams.fs" />
+    <Compile Include="api/PokedexApiServiceInterface.fs" />
+    <Compile Include="impl/PokedexApiService.fs" />
+    <Compile Include="api/PokedexApiHandler.fs" />
+    <Compile Include="api/PokemonApiHandlerParams.fs" />
+    <Compile Include="api/PokemonApiServiceInterface.fs" />
+    <Compile Include="impl/PokemonApiService.fs" />
+    <Compile Include="api/PokemonApiHandler.fs" />
+    <Compile Include="api/PokemonColorApiHandlerParams.fs" />
+    <Compile Include="api/PokemonColorApiServiceInterface.fs" />
+    <Compile Include="impl/PokemonColorApiService.fs" />
+    <Compile Include="api/PokemonColorApiHandler.fs" />
+    <Compile Include="api/PokemonFormApiHandlerParams.fs" />
+    <Compile Include="api/PokemonFormApiServiceInterface.fs" />
+    <Compile Include="impl/PokemonFormApiService.fs" />
+    <Compile Include="api/PokemonFormApiHandler.fs" />
+    <Compile Include="api/PokemonHabitatApiHandlerParams.fs" />
+    <Compile Include="api/PokemonHabitatApiServiceInterface.fs" />
+    <Compile Include="impl/PokemonHabitatApiService.fs" />
+    <Compile Include="api/PokemonHabitatApiHandler.fs" />
+    <Compile Include="api/PokemonShapeApiHandlerParams.fs" />
+    <Compile Include="api/PokemonShapeApiServiceInterface.fs" />
+    <Compile Include="impl/PokemonShapeApiService.fs" />
+    <Compile Include="api/PokemonShapeApiHandler.fs" />
+    <Compile Include="api/PokemonSpeciesApiHandlerParams.fs" />
+    <Compile Include="api/PokemonSpeciesApiServiceInterface.fs" />
+    <Compile Include="impl/PokemonSpeciesApiService.fs" />
+    <Compile Include="api/PokemonSpeciesApiHandler.fs" />
+    <Compile Include="api/RegionApiHandlerParams.fs" />
+    <Compile Include="api/RegionApiServiceInterface.fs" />
+    <Compile Include="impl/RegionApiService.fs" />
+    <Compile Include="api/RegionApiHandler.fs" />
+    <Compile Include="api/StatApiHandlerParams.fs" />
+    <Compile Include="api/StatApiServiceInterface.fs" />
+    <Compile Include="impl/StatApiService.fs" />
+    <Compile Include="api/StatApiHandler.fs" />
+    <Compile Include="api/SuperContestEffectApiHandlerParams.fs" />
+    <Compile Include="api/SuperContestEffectApiServiceInterface.fs" />
+    <Compile Include="impl/SuperContestEffectApiService.fs" />
+    <Compile Include="api/SuperContestEffectApiHandler.fs" />
+    <Compile Include="api/TypeApiHandlerParams.fs" />
+    <Compile Include="api/TypeApiServiceInterface.fs" />
+    <Compile Include="impl/TypeApiService.fs" />
+    <Compile Include="api/TypeApiHandler.fs" />
+    <Compile Include="api/VersionApiHandlerParams.fs" />
+    <Compile Include="api/VersionApiServiceInterface.fs" />
+    <Compile Include="impl/VersionApiService.fs" />
+    <Compile Include="api/VersionApiHandler.fs" />
+    <Compile Include="api/VersionGroupApiHandlerParams.fs" />
+    <Compile Include="api/VersionGroupApiServiceInterface.fs" />
+    <Compile Include="impl/VersionGroupApiService.fs" />
+    <Compile Include="api/VersionGroupApiHandler.fs" />
+    <Compile Include="impl/CustomHandlers.fs" />
+    <Compile Include="auth/AuthSchemes.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+</Project>

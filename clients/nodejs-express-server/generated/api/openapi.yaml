@@ -1,0 +1,2648 @@
+openapi: 3.0.0
+info: {}
+servers:
+- url: https://pokeapi.co/api/v2/
+paths:
+  /api/v2/ability/:
+    get:
+      operationId: ability_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - ability
+      x-eov-operation-handler: controllers/AbilityController
+  /api/v2/ability/{id}/:
+    get:
+      operationId: ability_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this ability.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - ability
+      x-eov-operation-handler: controllers/AbilityController
+  /api/v2/berry-firmness/:
+    get:
+      operationId: berry-firmness_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - berry-firmness
+      x-eov-operation-handler: controllers/BerryFirmnessController
+  /api/v2/berry-firmness/{id}/:
+    get:
+      operationId: berry-firmness_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this berry firmness.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - berry-firmness
+      x-eov-operation-handler: controllers/BerryFirmnessController
+  /api/v2/berry-flavor/:
+    get:
+      operationId: berry-flavor_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - berry-flavor
+      x-eov-operation-handler: controllers/BerryFlavorController
+  /api/v2/berry-flavor/{id}/:
+    get:
+      operationId: berry-flavor_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this berry flavor.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - berry-flavor
+      x-eov-operation-handler: controllers/BerryFlavorController
+  /api/v2/berry/:
+    get:
+      operationId: berry_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - berry
+      x-eov-operation-handler: controllers/BerryController
+  /api/v2/berry/{id}/:
+    get:
+      operationId: berry_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this berry.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - berry
+      x-eov-operation-handler: controllers/BerryController
+  /api/v2/characteristic/:
+    get:
+      operationId: characteristic_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - characteristic
+      x-eov-operation-handler: controllers/CharacteristicController
+  /api/v2/characteristic/{id}/:
+    get:
+      operationId: characteristic_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this characteristic.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - characteristic
+      x-eov-operation-handler: controllers/CharacteristicController
+  /api/v2/contest-effect/:
+    get:
+      operationId: contest-effect_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - contest-effect
+      x-eov-operation-handler: controllers/ContestEffectController
+  /api/v2/contest-effect/{id}/:
+    get:
+      operationId: contest-effect_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this contest effect.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - contest-effect
+      x-eov-operation-handler: controllers/ContestEffectController
+  /api/v2/contest-type/:
+    get:
+      operationId: contest-type_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - contest-type
+      x-eov-operation-handler: controllers/ContestTypeController
+  /api/v2/contest-type/{id}/:
+    get:
+      operationId: contest-type_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this contest type.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - contest-type
+      x-eov-operation-handler: controllers/ContestTypeController
+  /api/v2/egg-group/:
+    get:
+      operationId: egg-group_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - egg-group
+      x-eov-operation-handler: controllers/EggGroupController
+  /api/v2/egg-group/{id}/:
+    get:
+      operationId: egg-group_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this egg group.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - egg-group
+      x-eov-operation-handler: controllers/EggGroupController
+  /api/v2/encounter-condition-value/:
+    get:
+      operationId: encounter-condition-value_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - encounter-condition-value
+      x-eov-operation-handler: controllers/EncounterConditionValueController
+  /api/v2/encounter-condition-value/{id}/:
+    get:
+      operationId: encounter-condition-value_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this encounter condition
+            value.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - encounter-condition-value
+      x-eov-operation-handler: controllers/EncounterConditionValueController
+  /api/v2/encounter-condition/:
+    get:
+      operationId: encounter-condition_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - encounter-condition
+      x-eov-operation-handler: controllers/EncounterConditionController
+  /api/v2/encounter-condition/{id}/:
+    get:
+      operationId: encounter-condition_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this encounter condition.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - encounter-condition
+      x-eov-operation-handler: controllers/EncounterConditionController
+  /api/v2/encounter-method/:
+    get:
+      operationId: encounter-method_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - encounter-method
+      x-eov-operation-handler: controllers/EncounterMethodController
+  /api/v2/encounter-method/{id}/:
+    get:
+      operationId: encounter-method_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this encounter method.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - encounter-method
+      x-eov-operation-handler: controllers/EncounterMethodController
+  /api/v2/evolution-chain/:
+    get:
+      operationId: evolution-chain_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - evolution-chain
+      x-eov-operation-handler: controllers/EvolutionChainController
+  /api/v2/evolution-chain/{id}/:
+    get:
+      operationId: evolution-chain_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this evolution chain.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - evolution-chain
+      x-eov-operation-handler: controllers/EvolutionChainController
+  /api/v2/evolution-trigger/:
+    get:
+      operationId: evolution-trigger_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - evolution-trigger
+      x-eov-operation-handler: controllers/EvolutionTriggerController
+  /api/v2/evolution-trigger/{id}/:
+    get:
+      operationId: evolution-trigger_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this evolution trigger.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - evolution-trigger
+      x-eov-operation-handler: controllers/EvolutionTriggerController
+  /api/v2/gender/:
+    get:
+      operationId: gender_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - gender
+      x-eov-operation-handler: controllers/GenderController
+  /api/v2/gender/{id}/:
+    get:
+      operationId: gender_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this gender.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - gender
+      x-eov-operation-handler: controllers/GenderController
+  /api/v2/generation/:
+    get:
+      operationId: generation_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - generation
+      x-eov-operation-handler: controllers/GenerationController
+  /api/v2/generation/{id}/:
+    get:
+      operationId: generation_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this generation.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - generation
+      x-eov-operation-handler: controllers/GenerationController
+  /api/v2/growth-rate/:
+    get:
+      operationId: growth-rate_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - growth-rate
+      x-eov-operation-handler: controllers/GrowthRateController
+  /api/v2/growth-rate/{id}/:
+    get:
+      operationId: growth-rate_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this growth rate.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - growth-rate
+      x-eov-operation-handler: controllers/GrowthRateController
+  /api/v2/item-attribute/:
+    get:
+      operationId: item-attribute_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item-attribute
+      x-eov-operation-handler: controllers/ItemAttributeController
+  /api/v2/item-attribute/{id}/:
+    get:
+      operationId: item-attribute_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this item attribute.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item-attribute
+      x-eov-operation-handler: controllers/ItemAttributeController
+  /api/v2/item-category/:
+    get:
+      operationId: item-category_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item-category
+      x-eov-operation-handler: controllers/ItemCategoryController
+  /api/v2/item-category/{id}/:
+    get:
+      operationId: item-category_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this item category.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item-category
+      x-eov-operation-handler: controllers/ItemCategoryController
+  /api/v2/item-fling-effect/:
+    get:
+      operationId: item-fling-effect_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item-fling-effect
+      x-eov-operation-handler: controllers/ItemFlingEffectController
+  /api/v2/item-fling-effect/{id}/:
+    get:
+      operationId: item-fling-effect_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this item fling effect.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item-fling-effect
+      x-eov-operation-handler: controllers/ItemFlingEffectController
+  /api/v2/item-pocket/:
+    get:
+      operationId: item-pocket_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item-pocket
+      x-eov-operation-handler: controllers/ItemPocketController
+  /api/v2/item-pocket/{id}/:
+    get:
+      operationId: item-pocket_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this item pocket.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item-pocket
+      x-eov-operation-handler: controllers/ItemPocketController
+  /api/v2/item/:
+    get:
+      operationId: item_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item
+      x-eov-operation-handler: controllers/ItemController
+  /api/v2/item/{id}/:
+    get:
+      operationId: item_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this item.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - item
+      x-eov-operation-handler: controllers/ItemController
+  /api/v2/language/:
+    get:
+      operationId: language_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - language
+      x-eov-operation-handler: controllers/LanguageController
+  /api/v2/language/{id}/:
+    get:
+      operationId: language_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this language.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - language
+      x-eov-operation-handler: controllers/LanguageController
+  /api/v2/location-area/:
+    get:
+      operationId: location-area_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - location-area
+      x-eov-operation-handler: controllers/LocationAreaController
+  /api/v2/location-area/{id}/:
+    get:
+      operationId: location-area_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this location area.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - location-area
+      x-eov-operation-handler: controllers/LocationAreaController
+  /api/v2/location/:
+    get:
+      operationId: location_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - location
+      x-eov-operation-handler: controllers/LocationController
+  /api/v2/location/{id}/:
+    get:
+      operationId: location_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this location.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - location
+      x-eov-operation-handler: controllers/LocationController
+  /api/v2/machine/:
+    get:
+      operationId: machine_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - machine
+      x-eov-operation-handler: controllers/MachineController
+  /api/v2/machine/{id}/:
+    get:
+      operationId: machine_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this machine.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - machine
+      x-eov-operation-handler: controllers/MachineController
+  /api/v2/move-ailment/:
+    get:
+      operationId: move-ailment_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-ailment
+      x-eov-operation-handler: controllers/MoveAilmentController
+  /api/v2/move-ailment/{id}/:
+    get:
+      operationId: move-ailment_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this move meta ailment.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-ailment
+      x-eov-operation-handler: controllers/MoveAilmentController
+  /api/v2/move-battle-style/:
+    get:
+      operationId: move-battle-style_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-battle-style
+      x-eov-operation-handler: controllers/MoveBattleStyleController
+  /api/v2/move-battle-style/{id}/:
+    get:
+      operationId: move-battle-style_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this move battle style.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-battle-style
+      x-eov-operation-handler: controllers/MoveBattleStyleController
+  /api/v2/move-category/:
+    get:
+      operationId: move-category_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-category
+      x-eov-operation-handler: controllers/MoveCategoryController
+  /api/v2/move-category/{id}/:
+    get:
+      operationId: move-category_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this move meta category.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-category
+      x-eov-operation-handler: controllers/MoveCategoryController
+  /api/v2/move-damage-class/:
+    get:
+      operationId: move-damage-class_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-damage-class
+      x-eov-operation-handler: controllers/MoveDamageClassController
+  /api/v2/move-damage-class/{id}/:
+    get:
+      operationId: move-damage-class_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this move damage class.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-damage-class
+      x-eov-operation-handler: controllers/MoveDamageClassController
+  /api/v2/move-learn-method/:
+    get:
+      operationId: move-learn-method_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-learn-method
+      x-eov-operation-handler: controllers/MoveLearnMethodController
+  /api/v2/move-learn-method/{id}/:
+    get:
+      operationId: move-learn-method_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this move learn method.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-learn-method
+      x-eov-operation-handler: controllers/MoveLearnMethodController
+  /api/v2/move-target/:
+    get:
+      operationId: move-target_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-target
+      x-eov-operation-handler: controllers/MoveTargetController
+  /api/v2/move-target/{id}/:
+    get:
+      operationId: move-target_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this move target.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move-target
+      x-eov-operation-handler: controllers/MoveTargetController
+  /api/v2/move/:
+    get:
+      operationId: move_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move
+      x-eov-operation-handler: controllers/MoveController
+  /api/v2/move/{id}/:
+    get:
+      operationId: move_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this move.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - move
+      x-eov-operation-handler: controllers/MoveController
+  /api/v2/nature/:
+    get:
+      operationId: nature_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - nature
+      x-eov-operation-handler: controllers/NatureController
+  /api/v2/nature/{id}/:
+    get:
+      operationId: nature_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this nature.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - nature
+      x-eov-operation-handler: controllers/NatureController
+  /api/v2/pal-park-area/:
+    get:
+      operationId: pal-park-area_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pal-park-area
+      x-eov-operation-handler: controllers/PalParkAreaController
+  /api/v2/pal-park-area/{id}/:
+    get:
+      operationId: pal-park-area_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pal park area.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pal-park-area
+      x-eov-operation-handler: controllers/PalParkAreaController
+  /api/v2/pokeathlon-stat/:
+    get:
+      operationId: pokeathlon-stat_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokeathlon-stat
+      x-eov-operation-handler: controllers/PokeathlonStatController
+  /api/v2/pokeathlon-stat/{id}/:
+    get:
+      operationId: pokeathlon-stat_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pokeathlon stat.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokeathlon-stat
+      x-eov-operation-handler: controllers/PokeathlonStatController
+  /api/v2/pokedex/:
+    get:
+      operationId: pokedex_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokedex
+      x-eov-operation-handler: controllers/PokedexController
+  /api/v2/pokedex/{id}/:
+    get:
+      operationId: pokedex_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pokedex.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokedex
+      x-eov-operation-handler: controllers/PokedexController
+  /api/v2/pokemon-color/:
+    get:
+      operationId: pokemon-color_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-color
+      x-eov-operation-handler: controllers/PokemonColorController
+  /api/v2/pokemon-color/{id}/:
+    get:
+      operationId: pokemon-color_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pokemon color.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-color
+      x-eov-operation-handler: controllers/PokemonColorController
+  /api/v2/pokemon-form/:
+    get:
+      operationId: pokemon-form_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-form
+      x-eov-operation-handler: controllers/PokemonFormController
+  /api/v2/pokemon-form/{id}/:
+    get:
+      operationId: pokemon-form_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pokemon form.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-form
+      x-eov-operation-handler: controllers/PokemonFormController
+  /api/v2/pokemon-habitat/:
+    get:
+      operationId: pokemon-habitat_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-habitat
+      x-eov-operation-handler: controllers/PokemonHabitatController
+  /api/v2/pokemon-habitat/{id}/:
+    get:
+      operationId: pokemon-habitat_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pokemon habitat.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-habitat
+      x-eov-operation-handler: controllers/PokemonHabitatController
+  /api/v2/pokemon-shape/:
+    get:
+      operationId: pokemon-shape_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-shape
+      x-eov-operation-handler: controllers/PokemonShapeController
+  /api/v2/pokemon-shape/{id}/:
+    get:
+      operationId: pokemon-shape_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pokemon shape.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-shape
+      x-eov-operation-handler: controllers/PokemonShapeController
+  /api/v2/pokemon-species/:
+    get:
+      operationId: pokemon-species_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-species
+      x-eov-operation-handler: controllers/PokemonSpeciesController
+  /api/v2/pokemon-species/{id}/:
+    get:
+      operationId: pokemon-species_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pokemon species.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon-species
+      x-eov-operation-handler: controllers/PokemonSpeciesController
+  /api/v2/pokemon/:
+    get:
+      operationId: pokemon_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon
+      x-eov-operation-handler: controllers/PokemonController
+  /api/v2/pokemon/{id}/:
+    get:
+      operationId: pokemon_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this pokemon.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - pokemon
+      x-eov-operation-handler: controllers/PokemonController
+  /api/v2/region/:
+    get:
+      operationId: region_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - region
+      x-eov-operation-handler: controllers/RegionController
+  /api/v2/region/{id}/:
+    get:
+      operationId: region_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this region.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - region
+      x-eov-operation-handler: controllers/RegionController
+  /api/v2/stat/:
+    get:
+      operationId: stat_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - stat
+      x-eov-operation-handler: controllers/StatController
+  /api/v2/stat/{id}/:
+    get:
+      operationId: stat_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this stat.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - stat
+      x-eov-operation-handler: controllers/StatController
+  /api/v2/super-contest-effect/:
+    get:
+      operationId: super-contest-effect_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - super-contest-effect
+      x-eov-operation-handler: controllers/SuperContestEffectController
+  /api/v2/super-contest-effect/{id}/:
+    get:
+      operationId: super-contest-effect_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this super contest effect.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - super-contest-effect
+      x-eov-operation-handler: controllers/SuperContestEffectController
+  /api/v2/type/:
+    get:
+      operationId: type_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - type
+      x-eov-operation-handler: controllers/TypeController
+  /api/v2/type/{id}/:
+    get:
+      operationId: type_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this type.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - type
+      x-eov-operation-handler: controllers/TypeController
+  /api/v2/version-group/:
+    get:
+      operationId: version-group_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - version-group
+      x-eov-operation-handler: controllers/VersionGroupController
+  /api/v2/version-group/{id}/:
+    get:
+      operationId: version-group_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this version group.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - version-group
+      x-eov-operation-handler: controllers/VersionGroupController
+  /api/v2/version/:
+    get:
+      operationId: version_list
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          description: Number of results to return per page.
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          description: The initial index from which to return the results.
+          title: Offset
+          type: integer
+        style: form
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - version
+      x-eov-operation-handler: controllers/VersionController
+  /api/v2/version/{id}/:
+    get:
+      operationId: version_read
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: A unique integer value identifying this version.
+          title: ID
+          type: integer
+        style: simple
+      responses:
+        default:
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Default response
+      tags:
+      - version
+      x-eov-operation-handler: controllers/VersionController
+components:
+  schemas: {}
