@@ -3,7 +3,7 @@
 -export([version_group_list/1, version_group_list/2,
          version_group_read/2, version_group_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

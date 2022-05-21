@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-PokemonHabitatApiApiV2Pokemon-habitatResource::PokemonHabitatApiApiV2Pokemon-habitatResource(const std::string& context /* = "/api/v2" */)
+PokemonHabitatApiApiV2Pokemon-habitatResource::PokemonHabitatApiApiV2Pokemon-habitatResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/pokemon-habitat//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string PokemonHabitatApiApiV2Pokemon-habitatResource::extractBodyContent(co
                  });
   return bodyContent;
 }
-PokemonHabitatApiApiV2Pokemon-habitatIdResource::PokemonHabitatApiApiV2Pokemon-habitatIdResource(const std::string& context /* = "/api/v2" */)
+PokemonHabitatApiApiV2Pokemon-habitatIdResource::PokemonHabitatApiApiV2Pokemon-habitatIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/pokemon-habitat/{id: .*}//");
 	this->set_method_handler("GET",

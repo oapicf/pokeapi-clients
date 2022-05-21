@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-BerryApiApiV2BerryResource::BerryApiApiV2BerryResource(const std::string& context /* = "/api/v2" */)
+BerryApiApiV2BerryResource::BerryApiApiV2BerryResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/berry//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string BerryApiApiV2BerryResource::extractBodyContent(const std::shared_ptr
                  });
   return bodyContent;
 }
-BerryApiApiV2BerryIdResource::BerryApiApiV2BerryIdResource(const std::string& context /* = "/api/v2" */)
+BerryApiApiV2BerryIdResource::BerryApiApiV2BerryIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/berry/{id: .*}//");
 	this->set_method_handler("GET",

@@ -20,7 +20,7 @@ module StatApiHandlers =
     /// </summary>
    [<FunctionName("StatList")>]
     let StatList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/stat/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/stat/")>]
         req:HttpRequest ) =
 
       let result = StatApiService.StatList ()
@@ -36,7 +36,7 @@ module StatApiHandlers =
     /// </summary>
    [<FunctionName("StatRead")>]
     let StatRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/stat/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/stat/{id}/")>]
         req:HttpRequest ) =
 
       let result = StatApiService.StatRead ()

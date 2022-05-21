@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIItemFlingEffectApiRequest::getRawSocket(){
 
 
 void OAIItemFlingEffectApiRequest::itemFlingEffectListRequest(){
-    qDebug() << "/api/v2/api/v2/item-fling-effect/";
+    qDebug() << "/api/v2/item-fling-effect/";
     connect(this, &OAIItemFlingEffectApiRequest::itemFlingEffectList, handler.data(), &OAIItemFlingEffectApiHandler::itemFlingEffectList);
 
     
@@ -71,7 +71,7 @@ void OAIItemFlingEffectApiRequest::itemFlingEffectListRequest(){
 
 
 void OAIItemFlingEffectApiRequest::itemFlingEffectReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/item-fling-effect/{id}/";
+    qDebug() << "/api/v2/item-fling-effect/{id}/";
     connect(this, &OAIItemFlingEffectApiRequest::itemFlingEffectRead, handler.data(), &OAIItemFlingEffectApiHandler::itemFlingEffectRead);
 
     

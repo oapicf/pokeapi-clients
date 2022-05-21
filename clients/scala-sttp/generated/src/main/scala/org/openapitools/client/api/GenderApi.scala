@@ -17,7 +17,7 @@ import sttp.model.Method
 
 object GenderApi {
 
-def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new GenderApi(baseUrl)
+def apply(baseUrl: String = "https://pokeapi.co") = new GenderApi(baseUrl)
 }
 
 class GenderApi(baseUrl: String) {

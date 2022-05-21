@@ -64,7 +64,7 @@ private:
 class  PokemonFormApiApiV2Pokemon-formResource: public restbed::Resource
 {
 public:
-    PokemonFormApiApiV2Pokemon-formResource(const std::string& context = "/api/v2");
+    PokemonFormApiApiV2Pokemon-formResource(const std::string& context = "");
     virtual ~PokemonFormApiApiV2Pokemon-formResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  PokemonFormApiApiV2Pokemon-formIdResource: public restbed::Resource
 {
 public:
-    PokemonFormApiApiV2Pokemon-formIdResource(const std::string& context = "/api/v2");
+    PokemonFormApiApiV2Pokemon-formIdResource(const std::string& context = "");
     virtual ~PokemonFormApiApiV2Pokemon-formIdResource();
 
 protected:

@@ -64,7 +64,7 @@ private:
 class  GrowthRateApiApiV2Growth-rateResource: public restbed::Resource
 {
 public:
-    GrowthRateApiApiV2Growth-rateResource(const std::string& context = "/api/v2");
+    GrowthRateApiApiV2Growth-rateResource(const std::string& context = "");
     virtual ~GrowthRateApiApiV2Growth-rateResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  GrowthRateApiApiV2Growth-rateIdResource: public restbed::Resource
 {
 public:
-    GrowthRateApiApiV2Growth-rateIdResource(const std::string& context = "/api/v2");
+    GrowthRateApiApiV2Growth-rateIdResource(const std::string& context = "");
     virtual ~GrowthRateApiApiV2Growth-rateIdResource();
 
 protected:

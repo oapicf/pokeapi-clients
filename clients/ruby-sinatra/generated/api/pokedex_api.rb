@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/pokedex/', {
+MyApp.add_route('GET', '/api/v2/pokedex/', {
   "resourcePath" => "/Pokedex",
   "summary" => "",
   "nickname" => "pokedex_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/pokedex/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/pokedex/{id}/', {
+MyApp.add_route('GET', '/api/v2/pokedex/{id}/', {
   "resourcePath" => "/Pokedex",
   "summary" => "",
   "nickname" => "pokedex_read",

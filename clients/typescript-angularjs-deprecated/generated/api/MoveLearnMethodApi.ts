@@ -15,7 +15,7 @@ import * as models from '../model/models';
 /* tslint:disable:no-unused-variable member-ordering */
 
 export class MoveLearnMethodApi {
-    protected basePath = 'https://pokeapi.co/api/v2';
+    protected basePath = 'https://pokeapi.co';
     public defaultHeaders : any = {};
 
     static $inject: string[] = ['$http', '$httpParamSerializer', 'basePath'];

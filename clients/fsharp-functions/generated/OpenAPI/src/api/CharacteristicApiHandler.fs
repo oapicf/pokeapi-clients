@@ -20,7 +20,7 @@ module CharacteristicApiHandlers =
     /// </summary>
    [<FunctionName("CharacteristicList")>]
     let CharacteristicList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/characteristic/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/characteristic/")>]
         req:HttpRequest ) =
 
       let result = CharacteristicApiService.CharacteristicList ()
@@ -36,7 +36,7 @@ module CharacteristicApiHandlers =
     /// </summary>
    [<FunctionName("CharacteristicRead")>]
     let CharacteristicRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/characteristic/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/characteristic/{id}/")>]
         req:HttpRequest ) =
 
       let result = CharacteristicApiService.CharacteristicRead ()

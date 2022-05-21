@@ -51,13 +51,13 @@ func (c *ItemCategoryApiController) Routes() Routes {
 		{
 			"ItemCategoryList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/item-category/",
+			"/api/v2/item-category/",
 			c.ItemCategoryList,
 		},
 		{
 			"ItemCategoryRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/item-category/{id}/",
+			"/api/v2/item-category/{id}/",
 			c.ItemCategoryRead,
 		},
 	}

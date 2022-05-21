@@ -4,7 +4,7 @@ package api
 /**
   * Provides a default implementation for [[VersionGroupApi]].
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-16T10:34:47.121763Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-21T04:06:20.868089Z[Etc/UTC]")
 class VersionGroupApiImpl extends VersionGroupApi {
   /**
     * @inheritdoc

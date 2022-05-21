@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/location-area/', {
+MyApp.add_route('GET', '/api/v2/location-area/', {
   "resourcePath" => "/LocationArea",
   "summary" => "",
   "nickname" => "location_area_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/location-area/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/location-area/{id}/', {
+MyApp.add_route('GET', '/api/v2/location-area/{id}/', {
   "resourcePath" => "/LocationArea",
   "summary" => "",
   "nickname" => "location_area_read",

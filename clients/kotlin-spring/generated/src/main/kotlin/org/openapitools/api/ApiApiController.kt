@@ -23,7 +23,7 @@ import kotlin.collections.Map
 
 @RestController
 @Validated
-@RequestMapping("\${api.base-path:/api/v2}")
+@RequestMapping("\${api.base-path:}")
 class ApiApiController() {
 
 

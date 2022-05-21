@@ -39,7 +39,7 @@ request method path pathParams queryParams headerParams body decoder =
     Request
         { method = method
         , headers = headers headerParams
-        , basePath = "https://pokeapi.co/api/v2"
+        , basePath = "https://pokeapi.co"
         , pathParams = interpolatePath path pathParams
         , queryParams = queries queryParams
         , body = Maybe.withDefault Http.emptyBody (Maybe.map Http.jsonBody body)

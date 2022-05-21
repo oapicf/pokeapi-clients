@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/move-damage-class/', {
+MyApp.add_route('GET', '/api/v2/move-damage-class/', {
   "resourcePath" => "/MoveDamageClass",
   "summary" => "",
   "nickname" => "move_damage_class_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/move-damage-class/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/move-damage-class/{id}/', {
+MyApp.add_route('GET', '/api/v2/move-damage-class/{id}/', {
   "resourcePath" => "/MoveDamageClass",
   "summary" => "",
   "nickname" => "move_damage_class_read",

@@ -20,7 +20,7 @@ module ItemFlingEffectApiHandlers =
     /// </summary>
    [<FunctionName("ItemFlingEffectList")>]
     let ItemFlingEffectList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/item-fling-effect/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/item-fling-effect/")>]
         req:HttpRequest ) =
 
       let result = ItemFlingEffectApiService.ItemFlingEffectList ()
@@ -36,7 +36,7 @@ module ItemFlingEffectApiHandlers =
     /// </summary>
    [<FunctionName("ItemFlingEffectRead")>]
     let ItemFlingEffectRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/item-fling-effect/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/item-fling-effect/{id}/")>]
         req:HttpRequest ) =
 
       let result = ItemFlingEffectApiService.ItemFlingEffectRead ()

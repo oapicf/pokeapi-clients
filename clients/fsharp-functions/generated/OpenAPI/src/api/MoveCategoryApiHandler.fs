@@ -20,7 +20,7 @@ module MoveCategoryApiHandlers =
     /// </summary>
    [<FunctionName("MoveCategoryList")>]
     let MoveCategoryList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/move-category/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/move-category/")>]
         req:HttpRequest ) =
 
       let result = MoveCategoryApiService.MoveCategoryList ()
@@ -36,7 +36,7 @@ module MoveCategoryApiHandlers =
     /// </summary>
    [<FunctionName("MoveCategoryRead")>]
     let MoveCategoryRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/move-category/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/move-category/{id}/")>]
         req:HttpRequest ) =
 
       let result = MoveCategoryApiService.MoveCategoryRead ()

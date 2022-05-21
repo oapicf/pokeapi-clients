@@ -51,13 +51,13 @@ func (c *PokemonHabitatApiController) Routes() Routes {
 		{
 			"PokemonHabitatList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/pokemon-habitat/",
+			"/api/v2/pokemon-habitat/",
 			c.PokemonHabitatList,
 		},
 		{
 			"PokemonHabitatRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/pokemon-habitat/{id}/",
+			"/api/v2/pokemon-habitat/{id}/",
 			c.PokemonHabitatRead,
 		},
 	}

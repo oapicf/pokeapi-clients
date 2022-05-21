@@ -20,7 +20,7 @@ module BerryFirmnessApiHandlers =
     /// </summary>
    [<FunctionName("BerryFirmnessList")>]
     let BerryFirmnessList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/berry-firmness/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/berry-firmness/")>]
         req:HttpRequest ) =
 
       let result = BerryFirmnessApiService.BerryFirmnessList ()
@@ -36,7 +36,7 @@ module BerryFirmnessApiHandlers =
     /// </summary>
    [<FunctionName("BerryFirmnessRead")>]
     let BerryFirmnessRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/berry-firmness/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/berry-firmness/{id}/")>]
         req:HttpRequest ) =
 
       let result = BerryFirmnessApiService.BerryFirmnessRead ()

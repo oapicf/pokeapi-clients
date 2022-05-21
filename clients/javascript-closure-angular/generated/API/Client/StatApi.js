@@ -21,7 +21,7 @@ API.Client.StatApi = function($http, $httpParamSerializer, $injector) {
   /** @private {!string} */
   this.basePath_ = $injector.has('StatApiBasePath') ?
                    /** @type {!string} */ ($injector.get('StatApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('StatApiDefaultHeaders') ?

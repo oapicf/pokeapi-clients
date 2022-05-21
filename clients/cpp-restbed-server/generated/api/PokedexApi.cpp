@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-PokedexApiApiV2PokedexResource::PokedexApiApiV2PokedexResource(const std::string& context /* = "/api/v2" */)
+PokedexApiApiV2PokedexResource::PokedexApiApiV2PokedexResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/pokedex//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string PokedexApiApiV2PokedexResource::extractBodyContent(const std::shared
                  });
   return bodyContent;
 }
-PokedexApiApiV2PokedexIdResource::PokedexApiApiV2PokedexIdResource(const std::string& context /* = "/api/v2" */)
+PokedexApiApiV2PokedexIdResource::PokedexApiApiV2PokedexIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/pokedex/{id: .*}//");
 	this->set_method_handler("GET",

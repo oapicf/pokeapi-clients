@@ -3,7 +3,7 @@
 -export([gender_list/1, gender_list/2,
          gender_read/2, gender_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

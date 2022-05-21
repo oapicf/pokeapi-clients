@@ -64,7 +64,7 @@ private:
 class  ItemFlingEffectApiApiV2Item-fling-effectResource: public restbed::Resource
 {
 public:
-    ItemFlingEffectApiApiV2Item-fling-effectResource(const std::string& context = "/api/v2");
+    ItemFlingEffectApiApiV2Item-fling-effectResource(const std::string& context = "");
     virtual ~ItemFlingEffectApiApiV2Item-fling-effectResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  ItemFlingEffectApiApiV2Item-fling-effectIdResource: public restbed::Resource
 {
 public:
-    ItemFlingEffectApiApiV2Item-fling-effectIdResource(const std::string& context = "/api/v2");
+    ItemFlingEffectApiApiV2Item-fling-effectIdResource(const std::string& context = "");
     virtual ~ItemFlingEffectApiApiV2Item-fling-effectIdResource();
 
 protected:

@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/contest-type/', {
+MyApp.add_route('GET', '/api/v2/contest-type/', {
   "resourcePath" => "/ContestType",
   "summary" => "",
   "nickname" => "contest_type_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/contest-type/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/contest-type/{id}/', {
+MyApp.add_route('GET', '/api/v2/contest-type/{id}/', {
   "resourcePath" => "/ContestType",
   "summary" => "",
   "nickname" => "contest_type_read",

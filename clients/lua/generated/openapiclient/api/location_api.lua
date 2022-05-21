@@ -31,7 +31,7 @@ local function new_location_api(authority, basePath, schemes)
 	return setmetatable({
 		host = host;
 		port = port;
-		basePath = basePath or "https://pokeapi.co/api/v2";
+		basePath = basePath or "https://pokeapi.co";
 		schemes = schemes_map;
 		default_scheme = default_scheme;
 		http_username = nil;

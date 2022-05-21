@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/generation/', {
+MyApp.add_route('GET', '/api/v2/generation/', {
   "resourcePath" => "/Generation",
   "summary" => "",
   "nickname" => "generation_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/generation/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/generation/{id}/', {
+MyApp.add_route('GET', '/api/v2/generation/{id}/', {
   "resourcePath" => "/Generation",
   "summary" => "",
   "nickname" => "generation_read",

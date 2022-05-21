@@ -20,7 +20,7 @@ module PokeathlonStatApiHandlers =
     /// </summary>
    [<FunctionName("PokeathlonStatList")>]
     let PokeathlonStatList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/pokeathlon-stat/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/pokeathlon-stat/")>]
         req:HttpRequest ) =
 
       let result = PokeathlonStatApiService.PokeathlonStatList ()
@@ -36,7 +36,7 @@ module PokeathlonStatApiHandlers =
     /// </summary>
    [<FunctionName("PokeathlonStatRead")>]
     let PokeathlonStatRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/pokeathlon-stat/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/pokeathlon-stat/{id}/")>]
         req:HttpRequest ) =
 
       let result = PokeathlonStatApiService.PokeathlonStatRead ()

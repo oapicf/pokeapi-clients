@@ -17,7 +17,7 @@ import sttp.model.Method
 
 object VersionApi {
 
-def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new VersionApi(baseUrl)
+def apply(baseUrl: String = "https://pokeapi.co") = new VersionApi(baseUrl)
 }
 
 class VersionApi(baseUrl: String) {

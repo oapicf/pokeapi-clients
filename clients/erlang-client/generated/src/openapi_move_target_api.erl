@@ -3,7 +3,7 @@
 -export([move_target_list/1, move_target_list/2,
          move_target_read/2, move_target_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

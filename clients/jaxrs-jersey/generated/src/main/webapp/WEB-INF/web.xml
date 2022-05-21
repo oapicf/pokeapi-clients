@@ -38,7 +38,7 @@
         </init-param>
         <init-param>
             <param-name>swagger.api.basepath</param-name>
-            <param-value>https://pokeapi.co/api/v2</param-value>
+            <param-value>https://pokeapi.co</param-value>
         </init-param>
 
         <load-on-startup>2</load-on-startup>
@@ -50,7 +50,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>jersey</servlet-name>
-        <url-pattern>/api/v2/*</url-pattern>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
     <filter>
         <filter-name>ApiOriginFilter</filter-name>

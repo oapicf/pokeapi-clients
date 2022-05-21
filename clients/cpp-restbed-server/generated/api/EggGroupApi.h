@@ -64,7 +64,7 @@ private:
 class  EggGroupApiApiV2Egg-groupResource: public restbed::Resource
 {
 public:
-    EggGroupApiApiV2Egg-groupResource(const std::string& context = "/api/v2");
+    EggGroupApiApiV2Egg-groupResource(const std::string& context = "");
     virtual ~EggGroupApiApiV2Egg-groupResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  EggGroupApiApiV2Egg-groupIdResource: public restbed::Resource
 {
 public:
-    EggGroupApiApiV2Egg-groupIdResource(const std::string& context = "/api/v2");
+    EggGroupApiApiV2Egg-groupIdResource(const std::string& context = "");
     virtual ~EggGroupApiApiV2Egg-groupIdResource();
 
 protected:

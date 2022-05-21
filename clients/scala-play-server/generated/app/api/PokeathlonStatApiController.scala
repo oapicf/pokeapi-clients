@@ -5,11 +5,11 @@ import javax.inject.{Inject, Singleton}
 import play.api.libs.json._
 import play.api.mvc._
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-16T10:34:47.121763Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-21T04:06:20.868089Z[Etc/UTC]")
 @Singleton
 class PokeathlonStatApiController @Inject()(cc: ControllerComponents, api: PokeathlonStatApi) extends AbstractController(cc) {
   /**
-    * GET /api/v2/api/v2/pokeathlon-stat/?limit=[value]&offset=[value]
+    * GET /api/v2/pokeathlon-stat/?limit=[value]&offset=[value]
     */
   def pokeathlonStatList(): Action[AnyContent] = Action { request =>
     def executeApi(): String = {
@@ -26,7 +26,7 @@ class PokeathlonStatApiController @Inject()(cc: ControllerComponents, api: Pokea
   }
 
   /**
-    * GET /api/v2/api/v2/pokeathlon-stat/:id/
+    * GET /api/v2/pokeathlon-stat/:id/
     */
   def pokeathlonStatRead(id: Int): Action[AnyContent] = Action { request =>
     def executeApi(): String = {

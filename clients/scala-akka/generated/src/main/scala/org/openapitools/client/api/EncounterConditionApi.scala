@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object EncounterConditionApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new EncounterConditionApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new EncounterConditionApi(baseUrl)
 }
 
 class EncounterConditionApi(baseUrl: String) {

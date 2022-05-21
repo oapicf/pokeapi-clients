@@ -17,7 +17,7 @@ import sttp.model.Method
 
 object StatApi {
 
-def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new StatApi(baseUrl)
+def apply(baseUrl: String = "https://pokeapi.co") = new StatApi(baseUrl)
 }
 
 class StatApi(baseUrl: String) {

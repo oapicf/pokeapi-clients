@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-MachineApiApiV2MachineResource::MachineApiApiV2MachineResource(const std::string& context /* = "/api/v2" */)
+MachineApiApiV2MachineResource::MachineApiApiV2MachineResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/machine//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string MachineApiApiV2MachineResource::extractBodyContent(const std::shared
                  });
   return bodyContent;
 }
-MachineApiApiV2MachineIdResource::MachineApiApiV2MachineIdResource(const std::string& context /* = "/api/v2" */)
+MachineApiApiV2MachineIdResource::MachineApiApiV2MachineIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/machine/{id: .*}//");
 	this->set_method_handler("GET",

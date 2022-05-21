@@ -21,7 +21,7 @@ API.Client.CharacteristicApi = function($http, $httpParamSerializer, $injector) 
   /** @private {!string} */
   this.basePath_ = $injector.has('CharacteristicApiBasePath') ?
                    /** @type {!string} */ ($injector.get('CharacteristicApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('CharacteristicApiDefaultHeaders') ?

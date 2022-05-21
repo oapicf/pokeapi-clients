@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAINatureApiRequest::getRawSocket(){
 
 
 void OAINatureApiRequest::natureListRequest(){
-    qDebug() << "/api/v2/api/v2/nature/";
+    qDebug() << "/api/v2/nature/";
     connect(this, &OAINatureApiRequest::natureList, handler.data(), &OAINatureApiHandler::natureList);
 
     
@@ -71,7 +71,7 @@ void OAINatureApiRequest::natureListRequest(){
 
 
 void OAINatureApiRequest::natureReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/nature/{id}/";
+    qDebug() << "/api/v2/nature/{id}/";
     connect(this, &OAINatureApiRequest::natureRead, handler.data(), &OAINatureApiHandler::natureRead);
 
     

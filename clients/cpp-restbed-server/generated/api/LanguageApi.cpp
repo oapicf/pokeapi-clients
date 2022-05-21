@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-LanguageApiApiV2LanguageResource::LanguageApiApiV2LanguageResource(const std::string& context /* = "/api/v2" */)
+LanguageApiApiV2LanguageResource::LanguageApiApiV2LanguageResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/language//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string LanguageApiApiV2LanguageResource::extractBodyContent(const std::shar
                  });
   return bodyContent;
 }
-LanguageApiApiV2LanguageIdResource::LanguageApiApiV2LanguageIdResource(const std::string& context /* = "/api/v2" */)
+LanguageApiApiV2LanguageIdResource::LanguageApiApiV2LanguageIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/language/{id: .*}//");
 	this->set_method_handler("GET",

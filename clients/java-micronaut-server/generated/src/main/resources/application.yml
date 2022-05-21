@@ -1,4 +1,4 @@
-context-path: "/api/v2/"
+context-path: "/"
 
 micronaut:
     application:

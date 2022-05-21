@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIEvolutionChainApiRequest::getRawSocket(){
 
 
 void OAIEvolutionChainApiRequest::evolutionChainListRequest(){
-    qDebug() << "/api/v2/api/v2/evolution-chain/";
+    qDebug() << "/api/v2/evolution-chain/";
     connect(this, &OAIEvolutionChainApiRequest::evolutionChainList, handler.data(), &OAIEvolutionChainApiHandler::evolutionChainList);
 
     
@@ -71,7 +71,7 @@ void OAIEvolutionChainApiRequest::evolutionChainListRequest(){
 
 
 void OAIEvolutionChainApiRequest::evolutionChainReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/evolution-chain/{id}/";
+    qDebug() << "/api/v2/evolution-chain/{id}/";
     connect(this, &OAIEvolutionChainApiRequest::evolutionChainRead, handler.data(), &OAIEvolutionChainApiHandler::evolutionChainRead);
 
     

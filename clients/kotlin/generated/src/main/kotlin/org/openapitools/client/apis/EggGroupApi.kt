@@ -42,7 +42,7 @@ class EggGroupApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePat
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://pokeapi.co/api/v2")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://pokeapi.co")
         }
     }
 

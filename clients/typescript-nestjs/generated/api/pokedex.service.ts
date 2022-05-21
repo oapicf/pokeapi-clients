@@ -20,7 +20,7 @@ import { Configuration } from '../configuration';
 @Injectable()
 export class PokedexService {
 
-    protected basePath = 'https://pokeapi.co/api/v2';
+    protected basePath = 'https://pokeapi.co';
     public defaultHeaders: Record<string,string> = {};
     public configuration = new Configuration();
 

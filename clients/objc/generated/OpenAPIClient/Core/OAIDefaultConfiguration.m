@@ -28,7 +28,7 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        _host = @"https://pokeapi.co/api/v2";
+        _host = @"https://pokeapi.co";
         _username = @"";
         _password = @"";
         _accessToken= @"";

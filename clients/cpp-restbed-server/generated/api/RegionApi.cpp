@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-RegionApiApiV2RegionResource::RegionApiApiV2RegionResource(const std::string& context /* = "/api/v2" */)
+RegionApiApiV2RegionResource::RegionApiApiV2RegionResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/region//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string RegionApiApiV2RegionResource::extractBodyContent(const std::shared_p
                  });
   return bodyContent;
 }
-RegionApiApiV2RegionIdResource::RegionApiApiV2RegionIdResource(const std::string& context /* = "/api/v2" */)
+RegionApiApiV2RegionIdResource::RegionApiApiV2RegionIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/region/{id: .*}//");
 	this->set_method_handler("GET",

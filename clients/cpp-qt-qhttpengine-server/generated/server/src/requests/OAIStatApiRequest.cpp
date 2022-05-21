@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIStatApiRequest::getRawSocket(){
 
 
 void OAIStatApiRequest::statListRequest(){
-    qDebug() << "/api/v2/api/v2/stat/";
+    qDebug() << "/api/v2/stat/";
     connect(this, &OAIStatApiRequest::statList, handler.data(), &OAIStatApiHandler::statList);
 
     
@@ -71,7 +71,7 @@ void OAIStatApiRequest::statListRequest(){
 
 
 void OAIStatApiRequest::statReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/stat/{id}/";
+    qDebug() << "/api/v2/stat/{id}/";
     connect(this, &OAIStatApiRequest::statRead, handler.data(), &OAIStatApiHandler::statRead);
 
     

@@ -61,7 +61,7 @@ libraryDependencies += "org.openapitools" % "openapi-client" % "1.0.0"
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://pokeapi.co/api/v2*
+All URIs are relative to *https://pokeapi.co*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

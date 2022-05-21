@@ -20,7 +20,7 @@ module EvolutionTriggerApiHandlers =
     /// </summary>
    [<FunctionName("EvolutionTriggerList")>]
     let EvolutionTriggerList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/evolution-trigger/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/evolution-trigger/")>]
         req:HttpRequest ) =
 
       let result = EvolutionTriggerApiService.EvolutionTriggerList ()
@@ -36,7 +36,7 @@ module EvolutionTriggerApiHandlers =
     /// </summary>
    [<FunctionName("EvolutionTriggerRead")>]
     let EvolutionTriggerRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/evolution-trigger/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/evolution-trigger/{id}/")>]
         req:HttpRequest ) =
 
       let result = EvolutionTriggerApiService.EvolutionTriggerRead ()

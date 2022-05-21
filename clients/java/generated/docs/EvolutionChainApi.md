@@ -1,6 +1,6 @@
 # EvolutionChainApi
 
-All URIs are relative to *https://pokeapi.co/api/v2*
+All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,7 +26,7 @@ import com.cliffano.pokeapiclient.api.EvolutionChainApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://pokeapi.co/api/v2");
+    defaultClient.setBasePath("https://pokeapi.co");
 
     EvolutionChainApi apiInstance = new EvolutionChainApi(defaultClient);
     Integer limit = 56; // Integer | 
@@ -88,7 +88,7 @@ import com.cliffano.pokeapiclient.api.EvolutionChainApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://pokeapi.co/api/v2");
+    defaultClient.setBasePath("https://pokeapi.co");
 
     EvolutionChainApi apiInstance = new EvolutionChainApi(defaultClient);
     Integer id = 56; // Integer | 

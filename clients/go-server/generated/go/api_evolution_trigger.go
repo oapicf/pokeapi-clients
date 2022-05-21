@@ -51,13 +51,13 @@ func (c *EvolutionTriggerApiController) Routes() Routes {
 		{
 			"EvolutionTriggerList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/evolution-trigger/",
+			"/api/v2/evolution-trigger/",
 			c.EvolutionTriggerList,
 		},
 		{
 			"EvolutionTriggerRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/evolution-trigger/{id}/",
+			"/api/v2/evolution-trigger/{id}/",
 			c.EvolutionTriggerRead,
 		},
 	}

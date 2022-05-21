@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/evolution-trigger/', {
+MyApp.add_route('GET', '/api/v2/evolution-trigger/', {
   "resourcePath" => "/EvolutionTrigger",
   "summary" => "",
   "nickname" => "evolution_trigger_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/evolution-trigger/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/evolution-trigger/{id}/', {
+MyApp.add_route('GET', '/api/v2/evolution-trigger/{id}/', {
   "resourcePath" => "/EvolutionTrigger",
   "summary" => "",
   "nickname" => "evolution_trigger_read",

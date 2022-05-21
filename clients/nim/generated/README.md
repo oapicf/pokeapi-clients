@@ -20,7 +20,7 @@ import openapiclient
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://pokeapi.co/api/v2*
+All URIs are relative to *https://pokeapi.co*
 
 Module | Proc | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

@@ -33,7 +33,7 @@ namespace Org.OpenAPITools.Controllers
         /// <param name="offset"></param>
         /// <response code="0">Default response</response>
         [HttpGet]
-        [Route("/api/v2/api/v2/evolution-chain/")]
+        [Route("/api/v2/evolution-chain/")]
         [ValidateModelState]
         [SwaggerOperation("EvolutionChainList")]
         [SwaggerResponse(statusCode: 0, type: typeof(string), description: "Default response")]
@@ -57,7 +57,7 @@ namespace Org.OpenAPITools.Controllers
         /// <param name="id"></param>
         /// <response code="0">Default response</response>
         [HttpGet]
-        [Route("/api/v2/api/v2/evolution-chain/{id}/")]
+        [Route("/api/v2/evolution-chain/{id}/")]
         [ValidateModelState]
         [SwaggerOperation("EvolutionChainRead")]
         [SwaggerResponse(statusCode: 0, type: typeof(string), description: "Default response")]

@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object GrowthRateApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new GrowthRateApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new GrowthRateApi(baseUrl)
 }
 
 class GrowthRateApi(baseUrl: String) {

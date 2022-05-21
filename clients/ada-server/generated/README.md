@@ -70,7 +70,7 @@ the **null** instruction by real code.
 
 ### API Documentation
 
-All URIs are relative to *https://pokeapi.co/api/v2*
+All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

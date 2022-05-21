@@ -1,6 +1,6 @@
 # Org.OpenAPITools.Api.AbilityApi
 
-All URIs are relative to *https://pokeapi.co/api/v2*
+All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,7 +30,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://pokeapi.co/api/v2";
+            Configuration.Default.BasePath = "https://pokeapi.co";
             var apiInstance = new AbilityApi(Configuration.Default);
             var limit = 56;  // int? |  (optional) 
             var offset = 56;  // int? |  (optional) 
@@ -105,7 +105,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://pokeapi.co/api/v2";
+            Configuration.Default.BasePath = "https://pokeapi.co";
             var apiInstance = new AbilityApi(Configuration.Default);
             var id = 56;  // int | 
 

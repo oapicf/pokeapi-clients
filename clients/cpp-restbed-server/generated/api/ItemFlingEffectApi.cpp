@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-ItemFlingEffectApiApiV2Item-fling-effectResource::ItemFlingEffectApiApiV2Item-fling-effectResource(const std::string& context /* = "/api/v2" */)
+ItemFlingEffectApiApiV2Item-fling-effectResource::ItemFlingEffectApiApiV2Item-fling-effectResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/item-fling-effect//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string ItemFlingEffectApiApiV2Item-fling-effectResource::extractBodyContent
                  });
   return bodyContent;
 }
-ItemFlingEffectApiApiV2Item-fling-effectIdResource::ItemFlingEffectApiApiV2Item-fling-effectIdResource(const std::string& context /* = "/api/v2" */)
+ItemFlingEffectApiApiV2Item-fling-effectIdResource::ItemFlingEffectApiApiV2Item-fling-effectIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/item-fling-effect/{id: .*}//");
 	this->set_method_handler("GET",

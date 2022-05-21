@@ -3,7 +3,7 @@
 -export([type_list/1, type_list/2,
          type_read/2, type_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

@@ -20,7 +20,7 @@ module GenderApiHandlers =
     /// </summary>
    [<FunctionName("GenderList")>]
     let GenderList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/gender/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/gender/")>]
         req:HttpRequest ) =
 
       let result = GenderApiService.GenderList ()
@@ -36,7 +36,7 @@ module GenderApiHandlers =
     /// </summary>
    [<FunctionName("GenderRead")>]
     let GenderRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/gender/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/gender/{id}/")>]
         req:HttpRequest ) =
 
       let result = GenderApiService.GenderRead ()

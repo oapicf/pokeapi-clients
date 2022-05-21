@@ -1,6 +1,6 @@
 # ENCOUNTERCONDITIONVALUE_API
 
-All URIs are relative to *https://pokeapi.co/api/v2*
+All URIs are relative to *https://pokeapi.co*
 
 Feature | HTTP request | Description
 ------------- | ------------- | -------------

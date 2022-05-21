@@ -21,7 +21,7 @@ API.Client.EvolutionChainApi = function($http, $httpParamSerializer, $injector) 
   /** @private {!string} */
   this.basePath_ = $injector.has('EvolutionChainApiBasePath') ?
                    /** @type {!string} */ ($injector.get('EvolutionChainApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('EvolutionChainApiDefaultHeaders') ?

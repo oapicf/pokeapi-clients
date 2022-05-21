@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object PokemonFormApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new PokemonFormApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new PokemonFormApi(baseUrl)
 }
 
 class PokemonFormApi(baseUrl: String) {

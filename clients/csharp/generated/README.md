@@ -77,7 +77,7 @@ namespace Example
         public static void Main()
         {
 
-            Configuration.Default.BasePath = "https://pokeapi.co/api/v2";
+            Configuration.Default.BasePath = "https://pokeapi.co";
             var apiInstance = new AbilityApi(Configuration.Default);
             var limit = 56;  // int? |  (optional) 
             var offset = 56;  // int? |  (optional) 
@@ -101,7 +101,7 @@ namespace Example
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://pokeapi.co/api/v2*
+All URIs are relative to *https://pokeapi.co*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

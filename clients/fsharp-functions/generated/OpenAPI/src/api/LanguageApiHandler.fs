@@ -20,7 +20,7 @@ module LanguageApiHandlers =
     /// </summary>
    [<FunctionName("LanguageList")>]
     let LanguageList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/language/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/language/")>]
         req:HttpRequest ) =
 
       let result = LanguageApiService.LanguageList ()
@@ -36,7 +36,7 @@ module LanguageApiHandlers =
     /// </summary>
    [<FunctionName("LanguageRead")>]
     let LanguageRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/language/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/language/{id}/")>]
         req:HttpRequest ) =
 
       let result = LanguageApiService.LanguageRead ()

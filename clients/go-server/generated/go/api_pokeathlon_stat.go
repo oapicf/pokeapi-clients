@@ -51,13 +51,13 @@ func (c *PokeathlonStatApiController) Routes() Routes {
 		{
 			"PokeathlonStatList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/pokeathlon-stat/",
+			"/api/v2/pokeathlon-stat/",
 			c.PokeathlonStatList,
 		},
 		{
 			"PokeathlonStatRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/pokeathlon-stat/{id}/",
+			"/api/v2/pokeathlon-stat/{id}/",
 			c.PokeathlonStatRead,
 		},
 	}

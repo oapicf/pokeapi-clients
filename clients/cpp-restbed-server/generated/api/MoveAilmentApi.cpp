@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-MoveAilmentApiApiV2Move-ailmentResource::MoveAilmentApiApiV2Move-ailmentResource(const std::string& context /* = "/api/v2" */)
+MoveAilmentApiApiV2Move-ailmentResource::MoveAilmentApiApiV2Move-ailmentResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/move-ailment//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string MoveAilmentApiApiV2Move-ailmentResource::extractBodyContent(const st
                  });
   return bodyContent;
 }
-MoveAilmentApiApiV2Move-ailmentIdResource::MoveAilmentApiApiV2Move-ailmentIdResource(const std::string& context /* = "/api/v2" */)
+MoveAilmentApiApiV2Move-ailmentIdResource::MoveAilmentApiApiV2Move-ailmentIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/move-ailment/{id: .*}//");
 	this->set_method_handler("GET",

@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIMoveLearnMethodApiRequest::getRawSocket(){
 
 
 void OAIMoveLearnMethodApiRequest::moveLearnMethodListRequest(){
-    qDebug() << "/api/v2/api/v2/move-learn-method/";
+    qDebug() << "/api/v2/move-learn-method/";
     connect(this, &OAIMoveLearnMethodApiRequest::moveLearnMethodList, handler.data(), &OAIMoveLearnMethodApiHandler::moveLearnMethodList);
 
     
@@ -71,7 +71,7 @@ void OAIMoveLearnMethodApiRequest::moveLearnMethodListRequest(){
 
 
 void OAIMoveLearnMethodApiRequest::moveLearnMethodReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/move-learn-method/{id}/";
+    qDebug() << "/api/v2/move-learn-method/{id}/";
     connect(this, &OAIMoveLearnMethodApiRequest::moveLearnMethodRead, handler.data(), &OAIMoveLearnMethodApiHandler::moveLearnMethodRead);
 
     

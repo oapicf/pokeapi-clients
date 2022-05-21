@@ -1,6 +1,6 @@
 # pokeapiclient.BerryFlavorApi
 
-All URIs are relative to *https://pokeapi.co/api/v2*
+All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,10 +21,10 @@ import time
 import pokeapiclient
 from pokeapiclient.api import berry_flavor_api
 from pprint import pprint
-# Defining the host is optional and defaults to https://pokeapi.co/api/v2
+# Defining the host is optional and defaults to https://pokeapi.co
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pokeapiclient.Configuration(
-    host = "https://pokeapi.co/api/v2"
+    host = "https://pokeapi.co"
 )
 
 
@@ -87,10 +87,10 @@ import time
 import pokeapiclient
 from pokeapiclient.api import berry_flavor_api
 from pprint import pprint
-# Defining the host is optional and defaults to https://pokeapi.co/api/v2
+# Defining the host is optional and defaults to https://pokeapi.co
 # See configuration.py for a list of all supported configuration parameters.
 configuration = pokeapiclient.Configuration(
-    host = "https://pokeapi.co/api/v2"
+    host = "https://pokeapi.co"
 )
 
 

@@ -51,13 +51,13 @@ func (c *EvolutionChainApiController) Routes() Routes {
 		{
 			"EvolutionChainList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/evolution-chain/",
+			"/api/v2/evolution-chain/",
 			c.EvolutionChainList,
 		},
 		{
 			"EvolutionChainRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/evolution-chain/{id}/",
+			"/api/v2/evolution-chain/{id}/",
 			c.EvolutionChainRead,
 		},
 	}

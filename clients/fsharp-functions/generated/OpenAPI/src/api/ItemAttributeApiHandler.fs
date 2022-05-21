@@ -20,7 +20,7 @@ module ItemAttributeApiHandlers =
     /// </summary>
    [<FunctionName("ItemAttributeList")>]
     let ItemAttributeList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/item-attribute/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/item-attribute/")>]
         req:HttpRequest ) =
 
       let result = ItemAttributeApiService.ItemAttributeList ()
@@ -36,7 +36,7 @@ module ItemAttributeApiHandlers =
     /// </summary>
    [<FunctionName("ItemAttributeRead")>]
     let ItemAttributeRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/item-attribute/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/item-attribute/{id}/")>]
         req:HttpRequest ) =
 
       let result = ItemAttributeApiService.ItemAttributeRead ()

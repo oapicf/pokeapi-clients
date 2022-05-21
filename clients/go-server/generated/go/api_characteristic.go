@@ -51,13 +51,13 @@ func (c *CharacteristicApiController) Routes() Routes {
 		{
 			"CharacteristicList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/characteristic/",
+			"/api/v2/characteristic/",
 			c.CharacteristicList,
 		},
 		{
 			"CharacteristicRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/characteristic/{id}/",
+			"/api/v2/characteristic/{id}/",
 			c.CharacteristicRead,
 		},
 	}

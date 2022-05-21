@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object BerryFlavorApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new BerryFlavorApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new BerryFlavorApi(baseUrl)
 }
 
 class BerryFlavorApi(baseUrl: String) {

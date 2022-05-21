@@ -64,7 +64,7 @@ private:
 class  PalParkAreaApiApiV2Pal-park-areaResource: public restbed::Resource
 {
 public:
-    PalParkAreaApiApiV2Pal-park-areaResource(const std::string& context = "/api/v2");
+    PalParkAreaApiApiV2Pal-park-areaResource(const std::string& context = "");
     virtual ~PalParkAreaApiApiV2Pal-park-areaResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  PalParkAreaApiApiV2Pal-park-areaIdResource: public restbed::Resource
 {
 public:
-    PalParkAreaApiApiV2Pal-park-areaIdResource(const std::string& context = "/api/v2");
+    PalParkAreaApiApiV2Pal-park-areaIdResource(const std::string& context = "");
     virtual ~PalParkAreaApiApiV2Pal-park-areaIdResource();
 
 protected:

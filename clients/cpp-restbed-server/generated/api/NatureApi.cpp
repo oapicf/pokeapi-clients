@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-NatureApiApiV2NatureResource::NatureApiApiV2NatureResource(const std::string& context /* = "/api/v2" */)
+NatureApiApiV2NatureResource::NatureApiApiV2NatureResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/nature//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string NatureApiApiV2NatureResource::extractBodyContent(const std::shared_p
                  });
   return bodyContent;
 }
-NatureApiApiV2NatureIdResource::NatureApiApiV2NatureIdResource(const std::string& context /* = "/api/v2" */)
+NatureApiApiV2NatureIdResource::NatureApiApiV2NatureIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/nature/{id: .*}//");
 	this->set_method_handler("GET",

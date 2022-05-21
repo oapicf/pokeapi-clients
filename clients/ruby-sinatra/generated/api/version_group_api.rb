@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/version-group/', {
+MyApp.add_route('GET', '/api/v2/version-group/', {
   "resourcePath" => "/VersionGroup",
   "summary" => "",
   "nickname" => "version_group_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/version-group/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/version-group/{id}/', {
+MyApp.add_route('GET', '/api/v2/version-group/{id}/', {
   "resourcePath" => "/VersionGroup",
   "summary" => "",
   "nickname" => "version_group_read",

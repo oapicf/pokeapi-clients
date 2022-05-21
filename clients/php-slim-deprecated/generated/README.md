@@ -93,7 +93,7 @@ Switch on option in `./index.php`:
 
 ## API Endpoints
 
-All URIs are relative to *https://pokeapi.co/api/v2*
+All URIs are relative to *https://pokeapi.co*
 
 > Important! Do not modify abstract API controllers directly! Instead extend them by implementation classes like:
 

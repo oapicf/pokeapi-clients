@@ -21,7 +21,7 @@ API.Client.BerryApi = function($http, $httpParamSerializer, $injector) {
   /** @private {!string} */
   this.basePath_ = $injector.has('BerryApiBasePath') ?
                    /** @type {!string} */ ($injector.get('BerryApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('BerryApiDefaultHeaders') ?

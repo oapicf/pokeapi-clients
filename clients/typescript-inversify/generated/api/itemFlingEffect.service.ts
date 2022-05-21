@@ -27,7 +27,7 @@ import { COLLECTION_FORMATS }  from '../variables';
 
 @injectable()
 export class ItemFlingEffectService {
-    private basePath: string = 'https://pokeapi.co/api/v2';
+    private basePath: string = 'https://pokeapi.co';
 
     constructor(@inject('IApiHttpClient') private httpClient: IHttpClient,
         @inject('IAPIConfiguration') private APIConfiguration: IAPIConfiguration ) {

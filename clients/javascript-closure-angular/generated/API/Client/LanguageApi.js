@@ -21,7 +21,7 @@ API.Client.LanguageApi = function($http, $httpParamSerializer, $injector) {
   /** @private {!string} */
   this.basePath_ = $injector.has('LanguageApiBasePath') ?
                    /** @type {!string} */ ($injector.get('LanguageApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('LanguageApiDefaultHeaders') ?

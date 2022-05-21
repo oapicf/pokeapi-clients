@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAICharacteristicApiRequest::getRawSocket(){
 
 
 void OAICharacteristicApiRequest::characteristicListRequest(){
-    qDebug() << "/api/v2/api/v2/characteristic/";
+    qDebug() << "/api/v2/characteristic/";
     connect(this, &OAICharacteristicApiRequest::characteristicList, handler.data(), &OAICharacteristicApiHandler::characteristicList);
 
     
@@ -71,7 +71,7 @@ void OAICharacteristicApiRequest::characteristicListRequest(){
 
 
 void OAICharacteristicApiRequest::characteristicReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/characteristic/{id}/";
+    qDebug() << "/api/v2/characteristic/{id}/";
     connect(this, &OAICharacteristicApiRequest::characteristicRead, handler.data(), &OAICharacteristicApiHandler::characteristicRead);
 
     

@@ -20,7 +20,7 @@ module VersionApiHandlers =
     /// </summary>
    [<FunctionName("VersionList")>]
     let VersionList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/version/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/version/")>]
         req:HttpRequest ) =
 
       let result = VersionApiService.VersionList ()
@@ -36,7 +36,7 @@ module VersionApiHandlers =
     /// </summary>
    [<FunctionName("VersionRead")>]
     let VersionRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/version/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/version/{id}/")>]
         req:HttpRequest ) =
 
       let result = VersionApiService.VersionRead ()

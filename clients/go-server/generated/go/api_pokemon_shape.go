@@ -51,13 +51,13 @@ func (c *PokemonShapeApiController) Routes() Routes {
 		{
 			"PokemonShapeList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/pokemon-shape/",
+			"/api/v2/pokemon-shape/",
 			c.PokemonShapeList,
 		},
 		{
 			"PokemonShapeRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/pokemon-shape/{id}/",
+			"/api/v2/pokemon-shape/{id}/",
 			c.PokemonShapeRead,
 		},
 	}

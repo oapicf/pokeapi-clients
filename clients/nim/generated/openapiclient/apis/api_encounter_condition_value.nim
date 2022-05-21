@@ -18,7 +18,7 @@ import typetraits
 import uri
 
 
-const basepath = "https://pokeapi.co/api/v2"
+const basepath = "https://pokeapi.co"
 
 template constructResult[T](response: Response): untyped =
   if response.code in {Http200, Http201, Http202, Http204, Http206}:

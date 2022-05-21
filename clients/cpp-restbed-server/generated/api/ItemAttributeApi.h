@@ -64,7 +64,7 @@ private:
 class  ItemAttributeApiApiV2Item-attributeResource: public restbed::Resource
 {
 public:
-    ItemAttributeApiApiV2Item-attributeResource(const std::string& context = "/api/v2");
+    ItemAttributeApiApiV2Item-attributeResource(const std::string& context = "");
     virtual ~ItemAttributeApiApiV2Item-attributeResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  ItemAttributeApiApiV2Item-attributeIdResource: public restbed::Resource
 {
 public:
-    ItemAttributeApiApiV2Item-attributeIdResource(const std::string& context = "/api/v2");
+    ItemAttributeApiApiV2Item-attributeIdResource(const std::string& context = "");
     virtual ~ItemAttributeApiApiV2Item-attributeIdResource();
 
 protected:

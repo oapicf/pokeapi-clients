@@ -1,6 +1,6 @@
 # LocationAreaApi
 
-All URIs are relative to *https://pokeapi.co/api/v2*
+All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,7 +26,7 @@ import com.cliffano.pokeapiclient.api.LocationAreaApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://pokeapi.co/api/v2");
+    defaultClient.setBasePath("https://pokeapi.co");
 
     LocationAreaApi apiInstance = new LocationAreaApi(defaultClient);
     Integer limit = 56; // Integer | 
@@ -88,7 +88,7 @@ import com.cliffano.pokeapiclient.api.LocationAreaApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://pokeapi.co/api/v2");
+    defaultClient.setBasePath("https://pokeapi.co");
 
     LocationAreaApi apiInstance = new LocationAreaApi(defaultClient);
     Integer id = 56; // Integer | 

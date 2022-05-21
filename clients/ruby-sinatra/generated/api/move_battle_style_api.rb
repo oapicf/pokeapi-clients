@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/move-battle-style/', {
+MyApp.add_route('GET', '/api/v2/move-battle-style/', {
   "resourcePath" => "/MoveBattleStyle",
   "summary" => "",
   "nickname" => "move_battle_style_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/move-battle-style/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/move-battle-style/{id}/', {
+MyApp.add_route('GET', '/api/v2/move-battle-style/{id}/', {
   "resourcePath" => "/MoveBattleStyle",
   "summary" => "",
   "nickname" => "move_battle_style_read",

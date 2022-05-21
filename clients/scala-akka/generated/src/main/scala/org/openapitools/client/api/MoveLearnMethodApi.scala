@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object MoveLearnMethodApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new MoveLearnMethodApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new MoveLearnMethodApi(baseUrl)
 }
 
 class MoveLearnMethodApi(baseUrl: String) {

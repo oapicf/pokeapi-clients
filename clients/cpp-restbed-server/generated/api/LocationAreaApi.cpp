@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-LocationAreaApiApiV2Location-areaResource::LocationAreaApiApiV2Location-areaResource(const std::string& context /* = "/api/v2" */)
+LocationAreaApiApiV2Location-areaResource::LocationAreaApiApiV2Location-areaResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/location-area//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string LocationAreaApiApiV2Location-areaResource::extractBodyContent(const 
                  });
   return bodyContent;
 }
-LocationAreaApiApiV2Location-areaIdResource::LocationAreaApiApiV2Location-areaIdResource(const std::string& context /* = "/api/v2" */)
+LocationAreaApiApiV2Location-areaIdResource::LocationAreaApiApiV2Location-areaIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/location-area/{id: .*}//");
 	this->set_method_handler("GET",

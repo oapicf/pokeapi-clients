@@ -20,7 +20,7 @@ module BerryFlavorApiHandlers =
     /// </summary>
    [<FunctionName("BerryFlavorList")>]
     let BerryFlavorList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/berry-flavor/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/berry-flavor/")>]
         req:HttpRequest ) =
 
       let result = BerryFlavorApiService.BerryFlavorList ()
@@ -36,7 +36,7 @@ module BerryFlavorApiHandlers =
     /// </summary>
    [<FunctionName("BerryFlavorRead")>]
     let BerryFlavorRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/berry-flavor/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/berry-flavor/{id}/")>]
         req:HttpRequest ) =
 
       let result = BerryFlavorApiService.BerryFlavorRead ()

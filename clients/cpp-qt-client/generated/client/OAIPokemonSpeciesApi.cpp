@@ -32,7 +32,7 @@ void OAIPokemonSpeciesApi::initializeServerConfigs() {
     QList<OAIServerConfiguration> defaultConf = QList<OAIServerConfiguration>();
     //varying endpoint server
     defaultConf.append(OAIServerConfiguration(
-    QUrl("https://pokeapi.co/api/v2/"),
+    QUrl("https://pokeapi.co/"),
     "No description provided",
     QMap<QString, OAIServerVariable>()));
     _serverConfigs.insert("pokemonSpeciesList", defaultConf);

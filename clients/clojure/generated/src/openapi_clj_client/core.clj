@@ -12,7 +12,7 @@
 
 (def default-api-context
   "Default API context."
-  {:base-url        "https://pokeapi.co/api/v2"
+  {:base-url        "https://pokeapi.co"
    :date-format     "yyyy-MM-dd"
    :datetime-format "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
    :decode-models   false

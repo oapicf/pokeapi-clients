@@ -1,6 +1,6 @@
 # ItemPocketApi
 
-All URIs are relative to */api/v2*
+All URIs are relative to **
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

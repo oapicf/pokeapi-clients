@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIMachineApiRequest::getRawSocket(){
 
 
 void OAIMachineApiRequest::machineListRequest(){
-    qDebug() << "/api/v2/api/v2/machine/";
+    qDebug() << "/api/v2/machine/";
     connect(this, &OAIMachineApiRequest::machineList, handler.data(), &OAIMachineApiHandler::machineList);
 
     
@@ -71,7 +71,7 @@ void OAIMachineApiRequest::machineListRequest(){
 
 
 void OAIMachineApiRequest::machineReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/machine/{id}/";
+    qDebug() << "/api/v2/machine/{id}/";
     connect(this, &OAIMachineApiRequest::machineRead, handler.data(), &OAIMachineApiHandler::machineRead);
 
     

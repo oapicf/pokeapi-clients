@@ -21,7 +21,7 @@ API.Client.LocationAreaApi = function($http, $httpParamSerializer, $injector) {
   /** @private {!string} */
   this.basePath_ = $injector.has('LocationAreaApiBasePath') ?
                    /** @type {!string} */ ($injector.get('LocationAreaApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('LocationAreaApiDefaultHeaders') ?

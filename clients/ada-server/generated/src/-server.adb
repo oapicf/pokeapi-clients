@@ -35,9 +35,9 @@ begin
    .Servers.Server_Impl.Register (App);
 
    WS.Configure (Configure'Access);
-   WS.Register_Application ("/api/v2", App'Unchecked_Access);
+   WS.Register_Application ("", App'Unchecked_Access);
    App.Dump_Routes (Util.Log.INFO_LEVEL);
-   Log.Info ("Connect you browser to: http://localhost:{0}/api/v2/ui/index.html",
+   Log.Info ("Connect you browser to: http://localhost:{0}/ui/index.html",
              Util.Strings.Image (Port));
 
    WS.Start;

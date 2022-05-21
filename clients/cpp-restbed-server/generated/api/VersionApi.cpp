@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-VersionApiApiV2VersionResource::VersionApiApiV2VersionResource(const std::string& context /* = "/api/v2" */)
+VersionApiApiV2VersionResource::VersionApiApiV2VersionResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/version//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string VersionApiApiV2VersionResource::extractBodyContent(const std::shared
                  });
   return bodyContent;
 }
-VersionApiApiV2VersionIdResource::VersionApiApiV2VersionIdResource(const std::string& context /* = "/api/v2" */)
+VersionApiApiV2VersionIdResource::VersionApiApiV2VersionIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/version/{id: .*}//");
 	this->set_method_handler("GET",

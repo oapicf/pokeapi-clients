@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIMoveCategoryApiRequest::getRawSocket(){
 
 
 void OAIMoveCategoryApiRequest::moveCategoryListRequest(){
-    qDebug() << "/api/v2/api/v2/move-category/";
+    qDebug() << "/api/v2/move-category/";
     connect(this, &OAIMoveCategoryApiRequest::moveCategoryList, handler.data(), &OAIMoveCategoryApiHandler::moveCategoryList);
 
     
@@ -71,7 +71,7 @@ void OAIMoveCategoryApiRequest::moveCategoryListRequest(){
 
 
 void OAIMoveCategoryApiRequest::moveCategoryReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/move-category/{id}/";
+    qDebug() << "/api/v2/move-category/{id}/";
     connect(this, &OAIMoveCategoryApiRequest::moveCategoryRead, handler.data(), &OAIMoveCategoryApiHandler::moveCategoryRead);
 
     

@@ -51,13 +51,13 @@ func (c *NatureApiController) Routes() Routes {
 		{
 			"NatureList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/nature/",
+			"/api/v2/nature/",
 			c.NatureList,
 		},
 		{
 			"NatureRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/nature/{id}/",
+			"/api/v2/nature/{id}/",
 			c.NatureRead,
 		},
 	}

@@ -5,11 +5,11 @@ import javax.inject.{Inject, Singleton}
 import play.api.libs.json._
 import play.api.mvc._
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-16T10:34:47.121763Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-21T04:06:20.868089Z[Etc/UTC]")
 @Singleton
 class GrowthRateApiController @Inject()(cc: ControllerComponents, api: GrowthRateApi) extends AbstractController(cc) {
   /**
-    * GET /api/v2/api/v2/growth-rate/?limit=[value]&offset=[value]
+    * GET /api/v2/growth-rate/?limit=[value]&offset=[value]
     */
   def growthRateList(): Action[AnyContent] = Action { request =>
     def executeApi(): String = {
@@ -26,7 +26,7 @@ class GrowthRateApiController @Inject()(cc: ControllerComponents, api: GrowthRat
   }
 
   /**
-    * GET /api/v2/api/v2/growth-rate/:id/
+    * GET /api/v2/growth-rate/:id/
     */
   def growthRateRead(id: Int): Action[AnyContent] = Action { request =>
     def executeApi(): String = {

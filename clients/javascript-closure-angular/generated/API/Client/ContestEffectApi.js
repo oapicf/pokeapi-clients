@@ -21,7 +21,7 @@ API.Client.ContestEffectApi = function($http, $httpParamSerializer, $injector) {
   /** @private {!string} */
   this.basePath_ = $injector.has('ContestEffectApiBasePath') ?
                    /** @type {!string} */ ($injector.get('ContestEffectApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('ContestEffectApiDefaultHeaders') ?

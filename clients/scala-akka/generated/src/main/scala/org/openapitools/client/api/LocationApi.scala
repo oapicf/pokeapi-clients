@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object LocationApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new LocationApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new LocationApi(baseUrl)
 }
 
 class LocationApi(baseUrl: String) {

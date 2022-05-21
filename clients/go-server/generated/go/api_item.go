@@ -51,13 +51,13 @@ func (c *ItemApiController) Routes() Routes {
 		{
 			"ItemList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/item/",
+			"/api/v2/item/",
 			c.ItemList,
 		},
 		{
 			"ItemRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/item/{id}/",
+			"/api/v2/item/{id}/",
 			c.ItemRead,
 		},
 	}

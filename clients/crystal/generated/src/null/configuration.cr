@@ -129,7 +129,7 @@ module
     def initialize
       @scheme = "https"
       @host = "pokeapi.co"
-      @base_path = "/api/v2"
+      @base_path = ""
       @server_index = 0
       @server_operation_index = {} of Symbol => String
       @server_variables = {} of Symbol => String
@@ -223,7 +223,7 @@ module
     def server_settings
       [
         {
-          url: "https://pokeapi.co/api/v2",
+          url: "https://pokeapi.co",
           description: "No description provided",
         }
       ]

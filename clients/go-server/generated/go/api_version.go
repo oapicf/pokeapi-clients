@@ -51,13 +51,13 @@ func (c *VersionApiController) Routes() Routes {
 		{
 			"VersionList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/version/",
+			"/api/v2/version/",
 			c.VersionList,
 		},
 		{
 			"VersionRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/version/{id}/",
+			"/api/v2/version/{id}/",
 			c.VersionRead,
 		},
 	}

@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIPalParkAreaApiRequest::getRawSocket(){
 
 
 void OAIPalParkAreaApiRequest::palParkAreaListRequest(){
-    qDebug() << "/api/v2/api/v2/pal-park-area/";
+    qDebug() << "/api/v2/pal-park-area/";
     connect(this, &OAIPalParkAreaApiRequest::palParkAreaList, handler.data(), &OAIPalParkAreaApiHandler::palParkAreaList);
 
     
@@ -71,7 +71,7 @@ void OAIPalParkAreaApiRequest::palParkAreaListRequest(){
 
 
 void OAIPalParkAreaApiRequest::palParkAreaReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/pal-park-area/{id}/";
+    qDebug() << "/api/v2/pal-park-area/{id}/";
     connect(this, &OAIPalParkAreaApiRequest::palParkAreaRead, handler.data(), &OAIPalParkAreaApiHandler::palParkAreaRead);
 
     

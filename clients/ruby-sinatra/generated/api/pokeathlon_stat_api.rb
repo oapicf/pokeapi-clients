@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/pokeathlon-stat/', {
+MyApp.add_route('GET', '/api/v2/pokeathlon-stat/', {
   "resourcePath" => "/PokeathlonStat",
   "summary" => "",
   "nickname" => "pokeathlon_stat_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/pokeathlon-stat/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/pokeathlon-stat/{id}/', {
+MyApp.add_route('GET', '/api/v2/pokeathlon-stat/{id}/', {
   "resourcePath" => "/PokeathlonStat",
   "summary" => "",
   "nickname" => "pokeathlon_stat_read",

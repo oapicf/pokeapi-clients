@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIMoveBattleStyleApiRequest::getRawSocket(){
 
 
 void OAIMoveBattleStyleApiRequest::moveBattleStyleListRequest(){
-    qDebug() << "/api/v2/api/v2/move-battle-style/";
+    qDebug() << "/api/v2/move-battle-style/";
     connect(this, &OAIMoveBattleStyleApiRequest::moveBattleStyleList, handler.data(), &OAIMoveBattleStyleApiHandler::moveBattleStyleList);
 
     
@@ -71,7 +71,7 @@ void OAIMoveBattleStyleApiRequest::moveBattleStyleListRequest(){
 
 
 void OAIMoveBattleStyleApiRequest::moveBattleStyleReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/move-battle-style/{id}/";
+    qDebug() << "/api/v2/move-battle-style/{id}/";
     connect(this, &OAIMoveBattleStyleApiRequest::moveBattleStyleRead, handler.data(), &OAIMoveBattleStyleApiHandler::moveBattleStyleRead);
 
     

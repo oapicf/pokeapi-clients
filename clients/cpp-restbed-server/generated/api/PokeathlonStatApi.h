@@ -64,7 +64,7 @@ private:
 class  PokeathlonStatApiApiV2Pokeathlon-statResource: public restbed::Resource
 {
 public:
-    PokeathlonStatApiApiV2Pokeathlon-statResource(const std::string& context = "/api/v2");
+    PokeathlonStatApiApiV2Pokeathlon-statResource(const std::string& context = "");
     virtual ~PokeathlonStatApiApiV2Pokeathlon-statResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  PokeathlonStatApiApiV2Pokeathlon-statIdResource: public restbed::Resource
 {
 public:
-    PokeathlonStatApiApiV2Pokeathlon-statIdResource(const std::string& context = "/api/v2");
+    PokeathlonStatApiApiV2Pokeathlon-statIdResource(const std::string& context = "");
     virtual ~PokeathlonStatApiApiV2Pokeathlon-statIdResource();
 
 protected:

@@ -3,7 +3,7 @@
 -export([machine_list/1, machine_list/2,
          machine_read/2, machine_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

@@ -21,7 +21,7 @@ API.Client.RegionApi = function($http, $httpParamSerializer, $injector) {
   /** @private {!string} */
   this.basePath_ = $injector.has('RegionApiBasePath') ?
                    /** @type {!string} */ ($injector.get('RegionApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('RegionApiDefaultHeaders') ?

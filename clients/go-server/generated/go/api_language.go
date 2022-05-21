@@ -51,13 +51,13 @@ func (c *LanguageApiController) Routes() Routes {
 		{
 			"LanguageList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/language/",
+			"/api/v2/language/",
 			c.LanguageList,
 		},
 		{
 			"LanguageRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/language/{id}/",
+			"/api/v2/language/{id}/",
 			c.LanguageRead,
 		},
 	}

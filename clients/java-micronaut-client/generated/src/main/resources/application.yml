@@ -1,5 +1,5 @@
-base-path: "https://pokeapi.co/api/v2/"
-context-path: "/api/v2/"
+base-path: "https://pokeapi.co/"
+context-path: "/"
 
 micronaut:
     application:

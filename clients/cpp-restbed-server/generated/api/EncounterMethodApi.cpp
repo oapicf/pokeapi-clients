@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-EncounterMethodApiApiV2Encounter-methodResource::EncounterMethodApiApiV2Encounter-methodResource(const std::string& context /* = "/api/v2" */)
+EncounterMethodApiApiV2Encounter-methodResource::EncounterMethodApiApiV2Encounter-methodResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/encounter-method//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string EncounterMethodApiApiV2Encounter-methodResource::extractBodyContent(
                  });
   return bodyContent;
 }
-EncounterMethodApiApiV2Encounter-methodIdResource::EncounterMethodApiApiV2Encounter-methodIdResource(const std::string& context /* = "/api/v2" */)
+EncounterMethodApiApiV2Encounter-methodIdResource::EncounterMethodApiApiV2Encounter-methodIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/encounter-method/{id: .*}//");
 	this->set_method_handler("GET",

@@ -17,7 +17,7 @@ import sttp.model.Method
 
 object PokemonHabitatApi {
 
-def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new PokemonHabitatApi(baseUrl)
+def apply(baseUrl: String = "https://pokeapi.co") = new PokemonHabitatApi(baseUrl)
 }
 
 class PokemonHabitatApi(baseUrl: String) {

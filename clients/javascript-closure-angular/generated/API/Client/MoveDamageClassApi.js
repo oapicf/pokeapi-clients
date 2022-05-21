@@ -21,7 +21,7 @@ API.Client.MoveDamageClassApi = function($http, $httpParamSerializer, $injector)
   /** @private {!string} */
   this.basePath_ = $injector.has('MoveDamageClassApiBasePath') ?
                    /** @type {!string} */ ($injector.get('MoveDamageClassApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('MoveDamageClassApiDefaultHeaders') ?

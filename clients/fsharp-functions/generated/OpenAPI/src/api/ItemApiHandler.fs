@@ -20,7 +20,7 @@ module ItemApiHandlers =
     /// </summary>
    [<FunctionName("ItemList")>]
     let ItemList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/item/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/item/")>]
         req:HttpRequest ) =
 
       let result = ItemApiService.ItemList ()
@@ -36,7 +36,7 @@ module ItemApiHandlers =
     /// </summary>
    [<FunctionName("ItemRead")>]
     let ItemRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/item/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/item/{id}/")>]
         req:HttpRequest ) =
 
       let result = ItemApiService.ItemRead ()

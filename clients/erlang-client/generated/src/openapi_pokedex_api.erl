@@ -3,7 +3,7 @@
 -export([pokedex_list/1, pokedex_list/2,
          pokedex_read/2, pokedex_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 README.md
 config/config.exs
 lib/open_api/client/api/ability.ex

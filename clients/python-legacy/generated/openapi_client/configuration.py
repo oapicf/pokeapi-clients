@@ -95,7 +95,7 @@ class Configuration(object):
                  ):
         """Constructor
         """
-        self._base_path = "https://pokeapi.co/api/v2" if host is None else host
+        self._base_path = "https://pokeapi.co" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -390,7 +390,7 @@ class Configuration(object):
         """
         return [
             {
-                'url': "https://pokeapi.co/api/v2",
+                'url': "https://pokeapi.co",
                 'description': "No description provided",
             }
         ]

@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-MoveCategoryApiApiV2Move-categoryResource::MoveCategoryApiApiV2Move-categoryResource(const std::string& context /* = "/api/v2" */)
+MoveCategoryApiApiV2Move-categoryResource::MoveCategoryApiApiV2Move-categoryResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/move-category//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string MoveCategoryApiApiV2Move-categoryResource::extractBodyContent(const 
                  });
   return bodyContent;
 }
-MoveCategoryApiApiV2Move-categoryIdResource::MoveCategoryApiApiV2Move-categoryIdResource(const std::string& context /* = "/api/v2" */)
+MoveCategoryApiApiV2Move-categoryIdResource::MoveCategoryApiApiV2Move-categoryIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/move-category/{id: .*}//");
 	this->set_method_handler("GET",

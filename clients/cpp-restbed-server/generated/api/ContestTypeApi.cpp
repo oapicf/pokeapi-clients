@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-ContestTypeApiApiV2Contest-typeResource::ContestTypeApiApiV2Contest-typeResource(const std::string& context /* = "/api/v2" */)
+ContestTypeApiApiV2Contest-typeResource::ContestTypeApiApiV2Contest-typeResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/contest-type//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string ContestTypeApiApiV2Contest-typeResource::extractBodyContent(const st
                  });
   return bodyContent;
 }
-ContestTypeApiApiV2Contest-typeIdResource::ContestTypeApiApiV2Contest-typeIdResource(const std::string& context /* = "/api/v2" */)
+ContestTypeApiApiV2Contest-typeIdResource::ContestTypeApiApiV2Contest-typeIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/contest-type/{id: .*}//");
 	this->set_method_handler("GET",

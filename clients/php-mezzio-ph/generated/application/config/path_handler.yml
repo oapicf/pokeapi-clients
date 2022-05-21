@@ -9,7 +9,7 @@ dependencies:
 
 Articus\PathHandler\RouteInjectionFactory:
   paths:
-    '/api/v2':
+    '':
     - App\Handler\ApiV2Ability
     - App\Handler\ApiV2AbilityId
     - App\Handler\ApiV2BerryFirmness

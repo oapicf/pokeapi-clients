@@ -275,195 +275,195 @@ void OAIApiRouter::setOAIVersionGroupApiHandler(QSharedPointer<OAIVersionGroupAp
 
 void OAIApiRouter::setUpRoutes() {
     
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/ability/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/ability/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIAbilityApiRequest(socket, mOAIAbilityApiHandler);
             reqObj->abilityListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/berry/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/berry/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIBerryApiRequest(socket, mOAIBerryApiHandler);
             reqObj->berryListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/berry-firmness/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/berry-firmness/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIBerryFirmnessApiRequest(socket, mOAIBerryFirmnessApiHandler);
             reqObj->berryFirmnessListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/berry-flavor/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/berry-flavor/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIBerryFlavorApiRequest(socket, mOAIBerryFlavorApiHandler);
             reqObj->berryFlavorListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/characteristic/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/characteristic/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAICharacteristicApiRequest(socket, mOAICharacteristicApiHandler);
             reqObj->characteristicListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/contest-effect/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/contest-effect/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIContestEffectApiRequest(socket, mOAIContestEffectApiHandler);
             reqObj->contestEffectListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/contest-type/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/contest-type/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIContestTypeApiRequest(socket, mOAIContestTypeApiHandler);
             reqObj->contestTypeListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/egg-group/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/egg-group/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIEggGroupApiRequest(socket, mOAIEggGroupApiHandler);
             reqObj->eggGroupListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/encounter-condition/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/encounter-condition/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIEncounterConditionApiRequest(socket, mOAIEncounterConditionApiHandler);
             reqObj->encounterConditionListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/encounter-condition-value/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/encounter-condition-value/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIEncounterConditionValueApiRequest(socket, mOAIEncounterConditionValueApiHandler);
             reqObj->encounterConditionValueListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/encounter-method/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/encounter-method/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIEncounterMethodApiRequest(socket, mOAIEncounterMethodApiHandler);
             reqObj->encounterMethodListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/evolution-chain/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/evolution-chain/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIEvolutionChainApiRequest(socket, mOAIEvolutionChainApiHandler);
             reqObj->evolutionChainListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/evolution-trigger/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/evolution-trigger/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIEvolutionTriggerApiRequest(socket, mOAIEvolutionTriggerApiHandler);
             reqObj->evolutionTriggerListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/gender/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/gender/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIGenderApiRequest(socket, mOAIGenderApiHandler);
             reqObj->genderListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/generation/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/generation/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIGenerationApiRequest(socket, mOAIGenerationApiHandler);
             reqObj->generationListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/growth-rate/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/growth-rate/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIGrowthRateApiRequest(socket, mOAIGrowthRateApiHandler);
             reqObj->growthRateListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/item/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/item/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIItemApiRequest(socket, mOAIItemApiHandler);
             reqObj->itemListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/item-attribute/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/item-attribute/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIItemAttributeApiRequest(socket, mOAIItemAttributeApiHandler);
             reqObj->itemAttributeListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/item-category/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/item-category/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIItemCategoryApiRequest(socket, mOAIItemCategoryApiHandler);
             reqObj->itemCategoryListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/item-fling-effect/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/item-fling-effect/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIItemFlingEffectApiRequest(socket, mOAIItemFlingEffectApiHandler);
             reqObj->itemFlingEffectListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/item-pocket/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/item-pocket/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIItemPocketApiRequest(socket, mOAIItemPocketApiHandler);
             reqObj->itemPocketListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/language/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/language/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAILanguageApiRequest(socket, mOAILanguageApiHandler);
             reqObj->languageListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/location/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/location/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAILocationApiRequest(socket, mOAILocationApiHandler);
             reqObj->locationListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/location-area/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/location-area/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAILocationAreaApiRequest(socket, mOAILocationAreaApiHandler);
             reqObj->locationAreaListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/machine/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/machine/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIMachineApiRequest(socket, mOAIMachineApiHandler);
             reqObj->machineListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/move/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/move/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIMoveApiRequest(socket, mOAIMoveApiHandler);
             reqObj->moveListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/move-ailment/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/move-ailment/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIMoveAilmentApiRequest(socket, mOAIMoveAilmentApiHandler);
             reqObj->moveAilmentListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/move-battle-style/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/move-battle-style/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIMoveBattleStyleApiRequest(socket, mOAIMoveBattleStyleApiHandler);
             reqObj->moveBattleStyleListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/move-category/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/move-category/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIMoveCategoryApiRequest(socket, mOAIMoveCategoryApiHandler);
             reqObj->moveCategoryListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/move-damage-class/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/move-damage-class/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIMoveDamageClassApiRequest(socket, mOAIMoveDamageClassApiHandler);
             reqObj->moveDamageClassListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/move-learn-method/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/move-learn-method/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIMoveLearnMethodApiRequest(socket, mOAIMoveLearnMethodApiHandler);
             reqObj->moveLearnMethodListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/move-target/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/move-target/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIMoveTargetApiRequest(socket, mOAIMoveTargetApiHandler);
             reqObj->moveTargetListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/nature/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/nature/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAINatureApiRequest(socket, mOAINatureApiHandler);
             reqObj->natureListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pal-park-area/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/pal-park-area/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIPalParkAreaApiRequest(socket, mOAIPalParkAreaApiHandler);
             reqObj->palParkAreaListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pokeathlon-stat/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/pokeathlon-stat/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIPokeathlonStatApiRequest(socket, mOAIPokeathlonStatApiHandler);
             reqObj->pokeathlonStatListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pokedex/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/pokedex/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIPokedexApiRequest(socket, mOAIPokedexApiHandler);
             reqObj->pokedexListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pokemon/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/pokemon/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIPokemonApiRequest(socket, mOAIPokemonApiHandler);
             reqObj->pokemonListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pokemon-color/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/pokemon-color/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIPokemonColorApiRequest(socket, mOAIPokemonColorApiHandler);
             reqObj->pokemonColorListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pokemon-form/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/pokemon-form/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIPokemonFormApiRequest(socket, mOAIPokemonFormApiHandler);
             reqObj->pokemonFormListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pokemon-habitat/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/pokemon-habitat/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIPokemonHabitatApiRequest(socket, mOAIPokemonHabitatApiHandler);
             reqObj->pokemonHabitatListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pokemon-shape/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/pokemon-shape/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIPokemonShapeApiRequest(socket, mOAIPokemonShapeApiHandler);
             reqObj->pokemonShapeListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pokemon-species/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/pokemon-species/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIPokemonSpeciesApiRequest(socket, mOAIPokemonSpeciesApiHandler);
             reqObj->pokemonSpeciesListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/region/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/region/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIRegionApiRequest(socket, mOAIRegionApiHandler);
             reqObj->regionListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/stat/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/stat/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIStatApiRequest(socket, mOAIStatApiHandler);
             reqObj->statListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/super-contest-effect/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/super-contest-effect/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAISuperContestEffectApiRequest(socket, mOAISuperContestEffectApiHandler);
             reqObj->superContestEffectListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/type/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/type/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAITypeApiRequest(socket, mOAITypeApiHandler);
             reqObj->typeListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/version/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/version/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIVersionApiRequest(socket, mOAIVersionApiHandler);
             reqObj->versionListRequest();
     });
-    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/api/v2/version-group/").toLower(), [this](QHttpEngine::Socket *socket) {
+    Routes.insert(QString("%1 %2").arg("GET").arg("/api/v2/version-group/").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIVersionGroupApiRequest(socket, mOAIVersionGroupApiHandler);
             reqObj->versionGroupListRequest();
     });
@@ -495,7 +495,7 @@ bool OAIApiRouter::handleRequest(QHttpEngine::Socket *socket){
 bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket){
     auto reqPath = QString("%1 %2").arg(fromQHttpEngineMethod(socket->method())).arg(socket->path()).toLower();
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/ability/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/ability/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -507,7 +507,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/berry/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/berry/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -519,7 +519,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/berry-firmness/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/berry-firmness/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -531,7 +531,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/berry-flavor/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/berry-flavor/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -543,7 +543,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/characteristic/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/characteristic/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -555,7 +555,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/contest-effect/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/contest-effect/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -567,7 +567,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/contest-type/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/contest-type/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -579,7 +579,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/egg-group/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/egg-group/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -591,7 +591,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/encounter-condition/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/encounter-condition/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -603,7 +603,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/encounter-condition-value/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/encounter-condition-value/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -615,7 +615,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/encounter-method/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/encounter-method/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -627,7 +627,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/evolution-chain/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/evolution-chain/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -639,7 +639,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/evolution-trigger/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/evolution-trigger/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -651,7 +651,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/gender/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/gender/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -663,7 +663,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/generation/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/generation/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -675,7 +675,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/growth-rate/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/growth-rate/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -687,7 +687,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/item/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/item/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -699,7 +699,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/item-attribute/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/item-attribute/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -711,7 +711,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/item-category/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/item-category/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -723,7 +723,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/item-fling-effect/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/item-fling-effect/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -735,7 +735,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/item-pocket/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/item-pocket/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -747,7 +747,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/language/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/language/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -759,7 +759,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/location/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/location/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -771,7 +771,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/location-area/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/location-area/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -783,7 +783,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/machine/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/machine/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -795,7 +795,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/move/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/move/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -807,7 +807,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/move-ailment/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/move-ailment/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -819,7 +819,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/move-battle-style/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/move-battle-style/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -831,7 +831,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/move-category/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/move-category/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -843,7 +843,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/move-damage-class/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/move-damage-class/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -855,7 +855,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/move-learn-method/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/move-learn-method/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -867,7 +867,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/move-target/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/move-target/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -879,7 +879,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/nature/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/nature/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -891,7 +891,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pal-park-area/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/pal-park-area/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -903,7 +903,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pokeathlon-stat/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/pokeathlon-stat/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -915,7 +915,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pokedex/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/pokedex/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -927,7 +927,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pokemon/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/pokemon/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -939,7 +939,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pokemon-color/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/pokemon-color/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -951,7 +951,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pokemon-form/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/pokemon-form/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -963,7 +963,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pokemon-habitat/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/pokemon-habitat/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -975,7 +975,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pokemon-shape/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/pokemon-shape/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -987,7 +987,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/pokemon-species/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/pokemon-species/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -999,7 +999,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/region/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/region/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -1011,7 +1011,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/stat/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/stat/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -1023,7 +1023,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/super-contest-effect/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/super-contest-effect/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -1035,7 +1035,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/type/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/type/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -1047,7 +1047,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/version/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/version/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){
@@ -1059,7 +1059,7 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/api/v2/version-group/{id}/").toLower();
+        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/version-group/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
             if ( match.hasMatch() ){

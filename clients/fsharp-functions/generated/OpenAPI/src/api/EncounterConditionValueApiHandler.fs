@@ -20,7 +20,7 @@ module EncounterConditionValueApiHandlers =
     /// </summary>
    [<FunctionName("EncounterConditionValueList")>]
     let EncounterConditionValueList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/encounter-condition-value/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/encounter-condition-value/")>]
         req:HttpRequest ) =
 
       let result = EncounterConditionValueApiService.EncounterConditionValueList ()
@@ -36,7 +36,7 @@ module EncounterConditionValueApiHandlers =
     /// </summary>
    [<FunctionName("EncounterConditionValueRead")>]
     let EncounterConditionValueRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/encounter-condition-value/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/encounter-condition-value/{id}/")>]
         req:HttpRequest ) =
 
       let result = EncounterConditionValueApiService.EncounterConditionValueRead ()

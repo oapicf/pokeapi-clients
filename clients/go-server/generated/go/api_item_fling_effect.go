@@ -51,13 +51,13 @@ func (c *ItemFlingEffectApiController) Routes() Routes {
 		{
 			"ItemFlingEffectList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/item-fling-effect/",
+			"/api/v2/item-fling-effect/",
 			c.ItemFlingEffectList,
 		},
 		{
 			"ItemFlingEffectRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/item-fling-effect/{id}/",
+			"/api/v2/item-fling-effect/{id}/",
 			c.ItemFlingEffectRead,
 		},
 	}

@@ -51,13 +51,13 @@ func (c *MoveCategoryApiController) Routes() Routes {
 		{
 			"MoveCategoryList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/move-category/",
+			"/api/v2/move-category/",
 			c.MoveCategoryList,
 		},
 		{
 			"MoveCategoryRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/move-category/{id}/",
+			"/api/v2/move-category/{id}/",
 			c.MoveCategoryRead,
 		},
 	}

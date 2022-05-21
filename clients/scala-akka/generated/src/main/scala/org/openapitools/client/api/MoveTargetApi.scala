@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object MoveTargetApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new MoveTargetApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new MoveTargetApi(baseUrl)
 }
 
 class MoveTargetApi(baseUrl: String) {

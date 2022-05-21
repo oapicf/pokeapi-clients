@@ -64,7 +64,7 @@ private:
 class  MoveDamageClassApiApiV2Move-damage-classResource: public restbed::Resource
 {
 public:
-    MoveDamageClassApiApiV2Move-damage-classResource(const std::string& context = "/api/v2");
+    MoveDamageClassApiApiV2Move-damage-classResource(const std::string& context = "");
     virtual ~MoveDamageClassApiApiV2Move-damage-classResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  MoveDamageClassApiApiV2Move-damage-classIdResource: public restbed::Resource
 {
 public:
-    MoveDamageClassApiApiV2Move-damage-classIdResource(const std::string& context = "/api/v2");
+    MoveDamageClassApiApiV2Move-damage-classIdResource(const std::string& context = "");
     virtual ~MoveDamageClassApiApiV2Move-damage-classIdResource();
 
 protected:

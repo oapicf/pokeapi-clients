@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 README.md
 build.gradle.kts
 pom.xml
@@ -8,4 +7,3 @@ src/main/kotlin/org/openapitools/api/ApiApiController.kt
 src/main/kotlin/org/openapitools/api/ApiUtil.kt
 src/main/kotlin/org/openapitools/api/Exceptions.kt
 src/main/resources/application.yaml
-src/test/kotlin/org/openapitools/api/ApiApiTest.kt

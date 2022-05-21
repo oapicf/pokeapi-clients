@@ -34,7 +34,7 @@ feature {NONE} -- Initialization
 
 feature -- Access
 
-	default_base_path: STRING = "https://pokeapi.co/api/v2"
+	default_base_path: STRING = "https://pokeapi.co"
 			-- default base path.
 
 	base_path: STRING

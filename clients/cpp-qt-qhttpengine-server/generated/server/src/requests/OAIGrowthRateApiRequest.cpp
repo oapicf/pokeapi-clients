@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIGrowthRateApiRequest::getRawSocket(){
 
 
 void OAIGrowthRateApiRequest::growthRateListRequest(){
-    qDebug() << "/api/v2/api/v2/growth-rate/";
+    qDebug() << "/api/v2/growth-rate/";
     connect(this, &OAIGrowthRateApiRequest::growthRateList, handler.data(), &OAIGrowthRateApiHandler::growthRateList);
 
     
@@ -71,7 +71,7 @@ void OAIGrowthRateApiRequest::growthRateListRequest(){
 
 
 void OAIGrowthRateApiRequest::growthRateReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/growth-rate/{id}/";
+    qDebug() << "/api/v2/growth-rate/{id}/";
     connect(this, &OAIGrowthRateApiRequest::growthRateRead, handler.data(), &OAIGrowthRateApiHandler::growthRateRead);
 
     

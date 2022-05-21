@@ -20,7 +20,7 @@ module MoveBattleStyleApiHandlers =
     /// </summary>
    [<FunctionName("MoveBattleStyleList")>]
     let MoveBattleStyleList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/move-battle-style/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/move-battle-style/")>]
         req:HttpRequest ) =
 
       let result = MoveBattleStyleApiService.MoveBattleStyleList ()
@@ -36,7 +36,7 @@ module MoveBattleStyleApiHandlers =
     /// </summary>
    [<FunctionName("MoveBattleStyleRead")>]
     let MoveBattleStyleRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/move-battle-style/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/move-battle-style/{id}/")>]
         req:HttpRequest ) =
 
       let result = MoveBattleStyleApiService.MoveBattleStyleRead ()

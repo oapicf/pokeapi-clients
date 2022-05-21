@@ -3,7 +3,7 @@
 -export([pokemon_form_list/1, pokemon_form_list/2,
          pokemon_form_read/2, pokemon_form_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

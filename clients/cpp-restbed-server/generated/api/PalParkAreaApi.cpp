@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-PalParkAreaApiApiV2Pal-park-areaResource::PalParkAreaApiApiV2Pal-park-areaResource(const std::string& context /* = "/api/v2" */)
+PalParkAreaApiApiV2Pal-park-areaResource::PalParkAreaApiApiV2Pal-park-areaResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/pal-park-area//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string PalParkAreaApiApiV2Pal-park-areaResource::extractBodyContent(const s
                  });
   return bodyContent;
 }
-PalParkAreaApiApiV2Pal-park-areaIdResource::PalParkAreaApiApiV2Pal-park-areaIdResource(const std::string& context /* = "/api/v2" */)
+PalParkAreaApiApiV2Pal-park-areaIdResource::PalParkAreaApiApiV2Pal-park-areaIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/pal-park-area/{id: .*}//");
 	this->set_method_handler("GET",

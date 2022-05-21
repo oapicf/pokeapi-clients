@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 openapi2graphql/api/ability_api.graphql
 openapi2graphql/api/berry_api.graphql
 openapi2graphql/api/berry_firmness_api.graphql

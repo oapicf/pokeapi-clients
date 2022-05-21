@@ -20,7 +20,7 @@ module PokemonFormApiHandlers =
     /// </summary>
    [<FunctionName("PokemonFormList")>]
     let PokemonFormList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/pokemon-form/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/pokemon-form/")>]
         req:HttpRequest ) =
 
       let result = PokemonFormApiService.PokemonFormList ()
@@ -36,7 +36,7 @@ module PokemonFormApiHandlers =
     /// </summary>
    [<FunctionName("PokemonFormRead")>]
     let PokemonFormRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/pokemon-form/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/pokemon-form/{id}/")>]
         req:HttpRequest ) =
 
       let result = PokemonFormApiService.PokemonFormRead ()

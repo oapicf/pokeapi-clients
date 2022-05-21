@@ -13,7 +13,7 @@
  */
 
 
-export const BASE_PATH = "https://pokeapi.co/api/v2".replace(/\/+$/, "");
+export const BASE_PATH = "https://pokeapi.co".replace(/\/+$/, "");
 
 const isBlob = (value: any) => typeof Blob !== 'undefined' && value instanceof Blob;
 

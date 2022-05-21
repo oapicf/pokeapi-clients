@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIEvolutionTriggerApiRequest::getRawSocket(){
 
 
 void OAIEvolutionTriggerApiRequest::evolutionTriggerListRequest(){
-    qDebug() << "/api/v2/api/v2/evolution-trigger/";
+    qDebug() << "/api/v2/evolution-trigger/";
     connect(this, &OAIEvolutionTriggerApiRequest::evolutionTriggerList, handler.data(), &OAIEvolutionTriggerApiHandler::evolutionTriggerList);
 
     
@@ -71,7 +71,7 @@ void OAIEvolutionTriggerApiRequest::evolutionTriggerListRequest(){
 
 
 void OAIEvolutionTriggerApiRequest::evolutionTriggerReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/evolution-trigger/{id}/";
+    qDebug() << "/api/v2/evolution-trigger/{id}/";
     connect(this, &OAIEvolutionTriggerApiRequest::evolutionTriggerRead, handler.data(), &OAIEvolutionTriggerApiHandler::evolutionTriggerRead);
 
     

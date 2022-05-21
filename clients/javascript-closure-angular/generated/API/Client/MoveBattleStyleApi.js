@@ -21,7 +21,7 @@ API.Client.MoveBattleStyleApi = function($http, $httpParamSerializer, $injector)
   /** @private {!string} */
   this.basePath_ = $injector.has('MoveBattleStyleApiBasePath') ?
                    /** @type {!string} */ ($injector.get('MoveBattleStyleApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('MoveBattleStyleApiDefaultHeaders') ?

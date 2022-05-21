@@ -5,11 +5,11 @@ import javax.inject.{Inject, Singleton}
 import play.api.libs.json._
 import play.api.mvc._
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-16T10:34:47.121763Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-21T04:06:20.868089Z[Etc/UTC]")
 @Singleton
 class RegionApiController @Inject()(cc: ControllerComponents, api: RegionApi) extends AbstractController(cc) {
   /**
-    * GET /api/v2/api/v2/region/?limit=[value]&offset=[value]
+    * GET /api/v2/region/?limit=[value]&offset=[value]
     */
   def regionList(): Action[AnyContent] = Action { request =>
     def executeApi(): String = {
@@ -26,7 +26,7 @@ class RegionApiController @Inject()(cc: ControllerComponents, api: RegionApi) ex
   }
 
   /**
-    * GET /api/v2/api/v2/region/:id/
+    * GET /api/v2/region/:id/
     */
   def regionRead(id: Int): Action[AnyContent] = Action { request =>
     def executeApi(): String = {

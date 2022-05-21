@@ -19,7 +19,7 @@ namespace org::openapitools::server::api
 using namespace org::openapitools::server::helpers;
 
 
-const std::string AbilityApi::base = "/api/v2";
+const std::string AbilityApi::base = "";
 
 AbilityApi::AbilityApi(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : router(rtr)

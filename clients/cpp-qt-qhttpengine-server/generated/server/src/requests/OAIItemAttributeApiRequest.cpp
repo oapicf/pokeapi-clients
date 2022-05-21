@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIItemAttributeApiRequest::getRawSocket(){
 
 
 void OAIItemAttributeApiRequest::itemAttributeListRequest(){
-    qDebug() << "/api/v2/api/v2/item-attribute/";
+    qDebug() << "/api/v2/item-attribute/";
     connect(this, &OAIItemAttributeApiRequest::itemAttributeList, handler.data(), &OAIItemAttributeApiHandler::itemAttributeList);
 
     
@@ -71,7 +71,7 @@ void OAIItemAttributeApiRequest::itemAttributeListRequest(){
 
 
 void OAIItemAttributeApiRequest::itemAttributeReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/item-attribute/{id}/";
+    qDebug() << "/api/v2/item-attribute/{id}/";
     connect(this, &OAIItemAttributeApiRequest::itemAttributeRead, handler.data(), &OAIItemAttributeApiHandler::itemAttributeRead);
 
     

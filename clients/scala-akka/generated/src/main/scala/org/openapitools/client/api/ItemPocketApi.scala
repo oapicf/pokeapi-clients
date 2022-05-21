@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ItemPocketApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new ItemPocketApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new ItemPocketApi(baseUrl)
 }
 
 class ItemPocketApi(baseUrl: String) {

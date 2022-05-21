@@ -1,6 +1,6 @@
 # Org.OpenAPITools.Apis.VersionGroupApi
 
-All URIs are relative to *https://pokeapi.co/api/v2*
+All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,7 +29,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://pokeapi.co/api/v2";
+            config.BasePath = "https://pokeapi.co";
             var apiInstance = new VersionGroupApi(config);
             var limit = 56;  // int? |  (optional) 
             var offset = 56;  // int? |  (optional) 
@@ -99,7 +99,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://pokeapi.co/api/v2";
+            config.BasePath = "https://pokeapi.co";
             var apiInstance = new VersionGroupApi(config);
             var id = 56;  // int | 
 

@@ -64,7 +64,7 @@ private:
 class  RegionApiApiV2RegionResource: public restbed::Resource
 {
 public:
-    RegionApiApiV2RegionResource(const std::string& context = "/api/v2");
+    RegionApiApiV2RegionResource(const std::string& context = "");
     virtual ~RegionApiApiV2RegionResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  RegionApiApiV2RegionIdResource: public restbed::Resource
 {
 public:
-    RegionApiApiV2RegionIdResource(const std::string& context = "/api/v2");
+    RegionApiApiV2RegionIdResource(const std::string& context = "");
     virtual ~RegionApiApiV2RegionIdResource();
 
 protected:

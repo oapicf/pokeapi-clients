@@ -20,7 +20,7 @@ module PalParkAreaApiHandlers =
     /// </summary>
    [<FunctionName("PalParkAreaList")>]
     let PalParkAreaList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/pal-park-area/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/pal-park-area/")>]
         req:HttpRequest ) =
 
       let result = PalParkAreaApiService.PalParkAreaList ()
@@ -36,7 +36,7 @@ module PalParkAreaApiHandlers =
     /// </summary>
    [<FunctionName("PalParkAreaRead")>]
     let PalParkAreaRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/pal-park-area/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/pal-park-area/{id}/")>]
         req:HttpRequest ) =
 
       let result = PalParkAreaApiService.PalParkAreaRead ()

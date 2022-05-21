@@ -20,7 +20,7 @@ module EncounterMethodApiHandlers =
     /// </summary>
    [<FunctionName("EncounterMethodList")>]
     let EncounterMethodList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/encounter-method/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/encounter-method/")>]
         req:HttpRequest ) =
 
       let result = EncounterMethodApiService.EncounterMethodList ()
@@ -36,7 +36,7 @@ module EncounterMethodApiHandlers =
     /// </summary>
    [<FunctionName("EncounterMethodRead")>]
     let EncounterMethodRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/encounter-method/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/encounter-method/{id}/")>]
         req:HttpRequest ) =
 
       let result = EncounterMethodApiService.EncounterMethodRead ()

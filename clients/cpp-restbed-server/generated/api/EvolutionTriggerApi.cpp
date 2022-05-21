@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-EvolutionTriggerApiApiV2Evolution-triggerResource::EvolutionTriggerApiApiV2Evolution-triggerResource(const std::string& context /* = "/api/v2" */)
+EvolutionTriggerApiApiV2Evolution-triggerResource::EvolutionTriggerApiApiV2Evolution-triggerResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/evolution-trigger//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string EvolutionTriggerApiApiV2Evolution-triggerResource::extractBodyConten
                  });
   return bodyContent;
 }
-EvolutionTriggerApiApiV2Evolution-triggerIdResource::EvolutionTriggerApiApiV2Evolution-triggerIdResource(const std::string& context /* = "/api/v2" */)
+EvolutionTriggerApiApiV2Evolution-triggerIdResource::EvolutionTriggerApiApiV2Evolution-triggerIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/evolution-trigger/{id: .*}//");
 	this->set_method_handler("GET",

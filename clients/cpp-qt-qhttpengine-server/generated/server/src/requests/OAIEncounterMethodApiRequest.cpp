@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIEncounterMethodApiRequest::getRawSocket(){
 
 
 void OAIEncounterMethodApiRequest::encounterMethodListRequest(){
-    qDebug() << "/api/v2/api/v2/encounter-method/";
+    qDebug() << "/api/v2/encounter-method/";
     connect(this, &OAIEncounterMethodApiRequest::encounterMethodList, handler.data(), &OAIEncounterMethodApiHandler::encounterMethodList);
 
     
@@ -71,7 +71,7 @@ void OAIEncounterMethodApiRequest::encounterMethodListRequest(){
 
 
 void OAIEncounterMethodApiRequest::encounterMethodReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/encounter-method/{id}/";
+    qDebug() << "/api/v2/encounter-method/{id}/";
     connect(this, &OAIEncounterMethodApiRequest::encounterMethodRead, handler.data(), &OAIEncounterMethodApiHandler::encounterMethodRead);
 
     

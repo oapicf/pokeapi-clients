@@ -64,7 +64,7 @@ private:
 class  EvolutionChainApiApiV2Evolution-chainResource: public restbed::Resource
 {
 public:
-    EvolutionChainApiApiV2Evolution-chainResource(const std::string& context = "/api/v2");
+    EvolutionChainApiApiV2Evolution-chainResource(const std::string& context = "");
     virtual ~EvolutionChainApiApiV2Evolution-chainResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  EvolutionChainApiApiV2Evolution-chainIdResource: public restbed::Resource
 {
 public:
-    EvolutionChainApiApiV2Evolution-chainIdResource(const std::string& context = "/api/v2");
+    EvolutionChainApiApiV2Evolution-chainIdResource(const std::string& context = "");
     virtual ~EvolutionChainApiApiV2Evolution-chainIdResource();
 
 protected:

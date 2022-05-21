@@ -8,7 +8,7 @@ import java.util.HashSet;
 
 import org.openapitools.api.impl.ApiApiServiceImpl;
 
-@ApplicationPath("/api/v2")
+@ApplicationPath("")
 public class RestApplication extends Application {
 
 

@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-ItemPocketApiApiV2Item-pocketResource::ItemPocketApiApiV2Item-pocketResource(const std::string& context /* = "/api/v2" */)
+ItemPocketApiApiV2Item-pocketResource::ItemPocketApiApiV2Item-pocketResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/item-pocket//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string ItemPocketApiApiV2Item-pocketResource::extractBodyContent(const std:
                  });
   return bodyContent;
 }
-ItemPocketApiApiV2Item-pocketIdResource::ItemPocketApiApiV2Item-pocketIdResource(const std::string& context /* = "/api/v2" */)
+ItemPocketApiApiV2Item-pocketIdResource::ItemPocketApiApiV2Item-pocketIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/item-pocket/{id: .*}//");
 	this->set_method_handler("GET",

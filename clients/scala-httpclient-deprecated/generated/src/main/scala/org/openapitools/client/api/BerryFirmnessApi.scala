@@ -39,7 +39,7 @@ import scala.util.{Failure, Success, Try}
 import org.json4s._
 
 class BerryFirmnessApi(
-  val defBasePath: String = "https://pokeapi.co/api/v2",
+  val defBasePath: String = "https://pokeapi.co",
   defApiInvoker: ApiInvoker = ApiInvoker
 ) {
   private lazy val dateTimeFormatter = {

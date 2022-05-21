@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-GenerationApiApiV2GenerationResource::GenerationApiApiV2GenerationResource(const std::string& context /* = "/api/v2" */)
+GenerationApiApiV2GenerationResource::GenerationApiApiV2GenerationResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/generation//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string GenerationApiApiV2GenerationResource::extractBodyContent(const std::
                  });
   return bodyContent;
 }
-GenerationApiApiV2GenerationIdResource::GenerationApiApiV2GenerationIdResource(const std::string& context /* = "/api/v2" */)
+GenerationApiApiV2GenerationIdResource::GenerationApiApiV2GenerationIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/generation/{id: .*}//");
 	this->set_method_handler("GET",

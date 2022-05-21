@@ -20,7 +20,7 @@ module GrowthRateApiHandlers =
     /// </summary>
    [<FunctionName("GrowthRateList")>]
     let GrowthRateList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/growth-rate/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/growth-rate/")>]
         req:HttpRequest ) =
 
       let result = GrowthRateApiService.GrowthRateList ()
@@ -36,7 +36,7 @@ module GrowthRateApiHandlers =
     /// </summary>
    [<FunctionName("GrowthRateRead")>]
     let GrowthRateRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/growth-rate/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/growth-rate/{id}/")>]
         req:HttpRequest ) =
 
       let result = GrowthRateApiService.GrowthRateRead ()

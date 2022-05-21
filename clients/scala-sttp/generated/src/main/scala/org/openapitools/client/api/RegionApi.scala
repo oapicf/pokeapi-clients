@@ -17,7 +17,7 @@ import sttp.model.Method
 
 object RegionApi {
 
-def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new RegionApi(baseUrl)
+def apply(baseUrl: String = "https://pokeapi.co") = new RegionApi(baseUrl)
 }
 
 class RegionApi(baseUrl: String) {

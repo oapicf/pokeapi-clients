@@ -3,7 +3,7 @@
 -export([move_damage_class_list/1, move_damage_class_list/2,
          move_damage_class_read/2, move_damage_class_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

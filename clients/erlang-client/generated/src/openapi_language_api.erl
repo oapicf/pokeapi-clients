@@ -3,7 +3,7 @@
 -export([language_list/1, language_list/2,
          language_read/2, language_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

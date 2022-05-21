@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 README.md
 compile-mono.sh
 docs/AbilityApi.md

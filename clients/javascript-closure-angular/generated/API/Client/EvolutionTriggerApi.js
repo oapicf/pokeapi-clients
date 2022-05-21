@@ -21,7 +21,7 @@ API.Client.EvolutionTriggerApi = function($http, $httpParamSerializer, $injector
   /** @private {!string} */
   this.basePath_ = $injector.has('EvolutionTriggerApiBasePath') ?
                    /** @type {!string} */ ($injector.get('EvolutionTriggerApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('EvolutionTriggerApiDefaultHeaders') ?

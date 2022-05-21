@@ -20,7 +20,7 @@ module TypeApiHandlers =
     /// </summary>
    [<FunctionName("TypeList")>]
     let TypeList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/type/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/type/")>]
         req:HttpRequest ) =
 
       let result = TypeApiService.TypeList ()
@@ -36,7 +36,7 @@ module TypeApiHandlers =
     /// </summary>
    [<FunctionName("TypeRead")>]
     let TypeRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/type/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/type/{id}/")>]
         req:HttpRequest ) =
 
       let result = TypeApiService.TypeRead ()

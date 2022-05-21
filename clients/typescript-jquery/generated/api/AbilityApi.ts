@@ -20,7 +20,7 @@ import { Configuration } from '../configuration';
 
 
 export class AbilityApi {
-    protected basePath = 'https://pokeapi.co/api/v2';
+    protected basePath = 'https://pokeapi.co';
     public defaultHeaders: Array<string> = [];
     public defaultExtraJQueryAjaxSettings?: JQueryAjaxSettings = undefined;
     public configuration: Configuration = new Configuration();

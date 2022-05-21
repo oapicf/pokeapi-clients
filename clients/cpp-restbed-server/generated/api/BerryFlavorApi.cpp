@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-BerryFlavorApiApiV2Berry-flavorResource::BerryFlavorApiApiV2Berry-flavorResource(const std::string& context /* = "/api/v2" */)
+BerryFlavorApiApiV2Berry-flavorResource::BerryFlavorApiApiV2Berry-flavorResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/berry-flavor//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string BerryFlavorApiApiV2Berry-flavorResource::extractBodyContent(const st
                  });
   return bodyContent;
 }
-BerryFlavorApiApiV2Berry-flavorIdResource::BerryFlavorApiApiV2Berry-flavorIdResource(const std::string& context /* = "/api/v2" */)
+BerryFlavorApiApiV2Berry-flavorIdResource::BerryFlavorApiApiV2Berry-flavorIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/berry-flavor/{id: .*}//");
 	this->set_method_handler("GET",

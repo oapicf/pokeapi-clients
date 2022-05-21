@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/egg-group/', {
+MyApp.add_route('GET', '/api/v2/egg-group/', {
   "resourcePath" => "/EggGroup",
   "summary" => "",
   "nickname" => "egg_group_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/egg-group/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/egg-group/{id}/', {
+MyApp.add_route('GET', '/api/v2/egg-group/{id}/', {
   "resourcePath" => "/EggGroup",
   "summary" => "",
   "nickname" => "egg_group_read",

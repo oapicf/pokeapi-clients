@@ -51,13 +51,13 @@ func (c *GenderApiController) Routes() Routes {
 		{
 			"GenderList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/gender/",
+			"/api/v2/gender/",
 			c.GenderList,
 		},
 		{
 			"GenderRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/gender/{id}/",
+			"/api/v2/gender/{id}/",
 			c.GenderRead,
 		},
 	}

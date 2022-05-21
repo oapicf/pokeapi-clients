@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIMoveAilmentApiRequest::getRawSocket(){
 
 
 void OAIMoveAilmentApiRequest::moveAilmentListRequest(){
-    qDebug() << "/api/v2/api/v2/move-ailment/";
+    qDebug() << "/api/v2/move-ailment/";
     connect(this, &OAIMoveAilmentApiRequest::moveAilmentList, handler.data(), &OAIMoveAilmentApiHandler::moveAilmentList);
 
     
@@ -71,7 +71,7 @@ void OAIMoveAilmentApiRequest::moveAilmentListRequest(){
 
 
 void OAIMoveAilmentApiRequest::moveAilmentReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/move-ailment/{id}/";
+    qDebug() << "/api/v2/move-ailment/{id}/";
     connect(this, &OAIMoveAilmentApiRequest::moveAilmentRead, handler.data(), &OAIMoveAilmentApiHandler::moveAilmentRead);
 
     

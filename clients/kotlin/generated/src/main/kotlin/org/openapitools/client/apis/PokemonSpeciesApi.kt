@@ -42,7 +42,7 @@ class PokemonSpeciesApi(basePath: kotlin.String = defaultBasePath) : ApiClient(b
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://pokeapi.co/api/v2")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://pokeapi.co")
         }
     }
 

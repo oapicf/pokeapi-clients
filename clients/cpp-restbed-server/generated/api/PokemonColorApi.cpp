@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-PokemonColorApiApiV2Pokemon-colorResource::PokemonColorApiApiV2Pokemon-colorResource(const std::string& context /* = "/api/v2" */)
+PokemonColorApiApiV2Pokemon-colorResource::PokemonColorApiApiV2Pokemon-colorResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/pokemon-color//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string PokemonColorApiApiV2Pokemon-colorResource::extractBodyContent(const 
                  });
   return bodyContent;
 }
-PokemonColorApiApiV2Pokemon-colorIdResource::PokemonColorApiApiV2Pokemon-colorIdResource(const std::string& context /* = "/api/v2" */)
+PokemonColorApiApiV2Pokemon-colorIdResource::PokemonColorApiApiV2Pokemon-colorIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/pokemon-color/{id: .*}//");
 	this->set_method_handler("GET",

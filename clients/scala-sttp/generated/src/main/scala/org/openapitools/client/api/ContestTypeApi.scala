@@ -17,7 +17,7 @@ import sttp.model.Method
 
 object ContestTypeApi {
 
-def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new ContestTypeApi(baseUrl)
+def apply(baseUrl: String = "https://pokeapi.co") = new ContestTypeApi(baseUrl)
 }
 
 class ContestTypeApi(baseUrl: String) {

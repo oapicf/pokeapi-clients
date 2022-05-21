@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIBerryFirmnessApiRequest::getRawSocket(){
 
 
 void OAIBerryFirmnessApiRequest::berryFirmnessListRequest(){
-    qDebug() << "/api/v2/api/v2/berry-firmness/";
+    qDebug() << "/api/v2/berry-firmness/";
     connect(this, &OAIBerryFirmnessApiRequest::berryFirmnessList, handler.data(), &OAIBerryFirmnessApiHandler::berryFirmnessList);
 
     
@@ -71,7 +71,7 @@ void OAIBerryFirmnessApiRequest::berryFirmnessListRequest(){
 
 
 void OAIBerryFirmnessApiRequest::berryFirmnessReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/berry-firmness/{id}/";
+    qDebug() << "/api/v2/berry-firmness/{id}/";
     connect(this, &OAIBerryFirmnessApiRequest::berryFirmnessRead, handler.data(), &OAIBerryFirmnessApiHandler::berryFirmnessRead);
 
     

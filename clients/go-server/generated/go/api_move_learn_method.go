@@ -51,13 +51,13 @@ func (c *MoveLearnMethodApiController) Routes() Routes {
 		{
 			"MoveLearnMethodList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/move-learn-method/",
+			"/api/v2/move-learn-method/",
 			c.MoveLearnMethodList,
 		},
 		{
 			"MoveLearnMethodRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/move-learn-method/{id}/",
+			"/api/v2/move-learn-method/{id}/",
 			c.MoveLearnMethodRead,
 		},
 	}

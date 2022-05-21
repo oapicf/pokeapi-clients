@@ -17,7 +17,7 @@ import sttp.model.Method
 
 object BerryApi {
 
-def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new BerryApi(baseUrl)
+def apply(baseUrl: String = "https://pokeapi.co") = new BerryApi(baseUrl)
 }
 
 class BerryApi(baseUrl: String) {

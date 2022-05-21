@@ -20,7 +20,7 @@ module AbilityApiHandlers =
     /// </summary>
    [<FunctionName("AbilityList")>]
     let AbilityList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/ability/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/ability/")>]
         req:HttpRequest ) =
 
       let result = AbilityApiService.AbilityList ()
@@ -36,7 +36,7 @@ module AbilityApiHandlers =
     /// </summary>
    [<FunctionName("AbilityRead")>]
     let AbilityRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/ability/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/ability/{id}/")>]
         req:HttpRequest ) =
 
       let result = AbilityApiService.AbilityRead ()

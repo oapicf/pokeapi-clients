@@ -17,7 +17,7 @@ import sttp.model.Method
 
 object MoveBattleStyleApi {
 
-def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new MoveBattleStyleApi(baseUrl)
+def apply(baseUrl: String = "https://pokeapi.co") = new MoveBattleStyleApi(baseUrl)
 }
 
 class MoveBattleStyleApi(baseUrl: String) {

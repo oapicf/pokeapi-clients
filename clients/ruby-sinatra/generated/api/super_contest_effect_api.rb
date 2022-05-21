@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/super-contest-effect/', {
+MyApp.add_route('GET', '/api/v2/super-contest-effect/', {
   "resourcePath" => "/SuperContestEffect",
   "summary" => "",
   "nickname" => "super_contest_effect_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/super-contest-effect/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/super-contest-effect/{id}/', {
+MyApp.add_route('GET', '/api/v2/super-contest-effect/{id}/', {
   "resourcePath" => "/SuperContestEffect",
   "summary" => "",
   "nickname" => "super_contest_effect_read",

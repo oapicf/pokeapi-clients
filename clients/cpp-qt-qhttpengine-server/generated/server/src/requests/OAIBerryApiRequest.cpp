@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIBerryApiRequest::getRawSocket(){
 
 
 void OAIBerryApiRequest::berryListRequest(){
-    qDebug() << "/api/v2/api/v2/berry/";
+    qDebug() << "/api/v2/berry/";
     connect(this, &OAIBerryApiRequest::berryList, handler.data(), &OAIBerryApiHandler::berryList);
 
     
@@ -71,7 +71,7 @@ void OAIBerryApiRequest::berryListRequest(){
 
 
 void OAIBerryApiRequest::berryReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/berry/{id}/";
+    qDebug() << "/api/v2/berry/{id}/";
     connect(this, &OAIBerryApiRequest::berryRead, handler.data(), &OAIBerryApiHandler::berryRead);
 
     

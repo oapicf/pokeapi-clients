@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-MoveDamageClassApiApiV2Move-damage-classResource::MoveDamageClassApiApiV2Move-damage-classResource(const std::string& context /* = "/api/v2" */)
+MoveDamageClassApiApiV2Move-damage-classResource::MoveDamageClassApiApiV2Move-damage-classResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/move-damage-class//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string MoveDamageClassApiApiV2Move-damage-classResource::extractBodyContent
                  });
   return bodyContent;
 }
-MoveDamageClassApiApiV2Move-damage-classIdResource::MoveDamageClassApiApiV2Move-damage-classIdResource(const std::string& context /* = "/api/v2" */)
+MoveDamageClassApiApiV2Move-damage-classIdResource::MoveDamageClassApiApiV2Move-damage-classIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/move-damage-class/{id: .*}//");
 	this->set_method_handler("GET",

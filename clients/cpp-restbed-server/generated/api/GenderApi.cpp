@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-GenderApiApiV2GenderResource::GenderApiApiV2GenderResource(const std::string& context /* = "/api/v2" */)
+GenderApiApiV2GenderResource::GenderApiApiV2GenderResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/gender//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string GenderApiApiV2GenderResource::extractBodyContent(const std::shared_p
                  });
   return bodyContent;
 }
-GenderApiApiV2GenderIdResource::GenderApiApiV2GenderIdResource(const std::string& context /* = "/api/v2" */)
+GenderApiApiV2GenderIdResource::GenderApiApiV2GenderIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/gender/{id: .*}//");
 	this->set_method_handler("GET",

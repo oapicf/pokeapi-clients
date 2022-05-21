@@ -20,7 +20,7 @@ mvn -Dtomee-embedded-plugin.http=8080 package org.apache.tomee.maven:tomee-embed
 You can then call your server endpoints under:
 
 ```
-http://localhost:8080/api/v2/
+http://localhost:8080/
 ```
 
 Note that if you have configured the `host` to be something other than localhost, the calls through

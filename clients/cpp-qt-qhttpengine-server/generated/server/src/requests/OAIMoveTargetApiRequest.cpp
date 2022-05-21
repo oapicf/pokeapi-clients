@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIMoveTargetApiRequest::getRawSocket(){
 
 
 void OAIMoveTargetApiRequest::moveTargetListRequest(){
-    qDebug() << "/api/v2/api/v2/move-target/";
+    qDebug() << "/api/v2/move-target/";
     connect(this, &OAIMoveTargetApiRequest::moveTargetList, handler.data(), &OAIMoveTargetApiHandler::moveTargetList);
 
     
@@ -71,7 +71,7 @@ void OAIMoveTargetApiRequest::moveTargetListRequest(){
 
 
 void OAIMoveTargetApiRequest::moveTargetReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/move-target/{id}/";
+    qDebug() << "/api/v2/move-target/{id}/";
     connect(this, &OAIMoveTargetApiRequest::moveTargetRead, handler.data(), &OAIMoveTargetApiHandler::moveTargetRead);
 
     

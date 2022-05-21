@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAISuperContestEffectApiRequest::getRawSocket(){
 
 
 void OAISuperContestEffectApiRequest::superContestEffectListRequest(){
-    qDebug() << "/api/v2/api/v2/super-contest-effect/";
+    qDebug() << "/api/v2/super-contest-effect/";
     connect(this, &OAISuperContestEffectApiRequest::superContestEffectList, handler.data(), &OAISuperContestEffectApiHandler::superContestEffectList);
 
     
@@ -71,7 +71,7 @@ void OAISuperContestEffectApiRequest::superContestEffectListRequest(){
 
 
 void OAISuperContestEffectApiRequest::superContestEffectReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/super-contest-effect/{id}/";
+    qDebug() << "/api/v2/super-contest-effect/{id}/";
     connect(this, &OAISuperContestEffectApiRequest::superContestEffectRead, handler.data(), &OAISuperContestEffectApiHandler::superContestEffectRead);
 
     

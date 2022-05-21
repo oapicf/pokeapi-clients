@@ -99,7 +99,7 @@ In Zsh, the generated `_` Zsh completion file must be copied to one of the folde
 
 ## Documentation for API Endpoints
 
-All URIs are relative to */api/v2*
+All URIs are relative to **
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

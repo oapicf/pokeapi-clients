@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 AbilityApi.md
 BerryApi.md
 BerryFirmnessApi.md

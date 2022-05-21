@@ -17,7 +17,7 @@ import sttp.model.Method
 
 object CharacteristicApi {
 
-def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new CharacteristicApi(baseUrl)
+def apply(baseUrl: String = "https://pokeapi.co") = new CharacteristicApi(baseUrl)
 }
 
 class CharacteristicApi(baseUrl: String) {

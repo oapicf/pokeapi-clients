@@ -21,7 +21,7 @@ API.Client.MoveAilmentApi = function($http, $httpParamSerializer, $injector) {
   /** @private {!string} */
   this.basePath_ = $injector.has('MoveAilmentApiBasePath') ?
                    /** @type {!string} */ ($injector.get('MoveAilmentApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('MoveAilmentApiDefaultHeaders') ?

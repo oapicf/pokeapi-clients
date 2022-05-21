@@ -21,7 +21,7 @@ API.Client.EncounterMethodApi = function($http, $httpParamSerializer, $injector)
   /** @private {!string} */
   this.basePath_ = $injector.has('EncounterMethodApiBasePath') ?
                    /** @type {!string} */ ($injector.get('EncounterMethodApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('EncounterMethodApiDefaultHeaders') ?

@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIContestTypeApiRequest::getRawSocket(){
 
 
 void OAIContestTypeApiRequest::contestTypeListRequest(){
-    qDebug() << "/api/v2/api/v2/contest-type/";
+    qDebug() << "/api/v2/contest-type/";
     connect(this, &OAIContestTypeApiRequest::contestTypeList, handler.data(), &OAIContestTypeApiHandler::contestTypeList);
 
     
@@ -71,7 +71,7 @@ void OAIContestTypeApiRequest::contestTypeListRequest(){
 
 
 void OAIContestTypeApiRequest::contestTypeReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/contest-type/{id}/";
+    qDebug() << "/api/v2/contest-type/{id}/";
     connect(this, &OAIContestTypeApiRequest::contestTypeRead, handler.data(), &OAIContestTypeApiHandler::contestTypeRead);
 
     

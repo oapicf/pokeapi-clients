@@ -6,7 +6,7 @@ description:    .
                 .
                 host: pokeapi.co
                 .
-                base path: https://pokeapi.co/api/v2
+                base path: https://pokeapi.co
                 .
                  API version: 1.0.0
                 .

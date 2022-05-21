@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/pokemon-form/', {
+MyApp.add_route('GET', '/api/v2/pokemon-form/', {
   "resourcePath" => "/PokemonForm",
   "summary" => "",
   "nickname" => "pokemon_form_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/pokemon-form/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/pokemon-form/{id}/', {
+MyApp.add_route('GET', '/api/v2/pokemon-form/{id}/', {
   "resourcePath" => "/PokemonForm",
   "summary" => "",
   "nickname" => "pokemon_form_read",

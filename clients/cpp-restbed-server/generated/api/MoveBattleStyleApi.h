@@ -64,7 +64,7 @@ private:
 class  MoveBattleStyleApiApiV2Move-battle-styleResource: public restbed::Resource
 {
 public:
-    MoveBattleStyleApiApiV2Move-battle-styleResource(const std::string& context = "/api/v2");
+    MoveBattleStyleApiApiV2Move-battle-styleResource(const std::string& context = "");
     virtual ~MoveBattleStyleApiApiV2Move-battle-styleResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  MoveBattleStyleApiApiV2Move-battle-styleIdResource: public restbed::Resource
 {
 public:
-    MoveBattleStyleApiApiV2Move-battle-styleIdResource(const std::string& context = "/api/v2");
+    MoveBattleStyleApiApiV2Move-battle-styleIdResource(const std::string& context = "");
     virtual ~MoveBattleStyleApiApiV2Move-battle-styleIdResource();
 
 protected:

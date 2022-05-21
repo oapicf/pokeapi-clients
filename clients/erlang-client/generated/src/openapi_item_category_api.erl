@@ -3,7 +3,7 @@
 -export([item_category_list/1, item_category_list/2,
          item_category_read/2, item_category_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

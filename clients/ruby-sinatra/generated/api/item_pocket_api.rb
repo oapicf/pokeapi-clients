@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/item-pocket/', {
+MyApp.add_route('GET', '/api/v2/item-pocket/', {
   "resourcePath" => "/ItemPocket",
   "summary" => "",
   "nickname" => "item_pocket_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/item-pocket/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/item-pocket/{id}/', {
+MyApp.add_route('GET', '/api/v2/item-pocket/{id}/', {
   "resourcePath" => "/ItemPocket",
   "summary" => "",
   "nickname" => "item_pocket_read",

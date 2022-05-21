@@ -64,7 +64,7 @@ private:
 class  NatureApiApiV2NatureResource: public restbed::Resource
 {
 public:
-    NatureApiApiV2NatureResource(const std::string& context = "/api/v2");
+    NatureApiApiV2NatureResource(const std::string& context = "");
     virtual ~NatureApiApiV2NatureResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  NatureApiApiV2NatureIdResource: public restbed::Resource
 {
 public:
-    NatureApiApiV2NatureIdResource(const std::string& context = "/api/v2");
+    NatureApiApiV2NatureIdResource(const std::string& context = "");
     virtual ~NatureApiApiV2NatureIdResource();
 
 protected:

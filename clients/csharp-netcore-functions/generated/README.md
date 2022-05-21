@@ -72,7 +72,7 @@ namespace Example
         {
 
             Configuration config = new Configuration();
-            config.BasePath = "https://pokeapi.co/api/v2";
+            config.BasePath = "https://pokeapi.co";
             var apiInstance = new AbilityApi(config);
             var limit = 56;  // int? |  (optional) 
             var offset = 56;  // int? |  (optional) 
@@ -97,7 +97,7 @@ namespace Example
 <a name="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://pokeapi.co/api/v2*
+All URIs are relative to *https://pokeapi.co*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

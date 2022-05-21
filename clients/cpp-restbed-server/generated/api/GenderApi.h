@@ -64,7 +64,7 @@ private:
 class  GenderApiApiV2GenderResource: public restbed::Resource
 {
 public:
-    GenderApiApiV2GenderResource(const std::string& context = "/api/v2");
+    GenderApiApiV2GenderResource(const std::string& context = "");
     virtual ~GenderApiApiV2GenderResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  GenderApiApiV2GenderIdResource: public restbed::Resource
 {
 public:
-    GenderApiApiV2GenderIdResource(const std::string& context = "/api/v2");
+    GenderApiApiV2GenderIdResource(const std::string& context = "");
     virtual ~GenderApiApiV2GenderIdResource();
 
 protected:

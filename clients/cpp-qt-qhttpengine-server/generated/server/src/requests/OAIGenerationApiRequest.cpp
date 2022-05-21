@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIGenerationApiRequest::getRawSocket(){
 
 
 void OAIGenerationApiRequest::generationListRequest(){
-    qDebug() << "/api/v2/api/v2/generation/";
+    qDebug() << "/api/v2/generation/";
     connect(this, &OAIGenerationApiRequest::generationList, handler.data(), &OAIGenerationApiHandler::generationList);
 
     
@@ -71,7 +71,7 @@ void OAIGenerationApiRequest::generationListRequest(){
 
 
 void OAIGenerationApiRequest::generationReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/generation/{id}/";
+    qDebug() << "/api/v2/generation/{id}/";
     connect(this, &OAIGenerationApiRequest::generationRead, handler.data(), &OAIGenerationApiHandler::generationRead);
 
     

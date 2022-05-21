@@ -5,11 +5,11 @@ import javax.inject.{Inject, Singleton}
 import play.api.libs.json._
 import play.api.mvc._
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-16T10:34:47.121763Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-21T04:06:20.868089Z[Etc/UTC]")
 @Singleton
 class PokemonColorApiController @Inject()(cc: ControllerComponents, api: PokemonColorApi) extends AbstractController(cc) {
   /**
-    * GET /api/v2/api/v2/pokemon-color/?limit=[value]&offset=[value]
+    * GET /api/v2/pokemon-color/?limit=[value]&offset=[value]
     */
   def pokemonColorList(): Action[AnyContent] = Action { request =>
     def executeApi(): String = {
@@ -26,7 +26,7 @@ class PokemonColorApiController @Inject()(cc: ControllerComponents, api: Pokemon
   }
 
   /**
-    * GET /api/v2/api/v2/pokemon-color/:id/
+    * GET /api/v2/pokemon-color/:id/
     */
   def pokemonColorRead(id: Int): Action[AnyContent] = Action { request =>
     def executeApi(): String = {

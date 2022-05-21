@@ -17,7 +17,7 @@ import sttp.model.Method
 
 object ItemCategoryApi {
 
-def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new ItemCategoryApi(baseUrl)
+def apply(baseUrl: String = "https://pokeapi.co") = new ItemCategoryApi(baseUrl)
 }
 
 class ItemCategoryApi(baseUrl: String) {

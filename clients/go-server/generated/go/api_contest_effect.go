@@ -51,13 +51,13 @@ func (c *ContestEffectApiController) Routes() Routes {
 		{
 			"ContestEffectList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/contest-effect/",
+			"/api/v2/contest-effect/",
 			c.ContestEffectList,
 		},
 		{
 			"ContestEffectRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/contest-effect/{id}/",
+			"/api/v2/contest-effect/{id}/",
 			c.ContestEffectRead,
 		},
 	}

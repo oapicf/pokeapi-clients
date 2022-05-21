@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIEncounterConditionValueApiRequest::getRawSocket(){
 
 
 void OAIEncounterConditionValueApiRequest::encounterConditionValueListRequest(){
-    qDebug() << "/api/v2/api/v2/encounter-condition-value/";
+    qDebug() << "/api/v2/encounter-condition-value/";
     connect(this, &OAIEncounterConditionValueApiRequest::encounterConditionValueList, handler.data(), &OAIEncounterConditionValueApiHandler::encounterConditionValueList);
 
     
@@ -71,7 +71,7 @@ void OAIEncounterConditionValueApiRequest::encounterConditionValueListRequest(){
 
 
 void OAIEncounterConditionValueApiRequest::encounterConditionValueReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/encounter-condition-value/{id}/";
+    qDebug() << "/api/v2/encounter-condition-value/{id}/";
     connect(this, &OAIEncounterConditionValueApiRequest::encounterConditionValueRead, handler.data(), &OAIEncounterConditionValueApiHandler::encounterConditionValueRead);
 
     

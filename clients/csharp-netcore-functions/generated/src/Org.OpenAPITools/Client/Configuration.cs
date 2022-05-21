@@ -100,7 +100,7 @@ namespace Org.OpenAPITools.Client
         {
             Proxy = null;
             UserAgent = "OpenAPI-Generator/1.0.0/csharp";
-            BasePath = "https://pokeapi.co/api/v2";
+            BasePath = "https://pokeapi.co";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -108,7 +108,7 @@ namespace Org.OpenAPITools.Client
             {
                 {
                     new Dictionary<string, object> {
-                        {"url", "https://pokeapi.co/api/v2"},
+                        {"url", "https://pokeapi.co"},
                         {"description", "No description provided"},
                     }
                 }
@@ -126,7 +126,7 @@ namespace Org.OpenAPITools.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://pokeapi.co/api/v2") : this()
+            string basePath = "https://pokeapi.co") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");

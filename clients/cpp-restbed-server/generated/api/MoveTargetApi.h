@@ -64,7 +64,7 @@ private:
 class  MoveTargetApiApiV2Move-targetResource: public restbed::Resource
 {
 public:
-    MoveTargetApiApiV2Move-targetResource(const std::string& context = "/api/v2");
+    MoveTargetApiApiV2Move-targetResource(const std::string& context = "");
     virtual ~MoveTargetApiApiV2Move-targetResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  MoveTargetApiApiV2Move-targetIdResource: public restbed::Resource
 {
 public:
-    MoveTargetApiApiV2Move-targetIdResource(const std::string& context = "/api/v2");
+    MoveTargetApiApiV2Move-targetIdResource(const std::string& context = "");
     virtual ~MoveTargetApiApiV2Move-targetIdResource();
 
 protected:

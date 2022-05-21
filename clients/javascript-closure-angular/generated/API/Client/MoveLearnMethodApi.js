@@ -21,7 +21,7 @@ API.Client.MoveLearnMethodApi = function($http, $httpParamSerializer, $injector)
   /** @private {!string} */
   this.basePath_ = $injector.has('MoveLearnMethodApiBasePath') ?
                    /** @type {!string} */ ($injector.get('MoveLearnMethodApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('MoveLearnMethodApiDefaultHeaders') ?

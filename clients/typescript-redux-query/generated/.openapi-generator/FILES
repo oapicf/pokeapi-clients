@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 src/apis/AbilityApi.ts
 src/apis/BerryApi.ts
 src/apis/BerryFirmnessApi.ts

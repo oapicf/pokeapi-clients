@@ -51,13 +51,13 @@ func (c *MachineApiController) Routes() Routes {
 		{
 			"MachineList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/machine/",
+			"/api/v2/machine/",
 			c.MachineList,
 		},
 		{
 			"MachineRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/machine/{id}/",
+			"/api/v2/machine/{id}/",
 			c.MachineRead,
 		},
 	}

@@ -51,13 +51,13 @@ func (c *GrowthRateApiController) Routes() Routes {
 		{
 			"GrowthRateList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/growth-rate/",
+			"/api/v2/growth-rate/",
 			c.GrowthRateList,
 		},
 		{
 			"GrowthRateRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/growth-rate/{id}/",
+			"/api/v2/growth-rate/{id}/",
 			c.GrowthRateRead,
 		},
 	}

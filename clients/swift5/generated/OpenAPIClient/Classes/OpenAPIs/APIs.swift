@@ -14,7 +14,7 @@ import Foundation
 public typealias OpenAPIClient = OpenAPIClientAPI
 
 open class OpenAPIClientAPI {
-    public static var basePath = "https://pokeapi.co/api/v2"
+    public static var basePath = "https://pokeapi.co"
     public static var customHeaders: [String: String] = [:]
     public static var credential: URLCredential?
     public static var requestBuilderFactory: RequestBuilderFactory = URLSessionRequestBuilderFactory()

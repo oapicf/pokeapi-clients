@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/pal-park-area/', {
+MyApp.add_route('GET', '/api/v2/pal-park-area/', {
   "resourcePath" => "/PalParkArea",
   "summary" => "",
   "nickname" => "pal_park_area_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/pal-park-area/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/pal-park-area/{id}/', {
+MyApp.add_route('GET', '/api/v2/pal-park-area/{id}/', {
   "resourcePath" => "/PalParkArea",
   "summary" => "",
   "nickname" => "pal_park_area_read",

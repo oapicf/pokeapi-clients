@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object PalParkAreaApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new PalParkAreaApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new PalParkAreaApi(baseUrl)
 }
 
 class PalParkAreaApi(baseUrl: String) {

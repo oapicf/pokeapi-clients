@@ -64,7 +64,7 @@ private:
 class  LocationAreaApiApiV2Location-areaResource: public restbed::Resource
 {
 public:
-    LocationAreaApiApiV2Location-areaResource(const std::string& context = "/api/v2");
+    LocationAreaApiApiV2Location-areaResource(const std::string& context = "");
     virtual ~LocationAreaApiApiV2Location-areaResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  LocationAreaApiApiV2Location-areaIdResource: public restbed::Resource
 {
 public:
-    LocationAreaApiApiV2Location-areaIdResource(const std::string& context = "/api/v2");
+    LocationAreaApiApiV2Location-areaIdResource(const std::string& context = "");
     virtual ~LocationAreaApiApiV2Location-areaIdResource();
 
 protected:

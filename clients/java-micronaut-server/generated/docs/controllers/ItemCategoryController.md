@@ -1,6 +1,6 @@
 # ItemCategoryController
 
-All URIs are relative to `"/api/v2"`
+All URIs are relative to `""`
 
 The controller class is defined in **[ItemCategoryController.java](../../src/main/java/org/openapitools/controller/ItemCategoryController.java)**
 

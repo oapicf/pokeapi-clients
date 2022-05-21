@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAILanguageApiRequest::getRawSocket(){
 
 
 void OAILanguageApiRequest::languageListRequest(){
-    qDebug() << "/api/v2/api/v2/language/";
+    qDebug() << "/api/v2/language/";
     connect(this, &OAILanguageApiRequest::languageList, handler.data(), &OAILanguageApiHandler::languageList);
 
     
@@ -71,7 +71,7 @@ void OAILanguageApiRequest::languageListRequest(){
 
 
 void OAILanguageApiRequest::languageReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/language/{id}/";
+    qDebug() << "/api/v2/language/{id}/";
     connect(this, &OAILanguageApiRequest::languageRead, handler.data(), &OAILanguageApiHandler::languageRead);
 
     

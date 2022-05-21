@@ -33,7 +33,7 @@ namespace Org.OpenAPITools.Controllers
         /// <param name="offset"></param>
         /// <response code="0">Default response</response>
         [HttpGet]
-        [Route("/api/v2/api/v2/characteristic/")]
+        [Route("/api/v2/characteristic/")]
         [ValidateModelState]
         [SwaggerOperation("CharacteristicList")]
         [SwaggerResponse(statusCode: 0, type: typeof(string), description: "Default response")]
@@ -57,7 +57,7 @@ namespace Org.OpenAPITools.Controllers
         /// <param name="id"></param>
         /// <response code="0">Default response</response>
         [HttpGet]
-        [Route("/api/v2/api/v2/characteristic/{id}/")]
+        [Route("/api/v2/characteristic/{id}/")]
         [ValidateModelState]
         [SwaggerOperation("CharacteristicRead")]
         [SwaggerResponse(statusCode: 0, type: typeof(string), description: "Default response")]

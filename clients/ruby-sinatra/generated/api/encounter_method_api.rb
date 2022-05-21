@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/encounter-method/', {
+MyApp.add_route('GET', '/api/v2/encounter-method/', {
   "resourcePath" => "/EncounterMethod",
   "summary" => "",
   "nickname" => "encounter_method_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/encounter-method/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/encounter-method/{id}/', {
+MyApp.add_route('GET', '/api/v2/encounter-method/{id}/', {
   "resourcePath" => "/EncounterMethod",
   "summary" => "",
   "nickname" => "encounter_method_read",

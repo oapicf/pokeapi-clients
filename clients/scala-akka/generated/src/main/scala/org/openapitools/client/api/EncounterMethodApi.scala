@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object EncounterMethodApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new EncounterMethodApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new EncounterMethodApi(baseUrl)
 }
 
 class EncounterMethodApi(baseUrl: String) {

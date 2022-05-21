@@ -22,7 +22,7 @@ function Get-Configuration {
     $Configuration = $Script:Configuration
 
     if ([string]::IsNullOrEmpty($Configuration["BaseUrl"])) {
-        $Configuration["BaseUrl"] = "https://pokeapi.co/api/v2";
+        $Configuration["BaseUrl"] = "https://pokeapi.co";
     }
 
     if (!$Configuration.containsKey("Username")) {
@@ -311,7 +311,7 @@ System.Collections.Hashtable[]
 function Get-HostSetting {
     return ,@(
           @{
-            "Url" = "https://pokeapi.co/api/v2";
+            "Url" = "https://pokeapi.co";
             "Description" = "No description provided";
           }
     )

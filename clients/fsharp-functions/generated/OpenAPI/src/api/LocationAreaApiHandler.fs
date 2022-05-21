@@ -20,7 +20,7 @@ module LocationAreaApiHandlers =
     /// </summary>
    [<FunctionName("LocationAreaList")>]
     let LocationAreaList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/location-area/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/location-area/")>]
         req:HttpRequest ) =
 
       let result = LocationAreaApiService.LocationAreaList ()
@@ -36,7 +36,7 @@ module LocationAreaApiHandlers =
     /// </summary>
    [<FunctionName("LocationAreaRead")>]
     let LocationAreaRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/location-area/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/location-area/{id}/")>]
         req:HttpRequest ) =
 
       let result = LocationAreaApiService.LocationAreaRead ()

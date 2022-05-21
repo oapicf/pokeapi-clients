@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/item-attribute/', {
+MyApp.add_route('GET', '/api/v2/item-attribute/', {
   "resourcePath" => "/ItemAttribute",
   "summary" => "",
   "nickname" => "item_attribute_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/item-attribute/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/item-attribute/{id}/', {
+MyApp.add_route('GET', '/api/v2/item-attribute/{id}/', {
   "resourcePath" => "/ItemAttribute",
   "summary" => "",
   "nickname" => "item_attribute_read",

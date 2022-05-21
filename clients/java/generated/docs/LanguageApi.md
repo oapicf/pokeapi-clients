@@ -1,6 +1,6 @@
 # LanguageApi
 
-All URIs are relative to *https://pokeapi.co/api/v2*
+All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,7 +26,7 @@ import com.cliffano.pokeapiclient.api.LanguageApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://pokeapi.co/api/v2");
+    defaultClient.setBasePath("https://pokeapi.co");
 
     LanguageApi apiInstance = new LanguageApi(defaultClient);
     Integer limit = 56; // Integer | 
@@ -88,7 +88,7 @@ import com.cliffano.pokeapiclient.api.LanguageApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://pokeapi.co/api/v2");
+    defaultClient.setBasePath("https://pokeapi.co");
 
     LanguageApi apiInstance = new LanguageApi(defaultClient);
     Integer id = 56; // Integer | 

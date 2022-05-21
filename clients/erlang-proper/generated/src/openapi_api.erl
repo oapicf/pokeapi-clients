@@ -4,7 +4,7 @@
         , version_group_read/1
         ]).
 
--define(BASE_URL, "/api/v2").
+-define(BASE_URL, "").
 
 %% @doc 
 %% 

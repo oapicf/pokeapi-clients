@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-EncounterConditionValueApiApiV2Encounter-condition-valueResource::EncounterConditionValueApiApiV2Encounter-condition-valueResource(const std::string& context /* = "/api/v2" */)
+EncounterConditionValueApiApiV2Encounter-condition-valueResource::EncounterConditionValueApiApiV2Encounter-condition-valueResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/encounter-condition-value//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string EncounterConditionValueApiApiV2Encounter-condition-valueResource::ex
                  });
   return bodyContent;
 }
-EncounterConditionValueApiApiV2Encounter-condition-valueIdResource::EncounterConditionValueApiApiV2Encounter-condition-valueIdResource(const std::string& context /* = "/api/v2" */)
+EncounterConditionValueApiApiV2Encounter-condition-valueIdResource::EncounterConditionValueApiApiV2Encounter-condition-valueIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/encounter-condition-value/{id: .*}//");
 	this->set_method_handler("GET",

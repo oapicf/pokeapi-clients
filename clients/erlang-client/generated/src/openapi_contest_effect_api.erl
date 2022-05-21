@@ -3,7 +3,7 @@
 -export([contest_effect_list/1, contest_effect_list/2,
          contest_effect_read/2, contest_effect_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

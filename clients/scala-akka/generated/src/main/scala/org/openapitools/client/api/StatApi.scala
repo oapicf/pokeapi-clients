@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object StatApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new StatApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new StatApi(baseUrl)
 }
 
 class StatApi(baseUrl: String) {

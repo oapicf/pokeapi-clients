@@ -52,12 +52,12 @@ namespace Org.OpenAPITools.Client
         public ApiClient()
         {
             Configuration = Org.OpenAPITools.Client.Configuration.Default;
-            RestClient = new RestClient("https://pokeapi.co/api/v2");
+            RestClient = new RestClient("https://pokeapi.co");
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path (https://pokeapi.co/api/v2).
+        /// with default base path (https://pokeapi.co).
         /// </summary>
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
@@ -72,7 +72,7 @@ namespace Org.OpenAPITools.Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "https://pokeapi.co/api/v2")
+        public ApiClient(String basePath = "https://pokeapi.co")
         {
            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");

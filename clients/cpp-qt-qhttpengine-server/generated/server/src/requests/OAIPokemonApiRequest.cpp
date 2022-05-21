@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIPokemonApiRequest::getRawSocket(){
 
 
 void OAIPokemonApiRequest::pokemonListRequest(){
-    qDebug() << "/api/v2/api/v2/pokemon/";
+    qDebug() << "/api/v2/pokemon/";
     connect(this, &OAIPokemonApiRequest::pokemonList, handler.data(), &OAIPokemonApiHandler::pokemonList);
 
     
@@ -71,7 +71,7 @@ void OAIPokemonApiRequest::pokemonListRequest(){
 
 
 void OAIPokemonApiRequest::pokemonReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/pokemon/{id}/";
+    qDebug() << "/api/v2/pokemon/{id}/";
     connect(this, &OAIPokemonApiRequest::pokemonRead, handler.data(), &OAIPokemonApiHandler::pokemonRead);
 
     

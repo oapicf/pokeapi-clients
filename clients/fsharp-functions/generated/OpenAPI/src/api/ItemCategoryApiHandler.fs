@@ -20,7 +20,7 @@ module ItemCategoryApiHandlers =
     /// </summary>
    [<FunctionName("ItemCategoryList")>]
     let ItemCategoryList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/item-category/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/item-category/")>]
         req:HttpRequest ) =
 
       let result = ItemCategoryApiService.ItemCategoryList ()
@@ -36,7 +36,7 @@ module ItemCategoryApiHandlers =
     /// </summary>
    [<FunctionName("ItemCategoryRead")>]
     let ItemCategoryRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/item-category/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/item-category/{id}/")>]
         req:HttpRequest ) =
 
       let result = ItemCategoryApiService.ItemCategoryRead ()

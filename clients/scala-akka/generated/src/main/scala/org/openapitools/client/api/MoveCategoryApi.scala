@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object MoveCategoryApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new MoveCategoryApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new MoveCategoryApi(baseUrl)
 }
 
 class MoveCategoryApi(baseUrl: String) {

@@ -19,7 +19,7 @@ namespace org::openapitools::server::api
 using namespace org::openapitools::server::helpers;
 
 
-const std::string BerryApi::base = "/api/v2";
+const std::string BerryApi::base = "";
 
 BerryApi::BerryApi(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : router(rtr)

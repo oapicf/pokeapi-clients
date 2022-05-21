@@ -33,7 +33,7 @@ namespace Org.OpenAPITools.Controllers
         /// <param name="offset"></param>
         /// <response code="0">Default response</response>
         [HttpGet]
-        [Route("/api/v2/api/v2/version-group/")]
+        [Route("/api/v2/version-group/")]
         [ValidateModelState]
         [SwaggerOperation("VersionGroupList")]
         [SwaggerResponse(statusCode: 0, type: typeof(string), description: "Default response")]
@@ -57,7 +57,7 @@ namespace Org.OpenAPITools.Controllers
         /// <param name="id"></param>
         /// <response code="0">Default response</response>
         [HttpGet]
-        [Route("/api/v2/api/v2/version-group/{id}/")]
+        [Route("/api/v2/version-group/{id}/")]
         [ValidateModelState]
         [SwaggerOperation("VersionGroupRead")]
         [SwaggerResponse(statusCode: 0, type: typeof(string), description: "Default response")]

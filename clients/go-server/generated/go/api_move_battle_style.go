@@ -51,13 +51,13 @@ func (c *MoveBattleStyleApiController) Routes() Routes {
 		{
 			"MoveBattleStyleList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/move-battle-style/",
+			"/api/v2/move-battle-style/",
 			c.MoveBattleStyleList,
 		},
 		{
 			"MoveBattleStyleRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/move-battle-style/{id}/",
+			"/api/v2/move-battle-style/{id}/",
 			c.MoveBattleStyleRead,
 		},
 	}

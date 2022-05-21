@@ -5,11 +5,11 @@ import javax.inject.{Inject, Singleton}
 import play.api.libs.json._
 import play.api.mvc._
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-16T10:34:47.121763Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-21T04:06:20.868089Z[Etc/UTC]")
 @Singleton
 class ItemApiController @Inject()(cc: ControllerComponents, api: ItemApi) extends AbstractController(cc) {
   /**
-    * GET /api/v2/api/v2/item/?limit=[value]&offset=[value]
+    * GET /api/v2/item/?limit=[value]&offset=[value]
     */
   def itemList(): Action[AnyContent] = Action { request =>
     def executeApi(): String = {
@@ -26,7 +26,7 @@ class ItemApiController @Inject()(cc: ControllerComponents, api: ItemApi) extend
   }
 
   /**
-    * GET /api/v2/api/v2/item/:id/
+    * GET /api/v2/item/:id/
     */
   def itemRead(id: Int): Action[AnyContent] = Action { request =>
     def executeApi(): String = {

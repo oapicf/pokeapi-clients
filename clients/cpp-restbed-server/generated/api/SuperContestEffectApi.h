@@ -64,7 +64,7 @@ private:
 class  SuperContestEffectApiApiV2Super-contest-effectResource: public restbed::Resource
 {
 public:
-    SuperContestEffectApiApiV2Super-contest-effectResource(const std::string& context = "/api/v2");
+    SuperContestEffectApiApiV2Super-contest-effectResource(const std::string& context = "");
     virtual ~SuperContestEffectApiApiV2Super-contest-effectResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  SuperContestEffectApiApiV2Super-contest-effectIdResource: public restbed::Resource
 {
 public:
-    SuperContestEffectApiApiV2Super-contest-effectIdResource(const std::string& context = "/api/v2");
+    SuperContestEffectApiApiV2Super-contest-effectIdResource(const std::string& context = "");
     virtual ~SuperContestEffectApiApiV2Super-contest-effectIdResource();
 
 protected:

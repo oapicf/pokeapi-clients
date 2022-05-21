@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIPokemonShapeApiRequest::getRawSocket(){
 
 
 void OAIPokemonShapeApiRequest::pokemonShapeListRequest(){
-    qDebug() << "/api/v2/api/v2/pokemon-shape/";
+    qDebug() << "/api/v2/pokemon-shape/";
     connect(this, &OAIPokemonShapeApiRequest::pokemonShapeList, handler.data(), &OAIPokemonShapeApiHandler::pokemonShapeList);
 
     
@@ -71,7 +71,7 @@ void OAIPokemonShapeApiRequest::pokemonShapeListRequest(){
 
 
 void OAIPokemonShapeApiRequest::pokemonShapeReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/pokemon-shape/{id}/";
+    qDebug() << "/api/v2/pokemon-shape/{id}/";
     connect(this, &OAIPokemonShapeApiRequest::pokemonShapeRead, handler.data(), &OAIPokemonShapeApiHandler::pokemonShapeRead);
 
     

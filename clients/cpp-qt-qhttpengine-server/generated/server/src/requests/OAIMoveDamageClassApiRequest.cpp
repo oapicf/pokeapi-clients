@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIMoveDamageClassApiRequest::getRawSocket(){
 
 
 void OAIMoveDamageClassApiRequest::moveDamageClassListRequest(){
-    qDebug() << "/api/v2/api/v2/move-damage-class/";
+    qDebug() << "/api/v2/move-damage-class/";
     connect(this, &OAIMoveDamageClassApiRequest::moveDamageClassList, handler.data(), &OAIMoveDamageClassApiHandler::moveDamageClassList);
 
     
@@ -71,7 +71,7 @@ void OAIMoveDamageClassApiRequest::moveDamageClassListRequest(){
 
 
 void OAIMoveDamageClassApiRequest::moveDamageClassReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/move-damage-class/{id}/";
+    qDebug() << "/api/v2/move-damage-class/{id}/";
     connect(this, &OAIMoveDamageClassApiRequest::moveDamageClassRead, handler.data(), &OAIMoveDamageClassApiHandler::moveDamageClassRead);
 
     

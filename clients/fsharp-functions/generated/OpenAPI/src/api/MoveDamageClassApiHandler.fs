@@ -20,7 +20,7 @@ module MoveDamageClassApiHandlers =
     /// </summary>
    [<FunctionName("MoveDamageClassList")>]
     let MoveDamageClassList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/move-damage-class/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/move-damage-class/")>]
         req:HttpRequest ) =
 
       let result = MoveDamageClassApiService.MoveDamageClassList ()
@@ -36,7 +36,7 @@ module MoveDamageClassApiHandlers =
     /// </summary>
    [<FunctionName("MoveDamageClassRead")>]
     let MoveDamageClassRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/move-damage-class/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/move-damage-class/{id}/")>]
         req:HttpRequest ) =
 
       let result = MoveDamageClassApiService.MoveDamageClassRead ()

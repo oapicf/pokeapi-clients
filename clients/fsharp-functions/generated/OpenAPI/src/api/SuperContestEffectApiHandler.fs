@@ -20,7 +20,7 @@ module SuperContestEffectApiHandlers =
     /// </summary>
    [<FunctionName("SuperContestEffectList")>]
     let SuperContestEffectList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/super-contest-effect/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/super-contest-effect/")>]
         req:HttpRequest ) =
 
       let result = SuperContestEffectApiService.SuperContestEffectList ()
@@ -36,7 +36,7 @@ module SuperContestEffectApiHandlers =
     /// </summary>
    [<FunctionName("SuperContestEffectRead")>]
     let SuperContestEffectRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/super-contest-effect/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/super-contest-effect/{id}/")>]
         req:HttpRequest ) =
 
       let result = SuperContestEffectApiService.SuperContestEffectRead ()

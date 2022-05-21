@@ -64,7 +64,7 @@ private:
 class  PokemonHabitatApiApiV2Pokemon-habitatResource: public restbed::Resource
 {
 public:
-    PokemonHabitatApiApiV2Pokemon-habitatResource(const std::string& context = "/api/v2");
+    PokemonHabitatApiApiV2Pokemon-habitatResource(const std::string& context = "");
     virtual ~PokemonHabitatApiApiV2Pokemon-habitatResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  PokemonHabitatApiApiV2Pokemon-habitatIdResource: public restbed::Resource
 {
 public:
-    PokemonHabitatApiApiV2Pokemon-habitatIdResource(const std::string& context = "/api/v2");
+    PokemonHabitatApiApiV2Pokemon-habitatIdResource(const std::string& context = "");
     virtual ~PokemonHabitatApiApiV2Pokemon-habitatIdResource();
 
 protected:

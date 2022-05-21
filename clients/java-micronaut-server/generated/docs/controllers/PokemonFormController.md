@@ -1,6 +1,6 @@
 # PokemonFormController
 
-All URIs are relative to `"/api/v2"`
+All URIs are relative to `""`
 
 The controller class is defined in **[PokemonFormController.java](../../src/main/java/org/openapitools/controller/PokemonFormController.java)**
 

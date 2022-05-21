@@ -3,7 +3,7 @@ package org.openapitools.api;
 import org.openapitools.api.ApiUtils
 
 class ItemAttributeApi {
-    String basePath = "https://pokeapi.co/api/v2"
+    String basePath = "https://pokeapi.co"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 

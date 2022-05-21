@@ -21,7 +21,7 @@ API.Client.EncounterConditionApi = function($http, $httpParamSerializer, $inject
   /** @private {!string} */
   this.basePath_ = $injector.has('EncounterConditionApiBasePath') ?
                    /** @type {!string} */ ($injector.get('EncounterConditionApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('EncounterConditionApiDefaultHeaders') ?

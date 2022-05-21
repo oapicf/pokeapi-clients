@@ -3,7 +3,7 @@
 -export([growth_rate_list/1, growth_rate_list/2,
          growth_rate_read/2, growth_rate_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

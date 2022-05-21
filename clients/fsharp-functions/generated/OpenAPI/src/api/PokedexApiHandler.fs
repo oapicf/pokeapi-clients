@@ -20,7 +20,7 @@ module PokedexApiHandlers =
     /// </summary>
    [<FunctionName("PokedexList")>]
     let PokedexList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/pokedex/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/pokedex/")>]
         req:HttpRequest ) =
 
       let result = PokedexApiService.PokedexList ()
@@ -36,7 +36,7 @@ module PokedexApiHandlers =
     /// </summary>
    [<FunctionName("PokedexRead")>]
     let PokedexRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/pokedex/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/pokedex/{id}/")>]
         req:HttpRequest ) =
 
       let result = PokedexApiService.PokedexRead ()

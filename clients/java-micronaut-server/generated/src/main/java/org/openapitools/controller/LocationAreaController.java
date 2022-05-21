@@ -27,7 +27,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2022-05-16T10:28:11.042090Z[Etc/UTC]")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2022-05-21T03:59:28.461143Z[Etc/UTC]")
 @Controller("${context-path}")
 public class LocationAreaController {
     /**

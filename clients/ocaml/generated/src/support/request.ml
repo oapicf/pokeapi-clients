@@ -1,5 +1,5 @@
 let api_key = ""
-let base_url = "https://pokeapi.co/api/v2"
+let base_url = "https://pokeapi.co"
 let default_headers = Cohttp.Header.init_with "Content-Type" "application/json"
 
 let option_fold f default o =

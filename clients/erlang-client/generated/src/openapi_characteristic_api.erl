@@ -3,7 +3,7 @@
 -export([characteristic_list/1, characteristic_list/2,
          characteristic_read/2, characteristic_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

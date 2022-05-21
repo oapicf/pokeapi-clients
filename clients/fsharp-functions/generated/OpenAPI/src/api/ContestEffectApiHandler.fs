@@ -20,7 +20,7 @@ module ContestEffectApiHandlers =
     /// </summary>
    [<FunctionName("ContestEffectList")>]
     let ContestEffectList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/contest-effect/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/contest-effect/")>]
         req:HttpRequest ) =
 
       let result = ContestEffectApiService.ContestEffectList ()
@@ -36,7 +36,7 @@ module ContestEffectApiHandlers =
     /// </summary>
    [<FunctionName("ContestEffectRead")>]
     let ContestEffectRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/contest-effect/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/contest-effect/{id}/")>]
         req:HttpRequest ) =
 
       let result = ContestEffectApiService.ContestEffectRead ()

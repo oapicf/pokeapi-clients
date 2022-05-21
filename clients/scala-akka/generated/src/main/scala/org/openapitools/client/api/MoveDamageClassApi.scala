@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object MoveDamageClassApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new MoveDamageClassApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new MoveDamageClassApi(baseUrl)
 }
 
 class MoveDamageClassApi(baseUrl: String) {

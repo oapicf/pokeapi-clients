@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/region/', {
+MyApp.add_route('GET', '/api/v2/region/', {
   "resourcePath" => "/Region",
   "summary" => "",
   "nickname" => "region_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/region/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/region/{id}/', {
+MyApp.add_route('GET', '/api/v2/region/{id}/', {
   "resourcePath" => "/Region",
   "summary" => "",
   "nickname" => "region_read",

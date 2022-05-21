@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-MoveLearnMethodApiApiV2Move-learn-methodResource::MoveLearnMethodApiApiV2Move-learn-methodResource(const std::string& context /* = "/api/v2" */)
+MoveLearnMethodApiApiV2Move-learn-methodResource::MoveLearnMethodApiApiV2Move-learn-methodResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/move-learn-method//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string MoveLearnMethodApiApiV2Move-learn-methodResource::extractBodyContent
                  });
   return bodyContent;
 }
-MoveLearnMethodApiApiV2Move-learn-methodIdResource::MoveLearnMethodApiApiV2Move-learn-methodIdResource(const std::string& context /* = "/api/v2" */)
+MoveLearnMethodApiApiV2Move-learn-methodIdResource::MoveLearnMethodApiApiV2Move-learn-methodIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/move-learn-method/{id: .*}//");
 	this->set_method_handler("GET",

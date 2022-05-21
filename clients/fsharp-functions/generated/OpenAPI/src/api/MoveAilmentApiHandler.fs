@@ -20,7 +20,7 @@ module MoveAilmentApiHandlers =
     /// </summary>
    [<FunctionName("MoveAilmentList")>]
     let MoveAilmentList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/move-ailment/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/move-ailment/")>]
         req:HttpRequest ) =
 
       let result = MoveAilmentApiService.MoveAilmentList ()
@@ -36,7 +36,7 @@ module MoveAilmentApiHandlers =
     /// </summary>
    [<FunctionName("MoveAilmentRead")>]
     let MoveAilmentRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/move-ailment/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/move-ailment/{id}/")>]
         req:HttpRequest ) =
 
       let result = MoveAilmentApiService.MoveAilmentRead ()

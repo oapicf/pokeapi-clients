@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIPokemonSpeciesApiRequest::getRawSocket(){
 
 
 void OAIPokemonSpeciesApiRequest::pokemonSpeciesListRequest(){
-    qDebug() << "/api/v2/api/v2/pokemon-species/";
+    qDebug() << "/api/v2/pokemon-species/";
     connect(this, &OAIPokemonSpeciesApiRequest::pokemonSpeciesList, handler.data(), &OAIPokemonSpeciesApiHandler::pokemonSpeciesList);
 
     
@@ -71,7 +71,7 @@ void OAIPokemonSpeciesApiRequest::pokemonSpeciesListRequest(){
 
 
 void OAIPokemonSpeciesApiRequest::pokemonSpeciesReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/pokemon-species/{id}/";
+    qDebug() << "/api/v2/pokemon-species/{id}/";
     connect(this, &OAIPokemonSpeciesApiRequest::pokemonSpeciesRead, handler.data(), &OAIPokemonSpeciesApiHandler::pokemonSpeciesRead);
 
     

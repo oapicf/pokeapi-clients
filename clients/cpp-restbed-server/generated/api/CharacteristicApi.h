@@ -64,7 +64,7 @@ private:
 class  CharacteristicApiApiV2CharacteristicResource: public restbed::Resource
 {
 public:
-    CharacteristicApiApiV2CharacteristicResource(const std::string& context = "/api/v2");
+    CharacteristicApiApiV2CharacteristicResource(const std::string& context = "");
     virtual ~CharacteristicApiApiV2CharacteristicResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  CharacteristicApiApiV2CharacteristicIdResource: public restbed::Resource
 {
 public:
-    CharacteristicApiApiV2CharacteristicIdResource(const std::string& context = "/api/v2");
+    CharacteristicApiApiV2CharacteristicIdResource(const std::string& context = "");
     virtual ~CharacteristicApiApiV2CharacteristicIdResource();
 
 protected:

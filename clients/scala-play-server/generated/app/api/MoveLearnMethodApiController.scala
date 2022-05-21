@@ -5,11 +5,11 @@ import javax.inject.{Inject, Singleton}
 import play.api.libs.json._
 import play.api.mvc._
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-16T10:34:47.121763Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-21T04:06:20.868089Z[Etc/UTC]")
 @Singleton
 class MoveLearnMethodApiController @Inject()(cc: ControllerComponents, api: MoveLearnMethodApi) extends AbstractController(cc) {
   /**
-    * GET /api/v2/api/v2/move-learn-method/?limit=[value]&offset=[value]
+    * GET /api/v2/move-learn-method/?limit=[value]&offset=[value]
     */
   def moveLearnMethodList(): Action[AnyContent] = Action { request =>
     def executeApi(): String = {
@@ -26,7 +26,7 @@ class MoveLearnMethodApiController @Inject()(cc: ControllerComponents, api: Move
   }
 
   /**
-    * GET /api/v2/api/v2/move-learn-method/:id/
+    * GET /api/v2/move-learn-method/:id/
     */
   def moveLearnMethodRead(id: Int): Action[AnyContent] = Action { request =>
     def executeApi(): String = {

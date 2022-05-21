@@ -5,243 +5,243 @@
 
 # Routes for Ability API
 
-GET /api/v2/api/v2/ability/                          api.AbilityApiController.abilityList()
-GET /api/v2/api/v2/ability/:id/                      api.AbilityApiController.abilityRead(id: Int)
+GET /api/v2/ability/                          api.AbilityApiController.abilityList()
+GET /api/v2/ability/:id/                      api.AbilityApiController.abilityRead(id: Int)
 
 # Routes for Berry API
 
-GET /api/v2/api/v2/berry/                            api.BerryApiController.berryList()
-GET /api/v2/api/v2/berry/:id/                        api.BerryApiController.berryRead(id: Int)
+GET /api/v2/berry/                            api.BerryApiController.berryList()
+GET /api/v2/berry/:id/                        api.BerryApiController.berryRead(id: Int)
 
 # Routes for BerryFirmness API
 
-GET /api/v2/api/v2/berry-firmness/                   api.BerryFirmnessApiController.berryFirmnessList()
-GET /api/v2/api/v2/berry-firmness/:id/               api.BerryFirmnessApiController.berryFirmnessRead(id: Int)
+GET /api/v2/berry-firmness/                   api.BerryFirmnessApiController.berryFirmnessList()
+GET /api/v2/berry-firmness/:id/               api.BerryFirmnessApiController.berryFirmnessRead(id: Int)
 
 # Routes for BerryFlavor API
 
-GET /api/v2/api/v2/berry-flavor/                     api.BerryFlavorApiController.berryFlavorList()
-GET /api/v2/api/v2/berry-flavor/:id/                 api.BerryFlavorApiController.berryFlavorRead(id: Int)
+GET /api/v2/berry-flavor/                     api.BerryFlavorApiController.berryFlavorList()
+GET /api/v2/berry-flavor/:id/                 api.BerryFlavorApiController.berryFlavorRead(id: Int)
 
 # Routes for Characteristic API
 
-GET /api/v2/api/v2/characteristic/                   api.CharacteristicApiController.characteristicList()
-GET /api/v2/api/v2/characteristic/:id/               api.CharacteristicApiController.characteristicRead(id: Int)
+GET /api/v2/characteristic/                   api.CharacteristicApiController.characteristicList()
+GET /api/v2/characteristic/:id/               api.CharacteristicApiController.characteristicRead(id: Int)
 
 # Routes for ContestEffect API
 
-GET /api/v2/api/v2/contest-effect/                   api.ContestEffectApiController.contestEffectList()
-GET /api/v2/api/v2/contest-effect/:id/               api.ContestEffectApiController.contestEffectRead(id: Int)
+GET /api/v2/contest-effect/                   api.ContestEffectApiController.contestEffectList()
+GET /api/v2/contest-effect/:id/               api.ContestEffectApiController.contestEffectRead(id: Int)
 
 # Routes for ContestType API
 
-GET /api/v2/api/v2/contest-type/                     api.ContestTypeApiController.contestTypeList()
-GET /api/v2/api/v2/contest-type/:id/                 api.ContestTypeApiController.contestTypeRead(id: Int)
+GET /api/v2/contest-type/                     api.ContestTypeApiController.contestTypeList()
+GET /api/v2/contest-type/:id/                 api.ContestTypeApiController.contestTypeRead(id: Int)
 
 # Routes for EggGroup API
 
-GET /api/v2/api/v2/egg-group/                        api.EggGroupApiController.eggGroupList()
-GET /api/v2/api/v2/egg-group/:id/                    api.EggGroupApiController.eggGroupRead(id: Int)
+GET /api/v2/egg-group/                        api.EggGroupApiController.eggGroupList()
+GET /api/v2/egg-group/:id/                    api.EggGroupApiController.eggGroupRead(id: Int)
 
 # Routes for EncounterCondition API
 
-GET /api/v2/api/v2/encounter-condition/              api.EncounterConditionApiController.encounterConditionList()
-GET /api/v2/api/v2/encounter-condition/:id/          api.EncounterConditionApiController.encounterConditionRead(id: Int)
+GET /api/v2/encounter-condition/              api.EncounterConditionApiController.encounterConditionList()
+GET /api/v2/encounter-condition/:id/          api.EncounterConditionApiController.encounterConditionRead(id: Int)
 
 # Routes for EncounterConditionValue API
 
-GET /api/v2/api/v2/encounter-condition-value/        api.EncounterConditionValueApiController.encounterConditionValueList()
-GET /api/v2/api/v2/encounter-condition-value/:id/    api.EncounterConditionValueApiController.encounterConditionValueRead(id: Int)
+GET /api/v2/encounter-condition-value/        api.EncounterConditionValueApiController.encounterConditionValueList()
+GET /api/v2/encounter-condition-value/:id/    api.EncounterConditionValueApiController.encounterConditionValueRead(id: Int)
 
 # Routes for EncounterMethod API
 
-GET /api/v2/api/v2/encounter-method/                 api.EncounterMethodApiController.encounterMethodList()
-GET /api/v2/api/v2/encounter-method/:id/             api.EncounterMethodApiController.encounterMethodRead(id: Int)
+GET /api/v2/encounter-method/                 api.EncounterMethodApiController.encounterMethodList()
+GET /api/v2/encounter-method/:id/             api.EncounterMethodApiController.encounterMethodRead(id: Int)
 
 # Routes for EvolutionChain API
 
-GET /api/v2/api/v2/evolution-chain/                  api.EvolutionChainApiController.evolutionChainList()
-GET /api/v2/api/v2/evolution-chain/:id/              api.EvolutionChainApiController.evolutionChainRead(id: Int)
+GET /api/v2/evolution-chain/                  api.EvolutionChainApiController.evolutionChainList()
+GET /api/v2/evolution-chain/:id/              api.EvolutionChainApiController.evolutionChainRead(id: Int)
 
 # Routes for EvolutionTrigger API
 
-GET /api/v2/api/v2/evolution-trigger/                api.EvolutionTriggerApiController.evolutionTriggerList()
-GET /api/v2/api/v2/evolution-trigger/:id/            api.EvolutionTriggerApiController.evolutionTriggerRead(id: Int)
+GET /api/v2/evolution-trigger/                api.EvolutionTriggerApiController.evolutionTriggerList()
+GET /api/v2/evolution-trigger/:id/            api.EvolutionTriggerApiController.evolutionTriggerRead(id: Int)
 
 # Routes for Gender API
 
-GET /api/v2/api/v2/gender/                           api.GenderApiController.genderList()
-GET /api/v2/api/v2/gender/:id/                       api.GenderApiController.genderRead(id: Int)
+GET /api/v2/gender/                           api.GenderApiController.genderList()
+GET /api/v2/gender/:id/                       api.GenderApiController.genderRead(id: Int)
 
 # Routes for Generation API
 
-GET /api/v2/api/v2/generation/                       api.GenerationApiController.generationList()
-GET /api/v2/api/v2/generation/:id/                   api.GenerationApiController.generationRead(id: Int)
+GET /api/v2/generation/                       api.GenerationApiController.generationList()
+GET /api/v2/generation/:id/                   api.GenerationApiController.generationRead(id: Int)
 
 # Routes for GrowthRate API
 
-GET /api/v2/api/v2/growth-rate/                      api.GrowthRateApiController.growthRateList()
-GET /api/v2/api/v2/growth-rate/:id/                  api.GrowthRateApiController.growthRateRead(id: Int)
+GET /api/v2/growth-rate/                      api.GrowthRateApiController.growthRateList()
+GET /api/v2/growth-rate/:id/                  api.GrowthRateApiController.growthRateRead(id: Int)
 
 # Routes for Item API
 
-GET /api/v2/api/v2/item/                             api.ItemApiController.itemList()
-GET /api/v2/api/v2/item/:id/                         api.ItemApiController.itemRead(id: Int)
+GET /api/v2/item/                             api.ItemApiController.itemList()
+GET /api/v2/item/:id/                         api.ItemApiController.itemRead(id: Int)
 
 # Routes for ItemAttribute API
 
-GET /api/v2/api/v2/item-attribute/                   api.ItemAttributeApiController.itemAttributeList()
-GET /api/v2/api/v2/item-attribute/:id/               api.ItemAttributeApiController.itemAttributeRead(id: Int)
+GET /api/v2/item-attribute/                   api.ItemAttributeApiController.itemAttributeList()
+GET /api/v2/item-attribute/:id/               api.ItemAttributeApiController.itemAttributeRead(id: Int)
 
 # Routes for ItemCategory API
 
-GET /api/v2/api/v2/item-category/                    api.ItemCategoryApiController.itemCategoryList()
-GET /api/v2/api/v2/item-category/:id/                api.ItemCategoryApiController.itemCategoryRead(id: Int)
+GET /api/v2/item-category/                    api.ItemCategoryApiController.itemCategoryList()
+GET /api/v2/item-category/:id/                api.ItemCategoryApiController.itemCategoryRead(id: Int)
 
 # Routes for ItemFlingEffect API
 
-GET /api/v2/api/v2/item-fling-effect/                api.ItemFlingEffectApiController.itemFlingEffectList()
-GET /api/v2/api/v2/item-fling-effect/:id/            api.ItemFlingEffectApiController.itemFlingEffectRead(id: Int)
+GET /api/v2/item-fling-effect/                api.ItemFlingEffectApiController.itemFlingEffectList()
+GET /api/v2/item-fling-effect/:id/            api.ItemFlingEffectApiController.itemFlingEffectRead(id: Int)
 
 # Routes for ItemPocket API
 
-GET /api/v2/api/v2/item-pocket/                      api.ItemPocketApiController.itemPocketList()
-GET /api/v2/api/v2/item-pocket/:id/                  api.ItemPocketApiController.itemPocketRead(id: Int)
+GET /api/v2/item-pocket/                      api.ItemPocketApiController.itemPocketList()
+GET /api/v2/item-pocket/:id/                  api.ItemPocketApiController.itemPocketRead(id: Int)
 
 # Routes for Language API
 
-GET /api/v2/api/v2/language/                         api.LanguageApiController.languageList()
-GET /api/v2/api/v2/language/:id/                     api.LanguageApiController.languageRead(id: Int)
+GET /api/v2/language/                         api.LanguageApiController.languageList()
+GET /api/v2/language/:id/                     api.LanguageApiController.languageRead(id: Int)
 
 # Routes for Location API
 
-GET /api/v2/api/v2/location/                         api.LocationApiController.locationList()
-GET /api/v2/api/v2/location/:id/                     api.LocationApiController.locationRead(id: Int)
+GET /api/v2/location/                         api.LocationApiController.locationList()
+GET /api/v2/location/:id/                     api.LocationApiController.locationRead(id: Int)
 
 # Routes for LocationArea API
 
-GET /api/v2/api/v2/location-area/                    api.LocationAreaApiController.locationAreaList()
-GET /api/v2/api/v2/location-area/:id/                api.LocationAreaApiController.locationAreaRead(id: Int)
+GET /api/v2/location-area/                    api.LocationAreaApiController.locationAreaList()
+GET /api/v2/location-area/:id/                api.LocationAreaApiController.locationAreaRead(id: Int)
 
 # Routes for Machine API
 
-GET /api/v2/api/v2/machine/                          api.MachineApiController.machineList()
-GET /api/v2/api/v2/machine/:id/                      api.MachineApiController.machineRead(id: Int)
+GET /api/v2/machine/                          api.MachineApiController.machineList()
+GET /api/v2/machine/:id/                      api.MachineApiController.machineRead(id: Int)
 
 # Routes for Move API
 
-GET /api/v2/api/v2/move/                             api.MoveApiController.moveList()
-GET /api/v2/api/v2/move/:id/                         api.MoveApiController.moveRead(id: Int)
+GET /api/v2/move/                             api.MoveApiController.moveList()
+GET /api/v2/move/:id/                         api.MoveApiController.moveRead(id: Int)
 
 # Routes for MoveAilment API
 
-GET /api/v2/api/v2/move-ailment/                     api.MoveAilmentApiController.moveAilmentList()
-GET /api/v2/api/v2/move-ailment/:id/                 api.MoveAilmentApiController.moveAilmentRead(id: Int)
+GET /api/v2/move-ailment/                     api.MoveAilmentApiController.moveAilmentList()
+GET /api/v2/move-ailment/:id/                 api.MoveAilmentApiController.moveAilmentRead(id: Int)
 
 # Routes for MoveBattleStyle API
 
-GET /api/v2/api/v2/move-battle-style/                api.MoveBattleStyleApiController.moveBattleStyleList()
-GET /api/v2/api/v2/move-battle-style/:id/            api.MoveBattleStyleApiController.moveBattleStyleRead(id: Int)
+GET /api/v2/move-battle-style/                api.MoveBattleStyleApiController.moveBattleStyleList()
+GET /api/v2/move-battle-style/:id/            api.MoveBattleStyleApiController.moveBattleStyleRead(id: Int)
 
 # Routes for MoveCategory API
 
-GET /api/v2/api/v2/move-category/                    api.MoveCategoryApiController.moveCategoryList()
-GET /api/v2/api/v2/move-category/:id/                api.MoveCategoryApiController.moveCategoryRead(id: Int)
+GET /api/v2/move-category/                    api.MoveCategoryApiController.moveCategoryList()
+GET /api/v2/move-category/:id/                api.MoveCategoryApiController.moveCategoryRead(id: Int)
 
 # Routes for MoveDamageClass API
 
-GET /api/v2/api/v2/move-damage-class/                api.MoveDamageClassApiController.moveDamageClassList()
-GET /api/v2/api/v2/move-damage-class/:id/            api.MoveDamageClassApiController.moveDamageClassRead(id: Int)
+GET /api/v2/move-damage-class/                api.MoveDamageClassApiController.moveDamageClassList()
+GET /api/v2/move-damage-class/:id/            api.MoveDamageClassApiController.moveDamageClassRead(id: Int)
 
 # Routes for MoveLearnMethod API
 
-GET /api/v2/api/v2/move-learn-method/                api.MoveLearnMethodApiController.moveLearnMethodList()
-GET /api/v2/api/v2/move-learn-method/:id/            api.MoveLearnMethodApiController.moveLearnMethodRead(id: Int)
+GET /api/v2/move-learn-method/                api.MoveLearnMethodApiController.moveLearnMethodList()
+GET /api/v2/move-learn-method/:id/            api.MoveLearnMethodApiController.moveLearnMethodRead(id: Int)
 
 # Routes for MoveTarget API
 
-GET /api/v2/api/v2/move-target/                      api.MoveTargetApiController.moveTargetList()
-GET /api/v2/api/v2/move-target/:id/                  api.MoveTargetApiController.moveTargetRead(id: Int)
+GET /api/v2/move-target/                      api.MoveTargetApiController.moveTargetList()
+GET /api/v2/move-target/:id/                  api.MoveTargetApiController.moveTargetRead(id: Int)
 
 # Routes for Nature API
 
-GET /api/v2/api/v2/nature/                           api.NatureApiController.natureList()
-GET /api/v2/api/v2/nature/:id/                       api.NatureApiController.natureRead(id: Int)
+GET /api/v2/nature/                           api.NatureApiController.natureList()
+GET /api/v2/nature/:id/                       api.NatureApiController.natureRead(id: Int)
 
 # Routes for PalParkArea API
 
-GET /api/v2/api/v2/pal-park-area/                    api.PalParkAreaApiController.palParkAreaList()
-GET /api/v2/api/v2/pal-park-area/:id/                api.PalParkAreaApiController.palParkAreaRead(id: Int)
+GET /api/v2/pal-park-area/                    api.PalParkAreaApiController.palParkAreaList()
+GET /api/v2/pal-park-area/:id/                api.PalParkAreaApiController.palParkAreaRead(id: Int)
 
 # Routes for PokeathlonStat API
 
-GET /api/v2/api/v2/pokeathlon-stat/                  api.PokeathlonStatApiController.pokeathlonStatList()
-GET /api/v2/api/v2/pokeathlon-stat/:id/              api.PokeathlonStatApiController.pokeathlonStatRead(id: Int)
+GET /api/v2/pokeathlon-stat/                  api.PokeathlonStatApiController.pokeathlonStatList()
+GET /api/v2/pokeathlon-stat/:id/              api.PokeathlonStatApiController.pokeathlonStatRead(id: Int)
 
 # Routes for Pokedex API
 
-GET /api/v2/api/v2/pokedex/                          api.PokedexApiController.pokedexList()
-GET /api/v2/api/v2/pokedex/:id/                      api.PokedexApiController.pokedexRead(id: Int)
+GET /api/v2/pokedex/                          api.PokedexApiController.pokedexList()
+GET /api/v2/pokedex/:id/                      api.PokedexApiController.pokedexRead(id: Int)
 
 # Routes for Pokemon API
 
-GET /api/v2/api/v2/pokemon/                          api.PokemonApiController.pokemonList()
-GET /api/v2/api/v2/pokemon/:id/                      api.PokemonApiController.pokemonRead(id: Int)
+GET /api/v2/pokemon/                          api.PokemonApiController.pokemonList()
+GET /api/v2/pokemon/:id/                      api.PokemonApiController.pokemonRead(id: Int)
 
 # Routes for PokemonColor API
 
-GET /api/v2/api/v2/pokemon-color/                    api.PokemonColorApiController.pokemonColorList()
-GET /api/v2/api/v2/pokemon-color/:id/                api.PokemonColorApiController.pokemonColorRead(id: Int)
+GET /api/v2/pokemon-color/                    api.PokemonColorApiController.pokemonColorList()
+GET /api/v2/pokemon-color/:id/                api.PokemonColorApiController.pokemonColorRead(id: Int)
 
 # Routes for PokemonForm API
 
-GET /api/v2/api/v2/pokemon-form/                     api.PokemonFormApiController.pokemonFormList()
-GET /api/v2/api/v2/pokemon-form/:id/                 api.PokemonFormApiController.pokemonFormRead(id: Int)
+GET /api/v2/pokemon-form/                     api.PokemonFormApiController.pokemonFormList()
+GET /api/v2/pokemon-form/:id/                 api.PokemonFormApiController.pokemonFormRead(id: Int)
 
 # Routes for PokemonHabitat API
 
-GET /api/v2/api/v2/pokemon-habitat/                  api.PokemonHabitatApiController.pokemonHabitatList()
-GET /api/v2/api/v2/pokemon-habitat/:id/              api.PokemonHabitatApiController.pokemonHabitatRead(id: Int)
+GET /api/v2/pokemon-habitat/                  api.PokemonHabitatApiController.pokemonHabitatList()
+GET /api/v2/pokemon-habitat/:id/              api.PokemonHabitatApiController.pokemonHabitatRead(id: Int)
 
 # Routes for PokemonShape API
 
-GET /api/v2/api/v2/pokemon-shape/                    api.PokemonShapeApiController.pokemonShapeList()
-GET /api/v2/api/v2/pokemon-shape/:id/                api.PokemonShapeApiController.pokemonShapeRead(id: Int)
+GET /api/v2/pokemon-shape/                    api.PokemonShapeApiController.pokemonShapeList()
+GET /api/v2/pokemon-shape/:id/                api.PokemonShapeApiController.pokemonShapeRead(id: Int)
 
 # Routes for PokemonSpecies API
 
-GET /api/v2/api/v2/pokemon-species/                  api.PokemonSpeciesApiController.pokemonSpeciesList()
-GET /api/v2/api/v2/pokemon-species/:id/              api.PokemonSpeciesApiController.pokemonSpeciesRead(id: Int)
+GET /api/v2/pokemon-species/                  api.PokemonSpeciesApiController.pokemonSpeciesList()
+GET /api/v2/pokemon-species/:id/              api.PokemonSpeciesApiController.pokemonSpeciesRead(id: Int)
 
 # Routes for Region API
 
-GET /api/v2/api/v2/region/                           api.RegionApiController.regionList()
-GET /api/v2/api/v2/region/:id/                       api.RegionApiController.regionRead(id: Int)
+GET /api/v2/region/                           api.RegionApiController.regionList()
+GET /api/v2/region/:id/                       api.RegionApiController.regionRead(id: Int)
 
 # Routes for Stat API
 
-GET /api/v2/api/v2/stat/                             api.StatApiController.statList()
-GET /api/v2/api/v2/stat/:id/                         api.StatApiController.statRead(id: Int)
+GET /api/v2/stat/                             api.StatApiController.statList()
+GET /api/v2/stat/:id/                         api.StatApiController.statRead(id: Int)
 
 # Routes for SuperContestEffect API
 
-GET /api/v2/api/v2/super-contest-effect/             api.SuperContestEffectApiController.superContestEffectList()
-GET /api/v2/api/v2/super-contest-effect/:id/         api.SuperContestEffectApiController.superContestEffectRead(id: Int)
+GET /api/v2/super-contest-effect/             api.SuperContestEffectApiController.superContestEffectList()
+GET /api/v2/super-contest-effect/:id/         api.SuperContestEffectApiController.superContestEffectRead(id: Int)
 
 # Routes for Type API
 
-GET /api/v2/api/v2/type/                             api.TypeApiController.typeList()
-GET /api/v2/api/v2/type/:id/                         api.TypeApiController.typeRead(id: Int)
+GET /api/v2/type/                             api.TypeApiController.typeList()
+GET /api/v2/type/:id/                         api.TypeApiController.typeRead(id: Int)
 
 # Routes for Version API
 
-GET /api/v2/api/v2/version/                          api.VersionApiController.versionList()
-GET /api/v2/api/v2/version/:id/                      api.VersionApiController.versionRead(id: Int)
+GET /api/v2/version/                          api.VersionApiController.versionList()
+GET /api/v2/version/:id/                      api.VersionApiController.versionRead(id: Int)
 
 # Routes for VersionGroup API
 
-GET /api/v2/api/v2/version-group/                    api.VersionGroupApiController.versionGroupList()
-GET /api/v2/api/v2/version-group/:id/                api.VersionGroupApiController.versionGroupRead(id: Int)
+GET /api/v2/version-group/                    api.VersionGroupApiController.versionGroupList()
+GET /api/v2/version-group/:id/                api.VersionGroupApiController.versionGroupRead(id: Int)
 
 # Map static resources from the /public folder to the /assets URL path
 GET /assets/*file           controllers.Assets.at(file)

@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/move-learn-method/', {
+MyApp.add_route('GET', '/api/v2/move-learn-method/', {
   "resourcePath" => "/MoveLearnMethod",
   "summary" => "",
   "nickname" => "move_learn_method_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/move-learn-method/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/move-learn-method/{id}/', {
+MyApp.add_route('GET', '/api/v2/move-learn-method/{id}/', {
   "resourcePath" => "/MoveLearnMethod",
   "summary" => "",
   "nickname" => "move_learn_method_read",

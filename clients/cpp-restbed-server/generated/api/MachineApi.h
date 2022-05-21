@@ -64,7 +64,7 @@ private:
 class  MachineApiApiV2MachineResource: public restbed::Resource
 {
 public:
-    MachineApiApiV2MachineResource(const std::string& context = "/api/v2");
+    MachineApiApiV2MachineResource(const std::string& context = "");
     virtual ~MachineApiApiV2MachineResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  MachineApiApiV2MachineIdResource: public restbed::Resource
 {
 public:
-    MachineApiApiV2MachineIdResource(const std::string& context = "/api/v2");
+    MachineApiApiV2MachineIdResource(const std::string& context = "");
     virtual ~MachineApiApiV2MachineIdResource();
 
 protected:

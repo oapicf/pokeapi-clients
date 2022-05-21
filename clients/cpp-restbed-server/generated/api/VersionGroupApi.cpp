@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-VersionGroupApiApiV2Version-groupResource::VersionGroupApiApiV2Version-groupResource(const std::string& context /* = "/api/v2" */)
+VersionGroupApiApiV2Version-groupResource::VersionGroupApiApiV2Version-groupResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/version-group//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string VersionGroupApiApiV2Version-groupResource::extractBodyContent(const 
                  });
   return bodyContent;
 }
-VersionGroupApiApiV2Version-groupIdResource::VersionGroupApiApiV2Version-groupIdResource(const std::string& context /* = "/api/v2" */)
+VersionGroupApiApiV2Version-groupIdResource::VersionGroupApiApiV2Version-groupIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/version-group/{id: .*}//");
 	this->set_method_handler("GET",

@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 git_push.sh
 project.clj
 src/openapi_clj_client/api/ability.clj

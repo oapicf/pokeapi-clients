@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIEggGroupApiRequest::getRawSocket(){
 
 
 void OAIEggGroupApiRequest::eggGroupListRequest(){
-    qDebug() << "/api/v2/api/v2/egg-group/";
+    qDebug() << "/api/v2/egg-group/";
     connect(this, &OAIEggGroupApiRequest::eggGroupList, handler.data(), &OAIEggGroupApiHandler::eggGroupList);
 
     
@@ -71,7 +71,7 @@ void OAIEggGroupApiRequest::eggGroupListRequest(){
 
 
 void OAIEggGroupApiRequest::eggGroupReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/egg-group/{id}/";
+    qDebug() << "/api/v2/egg-group/{id}/";
     connect(this, &OAIEggGroupApiRequest::eggGroupRead, handler.data(), &OAIEggGroupApiHandler::eggGroupRead);
 
     

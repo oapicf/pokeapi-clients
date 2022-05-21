@@ -80,13 +80,13 @@ type Configuration struct {
 // NewConfiguration returns a new Configuration object
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
-		BasePath:      "https://pokeapi.co/api/v2",
+		BasePath:      "https://pokeapi.co",
 		DefaultHeader: make(map[string]string),
 		UserAgent:     "OpenAPI-Generator/1.0.0/go",
 		Debug:         false,
 		Servers:       []ServerConfiguration{
 			{
-				Url: "https://pokeapi.co/api/v2",
+				Url: "https://pokeapi.co",
 				Description: "No description provided",
 			},
 		},

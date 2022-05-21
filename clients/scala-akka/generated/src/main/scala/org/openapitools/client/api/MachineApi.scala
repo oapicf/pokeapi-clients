@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object MachineApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new MachineApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new MachineApi(baseUrl)
 }
 
 class MachineApi(baseUrl: String) {

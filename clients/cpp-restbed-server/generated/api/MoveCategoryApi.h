@@ -64,7 +64,7 @@ private:
 class  MoveCategoryApiApiV2Move-categoryResource: public restbed::Resource
 {
 public:
-    MoveCategoryApiApiV2Move-categoryResource(const std::string& context = "/api/v2");
+    MoveCategoryApiApiV2Move-categoryResource(const std::string& context = "");
     virtual ~MoveCategoryApiApiV2Move-categoryResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  MoveCategoryApiApiV2Move-categoryIdResource: public restbed::Resource
 {
 public:
-    MoveCategoryApiApiV2Move-categoryIdResource(const std::string& context = "/api/v2");
+    MoveCategoryApiApiV2Move-categoryIdResource(const std::string& context = "");
     virtual ~MoveCategoryApiApiV2Move-categoryIdResource();
 
 protected:

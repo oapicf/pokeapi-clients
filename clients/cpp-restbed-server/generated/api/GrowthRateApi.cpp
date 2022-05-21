@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-GrowthRateApiApiV2Growth-rateResource::GrowthRateApiApiV2Growth-rateResource(const std::string& context /* = "/api/v2" */)
+GrowthRateApiApiV2Growth-rateResource::GrowthRateApiApiV2Growth-rateResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/growth-rate//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string GrowthRateApiApiV2Growth-rateResource::extractBodyContent(const std:
                  });
   return bodyContent;
 }
-GrowthRateApiApiV2Growth-rateIdResource::GrowthRateApiApiV2Growth-rateIdResource(const std::string& context /* = "/api/v2" */)
+GrowthRateApiApiV2Growth-rateIdResource::GrowthRateApiApiV2Growth-rateIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/growth-rate/{id: .*}//");
 	this->set_method_handler("GET",

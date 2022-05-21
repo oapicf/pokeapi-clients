@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIRegionApiRequest::getRawSocket(){
 
 
 void OAIRegionApiRequest::regionListRequest(){
-    qDebug() << "/api/v2/api/v2/region/";
+    qDebug() << "/api/v2/region/";
     connect(this, &OAIRegionApiRequest::regionList, handler.data(), &OAIRegionApiHandler::regionList);
 
     
@@ -71,7 +71,7 @@ void OAIRegionApiRequest::regionListRequest(){
 
 
 void OAIRegionApiRequest::regionReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/region/{id}/";
+    qDebug() << "/api/v2/region/{id}/";
     connect(this, &OAIRegionApiRequest::regionRead, handler.data(), &OAIRegionApiHandler::regionRead);
 
     

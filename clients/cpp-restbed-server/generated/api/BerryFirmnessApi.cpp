@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-BerryFirmnessApiApiV2Berry-firmnessResource::BerryFirmnessApiApiV2Berry-firmnessResource(const std::string& context /* = "/api/v2" */)
+BerryFirmnessApiApiV2Berry-firmnessResource::BerryFirmnessApiApiV2Berry-firmnessResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/berry-firmness//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string BerryFirmnessApiApiV2Berry-firmnessResource::extractBodyContent(cons
                  });
   return bodyContent;
 }
-BerryFirmnessApiApiV2Berry-firmnessIdResource::BerryFirmnessApiApiV2Berry-firmnessIdResource(const std::string& context /* = "/api/v2" */)
+BerryFirmnessApiApiV2Berry-firmnessIdResource::BerryFirmnessApiApiV2Berry-firmnessIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/berry-firmness/{id: .*}//");
 	this->set_method_handler("GET",

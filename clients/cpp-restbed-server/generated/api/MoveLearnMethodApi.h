@@ -64,7 +64,7 @@ private:
 class  MoveLearnMethodApiApiV2Move-learn-methodResource: public restbed::Resource
 {
 public:
-    MoveLearnMethodApiApiV2Move-learn-methodResource(const std::string& context = "/api/v2");
+    MoveLearnMethodApiApiV2Move-learn-methodResource(const std::string& context = "");
     virtual ~MoveLearnMethodApiApiV2Move-learn-methodResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  MoveLearnMethodApiApiV2Move-learn-methodIdResource: public restbed::Resource
 {
 public:
-    MoveLearnMethodApiApiV2Move-learn-methodIdResource(const std::string& context = "/api/v2");
+    MoveLearnMethodApiApiV2Move-learn-methodIdResource(const std::string& context = "");
     virtual ~MoveLearnMethodApiApiV2Move-learn-methodIdResource();
 
 protected:

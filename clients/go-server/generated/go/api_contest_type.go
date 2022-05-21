@@ -51,13 +51,13 @@ func (c *ContestTypeApiController) Routes() Routes {
 		{
 			"ContestTypeList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/contest-type/",
+			"/api/v2/contest-type/",
 			c.ContestTypeList,
 		},
 		{
 			"ContestTypeRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/contest-type/{id}/",
+			"/api/v2/contest-type/{id}/",
 			c.ContestTypeRead,
 		},
 	}

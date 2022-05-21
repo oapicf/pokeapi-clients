@@ -20,7 +20,7 @@ module NatureApiHandlers =
     /// </summary>
    [<FunctionName("NatureList")>]
     let NatureList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/nature/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/nature/")>]
         req:HttpRequest ) =
 
       let result = NatureApiService.NatureList ()
@@ -36,7 +36,7 @@ module NatureApiHandlers =
     /// </summary>
    [<FunctionName("NatureRead")>]
     let NatureRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/nature/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/nature/{id}/")>]
         req:HttpRequest ) =
 
       let result = NatureApiService.NatureRead ()

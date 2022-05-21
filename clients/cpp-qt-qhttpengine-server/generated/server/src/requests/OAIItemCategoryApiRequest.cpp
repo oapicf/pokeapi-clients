@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIItemCategoryApiRequest::getRawSocket(){
 
 
 void OAIItemCategoryApiRequest::itemCategoryListRequest(){
-    qDebug() << "/api/v2/api/v2/item-category/";
+    qDebug() << "/api/v2/item-category/";
     connect(this, &OAIItemCategoryApiRequest::itemCategoryList, handler.data(), &OAIItemCategoryApiHandler::itemCategoryList);
 
     
@@ -71,7 +71,7 @@ void OAIItemCategoryApiRequest::itemCategoryListRequest(){
 
 
 void OAIItemCategoryApiRequest::itemCategoryReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/item-category/{id}/";
+    qDebug() << "/api/v2/item-category/{id}/";
     connect(this, &OAIItemCategoryApiRequest::itemCategoryRead, handler.data(), &OAIItemCategoryApiHandler::itemCategoryRead);
 
     

@@ -51,13 +51,13 @@ func (c *RegionApiController) Routes() Routes {
 		{
 			"RegionList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/region/",
+			"/api/v2/region/",
 			c.RegionList,
 		},
 		{
 			"RegionRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/region/{id}/",
+			"/api/v2/region/{id}/",
 			c.RegionRead,
 		},
 	}

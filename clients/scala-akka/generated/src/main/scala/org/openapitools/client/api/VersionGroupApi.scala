@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object VersionGroupApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new VersionGroupApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new VersionGroupApi(baseUrl)
 }
 
 class VersionGroupApi(baseUrl: String) {

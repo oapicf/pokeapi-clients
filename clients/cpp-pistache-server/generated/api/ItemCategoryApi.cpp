@@ -19,7 +19,7 @@ namespace org::openapitools::server::api
 using namespace org::openapitools::server::helpers;
 
 
-const std::string ItemCategoryApi::base = "/api/v2";
+const std::string ItemCategoryApi::base = "";
 
 ItemCategoryApi::ItemCategoryApi(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : router(rtr)

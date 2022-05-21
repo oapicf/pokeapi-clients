@@ -25,7 +25,7 @@ samples/client/petstore/tiny/cpp/
     └── RunTests.cpp
 ```
 
-All URIs are relative to https://pokeapi.cohttps://pokeapi.co/api/v2
+All URIs are relative to https://pokeapi.cohttps://pokeapi.co
 
 ### AbilityApi
 |Method | HTTP request | Description|

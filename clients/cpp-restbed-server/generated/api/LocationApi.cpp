@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-LocationApiApiV2LocationResource::LocationApiApiV2LocationResource(const std::string& context /* = "/api/v2" */)
+LocationApiApiV2LocationResource::LocationApiApiV2LocationResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/location//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string LocationApiApiV2LocationResource::extractBodyContent(const std::shar
                  });
   return bodyContent;
 }
-LocationApiApiV2LocationIdResource::LocationApiApiV2LocationIdResource(const std::string& context /* = "/api/v2" */)
+LocationApiApiV2LocationIdResource::LocationApiApiV2LocationIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/location/{id: .*}//");
 	this->set_method_handler("GET",

@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object PokedexApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new PokedexApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new PokedexApi(baseUrl)
 }
 
 class PokedexApi(baseUrl: String) {

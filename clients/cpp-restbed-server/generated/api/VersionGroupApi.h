@@ -64,7 +64,7 @@ private:
 class  VersionGroupApiApiV2Version-groupResource: public restbed::Resource
 {
 public:
-    VersionGroupApiApiV2Version-groupResource(const std::string& context = "/api/v2");
+    VersionGroupApiApiV2Version-groupResource(const std::string& context = "");
     virtual ~VersionGroupApiApiV2Version-groupResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  VersionGroupApiApiV2Version-groupIdResource: public restbed::Resource
 {
 public:
-    VersionGroupApiApiV2Version-groupIdResource(const std::string& context = "/api/v2");
+    VersionGroupApiApiV2Version-groupIdResource(const std::string& context = "");
     virtual ~VersionGroupApiApiV2Version-groupIdResource();
 
 protected:

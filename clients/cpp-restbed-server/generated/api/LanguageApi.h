@@ -64,7 +64,7 @@ private:
 class  LanguageApiApiV2LanguageResource: public restbed::Resource
 {
 public:
-    LanguageApiApiV2LanguageResource(const std::string& context = "/api/v2");
+    LanguageApiApiV2LanguageResource(const std::string& context = "");
     virtual ~LanguageApiApiV2LanguageResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  LanguageApiApiV2LanguageIdResource: public restbed::Resource
 {
 public:
-    LanguageApiApiV2LanguageIdResource(const std::string& context = "/api/v2");
+    LanguageApiApiV2LanguageIdResource(const std::string& context = "");
     virtual ~LanguageApiApiV2LanguageIdResource();
 
 protected:

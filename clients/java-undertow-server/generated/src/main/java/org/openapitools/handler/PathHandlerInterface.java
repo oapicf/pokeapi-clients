@@ -19,7 +19,7 @@ import org.openapitools.model.*;
 public interface PathHandlerInterface {
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/ability/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/ability/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -53,7 +53,7 @@ public interface PathHandlerInterface {
     HttpHandler abilityList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/ability/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/ability/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -79,7 +79,7 @@ public interface PathHandlerInterface {
     HttpHandler abilityRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/berry/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/berry/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -113,7 +113,7 @@ public interface PathHandlerInterface {
     HttpHandler berryList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/berry/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/berry/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -139,7 +139,7 @@ public interface PathHandlerInterface {
     HttpHandler berryRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/berry-firmness/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/berry-firmness/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -173,7 +173,7 @@ public interface PathHandlerInterface {
     HttpHandler berryFirmnessList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/berry-firmness/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/berry-firmness/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -199,7 +199,7 @@ public interface PathHandlerInterface {
     HttpHandler berryFirmnessRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/berry-flavor/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/berry-flavor/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -233,7 +233,7 @@ public interface PathHandlerInterface {
     HttpHandler berryFlavorList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/berry-flavor/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/berry-flavor/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -259,7 +259,7 @@ public interface PathHandlerInterface {
     HttpHandler berryFlavorRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/characteristic/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/characteristic/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -293,7 +293,7 @@ public interface PathHandlerInterface {
     HttpHandler characteristicList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/characteristic/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/characteristic/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -319,7 +319,7 @@ public interface PathHandlerInterface {
     HttpHandler characteristicRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/contest-effect/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/contest-effect/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -353,7 +353,7 @@ public interface PathHandlerInterface {
     HttpHandler contestEffectList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/contest-effect/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/contest-effect/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -379,7 +379,7 @@ public interface PathHandlerInterface {
     HttpHandler contestEffectRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/contest-type/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/contest-type/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -413,7 +413,7 @@ public interface PathHandlerInterface {
     HttpHandler contestTypeList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/contest-type/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/contest-type/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -439,7 +439,7 @@ public interface PathHandlerInterface {
     HttpHandler contestTypeRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/egg-group/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/egg-group/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -473,7 +473,7 @@ public interface PathHandlerInterface {
     HttpHandler eggGroupList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/egg-group/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/egg-group/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -499,7 +499,7 @@ public interface PathHandlerInterface {
     HttpHandler eggGroupRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/encounter-condition/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/encounter-condition/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -533,7 +533,7 @@ public interface PathHandlerInterface {
     HttpHandler encounterConditionList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/encounter-condition/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/encounter-condition/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -559,7 +559,7 @@ public interface PathHandlerInterface {
     HttpHandler encounterConditionRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/encounter-condition-value/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/encounter-condition-value/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -593,7 +593,7 @@ public interface PathHandlerInterface {
     HttpHandler encounterConditionValueList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/encounter-condition-value/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/encounter-condition-value/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -619,7 +619,7 @@ public interface PathHandlerInterface {
     HttpHandler encounterConditionValueRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/encounter-method/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/encounter-method/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -653,7 +653,7 @@ public interface PathHandlerInterface {
     HttpHandler encounterMethodList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/encounter-method/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/encounter-method/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -679,7 +679,7 @@ public interface PathHandlerInterface {
     HttpHandler encounterMethodRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/evolution-chain/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/evolution-chain/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -713,7 +713,7 @@ public interface PathHandlerInterface {
     HttpHandler evolutionChainList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/evolution-chain/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/evolution-chain/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -739,7 +739,7 @@ public interface PathHandlerInterface {
     HttpHandler evolutionChainRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/evolution-trigger/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/evolution-trigger/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -773,7 +773,7 @@ public interface PathHandlerInterface {
     HttpHandler evolutionTriggerList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/evolution-trigger/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/evolution-trigger/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -799,7 +799,7 @@ public interface PathHandlerInterface {
     HttpHandler evolutionTriggerRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/gender/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/gender/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -833,7 +833,7 @@ public interface PathHandlerInterface {
     HttpHandler genderList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/gender/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/gender/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -859,7 +859,7 @@ public interface PathHandlerInterface {
     HttpHandler genderRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/generation/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/generation/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -893,7 +893,7 @@ public interface PathHandlerInterface {
     HttpHandler generationList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/generation/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/generation/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -919,7 +919,7 @@ public interface PathHandlerInterface {
     HttpHandler generationRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/growth-rate/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/growth-rate/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -953,7 +953,7 @@ public interface PathHandlerInterface {
     HttpHandler growthRateList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/growth-rate/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/growth-rate/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -979,7 +979,7 @@ public interface PathHandlerInterface {
     HttpHandler growthRateRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/item/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/item/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1013,7 +1013,7 @@ public interface PathHandlerInterface {
     HttpHandler itemList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/item/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/item/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1039,7 +1039,7 @@ public interface PathHandlerInterface {
     HttpHandler itemRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/item-attribute/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/item-attribute/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1073,7 +1073,7 @@ public interface PathHandlerInterface {
     HttpHandler itemAttributeList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/item-attribute/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/item-attribute/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1099,7 +1099,7 @@ public interface PathHandlerInterface {
     HttpHandler itemAttributeRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/item-category/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/item-category/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1133,7 +1133,7 @@ public interface PathHandlerInterface {
     HttpHandler itemCategoryList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/item-category/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/item-category/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1159,7 +1159,7 @@ public interface PathHandlerInterface {
     HttpHandler itemCategoryRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/item-fling-effect/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/item-fling-effect/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1193,7 +1193,7 @@ public interface PathHandlerInterface {
     HttpHandler itemFlingEffectList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/item-fling-effect/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/item-fling-effect/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1219,7 +1219,7 @@ public interface PathHandlerInterface {
     HttpHandler itemFlingEffectRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/item-pocket/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/item-pocket/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1253,7 +1253,7 @@ public interface PathHandlerInterface {
     HttpHandler itemPocketList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/item-pocket/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/item-pocket/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1279,7 +1279,7 @@ public interface PathHandlerInterface {
     HttpHandler itemPocketRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/language/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/language/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1313,7 +1313,7 @@ public interface PathHandlerInterface {
     HttpHandler languageList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/language/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/language/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1339,7 +1339,7 @@ public interface PathHandlerInterface {
     HttpHandler languageRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/location/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/location/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1373,7 +1373,7 @@ public interface PathHandlerInterface {
     HttpHandler locationList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/location/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/location/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1399,7 +1399,7 @@ public interface PathHandlerInterface {
     HttpHandler locationRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/location-area/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/location-area/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1433,7 +1433,7 @@ public interface PathHandlerInterface {
     HttpHandler locationAreaList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/location-area/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/location-area/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1459,7 +1459,7 @@ public interface PathHandlerInterface {
     HttpHandler locationAreaRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/machine/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/machine/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1493,7 +1493,7 @@ public interface PathHandlerInterface {
     HttpHandler machineList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/machine/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/machine/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1519,7 +1519,7 @@ public interface PathHandlerInterface {
     HttpHandler machineRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/move/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/move/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1553,7 +1553,7 @@ public interface PathHandlerInterface {
     HttpHandler moveList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/move/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/move/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1579,7 +1579,7 @@ public interface PathHandlerInterface {
     HttpHandler moveRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/move-ailment/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/move-ailment/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1613,7 +1613,7 @@ public interface PathHandlerInterface {
     HttpHandler moveAilmentList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/move-ailment/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/move-ailment/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1639,7 +1639,7 @@ public interface PathHandlerInterface {
     HttpHandler moveAilmentRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/move-battle-style/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/move-battle-style/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1673,7 +1673,7 @@ public interface PathHandlerInterface {
     HttpHandler moveBattleStyleList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/move-battle-style/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/move-battle-style/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1699,7 +1699,7 @@ public interface PathHandlerInterface {
     HttpHandler moveBattleStyleRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/move-category/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/move-category/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1733,7 +1733,7 @@ public interface PathHandlerInterface {
     HttpHandler moveCategoryList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/move-category/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/move-category/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1759,7 +1759,7 @@ public interface PathHandlerInterface {
     HttpHandler moveCategoryRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/move-damage-class/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/move-damage-class/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1793,7 +1793,7 @@ public interface PathHandlerInterface {
     HttpHandler moveDamageClassList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/move-damage-class/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/move-damage-class/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1819,7 +1819,7 @@ public interface PathHandlerInterface {
     HttpHandler moveDamageClassRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/move-learn-method/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/move-learn-method/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1853,7 +1853,7 @@ public interface PathHandlerInterface {
     HttpHandler moveLearnMethodList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/move-learn-method/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/move-learn-method/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1879,7 +1879,7 @@ public interface PathHandlerInterface {
     HttpHandler moveLearnMethodRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/move-target/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/move-target/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1913,7 +1913,7 @@ public interface PathHandlerInterface {
     HttpHandler moveTargetList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/move-target/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/move-target/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1939,7 +1939,7 @@ public interface PathHandlerInterface {
     HttpHandler moveTargetRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/nature/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/nature/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1973,7 +1973,7 @@ public interface PathHandlerInterface {
     HttpHandler natureList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/nature/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/nature/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -1999,7 +1999,7 @@ public interface PathHandlerInterface {
     HttpHandler natureRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pal-park-area/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pal-park-area/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2033,7 +2033,7 @@ public interface PathHandlerInterface {
     HttpHandler palParkAreaList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pal-park-area/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pal-park-area/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2059,7 +2059,7 @@ public interface PathHandlerInterface {
     HttpHandler palParkAreaRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pokeathlon-stat/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pokeathlon-stat/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2093,7 +2093,7 @@ public interface PathHandlerInterface {
     HttpHandler pokeathlonStatList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pokeathlon-stat/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pokeathlon-stat/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2119,7 +2119,7 @@ public interface PathHandlerInterface {
     HttpHandler pokeathlonStatRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pokedex/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pokedex/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2153,7 +2153,7 @@ public interface PathHandlerInterface {
     HttpHandler pokedexList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pokedex/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pokedex/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2179,7 +2179,7 @@ public interface PathHandlerInterface {
     HttpHandler pokedexRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pokemon/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pokemon/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2213,7 +2213,7 @@ public interface PathHandlerInterface {
     HttpHandler pokemonList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pokemon/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pokemon/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2239,7 +2239,7 @@ public interface PathHandlerInterface {
     HttpHandler pokemonRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pokemon-color/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pokemon-color/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2273,7 +2273,7 @@ public interface PathHandlerInterface {
     HttpHandler pokemonColorList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pokemon-color/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pokemon-color/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2299,7 +2299,7 @@ public interface PathHandlerInterface {
     HttpHandler pokemonColorRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pokemon-form/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pokemon-form/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2333,7 +2333,7 @@ public interface PathHandlerInterface {
     HttpHandler pokemonFormList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pokemon-form/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pokemon-form/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2359,7 +2359,7 @@ public interface PathHandlerInterface {
     HttpHandler pokemonFormRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pokemon-habitat/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pokemon-habitat/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2393,7 +2393,7 @@ public interface PathHandlerInterface {
     HttpHandler pokemonHabitatList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pokemon-habitat/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pokemon-habitat/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2419,7 +2419,7 @@ public interface PathHandlerInterface {
     HttpHandler pokemonHabitatRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pokemon-shape/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pokemon-shape/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2453,7 +2453,7 @@ public interface PathHandlerInterface {
     HttpHandler pokemonShapeList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pokemon-shape/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pokemon-shape/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2479,7 +2479,7 @@ public interface PathHandlerInterface {
     HttpHandler pokemonShapeRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pokemon-species/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pokemon-species/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2513,7 +2513,7 @@ public interface PathHandlerInterface {
     HttpHandler pokemonSpeciesList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/pokemon-species/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pokemon-species/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2539,7 +2539,7 @@ public interface PathHandlerInterface {
     HttpHandler pokemonSpeciesRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/region/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/region/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2573,7 +2573,7 @@ public interface PathHandlerInterface {
     HttpHandler regionList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/region/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/region/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2599,7 +2599,7 @@ public interface PathHandlerInterface {
     HttpHandler regionRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/stat/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/stat/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2633,7 +2633,7 @@ public interface PathHandlerInterface {
     HttpHandler statList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/stat/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/stat/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2659,7 +2659,7 @@ public interface PathHandlerInterface {
     HttpHandler statRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/super-contest-effect/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/super-contest-effect/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2693,7 +2693,7 @@ public interface PathHandlerInterface {
     HttpHandler superContestEffectList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/super-contest-effect/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/super-contest-effect/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2719,7 +2719,7 @@ public interface PathHandlerInterface {
     HttpHandler superContestEffectRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/type/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/type/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2753,7 +2753,7 @@ public interface PathHandlerInterface {
     HttpHandler typeList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/type/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/type/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2779,7 +2779,7 @@ public interface PathHandlerInterface {
     HttpHandler typeRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/version/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/version/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2813,7 +2813,7 @@ public interface PathHandlerInterface {
     HttpHandler versionList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/version/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/version/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2839,7 +2839,7 @@ public interface PathHandlerInterface {
     HttpHandler versionRead();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/version-group/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/version-group/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>
@@ -2873,7 +2873,7 @@ public interface PathHandlerInterface {
     HttpHandler versionGroupList();
 
     /**
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/api/v2/version-group/{id}/" (<i>privileged: false</i>)</p>
+     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/version-group/{id}/" (<i>privileged: false</i>)</p>
      *
      * <p><b>Request parameters</b>:</p>
      * <ul>

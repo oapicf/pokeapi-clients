@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/item-fling-effect/', {
+MyApp.add_route('GET', '/api/v2/item-fling-effect/', {
   "resourcePath" => "/ItemFlingEffect",
   "summary" => "",
   "nickname" => "item_fling_effect_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/item-fling-effect/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/item-fling-effect/{id}/', {
+MyApp.add_route('GET', '/api/v2/item-fling-effect/{id}/', {
   "resourcePath" => "/ItemFlingEffect",
   "summary" => "",
   "nickname" => "item_fling_effect_read",

@@ -17,7 +17,7 @@ import sttp.model.Method
 
 object SuperContestEffectApi {
 
-def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new SuperContestEffectApi(baseUrl)
+def apply(baseUrl: String = "https://pokeapi.co") = new SuperContestEffectApi(baseUrl)
 }
 
 class SuperContestEffectApi(baseUrl: String) {

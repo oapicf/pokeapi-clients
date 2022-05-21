@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-ItemAttributeApiApiV2Item-attributeResource::ItemAttributeApiApiV2Item-attributeResource(const std::string& context /* = "/api/v2" */)
+ItemAttributeApiApiV2Item-attributeResource::ItemAttributeApiApiV2Item-attributeResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/item-attribute//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string ItemAttributeApiApiV2Item-attributeResource::extractBodyContent(cons
                  });
   return bodyContent;
 }
-ItemAttributeApiApiV2Item-attributeIdResource::ItemAttributeApiApiV2Item-attributeIdResource(const std::string& context /* = "/api/v2" */)
+ItemAttributeApiApiV2Item-attributeIdResource::ItemAttributeApiApiV2Item-attributeIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/item-attribute/{id: .*}//");
 	this->set_method_handler("GET",

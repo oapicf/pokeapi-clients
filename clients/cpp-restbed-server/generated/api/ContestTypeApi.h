@@ -64,7 +64,7 @@ private:
 class  ContestTypeApiApiV2Contest-typeResource: public restbed::Resource
 {
 public:
-    ContestTypeApiApiV2Contest-typeResource(const std::string& context = "/api/v2");
+    ContestTypeApiApiV2Contest-typeResource(const std::string& context = "");
     virtual ~ContestTypeApiApiV2Contest-typeResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  ContestTypeApiApiV2Contest-typeIdResource: public restbed::Resource
 {
 public:
-    ContestTypeApiApiV2Contest-typeIdResource(const std::string& context = "/api/v2");
+    ContestTypeApiApiV2Contest-typeIdResource(const std::string& context = "");
     virtual ~ContestTypeApiApiV2Contest-typeIdResource();
 
 protected:

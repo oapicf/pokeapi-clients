@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIGenderApiRequest::getRawSocket(){
 
 
 void OAIGenderApiRequest::genderListRequest(){
-    qDebug() << "/api/v2/api/v2/gender/";
+    qDebug() << "/api/v2/gender/";
     connect(this, &OAIGenderApiRequest::genderList, handler.data(), &OAIGenderApiHandler::genderList);
 
     
@@ -71,7 +71,7 @@ void OAIGenderApiRequest::genderListRequest(){
 
 
 void OAIGenderApiRequest::genderReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/gender/{id}/";
+    qDebug() << "/api/v2/gender/{id}/";
     connect(this, &OAIGenderApiRequest::genderRead, handler.data(), &OAIGenderApiHandler::genderRead);
 
     

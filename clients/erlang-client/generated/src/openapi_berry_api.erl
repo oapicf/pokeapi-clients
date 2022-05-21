@@ -3,7 +3,7 @@
 -export([berry_list/1, berry_list/2,
          berry_read/2, berry_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

@@ -52,10 +52,10 @@ import time
 import openapi_client
 from pprint import pprint
 from openapi_client.api import ability_api
-# Defining the host is optional and defaults to https://pokeapi.co/api/v2
+# Defining the host is optional and defaults to https://pokeapi.co
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://pokeapi.co/api/v2"
+    host = "https://pokeapi.co"
 )
 
 
@@ -75,7 +75,7 @@ offset = 1 # int |  (optional)
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://pokeapi.co/api/v2*
+All URIs are relative to *https://pokeapi.co*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

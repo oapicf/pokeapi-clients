@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-EvolutionChainApiApiV2Evolution-chainResource::EvolutionChainApiApiV2Evolution-chainResource(const std::string& context /* = "/api/v2" */)
+EvolutionChainApiApiV2Evolution-chainResource::EvolutionChainApiApiV2Evolution-chainResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/evolution-chain//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string EvolutionChainApiApiV2Evolution-chainResource::extractBodyContent(co
                  });
   return bodyContent;
 }
-EvolutionChainApiApiV2Evolution-chainIdResource::EvolutionChainApiApiV2Evolution-chainIdResource(const std::string& context /* = "/api/v2" */)
+EvolutionChainApiApiV2Evolution-chainIdResource::EvolutionChainApiApiV2Evolution-chainIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/evolution-chain/{id: .*}//");
 	this->set_method_handler("GET",

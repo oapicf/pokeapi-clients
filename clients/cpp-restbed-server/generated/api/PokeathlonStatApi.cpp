@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-PokeathlonStatApiApiV2Pokeathlon-statResource::PokeathlonStatApiApiV2Pokeathlon-statResource(const std::string& context /* = "/api/v2" */)
+PokeathlonStatApiApiV2Pokeathlon-statResource::PokeathlonStatApiApiV2Pokeathlon-statResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/pokeathlon-stat//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string PokeathlonStatApiApiV2Pokeathlon-statResource::extractBodyContent(co
                  });
   return bodyContent;
 }
-PokeathlonStatApiApiV2Pokeathlon-statIdResource::PokeathlonStatApiApiV2Pokeathlon-statIdResource(const std::string& context /* = "/api/v2" */)
+PokeathlonStatApiApiV2Pokeathlon-statIdResource::PokeathlonStatApiApiV2Pokeathlon-statIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/pokeathlon-stat/{id: .*}//");
 	this->set_method_handler("GET",

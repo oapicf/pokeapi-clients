@@ -51,13 +51,13 @@ func (c *MoveTargetApiController) Routes() Routes {
 		{
 			"MoveTargetList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/move-target/",
+			"/api/v2/move-target/",
 			c.MoveTargetList,
 		},
 		{
 			"MoveTargetRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/move-target/{id}/",
+			"/api/v2/move-target/{id}/",
 			c.MoveTargetRead,
 		},
 	}

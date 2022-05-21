@@ -20,7 +20,7 @@ module EvolutionChainApiHandlers =
     /// </summary>
    [<FunctionName("EvolutionChainList")>]
     let EvolutionChainList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/evolution-chain/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/evolution-chain/")>]
         req:HttpRequest ) =
 
       let result = EvolutionChainApiService.EvolutionChainList ()
@@ -36,7 +36,7 @@ module EvolutionChainApiHandlers =
     /// </summary>
    [<FunctionName("EvolutionChainRead")>]
     let EvolutionChainRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/evolution-chain/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/evolution-chain/{id}/")>]
         req:HttpRequest ) =
 
       let result = EvolutionChainApiService.EvolutionChainRead ()

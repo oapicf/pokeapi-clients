@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 api/AbilityApi.ts
 api/BerryApi.ts
 api/BerryFirmnessApi.ts

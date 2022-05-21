@@ -44,17 +44,17 @@ abstract public class PathHandlerProvider implements HandlerProvider, PathHandle
      */
     @javax.annotation.Nonnull
     public String getBasePath() {
-        return "/api/v2";
+        return "";
     }
 
     /**
      * Returns a stateless {@link HttpHandler} that configures all endpoints in this server.
      *
-     * <p>Endpoints bound in this method do NOT start with "/api/v2", and
+     * <p>Endpoints bound in this method do NOT start with "", and
      * it's your responsibility to configure a {@link PathHandler} with a prefix path
      * by calling {@link PathHandler#addPrefixPath} like so:</p>
      *
-     * <code>pathHandler.addPrefixPath("/api/v2", handler)</code>
+     * <code>pathHandler.addPrefixPath("", handler)</code>
      *
      * <p>Note: the endpoints bound to the returned {@link HttpHandler} are stateless and won't
     * retain any state between multiple sessions.</p>
@@ -73,7 +73,7 @@ abstract public class PathHandlerProvider implements HandlerProvider, PathHandle
      * <p>Note: the endpoints bound to the returned {@link HttpHandler} are stateless and won't
      * retain any state between multiple sessions.</p>
      *
-     * @param withBasePath if true, all endpoints would start with "/api/v2"
+     * @param withBasePath if true, all endpoints would start with ""
      * @return an {@link HttpHandler} of type {@link RoutingHandler}
      */
     @javax.annotation.Nonnull
@@ -676,11 +676,11 @@ abstract public class PathHandlerProvider implements HandlerProvider, PathHandle
     /**
      * Returns a stateful {@link HttpHandler} that configures all endpoints in this server.
      *
-     * <p>Endpoints bound in this method do NOT start with "/api/v2", and
+     * <p>Endpoints bound in this method do NOT start with "", and
      * it's your responsibility to configure a {@link PathHandler} with a prefix path
      * by calling {@link PathHandler#addPrefixPath} like so:</p>
      *
-     * <code>pathHandler.addPrefixPath("/api/v2", handler)</code>
+     * <code>pathHandler.addPrefixPath("", handler)</code>
      *
      * <p>Note: the endpoints bound to the returned {@link HttpHandler} are stateful and will
      * retain any state between multiple sessions.</p>
@@ -698,7 +698,7 @@ abstract public class PathHandlerProvider implements HandlerProvider, PathHandle
      * <p>Note: the endpoints bound to the returned {@link HttpHandler} are stateful and will
      * retain any state between multiple sessions.</p>
      *
-     * @param withBasePath if true, all endpoints would start with "/api/v2"
+     * @param withBasePath if true, all endpoints would start with ""
      * @return an {@link HttpHandler} of type {@link RoutingHandler}
      */
     @javax.annotation.Nonnull

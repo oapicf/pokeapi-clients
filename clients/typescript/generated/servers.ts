@@ -48,6 +48,6 @@ export class ServerConfiguration<T extends { [key: string]: string }> implements
     }
 }
 
-export const server1 = new ServerConfiguration<{  }>("https://pokeapi.co/api/v2", {  })
+export const server1 = new ServerConfiguration<{  }>("https://pokeapi.co", {  })
 
 export const servers = [server1];

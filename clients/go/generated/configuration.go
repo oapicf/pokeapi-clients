@@ -103,7 +103,7 @@ func NewConfiguration() *Configuration {
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
-				URL: "https://pokeapi.co/api/v2",
+				URL: "https://pokeapi.co",
 				Description: "No description provided",
 			},
 		},

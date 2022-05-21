@@ -22,7 +22,7 @@ import com.typesafe.config.Config;
 
 import openapitools.OpenAPIUtils.ApiAction;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2022-05-16T10:28:32.229352Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2022-05-21T03:59:46.855052Z[Etc/UTC]")
 public class PalParkAreaApiController extends Controller {
     private final PalParkAreaApiControllerImpInterface imp;
     private final ObjectMapper mapper;

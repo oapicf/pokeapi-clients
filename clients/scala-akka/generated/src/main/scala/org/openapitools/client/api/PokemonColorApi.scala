@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object PokemonColorApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new PokemonColorApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new PokemonColorApi(baseUrl)
 }
 
 class PokemonColorApi(baseUrl: String) {

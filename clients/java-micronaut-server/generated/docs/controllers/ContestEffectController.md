@@ -1,6 +1,6 @@
 # ContestEffectController
 
-All URIs are relative to `"/api/v2"`
+All URIs are relative to `""`
 
 The controller class is defined in **[ContestEffectController.java](../../src/main/java/org/openapitools/controller/ContestEffectController.java)**
 

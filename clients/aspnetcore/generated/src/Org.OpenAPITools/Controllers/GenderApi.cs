@@ -33,7 +33,7 @@ namespace Org.OpenAPITools.Controllers
         /// <param name="offset"></param>
         /// <response code="0">Default response</response>
         [HttpGet]
-        [Route("/api/v2/api/v2/gender/")]
+        [Route("/api/v2/gender/")]
         [ValidateModelState]
         [SwaggerOperation("GenderList")]
         [SwaggerResponse(statusCode: 0, type: typeof(string), description: "Default response")]
@@ -57,7 +57,7 @@ namespace Org.OpenAPITools.Controllers
         /// <param name="id"></param>
         /// <response code="0">Default response</response>
         [HttpGet]
-        [Route("/api/v2/api/v2/gender/{id}/")]
+        [Route("/api/v2/gender/{id}/")]
         [ValidateModelState]
         [SwaggerOperation("GenderRead")]
         [SwaggerResponse(statusCode: 0, type: typeof(string), description: "Default response")]

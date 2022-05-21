@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/evolution-chain/', {
+MyApp.add_route('GET', '/api/v2/evolution-chain/', {
   "resourcePath" => "/EvolutionChain",
   "summary" => "",
   "nickname" => "evolution_chain_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/evolution-chain/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/evolution-chain/{id}/', {
+MyApp.add_route('GET', '/api/v2/evolution-chain/{id}/', {
   "resourcePath" => "/EvolutionChain",
   "summary" => "",
   "nickname" => "evolution_chain_read",

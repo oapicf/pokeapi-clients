@@ -18,7 +18,7 @@ import java.util.List;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2022-05-16T10:28:21.924827Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2022-05-21T03:59:39.742290Z[Etc/UTC]")
 @Api(value = "Ability", description = "the Ability API")
 public interface AbilityApi {
 

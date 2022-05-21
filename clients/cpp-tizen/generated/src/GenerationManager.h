@@ -82,7 +82,7 @@ bool generationReadAsync(char * accessToken,
 
 	static std::string getBasePath()
 	{
-		return "https://pokeapi.co/api/v2";
+		return "https://pokeapi.co";
 	}
 };
 /** @}*/

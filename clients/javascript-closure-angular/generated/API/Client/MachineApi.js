@@ -21,7 +21,7 @@ API.Client.MachineApi = function($http, $httpParamSerializer, $injector) {
   /** @private {!string} */
   this.basePath_ = $injector.has('MachineApiBasePath') ?
                    /** @type {!string} */ ($injector.get('MachineApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('MachineApiDefaultHeaders') ?

@@ -51,13 +51,13 @@ func (c *PokemonFormApiController) Routes() Routes {
 		{
 			"PokemonFormList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/pokemon-form/",
+			"/api/v2/pokemon-form/",
 			c.PokemonFormList,
 		},
 		{
 			"PokemonFormRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/pokemon-form/{id}/",
+			"/api/v2/pokemon-form/{id}/",
 			c.PokemonFormRead,
 		},
 	}

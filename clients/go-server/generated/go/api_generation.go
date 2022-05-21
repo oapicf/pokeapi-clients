@@ -51,13 +51,13 @@ func (c *GenerationApiController) Routes() Routes {
 		{
 			"GenerationList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/generation/",
+			"/api/v2/generation/",
 			c.GenerationList,
 		},
 		{
 			"GenerationRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/generation/{id}/",
+			"/api/v2/generation/{id}/",
 			c.GenerationRead,
 		},
 	}

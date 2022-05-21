@@ -20,7 +20,7 @@ module GenerationApiHandlers =
     /// </summary>
    [<FunctionName("GenerationList")>]
     let GenerationList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/generation/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/generation/")>]
         req:HttpRequest ) =
 
       let result = GenerationApiService.GenerationList ()
@@ -36,7 +36,7 @@ module GenerationApiHandlers =
     /// </summary>
    [<FunctionName("GenerationRead")>]
     let GenerationRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/generation/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/generation/{id}/")>]
         req:HttpRequest ) =
 
       let result = GenerationApiService.GenerationRead ()

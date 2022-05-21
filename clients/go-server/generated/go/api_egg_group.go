@@ -51,13 +51,13 @@ func (c *EggGroupApiController) Routes() Routes {
 		{
 			"EggGroupList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/egg-group/",
+			"/api/v2/egg-group/",
 			c.EggGroupList,
 		},
 		{
 			"EggGroupRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/egg-group/{id}/",
+			"/api/v2/egg-group/{id}/",
 			c.EggGroupRead,
 		},
 	}

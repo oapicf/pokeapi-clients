@@ -64,7 +64,7 @@ private:
 class  EncounterMethodApiApiV2Encounter-methodResource: public restbed::Resource
 {
 public:
-    EncounterMethodApiApiV2Encounter-methodResource(const std::string& context = "/api/v2");
+    EncounterMethodApiApiV2Encounter-methodResource(const std::string& context = "");
     virtual ~EncounterMethodApiApiV2Encounter-methodResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  EncounterMethodApiApiV2Encounter-methodIdResource: public restbed::Resource
 {
 public:
-    EncounterMethodApiApiV2Encounter-methodIdResource(const std::string& context = "/api/v2");
+    EncounterMethodApiApiV2Encounter-methodIdResource(const std::string& context = "");
     virtual ~EncounterMethodApiApiV2Encounter-methodIdResource();
 
 protected:

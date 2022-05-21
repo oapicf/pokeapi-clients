@@ -3,7 +3,7 @@
 -export([evolution_trigger_list/1, evolution_trigger_list/2,
          evolution_trigger_read/2, evolution_trigger_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

@@ -51,13 +51,13 @@ func (c *StatApiController) Routes() Routes {
 		{
 			"StatList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/stat/",
+			"/api/v2/stat/",
 			c.StatList,
 		},
 		{
 			"StatRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/stat/{id}/",
+			"/api/v2/stat/{id}/",
 			c.StatRead,
 		},
 	}

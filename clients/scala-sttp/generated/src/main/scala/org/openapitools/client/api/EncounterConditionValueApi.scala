@@ -17,7 +17,7 @@ import sttp.model.Method
 
 object EncounterConditionValueApi {
 
-def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new EncounterConditionValueApi(baseUrl)
+def apply(baseUrl: String = "https://pokeapi.co") = new EncounterConditionValueApi(baseUrl)
 }
 
 class EncounterConditionValueApi(baseUrl: String) {

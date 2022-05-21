@@ -51,13 +51,13 @@ func (c *PalParkAreaApiController) Routes() Routes {
 		{
 			"PalParkAreaList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/pal-park-area/",
+			"/api/v2/pal-park-area/",
 			c.PalParkAreaList,
 		},
 		{
 			"PalParkAreaRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/pal-park-area/{id}/",
+			"/api/v2/pal-park-area/{id}/",
 			c.PalParkAreaRead,
 		},
 	}

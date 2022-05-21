@@ -21,7 +21,7 @@ API.Client.ItemApi = function($http, $httpParamSerializer, $injector) {
   /** @private {!string} */
   this.basePath_ = $injector.has('ItemApiBasePath') ?
                    /** @type {!string} */ ($injector.get('ItemApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('ItemApiDefaultHeaders') ?

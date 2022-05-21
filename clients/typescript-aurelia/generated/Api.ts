@@ -13,7 +13,7 @@
 import { HttpClient } from 'aurelia-http-client';
 import { AuthStorage } from './AuthStorage';
 
-const BASE_PATH = 'https://pokeapi.co/api/v2'.replace(/\/+$/, '');
+const BASE_PATH = 'https://pokeapi.co'.replace(/\/+$/, '');
 
 export class Api {
   basePath: string;

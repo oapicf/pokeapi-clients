@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-MoveBattleStyleApiApiV2Move-battle-styleResource::MoveBattleStyleApiApiV2Move-battle-styleResource(const std::string& context /* = "/api/v2" */)
+MoveBattleStyleApiApiV2Move-battle-styleResource::MoveBattleStyleApiApiV2Move-battle-styleResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/move-battle-style//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string MoveBattleStyleApiApiV2Move-battle-styleResource::extractBodyContent
                  });
   return bodyContent;
 }
-MoveBattleStyleApiApiV2Move-battle-styleIdResource::MoveBattleStyleApiApiV2Move-battle-styleIdResource(const std::string& context /* = "/api/v2" */)
+MoveBattleStyleApiApiV2Move-battle-styleIdResource::MoveBattleStyleApiApiV2Move-battle-styleIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/move-battle-style/{id: .*}//");
 	this->set_method_handler("GET",

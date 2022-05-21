@@ -20,7 +20,7 @@ module ContestTypeApiHandlers =
     /// </summary>
    [<FunctionName("ContestTypeList")>]
     let ContestTypeList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/contest-type/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/contest-type/")>]
         req:HttpRequest ) =
 
       let result = ContestTypeApiService.ContestTypeList ()
@@ -36,7 +36,7 @@ module ContestTypeApiHandlers =
     /// </summary>
    [<FunctionName("ContestTypeRead")>]
     let ContestTypeRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/contest-type/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/contest-type/{id}/")>]
         req:HttpRequest ) =
 
       let result = ContestTypeApiService.ContestTypeRead ()

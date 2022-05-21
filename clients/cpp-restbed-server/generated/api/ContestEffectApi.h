@@ -64,7 +64,7 @@ private:
 class  ContestEffectApiApiV2Contest-effectResource: public restbed::Resource
 {
 public:
-    ContestEffectApiApiV2Contest-effectResource(const std::string& context = "/api/v2");
+    ContestEffectApiApiV2Contest-effectResource(const std::string& context = "");
     virtual ~ContestEffectApiApiV2Contest-effectResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  ContestEffectApiApiV2Contest-effectIdResource: public restbed::Resource
 {
 public:
-    ContestEffectApiApiV2Contest-effectIdResource(const std::string& context = "/api/v2");
+    ContestEffectApiApiV2Contest-effectIdResource(const std::string& context = "");
     virtual ~ContestEffectApiApiV2Contest-effectIdResource();
 
 protected:

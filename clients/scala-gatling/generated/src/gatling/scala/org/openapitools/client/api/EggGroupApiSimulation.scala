@@ -42,7 +42,7 @@ class EggGroupApiSimulation extends Simulation {
 
 // Setup http protocol configuration
     val httpConf = http
-        .baseURL("https://pokeapi.co/api/v2")
+        .baseURL("https://pokeapi.co")
         .doNotTrackHeader("1")
         .acceptLanguageHeader("en-US,en;q=0.5")
         .acceptEncodingHeader("gzip, deflate")

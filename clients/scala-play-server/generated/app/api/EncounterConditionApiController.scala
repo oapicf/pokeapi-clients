@@ -5,11 +5,11 @@ import javax.inject.{Inject, Singleton}
 import play.api.libs.json._
 import play.api.mvc._
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-16T10:34:47.121763Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-21T04:06:20.868089Z[Etc/UTC]")
 @Singleton
 class EncounterConditionApiController @Inject()(cc: ControllerComponents, api: EncounterConditionApi) extends AbstractController(cc) {
   /**
-    * GET /api/v2/api/v2/encounter-condition/?limit=[value]&offset=[value]
+    * GET /api/v2/encounter-condition/?limit=[value]&offset=[value]
     */
   def encounterConditionList(): Action[AnyContent] = Action { request =>
     def executeApi(): String = {
@@ -26,7 +26,7 @@ class EncounterConditionApiController @Inject()(cc: ControllerComponents, api: E
   }
 
   /**
-    * GET /api/v2/api/v2/encounter-condition/:id/
+    * GET /api/v2/encounter-condition/:id/
     */
   def encounterConditionRead(id: Int): Action[AnyContent] = Action { request =>
     def executeApi(): String = {

@@ -21,7 +21,7 @@ API.Client.NatureApi = function($http, $httpParamSerializer, $injector) {
   /** @private {!string} */
   this.basePath_ = $injector.has('NatureApiBasePath') ?
                    /** @type {!string} */ ($injector.get('NatureApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('NatureApiDefaultHeaders') ?

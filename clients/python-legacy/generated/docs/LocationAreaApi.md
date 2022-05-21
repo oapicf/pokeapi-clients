@@ -1,6 +1,6 @@
 # openapi_client.LocationAreaApi
 
-All URIs are relative to *https://pokeapi.co/api/v2*
+All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,10 +21,10 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://pokeapi.co/api/v2
+# Defining the host is optional and defaults to https://pokeapi.co
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://pokeapi.co/api/v2"
+    host = "https://pokeapi.co"
 )
 
 
@@ -82,10 +82,10 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://pokeapi.co/api/v2
+# Defining the host is optional and defaults to https://pokeapi.co
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://pokeapi.co/api/v2"
+    host = "https://pokeapi.co"
 )
 
 

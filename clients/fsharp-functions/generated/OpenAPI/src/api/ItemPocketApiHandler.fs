@@ -20,7 +20,7 @@ module ItemPocketApiHandlers =
     /// </summary>
    [<FunctionName("ItemPocketList")>]
     let ItemPocketList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/item-pocket/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/item-pocket/")>]
         req:HttpRequest ) =
 
       let result = ItemPocketApiService.ItemPocketList ()
@@ -36,7 +36,7 @@ module ItemPocketApiHandlers =
     /// </summary>
    [<FunctionName("ItemPocketRead")>]
     let ItemPocketRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/item-pocket/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/item-pocket/{id}/")>]
         req:HttpRequest ) =
 
       let result = ItemPocketApiService.ItemPocketRead ()

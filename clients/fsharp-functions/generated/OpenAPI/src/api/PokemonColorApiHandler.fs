@@ -20,7 +20,7 @@ module PokemonColorApiHandlers =
     /// </summary>
    [<FunctionName("PokemonColorList")>]
     let PokemonColorList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/pokemon-color/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/pokemon-color/")>]
         req:HttpRequest ) =
 
       let result = PokemonColorApiService.PokemonColorList ()
@@ -36,7 +36,7 @@ module PokemonColorApiHandlers =
     /// </summary>
    [<FunctionName("PokemonColorRead")>]
     let PokemonColorRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/pokemon-color/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/pokemon-color/{id}/")>]
         req:HttpRequest ) =
 
       let result = PokemonColorApiService.PokemonColorRead ()

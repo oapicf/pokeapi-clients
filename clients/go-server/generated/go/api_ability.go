@@ -51,13 +51,13 @@ func (c *AbilityApiController) Routes() Routes {
 		{
 			"AbilityList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/ability/",
+			"/api/v2/ability/",
 			c.AbilityList,
 		},
 		{
 			"AbilityRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/ability/{id}/",
+			"/api/v2/ability/{id}/",
 			c.AbilityRead,
 		},
 	}

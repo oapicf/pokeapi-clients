@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIVersionGroupApiRequest::getRawSocket(){
 
 
 void OAIVersionGroupApiRequest::versionGroupListRequest(){
-    qDebug() << "/api/v2/api/v2/version-group/";
+    qDebug() << "/api/v2/version-group/";
     connect(this, &OAIVersionGroupApiRequest::versionGroupList, handler.data(), &OAIVersionGroupApiHandler::versionGroupList);
 
     
@@ -71,7 +71,7 @@ void OAIVersionGroupApiRequest::versionGroupListRequest(){
 
 
 void OAIVersionGroupApiRequest::versionGroupReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/version-group/{id}/";
+    qDebug() << "/api/v2/version-group/{id}/";
     connect(this, &OAIVersionGroupApiRequest::versionGroupRead, handler.data(), &OAIVersionGroupApiHandler::versionGroupRead);
 
     

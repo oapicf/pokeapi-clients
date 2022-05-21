@@ -3,7 +3,7 @@
 -export([location_list/1, location_list/2,
          location_read/2, location_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

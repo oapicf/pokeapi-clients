@@ -64,7 +64,7 @@ private:
 class  EncounterConditionApiApiV2Encounter-conditionResource: public restbed::Resource
 {
 public:
-    EncounterConditionApiApiV2Encounter-conditionResource(const std::string& context = "/api/v2");
+    EncounterConditionApiApiV2Encounter-conditionResource(const std::string& context = "");
     virtual ~EncounterConditionApiApiV2Encounter-conditionResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  EncounterConditionApiApiV2Encounter-conditionIdResource: public restbed::Resource
 {
 public:
-    EncounterConditionApiApiV2Encounter-conditionIdResource(const std::string& context = "/api/v2");
+    EncounterConditionApiApiV2Encounter-conditionIdResource(const std::string& context = "");
     virtual ~EncounterConditionApiApiV2Encounter-conditionIdResource();
 
 protected:

@@ -17,7 +17,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ContestEffectApi {
 
-  def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new ContestEffectApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new ContestEffectApi(baseUrl)
 }
 
 class ContestEffectApi(baseUrl: String) {

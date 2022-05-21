@@ -17,7 +17,7 @@ import sttp.model.Method
 
 object EvolutionChainApi {
 
-def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new EvolutionChainApi(baseUrl)
+def apply(baseUrl: String = "https://pokeapi.co") = new EvolutionChainApi(baseUrl)
 }
 
 class EvolutionChainApi(baseUrl: String) {

@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/pokemon-shape/', {
+MyApp.add_route('GET', '/api/v2/pokemon-shape/', {
   "resourcePath" => "/PokemonShape",
   "summary" => "",
   "nickname" => "pokemon_shape_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/pokemon-shape/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/pokemon-shape/{id}/', {
+MyApp.add_route('GET', '/api/v2/pokemon-shape/{id}/', {
   "resourcePath" => "/PokemonShape",
   "summary" => "",
   "nickname" => "pokemon_shape_read",

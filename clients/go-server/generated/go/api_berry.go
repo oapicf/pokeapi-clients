@@ -51,13 +51,13 @@ func (c *BerryApiController) Routes() Routes {
 		{
 			"BerryList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/berry/",
+			"/api/v2/berry/",
 			c.BerryList,
 		},
 		{
 			"BerryRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/berry/{id}/",
+			"/api/v2/berry/{id}/",
 			c.BerryRead,
 		},
 	}

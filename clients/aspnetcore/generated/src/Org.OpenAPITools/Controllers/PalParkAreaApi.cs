@@ -33,7 +33,7 @@ namespace Org.OpenAPITools.Controllers
         /// <param name="offset"></param>
         /// <response code="0">Default response</response>
         [HttpGet]
-        [Route("/api/v2/api/v2/pal-park-area/")]
+        [Route("/api/v2/pal-park-area/")]
         [ValidateModelState]
         [SwaggerOperation("PalParkAreaList")]
         [SwaggerResponse(statusCode: 0, type: typeof(string), description: "Default response")]
@@ -57,7 +57,7 @@ namespace Org.OpenAPITools.Controllers
         /// <param name="id"></param>
         /// <response code="0">Default response</response>
         [HttpGet]
-        [Route("/api/v2/api/v2/pal-park-area/{id}/")]
+        [Route("/api/v2/pal-park-area/{id}/")]
         [ValidateModelState]
         [SwaggerOperation("PalParkAreaRead")]
         [SwaggerResponse(statusCode: 0, type: typeof(string), description: "Default response")]

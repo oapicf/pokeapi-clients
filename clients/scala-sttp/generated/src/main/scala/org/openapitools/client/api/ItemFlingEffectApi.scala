@@ -17,7 +17,7 @@ import sttp.model.Method
 
 object ItemFlingEffectApi {
 
-def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new ItemFlingEffectApi(baseUrl)
+def apply(baseUrl: String = "https://pokeapi.co") = new ItemFlingEffectApi(baseUrl)
 }
 
 class ItemFlingEffectApi(baseUrl: String) {

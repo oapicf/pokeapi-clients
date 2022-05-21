@@ -3,7 +3,7 @@
 -export([item_fling_effect_list/1, item_fling_effect_list/2,
          item_fling_effect_read/2, item_fling_effect_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

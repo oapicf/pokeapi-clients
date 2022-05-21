@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAITypeApiRequest::getRawSocket(){
 
 
 void OAITypeApiRequest::typeListRequest(){
-    qDebug() << "/api/v2/api/v2/type/";
+    qDebug() << "/api/v2/type/";
     connect(this, &OAITypeApiRequest::typeList, handler.data(), &OAITypeApiHandler::typeList);
 
     
@@ -71,7 +71,7 @@ void OAITypeApiRequest::typeListRequest(){
 
 
 void OAITypeApiRequest::typeReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/type/{id}/";
+    qDebug() << "/api/v2/type/{id}/";
     connect(this, &OAITypeApiRequest::typeRead, handler.data(), &OAITypeApiHandler::typeRead);
 
     

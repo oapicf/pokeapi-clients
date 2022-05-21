@@ -64,7 +64,7 @@ private:
 class  GenerationApiApiV2GenerationResource: public restbed::Resource
 {
 public:
-    GenerationApiApiV2GenerationResource(const std::string& context = "/api/v2");
+    GenerationApiApiV2GenerationResource(const std::string& context = "");
     virtual ~GenerationApiApiV2GenerationResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  GenerationApiApiV2GenerationIdResource: public restbed::Resource
 {
 public:
-    GenerationApiApiV2GenerationIdResource(const std::string& context = "/api/v2");
+    GenerationApiApiV2GenerationIdResource(const std::string& context = "");
     virtual ~GenerationApiApiV2GenerationIdResource();
 
 protected:

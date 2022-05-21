@@ -64,7 +64,7 @@ private:
 class  BerryFirmnessApiApiV2Berry-firmnessResource: public restbed::Resource
 {
 public:
-    BerryFirmnessApiApiV2Berry-firmnessResource(const std::string& context = "/api/v2");
+    BerryFirmnessApiApiV2Berry-firmnessResource(const std::string& context = "");
     virtual ~BerryFirmnessApiApiV2Berry-firmnessResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  BerryFirmnessApiApiV2Berry-firmnessIdResource: public restbed::Resource
 {
 public:
-    BerryFirmnessApiApiV2Berry-firmnessIdResource(const std::string& context = "/api/v2");
+    BerryFirmnessApiApiV2Berry-firmnessIdResource(const std::string& context = "");
     virtual ~BerryFirmnessApiApiV2Berry-firmnessIdResource();
 
 protected:

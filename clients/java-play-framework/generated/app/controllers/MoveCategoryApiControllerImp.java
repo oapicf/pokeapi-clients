@@ -9,7 +9,7 @@ import java.util.LinkedHashSet;
 import java.io.FileInputStream;
 import play.libs.Files.TemporaryFile;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2022-05-16T10:28:32.229352Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2022-05-21T03:59:46.855052Z[Etc/UTC]")
 public class MoveCategoryApiControllerImp extends MoveCategoryApiControllerImpInterface {
     @Override
     public String moveCategoryList(Http.Request request, Integer limit, Integer offset) throws Exception {

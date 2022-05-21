@@ -51,13 +51,13 @@ func (c *MoveDamageClassApiController) Routes() Routes {
 		{
 			"MoveDamageClassList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/move-damage-class/",
+			"/api/v2/move-damage-class/",
 			c.MoveDamageClassList,
 		},
 		{
 			"MoveDamageClassRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/move-damage-class/{id}/",
+			"/api/v2/move-damage-class/{id}/",
 			c.MoveDamageClassRead,
 		},
 	}

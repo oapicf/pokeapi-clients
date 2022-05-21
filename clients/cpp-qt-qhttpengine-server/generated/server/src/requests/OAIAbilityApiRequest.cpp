@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIAbilityApiRequest::getRawSocket(){
 
 
 void OAIAbilityApiRequest::abilityListRequest(){
-    qDebug() << "/api/v2/api/v2/ability/";
+    qDebug() << "/api/v2/ability/";
     connect(this, &OAIAbilityApiRequest::abilityList, handler.data(), &OAIAbilityApiHandler::abilityList);
 
     
@@ -71,7 +71,7 @@ void OAIAbilityApiRequest::abilityListRequest(){
 
 
 void OAIAbilityApiRequest::abilityReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/ability/{id}/";
+    qDebug() << "/api/v2/ability/{id}/";
     connect(this, &OAIAbilityApiRequest::abilityRead, handler.data(), &OAIAbilityApiHandler::abilityRead);
 
     

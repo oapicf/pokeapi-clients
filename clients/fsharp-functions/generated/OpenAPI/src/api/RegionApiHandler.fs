@@ -20,7 +20,7 @@ module RegionApiHandlers =
     /// </summary>
    [<FunctionName("RegionList")>]
     let RegionList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/region/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/region/")>]
         req:HttpRequest ) =
 
       let result = RegionApiService.RegionList ()
@@ -36,7 +36,7 @@ module RegionApiHandlers =
     /// </summary>
    [<FunctionName("RegionRead")>]
     let RegionRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/region/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/region/{id}/")>]
         req:HttpRequest ) =
 
       let result = RegionApiService.RegionRead ()

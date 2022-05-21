@@ -51,13 +51,13 @@ func (c *EncounterConditionApiController) Routes() Routes {
 		{
 			"EncounterConditionList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/encounter-condition/",
+			"/api/v2/encounter-condition/",
 			c.EncounterConditionList,
 		},
 		{
 			"EncounterConditionRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/encounter-condition/{id}/",
+			"/api/v2/encounter-condition/{id}/",
 			c.EncounterConditionRead,
 		},
 	}

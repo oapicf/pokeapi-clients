@@ -1,6 +1,6 @@
 # openapi_client.EncounterConditionValueApi
 
-All URIs are relative to *https://pokeapi.co/api/v2*
+All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,10 +18,10 @@ Method | HTTP request | Description
 import openapi_client
 from openapi_client.api import encounter_condition_value_api
 from pprint import pprint
-# Defining the host is optional and defaults to https://pokeapi.co/api/v2
+# Defining the host is optional and defaults to https://pokeapi.co
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://pokeapi.co/api/v2"
+    host = "https://pokeapi.co"
 )
 
 # Enter a context with an instance of the API client
@@ -117,10 +117,10 @@ No authorization required
 import openapi_client
 from openapi_client.api import encounter_condition_value_api
 from pprint import pprint
-# Defining the host is optional and defaults to https://pokeapi.co/api/v2
+# Defining the host is optional and defaults to https://pokeapi.co
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://pokeapi.co/api/v2"
+    host = "https://pokeapi.co"
 )
 
 # Enter a context with an instance of the API client

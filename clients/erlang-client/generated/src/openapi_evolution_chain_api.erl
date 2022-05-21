@@ -3,7 +3,7 @@
 -export([evolution_chain_list/1, evolution_chain_list/2,
          evolution_chain_read/2, evolution_chain_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

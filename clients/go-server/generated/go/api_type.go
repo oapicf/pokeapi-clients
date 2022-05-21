@@ -51,13 +51,13 @@ func (c *TypeApiController) Routes() Routes {
 		{
 			"TypeList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/type/",
+			"/api/v2/type/",
 			c.TypeList,
 		},
 		{
 			"TypeRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/type/{id}/",
+			"/api/v2/type/{id}/",
 			c.TypeRead,
 		},
 	}

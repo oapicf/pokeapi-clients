@@ -51,13 +51,13 @@ func (c *PokemonColorApiController) Routes() Routes {
 		{
 			"PokemonColorList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/pokemon-color/",
+			"/api/v2/pokemon-color/",
 			c.PokemonColorList,
 		},
 		{
 			"PokemonColorRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/pokemon-color/{id}/",
+			"/api/v2/pokemon-color/{id}/",
 			c.PokemonColorRead,
 		},
 	}

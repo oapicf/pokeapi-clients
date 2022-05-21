@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIPokeathlonStatApiRequest::getRawSocket(){
 
 
 void OAIPokeathlonStatApiRequest::pokeathlonStatListRequest(){
-    qDebug() << "/api/v2/api/v2/pokeathlon-stat/";
+    qDebug() << "/api/v2/pokeathlon-stat/";
     connect(this, &OAIPokeathlonStatApiRequest::pokeathlonStatList, handler.data(), &OAIPokeathlonStatApiHandler::pokeathlonStatList);
 
     
@@ -71,7 +71,7 @@ void OAIPokeathlonStatApiRequest::pokeathlonStatListRequest(){
 
 
 void OAIPokeathlonStatApiRequest::pokeathlonStatReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/pokeathlon-stat/{id}/";
+    qDebug() << "/api/v2/pokeathlon-stat/{id}/";
     connect(this, &OAIPokeathlonStatApiRequest::pokeathlonStatRead, handler.data(), &OAIPokeathlonStatApiHandler::pokeathlonStatRead);
 
     

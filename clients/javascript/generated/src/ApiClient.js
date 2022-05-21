@@ -33,11 +33,11 @@ class ApiClient {
      * Overrides the default value set in spec file if present
      * @param {String} basePath
      */
-    constructor(basePath = 'https://pokeapi.co/api/v2') {
+    constructor(basePath = 'https://pokeapi.co') {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default https://pokeapi.co/api/v2
+         * @default https://pokeapi.co
          */
         this.basePath = basePath.replace(/\/+$/, '');
 
@@ -592,7 +592,7 @@ class ApiClient {
     hostSettings() {
         return [
             {
-              'url': "https://pokeapi.co/api/v2",
+              'url': "https://pokeapi.co",
               'description': "No description provided",
             }
       ];

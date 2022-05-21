@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-ContestEffectApiApiV2Contest-effectResource::ContestEffectApiApiV2Contest-effectResource(const std::string& context /* = "/api/v2" */)
+ContestEffectApiApiV2Contest-effectResource::ContestEffectApiApiV2Contest-effectResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/contest-effect//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string ContestEffectApiApiV2Contest-effectResource::extractBodyContent(cons
                  });
   return bodyContent;
 }
-ContestEffectApiApiV2Contest-effectIdResource::ContestEffectApiApiV2Contest-effectIdResource(const std::string& context /* = "/api/v2" */)
+ContestEffectApiApiV2Contest-effectIdResource::ContestEffectApiApiV2Contest-effectIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/contest-effect/{id: .*}//");
 	this->set_method_handler("GET",

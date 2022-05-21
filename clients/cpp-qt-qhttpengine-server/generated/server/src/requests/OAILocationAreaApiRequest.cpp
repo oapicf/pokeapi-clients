@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAILocationAreaApiRequest::getRawSocket(){
 
 
 void OAILocationAreaApiRequest::locationAreaListRequest(){
-    qDebug() << "/api/v2/api/v2/location-area/";
+    qDebug() << "/api/v2/location-area/";
     connect(this, &OAILocationAreaApiRequest::locationAreaList, handler.data(), &OAILocationAreaApiHandler::locationAreaList);
 
     
@@ -71,7 +71,7 @@ void OAILocationAreaApiRequest::locationAreaListRequest(){
 
 
 void OAILocationAreaApiRequest::locationAreaReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/location-area/{id}/";
+    qDebug() << "/api/v2/location-area/{id}/";
     connect(this, &OAILocationAreaApiRequest::locationAreaRead, handler.data(), &OAILocationAreaApiHandler::locationAreaRead);
 
     

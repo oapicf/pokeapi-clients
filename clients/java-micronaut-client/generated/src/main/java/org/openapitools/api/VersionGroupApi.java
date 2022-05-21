@@ -26,7 +26,7 @@ import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2022-05-16T10:28:03.183322Z[Etc/UTC]")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2022-05-21T03:59:22.494959Z[Etc/UTC]")
 @Client("${base-path}")
 public interface VersionGroupApi {
     /**

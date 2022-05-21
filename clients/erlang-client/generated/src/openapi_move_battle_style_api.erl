@@ -3,7 +3,7 @@
 -export([move_battle_style_list/1, move_battle_style_list/2,
          move_battle_style_read/2, move_battle_style_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

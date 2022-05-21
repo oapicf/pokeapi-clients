@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIContestEffectApiRequest::getRawSocket(){
 
 
 void OAIContestEffectApiRequest::contestEffectListRequest(){
-    qDebug() << "/api/v2/api/v2/contest-effect/";
+    qDebug() << "/api/v2/contest-effect/";
     connect(this, &OAIContestEffectApiRequest::contestEffectList, handler.data(), &OAIContestEffectApiHandler::contestEffectList);
 
     
@@ -71,7 +71,7 @@ void OAIContestEffectApiRequest::contestEffectListRequest(){
 
 
 void OAIContestEffectApiRequest::contestEffectReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/contest-effect/{id}/";
+    qDebug() << "/api/v2/contest-effect/{id}/";
     connect(this, &OAIContestEffectApiRequest::contestEffectRead, handler.data(), &OAIContestEffectApiHandler::contestEffectRead);
 
     

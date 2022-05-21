@@ -51,13 +51,13 @@ func (c *EncounterMethodApiController) Routes() Routes {
 		{
 			"EncounterMethodList",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/encounter-method/",
+			"/api/v2/encounter-method/",
 			c.EncounterMethodList,
 		},
 		{
 			"EncounterMethodRead",
 			strings.ToUpper("Get"),
-			"/api/v2/api/v2/encounter-method/{id}/",
+			"/api/v2/encounter-method/{id}/",
 			c.EncounterMethodRead,
 		},
 	}

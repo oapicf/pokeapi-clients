@@ -64,7 +64,7 @@ private:
 class  ItemPocketApiApiV2Item-pocketResource: public restbed::Resource
 {
 public:
-    ItemPocketApiApiV2Item-pocketResource(const std::string& context = "/api/v2");
+    ItemPocketApiApiV2Item-pocketResource(const std::string& context = "");
     virtual ~ItemPocketApiApiV2Item-pocketResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  ItemPocketApiApiV2Item-pocketIdResource: public restbed::Resource
 {
 public:
-    ItemPocketApiApiV2Item-pocketIdResource(const std::string& context = "/api/v2");
+    ItemPocketApiApiV2Item-pocketIdResource(const std::string& context = "");
     virtual ~ItemPocketApiApiV2Item-pocketIdResource();
 
 protected:

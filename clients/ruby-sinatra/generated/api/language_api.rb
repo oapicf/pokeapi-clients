@@ -1,7 +1,7 @@
 require 'json'
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/language/', {
+MyApp.add_route('GET', '/api/v2/language/', {
   "resourcePath" => "/Language",
   "summary" => "",
   "nickname" => "language_list",
@@ -31,7 +31,7 @@ MyApp.add_route('GET', '/api/v2/api/v2/language/', {
 end
 
 
-MyApp.add_route('GET', '/api/v2/api/v2/language/{id}/', {
+MyApp.add_route('GET', '/api/v2/language/{id}/', {
   "resourcePath" => "/Language",
   "summary" => "",
   "nickname" => "language_read",

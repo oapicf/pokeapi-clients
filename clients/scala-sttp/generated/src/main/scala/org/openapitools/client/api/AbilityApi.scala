@@ -17,7 +17,7 @@ import sttp.model.Method
 
 object AbilityApi {
 
-def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new AbilityApi(baseUrl)
+def apply(baseUrl: String = "https://pokeapi.co") = new AbilityApi(baseUrl)
 }
 
 class AbilityApi(baseUrl: String) {

@@ -22,7 +22,7 @@ namespace OpenAPI
 {
 
 OpenAPIBerryFirmnessApi::OpenAPIBerryFirmnessApi()
-: Url(TEXT("https://pokeapi.co/api/v2"))
+: Url(TEXT("https://pokeapi.co"))
 {
 }
 

@@ -64,7 +64,7 @@ private:
 class  EvolutionTriggerApiApiV2Evolution-triggerResource: public restbed::Resource
 {
 public:
-    EvolutionTriggerApiApiV2Evolution-triggerResource(const std::string& context = "/api/v2");
+    EvolutionTriggerApiApiV2Evolution-triggerResource(const std::string& context = "");
     virtual ~EvolutionTriggerApiApiV2Evolution-triggerResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  EvolutionTriggerApiApiV2Evolution-triggerIdResource: public restbed::Resource
 {
 public:
-    EvolutionTriggerApiApiV2Evolution-triggerIdResource(const std::string& context = "/api/v2");
+    EvolutionTriggerApiApiV2Evolution-triggerIdResource(const std::string& context = "");
     virtual ~EvolutionTriggerApiApiV2Evolution-triggerIdResource();
 
 protected:

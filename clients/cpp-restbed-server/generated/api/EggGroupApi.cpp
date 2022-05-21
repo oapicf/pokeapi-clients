@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-EggGroupApiApiV2Egg-groupResource::EggGroupApiApiV2Egg-groupResource(const std::string& context /* = "/api/v2" */)
+EggGroupApiApiV2Egg-groupResource::EggGroupApiApiV2Egg-groupResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/egg-group//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string EggGroupApiApiV2Egg-groupResource::extractBodyContent(const std::sha
                  });
   return bodyContent;
 }
-EggGroupApiApiV2Egg-groupIdResource::EggGroupApiApiV2Egg-groupIdResource(const std::string& context /* = "/api/v2" */)
+EggGroupApiApiV2Egg-groupIdResource::EggGroupApiApiV2Egg-groupIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/egg-group/{id: .*}//");
 	this->set_method_handler("GET",

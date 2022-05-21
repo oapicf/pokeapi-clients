@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-PokemonFormApiApiV2Pokemon-formResource::PokemonFormApiApiV2Pokemon-formResource(const std::string& context /* = "/api/v2" */)
+PokemonFormApiApiV2Pokemon-formResource::PokemonFormApiApiV2Pokemon-formResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/pokemon-form//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string PokemonFormApiApiV2Pokemon-formResource::extractBodyContent(const st
                  });
   return bodyContent;
 }
-PokemonFormApiApiV2Pokemon-formIdResource::PokemonFormApiApiV2Pokemon-formIdResource(const std::string& context /* = "/api/v2" */)
+PokemonFormApiApiV2Pokemon-formIdResource::PokemonFormApiApiV2Pokemon-formIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/pokemon-form/{id: .*}//");
 	this->set_method_handler("GET",

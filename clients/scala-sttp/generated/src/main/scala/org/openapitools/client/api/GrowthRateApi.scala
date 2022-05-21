@@ -17,7 +17,7 @@ import sttp.model.Method
 
 object GrowthRateApi {
 
-def apply(baseUrl: String = "https://pokeapi.co/api/v2") = new GrowthRateApi(baseUrl)
+def apply(baseUrl: String = "https://pokeapi.co") = new GrowthRateApi(baseUrl)
 }
 
 class GrowthRateApi(baseUrl: String) {

@@ -3004,7 +3004,7 @@ call_abilityList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/ability/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/ability/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3040,7 +3040,7 @@ call_abilityRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/ability/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/ability/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3076,7 +3076,7 @@ call_berryList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/berry/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/berry/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3112,7 +3112,7 @@ call_berryRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/berry/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/berry/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3148,7 +3148,7 @@ call_berryFirmnessList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/berry-firmness/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/berry-firmness/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3184,7 +3184,7 @@ call_berryFirmnessRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/berry-firmness/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/berry-firmness/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3220,7 +3220,7 @@ call_berryFlavorList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/berry-flavor/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/berry-flavor/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3256,7 +3256,7 @@ call_berryFlavorRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/berry-flavor/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/berry-flavor/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3292,7 +3292,7 @@ call_characteristicList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/characteristic/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/characteristic/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3328,7 +3328,7 @@ call_characteristicRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/characteristic/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/characteristic/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3364,7 +3364,7 @@ call_contestEffectList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/contest-effect/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/contest-effect/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3400,7 +3400,7 @@ call_contestEffectRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/contest-effect/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/contest-effect/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3436,7 +3436,7 @@ call_contestTypeList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/contest-type/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/contest-type/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3472,7 +3472,7 @@ call_contestTypeRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/contest-type/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/contest-type/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3508,7 +3508,7 @@ call_eggGroupList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/egg-group/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/egg-group/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3544,7 +3544,7 @@ call_eggGroupRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/egg-group/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/egg-group/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3580,7 +3580,7 @@ call_encounterConditionList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/encounter-condition/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/encounter-condition/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3616,7 +3616,7 @@ call_encounterConditionRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/encounter-condition/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/encounter-condition/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3652,7 +3652,7 @@ call_encounterConditionValueList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/encounter-condition-value/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/encounter-condition-value/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3688,7 +3688,7 @@ call_encounterConditionValueRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/encounter-condition-value/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/encounter-condition-value/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3724,7 +3724,7 @@ call_encounterMethodList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/encounter-method/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/encounter-method/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3760,7 +3760,7 @@ call_encounterMethodRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/encounter-method/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/encounter-method/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3796,7 +3796,7 @@ call_evolutionChainList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/evolution-chain/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/evolution-chain/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3832,7 +3832,7 @@ call_evolutionChainRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/evolution-chain/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/evolution-chain/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3868,7 +3868,7 @@ call_evolutionTriggerList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/evolution-trigger/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/evolution-trigger/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3904,7 +3904,7 @@ call_evolutionTriggerRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/evolution-trigger/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/evolution-trigger/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3940,7 +3940,7 @@ call_genderList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/gender/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/gender/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3976,7 +3976,7 @@ call_genderRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/gender/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/gender/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4012,7 +4012,7 @@ call_generationList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/generation/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/generation/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4048,7 +4048,7 @@ call_generationRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/generation/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/generation/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4084,7 +4084,7 @@ call_growthRateList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/growth-rate/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/growth-rate/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4120,7 +4120,7 @@ call_growthRateRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/growth-rate/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/growth-rate/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4156,7 +4156,7 @@ call_itemList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/item/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/item/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4192,7 +4192,7 @@ call_itemRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/item/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/item/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4228,7 +4228,7 @@ call_itemAttributeList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/item-attribute/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/item-attribute/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4264,7 +4264,7 @@ call_itemAttributeRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/item-attribute/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/item-attribute/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4300,7 +4300,7 @@ call_itemCategoryList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/item-category/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/item-category/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4336,7 +4336,7 @@ call_itemCategoryRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/item-category/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/item-category/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4372,7 +4372,7 @@ call_itemFlingEffectList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/item-fling-effect/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/item-fling-effect/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4408,7 +4408,7 @@ call_itemFlingEffectRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/item-fling-effect/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/item-fling-effect/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4444,7 +4444,7 @@ call_itemPocketList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/item-pocket/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/item-pocket/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4480,7 +4480,7 @@ call_itemPocketRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/item-pocket/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/item-pocket/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4516,7 +4516,7 @@ call_languageList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/language/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/language/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4552,7 +4552,7 @@ call_languageRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/language/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/language/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4588,7 +4588,7 @@ call_locationList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/location/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/location/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4624,7 +4624,7 @@ call_locationRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/location/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/location/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4660,7 +4660,7 @@ call_locationAreaList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/location-area/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/location-area/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4696,7 +4696,7 @@ call_locationAreaRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/location-area/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/location-area/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4732,7 +4732,7 @@ call_machineList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/machine/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/machine/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4768,7 +4768,7 @@ call_machineRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/machine/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/machine/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4804,7 +4804,7 @@ call_moveList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/move/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/move/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4840,7 +4840,7 @@ call_moveRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/move/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/move/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4876,7 +4876,7 @@ call_moveAilmentList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/move-ailment/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/move-ailment/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4912,7 +4912,7 @@ call_moveAilmentRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/move-ailment/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/move-ailment/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4948,7 +4948,7 @@ call_moveBattleStyleList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/move-battle-style/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/move-battle-style/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4984,7 +4984,7 @@ call_moveBattleStyleRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/move-battle-style/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/move-battle-style/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5020,7 +5020,7 @@ call_moveCategoryList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/move-category/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/move-category/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5056,7 +5056,7 @@ call_moveCategoryRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/move-category/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/move-category/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5092,7 +5092,7 @@ call_moveDamageClassList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/move-damage-class/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/move-damage-class/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5128,7 +5128,7 @@ call_moveDamageClassRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/move-damage-class/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/move-damage-class/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5164,7 +5164,7 @@ call_moveLearnMethodList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/move-learn-method/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/move-learn-method/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5200,7 +5200,7 @@ call_moveLearnMethodRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/move-learn-method/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/move-learn-method/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5236,7 +5236,7 @@ call_moveTargetList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/move-target/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/move-target/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5272,7 +5272,7 @@ call_moveTargetRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/move-target/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/move-target/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5308,7 +5308,7 @@ call_natureList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/nature/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/nature/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5344,7 +5344,7 @@ call_natureRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/nature/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/nature/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5380,7 +5380,7 @@ call_palParkAreaList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pal-park-area/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pal-park-area/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5416,7 +5416,7 @@ call_palParkAreaRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pal-park-area/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pal-park-area/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5452,7 +5452,7 @@ call_pokeathlonStatList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pokeathlon-stat/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokeathlon-stat/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5488,7 +5488,7 @@ call_pokeathlonStatRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pokeathlon-stat/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokeathlon-stat/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5524,7 +5524,7 @@ call_pokedexList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pokedex/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokedex/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5560,7 +5560,7 @@ call_pokedexRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pokedex/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokedex/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5596,7 +5596,7 @@ call_pokemonList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pokemon/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokemon/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5632,7 +5632,7 @@ call_pokemonRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pokemon/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokemon/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5668,7 +5668,7 @@ call_pokemonColorList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pokemon-color/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokemon-color/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5704,7 +5704,7 @@ call_pokemonColorRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pokemon-color/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokemon-color/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5740,7 +5740,7 @@ call_pokemonFormList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pokemon-form/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokemon-form/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5776,7 +5776,7 @@ call_pokemonFormRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pokemon-form/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokemon-form/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5812,7 +5812,7 @@ call_pokemonHabitatList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pokemon-habitat/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokemon-habitat/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5848,7 +5848,7 @@ call_pokemonHabitatRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pokemon-habitat/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokemon-habitat/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5884,7 +5884,7 @@ call_pokemonShapeList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pokemon-shape/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokemon-shape/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5920,7 +5920,7 @@ call_pokemonShapeRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pokemon-shape/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokemon-shape/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5956,7 +5956,7 @@ call_pokemonSpeciesList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pokemon-species/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokemon-species/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5992,7 +5992,7 @@ call_pokemonSpeciesRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/pokemon-species/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokemon-species/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6028,7 +6028,7 @@ call_regionList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/region/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/region/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6064,7 +6064,7 @@ call_regionRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/region/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/region/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6100,7 +6100,7 @@ call_statList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/stat/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/stat/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6136,7 +6136,7 @@ call_statRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/stat/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/stat/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6172,7 +6172,7 @@ call_superContestEffectList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/super-contest-effect/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/super-contest-effect/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6208,7 +6208,7 @@ call_superContestEffectRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/super-contest-effect/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/super-contest-effect/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6244,7 +6244,7 @@ call_typeList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/type/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/type/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6280,7 +6280,7 @@ call_typeRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/type/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/type/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6316,7 +6316,7 @@ call_versionList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/version/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/version/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6352,7 +6352,7 @@ call_versionRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/version/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/version/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6388,7 +6388,7 @@ call_versionGroupList() {
     local query_parameter_names=(limit offset)
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/version-group/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/version-group/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6424,7 +6424,7 @@ call_versionGroupRead() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/api/v2/api/v2/version-group/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/version-group/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi

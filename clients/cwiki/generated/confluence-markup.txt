@@ -21,7 +21,7 @@ h3. abilityList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/ability/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -62,7 +62,7 @@ h3. abilityRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/ability/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -103,7 +103,7 @@ h3. berryList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/berry/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -144,7 +144,7 @@ h3. berryRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/berry/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -185,7 +185,7 @@ h3. berryFirmnessList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/berry-firmness/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -226,7 +226,7 @@ h3. berryFirmnessRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/berry-firmness/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -267,7 +267,7 @@ h3. berryFlavorList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/berry-flavor/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -308,7 +308,7 @@ h3. berryFlavorRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/berry-flavor/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -349,7 +349,7 @@ h3. characteristicList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/characteristic/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -390,7 +390,7 @@ h3. characteristicRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/characteristic/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -431,7 +431,7 @@ h3. contestEffectList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/contest-effect/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -472,7 +472,7 @@ h3. contestEffectRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/contest-effect/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -513,7 +513,7 @@ h3. contestTypeList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/contest-type/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -554,7 +554,7 @@ h3. contestTypeRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/contest-type/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -595,7 +595,7 @@ h3. eggGroupList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/egg-group/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -636,7 +636,7 @@ h3. eggGroupRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/egg-group/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -677,7 +677,7 @@ h3. encounterConditionList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/encounter-condition/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -718,7 +718,7 @@ h3. encounterConditionRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/encounter-condition/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -759,7 +759,7 @@ h3. encounterConditionValueList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/encounter-condition-value/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -800,7 +800,7 @@ h3. encounterConditionValueRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/encounter-condition-value/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -841,7 +841,7 @@ h3. encounterMethodList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/encounter-method/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -882,7 +882,7 @@ h3. encounterMethodRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/encounter-method/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -923,7 +923,7 @@ h3. evolutionChainList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/evolution-chain/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -964,7 +964,7 @@ h3. evolutionChainRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/evolution-chain/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1005,7 +1005,7 @@ h3. evolutionTriggerList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/evolution-trigger/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1046,7 +1046,7 @@ h3. evolutionTriggerRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/evolution-trigger/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1087,7 +1087,7 @@ h3. genderList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/gender/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1128,7 +1128,7 @@ h3. genderRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/gender/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1169,7 +1169,7 @@ h3. generationList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/generation/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1210,7 +1210,7 @@ h3. generationRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/generation/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1251,7 +1251,7 @@ h3. growthRateList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/growth-rate/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1292,7 +1292,7 @@ h3. growthRateRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/growth-rate/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1333,7 +1333,7 @@ h3. itemList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/item/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1374,7 +1374,7 @@ h3. itemRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/item/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1415,7 +1415,7 @@ h3. itemAttributeList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/item-attribute/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1456,7 +1456,7 @@ h3. itemAttributeRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/item-attribute/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1497,7 +1497,7 @@ h3. itemCategoryList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/item-category/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1538,7 +1538,7 @@ h3. itemCategoryRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/item-category/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1579,7 +1579,7 @@ h3. itemFlingEffectList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/item-fling-effect/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1620,7 +1620,7 @@ h3. itemFlingEffectRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/item-fling-effect/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1661,7 +1661,7 @@ h3. itemPocketList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/item-pocket/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1702,7 +1702,7 @@ h3. itemPocketRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/item-pocket/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1743,7 +1743,7 @@ h3. languageList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/language/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1784,7 +1784,7 @@ h3. languageRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/language/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1825,7 +1825,7 @@ h3. locationList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/location/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1866,7 +1866,7 @@ h3. locationRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/location/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1907,7 +1907,7 @@ h3. locationAreaList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/location-area/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1948,7 +1948,7 @@ h3. locationAreaRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/location-area/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -1989,7 +1989,7 @@ h3. machineList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/machine/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2030,7 +2030,7 @@ h3. machineRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/machine/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2071,7 +2071,7 @@ h3. moveList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/move/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2112,7 +2112,7 @@ h3. moveRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/move/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2153,7 +2153,7 @@ h3. moveAilmentList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/move-ailment/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2194,7 +2194,7 @@ h3. moveAilmentRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/move-ailment/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2235,7 +2235,7 @@ h3. moveBattleStyleList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/move-battle-style/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2276,7 +2276,7 @@ h3. moveBattleStyleRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/move-battle-style/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2317,7 +2317,7 @@ h3. moveCategoryList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/move-category/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2358,7 +2358,7 @@ h3. moveCategoryRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/move-category/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2399,7 +2399,7 @@ h3. moveDamageClassList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/move-damage-class/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2440,7 +2440,7 @@ h3. moveDamageClassRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/move-damage-class/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2481,7 +2481,7 @@ h3. moveLearnMethodList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/move-learn-method/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2522,7 +2522,7 @@ h3. moveLearnMethodRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/move-learn-method/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2563,7 +2563,7 @@ h3. moveTargetList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/move-target/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2604,7 +2604,7 @@ h3. moveTargetRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/move-target/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2645,7 +2645,7 @@ h3. natureList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/nature/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2686,7 +2686,7 @@ h3. natureRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/nature/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2727,7 +2727,7 @@ h3. palParkAreaList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pal-park-area/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2768,7 +2768,7 @@ h3. palParkAreaRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pal-park-area/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2809,7 +2809,7 @@ h3. pokeathlonStatList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pokeathlon-stat/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2850,7 +2850,7 @@ h3. pokeathlonStatRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pokeathlon-stat/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2891,7 +2891,7 @@ h3. pokedexList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pokedex/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2932,7 +2932,7 @@ h3. pokedexRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pokedex/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -2973,7 +2973,7 @@ h3. pokemonList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pokemon/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3014,7 +3014,7 @@ h3. pokemonRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pokemon/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3055,7 +3055,7 @@ h3. pokemonColorList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pokemon-color/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3096,7 +3096,7 @@ h3. pokemonColorRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pokemon-color/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3137,7 +3137,7 @@ h3. pokemonFormList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pokemon-form/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3178,7 +3178,7 @@ h3. pokemonFormRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pokemon-form/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3219,7 +3219,7 @@ h3. pokemonHabitatList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pokemon-habitat/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3260,7 +3260,7 @@ h3. pokemonHabitatRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pokemon-habitat/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3301,7 +3301,7 @@ h3. pokemonShapeList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pokemon-shape/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3342,7 +3342,7 @@ h3. pokemonShapeRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pokemon-shape/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3383,7 +3383,7 @@ h3. pokemonSpeciesList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pokemon-species/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3424,7 +3424,7 @@ h3. pokemonSpeciesRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/pokemon-species/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3465,7 +3465,7 @@ h3. regionList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/region/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3506,7 +3506,7 @@ h3. regionRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/region/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3547,7 +3547,7 @@ h3. statList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/stat/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3588,7 +3588,7 @@ h3. statRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/stat/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3629,7 +3629,7 @@ h3. superContestEffectList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/super-contest-effect/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3670,7 +3670,7 @@ h3. superContestEffectRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/super-contest-effect/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3711,7 +3711,7 @@ h3. typeList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/type/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3752,7 +3752,7 @@ h3. typeRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/type/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3793,7 +3793,7 @@ h3. versionList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/version/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3834,7 +3834,7 @@ h3. versionRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/version/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3875,7 +3875,7 @@ h3. versionGroupList
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/version-group/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters
@@ -3916,7 +3916,7 @@ h3. versionGroupRead
 	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
     || Protocol | {noformat:nopanel=true}https{noformat} |
     || Path | {noformat:nopanel=true}/api/v2/version-group/{id}/{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co/api/v2{noformat} |
+    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
     || Produces | {noformat:nopanel=true}text/plain{noformat} |
 ----
 h4. Parameters

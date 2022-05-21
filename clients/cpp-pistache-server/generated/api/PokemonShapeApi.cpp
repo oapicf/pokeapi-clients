@@ -19,7 +19,7 @@ namespace org::openapitools::server::api
 using namespace org::openapitools::server::helpers;
 
 
-const std::string PokemonShapeApi::base = "/api/v2";
+const std::string PokemonShapeApi::base = "";
 
 PokemonShapeApi::PokemonShapeApi(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : router(rtr)

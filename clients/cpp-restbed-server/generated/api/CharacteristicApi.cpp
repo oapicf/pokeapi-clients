@@ -87,7 +87,7 @@ std::string convertMapResponse(const std::map<KEY_T, VAL_T>& map)
     return result;
 }
 
-CharacteristicApiApiV2CharacteristicResource::CharacteristicApiApiV2CharacteristicResource(const std::string& context /* = "/api/v2" */)
+CharacteristicApiApiV2CharacteristicResource::CharacteristicApiApiV2CharacteristicResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/characteristic//");
 	this->set_method_handler("GET",
@@ -187,7 +187,7 @@ std::string CharacteristicApiApiV2CharacteristicResource::extractBodyContent(con
                  });
   return bodyContent;
 }
-CharacteristicApiApiV2CharacteristicIdResource::CharacteristicApiApiV2CharacteristicIdResource(const std::string& context /* = "/api/v2" */)
+CharacteristicApiApiV2CharacteristicIdResource::CharacteristicApiApiV2CharacteristicIdResource(const std::string& context /* = "" */)
 {
 	this->set_path(context + "/api/v2/characteristic/{id: .*}//");
 	this->set_method_handler("GET",

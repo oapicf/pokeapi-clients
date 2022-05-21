@@ -33,7 +33,7 @@ namespace Org.OpenAPITools.Controllers
         /// <param name="offset"></param>
         /// <response code="0">Default response</response>
         [HttpGet]
-        [Route("/api/v2/api/v2/pokemon-habitat/")]
+        [Route("/api/v2/pokemon-habitat/")]
         [ValidateModelState]
         [SwaggerOperation("PokemonHabitatList")]
         [SwaggerResponse(statusCode: 0, type: typeof(string), description: "Default response")]
@@ -57,7 +57,7 @@ namespace Org.OpenAPITools.Controllers
         /// <param name="id"></param>
         /// <response code="0">Default response</response>
         [HttpGet]
-        [Route("/api/v2/api/v2/pokemon-habitat/{id}/")]
+        [Route("/api/v2/pokemon-habitat/{id}/")]
         [ValidateModelState]
         [SwaggerOperation("PokemonHabitatRead")]
         [SwaggerResponse(statusCode: 0, type: typeof(string), description: "Default response")]

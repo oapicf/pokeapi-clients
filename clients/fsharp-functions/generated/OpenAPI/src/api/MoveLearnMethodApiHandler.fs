@@ -20,7 +20,7 @@ module MoveLearnMethodApiHandlers =
     /// </summary>
    [<FunctionName("MoveLearnMethodList")>]
     let MoveLearnMethodList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/move-learn-method/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/move-learn-method/")>]
         req:HttpRequest ) =
 
       let result = MoveLearnMethodApiService.MoveLearnMethodList ()
@@ -36,7 +36,7 @@ module MoveLearnMethodApiHandlers =
     /// </summary>
    [<FunctionName("MoveLearnMethodRead")>]
     let MoveLearnMethodRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/move-learn-method/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/move-learn-method/{id}/")>]
         req:HttpRequest ) =
 
       let result = MoveLearnMethodApiService.MoveLearnMethodRead ()

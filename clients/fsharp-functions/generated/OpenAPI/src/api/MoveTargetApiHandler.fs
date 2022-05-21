@@ -20,7 +20,7 @@ module MoveTargetApiHandlers =
     /// </summary>
    [<FunctionName("MoveTargetList")>]
     let MoveTargetList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/move-target/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/move-target/")>]
         req:HttpRequest ) =
 
       let result = MoveTargetApiService.MoveTargetList ()
@@ -36,7 +36,7 @@ module MoveTargetApiHandlers =
     /// </summary>
    [<FunctionName("MoveTargetRead")>]
     let MoveTargetRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/move-target/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/move-target/{id}/")>]
         req:HttpRequest ) =
 
       let result = MoveTargetApiService.MoveTargetRead ()

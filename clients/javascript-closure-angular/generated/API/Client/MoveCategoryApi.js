@@ -21,7 +21,7 @@ API.Client.MoveCategoryApi = function($http, $httpParamSerializer, $injector) {
   /** @private {!string} */
   this.basePath_ = $injector.has('MoveCategoryApiBasePath') ?
                    /** @type {!string} */ ($injector.get('MoveCategoryApiBasePath')) :
-                   'https://pokeapi.co/api/v2';
+                   'https://pokeapi.co';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('MoveCategoryApiDefaultHeaders') ?

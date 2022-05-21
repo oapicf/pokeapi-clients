@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIPokemonFormApiRequest::getRawSocket(){
 
 
 void OAIPokemonFormApiRequest::pokemonFormListRequest(){
-    qDebug() << "/api/v2/api/v2/pokemon-form/";
+    qDebug() << "/api/v2/pokemon-form/";
     connect(this, &OAIPokemonFormApiRequest::pokemonFormList, handler.data(), &OAIPokemonFormApiHandler::pokemonFormList);
 
     
@@ -71,7 +71,7 @@ void OAIPokemonFormApiRequest::pokemonFormListRequest(){
 
 
 void OAIPokemonFormApiRequest::pokemonFormReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/pokemon-form/{id}/";
+    qDebug() << "/api/v2/pokemon-form/{id}/";
     connect(this, &OAIPokemonFormApiRequest::pokemonFormRead, handler.data(), &OAIPokemonFormApiHandler::pokemonFormRead);
 
     

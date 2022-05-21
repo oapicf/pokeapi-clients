@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIPokemonHabitatApiRequest::getRawSocket(){
 
 
 void OAIPokemonHabitatApiRequest::pokemonHabitatListRequest(){
-    qDebug() << "/api/v2/api/v2/pokemon-habitat/";
+    qDebug() << "/api/v2/pokemon-habitat/";
     connect(this, &OAIPokemonHabitatApiRequest::pokemonHabitatList, handler.data(), &OAIPokemonHabitatApiHandler::pokemonHabitatList);
 
     
@@ -71,7 +71,7 @@ void OAIPokemonHabitatApiRequest::pokemonHabitatListRequest(){
 
 
 void OAIPokemonHabitatApiRequest::pokemonHabitatReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/pokemon-habitat/{id}/";
+    qDebug() << "/api/v2/pokemon-habitat/{id}/";
     connect(this, &OAIPokemonHabitatApiRequest::pokemonHabitatRead, handler.data(), &OAIPokemonHabitatApiHandler::pokemonHabitatRead);
 
     

@@ -50,7 +50,7 @@ QHttpEngine::Socket* OAIPokemonColorApiRequest::getRawSocket(){
 
 
 void OAIPokemonColorApiRequest::pokemonColorListRequest(){
-    qDebug() << "/api/v2/api/v2/pokemon-color/";
+    qDebug() << "/api/v2/pokemon-color/";
     connect(this, &OAIPokemonColorApiRequest::pokemonColorList, handler.data(), &OAIPokemonColorApiHandler::pokemonColorList);
 
     
@@ -71,7 +71,7 @@ void OAIPokemonColorApiRequest::pokemonColorListRequest(){
 
 
 void OAIPokemonColorApiRequest::pokemonColorReadRequest(const QString& idstr){
-    qDebug() << "/api/v2/api/v2/pokemon-color/{id}/";
+    qDebug() << "/api/v2/pokemon-color/{id}/";
     connect(this, &OAIPokemonColorApiRequest::pokemonColorRead, handler.data(), &OAIPokemonColorApiHandler::pokemonColorRead);
 
     

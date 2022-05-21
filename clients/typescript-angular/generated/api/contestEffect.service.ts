@@ -30,7 +30,7 @@ import { Configuration }                                     from '../configurat
 })
 export class ContestEffectService {
 
-    protected basePath = 'https://pokeapi.co/api/v2';
+    protected basePath = 'https://pokeapi.co';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
     public encoder: HttpParameterCodec;

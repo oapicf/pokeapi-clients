@@ -3,7 +3,7 @@
 -export([encounter_condition_value_list/1, encounter_condition_value_list/2,
          encounter_condition_value_read/2, encounter_condition_value_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

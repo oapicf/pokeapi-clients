@@ -5,11 +5,11 @@ import javax.inject.{Inject, Singleton}
 import play.api.libs.json._
 import play.api.mvc._
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-16T10:34:47.121763Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-21T04:06:20.868089Z[Etc/UTC]")
 @Singleton
 class PokemonFormApiController @Inject()(cc: ControllerComponents, api: PokemonFormApi) extends AbstractController(cc) {
   /**
-    * GET /api/v2/api/v2/pokemon-form/?limit=[value]&offset=[value]
+    * GET /api/v2/pokemon-form/?limit=[value]&offset=[value]
     */
   def pokemonFormList(): Action[AnyContent] = Action { request =>
     def executeApi(): String = {
@@ -26,7 +26,7 @@ class PokemonFormApiController @Inject()(cc: ControllerComponents, api: PokemonF
   }
 
   /**
-    * GET /api/v2/api/v2/pokemon-form/:id/
+    * GET /api/v2/pokemon-form/:id/
     */
   def pokemonFormRead(id: Int): Action[AnyContent] = Action { request =>
     def executeApi(): String = {

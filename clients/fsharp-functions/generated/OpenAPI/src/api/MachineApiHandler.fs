@@ -20,7 +20,7 @@ module MachineApiHandlers =
     /// </summary>
    [<FunctionName("MachineList")>]
     let MachineList
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/machine/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/machine/")>]
         req:HttpRequest ) =
 
       let result = MachineApiService.MachineList ()
@@ -36,7 +36,7 @@ module MachineApiHandlers =
     /// </summary>
    [<FunctionName("MachineRead")>]
     let MachineRead
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/api/v2/machine/{id}/")>]
+        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/machine/{id}/")>]
         req:HttpRequest ) =
 
       let result = MachineApiService.MachineRead ()

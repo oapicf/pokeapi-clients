@@ -34,7 +34,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class MoveApi {
-  String basePath = "https://pokeapi.co/api/v2";
+  String basePath = "https://pokeapi.co";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {

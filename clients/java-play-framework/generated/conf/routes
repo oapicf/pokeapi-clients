@@ -6,196 +6,196 @@ GET     /api                        controllers.ApiDocController.api
 
 
 #Functions for Ability API
-GET     /api/v2/api/v2/ability/                     controllers.AbilityApiController.abilityList(request: Request)
-GET     /api/v2/api/v2/ability/:id/                     controllers.AbilityApiController.abilityRead(request: Request, id: Integer)
+GET     /api/v2/ability/                     controllers.AbilityApiController.abilityList(request: Request)
+GET     /api/v2/ability/:id/                     controllers.AbilityApiController.abilityRead(request: Request, id: Integer)
 
 #Functions for Berry API
-GET     /api/v2/api/v2/berry/                     controllers.BerryApiController.berryList(request: Request)
-GET     /api/v2/api/v2/berry/:id/                     controllers.BerryApiController.berryRead(request: Request, id: Integer)
+GET     /api/v2/berry/                     controllers.BerryApiController.berryList(request: Request)
+GET     /api/v2/berry/:id/                     controllers.BerryApiController.berryRead(request: Request, id: Integer)
 
 #Functions for BerryFirmness API
-GET     /api/v2/api/v2/berry-firmness/                     controllers.BerryFirmnessApiController.berryFirmnessList(request: Request)
-GET     /api/v2/api/v2/berry-firmness/:id/                     controllers.BerryFirmnessApiController.berryFirmnessRead(request: Request, id: Integer)
+GET     /api/v2/berry-firmness/                     controllers.BerryFirmnessApiController.berryFirmnessList(request: Request)
+GET     /api/v2/berry-firmness/:id/                     controllers.BerryFirmnessApiController.berryFirmnessRead(request: Request, id: Integer)
 
 #Functions for BerryFlavor API
-GET     /api/v2/api/v2/berry-flavor/                     controllers.BerryFlavorApiController.berryFlavorList(request: Request)
-GET     /api/v2/api/v2/berry-flavor/:id/                     controllers.BerryFlavorApiController.berryFlavorRead(request: Request, id: Integer)
+GET     /api/v2/berry-flavor/                     controllers.BerryFlavorApiController.berryFlavorList(request: Request)
+GET     /api/v2/berry-flavor/:id/                     controllers.BerryFlavorApiController.berryFlavorRead(request: Request, id: Integer)
 
 #Functions for Characteristic API
-GET     /api/v2/api/v2/characteristic/                     controllers.CharacteristicApiController.characteristicList(request: Request)
-GET     /api/v2/api/v2/characteristic/:id/                     controllers.CharacteristicApiController.characteristicRead(request: Request, id: Integer)
+GET     /api/v2/characteristic/                     controllers.CharacteristicApiController.characteristicList(request: Request)
+GET     /api/v2/characteristic/:id/                     controllers.CharacteristicApiController.characteristicRead(request: Request, id: Integer)
 
 #Functions for ContestEffect API
-GET     /api/v2/api/v2/contest-effect/                     controllers.ContestEffectApiController.contestEffectList(request: Request)
-GET     /api/v2/api/v2/contest-effect/:id/                     controllers.ContestEffectApiController.contestEffectRead(request: Request, id: Integer)
+GET     /api/v2/contest-effect/                     controllers.ContestEffectApiController.contestEffectList(request: Request)
+GET     /api/v2/contest-effect/:id/                     controllers.ContestEffectApiController.contestEffectRead(request: Request, id: Integer)
 
 #Functions for ContestType API
-GET     /api/v2/api/v2/contest-type/                     controllers.ContestTypeApiController.contestTypeList(request: Request)
-GET     /api/v2/api/v2/contest-type/:id/                     controllers.ContestTypeApiController.contestTypeRead(request: Request, id: Integer)
+GET     /api/v2/contest-type/                     controllers.ContestTypeApiController.contestTypeList(request: Request)
+GET     /api/v2/contest-type/:id/                     controllers.ContestTypeApiController.contestTypeRead(request: Request, id: Integer)
 
 #Functions for EggGroup API
-GET     /api/v2/api/v2/egg-group/                     controllers.EggGroupApiController.eggGroupList(request: Request)
-GET     /api/v2/api/v2/egg-group/:id/                     controllers.EggGroupApiController.eggGroupRead(request: Request, id: Integer)
+GET     /api/v2/egg-group/                     controllers.EggGroupApiController.eggGroupList(request: Request)
+GET     /api/v2/egg-group/:id/                     controllers.EggGroupApiController.eggGroupRead(request: Request, id: Integer)
 
 #Functions for EncounterCondition API
-GET     /api/v2/api/v2/encounter-condition/                     controllers.EncounterConditionApiController.encounterConditionList(request: Request)
-GET     /api/v2/api/v2/encounter-condition/:id/                     controllers.EncounterConditionApiController.encounterConditionRead(request: Request, id: Integer)
+GET     /api/v2/encounter-condition/                     controllers.EncounterConditionApiController.encounterConditionList(request: Request)
+GET     /api/v2/encounter-condition/:id/                     controllers.EncounterConditionApiController.encounterConditionRead(request: Request, id: Integer)
 
 #Functions for EncounterConditionValue API
-GET     /api/v2/api/v2/encounter-condition-value/                     controllers.EncounterConditionValueApiController.encounterConditionValueList(request: Request)
-GET     /api/v2/api/v2/encounter-condition-value/:id/                     controllers.EncounterConditionValueApiController.encounterConditionValueRead(request: Request, id: Integer)
+GET     /api/v2/encounter-condition-value/                     controllers.EncounterConditionValueApiController.encounterConditionValueList(request: Request)
+GET     /api/v2/encounter-condition-value/:id/                     controllers.EncounterConditionValueApiController.encounterConditionValueRead(request: Request, id: Integer)
 
 #Functions for EncounterMethod API
-GET     /api/v2/api/v2/encounter-method/                     controllers.EncounterMethodApiController.encounterMethodList(request: Request)
-GET     /api/v2/api/v2/encounter-method/:id/                     controllers.EncounterMethodApiController.encounterMethodRead(request: Request, id: Integer)
+GET     /api/v2/encounter-method/                     controllers.EncounterMethodApiController.encounterMethodList(request: Request)
+GET     /api/v2/encounter-method/:id/                     controllers.EncounterMethodApiController.encounterMethodRead(request: Request, id: Integer)
 
 #Functions for EvolutionChain API
-GET     /api/v2/api/v2/evolution-chain/                     controllers.EvolutionChainApiController.evolutionChainList(request: Request)
-GET     /api/v2/api/v2/evolution-chain/:id/                     controllers.EvolutionChainApiController.evolutionChainRead(request: Request, id: Integer)
+GET     /api/v2/evolution-chain/                     controllers.EvolutionChainApiController.evolutionChainList(request: Request)
+GET     /api/v2/evolution-chain/:id/                     controllers.EvolutionChainApiController.evolutionChainRead(request: Request, id: Integer)
 
 #Functions for EvolutionTrigger API
-GET     /api/v2/api/v2/evolution-trigger/                     controllers.EvolutionTriggerApiController.evolutionTriggerList(request: Request)
-GET     /api/v2/api/v2/evolution-trigger/:id/                     controllers.EvolutionTriggerApiController.evolutionTriggerRead(request: Request, id: Integer)
+GET     /api/v2/evolution-trigger/                     controllers.EvolutionTriggerApiController.evolutionTriggerList(request: Request)
+GET     /api/v2/evolution-trigger/:id/                     controllers.EvolutionTriggerApiController.evolutionTriggerRead(request: Request, id: Integer)
 
 #Functions for Gender API
-GET     /api/v2/api/v2/gender/                     controllers.GenderApiController.genderList(request: Request)
-GET     /api/v2/api/v2/gender/:id/                     controllers.GenderApiController.genderRead(request: Request, id: Integer)
+GET     /api/v2/gender/                     controllers.GenderApiController.genderList(request: Request)
+GET     /api/v2/gender/:id/                     controllers.GenderApiController.genderRead(request: Request, id: Integer)
 
 #Functions for Generation API
-GET     /api/v2/api/v2/generation/                     controllers.GenerationApiController.generationList(request: Request)
-GET     /api/v2/api/v2/generation/:id/                     controllers.GenerationApiController.generationRead(request: Request, id: Integer)
+GET     /api/v2/generation/                     controllers.GenerationApiController.generationList(request: Request)
+GET     /api/v2/generation/:id/                     controllers.GenerationApiController.generationRead(request: Request, id: Integer)
 
 #Functions for GrowthRate API
-GET     /api/v2/api/v2/growth-rate/                     controllers.GrowthRateApiController.growthRateList(request: Request)
-GET     /api/v2/api/v2/growth-rate/:id/                     controllers.GrowthRateApiController.growthRateRead(request: Request, id: Integer)
+GET     /api/v2/growth-rate/                     controllers.GrowthRateApiController.growthRateList(request: Request)
+GET     /api/v2/growth-rate/:id/                     controllers.GrowthRateApiController.growthRateRead(request: Request, id: Integer)
 
 #Functions for Item API
-GET     /api/v2/api/v2/item/                     controllers.ItemApiController.itemList(request: Request)
-GET     /api/v2/api/v2/item/:id/                     controllers.ItemApiController.itemRead(request: Request, id: Integer)
+GET     /api/v2/item/                     controllers.ItemApiController.itemList(request: Request)
+GET     /api/v2/item/:id/                     controllers.ItemApiController.itemRead(request: Request, id: Integer)
 
 #Functions for ItemAttribute API
-GET     /api/v2/api/v2/item-attribute/                     controllers.ItemAttributeApiController.itemAttributeList(request: Request)
-GET     /api/v2/api/v2/item-attribute/:id/                     controllers.ItemAttributeApiController.itemAttributeRead(request: Request, id: Integer)
+GET     /api/v2/item-attribute/                     controllers.ItemAttributeApiController.itemAttributeList(request: Request)
+GET     /api/v2/item-attribute/:id/                     controllers.ItemAttributeApiController.itemAttributeRead(request: Request, id: Integer)
 
 #Functions for ItemCategory API
-GET     /api/v2/api/v2/item-category/                     controllers.ItemCategoryApiController.itemCategoryList(request: Request)
-GET     /api/v2/api/v2/item-category/:id/                     controllers.ItemCategoryApiController.itemCategoryRead(request: Request, id: Integer)
+GET     /api/v2/item-category/                     controllers.ItemCategoryApiController.itemCategoryList(request: Request)
+GET     /api/v2/item-category/:id/                     controllers.ItemCategoryApiController.itemCategoryRead(request: Request, id: Integer)
 
 #Functions for ItemFlingEffect API
-GET     /api/v2/api/v2/item-fling-effect/                     controllers.ItemFlingEffectApiController.itemFlingEffectList(request: Request)
-GET     /api/v2/api/v2/item-fling-effect/:id/                     controllers.ItemFlingEffectApiController.itemFlingEffectRead(request: Request, id: Integer)
+GET     /api/v2/item-fling-effect/                     controllers.ItemFlingEffectApiController.itemFlingEffectList(request: Request)
+GET     /api/v2/item-fling-effect/:id/                     controllers.ItemFlingEffectApiController.itemFlingEffectRead(request: Request, id: Integer)
 
 #Functions for ItemPocket API
-GET     /api/v2/api/v2/item-pocket/                     controllers.ItemPocketApiController.itemPocketList(request: Request)
-GET     /api/v2/api/v2/item-pocket/:id/                     controllers.ItemPocketApiController.itemPocketRead(request: Request, id: Integer)
+GET     /api/v2/item-pocket/                     controllers.ItemPocketApiController.itemPocketList(request: Request)
+GET     /api/v2/item-pocket/:id/                     controllers.ItemPocketApiController.itemPocketRead(request: Request, id: Integer)
 
 #Functions for Language API
-GET     /api/v2/api/v2/language/                     controllers.LanguageApiController.languageList(request: Request)
-GET     /api/v2/api/v2/language/:id/                     controllers.LanguageApiController.languageRead(request: Request, id: Integer)
+GET     /api/v2/language/                     controllers.LanguageApiController.languageList(request: Request)
+GET     /api/v2/language/:id/                     controllers.LanguageApiController.languageRead(request: Request, id: Integer)
 
 #Functions for Location API
-GET     /api/v2/api/v2/location/                     controllers.LocationApiController.locationList(request: Request)
-GET     /api/v2/api/v2/location/:id/                     controllers.LocationApiController.locationRead(request: Request, id: Integer)
+GET     /api/v2/location/                     controllers.LocationApiController.locationList(request: Request)
+GET     /api/v2/location/:id/                     controllers.LocationApiController.locationRead(request: Request, id: Integer)
 
 #Functions for LocationArea API
-GET     /api/v2/api/v2/location-area/                     controllers.LocationAreaApiController.locationAreaList(request: Request)
-GET     /api/v2/api/v2/location-area/:id/                     controllers.LocationAreaApiController.locationAreaRead(request: Request, id: Integer)
+GET     /api/v2/location-area/                     controllers.LocationAreaApiController.locationAreaList(request: Request)
+GET     /api/v2/location-area/:id/                     controllers.LocationAreaApiController.locationAreaRead(request: Request, id: Integer)
 
 #Functions for Machine API
-GET     /api/v2/api/v2/machine/                     controllers.MachineApiController.machineList(request: Request)
-GET     /api/v2/api/v2/machine/:id/                     controllers.MachineApiController.machineRead(request: Request, id: Integer)
+GET     /api/v2/machine/                     controllers.MachineApiController.machineList(request: Request)
+GET     /api/v2/machine/:id/                     controllers.MachineApiController.machineRead(request: Request, id: Integer)
 
 #Functions for Move API
-GET     /api/v2/api/v2/move/                     controllers.MoveApiController.moveList(request: Request)
-GET     /api/v2/api/v2/move/:id/                     controllers.MoveApiController.moveRead(request: Request, id: Integer)
+GET     /api/v2/move/                     controllers.MoveApiController.moveList(request: Request)
+GET     /api/v2/move/:id/                     controllers.MoveApiController.moveRead(request: Request, id: Integer)
 
 #Functions for MoveAilment API
-GET     /api/v2/api/v2/move-ailment/                     controllers.MoveAilmentApiController.moveAilmentList(request: Request)
-GET     /api/v2/api/v2/move-ailment/:id/                     controllers.MoveAilmentApiController.moveAilmentRead(request: Request, id: Integer)
+GET     /api/v2/move-ailment/                     controllers.MoveAilmentApiController.moveAilmentList(request: Request)
+GET     /api/v2/move-ailment/:id/                     controllers.MoveAilmentApiController.moveAilmentRead(request: Request, id: Integer)
 
 #Functions for MoveBattleStyle API
-GET     /api/v2/api/v2/move-battle-style/                     controllers.MoveBattleStyleApiController.moveBattleStyleList(request: Request)
-GET     /api/v2/api/v2/move-battle-style/:id/                     controllers.MoveBattleStyleApiController.moveBattleStyleRead(request: Request, id: Integer)
+GET     /api/v2/move-battle-style/                     controllers.MoveBattleStyleApiController.moveBattleStyleList(request: Request)
+GET     /api/v2/move-battle-style/:id/                     controllers.MoveBattleStyleApiController.moveBattleStyleRead(request: Request, id: Integer)
 
 #Functions for MoveCategory API
-GET     /api/v2/api/v2/move-category/                     controllers.MoveCategoryApiController.moveCategoryList(request: Request)
-GET     /api/v2/api/v2/move-category/:id/                     controllers.MoveCategoryApiController.moveCategoryRead(request: Request, id: Integer)
+GET     /api/v2/move-category/                     controllers.MoveCategoryApiController.moveCategoryList(request: Request)
+GET     /api/v2/move-category/:id/                     controllers.MoveCategoryApiController.moveCategoryRead(request: Request, id: Integer)
 
 #Functions for MoveDamageClass API
-GET     /api/v2/api/v2/move-damage-class/                     controllers.MoveDamageClassApiController.moveDamageClassList(request: Request)
-GET     /api/v2/api/v2/move-damage-class/:id/                     controllers.MoveDamageClassApiController.moveDamageClassRead(request: Request, id: Integer)
+GET     /api/v2/move-damage-class/                     controllers.MoveDamageClassApiController.moveDamageClassList(request: Request)
+GET     /api/v2/move-damage-class/:id/                     controllers.MoveDamageClassApiController.moveDamageClassRead(request: Request, id: Integer)
 
 #Functions for MoveLearnMethod API
-GET     /api/v2/api/v2/move-learn-method/                     controllers.MoveLearnMethodApiController.moveLearnMethodList(request: Request)
-GET     /api/v2/api/v2/move-learn-method/:id/                     controllers.MoveLearnMethodApiController.moveLearnMethodRead(request: Request, id: Integer)
+GET     /api/v2/move-learn-method/                     controllers.MoveLearnMethodApiController.moveLearnMethodList(request: Request)
+GET     /api/v2/move-learn-method/:id/                     controllers.MoveLearnMethodApiController.moveLearnMethodRead(request: Request, id: Integer)
 
 #Functions for MoveTarget API
-GET     /api/v2/api/v2/move-target/                     controllers.MoveTargetApiController.moveTargetList(request: Request)
-GET     /api/v2/api/v2/move-target/:id/                     controllers.MoveTargetApiController.moveTargetRead(request: Request, id: Integer)
+GET     /api/v2/move-target/                     controllers.MoveTargetApiController.moveTargetList(request: Request)
+GET     /api/v2/move-target/:id/                     controllers.MoveTargetApiController.moveTargetRead(request: Request, id: Integer)
 
 #Functions for Nature API
-GET     /api/v2/api/v2/nature/                     controllers.NatureApiController.natureList(request: Request)
-GET     /api/v2/api/v2/nature/:id/                     controllers.NatureApiController.natureRead(request: Request, id: Integer)
+GET     /api/v2/nature/                     controllers.NatureApiController.natureList(request: Request)
+GET     /api/v2/nature/:id/                     controllers.NatureApiController.natureRead(request: Request, id: Integer)
 
 #Functions for PalParkArea API
-GET     /api/v2/api/v2/pal-park-area/                     controllers.PalParkAreaApiController.palParkAreaList(request: Request)
-GET     /api/v2/api/v2/pal-park-area/:id/                     controllers.PalParkAreaApiController.palParkAreaRead(request: Request, id: Integer)
+GET     /api/v2/pal-park-area/                     controllers.PalParkAreaApiController.palParkAreaList(request: Request)
+GET     /api/v2/pal-park-area/:id/                     controllers.PalParkAreaApiController.palParkAreaRead(request: Request, id: Integer)
 
 #Functions for PokeathlonStat API
-GET     /api/v2/api/v2/pokeathlon-stat/                     controllers.PokeathlonStatApiController.pokeathlonStatList(request: Request)
-GET     /api/v2/api/v2/pokeathlon-stat/:id/                     controllers.PokeathlonStatApiController.pokeathlonStatRead(request: Request, id: Integer)
+GET     /api/v2/pokeathlon-stat/                     controllers.PokeathlonStatApiController.pokeathlonStatList(request: Request)
+GET     /api/v2/pokeathlon-stat/:id/                     controllers.PokeathlonStatApiController.pokeathlonStatRead(request: Request, id: Integer)
 
 #Functions for Pokedex API
-GET     /api/v2/api/v2/pokedex/                     controllers.PokedexApiController.pokedexList(request: Request)
-GET     /api/v2/api/v2/pokedex/:id/                     controllers.PokedexApiController.pokedexRead(request: Request, id: Integer)
+GET     /api/v2/pokedex/                     controllers.PokedexApiController.pokedexList(request: Request)
+GET     /api/v2/pokedex/:id/                     controllers.PokedexApiController.pokedexRead(request: Request, id: Integer)
 
 #Functions for Pokemon API
-GET     /api/v2/api/v2/pokemon/                     controllers.PokemonApiController.pokemonList(request: Request)
-GET     /api/v2/api/v2/pokemon/:id/                     controllers.PokemonApiController.pokemonRead(request: Request, id: Integer)
+GET     /api/v2/pokemon/                     controllers.PokemonApiController.pokemonList(request: Request)
+GET     /api/v2/pokemon/:id/                     controllers.PokemonApiController.pokemonRead(request: Request, id: Integer)
 
 #Functions for PokemonColor API
-GET     /api/v2/api/v2/pokemon-color/                     controllers.PokemonColorApiController.pokemonColorList(request: Request)
-GET     /api/v2/api/v2/pokemon-color/:id/                     controllers.PokemonColorApiController.pokemonColorRead(request: Request, id: Integer)
+GET     /api/v2/pokemon-color/                     controllers.PokemonColorApiController.pokemonColorList(request: Request)
+GET     /api/v2/pokemon-color/:id/                     controllers.PokemonColorApiController.pokemonColorRead(request: Request, id: Integer)
 
 #Functions for PokemonForm API
-GET     /api/v2/api/v2/pokemon-form/                     controllers.PokemonFormApiController.pokemonFormList(request: Request)
-GET     /api/v2/api/v2/pokemon-form/:id/                     controllers.PokemonFormApiController.pokemonFormRead(request: Request, id: Integer)
+GET     /api/v2/pokemon-form/                     controllers.PokemonFormApiController.pokemonFormList(request: Request)
+GET     /api/v2/pokemon-form/:id/                     controllers.PokemonFormApiController.pokemonFormRead(request: Request, id: Integer)
 
 #Functions for PokemonHabitat API
-GET     /api/v2/api/v2/pokemon-habitat/                     controllers.PokemonHabitatApiController.pokemonHabitatList(request: Request)
-GET     /api/v2/api/v2/pokemon-habitat/:id/                     controllers.PokemonHabitatApiController.pokemonHabitatRead(request: Request, id: Integer)
+GET     /api/v2/pokemon-habitat/                     controllers.PokemonHabitatApiController.pokemonHabitatList(request: Request)
+GET     /api/v2/pokemon-habitat/:id/                     controllers.PokemonHabitatApiController.pokemonHabitatRead(request: Request, id: Integer)
 
 #Functions for PokemonShape API
-GET     /api/v2/api/v2/pokemon-shape/                     controllers.PokemonShapeApiController.pokemonShapeList(request: Request)
-GET     /api/v2/api/v2/pokemon-shape/:id/                     controllers.PokemonShapeApiController.pokemonShapeRead(request: Request, id: Integer)
+GET     /api/v2/pokemon-shape/                     controllers.PokemonShapeApiController.pokemonShapeList(request: Request)
+GET     /api/v2/pokemon-shape/:id/                     controllers.PokemonShapeApiController.pokemonShapeRead(request: Request, id: Integer)
 
 #Functions for PokemonSpecies API
-GET     /api/v2/api/v2/pokemon-species/                     controllers.PokemonSpeciesApiController.pokemonSpeciesList(request: Request)
-GET     /api/v2/api/v2/pokemon-species/:id/                     controllers.PokemonSpeciesApiController.pokemonSpeciesRead(request: Request, id: Integer)
+GET     /api/v2/pokemon-species/                     controllers.PokemonSpeciesApiController.pokemonSpeciesList(request: Request)
+GET     /api/v2/pokemon-species/:id/                     controllers.PokemonSpeciesApiController.pokemonSpeciesRead(request: Request, id: Integer)
 
 #Functions for Region API
-GET     /api/v2/api/v2/region/                     controllers.RegionApiController.regionList(request: Request)
-GET     /api/v2/api/v2/region/:id/                     controllers.RegionApiController.regionRead(request: Request, id: Integer)
+GET     /api/v2/region/                     controllers.RegionApiController.regionList(request: Request)
+GET     /api/v2/region/:id/                     controllers.RegionApiController.regionRead(request: Request, id: Integer)
 
 #Functions for Stat API
-GET     /api/v2/api/v2/stat/                     controllers.StatApiController.statList(request: Request)
-GET     /api/v2/api/v2/stat/:id/                     controllers.StatApiController.statRead(request: Request, id: Integer)
+GET     /api/v2/stat/                     controllers.StatApiController.statList(request: Request)
+GET     /api/v2/stat/:id/                     controllers.StatApiController.statRead(request: Request, id: Integer)
 
 #Functions for SuperContestEffect API
-GET     /api/v2/api/v2/super-contest-effect/                     controllers.SuperContestEffectApiController.superContestEffectList(request: Request)
-GET     /api/v2/api/v2/super-contest-effect/:id/                     controllers.SuperContestEffectApiController.superContestEffectRead(request: Request, id: Integer)
+GET     /api/v2/super-contest-effect/                     controllers.SuperContestEffectApiController.superContestEffectList(request: Request)
+GET     /api/v2/super-contest-effect/:id/                     controllers.SuperContestEffectApiController.superContestEffectRead(request: Request, id: Integer)
 
 #Functions for Type API
-GET     /api/v2/api/v2/type/                     controllers.TypeApiController.typeList(request: Request)
-GET     /api/v2/api/v2/type/:id/                     controllers.TypeApiController.typeRead(request: Request, id: Integer)
+GET     /api/v2/type/                     controllers.TypeApiController.typeList(request: Request)
+GET     /api/v2/type/:id/                     controllers.TypeApiController.typeRead(request: Request, id: Integer)
 
 #Functions for Version API
-GET     /api/v2/api/v2/version/                     controllers.VersionApiController.versionList(request: Request)
-GET     /api/v2/api/v2/version/:id/                     controllers.VersionApiController.versionRead(request: Request, id: Integer)
+GET     /api/v2/version/                     controllers.VersionApiController.versionList(request: Request)
+GET     /api/v2/version/:id/                     controllers.VersionApiController.versionRead(request: Request, id: Integer)
 
 #Functions for VersionGroup API
-GET     /api/v2/api/v2/version-group/                     controllers.VersionGroupApiController.versionGroupList(request: Request)
-GET     /api/v2/api/v2/version-group/:id/                     controllers.VersionGroupApiController.versionGroupRead(request: Request, id: Integer)
+GET     /api/v2/version-group/                     controllers.VersionGroupApiController.versionGroupList(request: Request)
+GET     /api/v2/version-group/:id/                     controllers.VersionGroupApiController.versionGroupRead(request: Request, id: Integer)
 
 # Map static resources from the /public folder to the /assets URL path
 GET /assets/*file           controllers.Assets.at(file)

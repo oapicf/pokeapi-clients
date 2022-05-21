@@ -3,7 +3,7 @@
 -export([nature_list/1, nature_list/2,
          nature_read/2, nature_read/3]).
 
--define(BASE_URL, <<"/api/v2">>).
+-define(BASE_URL, <<"">>).
 
 %% @doc 
 %% 

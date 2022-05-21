@@ -64,7 +64,7 @@ private:
 class  ItemApiApiV2ItemResource: public restbed::Resource
 {
 public:
-    ItemApiApiV2ItemResource(const std::string& context = "/api/v2");
+    ItemApiApiV2ItemResource(const std::string& context = "");
     virtual ~ItemApiApiV2ItemResource();
 
 protected:
@@ -122,7 +122,7 @@ private:
 class  ItemApiApiV2ItemIdResource: public restbed::Resource
 {
 public:
-    ItemApiApiV2ItemIdResource(const std::string& context = "/api/v2");
+    ItemApiApiV2ItemIdResource(const std::string& context = "");
     virtual ~ItemApiApiV2ItemIdResource();
 
 protected:
