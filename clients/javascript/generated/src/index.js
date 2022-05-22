@@ -92,7 +92,7 @@ import VersionGroupApi from './api/VersionGroupApi';
 * </pre>
 * </p>
 * @module index
-* @version 1.0.0-pre.0
+* @version 0.9.0-pre.0
 */
 export {
     /**

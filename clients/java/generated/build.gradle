@@ -4,7 +4,7 @@ apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
 
 group = 'com.cliffano'
-version = '1.0.0-pre.0'
+version = '0.9.0-pre.0'
 
 buildscript {
     repositories {

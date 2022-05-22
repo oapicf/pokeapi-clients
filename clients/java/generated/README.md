@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cliffano</groupId>
   <artifactId>pokeapiclient</artifactId>
-  <version>1.0.0-pre.0</version>
+  <version>0.9.0-pre.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cliffano:pokeapiclient:1.0.0-pre.0"
+     implementation "com.cliffano:pokeapiclient:0.9.0-pre.0"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/pokeapiclient-1.0.0-pre.0.jar`
+* `target/pokeapiclient-0.9.0-pre.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started

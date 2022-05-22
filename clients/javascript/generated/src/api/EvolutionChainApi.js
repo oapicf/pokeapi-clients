@@ -17,7 +17,7 @@ import ApiClient from "../ApiClient";
 /**
 * EvolutionChain service.
 * @module api/EvolutionChainApi
-* @version 1.0.0-pre.0
+* @version 0.9.0-pre.0
 */
 export default class EvolutionChainApi {
 

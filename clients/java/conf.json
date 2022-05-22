@@ -1,6 +1,6 @@
 {
     "artifactId": "pokeapiclient",
-    "artifactVersion": "1.0.0-pre.0",
+    "artifactVersion": "0.9.0-pre.0",
     "artifactUrl": "https://github.com/cliffano/pokeapi-clients",
     "artifactDescription": "Pinterest SDK generated from OpenAPI specification",
     "groupId": "com.cliffano",

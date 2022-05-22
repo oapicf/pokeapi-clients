@@ -17,7 +17,7 @@ import ApiClient from "../ApiClient";
 /**
 * BerryFirmness service.
 * @module api/BerryFirmnessApi
-* @version 1.0.0-pre.0
+* @version 0.9.0-pre.0
 */
 export default class BerryFirmnessApi {
 

@@ -9,7 +9,7 @@
 """
 
 
-__version__ = "1.0.0-pre.0"
+__version__ = "0.9.0-pre.0"
 
 # import ApiClient
 from pokeapiclient.api_client import ApiClient

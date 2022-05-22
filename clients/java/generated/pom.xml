@@ -5,7 +5,7 @@
     <artifactId>pokeapiclient</artifactId>
     <packaging>jar</packaging>
     <name>pokeapiclient</name>
-    <version>1.0.0-pre.0</version>
+    <version>0.9.0-pre.0</version>
     <url>https://github.com/cliffano/pokeapi-clients</url>
     <description>Pinterest SDK generated from OpenAPI specification</description>
     <scm>

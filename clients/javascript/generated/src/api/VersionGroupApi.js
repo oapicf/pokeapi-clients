@@ -17,7 +17,7 @@ import ApiClient from "../ApiClient";
 /**
 * VersionGroup service.
 * @module api/VersionGroupApi
-* @version 1.0.0-pre.0
+* @version 0.9.0-pre.0
 */
 export default class VersionGroupApi {
 
