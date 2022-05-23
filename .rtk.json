@@ -1,13 +1,6 @@
 {
   "resources": [
     {
-      "path": "specification/pokeapi.yml",
-      "type": "yaml",
-      "params": {
-        "property": "info.version"
-      }
-    },
-    {
       "path": "clients/javascript/conf.json",
       "type": "json",
       "params": {
