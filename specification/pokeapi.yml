@@ -1,4 +1,5 @@
 # Source: https://gist.github.com/NiccoMlt/073b18934a6001fc5a2414c590e3b8ba
+# Credit goes to Niccolò Maltoni for building the baseline version of this specification
 openapi: 3.0.0
 info:
   description: ''
