@@ -1,6 +1,6 @@
 {
-    "projectName": "pokeapi-client",
-    "projectVersion": "0.9.0-pre.0",
-    "gitUserId": "cliffano",
-    "gitRepoId": "pokeapi-clients"
-  }
+  "projectName": "pokeapi-client",
+  "projectVersion": "0.9.0",
+  "gitUserId": "cliffano",
+  "gitRepoId": "pokeapi-clients"
+}
