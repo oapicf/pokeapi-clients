@@ -1,6 +1,6 @@
-<img align="right" src="https://raw.github.com/cliffano/pokeapi-client/master/avatar.jpg" alt="Avatar"/>
+<img align="right" src="https://raw.github.com/cliffano/pokeapi-clients/master/avatar.jpg" alt="Avatar"/>
 
-[![Build Status](https://github.com/cliffano/pokeapi-client/actions/workflows/ci-workflow.yaml/badge.svg)](https://github.com/cliffano/pokeapi-client/actions/workflows/ci-workflow.yaml)
+[![Build Status](https://github.com/cliffano/pokeapi-clients/actions/workflows/ci-workflow.yaml/badge.svg)](https://github.com/cliffano/pokeapi-clients/actions/workflows/ci-workflow.yaml)
 <br/>
 
 PokéAPI Clients
@@ -24,14 +24,14 @@ Version Matrix
 
 | PokéAPI Clients Version | OpenAPI Version | OpenAPI Generator Version |
 |-------------------------|-----------------|---------------------------|
-| 1.0.0 | 3.0.0 | 5.4.0 |
+| 0.9.0 | 3.0.0 | 5.4.0 |
 
 Usage
 -----
 
 Generate API clients of the currently supported languages:
 
-    make generate GEN_BASE_DIR=<path/to/pokeapi-client>
+    make generate GEN_BASE_DIR=<path/to/pokeapi-clients>
 
 Installation
 ------------
@@ -55,4 +55,4 @@ Install Ruby client:
 Colophon
 --------
 
-* [API Documentation](http://cliffano.github.io/pokeapi-client/api/latest/)
+* [API Documentation](http://cliffano.github.io/pokeapi-clients/api/latest/)
