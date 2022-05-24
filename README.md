@@ -26,7 +26,7 @@ Note: Version 0.9.0 returns response as String since the specification does not 
 
 | PokéAPI Clients Version | PokéAPI OpenAPI Spec Version | OpenAPI Version | OpenAPI Generator Version |
 |-------------------------|------------------------------|-----------------|---------------------------|
-| 0.9.0 | 20220523 | 3.0.0 | 5.4.0 |
+| 0.9.1 | 20220523 | 3.0.0 | 5.4.0 |
 
 Usage
 -----
