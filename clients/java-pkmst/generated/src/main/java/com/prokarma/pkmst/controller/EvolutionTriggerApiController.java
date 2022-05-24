@@ -22,7 +22,7 @@ import java.io.IOException;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2022-05-21T03:59:39.742290Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2022-05-23T13:56:50.702287Z[Etc/UTC]")
 @Controller
 public class EvolutionTriggerApiController implements EvolutionTriggerApi {
     private final ObjectMapper objectMapper;

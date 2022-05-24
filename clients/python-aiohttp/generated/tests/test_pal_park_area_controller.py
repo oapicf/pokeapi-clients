@@ -18,7 +18,7 @@ async def test_pal_park_area_list(client):
     }
     response = await client.request(
         method='GET',
-        path='/api/v2/api/v2/pal-park-area/',
+        path='/api/v2/pal-park-area/',
         headers=headers,
         params=params,
         )
@@ -35,7 +35,7 @@ async def test_pal_park_area_read(client):
     }
     response = await client.request(
         method='GET',
-        path='/api/v2/api/v2/pal-park-area/{id}'.format(id=56),
+        path='/api/v2/pal-park-area/{id}'.format(id=56),
         headers=headers,
         )
     assert response.status == 200, 'Response body is : ' + (await response.read()).decode('utf-8')

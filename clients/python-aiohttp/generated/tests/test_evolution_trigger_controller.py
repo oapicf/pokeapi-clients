@@ -18,7 +18,7 @@ async def test_evolution_trigger_list(client):
     }
     response = await client.request(
         method='GET',
-        path='/api/v2/api/v2/evolution-trigger/',
+        path='/api/v2/evolution-trigger/',
         headers=headers,
         params=params,
         )
@@ -35,7 +35,7 @@ async def test_evolution_trigger_read(client):
     }
     response = await client.request(
         method='GET',
-        path='/api/v2/api/v2/evolution-trigger/{id}'.format(id=56),
+        path='/api/v2/evolution-trigger/{id}'.format(id=56),
         headers=headers,
         )
     assert response.status == 200, 'Response body is : ' + (await response.read()).decode('utf-8')

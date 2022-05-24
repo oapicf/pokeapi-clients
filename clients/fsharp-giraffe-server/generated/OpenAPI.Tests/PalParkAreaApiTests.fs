@@ -31,7 +31,7 @@ module PalParkAreaApiHandlerTests =
 
       // add your setup code here
 
-      let path = "/api/v2/api/v2/pal-park-area/" + "?limit=ADDME&offset=ADDME"
+      let path = "/api/v2/pal-park-area/" + "?limit=ADDME&offset=ADDME"
 
       HttpGet client path
         |> isStatus (enum<HttpStatusCode>(0))
@@ -48,7 +48,7 @@ module PalParkAreaApiHandlerTests =
 
       // add your setup code here
 
-      let path = "/api/v2/api/v2/pal-park-area/{id}/".Replace("id", "ADDME")
+      let path = "/api/v2/pal-park-area/{id}/".Replace("id", "ADDME")
 
       HttpGet client path
         |> isStatus (enum<HttpStatusCode>(0))

@@ -18,7 +18,7 @@ async def test_move_damage_class_list(client):
     }
     response = await client.request(
         method='GET',
-        path='/api/v2/api/v2/move-damage-class/',
+        path='/api/v2/move-damage-class/',
         headers=headers,
         params=params,
         )
@@ -35,7 +35,7 @@ async def test_move_damage_class_read(client):
     }
     response = await client.request(
         method='GET',
-        path='/api/v2/api/v2/move-damage-class/{id}'.format(id=56),
+        path='/api/v2/move-damage-class/{id}'.format(id=56),
         headers=headers,
         )
     assert response.status == 200, 'Response body is : ' + (await response.read()).decode('utf-8')

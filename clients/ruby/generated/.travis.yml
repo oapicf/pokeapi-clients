@@ -11,4 +11,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build pokeapi_client.gemspec
-  - gem install ./pokeapi_client-0.9.0-pre.0.gem
+  - gem install ./pokeapi_client-0.9.1-pre.0.gem

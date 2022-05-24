@@ -23,7 +23,7 @@ class TestMoveDamageClassController(BaseTestCase):
             'Accept': 'text/plain',
         }
         response = self.client.open(
-            '/api/v2/api/v2/move-damage-class/',
+            '/api/v2/move-damage-class/',
             method='GET',
             headers=headers,
             query_string=query_string)
@@ -39,7 +39,7 @@ class TestMoveDamageClassController(BaseTestCase):
             'Accept': 'text/plain',
         }
         response = self.client.open(
-            '/api/v2/api/v2/move-damage-class/{id}'.format(id=56),
+            '/api/v2/move-damage-class/{id}'.format(id=56),
             method='GET',
             headers=headers)
         self.assert200(response,

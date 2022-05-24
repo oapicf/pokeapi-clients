@@ -7,7 +7,7 @@ api.instance <- VersionApi$new()
 
 test_that("VersionList", {
   # tests for VersionList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("VersionList", {
 
 test_that("VersionRead", {
   # tests for VersionRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

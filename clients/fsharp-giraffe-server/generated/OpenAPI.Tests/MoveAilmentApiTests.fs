@@ -31,7 +31,7 @@ module MoveAilmentApiHandlerTests =
 
       // add your setup code here
 
-      let path = "/api/v2/api/v2/move-ailment/" + "?limit=ADDME&offset=ADDME"
+      let path = "/api/v2/move-ailment/" + "?limit=ADDME&offset=ADDME"
 
       HttpGet client path
         |> isStatus (enum<HttpStatusCode>(0))
@@ -48,7 +48,7 @@ module MoveAilmentApiHandlerTests =
 
       // add your setup code here
 
-      let path = "/api/v2/api/v2/move-ailment/{id}/".Replace("id", "ADDME")
+      let path = "/api/v2/move-ailment/{id}/".Replace("id", "ADDME")
 
       HttpGet client path
         |> isStatus (enum<HttpStatusCode>(0))

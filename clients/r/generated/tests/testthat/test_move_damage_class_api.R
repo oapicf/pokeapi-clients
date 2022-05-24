@@ -7,7 +7,7 @@ api.instance <- MoveDamageClassApi$new()
 
 test_that("MoveDamageClassList", {
   # tests for MoveDamageClassList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("MoveDamageClassList", {
 
 test_that("MoveDamageClassRead", {
   # tests for MoveDamageClassRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

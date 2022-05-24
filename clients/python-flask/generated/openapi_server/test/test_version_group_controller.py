@@ -23,7 +23,7 @@ class TestVersionGroupController(BaseTestCase):
             'Accept': 'text/plain',
         }
         response = self.client.open(
-            '/api/v2/api/v2/version-group/',
+            '/api/v2/version-group/',
             method='GET',
             headers=headers,
             query_string=query_string)
@@ -39,7 +39,7 @@ class TestVersionGroupController(BaseTestCase):
             'Accept': 'text/plain',
         }
         response = self.client.open(
-            '/api/v2/api/v2/version-group/{id}'.format(id=56),
+            '/api/v2/version-group/{id}'.format(id=56),
             method='GET',
             headers=headers)
         self.assert200(response,

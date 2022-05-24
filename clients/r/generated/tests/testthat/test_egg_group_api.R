@@ -7,7 +7,7 @@ api.instance <- EggGroupApi$new()
 
 test_that("EggGroupList", {
   # tests for EggGroupList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("EggGroupList", {
 
 test_that("EggGroupRead", {
   # tests for EggGroupRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

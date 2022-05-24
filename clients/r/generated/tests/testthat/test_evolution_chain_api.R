@@ -7,7 +7,7 @@ api.instance <- EvolutionChainApi$new()
 
 test_that("EvolutionChainList", {
   # tests for EvolutionChainList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("EvolutionChainList", {
 
 test_that("EvolutionChainRead", {
   # tests for EvolutionChainRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

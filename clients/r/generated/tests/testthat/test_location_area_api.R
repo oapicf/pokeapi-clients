@@ -7,7 +7,7 @@ api.instance <- LocationAreaApi$new()
 
 test_that("LocationAreaList", {
   # tests for LocationAreaList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("LocationAreaList", {
 
 test_that("LocationAreaRead", {
   # tests for LocationAreaRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

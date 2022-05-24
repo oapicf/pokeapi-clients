@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 AbilityApi.conf
 BerryApi.conf
 BerryFirmnessApi.conf

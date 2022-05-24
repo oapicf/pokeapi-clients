@@ -893,7 +893,7 @@ build_request_path() {
 print_help() {
 cat <<EOF
 
-${BOLD}${WHITE} command line client (API version )${OFF}
+${BOLD}${WHITE} command line client (API version 20220523)${OFF}
 
 ${BOLD}${WHITE}Usage${OFF}
 
@@ -1284,7 +1284,7 @@ echo -e "              \\t\\t\\t\\t(e.g. 'https://pokeapi.co')"
 ##############################################################################
 print_about() {
     echo ""
-    echo -e "${BOLD}${WHITE} command line client (API version )${OFF}"
+    echo -e "${BOLD}${WHITE} command line client (API version 20220523)${OFF}"
     echo ""
     echo -e "License: "
     echo -e "Contact: "
@@ -1304,7 +1304,7 @@ echo "$appdescription" | paste -sd' ' | fold -sw 80
 ##############################################################################
 print_version() {
     echo ""
-    echo -e "${BOLD} command line client (API version )${OFF}"
+    echo -e "${BOLD} command line client (API version 20220523)${OFF}"
     echo ""
 }
 

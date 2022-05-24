@@ -7,7 +7,7 @@ api.instance <- MoveAilmentApi$new()
 
 test_that("MoveAilmentList", {
   # tests for MoveAilmentList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("MoveAilmentList", {
 
 test_that("MoveAilmentRead", {
   # tests for MoveAilmentRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

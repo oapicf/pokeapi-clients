@@ -7,7 +7,7 @@ api.instance <- MoveCategoryApi$new()
 
 test_that("MoveCategoryList", {
   # tests for MoveCategoryList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("MoveCategoryList", {
 
 test_that("MoveCategoryRead", {
   # tests for MoveCategoryRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

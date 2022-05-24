@@ -7,7 +7,7 @@ api.instance <- RegionApi$new()
 
 test_that("RegionList", {
   # tests for RegionList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("RegionList", {
 
 test_that("RegionRead", {
   # tests for RegionRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

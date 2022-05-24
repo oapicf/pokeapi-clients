@@ -19,7 +19,7 @@ class TestEncounterConditionController(BaseTestCase):
         query_string = [('limit', 56),
                         ('offset', 56)]
         response = self.client.open(
-            '/api/v2/api/v2/encounter-condition/',
+            '/api/v2/encounter-condition/',
             method='GET',
             query_string=query_string)
         self.assert200(response,
@@ -31,7 +31,7 @@ class TestEncounterConditionController(BaseTestCase):
         
         """
         response = self.client.open(
-            '/api/v2/api/v2/encounter-condition/{id}'.format(id=56),
+            '/api/v2/encounter-condition/{id}'.format(id=56),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))

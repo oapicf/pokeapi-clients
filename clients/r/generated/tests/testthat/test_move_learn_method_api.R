@@ -7,7 +7,7 @@ api.instance <- MoveLearnMethodApi$new()
 
 test_that("MoveLearnMethodList", {
   # tests for MoveLearnMethodList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("MoveLearnMethodList", {
 
 test_that("MoveLearnMethodRead", {
   # tests for MoveLearnMethodRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

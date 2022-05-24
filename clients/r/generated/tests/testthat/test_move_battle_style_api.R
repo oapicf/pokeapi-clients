@@ -7,7 +7,7 @@ api.instance <- MoveBattleStyleApi$new()
 
 test_that("MoveBattleStyleList", {
   # tests for MoveBattleStyleList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("MoveBattleStyleList", {
 
 test_that("MoveBattleStyleRead", {
   # tests for MoveBattleStyleRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

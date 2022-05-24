@@ -7,7 +7,7 @@ api.instance <- ItemPocketApi$new()
 
 test_that("ItemPocketList", {
   # tests for ItemPocketList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("ItemPocketList", {
 
 test_that("ItemPocketRead", {
   # tests for ItemPocketRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

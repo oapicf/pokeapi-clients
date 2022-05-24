@@ -7,7 +7,7 @@ api.instance <- PokemonShapeApi$new()
 
 test_that("PokemonShapeList", {
   # tests for PokemonShapeList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("PokemonShapeList", {
 
 test_that("PokemonShapeRead", {
   # tests for PokemonShapeRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

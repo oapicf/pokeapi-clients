@@ -7,7 +7,7 @@ api.instance <- PokemonColorApi$new()
 
 test_that("PokemonColorList", {
   # tests for PokemonColorList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("PokemonColorList", {
 
 test_that("PokemonColorRead", {
   # tests for PokemonColorRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

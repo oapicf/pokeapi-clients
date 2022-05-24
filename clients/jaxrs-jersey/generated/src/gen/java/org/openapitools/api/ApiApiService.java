@@ -14,7 +14,7 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2022-05-21T04:00:49.922385Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2022-05-23T21:53:24.369756Z[Etc/UTC]")
 public abstract class ApiApiService {
     public abstract Response abilityList(Integer limit,Integer offset,SecurityContext securityContext) throws NotFoundException;
     public abstract Response abilityRead(Integer id,SecurityContext securityContext) throws NotFoundException;

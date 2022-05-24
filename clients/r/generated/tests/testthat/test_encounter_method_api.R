@@ -7,7 +7,7 @@ api.instance <- EncounterMethodApi$new()
 
 test_that("EncounterMethodList", {
   # tests for EncounterMethodList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("EncounterMethodList", {
 
 test_that("EncounterMethodRead", {
   # tests for EncounterMethodRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

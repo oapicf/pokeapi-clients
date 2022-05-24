@@ -7,7 +7,7 @@ api.instance <- ContestTypeApi$new()
 
 test_that("ContestTypeList", {
   # tests for ContestTypeList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("ContestTypeList", {
 
 test_that("ContestTypeRead", {
   # tests for ContestTypeRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

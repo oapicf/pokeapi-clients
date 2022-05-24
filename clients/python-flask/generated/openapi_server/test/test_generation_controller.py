@@ -23,7 +23,7 @@ class TestGenerationController(BaseTestCase):
             'Accept': 'text/plain',
         }
         response = self.client.open(
-            '/api/v2/api/v2/generation/',
+            '/api/v2/generation/',
             method='GET',
             headers=headers,
             query_string=query_string)
@@ -39,7 +39,7 @@ class TestGenerationController(BaseTestCase):
             'Accept': 'text/plain',
         }
         response = self.client.open(
-            '/api/v2/api/v2/generation/{id}'.format(id=56),
+            '/api/v2/generation/{id}'.format(id=56),
             method='GET',
             headers=headers)
         self.assert200(response,

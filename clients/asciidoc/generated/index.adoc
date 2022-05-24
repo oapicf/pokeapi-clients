@@ -1,6 +1,6 @@
 = OpenAPI Sample description
 team@openapitools.org
-1.0.0
+20220523
 :toc: left
 :numbered:
 :toclevels: 3

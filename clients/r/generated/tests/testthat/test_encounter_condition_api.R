@@ -7,7 +7,7 @@ api.instance <- EncounterConditionApi$new()
 
 test_that("EncounterConditionList", {
   # tests for EncounterConditionList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("EncounterConditionList", {
 
 test_that("EncounterConditionRead", {
   # tests for EncounterConditionRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

@@ -7,7 +7,7 @@ api.instance <- ItemAttributeApi$new()
 
 test_that("ItemAttributeList", {
   # tests for ItemAttributeList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("ItemAttributeList", {
 
 test_that("ItemAttributeRead", {
   # tests for ItemAttributeRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

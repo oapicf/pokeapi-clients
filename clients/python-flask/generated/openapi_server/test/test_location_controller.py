@@ -23,7 +23,7 @@ class TestLocationController(BaseTestCase):
             'Accept': 'text/plain',
         }
         response = self.client.open(
-            '/api/v2/api/v2/location/',
+            '/api/v2/location/',
             method='GET',
             headers=headers,
             query_string=query_string)
@@ -39,7 +39,7 @@ class TestLocationController(BaseTestCase):
             'Accept': 'text/plain',
         }
         response = self.client.open(
-            '/api/v2/api/v2/location/{id}'.format(id=56),
+            '/api/v2/location/{id}'.format(id=56),
             method='GET',
             headers=headers)
         self.assert200(response,

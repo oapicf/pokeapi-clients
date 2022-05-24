@@ -7,7 +7,7 @@ api.instance <- PalParkAreaApi$new()
 
 test_that("PalParkAreaList", {
   # tests for PalParkAreaList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("PalParkAreaList", {
 
 test_that("PalParkAreaRead", {
   # tests for PalParkAreaRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

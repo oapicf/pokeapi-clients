@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 README.md
 services/ability_service.proto
 services/berry_firmness_service.proto

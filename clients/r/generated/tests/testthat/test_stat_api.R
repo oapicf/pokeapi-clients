@@ -7,7 +7,7 @@ api.instance <- StatApi$new()
 
 test_that("StatList", {
   # tests for StatList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("StatList", {
 
 test_that("StatRead", {
   # tests for StatRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

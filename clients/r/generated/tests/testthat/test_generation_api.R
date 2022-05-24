@@ -7,7 +7,7 @@ api.instance <- GenerationApi$new()
 
 test_that("GenerationList", {
   # tests for GenerationList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("GenerationList", {
 
 test_that("GenerationRead", {
   # tests for GenerationRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

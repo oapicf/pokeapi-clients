@@ -7,7 +7,7 @@ api.instance <- MachineApi$new()
 
 test_that("MachineList", {
   # tests for MachineList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("MachineList", {
 
 test_that("MachineRead", {
   # tests for MachineRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

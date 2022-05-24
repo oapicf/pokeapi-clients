@@ -9,7 +9,7 @@
   <artifactId>openapi-jaxrs-server</artifactId>
   <packaging>jar</packaging>
   <name>openapi-jaxrs-server</name>
-  <version>1.0.0</version>
+  <version>20220523</version>
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
     <plugins>

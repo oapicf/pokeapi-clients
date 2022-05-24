@@ -7,7 +7,7 @@ api.instance <- ItemCategoryApi$new()
 
 test_that("ItemCategoryList", {
   # tests for ItemCategoryList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("ItemCategoryList", {
 
 test_that("ItemCategoryRead", {
   # tests for ItemCategoryRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 

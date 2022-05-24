@@ -7,7 +7,7 @@ api.instance <- CharacteristicApi$new()
 
 test_that("CharacteristicList", {
   # tests for CharacteristicList
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param limit integer  (optional)
   # @param offset integer  (optional)
   # @return [character]
@@ -18,7 +18,7 @@ test_that("CharacteristicList", {
 
 test_that("CharacteristicRead", {
   # tests for CharacteristicRead
-  # base path: https://pokeapi.co/api/v2
+  # base path: https://pokeapi.co
   # @param id integer 
   # @return [character]
 
