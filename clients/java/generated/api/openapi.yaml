@@ -1,5 +1,11 @@
 openapi: 3.0.0
 info:
+  contact:
+    email: blah@cliffano.com
+    name: Cliffano Subagio
+    url: https://github.com/cliffano/pokeapi-clients
+  description: ""
+  title: ""
   version: "20220523"
 servers:
 - url: https://pokeapi.co/

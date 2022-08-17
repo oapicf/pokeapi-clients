@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**berryFirmnessList**](BerryFirmnessApi.md#berryFirmnessList) | **GET** /api/v2/berry-firmness/ | 
-[**berryFirmnessRead**](BerryFirmnessApi.md#berryFirmnessRead) | **GET** /api/v2/berry-firmness/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**berryFirmnessList**](BerryFirmnessApi.md#berryFirmnessList) | **GET** /api/v2/berry-firmness/ |  |
+| [**berryFirmnessRead**](BerryFirmnessApi.md#berryFirmnessRead) | **GET** /api/v2/berry-firmness/{id}/ |  |
 
 
 ## Creating BerryFirmnessApi
@@ -45,10 +45,10 @@ Mono<String> BerryFirmnessApi.berryFirmnessList(limitoffset)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | `Integer`|  | [optional parameter]
- **offset** | `Integer`|  | [optional parameter]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `Integer`|  | [optional parameter] |
+| **offset** | `Integer`|  | [optional parameter] |
 
 
 ### Return type
@@ -69,9 +69,9 @@ Mono<String> BerryFirmnessApi.berryFirmnessRead(id)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | `Integer`|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `Integer`|  | |
 
 
 ### Return type

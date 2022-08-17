@@ -28,6 +28,7 @@ router = APIRouter()
         200: {"model": str, "description": "Default response"},
     },
     tags=["machine"],
+    response_model_by_alias=True,
 )
 async def machine_list(
     limit: int = Query(None, description=""),
@@ -42,6 +43,7 @@ async def machine_list(
         200: {"model": str, "description": "Default response"},
     },
     tags=["machine"],
+    response_model_by_alias=True,
 )
 async def machine_read(
     id: int = Path(None, description=""),

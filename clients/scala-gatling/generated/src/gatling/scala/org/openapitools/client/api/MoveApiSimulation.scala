@@ -72,8 +72,8 @@ class MoveApiSimulation extends Simulation {
         .feed(move_listQUERYFeeder)
         .exec(http("moveList")
         .httpRequest("GET","/api/v2/move/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnmoveList with warm up and reach a constant rate for entire duration

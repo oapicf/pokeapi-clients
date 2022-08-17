@@ -3,7 +3,7 @@
 
 context("Test EggGroupApi")
 
-api.instance <- EggGroupApi$new()
+api_instance <- EggGroupApi$new()
 
 test_that("EggGroupList", {
   # tests for EggGroupList
@@ -25,4 +25,3 @@ test_that("EggGroupRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

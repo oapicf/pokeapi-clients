@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**moveCategoryList**](MoveCategoryApi.md#moveCategoryList) | **GET** /api/v2/move-category/ | 
-[**moveCategoryRead**](MoveCategoryApi.md#moveCategoryRead) | **GET** /api/v2/move-category/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**moveCategoryList**](MoveCategoryApi.md#moveCategoryList) | **GET** /api/v2/move-category/ |  |
+| [**moveCategoryRead**](MoveCategoryApi.md#moveCategoryRead) | **GET** /api/v2/move-category/{id}/ |  |
 
 
 ## Creating MoveCategoryApi
@@ -45,10 +45,10 @@ Mono<String> MoveCategoryApi.moveCategoryList(limitoffset)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | `Integer`|  | [optional parameter]
- **offset** | `Integer`|  | [optional parameter]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `Integer`|  | [optional parameter] |
+| **offset** | `Integer`|  | [optional parameter] |
 
 
 ### Return type
@@ -69,9 +69,9 @@ Mono<String> MoveCategoryApi.moveCategoryRead(id)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | `Integer`|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `Integer`|  | |
 
 
 ### Return type

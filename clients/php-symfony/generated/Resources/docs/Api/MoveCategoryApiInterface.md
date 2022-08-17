@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.moveCategory:
-        class: Acme\MyBundle\Api\MoveCategoryApi
+    Acme\MyBundle\Api\MoveCategoryApi:
         tags:
             - { name: "open_api_server.api", api: "moveCategory" }
     # ...
@@ -42,7 +41,7 @@ class MoveCategoryApi implements MoveCategoryApiInterface
     /**
      * Implementation of MoveCategoryApiInterface#moveCategoryList
      */
-    public function moveCategoryList($limit = null, $offset = null)
+    public function moveCategoryList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class MoveCategoryApi implements MoveCategoryApiInterface
     /**
      * Implementation of MoveCategoryApiInterface#moveCategoryRead
      */
-    public function moveCategoryRead($id)
+    public function moveCategoryRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **MoveCategoryList**
-> character MoveCategoryList(limit=var.limit, offset=var.offset)
+> character MoveCategoryList(limit = var.limit, offset = var.offset)
 
 
 
@@ -17,11 +17,11 @@ Method | HTTP request | Description
 ```R
 library(openapi)
 
-var.limit <- 56 # integer | 
-var.offset <- 56 # integer | 
+var_limit <- 56 # integer | 
+var_offset <- 56 # integer | 
 
-api.instance <- MoveCategoryApi$new()
-result <- api.instance$MoveCategoryList(limit=var.limit, offset=var.offset)
+api_instance <- MoveCategoryApi$new()
+result <- api_instance$MoveCategoryList(limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -59,10 +59,10 @@ No authorization required
 ```R
 library(openapi)
 
-var.id <- 56 # integer | 
+var_id <- 56 # integer | 
 
-api.instance <- MoveCategoryApi$new()
-result <- api.instance$MoveCategoryRead(var.id)
+api_instance <- MoveCategoryApi$new()
+result <- api_instance$MoveCategoryRead(var_id)
 dput(result)
 ```
 

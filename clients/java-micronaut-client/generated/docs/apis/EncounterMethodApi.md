@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**encounterMethodList**](EncounterMethodApi.md#encounterMethodList) | **GET** /api/v2/encounter-method/ | 
-[**encounterMethodRead**](EncounterMethodApi.md#encounterMethodRead) | **GET** /api/v2/encounter-method/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**encounterMethodList**](EncounterMethodApi.md#encounterMethodList) | **GET** /api/v2/encounter-method/ |  |
+| [**encounterMethodRead**](EncounterMethodApi.md#encounterMethodRead) | **GET** /api/v2/encounter-method/{id}/ |  |
 
 
 ## Creating EncounterMethodApi
@@ -45,10 +45,10 @@ Mono<String> EncounterMethodApi.encounterMethodList(limitoffset)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | `Integer`|  | [optional parameter]
- **offset** | `Integer`|  | [optional parameter]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `Integer`|  | [optional parameter] |
+| **offset** | `Integer`|  | [optional parameter] |
 
 
 ### Return type
@@ -69,9 +69,9 @@ Mono<String> EncounterMethodApi.encounterMethodRead(id)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | `Integer`|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `Integer`|  | |
 
 
 ### Return type

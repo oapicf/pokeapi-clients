@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**statList**](StatApi.md#statList) | **GET** /api/v2/stat/ | 
-[**statRead**](StatApi.md#statRead) | **GET** /api/v2/stat/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**statList**](StatApi.md#statList) | **GET** /api/v2/stat/ |  |
+| [**statRead**](StatApi.md#statRead) | **GET** /api/v2/stat/{id}/ |  |
 
 
 ## Creating StatApi
@@ -45,10 +45,10 @@ Mono<String> StatApi.statList(limitoffset)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | `Integer`|  | [optional parameter]
- **offset** | `Integer`|  | [optional parameter]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `Integer`|  | [optional parameter] |
+| **offset** | `Integer`|  | [optional parameter] |
 
 
 ### Return type
@@ -69,9 +69,9 @@ Mono<String> StatApi.statRead(id)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | `Integer`|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `Integer`|  | |
 
 
 ### Return type

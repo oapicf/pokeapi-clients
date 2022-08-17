@@ -72,8 +72,8 @@ class VersionGroupApiSimulation extends Simulation {
         .feed(version-group_listQUERYFeeder)
         .exec(http("versionGroupList")
         .httpRequest("GET","/api/v2/version-group/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnversionGroupList with warm up and reach a constant rate for entire duration

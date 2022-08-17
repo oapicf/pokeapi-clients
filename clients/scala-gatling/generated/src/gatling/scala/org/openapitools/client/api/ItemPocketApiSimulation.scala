@@ -72,8 +72,8 @@ class ItemPocketApiSimulation extends Simulation {
         .feed(item-pocket_listQUERYFeeder)
         .exec(http("itemPocketList")
         .httpRequest("GET","/api/v2/item-pocket/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnitemPocketList with warm up and reach a constant rate for entire duration

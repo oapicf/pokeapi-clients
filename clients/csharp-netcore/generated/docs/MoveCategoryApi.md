@@ -2,11 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**MoveCategoryList**](MoveCategoryApi.md#movecategorylist) | **GET** /api/v2/move-category/ | 
-[**MoveCategoryRead**](MoveCategoryApi.md#movecategoryread) | **GET** /api/v2/move-category/{id}/ | 
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**MoveCategoryList**](MoveCategoryApi.md#movecategorylist) | **GET** /api/v2/move-category/ |  |
+| [**MoveCategoryRead**](MoveCategoryApi.md#movecategoryread) | **GET** /api/v2/move-category/{id}/ |  |
 
 <a name="movecategorylist"></a>
 # **MoveCategoryList**
@@ -41,8 +40,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MoveCategoryApi.MoveCategoryList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling MoveCategoryApi.MoveCategoryList: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -50,12 +49,31 @@ namespace Example
 }
 ```
 
+#### Using the MoveCategoryListWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<string> response = apiInstance.MoveCategoryListWithHttpInfo(limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MoveCategoryApi.MoveCategoryListWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int?**|  | [optional] 
- **offset** | **int?**|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int?** |  | [optional]  |
+| **offset** | **int?** |  | [optional]  |
 
 ### Return type
 
@@ -110,8 +128,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MoveCategoryApi.MoveCategoryRead: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling MoveCategoryApi.MoveCategoryRead: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -119,11 +137,30 @@ namespace Example
 }
 ```
 
+#### Using the MoveCategoryReadWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<string> response = apiInstance.MoveCategoryReadWithHttpInfo(id);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MoveCategoryApi.MoveCategoryReadWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** |  |  |
 
 ### Return type
 

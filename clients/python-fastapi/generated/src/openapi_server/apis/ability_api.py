@@ -28,6 +28,7 @@ router = APIRouter()
         200: {"model": str, "description": "Default response"},
     },
     tags=["ability"],
+    response_model_by_alias=True,
 )
 async def ability_list(
     limit: int = Query(None, description=""),
@@ -42,6 +43,7 @@ async def ability_list(
         200: {"model": str, "description": "Default response"},
     },
     tags=["ability"],
+    response_model_by_alias=True,
 )
 async def ability_read(
     id: int = Path(None, description=""),

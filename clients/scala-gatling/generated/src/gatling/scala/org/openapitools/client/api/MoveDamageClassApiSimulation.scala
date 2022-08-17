@@ -72,8 +72,8 @@ class MoveDamageClassApiSimulation extends Simulation {
         .feed(move-damage-class_listQUERYFeeder)
         .exec(http("moveDamageClassList")
         .httpRequest("GET","/api/v2/move-damage-class/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnmoveDamageClassList with warm up and reach a constant rate for entire duration

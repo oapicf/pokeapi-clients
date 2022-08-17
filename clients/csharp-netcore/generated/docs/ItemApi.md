@@ -2,11 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**ItemList**](ItemApi.md#itemlist) | **GET** /api/v2/item/ | 
-[**ItemRead**](ItemApi.md#itemread) | **GET** /api/v2/item/{id}/ | 
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**ItemList**](ItemApi.md#itemlist) | **GET** /api/v2/item/ |  |
+| [**ItemRead**](ItemApi.md#itemread) | **GET** /api/v2/item/{id}/ |  |
 
 <a name="itemlist"></a>
 # **ItemList**
@@ -41,8 +40,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ItemApi.ItemList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ItemApi.ItemList: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -50,12 +49,31 @@ namespace Example
 }
 ```
 
+#### Using the ItemListWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<string> response = apiInstance.ItemListWithHttpInfo(limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ItemApi.ItemListWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int?**|  | [optional] 
- **offset** | **int?**|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int?** |  | [optional]  |
+| **offset** | **int?** |  | [optional]  |
 
 ### Return type
 
@@ -110,8 +128,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ItemApi.ItemRead: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling ItemApi.ItemRead: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -119,11 +137,30 @@ namespace Example
 }
 ```
 
+#### Using the ItemReadWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<string> response = apiInstance.ItemReadWithHttpInfo(id);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ItemApi.ItemReadWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** |  |  |
 
 ### Return type
 

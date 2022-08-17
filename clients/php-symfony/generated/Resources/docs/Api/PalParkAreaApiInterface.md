@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.palParkArea:
-        class: Acme\MyBundle\Api\PalParkAreaApi
+    Acme\MyBundle\Api\PalParkAreaApi:
         tags:
             - { name: "open_api_server.api", api: "palParkArea" }
     # ...
@@ -42,7 +41,7 @@ class PalParkAreaApi implements PalParkAreaApiInterface
     /**
      * Implementation of PalParkAreaApiInterface#palParkAreaList
      */
-    public function palParkAreaList($limit = null, $offset = null)
+    public function palParkAreaList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class PalParkAreaApi implements PalParkAreaApiInterface
     /**
      * Implementation of PalParkAreaApiInterface#palParkAreaRead
      */
-    public function palParkAreaRead($id)
+    public function palParkAreaRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

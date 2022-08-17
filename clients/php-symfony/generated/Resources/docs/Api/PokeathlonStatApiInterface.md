@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.pokeathlonStat:
-        class: Acme\MyBundle\Api\PokeathlonStatApi
+    Acme\MyBundle\Api\PokeathlonStatApi:
         tags:
             - { name: "open_api_server.api", api: "pokeathlonStat" }
     # ...
@@ -42,7 +41,7 @@ class PokeathlonStatApi implements PokeathlonStatApiInterface
     /**
      * Implementation of PokeathlonStatApiInterface#pokeathlonStatList
      */
-    public function pokeathlonStatList($limit = null, $offset = null)
+    public function pokeathlonStatList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class PokeathlonStatApi implements PokeathlonStatApiInterface
     /**
      * Implementation of PokeathlonStatApiInterface#pokeathlonStatRead
      */
-    public function pokeathlonStatRead($id)
+    public function pokeathlonStatRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

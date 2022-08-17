@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.itemFlingEffect:
-        class: Acme\MyBundle\Api\ItemFlingEffectApi
+    Acme\MyBundle\Api\ItemFlingEffectApi:
         tags:
             - { name: "open_api_server.api", api: "itemFlingEffect" }
     # ...
@@ -42,7 +41,7 @@ class ItemFlingEffectApi implements ItemFlingEffectApiInterface
     /**
      * Implementation of ItemFlingEffectApiInterface#itemFlingEffectList
      */
-    public function itemFlingEffectList($limit = null, $offset = null)
+    public function itemFlingEffectList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class ItemFlingEffectApi implements ItemFlingEffectApiInterface
     /**
      * Implementation of ItemFlingEffectApiInterface#itemFlingEffectRead
      */
-    public function itemFlingEffectRead($id)
+    public function itemFlingEffectRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

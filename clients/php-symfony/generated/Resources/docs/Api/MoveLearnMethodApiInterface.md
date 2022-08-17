@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.moveLearnMethod:
-        class: Acme\MyBundle\Api\MoveLearnMethodApi
+    Acme\MyBundle\Api\MoveLearnMethodApi:
         tags:
             - { name: "open_api_server.api", api: "moveLearnMethod" }
     # ...
@@ -42,7 +41,7 @@ class MoveLearnMethodApi implements MoveLearnMethodApiInterface
     /**
      * Implementation of MoveLearnMethodApiInterface#moveLearnMethodList
      */
-    public function moveLearnMethodList($limit = null, $offset = null)
+    public function moveLearnMethodList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class MoveLearnMethodApi implements MoveLearnMethodApiInterface
     /**
      * Implementation of MoveLearnMethodApiInterface#moveLearnMethodRead
      */
-    public function moveLearnMethodRead($id)
+    public function moveLearnMethodRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

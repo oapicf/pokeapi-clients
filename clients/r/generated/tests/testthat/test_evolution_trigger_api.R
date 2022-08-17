@@ -3,7 +3,7 @@
 
 context("Test EvolutionTriggerApi")
 
-api.instance <- EvolutionTriggerApi$new()
+api_instance <- EvolutionTriggerApi$new()
 
 test_that("EvolutionTriggerList", {
   # tests for EvolutionTriggerList
@@ -25,4 +25,3 @@ test_that("EvolutionTriggerRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

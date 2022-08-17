@@ -3,7 +3,7 @@
 
 context("Test ItemCategoryApi")
 
-api.instance <- ItemCategoryApi$new()
+api_instance <- ItemCategoryApi$new()
 
 test_that("ItemCategoryList", {
   # tests for ItemCategoryList
@@ -25,4 +25,3 @@ test_that("ItemCategoryRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

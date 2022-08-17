@@ -3,7 +3,7 @@
 
 context("Test TypeApi")
 
-api.instance <- TypeApi$new()
+api_instance <- TypeApi$new()
 
 test_that("TypeList", {
   # tests for TypeList
@@ -25,4 +25,3 @@ test_that("TypeRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

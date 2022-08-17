@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**evolutionTriggerList**](EvolutionTriggerApi.md#evolutionTriggerList) | **GET** /api/v2/evolution-trigger/ | 
-[**evolutionTriggerRead**](EvolutionTriggerApi.md#evolutionTriggerRead) | **GET** /api/v2/evolution-trigger/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**evolutionTriggerList**](EvolutionTriggerApi.md#evolutionTriggerList) | **GET** /api/v2/evolution-trigger/ |  |
+| [**evolutionTriggerRead**](EvolutionTriggerApi.md#evolutionTriggerRead) | **GET** /api/v2/evolution-trigger/{id}/ |  |
 
 
 <a name="evolutionTriggerList"></a>
@@ -16,10 +16,10 @@ Method | HTTP request | Description
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **Integer**|  | [optional] [default to null]
- **offset** | **Integer**|  | [optional] [default to null]
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | **Integer**|  | [optional] [default to null] |
+| **offset** | **Integer**|  | [optional] [default to null] |
 
 ### Return type
 
@@ -42,9 +42,9 @@ No authorization required
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Integer**|  | [default to null]
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **Integer**|  | [default to null] |
 
 ### Return type
 

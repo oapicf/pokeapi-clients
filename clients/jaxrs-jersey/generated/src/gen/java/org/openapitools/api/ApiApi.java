@@ -29,7 +29,7 @@ import javax.validation.Valid;
 
 
 @io.swagger.annotations.Api(description = "the api API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2022-05-23T21:53:24.369756Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2022-08-17T11:01:46.409467Z[Etc/UTC]")
 public class ApiApi  {
    private final ApiApiService delegate;
 
@@ -54,7 +54,7 @@ public class ApiApi  {
       this.delegate = delegate;
    }
 
-    @GET
+    @javax.ws.rs.GET
     @Path("/ability/")
     
     @Produces({ "text/plain" })
@@ -66,7 +66,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.abilityList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/ability/{id}/")
     
     @Produces({ "text/plain" })
@@ -78,7 +78,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.abilityRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/berry-firmness/")
     
     @Produces({ "text/plain" })
@@ -90,7 +90,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.berryFirmnessList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/berry-firmness/{id}/")
     
     @Produces({ "text/plain" })
@@ -102,7 +102,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.berryFirmnessRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/berry-flavor/")
     
     @Produces({ "text/plain" })
@@ -114,7 +114,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.berryFlavorList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/berry-flavor/{id}/")
     
     @Produces({ "text/plain" })
@@ -126,7 +126,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.berryFlavorRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/berry/")
     
     @Produces({ "text/plain" })
@@ -138,7 +138,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.berryList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/berry/{id}/")
     
     @Produces({ "text/plain" })
@@ -150,7 +150,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.berryRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/characteristic/")
     
     @Produces({ "text/plain" })
@@ -162,7 +162,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.characteristicList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/characteristic/{id}/")
     
     @Produces({ "text/plain" })
@@ -174,7 +174,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.characteristicRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/contest-effect/")
     
     @Produces({ "text/plain" })
@@ -186,7 +186,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.contestEffectList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/contest-effect/{id}/")
     
     @Produces({ "text/plain" })
@@ -198,7 +198,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.contestEffectRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/contest-type/")
     
     @Produces({ "text/plain" })
@@ -210,7 +210,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.contestTypeList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/contest-type/{id}/")
     
     @Produces({ "text/plain" })
@@ -222,7 +222,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.contestTypeRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/egg-group/")
     
     @Produces({ "text/plain" })
@@ -234,7 +234,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.eggGroupList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/egg-group/{id}/")
     
     @Produces({ "text/plain" })
@@ -246,7 +246,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.eggGroupRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/encounter-condition/")
     
     @Produces({ "text/plain" })
@@ -258,7 +258,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.encounterConditionList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/encounter-condition/{id}/")
     
     @Produces({ "text/plain" })
@@ -270,7 +270,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.encounterConditionRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/encounter-condition-value/")
     
     @Produces({ "text/plain" })
@@ -282,7 +282,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.encounterConditionValueList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/encounter-condition-value/{id}/")
     
     @Produces({ "text/plain" })
@@ -294,7 +294,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.encounterConditionValueRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/encounter-method/")
     
     @Produces({ "text/plain" })
@@ -306,7 +306,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.encounterMethodList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/encounter-method/{id}/")
     
     @Produces({ "text/plain" })
@@ -318,7 +318,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.encounterMethodRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/evolution-chain/")
     
     @Produces({ "text/plain" })
@@ -330,7 +330,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.evolutionChainList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/evolution-chain/{id}/")
     
     @Produces({ "text/plain" })
@@ -342,7 +342,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.evolutionChainRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/evolution-trigger/")
     
     @Produces({ "text/plain" })
@@ -354,7 +354,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.evolutionTriggerList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/evolution-trigger/{id}/")
     
     @Produces({ "text/plain" })
@@ -366,7 +366,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.evolutionTriggerRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/gender/")
     
     @Produces({ "text/plain" })
@@ -378,7 +378,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.genderList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/gender/{id}/")
     
     @Produces({ "text/plain" })
@@ -390,7 +390,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.genderRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/generation/")
     
     @Produces({ "text/plain" })
@@ -402,7 +402,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.generationList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/generation/{id}/")
     
     @Produces({ "text/plain" })
@@ -414,7 +414,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.generationRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/growth-rate/")
     
     @Produces({ "text/plain" })
@@ -426,7 +426,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.growthRateList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/growth-rate/{id}/")
     
     @Produces({ "text/plain" })
@@ -438,7 +438,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.growthRateRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/item-attribute/")
     
     @Produces({ "text/plain" })
@@ -450,7 +450,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.itemAttributeList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/item-attribute/{id}/")
     
     @Produces({ "text/plain" })
@@ -462,7 +462,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.itemAttributeRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/item-category/")
     
     @Produces({ "text/plain" })
@@ -474,7 +474,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.itemCategoryList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/item-category/{id}/")
     
     @Produces({ "text/plain" })
@@ -486,7 +486,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.itemCategoryRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/item-fling-effect/")
     
     @Produces({ "text/plain" })
@@ -498,7 +498,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.itemFlingEffectList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/item-fling-effect/{id}/")
     
     @Produces({ "text/plain" })
@@ -510,7 +510,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.itemFlingEffectRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/item/")
     
     @Produces({ "text/plain" })
@@ -522,7 +522,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.itemList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/item-pocket/")
     
     @Produces({ "text/plain" })
@@ -534,7 +534,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.itemPocketList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/item-pocket/{id}/")
     
     @Produces({ "text/plain" })
@@ -546,7 +546,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.itemPocketRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/item/{id}/")
     
     @Produces({ "text/plain" })
@@ -558,7 +558,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.itemRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/language/")
     
     @Produces({ "text/plain" })
@@ -570,7 +570,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.languageList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/language/{id}/")
     
     @Produces({ "text/plain" })
@@ -582,7 +582,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.languageRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/location-area/")
     
     @Produces({ "text/plain" })
@@ -594,7 +594,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.locationAreaList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/location-area/{id}/")
     
     @Produces({ "text/plain" })
@@ -606,7 +606,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.locationAreaRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/location/")
     
     @Produces({ "text/plain" })
@@ -618,7 +618,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.locationList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/location/{id}/")
     
     @Produces({ "text/plain" })
@@ -630,7 +630,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.locationRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/machine/")
     
     @Produces({ "text/plain" })
@@ -642,7 +642,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.machineList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/machine/{id}/")
     
     @Produces({ "text/plain" })
@@ -654,7 +654,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.machineRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/move-ailment/")
     
     @Produces({ "text/plain" })
@@ -666,7 +666,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.moveAilmentList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/move-ailment/{id}/")
     
     @Produces({ "text/plain" })
@@ -678,7 +678,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.moveAilmentRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/move-battle-style/")
     
     @Produces({ "text/plain" })
@@ -690,7 +690,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.moveBattleStyleList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/move-battle-style/{id}/")
     
     @Produces({ "text/plain" })
@@ -702,7 +702,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.moveBattleStyleRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/move-category/")
     
     @Produces({ "text/plain" })
@@ -714,7 +714,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.moveCategoryList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/move-category/{id}/")
     
     @Produces({ "text/plain" })
@@ -726,7 +726,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.moveCategoryRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/move-damage-class/")
     
     @Produces({ "text/plain" })
@@ -738,7 +738,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.moveDamageClassList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/move-damage-class/{id}/")
     
     @Produces({ "text/plain" })
@@ -750,7 +750,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.moveDamageClassRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/move-learn-method/")
     
     @Produces({ "text/plain" })
@@ -762,7 +762,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.moveLearnMethodList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/move-learn-method/{id}/")
     
     @Produces({ "text/plain" })
@@ -774,7 +774,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.moveLearnMethodRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/move/")
     
     @Produces({ "text/plain" })
@@ -786,7 +786,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.moveList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/move/{id}/")
     
     @Produces({ "text/plain" })
@@ -798,7 +798,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.moveRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/move-target/")
     
     @Produces({ "text/plain" })
@@ -810,7 +810,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.moveTargetList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/move-target/{id}/")
     
     @Produces({ "text/plain" })
@@ -822,7 +822,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.moveTargetRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/nature/")
     
     @Produces({ "text/plain" })
@@ -834,7 +834,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.natureList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/nature/{id}/")
     
     @Produces({ "text/plain" })
@@ -846,7 +846,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.natureRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pal-park-area/")
     
     @Produces({ "text/plain" })
@@ -858,7 +858,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.palParkAreaList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pal-park-area/{id}/")
     
     @Produces({ "text/plain" })
@@ -870,7 +870,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.palParkAreaRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pokeathlon-stat/")
     
     @Produces({ "text/plain" })
@@ -882,7 +882,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.pokeathlonStatList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pokeathlon-stat/{id}/")
     
     @Produces({ "text/plain" })
@@ -894,7 +894,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.pokeathlonStatRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pokedex/")
     
     @Produces({ "text/plain" })
@@ -906,7 +906,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.pokedexList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pokedex/{id}/")
     
     @Produces({ "text/plain" })
@@ -918,7 +918,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.pokedexRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pokemon-color/")
     
     @Produces({ "text/plain" })
@@ -930,7 +930,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.pokemonColorList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pokemon-color/{id}/")
     
     @Produces({ "text/plain" })
@@ -942,7 +942,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.pokemonColorRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pokemon-form/")
     
     @Produces({ "text/plain" })
@@ -954,7 +954,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.pokemonFormList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pokemon-form/{id}/")
     
     @Produces({ "text/plain" })
@@ -966,7 +966,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.pokemonFormRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pokemon-habitat/")
     
     @Produces({ "text/plain" })
@@ -978,7 +978,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.pokemonHabitatList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pokemon-habitat/{id}/")
     
     @Produces({ "text/plain" })
@@ -990,7 +990,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.pokemonHabitatRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pokemon/")
     
     @Produces({ "text/plain" })
@@ -1002,7 +1002,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.pokemonList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pokemon/{id}/")
     
     @Produces({ "text/plain" })
@@ -1014,7 +1014,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.pokemonRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pokemon-shape/")
     
     @Produces({ "text/plain" })
@@ -1026,7 +1026,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.pokemonShapeList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pokemon-shape/{id}/")
     
     @Produces({ "text/plain" })
@@ -1038,7 +1038,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.pokemonShapeRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pokemon-species/")
     
     @Produces({ "text/plain" })
@@ -1050,7 +1050,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.pokemonSpeciesList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/pokemon-species/{id}/")
     
     @Produces({ "text/plain" })
@@ -1062,7 +1062,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.pokemonSpeciesRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/region/")
     
     @Produces({ "text/plain" })
@@ -1074,7 +1074,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.regionList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/region/{id}/")
     
     @Produces({ "text/plain" })
@@ -1086,7 +1086,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.regionRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/stat/")
     
     @Produces({ "text/plain" })
@@ -1098,7 +1098,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.statList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/stat/{id}/")
     
     @Produces({ "text/plain" })
@@ -1110,7 +1110,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.statRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/super-contest-effect/")
     
     @Produces({ "text/plain" })
@@ -1122,7 +1122,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.superContestEffectList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/super-contest-effect/{id}/")
     
     @Produces({ "text/plain" })
@@ -1134,7 +1134,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.superContestEffectRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/type/")
     
     @Produces({ "text/plain" })
@@ -1146,7 +1146,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.typeList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/type/{id}/")
     
     @Produces({ "text/plain" })
@@ -1158,7 +1158,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.typeRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/version-group/")
     
     @Produces({ "text/plain" })
@@ -1170,7 +1170,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.versionGroupList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/version-group/{id}/")
     
     @Produces({ "text/plain" })
@@ -1182,7 +1182,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.versionGroupRead(id, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/version/")
     
     @Produces({ "text/plain" })
@@ -1194,7 +1194,7 @@ public class ApiApi  {
     throws NotFoundException {
         return delegate.versionList(limit, offset, securityContext);
     }
-    @GET
+    @javax.ws.rs.GET
     @Path("/version/{id}/")
     
     @Produces({ "text/plain" })

@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.berry:
-        class: Acme\MyBundle\Api\BerryApi
+    Acme\MyBundle\Api\BerryApi:
         tags:
             - { name: "open_api_server.api", api: "berry" }
     # ...
@@ -42,7 +41,7 @@ class BerryApi implements BerryApiInterface
     /**
      * Implementation of BerryApiInterface#berryList
      */
-    public function berryList($limit = null, $offset = null)
+    public function berryList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class BerryApi implements BerryApiInterface
     /**
      * Implementation of BerryApiInterface#berryRead
      */
-    public function berryRead($id)
+    public function berryRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

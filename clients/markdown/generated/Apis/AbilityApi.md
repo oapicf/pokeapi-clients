@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**abilityList**](AbilityApi.md#abilityList) | **GET** /api/v2/ability/ | 
-[**abilityRead**](AbilityApi.md#abilityRead) | **GET** /api/v2/ability/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**abilityList**](AbilityApi.md#abilityList) | **GET** /api/v2/ability/ |  |
+| [**abilityRead**](AbilityApi.md#abilityRead) | **GET** /api/v2/ability/{id}/ |  |
 
 
 <a name="abilityList"></a>
@@ -16,10 +16,10 @@ Method | HTTP request | Description
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **Integer**|  | [optional] [default to null]
- **offset** | **Integer**|  | [optional] [default to null]
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | **Integer**|  | [optional] [default to null] |
+| **offset** | **Integer**|  | [optional] [default to null] |
 
 ### Return type
 
@@ -42,9 +42,9 @@ No authorization required
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Integer**|  | [default to null]
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **Integer**|  | [default to null] |
 
 ### Return type
 

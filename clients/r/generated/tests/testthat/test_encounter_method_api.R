@@ -3,7 +3,7 @@
 
 context("Test EncounterMethodApi")
 
-api.instance <- EncounterMethodApi$new()
+api_instance <- EncounterMethodApi$new()
 
 test_that("EncounterMethodList", {
   # tests for EncounterMethodList
@@ -25,4 +25,3 @@ test_that("EncounterMethodRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

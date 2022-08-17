@@ -2,11 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**MachineList**](MachineApi.md#machinelist) | **GET** /api/v2/machine/ | 
-[**MachineRead**](MachineApi.md#machineread) | **GET** /api/v2/machine/{id}/ | 
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**MachineList**](MachineApi.md#machinelist) | **GET** /api/v2/machine/ |  |
+| [**MachineRead**](MachineApi.md#machineread) | **GET** /api/v2/machine/{id}/ |  |
 
 <a name="machinelist"></a>
 # **MachineList**
@@ -41,8 +40,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MachineApi.MachineList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling MachineApi.MachineList: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -50,12 +49,31 @@ namespace Example
 }
 ```
 
+#### Using the MachineListWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<string> response = apiInstance.MachineListWithHttpInfo(limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MachineApi.MachineListWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int?**|  | [optional] 
- **offset** | **int?**|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int?** |  | [optional]  |
+| **offset** | **int?** |  | [optional]  |
 
 ### Return type
 
@@ -110,8 +128,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MachineApi.MachineRead: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling MachineApi.MachineRead: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -119,11 +137,30 @@ namespace Example
 }
 ```
 
+#### Using the MachineReadWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<string> response = apiInstance.MachineReadWithHttpInfo(id);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MachineApi.MachineReadWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** |  |  |
 
 ### Return type
 

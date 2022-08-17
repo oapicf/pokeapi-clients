@@ -28,6 +28,7 @@ router = APIRouter()
         200: {"model": str, "description": "Default response"},
     },
     tags=["pokeathlon-stat"],
+    response_model_by_alias=True,
 )
 async def pokeathlon_stat_list(
     limit: int = Query(None, description=""),
@@ -42,6 +43,7 @@ async def pokeathlon_stat_list(
         200: {"model": str, "description": "Default response"},
     },
     tags=["pokeathlon-stat"],
+    response_model_by_alias=True,
 )
 async def pokeathlon_stat_read(
     id: int = Path(None, description=""),

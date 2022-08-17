@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.superContestEffect:
-        class: Acme\MyBundle\Api\SuperContestEffectApi
+    Acme\MyBundle\Api\SuperContestEffectApi:
         tags:
             - { name: "open_api_server.api", api: "superContestEffect" }
     # ...
@@ -42,7 +41,7 @@ class SuperContestEffectApi implements SuperContestEffectApiInterface
     /**
      * Implementation of SuperContestEffectApiInterface#superContestEffectList
      */
-    public function superContestEffectList($limit = null, $offset = null)
+    public function superContestEffectList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class SuperContestEffectApi implements SuperContestEffectApiInterface
     /**
      * Implementation of SuperContestEffectApiInterface#superContestEffectRead
      */
-    public function superContestEffectRead($id)
+    public function superContestEffectRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

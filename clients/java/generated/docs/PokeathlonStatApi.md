@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**pokeathlonStatList**](PokeathlonStatApi.md#pokeathlonStatList) | **GET** /api/v2/pokeathlon-stat/ | 
-[**pokeathlonStatRead**](PokeathlonStatApi.md#pokeathlonStatRead) | **GET** /api/v2/pokeathlon-stat/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**pokeathlonStatList**](PokeathlonStatApi.md#pokeathlonStatList) | **GET** /api/v2/pokeathlon-stat/ |  |
+| [**pokeathlonStatRead**](PokeathlonStatApi.md#pokeathlonStatRead) | **GET** /api/v2/pokeathlon-stat/{id}/ |  |
 
 
 <a name="pokeathlonStatList"></a>
@@ -47,10 +47,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **Integer**|  | [optional]
- **offset** | **Integer**|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | **Integer**|  | [optional] |
+| **offset** | **Integer**|  | [optional] |
 
 ### Return type
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**0** | Default response |  -  |
+| **0** | Default response |  -  |
 
 <a name="pokeathlonStatRead"></a>
 # **pokeathlonStatRead**
@@ -108,9 +108,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Integer**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **Integer**|  | |
 
 ### Return type
 
@@ -128,5 +128,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**0** | Default response |  -  |
+| **0** | Default response |  -  |
 

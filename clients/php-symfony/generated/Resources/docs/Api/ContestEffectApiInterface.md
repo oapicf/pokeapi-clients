@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.contestEffect:
-        class: Acme\MyBundle\Api\ContestEffectApi
+    Acme\MyBundle\Api\ContestEffectApi:
         tags:
             - { name: "open_api_server.api", api: "contestEffect" }
     # ...
@@ -42,7 +41,7 @@ class ContestEffectApi implements ContestEffectApiInterface
     /**
      * Implementation of ContestEffectApiInterface#contestEffectList
      */
-    public function contestEffectList($limit = null, $offset = null)
+    public function contestEffectList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class ContestEffectApi implements ContestEffectApiInterface
     /**
      * Implementation of ContestEffectApiInterface#contestEffectRead
      */
-    public function contestEffectRead($id)
+    public function contestEffectRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

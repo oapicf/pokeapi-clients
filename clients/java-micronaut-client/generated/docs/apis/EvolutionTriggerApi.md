@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**evolutionTriggerList**](EvolutionTriggerApi.md#evolutionTriggerList) | **GET** /api/v2/evolution-trigger/ | 
-[**evolutionTriggerRead**](EvolutionTriggerApi.md#evolutionTriggerRead) | **GET** /api/v2/evolution-trigger/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**evolutionTriggerList**](EvolutionTriggerApi.md#evolutionTriggerList) | **GET** /api/v2/evolution-trigger/ |  |
+| [**evolutionTriggerRead**](EvolutionTriggerApi.md#evolutionTriggerRead) | **GET** /api/v2/evolution-trigger/{id}/ |  |
 
 
 ## Creating EvolutionTriggerApi
@@ -45,10 +45,10 @@ Mono<String> EvolutionTriggerApi.evolutionTriggerList(limitoffset)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | `Integer`|  | [optional parameter]
- **offset** | `Integer`|  | [optional parameter]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `Integer`|  | [optional parameter] |
+| **offset** | `Integer`|  | [optional parameter] |
 
 
 ### Return type
@@ -69,9 +69,9 @@ Mono<String> EvolutionTriggerApi.evolutionTriggerRead(id)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | `Integer`|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `Integer`|  | |
 
 
 ### Return type

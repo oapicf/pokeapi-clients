@@ -2,11 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**BerryFlavorList**](BerryFlavorApi.md#berryflavorlist) | **GET** /api/v2/berry-flavor/ | 
-[**BerryFlavorRead**](BerryFlavorApi.md#berryflavorread) | **GET** /api/v2/berry-flavor/{id}/ | 
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**BerryFlavorList**](BerryFlavorApi.md#berryflavorlist) | **GET** /api/v2/berry-flavor/ |  |
+| [**BerryFlavorRead**](BerryFlavorApi.md#berryflavorread) | **GET** /api/v2/berry-flavor/{id}/ |  |
 
 <a name="berryflavorlist"></a>
 # **BerryFlavorList**
@@ -41,8 +40,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling BerryFlavorApi.BerryFlavorList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling BerryFlavorApi.BerryFlavorList: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -50,12 +49,31 @@ namespace Example
 }
 ```
 
+#### Using the BerryFlavorListWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<string> response = apiInstance.BerryFlavorListWithHttpInfo(limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling BerryFlavorApi.BerryFlavorListWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int?**|  | [optional] 
- **offset** | **int?**|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int?** |  | [optional]  |
+| **offset** | **int?** |  | [optional]  |
 
 ### Return type
 
@@ -110,8 +128,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling BerryFlavorApi.BerryFlavorRead: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling BerryFlavorApi.BerryFlavorRead: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -119,11 +137,30 @@ namespace Example
 }
 ```
 
+#### Using the BerryFlavorReadWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<string> response = apiInstance.BerryFlavorReadWithHttpInfo(id);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling BerryFlavorApi.BerryFlavorReadWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** |  |  |
 
 ### Return type
 

@@ -3,7 +3,7 @@
 
 context("Test NatureApi")
 
-api.instance <- NatureApi$new()
+api_instance <- NatureApi$new()
 
 test_that("NatureList", {
   # tests for NatureList
@@ -25,4 +25,3 @@ test_that("NatureRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

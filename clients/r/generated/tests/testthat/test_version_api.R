@@ -3,7 +3,7 @@
 
 context("Test VersionApi")
 
-api.instance <- VersionApi$new()
+api_instance <- VersionApi$new()
 
 test_that("VersionList", {
   # tests for VersionList
@@ -25,4 +25,3 @@ test_that("VersionRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

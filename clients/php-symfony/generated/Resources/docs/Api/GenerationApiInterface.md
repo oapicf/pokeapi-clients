@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.generation:
-        class: Acme\MyBundle\Api\GenerationApi
+    Acme\MyBundle\Api\GenerationApi:
         tags:
             - { name: "open_api_server.api", api: "generation" }
     # ...
@@ -42,7 +41,7 @@ class GenerationApi implements GenerationApiInterface
     /**
      * Implementation of GenerationApiInterface#generationList
      */
-    public function generationList($limit = null, $offset = null)
+    public function generationList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class GenerationApi implements GenerationApiInterface
     /**
      * Implementation of GenerationApiInterface#generationRead
      */
-    public function generationRead($id)
+    public function generationRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

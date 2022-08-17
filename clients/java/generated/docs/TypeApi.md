@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**typeList**](TypeApi.md#typeList) | **GET** /api/v2/type/ | 
-[**typeRead**](TypeApi.md#typeRead) | **GET** /api/v2/type/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**typeList**](TypeApi.md#typeList) | **GET** /api/v2/type/ |  |
+| [**typeRead**](TypeApi.md#typeRead) | **GET** /api/v2/type/{id}/ |  |
 
 
 <a name="typeList"></a>
@@ -47,10 +47,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **Integer**|  | [optional]
- **offset** | **Integer**|  | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | **Integer**|  | [optional] |
+| **offset** | **Integer**|  | [optional] |
 
 ### Return type
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**0** | Default response |  -  |
+| **0** | Default response |  -  |
 
 <a name="typeRead"></a>
 # **typeRead**
@@ -108,9 +108,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Integer**|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **Integer**|  | |
 
 ### Return type
 
@@ -128,5 +128,5 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**0** | Default response |  -  |
+| **0** | Default response |  -  |
 

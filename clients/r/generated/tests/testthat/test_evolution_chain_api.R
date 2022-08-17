@@ -3,7 +3,7 @@
 
 context("Test EvolutionChainApi")
 
-api.instance <- EvolutionChainApi$new()
+api_instance <- EvolutionChainApi$new()
 
 test_that("EvolutionChainList", {
   # tests for EvolutionChainList
@@ -25,4 +25,3 @@ test_that("EvolutionChainRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

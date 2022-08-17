@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **AbilityList**
-> character AbilityList(limit=var.limit, offset=var.offset)
+> character AbilityList(limit = var.limit, offset = var.offset)
 
 
 
@@ -17,11 +17,11 @@ Method | HTTP request | Description
 ```R
 library(openapi)
 
-var.limit <- 56 # integer | 
-var.offset <- 56 # integer | 
+var_limit <- 56 # integer | 
+var_offset <- 56 # integer | 
 
-api.instance <- AbilityApi$new()
-result <- api.instance$AbilityList(limit=var.limit, offset=var.offset)
+api_instance <- AbilityApi$new()
+result <- api_instance$AbilityList(limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -59,10 +59,10 @@ No authorization required
 ```R
 library(openapi)
 
-var.id <- 56 # integer | 
+var_id <- 56 # integer | 
 
-api.instance <- AbilityApi$new()
-result <- api.instance$AbilityRead(var.id)
+api_instance <- AbilityApi$new()
+result <- api_instance$AbilityRead(var_id)
 dput(result)
 ```
 

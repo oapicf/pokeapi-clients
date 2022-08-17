@@ -2,11 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**LocationAreaList**](LocationAreaApi.md#locationarealist) | **GET** /api/v2/location-area/ | 
-[**LocationAreaRead**](LocationAreaApi.md#locationarearead) | **GET** /api/v2/location-area/{id}/ | 
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**LocationAreaList**](LocationAreaApi.md#locationarealist) | **GET** /api/v2/location-area/ |  |
+| [**LocationAreaRead**](LocationAreaApi.md#locationarearead) | **GET** /api/v2/location-area/{id}/ |  |
 
 <a name="locationarealist"></a>
 # **LocationAreaList**
@@ -41,8 +40,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling LocationAreaApi.LocationAreaList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling LocationAreaApi.LocationAreaList: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -50,12 +49,31 @@ namespace Example
 }
 ```
 
+#### Using the LocationAreaListWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<string> response = apiInstance.LocationAreaListWithHttpInfo(limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling LocationAreaApi.LocationAreaListWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int?**|  | [optional] 
- **offset** | **int?**|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int?** |  | [optional]  |
+| **offset** | **int?** |  | [optional]  |
 
 ### Return type
 
@@ -110,8 +128,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling LocationAreaApi.LocationAreaRead: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling LocationAreaApi.LocationAreaRead: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -119,11 +137,30 @@ namespace Example
 }
 ```
 
+#### Using the LocationAreaReadWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<string> response = apiInstance.LocationAreaReadWithHttpInfo(id);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling LocationAreaApi.LocationAreaReadWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** |  |  |
 
 ### Return type
 

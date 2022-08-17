@@ -28,6 +28,7 @@ router = APIRouter()
         200: {"model": str, "description": "Default response"},
     },
     tags=["item-category"],
+    response_model_by_alias=True,
 )
 async def item_category_list(
     limit: int = Query(None, description=""),
@@ -42,6 +43,7 @@ async def item_category_list(
         200: {"model": str, "description": "Default response"},
     },
     tags=["item-category"],
+    response_model_by_alias=True,
 )
 async def item_category_read(
     id: int = Path(None, description=""),

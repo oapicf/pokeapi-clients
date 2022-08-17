@@ -3,7 +3,7 @@
 
 context("Test ContestTypeApi")
 
-api.instance <- ContestTypeApi$new()
+api_instance <- ContestTypeApi$new()
 
 test_that("ContestTypeList", {
   # tests for ContestTypeList
@@ -25,4 +25,3 @@ test_that("ContestTypeRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

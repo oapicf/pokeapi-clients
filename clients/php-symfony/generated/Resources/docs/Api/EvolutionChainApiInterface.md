@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.evolutionChain:
-        class: Acme\MyBundle\Api\EvolutionChainApi
+    Acme\MyBundle\Api\EvolutionChainApi:
         tags:
             - { name: "open_api_server.api", api: "evolutionChain" }
     # ...
@@ -42,7 +41,7 @@ class EvolutionChainApi implements EvolutionChainApiInterface
     /**
      * Implementation of EvolutionChainApiInterface#evolutionChainList
      */
-    public function evolutionChainList($limit = null, $offset = null)
+    public function evolutionChainList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class EvolutionChainApi implements EvolutionChainApiInterface
     /**
      * Implementation of EvolutionChainApiInterface#evolutionChainRead
      */
-    public function evolutionChainRead($id)
+    public function evolutionChainRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

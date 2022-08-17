@@ -19,7 +19,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Ability_List;
@@ -30,7 +30,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Ability_Read;
@@ -42,7 +42,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Berry_List;
@@ -53,7 +53,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Berry_Read;
@@ -65,7 +65,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Berry_Firmness_List;
@@ -76,7 +76,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Berry_Firmness_Read;
@@ -88,7 +88,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Berry_Flavor_List;
@@ -99,7 +99,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Berry_Flavor_Read;
@@ -111,7 +111,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Characteristic_List;
@@ -122,7 +122,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Characteristic_Read;
@@ -134,7 +134,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Contest_Effect_List;
@@ -145,7 +145,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Contest_Effect_Read;
@@ -157,7 +157,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Contest_Type_List;
@@ -168,7 +168,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Contest_Type_Read;
@@ -180,7 +180,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Egg_Group_List;
@@ -191,7 +191,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Egg_Group_Read;
@@ -203,7 +203,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Encounter_Condition_List;
@@ -214,7 +214,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Encounter_Condition_Read;
@@ -226,7 +226,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Encounter_Condition_Value_List;
@@ -237,7 +237,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Encounter_Condition_Value_Read;
@@ -249,7 +249,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Encounter_Method_List;
@@ -260,7 +260,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Encounter_Method_Read;
@@ -272,7 +272,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Evolution_Chain_List;
@@ -283,7 +283,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Evolution_Chain_Read;
@@ -295,7 +295,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Evolution_Trigger_List;
@@ -306,7 +306,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Evolution_Trigger_Read;
@@ -318,7 +318,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Gender_List;
@@ -329,7 +329,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Gender_Read;
@@ -341,7 +341,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Generation_List;
@@ -352,7 +352,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Generation_Read;
@@ -364,7 +364,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Growth_Rate_List;
@@ -375,7 +375,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Growth_Rate_Read;
@@ -387,7 +387,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Item_List;
@@ -398,7 +398,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Item_Read;
@@ -410,7 +410,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Item_Attribute_List;
@@ -421,7 +421,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Item_Attribute_Read;
@@ -433,7 +433,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Item_Category_List;
@@ -444,7 +444,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Item_Category_Read;
@@ -456,7 +456,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Item_Fling_Effect_List;
@@ -467,7 +467,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Item_Fling_Effect_Read;
@@ -479,7 +479,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Item_Pocket_List;
@@ -490,7 +490,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Item_Pocket_Read;
@@ -502,7 +502,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Language_List;
@@ -513,7 +513,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Language_Read;
@@ -525,7 +525,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Location_List;
@@ -536,7 +536,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Location_Read;
@@ -548,7 +548,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Location_Area_List;
@@ -559,7 +559,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Location_Area_Read;
@@ -571,7 +571,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Machine_List;
@@ -582,7 +582,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Machine_Read;
@@ -594,7 +594,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Move_List;
@@ -605,7 +605,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Move_Read;
@@ -617,7 +617,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Move_Ailment_List;
@@ -628,7 +628,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Move_Ailment_Read;
@@ -640,7 +640,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Move_Battle_Style_List;
@@ -651,7 +651,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Move_Battle_Style_Read;
@@ -663,7 +663,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Move_Category_List;
@@ -674,7 +674,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Move_Category_Read;
@@ -686,7 +686,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Move_Damage_Class_List;
@@ -697,7 +697,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Move_Damage_Class_Read;
@@ -709,7 +709,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Move_Learn_Method_List;
@@ -720,7 +720,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Move_Learn_Method_Read;
@@ -732,7 +732,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Move_Target_List;
@@ -743,7 +743,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Move_Target_Read;
@@ -755,7 +755,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Nature_List;
@@ -766,7 +766,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Nature_Read;
@@ -778,7 +778,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pal_Park_Area_List;
@@ -789,7 +789,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pal_Park_Area_Read;
@@ -801,7 +801,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pokeathlon_Stat_List;
@@ -812,7 +812,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pokeathlon_Stat_Read;
@@ -824,7 +824,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pokedex_List;
@@ -835,7 +835,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pokedex_Read;
@@ -847,7 +847,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pokemon_List;
@@ -858,7 +858,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pokemon_Read;
@@ -870,7 +870,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pokemon_Color_List;
@@ -881,7 +881,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pokemon_Color_Read;
@@ -893,7 +893,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pokemon_Form_List;
@@ -904,7 +904,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pokemon_Form_Read;
@@ -916,7 +916,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pokemon_Habitat_List;
@@ -927,7 +927,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pokemon_Habitat_Read;
@@ -939,7 +939,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pokemon_Shape_List;
@@ -950,7 +950,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pokemon_Shape_Read;
@@ -962,7 +962,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pokemon_Species_List;
@@ -973,7 +973,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Pokemon_Species_Read;
@@ -985,7 +985,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Region_List;
@@ -996,7 +996,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Region_Read;
@@ -1008,7 +1008,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Stat_List;
@@ -1019,7 +1019,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Stat_Read;
@@ -1031,7 +1031,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Super_Contest_Effect_List;
@@ -1042,7 +1042,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Super_Contest_Effect_Read;
@@ -1054,7 +1054,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Type_List;
@@ -1065,7 +1065,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Type_Read;
@@ -1077,7 +1077,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Version_List;
@@ -1088,7 +1088,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Version_Read;
@@ -1100,7 +1100,7 @@ package body .Servers is
        Limit : in Swagger.Nullable_Integer;
        Offset : in Swagger.Nullable_Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Version_Group_List;
@@ -1111,7 +1111,7 @@ package body .Servers is
       (Server : in out Server_Type;
        Id : in Integer;
        Result  : out Swagger.UString;
-       Context : in out Swagger.Servers.Context_Type) is
+       Context : in out {{openApiPackageName}.Servers.Context_Type) is
    begin
       null;
    end Version_Group_Read;

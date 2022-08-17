@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**locationList**](LocationApi.md#locationList) | **GET** /api/v2/location/ | 
-[**locationRead**](LocationApi.md#locationRead) | **GET** /api/v2/location/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**locationList**](LocationApi.md#locationList) | **GET** /api/v2/location/ |  |
+| [**locationRead**](LocationApi.md#locationRead) | **GET** /api/v2/location/{id}/ |  |
 
 
 ## Creating LocationApi
@@ -45,10 +45,10 @@ Mono<String> LocationApi.locationList(limitoffset)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | `Integer`|  | [optional parameter]
- **offset** | `Integer`|  | [optional parameter]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `Integer`|  | [optional parameter] |
+| **offset** | `Integer`|  | [optional parameter] |
 
 
 ### Return type
@@ -69,9 +69,9 @@ Mono<String> LocationApi.locationRead(id)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | `Integer`|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `Integer`|  | |
 
 
 ### Return type

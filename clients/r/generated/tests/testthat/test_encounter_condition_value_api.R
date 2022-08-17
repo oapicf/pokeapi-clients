@@ -3,7 +3,7 @@
 
 context("Test EncounterConditionValueApi")
 
-api.instance <- EncounterConditionValueApi$new()
+api_instance <- EncounterConditionValueApi$new()
 
 test_that("EncounterConditionValueList", {
   # tests for EncounterConditionValueList
@@ -25,4 +25,3 @@ test_that("EncounterConditionValueRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

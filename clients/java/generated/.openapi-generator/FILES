@@ -1,3 +1,4 @@
+.github/workflows/maven.yml
 .gitignore
 .openapi-generator-ignore
 .travis.yml
@@ -127,6 +128,7 @@ src/main/java/com/cliffano/pokeapiclient/auth/ApiKeyAuth.java
 src/main/java/com/cliffano/pokeapiclient/auth/Authentication.java
 src/main/java/com/cliffano/pokeapiclient/auth/HttpBasicAuth.java
 src/main/java/com/cliffano/pokeapiclient/auth/HttpBearerAuth.java
+src/main/java/com/cliffano/pokeapiclient/model/AbstractOpenApiSchema.java
 src/test/java/com/cliffano/pokeapiclient/api/AbilityApiTest.java
 src/test/java/com/cliffano/pokeapiclient/api/BerryApiTest.java
 src/test/java/com/cliffano/pokeapiclient/api/BerryFirmnessApiTest.java

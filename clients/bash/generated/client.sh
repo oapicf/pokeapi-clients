@@ -18,7 +18,7 @@
 # 
 #
 # CONTACT:
-# 
+# blah@cliffano.com
 #
 # MORE INFORMATION:
 # 
@@ -1287,7 +1287,7 @@ print_about() {
     echo -e "${BOLD}${WHITE} command line client (API version 20220523)${OFF}"
     echo ""
     echo -e "License: "
-    echo -e "Contact: "
+    echo -e "Contact: blah@cliffano.com"
     echo ""
 read -r -d '' appdescription <<EOF
 

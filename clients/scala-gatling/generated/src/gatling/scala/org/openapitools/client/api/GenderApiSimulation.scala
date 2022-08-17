@@ -72,8 +72,8 @@ class GenderApiSimulation extends Simulation {
         .feed(gender_listQUERYFeeder)
         .exec(http("genderList")
         .httpRequest("GET","/api/v2/gender/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scngenderList with warm up and reach a constant rate for entire duration

@@ -3,7 +3,7 @@
 
 context("Test SuperContestEffectApi")
 
-api.instance <- SuperContestEffectApi$new()
+api_instance <- SuperContestEffectApi$new()
 
 test_that("SuperContestEffectList", {
   # tests for SuperContestEffectList
@@ -25,4 +25,3 @@ test_that("SuperContestEffectRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

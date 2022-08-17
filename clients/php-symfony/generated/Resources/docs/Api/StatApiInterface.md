@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.stat:
-        class: Acme\MyBundle\Api\StatApi
+    Acme\MyBundle\Api\StatApi:
         tags:
             - { name: "open_api_server.api", api: "stat" }
     # ...
@@ -42,7 +41,7 @@ class StatApi implements StatApiInterface
     /**
      * Implementation of StatApiInterface#statList
      */
-    public function statList($limit = null, $offset = null)
+    public function statList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class StatApi implements StatApiInterface
     /**
      * Implementation of StatApiInterface#statRead
      */
-    public function statRead($id)
+    public function statRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

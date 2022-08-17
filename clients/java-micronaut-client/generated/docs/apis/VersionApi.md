@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**versionList**](VersionApi.md#versionList) | **GET** /api/v2/version/ | 
-[**versionRead**](VersionApi.md#versionRead) | **GET** /api/v2/version/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**versionList**](VersionApi.md#versionList) | **GET** /api/v2/version/ |  |
+| [**versionRead**](VersionApi.md#versionRead) | **GET** /api/v2/version/{id}/ |  |
 
 
 ## Creating VersionApi
@@ -45,10 +45,10 @@ Mono<String> VersionApi.versionList(limitoffset)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | `Integer`|  | [optional parameter]
- **offset** | `Integer`|  | [optional parameter]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `Integer`|  | [optional parameter] |
+| **offset** | `Integer`|  | [optional parameter] |
 
 
 ### Return type
@@ -69,9 +69,9 @@ Mono<String> VersionApi.versionRead(id)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | `Integer`|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `Integer`|  | |
 
 
 ### Return type

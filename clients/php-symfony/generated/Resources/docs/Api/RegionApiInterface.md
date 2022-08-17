@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.region:
-        class: Acme\MyBundle\Api\RegionApi
+    Acme\MyBundle\Api\RegionApi:
         tags:
             - { name: "open_api_server.api", api: "region" }
     # ...
@@ -42,7 +41,7 @@ class RegionApi implements RegionApiInterface
     /**
      * Implementation of RegionApiInterface#regionList
      */
-    public function regionList($limit = null, $offset = null)
+    public function regionList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class RegionApi implements RegionApiInterface
     /**
      * Implementation of RegionApiInterface#regionRead
      */
-    public function regionRead($id)
+    public function regionRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

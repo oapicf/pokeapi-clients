@@ -3,7 +3,7 @@
 
 context("Test PalParkAreaApi")
 
-api.instance <- PalParkAreaApi$new()
+api_instance <- PalParkAreaApi$new()
 
 test_that("PalParkAreaList", {
   # tests for PalParkAreaList
@@ -25,4 +25,3 @@ test_that("PalParkAreaRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

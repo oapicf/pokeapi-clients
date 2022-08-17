@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.gender:
-        class: Acme\MyBundle\Api\GenderApi
+    Acme\MyBundle\Api\GenderApi:
         tags:
             - { name: "open_api_server.api", api: "gender" }
     # ...
@@ -42,7 +41,7 @@ class GenderApi implements GenderApiInterface
     /**
      * Implementation of GenderApiInterface#genderList
      */
-    public function genderList($limit = null, $offset = null)
+    public function genderList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class GenderApi implements GenderApiInterface
     /**
      * Implementation of GenderApiInterface#genderRead
      */
-    public function genderRead($id)
+    public function genderRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

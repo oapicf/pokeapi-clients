@@ -82,7 +82,7 @@ Type | Description | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | ApiResponseForDefault | Default response 
+default | ApiResponseForDefault | Default response
 
 #### ApiResponseForDefault
 Name | Type | Description  | Notes
@@ -170,7 +170,7 @@ Type | Description | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | ApiResponseForDefault | Default response 
+default | ApiResponseForDefault | Default response
 
 #### ApiResponseForDefault
 Name | Type | Description  | Notes

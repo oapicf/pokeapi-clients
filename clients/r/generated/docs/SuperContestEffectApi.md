@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **SuperContestEffectList**
-> character SuperContestEffectList(limit=var.limit, offset=var.offset)
+> character SuperContestEffectList(limit = var.limit, offset = var.offset)
 
 
 
@@ -17,11 +17,11 @@ Method | HTTP request | Description
 ```R
 library(openapi)
 
-var.limit <- 56 # integer | 
-var.offset <- 56 # integer | 
+var_limit <- 56 # integer | 
+var_offset <- 56 # integer | 
 
-api.instance <- SuperContestEffectApi$new()
-result <- api.instance$SuperContestEffectList(limit=var.limit, offset=var.offset)
+api_instance <- SuperContestEffectApi$new()
+result <- api_instance$SuperContestEffectList(limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -59,10 +59,10 @@ No authorization required
 ```R
 library(openapi)
 
-var.id <- 56 # integer | 
+var_id <- 56 # integer | 
 
-api.instance <- SuperContestEffectApi$new()
-result <- api.instance$SuperContestEffectRead(var.id)
+api_instance <- SuperContestEffectApi$new()
+result <- api_instance$SuperContestEffectRead(var_id)
 dput(result)
 ```
 

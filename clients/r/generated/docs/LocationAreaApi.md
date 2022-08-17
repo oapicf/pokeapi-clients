@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **LocationAreaList**
-> character LocationAreaList(limit=var.limit, offset=var.offset)
+> character LocationAreaList(limit = var.limit, offset = var.offset)
 
 
 
@@ -17,11 +17,11 @@ Method | HTTP request | Description
 ```R
 library(openapi)
 
-var.limit <- 56 # integer | 
-var.offset <- 56 # integer | 
+var_limit <- 56 # integer | 
+var_offset <- 56 # integer | 
 
-api.instance <- LocationAreaApi$new()
-result <- api.instance$LocationAreaList(limit=var.limit, offset=var.offset)
+api_instance <- LocationAreaApi$new()
+result <- api_instance$LocationAreaList(limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -59,10 +59,10 @@ No authorization required
 ```R
 library(openapi)
 
-var.id <- 56 # integer | 
+var_id <- 56 # integer | 
 
-api.instance <- LocationAreaApi$new()
-result <- api.instance$LocationAreaRead(var.id)
+api_instance <- LocationAreaApi$new()
+result <- api_instance$LocationAreaRead(var_id)
 dput(result)
 ```
 

@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**languageList**](LanguageApi.md#languageList) | **GET** /api/v2/language/ | 
-[**languageRead**](LanguageApi.md#languageRead) | **GET** /api/v2/language/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**languageList**](LanguageApi.md#languageList) | **GET** /api/v2/language/ |  |
+| [**languageRead**](LanguageApi.md#languageRead) | **GET** /api/v2/language/{id}/ |  |
 
 
 ## Creating LanguageApi
@@ -45,10 +45,10 @@ Mono<String> LanguageApi.languageList(limitoffset)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | `Integer`|  | [optional parameter]
- **offset** | `Integer`|  | [optional parameter]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `Integer`|  | [optional parameter] |
+| **offset** | `Integer`|  | [optional parameter] |
 
 
 ### Return type
@@ -69,9 +69,9 @@ Mono<String> LanguageApi.languageRead(id)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | `Integer`|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `Integer`|  | |
 
 
 ### Return type

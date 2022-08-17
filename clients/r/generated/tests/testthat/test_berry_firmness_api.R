@@ -3,7 +3,7 @@
 
 context("Test BerryFirmnessApi")
 
-api.instance <- BerryFirmnessApi$new()
+api_instance <- BerryFirmnessApi$new()
 
 test_that("BerryFirmnessList", {
   # tests for BerryFirmnessList
@@ -25,4 +25,3 @@ test_that("BerryFirmnessRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

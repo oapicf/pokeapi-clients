@@ -27,8 +27,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.berry:
         class: OpenAPI\Server\Controller\BerryController
@@ -36,8 +36,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.berryFirmness:
         class: OpenAPI\Server\Controller\BerryFirmnessController
@@ -45,8 +45,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.berryFlavor:
         class: OpenAPI\Server\Controller\BerryFlavorController
@@ -54,8 +54,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.characteristic:
         class: OpenAPI\Server\Controller\CharacteristicController
@@ -63,8 +63,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.contestEffect:
         class: OpenAPI\Server\Controller\ContestEffectController
@@ -72,8 +72,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.contestType:
         class: OpenAPI\Server\Controller\ContestTypeController
@@ -81,8 +81,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.eggGroup:
         class: OpenAPI\Server\Controller\EggGroupController
@@ -90,8 +90,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.encounterCondition:
         class: OpenAPI\Server\Controller\EncounterConditionController
@@ -99,8 +99,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.encounterConditionValue:
         class: OpenAPI\Server\Controller\EncounterConditionValueController
@@ -108,8 +108,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.encounterMethod:
         class: OpenAPI\Server\Controller\EncounterMethodController
@@ -117,8 +117,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.evolutionChain:
         class: OpenAPI\Server\Controller\EvolutionChainController
@@ -126,8 +126,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.evolutionTrigger:
         class: OpenAPI\Server\Controller\EvolutionTriggerController
@@ -135,8 +135,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.gender:
         class: OpenAPI\Server\Controller\GenderController
@@ -144,8 +144,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.generation:
         class: OpenAPI\Server\Controller\GenerationController
@@ -153,8 +153,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.growthRate:
         class: OpenAPI\Server\Controller\GrowthRateController
@@ -162,8 +162,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.item:
         class: OpenAPI\Server\Controller\ItemController
@@ -171,8 +171,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.itemAttribute:
         class: OpenAPI\Server\Controller\ItemAttributeController
@@ -180,8 +180,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.itemCategory:
         class: OpenAPI\Server\Controller\ItemCategoryController
@@ -189,8 +189,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.itemFlingEffect:
         class: OpenAPI\Server\Controller\ItemFlingEffectController
@@ -198,8 +198,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.itemPocket:
         class: OpenAPI\Server\Controller\ItemPocketController
@@ -207,8 +207,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.language:
         class: OpenAPI\Server\Controller\LanguageController
@@ -216,8 +216,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.location:
         class: OpenAPI\Server\Controller\LocationController
@@ -225,8 +225,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.locationArea:
         class: OpenAPI\Server\Controller\LocationAreaController
@@ -234,8 +234,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.machine:
         class: OpenAPI\Server\Controller\MachineController
@@ -243,8 +243,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.move:
         class: OpenAPI\Server\Controller\MoveController
@@ -252,8 +252,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.moveAilment:
         class: OpenAPI\Server\Controller\MoveAilmentController
@@ -261,8 +261,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.moveBattleStyle:
         class: OpenAPI\Server\Controller\MoveBattleStyleController
@@ -270,8 +270,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.moveCategory:
         class: OpenAPI\Server\Controller\MoveCategoryController
@@ -279,8 +279,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.moveDamageClass:
         class: OpenAPI\Server\Controller\MoveDamageClassController
@@ -288,8 +288,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.moveLearnMethod:
         class: OpenAPI\Server\Controller\MoveLearnMethodController
@@ -297,8 +297,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.moveTarget:
         class: OpenAPI\Server\Controller\MoveTargetController
@@ -306,8 +306,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.nature:
         class: OpenAPI\Server\Controller\NatureController
@@ -315,8 +315,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.palParkArea:
         class: OpenAPI\Server\Controller\PalParkAreaController
@@ -324,8 +324,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.pokeathlonStat:
         class: OpenAPI\Server\Controller\PokeathlonStatController
@@ -333,8 +333,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.pokedex:
         class: OpenAPI\Server\Controller\PokedexController
@@ -342,8 +342,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.pokemon:
         class: OpenAPI\Server\Controller\PokemonController
@@ -351,8 +351,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.pokemonColor:
         class: OpenAPI\Server\Controller\PokemonColorController
@@ -360,8 +360,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.pokemonForm:
         class: OpenAPI\Server\Controller\PokemonFormController
@@ -369,8 +369,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.pokemonHabitat:
         class: OpenAPI\Server\Controller\PokemonHabitatController
@@ -378,8 +378,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.pokemonShape:
         class: OpenAPI\Server\Controller\PokemonShapeController
@@ -387,8 +387,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.pokemonSpecies:
         class: OpenAPI\Server\Controller\PokemonSpeciesController
@@ -396,8 +396,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.region:
         class: OpenAPI\Server\Controller\RegionController
@@ -405,8 +405,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.stat:
         class: OpenAPI\Server\Controller\StatController
@@ -414,8 +414,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.superContestEffect:
         class: OpenAPI\Server\Controller\SuperContestEffectController
@@ -423,8 +423,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.type:
         class: OpenAPI\Server\Controller\TypeController
@@ -432,8 +432,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.version:
         class: OpenAPI\Server\Controller\VersionController
@@ -441,8 +441,8 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 
     open_api_server.controller.versionGroup:
         class: OpenAPI\Server\Controller\VersionGroupController
@@ -450,6 +450,6 @@ services:
          - [setSerializer, ['@open_api_server.service.serializer']]
          - [setValidator,  ['@open_api_server.service.validator']]
          - [setApiServer,  ['@open_api_server.api.api_server']]
+         - [setContainer,  ['@service_container']]
         tags: ['controller.service_arguments']
-        autowire: true
 

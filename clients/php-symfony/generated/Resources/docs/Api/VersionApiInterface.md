@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.version:
-        class: Acme\MyBundle\Api\VersionApi
+    Acme\MyBundle\Api\VersionApi:
         tags:
             - { name: "open_api_server.api", api: "version" }
     # ...
@@ -42,7 +41,7 @@ class VersionApi implements VersionApiInterface
     /**
      * Implementation of VersionApiInterface#versionList
      */
-    public function versionList($limit = null, $offset = null)
+    public function versionList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class VersionApi implements VersionApiInterface
     /**
      * Implementation of VersionApiInterface#versionRead
      */
-    public function versionRead($id)
+    public function versionRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

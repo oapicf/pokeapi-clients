@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.versionGroup:
-        class: Acme\MyBundle\Api\VersionGroupApi
+    Acme\MyBundle\Api\VersionGroupApi:
         tags:
             - { name: "open_api_server.api", api: "versionGroup" }
     # ...
@@ -42,7 +41,7 @@ class VersionGroupApi implements VersionGroupApiInterface
     /**
      * Implementation of VersionGroupApiInterface#versionGroupList
      */
-    public function versionGroupList($limit = null, $offset = null)
+    public function versionGroupList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class VersionGroupApi implements VersionGroupApiInterface
     /**
      * Implementation of VersionGroupApiInterface#versionGroupRead
      */
-    public function versionGroupRead($id)
+    public function versionGroupRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

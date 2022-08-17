@@ -3,7 +3,7 @@
 
 context("Test GenerationApi")
 
-api.instance <- GenerationApi$new()
+api_instance <- GenerationApi$new()
 
 test_that("GenerationList", {
   # tests for GenerationList
@@ -25,4 +25,3 @@ test_that("GenerationRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

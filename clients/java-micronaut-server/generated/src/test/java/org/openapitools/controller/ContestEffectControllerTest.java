@@ -39,7 +39,7 @@ public class ContestEffectControllerTest {
     EmbeddedServer server;
 
     @Inject
-    @Client("${context-path}")
+    @Client
     HttpClient client;
 
     @Inject

@@ -201,5 +201,5 @@ force-app/main/default/classes/OASVersionGroupApi.cls
 force-app/main/default/classes/OASVersionGroupApi.cls-meta.xml
 force-app/main/default/classes/OASVersionGroupApiTest.cls
 force-app/main/default/classes/OASVersionGroupApiTest.cls-meta.xml
-force-app/main/default/namedCredentials/ERROR_UNKNOWN.namedCredential-meta.xml
+force-app/main/default/namedCredentials/.namedCredential-meta.xml
 sfdx-project.json

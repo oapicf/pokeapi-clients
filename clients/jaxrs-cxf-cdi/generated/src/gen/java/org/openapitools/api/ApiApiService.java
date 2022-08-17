@@ -14,7 +14,7 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-05-23T21:53:18.971651Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-08-17T11:01:44.087408Z[Etc/UTC]")
 public interface ApiApiService {
       public Response abilityList(Integer limit, Integer offset, SecurityContext securityContext);
       public Response abilityRead(Integer id, SecurityContext securityContext);

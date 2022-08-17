@@ -28,6 +28,7 @@ router = APIRouter()
         200: {"model": str, "description": "Default response"},
     },
     tags=["location-area"],
+    response_model_by_alias=True,
 )
 async def location_area_list(
     limit: int = Query(None, description=""),
@@ -42,6 +43,7 @@ async def location_area_list(
         200: {"model": str, "description": "Default response"},
     },
     tags=["location-area"],
+    response_model_by_alias=True,
 )
 async def location_area_read(
     id: int = Path(None, description=""),

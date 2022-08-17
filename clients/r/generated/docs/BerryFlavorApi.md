@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **BerryFlavorList**
-> character BerryFlavorList(limit=var.limit, offset=var.offset)
+> character BerryFlavorList(limit = var.limit, offset = var.offset)
 
 
 
@@ -17,11 +17,11 @@ Method | HTTP request | Description
 ```R
 library(openapi)
 
-var.limit <- 56 # integer | 
-var.offset <- 56 # integer | 
+var_limit <- 56 # integer | 
+var_offset <- 56 # integer | 
 
-api.instance <- BerryFlavorApi$new()
-result <- api.instance$BerryFlavorList(limit=var.limit, offset=var.offset)
+api_instance <- BerryFlavorApi$new()
+result <- api_instance$BerryFlavorList(limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -59,10 +59,10 @@ No authorization required
 ```R
 library(openapi)
 
-var.id <- 56 # integer | 
+var_id <- 56 # integer | 
 
-api.instance <- BerryFlavorApi$new()
-result <- api.instance$BerryFlavorRead(var.id)
+api_instance <- BerryFlavorApi$new()
+result <- api_instance$BerryFlavorRead(var_id)
 dput(result)
 ```
 

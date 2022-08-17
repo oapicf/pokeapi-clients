@@ -11,6 +11,7 @@ import re  # noqa: F401
 import sys  # noqa: F401
 import typing
 import urllib3
+import functools  # noqa: F401
 from urllib3._collections import HTTPHeaderDict
 
 from openapi_client import api_client, exceptions
@@ -30,6 +31,7 @@ from openapi_client.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -37,7 +39,7 @@ from openapi_client.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -46,7 +48,12 @@ from openapi_client.schemas import (  # noqa: F401
     NoneBase,
     StrBase,
     IntBase,
+    Int32Base,
+    Int64Base,
+    Float32Base,
+    Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
@@ -131,6 +138,7 @@ class PokemonHabitatRead(api_client.Api):
             class instances
         """
         self._verify_typed_dict_inputs(RequestPathParams, path_params)
+        used_path = _path
 
         _path_params = {}
         for parameter in (
@@ -142,6 +150,9 @@ class PokemonHabitatRead(api_client.Api):
             serialized_data = parameter.serialize(parameter_data)
             _path_params.update(serialized_data)
 
+        for k, v in _path_params.items():
+            used_path = used_path.replace('{%s}' % k, v)
+
         _headers = HTTPHeaderDict()
         # TODO add cookie handling
         if accept_content_types:
@@ -149,9 +160,8 @@ class PokemonHabitatRead(api_client.Api):
                 _headers.add('Accept', accept_content_type)
 
         response = self.api_client.call_api(
-            resource_path=_path,
+            resource_path=used_path,
             method=_method,
-            path_params=_path_params,
             headers=_headers,
             stream=stream,
             timeout=timeout,

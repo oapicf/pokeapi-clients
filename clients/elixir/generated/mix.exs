@@ -1,10 +1,10 @@
-defmodule OpenAPI.Client.Mixfile do
+defmodule .Mixfile do
   use Mix.Project
 
   def project do
-    [app: :open_api/client,
+    [app: :,
      version: "20220523",
-     elixir: "~> 1.6",
+     elixir: "~> 1.10",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      package: package(),
@@ -31,15 +31,16 @@ defmodule OpenAPI.Client.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:tesla, "~> 1.2"},
-      {:poison, "~> 3.0"}
+      {:tesla, "~> 1.4"},
+      {:poison, "~> 3.0"},
+      {:ex_doc, "~> 0.28", only: :dev, runtime: false}
     ]
   end
 
    defp package() do
     [
-      name: "open_api/client",
-      files: ~w(lib mix.exs README* LICENSE*),
+      name: "",
+      files: ~w(.formatter.exs config lib mix.exs README* LICENSE*),
       licenses: [""]
     ]
   end

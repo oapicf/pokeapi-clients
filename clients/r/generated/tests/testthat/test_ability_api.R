@@ -3,7 +3,7 @@
 
 context("Test AbilityApi")
 
-api.instance <- AbilityApi$new()
+api_instance <- AbilityApi$new()
 
 test_that("AbilityList", {
   # tests for AbilityList
@@ -25,4 +25,3 @@ test_that("AbilityRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **EncounterConditionValueList**
-> character EncounterConditionValueList(limit=var.limit, offset=var.offset)
+> character EncounterConditionValueList(limit = var.limit, offset = var.offset)
 
 
 
@@ -17,11 +17,11 @@ Method | HTTP request | Description
 ```R
 library(openapi)
 
-var.limit <- 56 # integer | 
-var.offset <- 56 # integer | 
+var_limit <- 56 # integer | 
+var_offset <- 56 # integer | 
 
-api.instance <- EncounterConditionValueApi$new()
-result <- api.instance$EncounterConditionValueList(limit=var.limit, offset=var.offset)
+api_instance <- EncounterConditionValueApi$new()
+result <- api_instance$EncounterConditionValueList(limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -59,10 +59,10 @@ No authorization required
 ```R
 library(openapi)
 
-var.id <- 56 # integer | 
+var_id <- 56 # integer | 
 
-api.instance <- EncounterConditionValueApi$new()
-result <- api.instance$EncounterConditionValueRead(var.id)
+api_instance <- EncounterConditionValueApi$new()
+result <- api_instance$EncounterConditionValueRead(var_id)
 dput(result)
 ```
 

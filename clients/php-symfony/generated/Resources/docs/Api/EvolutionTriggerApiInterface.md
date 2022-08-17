@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.evolutionTrigger:
-        class: Acme\MyBundle\Api\EvolutionTriggerApi
+    Acme\MyBundle\Api\EvolutionTriggerApi:
         tags:
             - { name: "open_api_server.api", api: "evolutionTrigger" }
     # ...
@@ -42,7 +41,7 @@ class EvolutionTriggerApi implements EvolutionTriggerApiInterface
     /**
      * Implementation of EvolutionTriggerApiInterface#evolutionTriggerList
      */
-    public function evolutionTriggerList($limit = null, $offset = null)
+    public function evolutionTriggerList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class EvolutionTriggerApi implements EvolutionTriggerApiInterface
     /**
      * Implementation of EvolutionTriggerApiInterface#evolutionTriggerRead
      */
-    public function evolutionTriggerRead($id)
+    public function evolutionTriggerRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

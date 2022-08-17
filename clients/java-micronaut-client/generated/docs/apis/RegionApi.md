@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**regionList**](RegionApi.md#regionList) | **GET** /api/v2/region/ | 
-[**regionRead**](RegionApi.md#regionRead) | **GET** /api/v2/region/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**regionList**](RegionApi.md#regionList) | **GET** /api/v2/region/ |  |
+| [**regionRead**](RegionApi.md#regionRead) | **GET** /api/v2/region/{id}/ |  |
 
 
 ## Creating RegionApi
@@ -45,10 +45,10 @@ Mono<String> RegionApi.regionList(limitoffset)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | `Integer`|  | [optional parameter]
- **offset** | `Integer`|  | [optional parameter]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `Integer`|  | [optional parameter] |
+| **offset** | `Integer`|  | [optional parameter] |
 
 
 ### Return type
@@ -69,9 +69,9 @@ Mono<String> RegionApi.regionRead(id)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | `Integer`|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `Integer`|  | |
 
 
 ### Return type

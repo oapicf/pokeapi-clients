@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **ItemCategoryList**
-> character ItemCategoryList(limit=var.limit, offset=var.offset)
+> character ItemCategoryList(limit = var.limit, offset = var.offset)
 
 
 
@@ -17,11 +17,11 @@ Method | HTTP request | Description
 ```R
 library(openapi)
 
-var.limit <- 56 # integer | 
-var.offset <- 56 # integer | 
+var_limit <- 56 # integer | 
+var_offset <- 56 # integer | 
 
-api.instance <- ItemCategoryApi$new()
-result <- api.instance$ItemCategoryList(limit=var.limit, offset=var.offset)
+api_instance <- ItemCategoryApi$new()
+result <- api_instance$ItemCategoryList(limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -59,10 +59,10 @@ No authorization required
 ```R
 library(openapi)
 
-var.id <- 56 # integer | 
+var_id <- 56 # integer | 
 
-api.instance <- ItemCategoryApi$new()
-result <- api.instance$ItemCategoryRead(var.id)
+api_instance <- ItemCategoryApi$new()
+result <- api_instance$ItemCategoryRead(var_id)
 dput(result)
 ```
 

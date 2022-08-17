@@ -25,7 +25,7 @@ import javax.validation.constraints.*;
 @Api(description = "the api API")
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-05-23T21:53:18.971651Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-08-17T11:01:44.087408Z[Etc/UTC]")
 
 public class ApiApi  {
 

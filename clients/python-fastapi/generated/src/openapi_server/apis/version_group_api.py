@@ -28,6 +28,7 @@ router = APIRouter()
         200: {"model": str, "description": "Default response"},
     },
     tags=["version-group"],
+    response_model_by_alias=True,
 )
 async def version_group_list(
     limit: int = Query(None, description=""),
@@ -42,6 +43,7 @@ async def version_group_list(
         200: {"model": str, "description": "Default response"},
     },
     tags=["version-group"],
+    response_model_by_alias=True,
 )
 async def version_group_read(
     id: int = Path(None, description=""),

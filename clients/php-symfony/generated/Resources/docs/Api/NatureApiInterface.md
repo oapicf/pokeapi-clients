@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.nature:
-        class: Acme\MyBundle\Api\NatureApi
+    Acme\MyBundle\Api\NatureApi:
         tags:
             - { name: "open_api_server.api", api: "nature" }
     # ...
@@ -42,7 +41,7 @@ class NatureApi implements NatureApiInterface
     /**
      * Implementation of NatureApiInterface#natureList
      */
-    public function natureList($limit = null, $offset = null)
+    public function natureList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class NatureApi implements NatureApiInterface
     /**
      * Implementation of NatureApiInterface#natureRead
      */
-    public function natureRead($id)
+    public function natureRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**abilityList**](AbilityApi.md#abilityList) | **GET** /api/v2/ability/ | 
-[**abilityRead**](AbilityApi.md#abilityRead) | **GET** /api/v2/ability/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**abilityList**](AbilityApi.md#abilityList) | **GET** /api/v2/ability/ |  |
+| [**abilityRead**](AbilityApi.md#abilityRead) | **GET** /api/v2/ability/{id}/ |  |
 
 
 ## Creating AbilityApi
@@ -45,10 +45,10 @@ Mono<String> AbilityApi.abilityList(limitoffset)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | `Integer`|  | [optional parameter]
- **offset** | `Integer`|  | [optional parameter]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `Integer`|  | [optional parameter] |
+| **offset** | `Integer`|  | [optional parameter] |
 
 
 ### Return type
@@ -69,9 +69,9 @@ Mono<String> AbilityApi.abilityRead(id)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | `Integer`|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `Integer`|  | |
 
 
 ### Return type

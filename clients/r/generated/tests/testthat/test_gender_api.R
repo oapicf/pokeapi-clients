@@ -3,7 +3,7 @@
 
 context("Test GenderApi")
 
-api.instance <- GenderApi$new()
+api_instance <- GenderApi$new()
 
 test_that("GenderList", {
   # tests for GenderList
@@ -25,4 +25,3 @@ test_that("GenderRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

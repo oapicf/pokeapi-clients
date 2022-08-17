@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.itemAttribute:
-        class: Acme\MyBundle\Api\ItemAttributeApi
+    Acme\MyBundle\Api\ItemAttributeApi:
         tags:
             - { name: "open_api_server.api", api: "itemAttribute" }
     # ...
@@ -42,7 +41,7 @@ class ItemAttributeApi implements ItemAttributeApiInterface
     /**
      * Implementation of ItemAttributeApiInterface#itemAttributeList
      */
-    public function itemAttributeList($limit = null, $offset = null)
+    public function itemAttributeList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class ItemAttributeApi implements ItemAttributeApiInterface
     /**
      * Implementation of ItemAttributeApiInterface#itemAttributeRead
      */
-    public function itemAttributeRead($id)
+    public function itemAttributeRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

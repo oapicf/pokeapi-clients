@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**generationList**](GenerationApi.md#generationList) | **GET** /api/v2/generation/ | 
-[**generationRead**](GenerationApi.md#generationRead) | **GET** /api/v2/generation/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**generationList**](GenerationApi.md#generationList) | **GET** /api/v2/generation/ |  |
+| [**generationRead**](GenerationApi.md#generationRead) | **GET** /api/v2/generation/{id}/ |  |
 
 
 <a name="generationList"></a>
@@ -16,10 +16,10 @@ Method | HTTP request | Description
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **Integer**|  | [optional] [default to null]
- **offset** | **Integer**|  | [optional] [default to null]
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | **Integer**|  | [optional] [default to null] |
+| **offset** | **Integer**|  | [optional] [default to null] |
 
 ### Return type
 
@@ -42,9 +42,9 @@ No authorization required
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Integer**|  | [default to null]
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **Integer**|  | [default to null] |
 
 ### Return type
 

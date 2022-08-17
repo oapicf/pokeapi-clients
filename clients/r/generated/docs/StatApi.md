@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **StatList**
-> character StatList(limit=var.limit, offset=var.offset)
+> character StatList(limit = var.limit, offset = var.offset)
 
 
 
@@ -17,11 +17,11 @@ Method | HTTP request | Description
 ```R
 library(openapi)
 
-var.limit <- 56 # integer | 
-var.offset <- 56 # integer | 
+var_limit <- 56 # integer | 
+var_offset <- 56 # integer | 
 
-api.instance <- StatApi$new()
-result <- api.instance$StatList(limit=var.limit, offset=var.offset)
+api_instance <- StatApi$new()
+result <- api_instance$StatList(limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -59,10 +59,10 @@ No authorization required
 ```R
 library(openapi)
 
-var.id <- 56 # integer | 
+var_id <- 56 # integer | 
 
-api.instance <- StatApi$new()
-result <- api.instance$StatRead(var.id)
+api_instance <- StatApi$new()
+result <- api_instance$StatRead(var_id)
 dput(result)
 ```
 

@@ -3,7 +3,7 @@
 
 context("Test CharacteristicApi")
 
-api.instance <- CharacteristicApi$new()
+api_instance <- CharacteristicApi$new()
 
 test_that("CharacteristicList", {
   # tests for CharacteristicList
@@ -25,4 +25,3 @@ test_that("CharacteristicRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

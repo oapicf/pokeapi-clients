@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.type:
-        class: Acme\MyBundle\Api\TypeApi
+    Acme\MyBundle\Api\TypeApi:
         tags:
             - { name: "open_api_server.api", api: "type" }
     # ...
@@ -42,7 +41,7 @@ class TypeApi implements TypeApiInterface
     /**
      * Implementation of TypeApiInterface#typeList
      */
-    public function typeList($limit = null, $offset = null)
+    public function typeList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class TypeApi implements TypeApiInterface
     /**
      * Implementation of TypeApiInterface#typeRead
      */
-    public function typeRead($id)
+    public function typeRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

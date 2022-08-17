@@ -39,7 +39,7 @@ public class AbilityControllerTest {
     EmbeddedServer server;
 
     @Inject
-    @Client("${context-path}")
+    @Client
     HttpClient client;
 
     @Inject

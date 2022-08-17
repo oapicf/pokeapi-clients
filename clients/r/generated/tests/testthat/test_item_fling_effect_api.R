@@ -3,7 +3,7 @@
 
 context("Test ItemFlingEffectApi")
 
-api.instance <- ItemFlingEffectApi$new()
+api_instance <- ItemFlingEffectApi$new()
 
 test_that("ItemFlingEffectList", {
   # tests for ItemFlingEffectList
@@ -25,4 +25,3 @@ test_that("ItemFlingEffectRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

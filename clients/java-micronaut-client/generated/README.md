@@ -1,4 +1,4 @@
-# openapi-micronaut
+# openapi-micronaut-client
 
 This is a generated client based on [Micronaut](https://micronaut.io/) framework.
 
@@ -81,53 +81,53 @@ Details on auth methods can be found in the [auth.md](doc/auth.md).
 
 ## Author
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
+blah@cliffano.com
 
 

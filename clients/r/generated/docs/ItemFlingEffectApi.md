@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **ItemFlingEffectList**
-> character ItemFlingEffectList(limit=var.limit, offset=var.offset)
+> character ItemFlingEffectList(limit = var.limit, offset = var.offset)
 
 
 
@@ -17,11 +17,11 @@ Method | HTTP request | Description
 ```R
 library(openapi)
 
-var.limit <- 56 # integer | 
-var.offset <- 56 # integer | 
+var_limit <- 56 # integer | 
+var_offset <- 56 # integer | 
 
-api.instance <- ItemFlingEffectApi$new()
-result <- api.instance$ItemFlingEffectList(limit=var.limit, offset=var.offset)
+api_instance <- ItemFlingEffectApi$new()
+result <- api_instance$ItemFlingEffectList(limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -59,10 +59,10 @@ No authorization required
 ```R
 library(openapi)
 
-var.id <- 56 # integer | 
+var_id <- 56 # integer | 
 
-api.instance <- ItemFlingEffectApi$new()
-result <- api.instance$ItemFlingEffectRead(var.id)
+api_instance <- ItemFlingEffectApi$new()
+result <- api_instance$ItemFlingEffectRead(var_id)
 dput(result)
 ```
 

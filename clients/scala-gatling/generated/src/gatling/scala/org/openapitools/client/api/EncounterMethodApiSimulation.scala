@@ -72,8 +72,8 @@ class EncounterMethodApiSimulation extends Simulation {
         .feed(encounter-method_listQUERYFeeder)
         .exec(http("encounterMethodList")
         .httpRequest("GET","/api/v2/encounter-method/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnencounterMethodList with warm up and reach a constant rate for entire duration

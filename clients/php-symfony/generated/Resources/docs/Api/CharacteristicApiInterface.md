@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.characteristic:
-        class: Acme\MyBundle\Api\CharacteristicApi
+    Acme\MyBundle\Api\CharacteristicApi:
         tags:
             - { name: "open_api_server.api", api: "characteristic" }
     # ...
@@ -42,7 +41,7 @@ class CharacteristicApi implements CharacteristicApiInterface
     /**
      * Implementation of CharacteristicApiInterface#characteristicList
      */
-    public function characteristicList($limit = null, $offset = null)
+    public function characteristicList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class CharacteristicApi implements CharacteristicApiInterface
     /**
      * Implementation of CharacteristicApiInterface#characteristicRead
      */
-    public function characteristicRead($id)
+    public function characteristicRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

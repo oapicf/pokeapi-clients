@@ -28,6 +28,7 @@ router = APIRouter()
         200: {"model": str, "description": "Default response"},
     },
     tags=["language"],
+    response_model_by_alias=True,
 )
 async def language_list(
     limit: int = Query(None, description=""),
@@ -42,6 +43,7 @@ async def language_list(
         200: {"model": str, "description": "Default response"},
     },
     tags=["language"],
+    response_model_by_alias=True,
 )
 async def language_read(
     id: int = Path(None, description=""),

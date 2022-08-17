@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**berryList**](BerryApi.md#berryList) | **GET** /api/v2/berry/ | 
-[**berryRead**](BerryApi.md#berryRead) | **GET** /api/v2/berry/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**berryList**](BerryApi.md#berryList) | **GET** /api/v2/berry/ |  |
+| [**berryRead**](BerryApi.md#berryRead) | **GET** /api/v2/berry/{id}/ |  |
 
 
 <a name="berryList"></a>
@@ -16,10 +16,10 @@ Method | HTTP request | Description
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **Integer**|  | [optional] [default to null]
- **offset** | **Integer**|  | [optional] [default to null]
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | **Integer**|  | [optional] [default to null] |
+| **offset** | **Integer**|  | [optional] [default to null] |
 
 ### Return type
 
@@ -42,9 +42,9 @@ No authorization required
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Integer**|  | [default to null]
+|Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **Integer**|  | [default to null] |
 
 ### Return type
 

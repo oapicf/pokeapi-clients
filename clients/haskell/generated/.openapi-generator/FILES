@@ -1,7 +1,7 @@
+.cabal
 .openapi-generator-ignore
 README.md
 Setup.hs
-lib/OpenAPI/API.hs
-lib/OpenAPI/Types.hs
-openapi.cabal
+lib/API.hs
+lib/Types.hs
 stack.yaml

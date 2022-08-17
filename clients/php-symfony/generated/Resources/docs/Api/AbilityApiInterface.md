@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.ability:
-        class: Acme\MyBundle\Api\AbilityApi
+    Acme\MyBundle\Api\AbilityApi:
         tags:
             - { name: "open_api_server.api", api: "ability" }
     # ...
@@ -42,7 +41,7 @@ class AbilityApi implements AbilityApiInterface
     /**
      * Implementation of AbilityApiInterface#abilityList
      */
-    public function abilityList($limit = null, $offset = null)
+    public function abilityList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class AbilityApi implements AbilityApiInterface
     /**
      * Implementation of AbilityApiInterface#abilityRead
      */
-    public function abilityRead($id)
+    public function abilityRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

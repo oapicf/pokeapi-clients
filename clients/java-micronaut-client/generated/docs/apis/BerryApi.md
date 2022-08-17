@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**berryList**](BerryApi.md#berryList) | **GET** /api/v2/berry/ | 
-[**berryRead**](BerryApi.md#berryRead) | **GET** /api/v2/berry/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**berryList**](BerryApi.md#berryList) | **GET** /api/v2/berry/ |  |
+| [**berryRead**](BerryApi.md#berryRead) | **GET** /api/v2/berry/{id}/ |  |
 
 
 ## Creating BerryApi
@@ -45,10 +45,10 @@ Mono<String> BerryApi.berryList(limitoffset)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | `Integer`|  | [optional parameter]
- **offset** | `Integer`|  | [optional parameter]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `Integer`|  | [optional parameter] |
+| **offset** | `Integer`|  | [optional parameter] |
 
 
 ### Return type
@@ -69,9 +69,9 @@ Mono<String> BerryApi.berryRead(id)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | `Integer`|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `Integer`|  | |
 
 
 ### Return type

@@ -28,6 +28,7 @@ router = APIRouter()
         200: {"model": str, "description": "Default response"},
     },
     tags=["pokemon-color"],
+    response_model_by_alias=True,
 )
 async def pokemon_color_list(
     limit: int = Query(None, description=""),
@@ -42,6 +43,7 @@ async def pokemon_color_list(
         200: {"model": str, "description": "Default response"},
     },
     tags=["pokemon-color"],
+    response_model_by_alias=True,
 )
 async def pokemon_color_read(
     id: int = Path(None, description=""),

@@ -5,7 +5,7 @@ import javax.inject.{Inject, Singleton}
 import play.api.libs.json._
 import play.api.mvc._
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-05-24T08:45:05.479546Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-08-17T11:04:30.996532Z[Etc/UTC]")
 @Singleton
 class PokemonColorApiController @Inject()(cc: ControllerComponents, api: PokemonColorApi) extends AbstractController(cc) {
   /**

@@ -9,7 +9,7 @@ import java.util.LinkedHashSet;
 import java.io.FileInputStream;
 import play.libs.Files.TemporaryFile;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2022-05-23T13:56:58.032541Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2022-08-17T11:01:21.426098Z[Etc/UTC]")
 public class LanguageApiControllerImp extends LanguageApiControllerImpInterface {
     @Override
     public String languageList(Http.Request request, Integer limit, Integer offset) throws Exception {

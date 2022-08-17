@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.growthRate:
-        class: Acme\MyBundle\Api\GrowthRateApi
+    Acme\MyBundle\Api\GrowthRateApi:
         tags:
             - { name: "open_api_server.api", api: "growthRate" }
     # ...
@@ -42,7 +41,7 @@ class GrowthRateApi implements GrowthRateApiInterface
     /**
      * Implementation of GrowthRateApiInterface#growthRateList
      */
-    public function growthRateList($limit = null, $offset = null)
+    public function growthRateList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class GrowthRateApi implements GrowthRateApiInterface
     /**
      * Implementation of GrowthRateApiInterface#growthRateRead
      */
-    public function growthRateRead($id)
+    public function growthRateRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

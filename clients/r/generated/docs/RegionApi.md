@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **RegionList**
-> character RegionList(limit=var.limit, offset=var.offset)
+> character RegionList(limit = var.limit, offset = var.offset)
 
 
 
@@ -17,11 +17,11 @@ Method | HTTP request | Description
 ```R
 library(openapi)
 
-var.limit <- 56 # integer | 
-var.offset <- 56 # integer | 
+var_limit <- 56 # integer | 
+var_offset <- 56 # integer | 
 
-api.instance <- RegionApi$new()
-result <- api.instance$RegionList(limit=var.limit, offset=var.offset)
+api_instance <- RegionApi$new()
+result <- api_instance$RegionList(limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -59,10 +59,10 @@ No authorization required
 ```R
 library(openapi)
 
-var.id <- 56 # integer | 
+var_id <- 56 # integer | 
 
-api.instance <- RegionApi$new()
-result <- api.instance$RegionRead(var.id)
+api_instance <- RegionApi$new()
+result <- api_instance$RegionRead(var_id)
 dput(result)
 ```
 

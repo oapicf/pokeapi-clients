@@ -22,7 +22,7 @@ import java.io.IOException;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2022-05-23T13:56:50.702287Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2022-08-17T11:01:17.775953Z[Etc/UTC]")
 @Controller
 public class MoveLearnMethodApiController implements MoveLearnMethodApi {
     private final ObjectMapper objectMapper;

@@ -3,7 +3,7 @@
 
 context("Test PokemonApi")
 
-api.instance <- PokemonApi$new()
+api_instance <- PokemonApi$new()
 
 test_that("PokemonList", {
   # tests for PokemonList
@@ -25,4 +25,3 @@ test_that("PokemonRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

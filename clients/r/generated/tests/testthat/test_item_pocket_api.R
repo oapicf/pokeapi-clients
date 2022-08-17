@@ -3,7 +3,7 @@
 
 context("Test ItemPocketApi")
 
-api.instance <- ItemPocketApi$new()
+api_instance <- ItemPocketApi$new()
 
 test_that("ItemPocketList", {
   # tests for ItemPocketList
@@ -25,4 +25,3 @@ test_that("ItemPocketRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

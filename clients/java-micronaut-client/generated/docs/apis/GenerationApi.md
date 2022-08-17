@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**generationList**](GenerationApi.md#generationList) | **GET** /api/v2/generation/ | 
-[**generationRead**](GenerationApi.md#generationRead) | **GET** /api/v2/generation/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**generationList**](GenerationApi.md#generationList) | **GET** /api/v2/generation/ |  |
+| [**generationRead**](GenerationApi.md#generationRead) | **GET** /api/v2/generation/{id}/ |  |
 
 
 ## Creating GenerationApi
@@ -45,10 +45,10 @@ Mono<String> GenerationApi.generationList(limitoffset)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | `Integer`|  | [optional parameter]
- **offset** | `Integer`|  | [optional parameter]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `Integer`|  | [optional parameter] |
+| **offset** | `Integer`|  | [optional parameter] |
 
 
 ### Return type
@@ -69,9 +69,9 @@ Mono<String> GenerationApi.generationRead(id)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | `Integer`|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `Integer`|  | |
 
 
 ### Return type

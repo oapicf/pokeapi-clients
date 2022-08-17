@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.eggGroup:
-        class: Acme\MyBundle\Api\EggGroupApi
+    Acme\MyBundle\Api\EggGroupApi:
         tags:
             - { name: "open_api_server.api", api: "eggGroup" }
     # ...
@@ -42,7 +41,7 @@ class EggGroupApi implements EggGroupApiInterface
     /**
      * Implementation of EggGroupApiInterface#eggGroupList
      */
-    public function eggGroupList($limit = null, $offset = null)
+    public function eggGroupList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class EggGroupApi implements EggGroupApiInterface
     /**
      * Implementation of EggGroupApiInterface#eggGroupRead
      */
-    public function eggGroupRead($id)
+    public function eggGroupRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

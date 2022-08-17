@@ -29,7 +29,7 @@ dependencies {
     implementation("io.micronaut.security:micronaut-security")
     implementation("io.micronaut.security:micronaut-security-oauth2")
     implementation("io.micronaut.reactor:micronaut-reactor")
-    implementation("io.swagger:swagger-annotations:1.5.9")
+    implementation("io.swagger.core.v3:swagger-annotations:2.2.0")
     runtimeOnly("ch.qos.logback:logback-classic")
 }
 

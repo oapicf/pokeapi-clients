@@ -1,7 +1,7 @@
 package org.openapitools.api;
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2022-05-23T21:53:24.369756Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2022-08-17T11:01:46.409467Z[Etc/UTC]")
 public class ApiResponseMessage {
     public static final int ERROR = 1;
     public static final int WARNING = 2;

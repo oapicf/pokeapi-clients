@@ -3,7 +3,7 @@
 
 context("Test MoveLearnMethodApi")
 
-api.instance <- MoveLearnMethodApi$new()
+api_instance <- MoveLearnMethodApi$new()
 
 test_that("MoveLearnMethodList", {
   # tests for MoveLearnMethodList
@@ -25,4 +25,3 @@ test_that("MoveLearnMethodRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

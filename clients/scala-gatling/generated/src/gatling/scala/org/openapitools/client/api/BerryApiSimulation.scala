@@ -72,8 +72,8 @@ class BerryApiSimulation extends Simulation {
         .feed(berry_listQUERYFeeder)
         .exec(http("berryList")
         .httpRequest("GET","/api/v2/berry/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnberryList with warm up and reach a constant rate for entire duration

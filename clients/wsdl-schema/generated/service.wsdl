@@ -1,0 +1,3330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:schemas="http://localhost/soap/ServiceV1/model" xmlns:wsdl="http://localhost/soap/ServiceV1/service" targetNamespace="http://localhost/soap/ServiceV1/service" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema xmlns:tns="http://localhost/soap/ServiceV1/model" targetNamespace="http://localhost/soap/ServiceV1/model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="GetApiV2Ability_RequestMessage" type="schemas:GetApiV2Ability_RequestMessage" />
+      <xs:element name="GetApiV2Ability_ResponseMessage" type="schemas:GetApiV2Ability_ResponseMessage" />
+      <xs:element name="GetApiV2AbilityById_RequestMessage" type="schemas:GetApiV2AbilityById_RequestMessage" />
+      <xs:element name="GetApiV2AbilityById_ResponseMessage" type="schemas:GetApiV2AbilityById_ResponseMessage" />
+      <xs:element name="GetApiV2Berry_RequestMessage" type="schemas:GetApiV2Berry_RequestMessage" />
+      <xs:element name="GetApiV2Berry_ResponseMessage" type="schemas:GetApiV2Berry_ResponseMessage" />
+      <xs:element name="GetApiV2BerryById_RequestMessage" type="schemas:GetApiV2BerryById_RequestMessage" />
+      <xs:element name="GetApiV2BerryById_ResponseMessage" type="schemas:GetApiV2BerryById_ResponseMessage" />
+      <xs:element name="GetApiV2Berry-firmness_RequestMessage" type="schemas:GetApiV2Berry-firmness_RequestMessage" />
+      <xs:element name="GetApiV2Berry-firmness_ResponseMessage" type="schemas:GetApiV2Berry-firmness_ResponseMessage" />
+      <xs:element name="GetApiV2Berry-firmnessById_RequestMessage" type="schemas:GetApiV2Berry-firmnessById_RequestMessage" />
+      <xs:element name="GetApiV2Berry-firmnessById_ResponseMessage" type="schemas:GetApiV2Berry-firmnessById_ResponseMessage" />
+      <xs:element name="GetApiV2Berry-flavor_RequestMessage" type="schemas:GetApiV2Berry-flavor_RequestMessage" />
+      <xs:element name="GetApiV2Berry-flavor_ResponseMessage" type="schemas:GetApiV2Berry-flavor_ResponseMessage" />
+      <xs:element name="GetApiV2Berry-flavorById_RequestMessage" type="schemas:GetApiV2Berry-flavorById_RequestMessage" />
+      <xs:element name="GetApiV2Berry-flavorById_ResponseMessage" type="schemas:GetApiV2Berry-flavorById_ResponseMessage" />
+      <xs:element name="GetApiV2Characteristic_RequestMessage" type="schemas:GetApiV2Characteristic_RequestMessage" />
+      <xs:element name="GetApiV2Characteristic_ResponseMessage" type="schemas:GetApiV2Characteristic_ResponseMessage" />
+      <xs:element name="GetApiV2CharacteristicById_RequestMessage" type="schemas:GetApiV2CharacteristicById_RequestMessage" />
+      <xs:element name="GetApiV2CharacteristicById_ResponseMessage" type="schemas:GetApiV2CharacteristicById_ResponseMessage" />
+      <xs:element name="GetApiV2Contest-effect_RequestMessage" type="schemas:GetApiV2Contest-effect_RequestMessage" />
+      <xs:element name="GetApiV2Contest-effect_ResponseMessage" type="schemas:GetApiV2Contest-effect_ResponseMessage" />
+      <xs:element name="GetApiV2Contest-effectById_RequestMessage" type="schemas:GetApiV2Contest-effectById_RequestMessage" />
+      <xs:element name="GetApiV2Contest-effectById_ResponseMessage" type="schemas:GetApiV2Contest-effectById_ResponseMessage" />
+      <xs:element name="GetApiV2Contest-type_RequestMessage" type="schemas:GetApiV2Contest-type_RequestMessage" />
+      <xs:element name="GetApiV2Contest-type_ResponseMessage" type="schemas:GetApiV2Contest-type_ResponseMessage" />
+      <xs:element name="GetApiV2Contest-typeById_RequestMessage" type="schemas:GetApiV2Contest-typeById_RequestMessage" />
+      <xs:element name="GetApiV2Contest-typeById_ResponseMessage" type="schemas:GetApiV2Contest-typeById_ResponseMessage" />
+      <xs:element name="GetApiV2Egg-group_RequestMessage" type="schemas:GetApiV2Egg-group_RequestMessage" />
+      <xs:element name="GetApiV2Egg-group_ResponseMessage" type="schemas:GetApiV2Egg-group_ResponseMessage" />
+      <xs:element name="GetApiV2Egg-groupById_RequestMessage" type="schemas:GetApiV2Egg-groupById_RequestMessage" />
+      <xs:element name="GetApiV2Egg-groupById_ResponseMessage" type="schemas:GetApiV2Egg-groupById_ResponseMessage" />
+      <xs:element name="GetApiV2Encounter-condition_RequestMessage" type="schemas:GetApiV2Encounter-condition_RequestMessage" />
+      <xs:element name="GetApiV2Encounter-condition_ResponseMessage" type="schemas:GetApiV2Encounter-condition_ResponseMessage" />
+      <xs:element name="GetApiV2Encounter-conditionById_RequestMessage" type="schemas:GetApiV2Encounter-conditionById_RequestMessage" />
+      <xs:element name="GetApiV2Encounter-conditionById_ResponseMessage" type="schemas:GetApiV2Encounter-conditionById_ResponseMessage" />
+      <xs:element name="GetApiV2Encounter-condition-value_RequestMessage" type="schemas:GetApiV2Encounter-condition-value_RequestMessage" />
+      <xs:element name="GetApiV2Encounter-condition-value_ResponseMessage" type="schemas:GetApiV2Encounter-condition-value_ResponseMessage" />
+      <xs:element name="GetApiV2Encounter-condition-valueById_RequestMessage" type="schemas:GetApiV2Encounter-condition-valueById_RequestMessage" />
+      <xs:element name="GetApiV2Encounter-condition-valueById_ResponseMessage" type="schemas:GetApiV2Encounter-condition-valueById_ResponseMessage" />
+      <xs:element name="GetApiV2Encounter-method_RequestMessage" type="schemas:GetApiV2Encounter-method_RequestMessage" />
+      <xs:element name="GetApiV2Encounter-method_ResponseMessage" type="schemas:GetApiV2Encounter-method_ResponseMessage" />
+      <xs:element name="GetApiV2Encounter-methodById_RequestMessage" type="schemas:GetApiV2Encounter-methodById_RequestMessage" />
+      <xs:element name="GetApiV2Encounter-methodById_ResponseMessage" type="schemas:GetApiV2Encounter-methodById_ResponseMessage" />
+      <xs:element name="GetApiV2Evolution-chain_RequestMessage" type="schemas:GetApiV2Evolution-chain_RequestMessage" />
+      <xs:element name="GetApiV2Evolution-chain_ResponseMessage" type="schemas:GetApiV2Evolution-chain_ResponseMessage" />
+      <xs:element name="GetApiV2Evolution-chainById_RequestMessage" type="schemas:GetApiV2Evolution-chainById_RequestMessage" />
+      <xs:element name="GetApiV2Evolution-chainById_ResponseMessage" type="schemas:GetApiV2Evolution-chainById_ResponseMessage" />
+      <xs:element name="GetApiV2Evolution-trigger_RequestMessage" type="schemas:GetApiV2Evolution-trigger_RequestMessage" />
+      <xs:element name="GetApiV2Evolution-trigger_ResponseMessage" type="schemas:GetApiV2Evolution-trigger_ResponseMessage" />
+      <xs:element name="GetApiV2Evolution-triggerById_RequestMessage" type="schemas:GetApiV2Evolution-triggerById_RequestMessage" />
+      <xs:element name="GetApiV2Evolution-triggerById_ResponseMessage" type="schemas:GetApiV2Evolution-triggerById_ResponseMessage" />
+      <xs:element name="GetApiV2Gender_RequestMessage" type="schemas:GetApiV2Gender_RequestMessage" />
+      <xs:element name="GetApiV2Gender_ResponseMessage" type="schemas:GetApiV2Gender_ResponseMessage" />
+      <xs:element name="GetApiV2GenderById_RequestMessage" type="schemas:GetApiV2GenderById_RequestMessage" />
+      <xs:element name="GetApiV2GenderById_ResponseMessage" type="schemas:GetApiV2GenderById_ResponseMessage" />
+      <xs:element name="GetApiV2Generation_RequestMessage" type="schemas:GetApiV2Generation_RequestMessage" />
+      <xs:element name="GetApiV2Generation_ResponseMessage" type="schemas:GetApiV2Generation_ResponseMessage" />
+      <xs:element name="GetApiV2GenerationById_RequestMessage" type="schemas:GetApiV2GenerationById_RequestMessage" />
+      <xs:element name="GetApiV2GenerationById_ResponseMessage" type="schemas:GetApiV2GenerationById_ResponseMessage" />
+      <xs:element name="GetApiV2Growth-rate_RequestMessage" type="schemas:GetApiV2Growth-rate_RequestMessage" />
+      <xs:element name="GetApiV2Growth-rate_ResponseMessage" type="schemas:GetApiV2Growth-rate_ResponseMessage" />
+      <xs:element name="GetApiV2Growth-rateById_RequestMessage" type="schemas:GetApiV2Growth-rateById_RequestMessage" />
+      <xs:element name="GetApiV2Growth-rateById_ResponseMessage" type="schemas:GetApiV2Growth-rateById_ResponseMessage" />
+      <xs:element name="GetApiV2Item_RequestMessage" type="schemas:GetApiV2Item_RequestMessage" />
+      <xs:element name="GetApiV2Item_ResponseMessage" type="schemas:GetApiV2Item_ResponseMessage" />
+      <xs:element name="GetApiV2ItemById_RequestMessage" type="schemas:GetApiV2ItemById_RequestMessage" />
+      <xs:element name="GetApiV2ItemById_ResponseMessage" type="schemas:GetApiV2ItemById_ResponseMessage" />
+      <xs:element name="GetApiV2Item-attribute_RequestMessage" type="schemas:GetApiV2Item-attribute_RequestMessage" />
+      <xs:element name="GetApiV2Item-attribute_ResponseMessage" type="schemas:GetApiV2Item-attribute_ResponseMessage" />
+      <xs:element name="GetApiV2Item-attributeById_RequestMessage" type="schemas:GetApiV2Item-attributeById_RequestMessage" />
+      <xs:element name="GetApiV2Item-attributeById_ResponseMessage" type="schemas:GetApiV2Item-attributeById_ResponseMessage" />
+      <xs:element name="GetApiV2Item-category_RequestMessage" type="schemas:GetApiV2Item-category_RequestMessage" />
+      <xs:element name="GetApiV2Item-category_ResponseMessage" type="schemas:GetApiV2Item-category_ResponseMessage" />
+      <xs:element name="GetApiV2Item-categoryById_RequestMessage" type="schemas:GetApiV2Item-categoryById_RequestMessage" />
+      <xs:element name="GetApiV2Item-categoryById_ResponseMessage" type="schemas:GetApiV2Item-categoryById_ResponseMessage" />
+      <xs:element name="GetApiV2Item-fling-effect_RequestMessage" type="schemas:GetApiV2Item-fling-effect_RequestMessage" />
+      <xs:element name="GetApiV2Item-fling-effect_ResponseMessage" type="schemas:GetApiV2Item-fling-effect_ResponseMessage" />
+      <xs:element name="GetApiV2Item-fling-effectById_RequestMessage" type="schemas:GetApiV2Item-fling-effectById_RequestMessage" />
+      <xs:element name="GetApiV2Item-fling-effectById_ResponseMessage" type="schemas:GetApiV2Item-fling-effectById_ResponseMessage" />
+      <xs:element name="GetApiV2Item-pocket_RequestMessage" type="schemas:GetApiV2Item-pocket_RequestMessage" />
+      <xs:element name="GetApiV2Item-pocket_ResponseMessage" type="schemas:GetApiV2Item-pocket_ResponseMessage" />
+      <xs:element name="GetApiV2Item-pocketById_RequestMessage" type="schemas:GetApiV2Item-pocketById_RequestMessage" />
+      <xs:element name="GetApiV2Item-pocketById_ResponseMessage" type="schemas:GetApiV2Item-pocketById_ResponseMessage" />
+      <xs:element name="GetApiV2Language_RequestMessage" type="schemas:GetApiV2Language_RequestMessage" />
+      <xs:element name="GetApiV2Language_ResponseMessage" type="schemas:GetApiV2Language_ResponseMessage" />
+      <xs:element name="GetApiV2LanguageById_RequestMessage" type="schemas:GetApiV2LanguageById_RequestMessage" />
+      <xs:element name="GetApiV2LanguageById_ResponseMessage" type="schemas:GetApiV2LanguageById_ResponseMessage" />
+      <xs:element name="GetApiV2Location_RequestMessage" type="schemas:GetApiV2Location_RequestMessage" />
+      <xs:element name="GetApiV2Location_ResponseMessage" type="schemas:GetApiV2Location_ResponseMessage" />
+      <xs:element name="GetApiV2LocationById_RequestMessage" type="schemas:GetApiV2LocationById_RequestMessage" />
+      <xs:element name="GetApiV2LocationById_ResponseMessage" type="schemas:GetApiV2LocationById_ResponseMessage" />
+      <xs:element name="GetApiV2Location-area_RequestMessage" type="schemas:GetApiV2Location-area_RequestMessage" />
+      <xs:element name="GetApiV2Location-area_ResponseMessage" type="schemas:GetApiV2Location-area_ResponseMessage" />
+      <xs:element name="GetApiV2Location-areaById_RequestMessage" type="schemas:GetApiV2Location-areaById_RequestMessage" />
+      <xs:element name="GetApiV2Location-areaById_ResponseMessage" type="schemas:GetApiV2Location-areaById_ResponseMessage" />
+      <xs:element name="GetApiV2Machine_RequestMessage" type="schemas:GetApiV2Machine_RequestMessage" />
+      <xs:element name="GetApiV2Machine_ResponseMessage" type="schemas:GetApiV2Machine_ResponseMessage" />
+      <xs:element name="GetApiV2MachineById_RequestMessage" type="schemas:GetApiV2MachineById_RequestMessage" />
+      <xs:element name="GetApiV2MachineById_ResponseMessage" type="schemas:GetApiV2MachineById_ResponseMessage" />
+      <xs:element name="GetApiV2Move_RequestMessage" type="schemas:GetApiV2Move_RequestMessage" />
+      <xs:element name="GetApiV2Move_ResponseMessage" type="schemas:GetApiV2Move_ResponseMessage" />
+      <xs:element name="GetApiV2MoveById_RequestMessage" type="schemas:GetApiV2MoveById_RequestMessage" />
+      <xs:element name="GetApiV2MoveById_ResponseMessage" type="schemas:GetApiV2MoveById_ResponseMessage" />
+      <xs:element name="GetApiV2Move-ailment_RequestMessage" type="schemas:GetApiV2Move-ailment_RequestMessage" />
+      <xs:element name="GetApiV2Move-ailment_ResponseMessage" type="schemas:GetApiV2Move-ailment_ResponseMessage" />
+      <xs:element name="GetApiV2Move-ailmentById_RequestMessage" type="schemas:GetApiV2Move-ailmentById_RequestMessage" />
+      <xs:element name="GetApiV2Move-ailmentById_ResponseMessage" type="schemas:GetApiV2Move-ailmentById_ResponseMessage" />
+      <xs:element name="GetApiV2Move-battle-style_RequestMessage" type="schemas:GetApiV2Move-battle-style_RequestMessage" />
+      <xs:element name="GetApiV2Move-battle-style_ResponseMessage" type="schemas:GetApiV2Move-battle-style_ResponseMessage" />
+      <xs:element name="GetApiV2Move-battle-styleById_RequestMessage" type="schemas:GetApiV2Move-battle-styleById_RequestMessage" />
+      <xs:element name="GetApiV2Move-battle-styleById_ResponseMessage" type="schemas:GetApiV2Move-battle-styleById_ResponseMessage" />
+      <xs:element name="GetApiV2Move-category_RequestMessage" type="schemas:GetApiV2Move-category_RequestMessage" />
+      <xs:element name="GetApiV2Move-category_ResponseMessage" type="schemas:GetApiV2Move-category_ResponseMessage" />
+      <xs:element name="GetApiV2Move-categoryById_RequestMessage" type="schemas:GetApiV2Move-categoryById_RequestMessage" />
+      <xs:element name="GetApiV2Move-categoryById_ResponseMessage" type="schemas:GetApiV2Move-categoryById_ResponseMessage" />
+      <xs:element name="GetApiV2Move-damage-class_RequestMessage" type="schemas:GetApiV2Move-damage-class_RequestMessage" />
+      <xs:element name="GetApiV2Move-damage-class_ResponseMessage" type="schemas:GetApiV2Move-damage-class_ResponseMessage" />
+      <xs:element name="GetApiV2Move-damage-classById_RequestMessage" type="schemas:GetApiV2Move-damage-classById_RequestMessage" />
+      <xs:element name="GetApiV2Move-damage-classById_ResponseMessage" type="schemas:GetApiV2Move-damage-classById_ResponseMessage" />
+      <xs:element name="GetApiV2Move-learn-method_RequestMessage" type="schemas:GetApiV2Move-learn-method_RequestMessage" />
+      <xs:element name="GetApiV2Move-learn-method_ResponseMessage" type="schemas:GetApiV2Move-learn-method_ResponseMessage" />
+      <xs:element name="GetApiV2Move-learn-methodById_RequestMessage" type="schemas:GetApiV2Move-learn-methodById_RequestMessage" />
+      <xs:element name="GetApiV2Move-learn-methodById_ResponseMessage" type="schemas:GetApiV2Move-learn-methodById_ResponseMessage" />
+      <xs:element name="GetApiV2Move-target_RequestMessage" type="schemas:GetApiV2Move-target_RequestMessage" />
+      <xs:element name="GetApiV2Move-target_ResponseMessage" type="schemas:GetApiV2Move-target_ResponseMessage" />
+      <xs:element name="GetApiV2Move-targetById_RequestMessage" type="schemas:GetApiV2Move-targetById_RequestMessage" />
+      <xs:element name="GetApiV2Move-targetById_ResponseMessage" type="schemas:GetApiV2Move-targetById_ResponseMessage" />
+      <xs:element name="GetApiV2Nature_RequestMessage" type="schemas:GetApiV2Nature_RequestMessage" />
+      <xs:element name="GetApiV2Nature_ResponseMessage" type="schemas:GetApiV2Nature_ResponseMessage" />
+      <xs:element name="GetApiV2NatureById_RequestMessage" type="schemas:GetApiV2NatureById_RequestMessage" />
+      <xs:element name="GetApiV2NatureById_ResponseMessage" type="schemas:GetApiV2NatureById_ResponseMessage" />
+      <xs:element name="GetApiV2Pal-park-area_RequestMessage" type="schemas:GetApiV2Pal-park-area_RequestMessage" />
+      <xs:element name="GetApiV2Pal-park-area_ResponseMessage" type="schemas:GetApiV2Pal-park-area_ResponseMessage" />
+      <xs:element name="GetApiV2Pal-park-areaById_RequestMessage" type="schemas:GetApiV2Pal-park-areaById_RequestMessage" />
+      <xs:element name="GetApiV2Pal-park-areaById_ResponseMessage" type="schemas:GetApiV2Pal-park-areaById_ResponseMessage" />
+      <xs:element name="GetApiV2Pokeathlon-stat_RequestMessage" type="schemas:GetApiV2Pokeathlon-stat_RequestMessage" />
+      <xs:element name="GetApiV2Pokeathlon-stat_ResponseMessage" type="schemas:GetApiV2Pokeathlon-stat_ResponseMessage" />
+      <xs:element name="GetApiV2Pokeathlon-statById_RequestMessage" type="schemas:GetApiV2Pokeathlon-statById_RequestMessage" />
+      <xs:element name="GetApiV2Pokeathlon-statById_ResponseMessage" type="schemas:GetApiV2Pokeathlon-statById_ResponseMessage" />
+      <xs:element name="GetApiV2Pokedex_RequestMessage" type="schemas:GetApiV2Pokedex_RequestMessage" />
+      <xs:element name="GetApiV2Pokedex_ResponseMessage" type="schemas:GetApiV2Pokedex_ResponseMessage" />
+      <xs:element name="GetApiV2PokedexById_RequestMessage" type="schemas:GetApiV2PokedexById_RequestMessage" />
+      <xs:element name="GetApiV2PokedexById_ResponseMessage" type="schemas:GetApiV2PokedexById_ResponseMessage" />
+      <xs:element name="GetApiV2Pokemon_RequestMessage" type="schemas:GetApiV2Pokemon_RequestMessage" />
+      <xs:element name="GetApiV2Pokemon_ResponseMessage" type="schemas:GetApiV2Pokemon_ResponseMessage" />
+      <xs:element name="GetApiV2PokemonById_RequestMessage" type="schemas:GetApiV2PokemonById_RequestMessage" />
+      <xs:element name="GetApiV2PokemonById_ResponseMessage" type="schemas:GetApiV2PokemonById_ResponseMessage" />
+      <xs:element name="GetApiV2Pokemon-color_RequestMessage" type="schemas:GetApiV2Pokemon-color_RequestMessage" />
+      <xs:element name="GetApiV2Pokemon-color_ResponseMessage" type="schemas:GetApiV2Pokemon-color_ResponseMessage" />
+      <xs:element name="GetApiV2Pokemon-colorById_RequestMessage" type="schemas:GetApiV2Pokemon-colorById_RequestMessage" />
+      <xs:element name="GetApiV2Pokemon-colorById_ResponseMessage" type="schemas:GetApiV2Pokemon-colorById_ResponseMessage" />
+      <xs:element name="GetApiV2Pokemon-form_RequestMessage" type="schemas:GetApiV2Pokemon-form_RequestMessage" />
+      <xs:element name="GetApiV2Pokemon-form_ResponseMessage" type="schemas:GetApiV2Pokemon-form_ResponseMessage" />
+      <xs:element name="GetApiV2Pokemon-formById_RequestMessage" type="schemas:GetApiV2Pokemon-formById_RequestMessage" />
+      <xs:element name="GetApiV2Pokemon-formById_ResponseMessage" type="schemas:GetApiV2Pokemon-formById_ResponseMessage" />
+      <xs:element name="GetApiV2Pokemon-habitat_RequestMessage" type="schemas:GetApiV2Pokemon-habitat_RequestMessage" />
+      <xs:element name="GetApiV2Pokemon-habitat_ResponseMessage" type="schemas:GetApiV2Pokemon-habitat_ResponseMessage" />
+      <xs:element name="GetApiV2Pokemon-habitatById_RequestMessage" type="schemas:GetApiV2Pokemon-habitatById_RequestMessage" />
+      <xs:element name="GetApiV2Pokemon-habitatById_ResponseMessage" type="schemas:GetApiV2Pokemon-habitatById_ResponseMessage" />
+      <xs:element name="GetApiV2Pokemon-shape_RequestMessage" type="schemas:GetApiV2Pokemon-shape_RequestMessage" />
+      <xs:element name="GetApiV2Pokemon-shape_ResponseMessage" type="schemas:GetApiV2Pokemon-shape_ResponseMessage" />
+      <xs:element name="GetApiV2Pokemon-shapeById_RequestMessage" type="schemas:GetApiV2Pokemon-shapeById_RequestMessage" />
+      <xs:element name="GetApiV2Pokemon-shapeById_ResponseMessage" type="schemas:GetApiV2Pokemon-shapeById_ResponseMessage" />
+      <xs:element name="GetApiV2Pokemon-species_RequestMessage" type="schemas:GetApiV2Pokemon-species_RequestMessage" />
+      <xs:element name="GetApiV2Pokemon-species_ResponseMessage" type="schemas:GetApiV2Pokemon-species_ResponseMessage" />
+      <xs:element name="GetApiV2Pokemon-speciesById_RequestMessage" type="schemas:GetApiV2Pokemon-speciesById_RequestMessage" />
+      <xs:element name="GetApiV2Pokemon-speciesById_ResponseMessage" type="schemas:GetApiV2Pokemon-speciesById_ResponseMessage" />
+      <xs:element name="GetApiV2Region_RequestMessage" type="schemas:GetApiV2Region_RequestMessage" />
+      <xs:element name="GetApiV2Region_ResponseMessage" type="schemas:GetApiV2Region_ResponseMessage" />
+      <xs:element name="GetApiV2RegionById_RequestMessage" type="schemas:GetApiV2RegionById_RequestMessage" />
+      <xs:element name="GetApiV2RegionById_ResponseMessage" type="schemas:GetApiV2RegionById_ResponseMessage" />
+      <xs:element name="GetApiV2Stat_RequestMessage" type="schemas:GetApiV2Stat_RequestMessage" />
+      <xs:element name="GetApiV2Stat_ResponseMessage" type="schemas:GetApiV2Stat_ResponseMessage" />
+      <xs:element name="GetApiV2StatById_RequestMessage" type="schemas:GetApiV2StatById_RequestMessage" />
+      <xs:element name="GetApiV2StatById_ResponseMessage" type="schemas:GetApiV2StatById_ResponseMessage" />
+      <xs:element name="GetApiV2Super-contest-effect_RequestMessage" type="schemas:GetApiV2Super-contest-effect_RequestMessage" />
+      <xs:element name="GetApiV2Super-contest-effect_ResponseMessage" type="schemas:GetApiV2Super-contest-effect_ResponseMessage" />
+      <xs:element name="GetApiV2Super-contest-effectById_RequestMessage" type="schemas:GetApiV2Super-contest-effectById_RequestMessage" />
+      <xs:element name="GetApiV2Super-contest-effectById_ResponseMessage" type="schemas:GetApiV2Super-contest-effectById_ResponseMessage" />
+      <xs:element name="GetApiV2Type_RequestMessage" type="schemas:GetApiV2Type_RequestMessage" />
+      <xs:element name="GetApiV2Type_ResponseMessage" type="schemas:GetApiV2Type_ResponseMessage" />
+      <xs:element name="GetApiV2TypeById_RequestMessage" type="schemas:GetApiV2TypeById_RequestMessage" />
+      <xs:element name="GetApiV2TypeById_ResponseMessage" type="schemas:GetApiV2TypeById_ResponseMessage" />
+      <xs:element name="GetApiV2Version_RequestMessage" type="schemas:GetApiV2Version_RequestMessage" />
+      <xs:element name="GetApiV2Version_ResponseMessage" type="schemas:GetApiV2Version_ResponseMessage" />
+      <xs:element name="GetApiV2VersionById_RequestMessage" type="schemas:GetApiV2VersionById_RequestMessage" />
+      <xs:element name="GetApiV2VersionById_ResponseMessage" type="schemas:GetApiV2VersionById_ResponseMessage" />
+      <xs:element name="GetApiV2Version-group_RequestMessage" type="schemas:GetApiV2Version-group_RequestMessage" />
+      <xs:element name="GetApiV2Version-group_ResponseMessage" type="schemas:GetApiV2Version-group_ResponseMessage" />
+      <xs:element name="GetApiV2Version-groupById_RequestMessage" type="schemas:GetApiV2Version-groupById_RequestMessage" />
+      <xs:element name="GetApiV2Version-groupById_ResponseMessage" type="schemas:GetApiV2Version-groupById_ResponseMessage" />
+      <xs:complexType name="GetApiV2Ability_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Ability_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2AbilityById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2AbilityById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Berry_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Berry_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2BerryById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2BerryById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Berry-firmness_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Berry-firmness_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Berry-firmnessById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Berry-firmnessById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Berry-flavor_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Berry-flavor_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Berry-flavorById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Berry-flavorById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Characteristic_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Characteristic_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2CharacteristicById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2CharacteristicById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Contest-effect_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Contest-effect_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Contest-effectById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Contest-effectById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Contest-type_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Contest-type_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Contest-typeById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Contest-typeById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Egg-group_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Egg-group_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Egg-groupById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Egg-groupById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Encounter-condition_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Encounter-condition_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Encounter-conditionById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Encounter-conditionById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Encounter-condition-value_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Encounter-condition-value_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Encounter-condition-valueById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Encounter-condition-valueById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Encounter-method_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Encounter-method_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Encounter-methodById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Encounter-methodById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Evolution-chain_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Evolution-chain_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Evolution-chainById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Evolution-chainById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Evolution-trigger_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Evolution-trigger_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Evolution-triggerById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Evolution-triggerById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Gender_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Gender_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2GenderById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2GenderById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Generation_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Generation_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2GenerationById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2GenerationById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Growth-rate_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Growth-rate_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Growth-rateById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Growth-rateById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2ItemById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2ItemById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item-attribute_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item-attribute_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item-attributeById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item-attributeById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item-category_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item-category_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item-categoryById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item-categoryById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item-fling-effect_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item-fling-effect_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item-fling-effectById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item-fling-effectById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item-pocket_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item-pocket_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item-pocketById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Item-pocketById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Language_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Language_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2LanguageById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2LanguageById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Location_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Location_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2LocationById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2LocationById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Location-area_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Location-area_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Location-areaById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Location-areaById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Machine_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Machine_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2MachineById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2MachineById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2MoveById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2MoveById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-ailment_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-ailment_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-ailmentById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-ailmentById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-battle-style_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-battle-style_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-battle-styleById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-battle-styleById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-category_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-category_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-categoryById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-categoryById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-damage-class_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-damage-class_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-damage-classById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-damage-classById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-learn-method_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-learn-method_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-learn-methodById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-learn-methodById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-target_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-target_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-targetById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Move-targetById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Nature_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Nature_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2NatureById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2NatureById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pal-park-area_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pal-park-area_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pal-park-areaById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pal-park-areaById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokeathlon-stat_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokeathlon-stat_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokeathlon-statById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokeathlon-statById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokedex_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokedex_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2PokedexById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2PokedexById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2PokemonById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2PokemonById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-color_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-color_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-colorById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-colorById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-form_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-form_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-formById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-formById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-habitat_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-habitat_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-habitatById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-habitatById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-shape_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-shape_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-shapeById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-shapeById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-species_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-species_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-speciesById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Pokemon-speciesById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Region_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Region_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2RegionById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2RegionById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Stat_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Stat_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2StatById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2StatById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Super-contest-effect_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Super-contest-effect_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Super-contest-effectById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Super-contest-effectById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Type_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Type_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2TypeById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2TypeById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Version_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Version_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2VersionById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2VersionById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Version-group_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="limit" type="xs:integer" />
+          <xs:element minOccurs="0" name="offset" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Version-group_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Version-groupById_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:integer" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiV2Version-groupById_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="String" type="schemas:String">
+            <xs:annotation>
+              <xs:documentation>Default response</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="GetApiV2Ability_RequestMessage">
+    <part name="GetApiV2Ability_RequestMessage" element="schemas:GetApiV2Ability_RequestMessage" />
+  </message>
+  <message name="GetApiV2Ability_ResponseMessage">
+    <part name="GetApiV2Ability_ResponseMessage" element="schemas:GetApiV2Ability_ResponseMessage" />
+  </message>
+  <message name="GetApiV2AbilityById_RequestMessage">
+    <part name="GetApiV2AbilityById_RequestMessage" element="schemas:GetApiV2AbilityById_RequestMessage" />
+  </message>
+  <message name="GetApiV2AbilityById_ResponseMessage">
+    <part name="GetApiV2AbilityById_ResponseMessage" element="schemas:GetApiV2AbilityById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Berry_RequestMessage">
+    <part name="GetApiV2Berry_RequestMessage" element="schemas:GetApiV2Berry_RequestMessage" />
+  </message>
+  <message name="GetApiV2Berry_ResponseMessage">
+    <part name="GetApiV2Berry_ResponseMessage" element="schemas:GetApiV2Berry_ResponseMessage" />
+  </message>
+  <message name="GetApiV2BerryById_RequestMessage">
+    <part name="GetApiV2BerryById_RequestMessage" element="schemas:GetApiV2BerryById_RequestMessage" />
+  </message>
+  <message name="GetApiV2BerryById_ResponseMessage">
+    <part name="GetApiV2BerryById_ResponseMessage" element="schemas:GetApiV2BerryById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Berry-firmness_RequestMessage">
+    <part name="GetApiV2Berry-firmness_RequestMessage" element="schemas:GetApiV2Berry-firmness_RequestMessage" />
+  </message>
+  <message name="GetApiV2Berry-firmness_ResponseMessage">
+    <part name="GetApiV2Berry-firmness_ResponseMessage" element="schemas:GetApiV2Berry-firmness_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Berry-firmnessById_RequestMessage">
+    <part name="GetApiV2Berry-firmnessById_RequestMessage" element="schemas:GetApiV2Berry-firmnessById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Berry-firmnessById_ResponseMessage">
+    <part name="GetApiV2Berry-firmnessById_ResponseMessage" element="schemas:GetApiV2Berry-firmnessById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Berry-flavor_RequestMessage">
+    <part name="GetApiV2Berry-flavor_RequestMessage" element="schemas:GetApiV2Berry-flavor_RequestMessage" />
+  </message>
+  <message name="GetApiV2Berry-flavor_ResponseMessage">
+    <part name="GetApiV2Berry-flavor_ResponseMessage" element="schemas:GetApiV2Berry-flavor_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Berry-flavorById_RequestMessage">
+    <part name="GetApiV2Berry-flavorById_RequestMessage" element="schemas:GetApiV2Berry-flavorById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Berry-flavorById_ResponseMessage">
+    <part name="GetApiV2Berry-flavorById_ResponseMessage" element="schemas:GetApiV2Berry-flavorById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Characteristic_RequestMessage">
+    <part name="GetApiV2Characteristic_RequestMessage" element="schemas:GetApiV2Characteristic_RequestMessage" />
+  </message>
+  <message name="GetApiV2Characteristic_ResponseMessage">
+    <part name="GetApiV2Characteristic_ResponseMessage" element="schemas:GetApiV2Characteristic_ResponseMessage" />
+  </message>
+  <message name="GetApiV2CharacteristicById_RequestMessage">
+    <part name="GetApiV2CharacteristicById_RequestMessage" element="schemas:GetApiV2CharacteristicById_RequestMessage" />
+  </message>
+  <message name="GetApiV2CharacteristicById_ResponseMessage">
+    <part name="GetApiV2CharacteristicById_ResponseMessage" element="schemas:GetApiV2CharacteristicById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Contest-effect_RequestMessage">
+    <part name="GetApiV2Contest-effect_RequestMessage" element="schemas:GetApiV2Contest-effect_RequestMessage" />
+  </message>
+  <message name="GetApiV2Contest-effect_ResponseMessage">
+    <part name="GetApiV2Contest-effect_ResponseMessage" element="schemas:GetApiV2Contest-effect_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Contest-effectById_RequestMessage">
+    <part name="GetApiV2Contest-effectById_RequestMessage" element="schemas:GetApiV2Contest-effectById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Contest-effectById_ResponseMessage">
+    <part name="GetApiV2Contest-effectById_ResponseMessage" element="schemas:GetApiV2Contest-effectById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Contest-type_RequestMessage">
+    <part name="GetApiV2Contest-type_RequestMessage" element="schemas:GetApiV2Contest-type_RequestMessage" />
+  </message>
+  <message name="GetApiV2Contest-type_ResponseMessage">
+    <part name="GetApiV2Contest-type_ResponseMessage" element="schemas:GetApiV2Contest-type_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Contest-typeById_RequestMessage">
+    <part name="GetApiV2Contest-typeById_RequestMessage" element="schemas:GetApiV2Contest-typeById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Contest-typeById_ResponseMessage">
+    <part name="GetApiV2Contest-typeById_ResponseMessage" element="schemas:GetApiV2Contest-typeById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Egg-group_RequestMessage">
+    <part name="GetApiV2Egg-group_RequestMessage" element="schemas:GetApiV2Egg-group_RequestMessage" />
+  </message>
+  <message name="GetApiV2Egg-group_ResponseMessage">
+    <part name="GetApiV2Egg-group_ResponseMessage" element="schemas:GetApiV2Egg-group_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Egg-groupById_RequestMessage">
+    <part name="GetApiV2Egg-groupById_RequestMessage" element="schemas:GetApiV2Egg-groupById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Egg-groupById_ResponseMessage">
+    <part name="GetApiV2Egg-groupById_ResponseMessage" element="schemas:GetApiV2Egg-groupById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Encounter-condition_RequestMessage">
+    <part name="GetApiV2Encounter-condition_RequestMessage" element="schemas:GetApiV2Encounter-condition_RequestMessage" />
+  </message>
+  <message name="GetApiV2Encounter-condition_ResponseMessage">
+    <part name="GetApiV2Encounter-condition_ResponseMessage" element="schemas:GetApiV2Encounter-condition_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Encounter-conditionById_RequestMessage">
+    <part name="GetApiV2Encounter-conditionById_RequestMessage" element="schemas:GetApiV2Encounter-conditionById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Encounter-conditionById_ResponseMessage">
+    <part name="GetApiV2Encounter-conditionById_ResponseMessage" element="schemas:GetApiV2Encounter-conditionById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Encounter-condition-value_RequestMessage">
+    <part name="GetApiV2Encounter-condition-value_RequestMessage" element="schemas:GetApiV2Encounter-condition-value_RequestMessage" />
+  </message>
+  <message name="GetApiV2Encounter-condition-value_ResponseMessage">
+    <part name="GetApiV2Encounter-condition-value_ResponseMessage" element="schemas:GetApiV2Encounter-condition-value_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Encounter-condition-valueById_RequestMessage">
+    <part name="GetApiV2Encounter-condition-valueById_RequestMessage" element="schemas:GetApiV2Encounter-condition-valueById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Encounter-condition-valueById_ResponseMessage">
+    <part name="GetApiV2Encounter-condition-valueById_ResponseMessage" element="schemas:GetApiV2Encounter-condition-valueById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Encounter-method_RequestMessage">
+    <part name="GetApiV2Encounter-method_RequestMessage" element="schemas:GetApiV2Encounter-method_RequestMessage" />
+  </message>
+  <message name="GetApiV2Encounter-method_ResponseMessage">
+    <part name="GetApiV2Encounter-method_ResponseMessage" element="schemas:GetApiV2Encounter-method_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Encounter-methodById_RequestMessage">
+    <part name="GetApiV2Encounter-methodById_RequestMessage" element="schemas:GetApiV2Encounter-methodById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Encounter-methodById_ResponseMessage">
+    <part name="GetApiV2Encounter-methodById_ResponseMessage" element="schemas:GetApiV2Encounter-methodById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Evolution-chain_RequestMessage">
+    <part name="GetApiV2Evolution-chain_RequestMessage" element="schemas:GetApiV2Evolution-chain_RequestMessage" />
+  </message>
+  <message name="GetApiV2Evolution-chain_ResponseMessage">
+    <part name="GetApiV2Evolution-chain_ResponseMessage" element="schemas:GetApiV2Evolution-chain_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Evolution-chainById_RequestMessage">
+    <part name="GetApiV2Evolution-chainById_RequestMessage" element="schemas:GetApiV2Evolution-chainById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Evolution-chainById_ResponseMessage">
+    <part name="GetApiV2Evolution-chainById_ResponseMessage" element="schemas:GetApiV2Evolution-chainById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Evolution-trigger_RequestMessage">
+    <part name="GetApiV2Evolution-trigger_RequestMessage" element="schemas:GetApiV2Evolution-trigger_RequestMessage" />
+  </message>
+  <message name="GetApiV2Evolution-trigger_ResponseMessage">
+    <part name="GetApiV2Evolution-trigger_ResponseMessage" element="schemas:GetApiV2Evolution-trigger_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Evolution-triggerById_RequestMessage">
+    <part name="GetApiV2Evolution-triggerById_RequestMessage" element="schemas:GetApiV2Evolution-triggerById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Evolution-triggerById_ResponseMessage">
+    <part name="GetApiV2Evolution-triggerById_ResponseMessage" element="schemas:GetApiV2Evolution-triggerById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Gender_RequestMessage">
+    <part name="GetApiV2Gender_RequestMessage" element="schemas:GetApiV2Gender_RequestMessage" />
+  </message>
+  <message name="GetApiV2Gender_ResponseMessage">
+    <part name="GetApiV2Gender_ResponseMessage" element="schemas:GetApiV2Gender_ResponseMessage" />
+  </message>
+  <message name="GetApiV2GenderById_RequestMessage">
+    <part name="GetApiV2GenderById_RequestMessage" element="schemas:GetApiV2GenderById_RequestMessage" />
+  </message>
+  <message name="GetApiV2GenderById_ResponseMessage">
+    <part name="GetApiV2GenderById_ResponseMessage" element="schemas:GetApiV2GenderById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Generation_RequestMessage">
+    <part name="GetApiV2Generation_RequestMessage" element="schemas:GetApiV2Generation_RequestMessage" />
+  </message>
+  <message name="GetApiV2Generation_ResponseMessage">
+    <part name="GetApiV2Generation_ResponseMessage" element="schemas:GetApiV2Generation_ResponseMessage" />
+  </message>
+  <message name="GetApiV2GenerationById_RequestMessage">
+    <part name="GetApiV2GenerationById_RequestMessage" element="schemas:GetApiV2GenerationById_RequestMessage" />
+  </message>
+  <message name="GetApiV2GenerationById_ResponseMessage">
+    <part name="GetApiV2GenerationById_ResponseMessage" element="schemas:GetApiV2GenerationById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Growth-rate_RequestMessage">
+    <part name="GetApiV2Growth-rate_RequestMessage" element="schemas:GetApiV2Growth-rate_RequestMessage" />
+  </message>
+  <message name="GetApiV2Growth-rate_ResponseMessage">
+    <part name="GetApiV2Growth-rate_ResponseMessage" element="schemas:GetApiV2Growth-rate_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Growth-rateById_RequestMessage">
+    <part name="GetApiV2Growth-rateById_RequestMessage" element="schemas:GetApiV2Growth-rateById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Growth-rateById_ResponseMessage">
+    <part name="GetApiV2Growth-rateById_ResponseMessage" element="schemas:GetApiV2Growth-rateById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Item_RequestMessage">
+    <part name="GetApiV2Item_RequestMessage" element="schemas:GetApiV2Item_RequestMessage" />
+  </message>
+  <message name="GetApiV2Item_ResponseMessage">
+    <part name="GetApiV2Item_ResponseMessage" element="schemas:GetApiV2Item_ResponseMessage" />
+  </message>
+  <message name="GetApiV2ItemById_RequestMessage">
+    <part name="GetApiV2ItemById_RequestMessage" element="schemas:GetApiV2ItemById_RequestMessage" />
+  </message>
+  <message name="GetApiV2ItemById_ResponseMessage">
+    <part name="GetApiV2ItemById_ResponseMessage" element="schemas:GetApiV2ItemById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Item-attribute_RequestMessage">
+    <part name="GetApiV2Item-attribute_RequestMessage" element="schemas:GetApiV2Item-attribute_RequestMessage" />
+  </message>
+  <message name="GetApiV2Item-attribute_ResponseMessage">
+    <part name="GetApiV2Item-attribute_ResponseMessage" element="schemas:GetApiV2Item-attribute_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Item-attributeById_RequestMessage">
+    <part name="GetApiV2Item-attributeById_RequestMessage" element="schemas:GetApiV2Item-attributeById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Item-attributeById_ResponseMessage">
+    <part name="GetApiV2Item-attributeById_ResponseMessage" element="schemas:GetApiV2Item-attributeById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Item-category_RequestMessage">
+    <part name="GetApiV2Item-category_RequestMessage" element="schemas:GetApiV2Item-category_RequestMessage" />
+  </message>
+  <message name="GetApiV2Item-category_ResponseMessage">
+    <part name="GetApiV2Item-category_ResponseMessage" element="schemas:GetApiV2Item-category_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Item-categoryById_RequestMessage">
+    <part name="GetApiV2Item-categoryById_RequestMessage" element="schemas:GetApiV2Item-categoryById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Item-categoryById_ResponseMessage">
+    <part name="GetApiV2Item-categoryById_ResponseMessage" element="schemas:GetApiV2Item-categoryById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Item-fling-effect_RequestMessage">
+    <part name="GetApiV2Item-fling-effect_RequestMessage" element="schemas:GetApiV2Item-fling-effect_RequestMessage" />
+  </message>
+  <message name="GetApiV2Item-fling-effect_ResponseMessage">
+    <part name="GetApiV2Item-fling-effect_ResponseMessage" element="schemas:GetApiV2Item-fling-effect_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Item-fling-effectById_RequestMessage">
+    <part name="GetApiV2Item-fling-effectById_RequestMessage" element="schemas:GetApiV2Item-fling-effectById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Item-fling-effectById_ResponseMessage">
+    <part name="GetApiV2Item-fling-effectById_ResponseMessage" element="schemas:GetApiV2Item-fling-effectById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Item-pocket_RequestMessage">
+    <part name="GetApiV2Item-pocket_RequestMessage" element="schemas:GetApiV2Item-pocket_RequestMessage" />
+  </message>
+  <message name="GetApiV2Item-pocket_ResponseMessage">
+    <part name="GetApiV2Item-pocket_ResponseMessage" element="schemas:GetApiV2Item-pocket_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Item-pocketById_RequestMessage">
+    <part name="GetApiV2Item-pocketById_RequestMessage" element="schemas:GetApiV2Item-pocketById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Item-pocketById_ResponseMessage">
+    <part name="GetApiV2Item-pocketById_ResponseMessage" element="schemas:GetApiV2Item-pocketById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Language_RequestMessage">
+    <part name="GetApiV2Language_RequestMessage" element="schemas:GetApiV2Language_RequestMessage" />
+  </message>
+  <message name="GetApiV2Language_ResponseMessage">
+    <part name="GetApiV2Language_ResponseMessage" element="schemas:GetApiV2Language_ResponseMessage" />
+  </message>
+  <message name="GetApiV2LanguageById_RequestMessage">
+    <part name="GetApiV2LanguageById_RequestMessage" element="schemas:GetApiV2LanguageById_RequestMessage" />
+  </message>
+  <message name="GetApiV2LanguageById_ResponseMessage">
+    <part name="GetApiV2LanguageById_ResponseMessage" element="schemas:GetApiV2LanguageById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Location_RequestMessage">
+    <part name="GetApiV2Location_RequestMessage" element="schemas:GetApiV2Location_RequestMessage" />
+  </message>
+  <message name="GetApiV2Location_ResponseMessage">
+    <part name="GetApiV2Location_ResponseMessage" element="schemas:GetApiV2Location_ResponseMessage" />
+  </message>
+  <message name="GetApiV2LocationById_RequestMessage">
+    <part name="GetApiV2LocationById_RequestMessage" element="schemas:GetApiV2LocationById_RequestMessage" />
+  </message>
+  <message name="GetApiV2LocationById_ResponseMessage">
+    <part name="GetApiV2LocationById_ResponseMessage" element="schemas:GetApiV2LocationById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Location-area_RequestMessage">
+    <part name="GetApiV2Location-area_RequestMessage" element="schemas:GetApiV2Location-area_RequestMessage" />
+  </message>
+  <message name="GetApiV2Location-area_ResponseMessage">
+    <part name="GetApiV2Location-area_ResponseMessage" element="schemas:GetApiV2Location-area_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Location-areaById_RequestMessage">
+    <part name="GetApiV2Location-areaById_RequestMessage" element="schemas:GetApiV2Location-areaById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Location-areaById_ResponseMessage">
+    <part name="GetApiV2Location-areaById_ResponseMessage" element="schemas:GetApiV2Location-areaById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Machine_RequestMessage">
+    <part name="GetApiV2Machine_RequestMessage" element="schemas:GetApiV2Machine_RequestMessage" />
+  </message>
+  <message name="GetApiV2Machine_ResponseMessage">
+    <part name="GetApiV2Machine_ResponseMessage" element="schemas:GetApiV2Machine_ResponseMessage" />
+  </message>
+  <message name="GetApiV2MachineById_RequestMessage">
+    <part name="GetApiV2MachineById_RequestMessage" element="schemas:GetApiV2MachineById_RequestMessage" />
+  </message>
+  <message name="GetApiV2MachineById_ResponseMessage">
+    <part name="GetApiV2MachineById_ResponseMessage" element="schemas:GetApiV2MachineById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Move_RequestMessage">
+    <part name="GetApiV2Move_RequestMessage" element="schemas:GetApiV2Move_RequestMessage" />
+  </message>
+  <message name="GetApiV2Move_ResponseMessage">
+    <part name="GetApiV2Move_ResponseMessage" element="schemas:GetApiV2Move_ResponseMessage" />
+  </message>
+  <message name="GetApiV2MoveById_RequestMessage">
+    <part name="GetApiV2MoveById_RequestMessage" element="schemas:GetApiV2MoveById_RequestMessage" />
+  </message>
+  <message name="GetApiV2MoveById_ResponseMessage">
+    <part name="GetApiV2MoveById_ResponseMessage" element="schemas:GetApiV2MoveById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Move-ailment_RequestMessage">
+    <part name="GetApiV2Move-ailment_RequestMessage" element="schemas:GetApiV2Move-ailment_RequestMessage" />
+  </message>
+  <message name="GetApiV2Move-ailment_ResponseMessage">
+    <part name="GetApiV2Move-ailment_ResponseMessage" element="schemas:GetApiV2Move-ailment_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Move-ailmentById_RequestMessage">
+    <part name="GetApiV2Move-ailmentById_RequestMessage" element="schemas:GetApiV2Move-ailmentById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Move-ailmentById_ResponseMessage">
+    <part name="GetApiV2Move-ailmentById_ResponseMessage" element="schemas:GetApiV2Move-ailmentById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Move-battle-style_RequestMessage">
+    <part name="GetApiV2Move-battle-style_RequestMessage" element="schemas:GetApiV2Move-battle-style_RequestMessage" />
+  </message>
+  <message name="GetApiV2Move-battle-style_ResponseMessage">
+    <part name="GetApiV2Move-battle-style_ResponseMessage" element="schemas:GetApiV2Move-battle-style_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Move-battle-styleById_RequestMessage">
+    <part name="GetApiV2Move-battle-styleById_RequestMessage" element="schemas:GetApiV2Move-battle-styleById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Move-battle-styleById_ResponseMessage">
+    <part name="GetApiV2Move-battle-styleById_ResponseMessage" element="schemas:GetApiV2Move-battle-styleById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Move-category_RequestMessage">
+    <part name="GetApiV2Move-category_RequestMessage" element="schemas:GetApiV2Move-category_RequestMessage" />
+  </message>
+  <message name="GetApiV2Move-category_ResponseMessage">
+    <part name="GetApiV2Move-category_ResponseMessage" element="schemas:GetApiV2Move-category_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Move-categoryById_RequestMessage">
+    <part name="GetApiV2Move-categoryById_RequestMessage" element="schemas:GetApiV2Move-categoryById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Move-categoryById_ResponseMessage">
+    <part name="GetApiV2Move-categoryById_ResponseMessage" element="schemas:GetApiV2Move-categoryById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Move-damage-class_RequestMessage">
+    <part name="GetApiV2Move-damage-class_RequestMessage" element="schemas:GetApiV2Move-damage-class_RequestMessage" />
+  </message>
+  <message name="GetApiV2Move-damage-class_ResponseMessage">
+    <part name="GetApiV2Move-damage-class_ResponseMessage" element="schemas:GetApiV2Move-damage-class_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Move-damage-classById_RequestMessage">
+    <part name="GetApiV2Move-damage-classById_RequestMessage" element="schemas:GetApiV2Move-damage-classById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Move-damage-classById_ResponseMessage">
+    <part name="GetApiV2Move-damage-classById_ResponseMessage" element="schemas:GetApiV2Move-damage-classById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Move-learn-method_RequestMessage">
+    <part name="GetApiV2Move-learn-method_RequestMessage" element="schemas:GetApiV2Move-learn-method_RequestMessage" />
+  </message>
+  <message name="GetApiV2Move-learn-method_ResponseMessage">
+    <part name="GetApiV2Move-learn-method_ResponseMessage" element="schemas:GetApiV2Move-learn-method_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Move-learn-methodById_RequestMessage">
+    <part name="GetApiV2Move-learn-methodById_RequestMessage" element="schemas:GetApiV2Move-learn-methodById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Move-learn-methodById_ResponseMessage">
+    <part name="GetApiV2Move-learn-methodById_ResponseMessage" element="schemas:GetApiV2Move-learn-methodById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Move-target_RequestMessage">
+    <part name="GetApiV2Move-target_RequestMessage" element="schemas:GetApiV2Move-target_RequestMessage" />
+  </message>
+  <message name="GetApiV2Move-target_ResponseMessage">
+    <part name="GetApiV2Move-target_ResponseMessage" element="schemas:GetApiV2Move-target_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Move-targetById_RequestMessage">
+    <part name="GetApiV2Move-targetById_RequestMessage" element="schemas:GetApiV2Move-targetById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Move-targetById_ResponseMessage">
+    <part name="GetApiV2Move-targetById_ResponseMessage" element="schemas:GetApiV2Move-targetById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Nature_RequestMessage">
+    <part name="GetApiV2Nature_RequestMessage" element="schemas:GetApiV2Nature_RequestMessage" />
+  </message>
+  <message name="GetApiV2Nature_ResponseMessage">
+    <part name="GetApiV2Nature_ResponseMessage" element="schemas:GetApiV2Nature_ResponseMessage" />
+  </message>
+  <message name="GetApiV2NatureById_RequestMessage">
+    <part name="GetApiV2NatureById_RequestMessage" element="schemas:GetApiV2NatureById_RequestMessage" />
+  </message>
+  <message name="GetApiV2NatureById_ResponseMessage">
+    <part name="GetApiV2NatureById_ResponseMessage" element="schemas:GetApiV2NatureById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Pal-park-area_RequestMessage">
+    <part name="GetApiV2Pal-park-area_RequestMessage" element="schemas:GetApiV2Pal-park-area_RequestMessage" />
+  </message>
+  <message name="GetApiV2Pal-park-area_ResponseMessage">
+    <part name="GetApiV2Pal-park-area_ResponseMessage" element="schemas:GetApiV2Pal-park-area_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Pal-park-areaById_RequestMessage">
+    <part name="GetApiV2Pal-park-areaById_RequestMessage" element="schemas:GetApiV2Pal-park-areaById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Pal-park-areaById_ResponseMessage">
+    <part name="GetApiV2Pal-park-areaById_ResponseMessage" element="schemas:GetApiV2Pal-park-areaById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Pokeathlon-stat_RequestMessage">
+    <part name="GetApiV2Pokeathlon-stat_RequestMessage" element="schemas:GetApiV2Pokeathlon-stat_RequestMessage" />
+  </message>
+  <message name="GetApiV2Pokeathlon-stat_ResponseMessage">
+    <part name="GetApiV2Pokeathlon-stat_ResponseMessage" element="schemas:GetApiV2Pokeathlon-stat_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Pokeathlon-statById_RequestMessage">
+    <part name="GetApiV2Pokeathlon-statById_RequestMessage" element="schemas:GetApiV2Pokeathlon-statById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Pokeathlon-statById_ResponseMessage">
+    <part name="GetApiV2Pokeathlon-statById_ResponseMessage" element="schemas:GetApiV2Pokeathlon-statById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Pokedex_RequestMessage">
+    <part name="GetApiV2Pokedex_RequestMessage" element="schemas:GetApiV2Pokedex_RequestMessage" />
+  </message>
+  <message name="GetApiV2Pokedex_ResponseMessage">
+    <part name="GetApiV2Pokedex_ResponseMessage" element="schemas:GetApiV2Pokedex_ResponseMessage" />
+  </message>
+  <message name="GetApiV2PokedexById_RequestMessage">
+    <part name="GetApiV2PokedexById_RequestMessage" element="schemas:GetApiV2PokedexById_RequestMessage" />
+  </message>
+  <message name="GetApiV2PokedexById_ResponseMessage">
+    <part name="GetApiV2PokedexById_ResponseMessage" element="schemas:GetApiV2PokedexById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Pokemon_RequestMessage">
+    <part name="GetApiV2Pokemon_RequestMessage" element="schemas:GetApiV2Pokemon_RequestMessage" />
+  </message>
+  <message name="GetApiV2Pokemon_ResponseMessage">
+    <part name="GetApiV2Pokemon_ResponseMessage" element="schemas:GetApiV2Pokemon_ResponseMessage" />
+  </message>
+  <message name="GetApiV2PokemonById_RequestMessage">
+    <part name="GetApiV2PokemonById_RequestMessage" element="schemas:GetApiV2PokemonById_RequestMessage" />
+  </message>
+  <message name="GetApiV2PokemonById_ResponseMessage">
+    <part name="GetApiV2PokemonById_ResponseMessage" element="schemas:GetApiV2PokemonById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-color_RequestMessage">
+    <part name="GetApiV2Pokemon-color_RequestMessage" element="schemas:GetApiV2Pokemon-color_RequestMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-color_ResponseMessage">
+    <part name="GetApiV2Pokemon-color_ResponseMessage" element="schemas:GetApiV2Pokemon-color_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-colorById_RequestMessage">
+    <part name="GetApiV2Pokemon-colorById_RequestMessage" element="schemas:GetApiV2Pokemon-colorById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-colorById_ResponseMessage">
+    <part name="GetApiV2Pokemon-colorById_ResponseMessage" element="schemas:GetApiV2Pokemon-colorById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-form_RequestMessage">
+    <part name="GetApiV2Pokemon-form_RequestMessage" element="schemas:GetApiV2Pokemon-form_RequestMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-form_ResponseMessage">
+    <part name="GetApiV2Pokemon-form_ResponseMessage" element="schemas:GetApiV2Pokemon-form_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-formById_RequestMessage">
+    <part name="GetApiV2Pokemon-formById_RequestMessage" element="schemas:GetApiV2Pokemon-formById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-formById_ResponseMessage">
+    <part name="GetApiV2Pokemon-formById_ResponseMessage" element="schemas:GetApiV2Pokemon-formById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-habitat_RequestMessage">
+    <part name="GetApiV2Pokemon-habitat_RequestMessage" element="schemas:GetApiV2Pokemon-habitat_RequestMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-habitat_ResponseMessage">
+    <part name="GetApiV2Pokemon-habitat_ResponseMessage" element="schemas:GetApiV2Pokemon-habitat_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-habitatById_RequestMessage">
+    <part name="GetApiV2Pokemon-habitatById_RequestMessage" element="schemas:GetApiV2Pokemon-habitatById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-habitatById_ResponseMessage">
+    <part name="GetApiV2Pokemon-habitatById_ResponseMessage" element="schemas:GetApiV2Pokemon-habitatById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-shape_RequestMessage">
+    <part name="GetApiV2Pokemon-shape_RequestMessage" element="schemas:GetApiV2Pokemon-shape_RequestMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-shape_ResponseMessage">
+    <part name="GetApiV2Pokemon-shape_ResponseMessage" element="schemas:GetApiV2Pokemon-shape_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-shapeById_RequestMessage">
+    <part name="GetApiV2Pokemon-shapeById_RequestMessage" element="schemas:GetApiV2Pokemon-shapeById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-shapeById_ResponseMessage">
+    <part name="GetApiV2Pokemon-shapeById_ResponseMessage" element="schemas:GetApiV2Pokemon-shapeById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-species_RequestMessage">
+    <part name="GetApiV2Pokemon-species_RequestMessage" element="schemas:GetApiV2Pokemon-species_RequestMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-species_ResponseMessage">
+    <part name="GetApiV2Pokemon-species_ResponseMessage" element="schemas:GetApiV2Pokemon-species_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-speciesById_RequestMessage">
+    <part name="GetApiV2Pokemon-speciesById_RequestMessage" element="schemas:GetApiV2Pokemon-speciesById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Pokemon-speciesById_ResponseMessage">
+    <part name="GetApiV2Pokemon-speciesById_ResponseMessage" element="schemas:GetApiV2Pokemon-speciesById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Region_RequestMessage">
+    <part name="GetApiV2Region_RequestMessage" element="schemas:GetApiV2Region_RequestMessage" />
+  </message>
+  <message name="GetApiV2Region_ResponseMessage">
+    <part name="GetApiV2Region_ResponseMessage" element="schemas:GetApiV2Region_ResponseMessage" />
+  </message>
+  <message name="GetApiV2RegionById_RequestMessage">
+    <part name="GetApiV2RegionById_RequestMessage" element="schemas:GetApiV2RegionById_RequestMessage" />
+  </message>
+  <message name="GetApiV2RegionById_ResponseMessage">
+    <part name="GetApiV2RegionById_ResponseMessage" element="schemas:GetApiV2RegionById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Stat_RequestMessage">
+    <part name="GetApiV2Stat_RequestMessage" element="schemas:GetApiV2Stat_RequestMessage" />
+  </message>
+  <message name="GetApiV2Stat_ResponseMessage">
+    <part name="GetApiV2Stat_ResponseMessage" element="schemas:GetApiV2Stat_ResponseMessage" />
+  </message>
+  <message name="GetApiV2StatById_RequestMessage">
+    <part name="GetApiV2StatById_RequestMessage" element="schemas:GetApiV2StatById_RequestMessage" />
+  </message>
+  <message name="GetApiV2StatById_ResponseMessage">
+    <part name="GetApiV2StatById_ResponseMessage" element="schemas:GetApiV2StatById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Super-contest-effect_RequestMessage">
+    <part name="GetApiV2Super-contest-effect_RequestMessage" element="schemas:GetApiV2Super-contest-effect_RequestMessage" />
+  </message>
+  <message name="GetApiV2Super-contest-effect_ResponseMessage">
+    <part name="GetApiV2Super-contest-effect_ResponseMessage" element="schemas:GetApiV2Super-contest-effect_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Super-contest-effectById_RequestMessage">
+    <part name="GetApiV2Super-contest-effectById_RequestMessage" element="schemas:GetApiV2Super-contest-effectById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Super-contest-effectById_ResponseMessage">
+    <part name="GetApiV2Super-contest-effectById_ResponseMessage" element="schemas:GetApiV2Super-contest-effectById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Type_RequestMessage">
+    <part name="GetApiV2Type_RequestMessage" element="schemas:GetApiV2Type_RequestMessage" />
+  </message>
+  <message name="GetApiV2Type_ResponseMessage">
+    <part name="GetApiV2Type_ResponseMessage" element="schemas:GetApiV2Type_ResponseMessage" />
+  </message>
+  <message name="GetApiV2TypeById_RequestMessage">
+    <part name="GetApiV2TypeById_RequestMessage" element="schemas:GetApiV2TypeById_RequestMessage" />
+  </message>
+  <message name="GetApiV2TypeById_ResponseMessage">
+    <part name="GetApiV2TypeById_ResponseMessage" element="schemas:GetApiV2TypeById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Version_RequestMessage">
+    <part name="GetApiV2Version_RequestMessage" element="schemas:GetApiV2Version_RequestMessage" />
+  </message>
+  <message name="GetApiV2Version_ResponseMessage">
+    <part name="GetApiV2Version_ResponseMessage" element="schemas:GetApiV2Version_ResponseMessage" />
+  </message>
+  <message name="GetApiV2VersionById_RequestMessage">
+    <part name="GetApiV2VersionById_RequestMessage" element="schemas:GetApiV2VersionById_RequestMessage" />
+  </message>
+  <message name="GetApiV2VersionById_ResponseMessage">
+    <part name="GetApiV2VersionById_ResponseMessage" element="schemas:GetApiV2VersionById_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Version-group_RequestMessage">
+    <part name="GetApiV2Version-group_RequestMessage" element="schemas:GetApiV2Version-group_RequestMessage" />
+  </message>
+  <message name="GetApiV2Version-group_ResponseMessage">
+    <part name="GetApiV2Version-group_ResponseMessage" element="schemas:GetApiV2Version-group_ResponseMessage" />
+  </message>
+  <message name="GetApiV2Version-groupById_RequestMessage">
+    <part name="GetApiV2Version-groupById_RequestMessage" element="schemas:GetApiV2Version-groupById_RequestMessage" />
+  </message>
+  <message name="GetApiV2Version-groupById_ResponseMessage">
+    <part name="GetApiV2Version-groupById_ResponseMessage" element="schemas:GetApiV2Version-groupById_ResponseMessage" />
+  </message>
+  <portType name="ServiceV1_PortType">
+    <operation name="GetApiV2Ability">
+      <input message="wsdl:GetApiV2Ability_RequestMessage" />
+      <output message="wsdl:GetApiV2Ability_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2AbilityById">
+      <input message="wsdl:GetApiV2AbilityById_RequestMessage" />
+      <output message="wsdl:GetApiV2AbilityById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Berry">
+      <input message="wsdl:GetApiV2Berry_RequestMessage" />
+      <output message="wsdl:GetApiV2Berry_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2BerryById">
+      <input message="wsdl:GetApiV2BerryById_RequestMessage" />
+      <output message="wsdl:GetApiV2BerryById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Berry-firmness">
+      <input message="wsdl:GetApiV2Berry-firmness_RequestMessage" />
+      <output message="wsdl:GetApiV2Berry-firmness_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Berry-firmnessById">
+      <input message="wsdl:GetApiV2Berry-firmnessById_RequestMessage" />
+      <output message="wsdl:GetApiV2Berry-firmnessById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Berry-flavor">
+      <input message="wsdl:GetApiV2Berry-flavor_RequestMessage" />
+      <output message="wsdl:GetApiV2Berry-flavor_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Berry-flavorById">
+      <input message="wsdl:GetApiV2Berry-flavorById_RequestMessage" />
+      <output message="wsdl:GetApiV2Berry-flavorById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Characteristic">
+      <input message="wsdl:GetApiV2Characteristic_RequestMessage" />
+      <output message="wsdl:GetApiV2Characteristic_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2CharacteristicById">
+      <input message="wsdl:GetApiV2CharacteristicById_RequestMessage" />
+      <output message="wsdl:GetApiV2CharacteristicById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Contest-effect">
+      <input message="wsdl:GetApiV2Contest-effect_RequestMessage" />
+      <output message="wsdl:GetApiV2Contest-effect_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Contest-effectById">
+      <input message="wsdl:GetApiV2Contest-effectById_RequestMessage" />
+      <output message="wsdl:GetApiV2Contest-effectById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Contest-type">
+      <input message="wsdl:GetApiV2Contest-type_RequestMessage" />
+      <output message="wsdl:GetApiV2Contest-type_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Contest-typeById">
+      <input message="wsdl:GetApiV2Contest-typeById_RequestMessage" />
+      <output message="wsdl:GetApiV2Contest-typeById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Egg-group">
+      <input message="wsdl:GetApiV2Egg-group_RequestMessage" />
+      <output message="wsdl:GetApiV2Egg-group_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Egg-groupById">
+      <input message="wsdl:GetApiV2Egg-groupById_RequestMessage" />
+      <output message="wsdl:GetApiV2Egg-groupById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Encounter-condition">
+      <input message="wsdl:GetApiV2Encounter-condition_RequestMessage" />
+      <output message="wsdl:GetApiV2Encounter-condition_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Encounter-conditionById">
+      <input message="wsdl:GetApiV2Encounter-conditionById_RequestMessage" />
+      <output message="wsdl:GetApiV2Encounter-conditionById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Encounter-condition-value">
+      <input message="wsdl:GetApiV2Encounter-condition-value_RequestMessage" />
+      <output message="wsdl:GetApiV2Encounter-condition-value_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Encounter-condition-valueById">
+      <input message="wsdl:GetApiV2Encounter-condition-valueById_RequestMessage" />
+      <output message="wsdl:GetApiV2Encounter-condition-valueById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Encounter-method">
+      <input message="wsdl:GetApiV2Encounter-method_RequestMessage" />
+      <output message="wsdl:GetApiV2Encounter-method_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Encounter-methodById">
+      <input message="wsdl:GetApiV2Encounter-methodById_RequestMessage" />
+      <output message="wsdl:GetApiV2Encounter-methodById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Evolution-chain">
+      <input message="wsdl:GetApiV2Evolution-chain_RequestMessage" />
+      <output message="wsdl:GetApiV2Evolution-chain_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Evolution-chainById">
+      <input message="wsdl:GetApiV2Evolution-chainById_RequestMessage" />
+      <output message="wsdl:GetApiV2Evolution-chainById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Evolution-trigger">
+      <input message="wsdl:GetApiV2Evolution-trigger_RequestMessage" />
+      <output message="wsdl:GetApiV2Evolution-trigger_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Evolution-triggerById">
+      <input message="wsdl:GetApiV2Evolution-triggerById_RequestMessage" />
+      <output message="wsdl:GetApiV2Evolution-triggerById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Gender">
+      <input message="wsdl:GetApiV2Gender_RequestMessage" />
+      <output message="wsdl:GetApiV2Gender_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2GenderById">
+      <input message="wsdl:GetApiV2GenderById_RequestMessage" />
+      <output message="wsdl:GetApiV2GenderById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Generation">
+      <input message="wsdl:GetApiV2Generation_RequestMessage" />
+      <output message="wsdl:GetApiV2Generation_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2GenerationById">
+      <input message="wsdl:GetApiV2GenerationById_RequestMessage" />
+      <output message="wsdl:GetApiV2GenerationById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Growth-rate">
+      <input message="wsdl:GetApiV2Growth-rate_RequestMessage" />
+      <output message="wsdl:GetApiV2Growth-rate_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Growth-rateById">
+      <input message="wsdl:GetApiV2Growth-rateById_RequestMessage" />
+      <output message="wsdl:GetApiV2Growth-rateById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Item">
+      <input message="wsdl:GetApiV2Item_RequestMessage" />
+      <output message="wsdl:GetApiV2Item_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2ItemById">
+      <input message="wsdl:GetApiV2ItemById_RequestMessage" />
+      <output message="wsdl:GetApiV2ItemById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Item-attribute">
+      <input message="wsdl:GetApiV2Item-attribute_RequestMessage" />
+      <output message="wsdl:GetApiV2Item-attribute_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Item-attributeById">
+      <input message="wsdl:GetApiV2Item-attributeById_RequestMessage" />
+      <output message="wsdl:GetApiV2Item-attributeById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Item-category">
+      <input message="wsdl:GetApiV2Item-category_RequestMessage" />
+      <output message="wsdl:GetApiV2Item-category_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Item-categoryById">
+      <input message="wsdl:GetApiV2Item-categoryById_RequestMessage" />
+      <output message="wsdl:GetApiV2Item-categoryById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Item-fling-effect">
+      <input message="wsdl:GetApiV2Item-fling-effect_RequestMessage" />
+      <output message="wsdl:GetApiV2Item-fling-effect_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Item-fling-effectById">
+      <input message="wsdl:GetApiV2Item-fling-effectById_RequestMessage" />
+      <output message="wsdl:GetApiV2Item-fling-effectById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Item-pocket">
+      <input message="wsdl:GetApiV2Item-pocket_RequestMessage" />
+      <output message="wsdl:GetApiV2Item-pocket_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Item-pocketById">
+      <input message="wsdl:GetApiV2Item-pocketById_RequestMessage" />
+      <output message="wsdl:GetApiV2Item-pocketById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Language">
+      <input message="wsdl:GetApiV2Language_RequestMessage" />
+      <output message="wsdl:GetApiV2Language_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2LanguageById">
+      <input message="wsdl:GetApiV2LanguageById_RequestMessage" />
+      <output message="wsdl:GetApiV2LanguageById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Location">
+      <input message="wsdl:GetApiV2Location_RequestMessage" />
+      <output message="wsdl:GetApiV2Location_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2LocationById">
+      <input message="wsdl:GetApiV2LocationById_RequestMessage" />
+      <output message="wsdl:GetApiV2LocationById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Location-area">
+      <input message="wsdl:GetApiV2Location-area_RequestMessage" />
+      <output message="wsdl:GetApiV2Location-area_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Location-areaById">
+      <input message="wsdl:GetApiV2Location-areaById_RequestMessage" />
+      <output message="wsdl:GetApiV2Location-areaById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Machine">
+      <input message="wsdl:GetApiV2Machine_RequestMessage" />
+      <output message="wsdl:GetApiV2Machine_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2MachineById">
+      <input message="wsdl:GetApiV2MachineById_RequestMessage" />
+      <output message="wsdl:GetApiV2MachineById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Move">
+      <input message="wsdl:GetApiV2Move_RequestMessage" />
+      <output message="wsdl:GetApiV2Move_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2MoveById">
+      <input message="wsdl:GetApiV2MoveById_RequestMessage" />
+      <output message="wsdl:GetApiV2MoveById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Move-ailment">
+      <input message="wsdl:GetApiV2Move-ailment_RequestMessage" />
+      <output message="wsdl:GetApiV2Move-ailment_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Move-ailmentById">
+      <input message="wsdl:GetApiV2Move-ailmentById_RequestMessage" />
+      <output message="wsdl:GetApiV2Move-ailmentById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Move-battle-style">
+      <input message="wsdl:GetApiV2Move-battle-style_RequestMessage" />
+      <output message="wsdl:GetApiV2Move-battle-style_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Move-battle-styleById">
+      <input message="wsdl:GetApiV2Move-battle-styleById_RequestMessage" />
+      <output message="wsdl:GetApiV2Move-battle-styleById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Move-category">
+      <input message="wsdl:GetApiV2Move-category_RequestMessage" />
+      <output message="wsdl:GetApiV2Move-category_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Move-categoryById">
+      <input message="wsdl:GetApiV2Move-categoryById_RequestMessage" />
+      <output message="wsdl:GetApiV2Move-categoryById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Move-damage-class">
+      <input message="wsdl:GetApiV2Move-damage-class_RequestMessage" />
+      <output message="wsdl:GetApiV2Move-damage-class_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Move-damage-classById">
+      <input message="wsdl:GetApiV2Move-damage-classById_RequestMessage" />
+      <output message="wsdl:GetApiV2Move-damage-classById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Move-learn-method">
+      <input message="wsdl:GetApiV2Move-learn-method_RequestMessage" />
+      <output message="wsdl:GetApiV2Move-learn-method_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Move-learn-methodById">
+      <input message="wsdl:GetApiV2Move-learn-methodById_RequestMessage" />
+      <output message="wsdl:GetApiV2Move-learn-methodById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Move-target">
+      <input message="wsdl:GetApiV2Move-target_RequestMessage" />
+      <output message="wsdl:GetApiV2Move-target_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Move-targetById">
+      <input message="wsdl:GetApiV2Move-targetById_RequestMessage" />
+      <output message="wsdl:GetApiV2Move-targetById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Nature">
+      <input message="wsdl:GetApiV2Nature_RequestMessage" />
+      <output message="wsdl:GetApiV2Nature_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2NatureById">
+      <input message="wsdl:GetApiV2NatureById_RequestMessage" />
+      <output message="wsdl:GetApiV2NatureById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Pal-park-area">
+      <input message="wsdl:GetApiV2Pal-park-area_RequestMessage" />
+      <output message="wsdl:GetApiV2Pal-park-area_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Pal-park-areaById">
+      <input message="wsdl:GetApiV2Pal-park-areaById_RequestMessage" />
+      <output message="wsdl:GetApiV2Pal-park-areaById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Pokeathlon-stat">
+      <input message="wsdl:GetApiV2Pokeathlon-stat_RequestMessage" />
+      <output message="wsdl:GetApiV2Pokeathlon-stat_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Pokeathlon-statById">
+      <input message="wsdl:GetApiV2Pokeathlon-statById_RequestMessage" />
+      <output message="wsdl:GetApiV2Pokeathlon-statById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Pokedex">
+      <input message="wsdl:GetApiV2Pokedex_RequestMessage" />
+      <output message="wsdl:GetApiV2Pokedex_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2PokedexById">
+      <input message="wsdl:GetApiV2PokedexById_RequestMessage" />
+      <output message="wsdl:GetApiV2PokedexById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Pokemon">
+      <input message="wsdl:GetApiV2Pokemon_RequestMessage" />
+      <output message="wsdl:GetApiV2Pokemon_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2PokemonById">
+      <input message="wsdl:GetApiV2PokemonById_RequestMessage" />
+      <output message="wsdl:GetApiV2PokemonById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Pokemon-color">
+      <input message="wsdl:GetApiV2Pokemon-color_RequestMessage" />
+      <output message="wsdl:GetApiV2Pokemon-color_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Pokemon-colorById">
+      <input message="wsdl:GetApiV2Pokemon-colorById_RequestMessage" />
+      <output message="wsdl:GetApiV2Pokemon-colorById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Pokemon-form">
+      <input message="wsdl:GetApiV2Pokemon-form_RequestMessage" />
+      <output message="wsdl:GetApiV2Pokemon-form_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Pokemon-formById">
+      <input message="wsdl:GetApiV2Pokemon-formById_RequestMessage" />
+      <output message="wsdl:GetApiV2Pokemon-formById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Pokemon-habitat">
+      <input message="wsdl:GetApiV2Pokemon-habitat_RequestMessage" />
+      <output message="wsdl:GetApiV2Pokemon-habitat_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Pokemon-habitatById">
+      <input message="wsdl:GetApiV2Pokemon-habitatById_RequestMessage" />
+      <output message="wsdl:GetApiV2Pokemon-habitatById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Pokemon-shape">
+      <input message="wsdl:GetApiV2Pokemon-shape_RequestMessage" />
+      <output message="wsdl:GetApiV2Pokemon-shape_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Pokemon-shapeById">
+      <input message="wsdl:GetApiV2Pokemon-shapeById_RequestMessage" />
+      <output message="wsdl:GetApiV2Pokemon-shapeById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Pokemon-species">
+      <input message="wsdl:GetApiV2Pokemon-species_RequestMessage" />
+      <output message="wsdl:GetApiV2Pokemon-species_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Pokemon-speciesById">
+      <input message="wsdl:GetApiV2Pokemon-speciesById_RequestMessage" />
+      <output message="wsdl:GetApiV2Pokemon-speciesById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Region">
+      <input message="wsdl:GetApiV2Region_RequestMessage" />
+      <output message="wsdl:GetApiV2Region_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2RegionById">
+      <input message="wsdl:GetApiV2RegionById_RequestMessage" />
+      <output message="wsdl:GetApiV2RegionById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Stat">
+      <input message="wsdl:GetApiV2Stat_RequestMessage" />
+      <output message="wsdl:GetApiV2Stat_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2StatById">
+      <input message="wsdl:GetApiV2StatById_RequestMessage" />
+      <output message="wsdl:GetApiV2StatById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Super-contest-effect">
+      <input message="wsdl:GetApiV2Super-contest-effect_RequestMessage" />
+      <output message="wsdl:GetApiV2Super-contest-effect_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Super-contest-effectById">
+      <input message="wsdl:GetApiV2Super-contest-effectById_RequestMessage" />
+      <output message="wsdl:GetApiV2Super-contest-effectById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Type">
+      <input message="wsdl:GetApiV2Type_RequestMessage" />
+      <output message="wsdl:GetApiV2Type_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2TypeById">
+      <input message="wsdl:GetApiV2TypeById_RequestMessage" />
+      <output message="wsdl:GetApiV2TypeById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Version">
+      <input message="wsdl:GetApiV2Version_RequestMessage" />
+      <output message="wsdl:GetApiV2Version_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2VersionById">
+      <input message="wsdl:GetApiV2VersionById_RequestMessage" />
+      <output message="wsdl:GetApiV2VersionById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Version-group">
+      <input message="wsdl:GetApiV2Version-group_RequestMessage" />
+      <output message="wsdl:GetApiV2Version-group_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiV2Version-groupById">
+      <input message="wsdl:GetApiV2Version-groupById_RequestMessage" />
+      <output message="wsdl:GetApiV2Version-groupById_ResponseMessage">
+        <documentation>Default response</documentation>
+      </output>
+    </operation>
+  </portType>
+  <binding name="ServiceV1_Binding" type="wsdl:ServiceV1_PortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="GetApiV2Ability">
+      <soap:operation soapAction="GetApiV2Ability" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2AbilityById">
+      <soap:operation soapAction="GetApiV2AbilityById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Berry">
+      <soap:operation soapAction="GetApiV2Berry" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2BerryById">
+      <soap:operation soapAction="GetApiV2BerryById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Berry-firmness">
+      <soap:operation soapAction="GetApiV2Berry-firmness" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Berry-firmnessById">
+      <soap:operation soapAction="GetApiV2Berry-firmnessById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Berry-flavor">
+      <soap:operation soapAction="GetApiV2Berry-flavor" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Berry-flavorById">
+      <soap:operation soapAction="GetApiV2Berry-flavorById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Characteristic">
+      <soap:operation soapAction="GetApiV2Characteristic" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2CharacteristicById">
+      <soap:operation soapAction="GetApiV2CharacteristicById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Contest-effect">
+      <soap:operation soapAction="GetApiV2Contest-effect" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Contest-effectById">
+      <soap:operation soapAction="GetApiV2Contest-effectById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Contest-type">
+      <soap:operation soapAction="GetApiV2Contest-type" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Contest-typeById">
+      <soap:operation soapAction="GetApiV2Contest-typeById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Egg-group">
+      <soap:operation soapAction="GetApiV2Egg-group" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Egg-groupById">
+      <soap:operation soapAction="GetApiV2Egg-groupById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Encounter-condition">
+      <soap:operation soapAction="GetApiV2Encounter-condition" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Encounter-conditionById">
+      <soap:operation soapAction="GetApiV2Encounter-conditionById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Encounter-condition-value">
+      <soap:operation soapAction="GetApiV2Encounter-condition-value" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Encounter-condition-valueById">
+      <soap:operation soapAction="GetApiV2Encounter-condition-valueById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Encounter-method">
+      <soap:operation soapAction="GetApiV2Encounter-method" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Encounter-methodById">
+      <soap:operation soapAction="GetApiV2Encounter-methodById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Evolution-chain">
+      <soap:operation soapAction="GetApiV2Evolution-chain" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Evolution-chainById">
+      <soap:operation soapAction="GetApiV2Evolution-chainById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Evolution-trigger">
+      <soap:operation soapAction="GetApiV2Evolution-trigger" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Evolution-triggerById">
+      <soap:operation soapAction="GetApiV2Evolution-triggerById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Gender">
+      <soap:operation soapAction="GetApiV2Gender" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2GenderById">
+      <soap:operation soapAction="GetApiV2GenderById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Generation">
+      <soap:operation soapAction="GetApiV2Generation" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2GenerationById">
+      <soap:operation soapAction="GetApiV2GenerationById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Growth-rate">
+      <soap:operation soapAction="GetApiV2Growth-rate" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Growth-rateById">
+      <soap:operation soapAction="GetApiV2Growth-rateById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Item">
+      <soap:operation soapAction="GetApiV2Item" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2ItemById">
+      <soap:operation soapAction="GetApiV2ItemById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Item-attribute">
+      <soap:operation soapAction="GetApiV2Item-attribute" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Item-attributeById">
+      <soap:operation soapAction="GetApiV2Item-attributeById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Item-category">
+      <soap:operation soapAction="GetApiV2Item-category" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Item-categoryById">
+      <soap:operation soapAction="GetApiV2Item-categoryById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Item-fling-effect">
+      <soap:operation soapAction="GetApiV2Item-fling-effect" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Item-fling-effectById">
+      <soap:operation soapAction="GetApiV2Item-fling-effectById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Item-pocket">
+      <soap:operation soapAction="GetApiV2Item-pocket" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Item-pocketById">
+      <soap:operation soapAction="GetApiV2Item-pocketById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Language">
+      <soap:operation soapAction="GetApiV2Language" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2LanguageById">
+      <soap:operation soapAction="GetApiV2LanguageById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Location">
+      <soap:operation soapAction="GetApiV2Location" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2LocationById">
+      <soap:operation soapAction="GetApiV2LocationById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Location-area">
+      <soap:operation soapAction="GetApiV2Location-area" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Location-areaById">
+      <soap:operation soapAction="GetApiV2Location-areaById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Machine">
+      <soap:operation soapAction="GetApiV2Machine" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2MachineById">
+      <soap:operation soapAction="GetApiV2MachineById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Move">
+      <soap:operation soapAction="GetApiV2Move" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2MoveById">
+      <soap:operation soapAction="GetApiV2MoveById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Move-ailment">
+      <soap:operation soapAction="GetApiV2Move-ailment" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Move-ailmentById">
+      <soap:operation soapAction="GetApiV2Move-ailmentById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Move-battle-style">
+      <soap:operation soapAction="GetApiV2Move-battle-style" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Move-battle-styleById">
+      <soap:operation soapAction="GetApiV2Move-battle-styleById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Move-category">
+      <soap:operation soapAction="GetApiV2Move-category" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Move-categoryById">
+      <soap:operation soapAction="GetApiV2Move-categoryById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Move-damage-class">
+      <soap:operation soapAction="GetApiV2Move-damage-class" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Move-damage-classById">
+      <soap:operation soapAction="GetApiV2Move-damage-classById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Move-learn-method">
+      <soap:operation soapAction="GetApiV2Move-learn-method" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Move-learn-methodById">
+      <soap:operation soapAction="GetApiV2Move-learn-methodById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Move-target">
+      <soap:operation soapAction="GetApiV2Move-target" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Move-targetById">
+      <soap:operation soapAction="GetApiV2Move-targetById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Nature">
+      <soap:operation soapAction="GetApiV2Nature" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2NatureById">
+      <soap:operation soapAction="GetApiV2NatureById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Pal-park-area">
+      <soap:operation soapAction="GetApiV2Pal-park-area" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Pal-park-areaById">
+      <soap:operation soapAction="GetApiV2Pal-park-areaById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Pokeathlon-stat">
+      <soap:operation soapAction="GetApiV2Pokeathlon-stat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Pokeathlon-statById">
+      <soap:operation soapAction="GetApiV2Pokeathlon-statById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Pokedex">
+      <soap:operation soapAction="GetApiV2Pokedex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2PokedexById">
+      <soap:operation soapAction="GetApiV2PokedexById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Pokemon">
+      <soap:operation soapAction="GetApiV2Pokemon" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2PokemonById">
+      <soap:operation soapAction="GetApiV2PokemonById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Pokemon-color">
+      <soap:operation soapAction="GetApiV2Pokemon-color" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Pokemon-colorById">
+      <soap:operation soapAction="GetApiV2Pokemon-colorById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Pokemon-form">
+      <soap:operation soapAction="GetApiV2Pokemon-form" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Pokemon-formById">
+      <soap:operation soapAction="GetApiV2Pokemon-formById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Pokemon-habitat">
+      <soap:operation soapAction="GetApiV2Pokemon-habitat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Pokemon-habitatById">
+      <soap:operation soapAction="GetApiV2Pokemon-habitatById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Pokemon-shape">
+      <soap:operation soapAction="GetApiV2Pokemon-shape" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Pokemon-shapeById">
+      <soap:operation soapAction="GetApiV2Pokemon-shapeById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Pokemon-species">
+      <soap:operation soapAction="GetApiV2Pokemon-species" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Pokemon-speciesById">
+      <soap:operation soapAction="GetApiV2Pokemon-speciesById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Region">
+      <soap:operation soapAction="GetApiV2Region" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2RegionById">
+      <soap:operation soapAction="GetApiV2RegionById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Stat">
+      <soap:operation soapAction="GetApiV2Stat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2StatById">
+      <soap:operation soapAction="GetApiV2StatById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Super-contest-effect">
+      <soap:operation soapAction="GetApiV2Super-contest-effect" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Super-contest-effectById">
+      <soap:operation soapAction="GetApiV2Super-contest-effectById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Type">
+      <soap:operation soapAction="GetApiV2Type" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2TypeById">
+      <soap:operation soapAction="GetApiV2TypeById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Version">
+      <soap:operation soapAction="GetApiV2Version" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2VersionById">
+      <soap:operation soapAction="GetApiV2VersionById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Version-group">
+      <soap:operation soapAction="GetApiV2Version-group" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+    <operation name="GetApiV2Version-groupById">
+      <soap:operation soapAction="GetApiV2Version-groupById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+    </operation>
+  </binding>
+  <service name="ServiceV1">
+    <documentation>No description provided (generated by Openapi Generator https://github.com/openapitools/openapi-generator)</documentation>
+    <port name="default_Port" binding="wsdl:ServiceV1_Binding">
+      <soap:address location="http://localhost/soap/ServiceV1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>

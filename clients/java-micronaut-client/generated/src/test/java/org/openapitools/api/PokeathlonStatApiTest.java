@@ -3,13 +3,14 @@ package org.openapitools.api;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import jakarta.inject.Inject;
-import reactor.core.publisher.Mono;
-
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.HashSet;
 
 
 /**
@@ -26,12 +27,17 @@ public class PokeathlonStatApiTest {
      * 
      */
     @Test
+    @Disabled("Not Implemented")
     public void pokeathlonStatListTest() {
-        Integer limit = null;
-        Integer offset = null;
-        // String response = api.pokeathlonStatList(limit, offset).block();
-        // Mono<String> asyncResponse = api.pokeathlonStatList(limit, offset);
-        // TODO: test validations
+        // given
+        Integer limit = 56;
+        Integer offset = 56;
+
+        // when
+        String body = api.pokeathlonStatList(limit, offset).block();
+
+        // then
+        // TODO implement the pokeathlonStatListTest()
     }
 
     
@@ -39,11 +45,16 @@ public class PokeathlonStatApiTest {
      * 
      */
     @Test
+    @Disabled("Not Implemented")
     public void pokeathlonStatReadTest() {
-        Integer id = null;
-        // String response = api.pokeathlonStatRead(id).block();
-        // Mono<String> asyncResponse = api.pokeathlonStatRead(id);
-        // TODO: test validations
+        // given
+        Integer id = 56;
+
+        // when
+        String body = api.pokeathlonStatRead(id).block();
+
+        // then
+        // TODO implement the pokeathlonStatReadTest()
     }
 
     

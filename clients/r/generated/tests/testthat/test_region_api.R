@@ -3,7 +3,7 @@
 
 context("Test RegionApi")
 
-api.instance <- RegionApi$new()
+api_instance <- RegionApi$new()
 
 test_that("RegionList", {
   # tests for RegionList
@@ -25,4 +25,3 @@ test_that("RegionRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

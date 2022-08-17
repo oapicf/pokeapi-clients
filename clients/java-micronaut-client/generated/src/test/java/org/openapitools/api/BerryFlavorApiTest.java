@@ -3,13 +3,14 @@ package org.openapitools.api;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import jakarta.inject.Inject;
-import reactor.core.publisher.Mono;
-
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.HashSet;
 
 
 /**
@@ -26,12 +27,17 @@ public class BerryFlavorApiTest {
      * 
      */
     @Test
+    @Disabled("Not Implemented")
     public void berryFlavorListTest() {
-        Integer limit = null;
-        Integer offset = null;
-        // String response = api.berryFlavorList(limit, offset).block();
-        // Mono<String> asyncResponse = api.berryFlavorList(limit, offset);
-        // TODO: test validations
+        // given
+        Integer limit = 56;
+        Integer offset = 56;
+
+        // when
+        String body = api.berryFlavorList(limit, offset).block();
+
+        // then
+        // TODO implement the berryFlavorListTest()
     }
 
     
@@ -39,11 +45,16 @@ public class BerryFlavorApiTest {
      * 
      */
     @Test
+    @Disabled("Not Implemented")
     public void berryFlavorReadTest() {
-        Integer id = null;
-        // String response = api.berryFlavorRead(id).block();
-        // Mono<String> asyncResponse = api.berryFlavorRead(id);
-        // TODO: test validations
+        // given
+        Integer id = 56;
+
+        // when
+        String body = api.berryFlavorRead(id).block();
+
+        // then
+        // TODO implement the berryFlavorReadTest()
     }
 
     

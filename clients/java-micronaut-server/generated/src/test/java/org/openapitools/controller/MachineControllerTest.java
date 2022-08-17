@@ -39,7 +39,7 @@ public class MachineControllerTest {
     EmbeddedServer server;
 
     @Inject
-    @Client("${context-path}")
+    @Client
     HttpClient client;
 
     @Inject

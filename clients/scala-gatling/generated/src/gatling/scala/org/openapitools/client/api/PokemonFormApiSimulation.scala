@@ -72,8 +72,8 @@ class PokemonFormApiSimulation extends Simulation {
         .feed(pokemon-form_listQUERYFeeder)
         .exec(http("pokemonFormList")
         .httpRequest("GET","/api/v2/pokemon-form/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnpokemonFormList with warm up and reach a constant rate for entire duration

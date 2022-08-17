@@ -3,7 +3,7 @@
 
 context("Test StatApi")
 
-api.instance <- StatApi$new()
+api_instance <- StatApi$new()
 
 test_that("StatList", {
   # tests for StatList
@@ -25,4 +25,3 @@ test_that("StatRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

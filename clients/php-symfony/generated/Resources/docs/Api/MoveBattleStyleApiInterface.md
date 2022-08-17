@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.moveBattleStyle:
-        class: Acme\MyBundle\Api\MoveBattleStyleApi
+    Acme\MyBundle\Api\MoveBattleStyleApi:
         tags:
             - { name: "open_api_server.api", api: "moveBattleStyle" }
     # ...
@@ -42,7 +41,7 @@ class MoveBattleStyleApi implements MoveBattleStyleApiInterface
     /**
      * Implementation of MoveBattleStyleApiInterface#moveBattleStyleList
      */
-    public function moveBattleStyleList($limit = null, $offset = null)
+    public function moveBattleStyleList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class MoveBattleStyleApi implements MoveBattleStyleApiInterface
     /**
      * Implementation of MoveBattleStyleApiInterface#moveBattleStyleRead
      */
-    public function moveBattleStyleRead($id)
+    public function moveBattleStyleRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

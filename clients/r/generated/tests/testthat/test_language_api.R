@@ -3,7 +3,7 @@
 
 context("Test LanguageApi")
 
-api.instance <- LanguageApi$new()
+api_instance <- LanguageApi$new()
 
 test_that("LanguageList", {
   # tests for LanguageList
@@ -25,4 +25,3 @@ test_that("LanguageRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

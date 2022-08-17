@@ -72,8 +72,8 @@ class AbilityApiSimulation extends Simulation {
         .feed(ability_listQUERYFeeder)
         .exec(http("abilityList")
         .httpRequest("GET","/api/v2/ability/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnabilityList with warm up and reach a constant rate for entire duration

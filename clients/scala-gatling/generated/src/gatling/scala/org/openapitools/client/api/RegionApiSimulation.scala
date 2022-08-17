@@ -72,8 +72,8 @@ class RegionApiSimulation extends Simulation {
         .feed(region_listQUERYFeeder)
         .exec(http("regionList")
         .httpRequest("GET","/api/v2/region/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnregionList with warm up and reach a constant rate for entire duration

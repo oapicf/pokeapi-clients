@@ -158,6 +158,7 @@ Resources/docs/Api/VersionGroupApiInterface.md
 Service/JmsSerializer.php
 Service/SerializerInterface.php
 Service/StrictJsonDeserializationVisitor.php
+Service/StrictJsonDeserializationVisitorFactory.php
 Service/SymfonyValidator.php
 Service/TypeMismatchException.php
 Service/ValidatorInterface.php
@@ -216,4 +217,3 @@ autoload.php
 composer.json
 git_push.sh
 phpunit.xml.dist
-pom.xml

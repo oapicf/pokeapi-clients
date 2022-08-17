@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -14,7 +14,7 @@ import 'package:test/test.dart';
 
 /// tests for LanguageApi
 void main() {
-  final instance = LanguageApi();
+  // final instance = LanguageApi();
 
   group('tests for LanguageApi', () {
     //Future<String> languageList({ int limit, int offset }) async

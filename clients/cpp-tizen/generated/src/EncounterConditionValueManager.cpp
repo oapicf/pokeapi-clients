@@ -155,7 +155,7 @@ static bool encounterConditionValueListHelper(char * accessToken,
 			mBody, headerList, p_chunk, &code, errormsg);
 		bool retval = encounterConditionValueListProcessor(*p_chunk, code, errormsg, userData,reinterpret_cast<void(*)()>(handler));
 
-		curl_slist_freeList_all(headerList);
+		curl_slist_free_all(headerList);
 		if (p_chunk) {
 			if(p_chunk->memory) {
 				free(p_chunk->memory);
@@ -302,7 +302,7 @@ static bool encounterConditionValueReadHelper(char * accessToken,
 			mBody, headerList, p_chunk, &code, errormsg);
 		bool retval = encounterConditionValueReadProcessor(*p_chunk, code, errormsg, userData,reinterpret_cast<void(*)()>(handler));
 
-		curl_slist_freeList_all(headerList);
+		curl_slist_free_all(headerList);
 		if (p_chunk) {
 			if(p_chunk->memory) {
 				free(p_chunk->memory);

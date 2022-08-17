@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **PokemonShapeList**
-> character PokemonShapeList(limit=var.limit, offset=var.offset)
+> character PokemonShapeList(limit = var.limit, offset = var.offset)
 
 
 
@@ -17,11 +17,11 @@ Method | HTTP request | Description
 ```R
 library(openapi)
 
-var.limit <- 56 # integer | 
-var.offset <- 56 # integer | 
+var_limit <- 56 # integer | 
+var_offset <- 56 # integer | 
 
-api.instance <- PokemonShapeApi$new()
-result <- api.instance$PokemonShapeList(limit=var.limit, offset=var.offset)
+api_instance <- PokemonShapeApi$new()
+result <- api_instance$PokemonShapeList(limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -59,10 +59,10 @@ No authorization required
 ```R
 library(openapi)
 
-var.id <- 56 # integer | 
+var_id <- 56 # integer | 
 
-api.instance <- PokemonShapeApi$new()
-result <- api.instance$PokemonShapeRead(var.id)
+api_instance <- PokemonShapeApi$new()
+result <- api_instance$PokemonShapeRead(var_id)
 dput(result)
 ```
 

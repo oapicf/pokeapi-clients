@@ -3,7 +3,7 @@
 
 context("Test VersionGroupApi")
 
-api.instance <- VersionGroupApi$new()
+api_instance <- VersionGroupApi$new()
 
 test_that("VersionGroupList", {
   # tests for VersionGroupList
@@ -25,4 +25,3 @@ test_that("VersionGroupRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

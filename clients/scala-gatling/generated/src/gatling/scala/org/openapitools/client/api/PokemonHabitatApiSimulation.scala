@@ -72,8 +72,8 @@ class PokemonHabitatApiSimulation extends Simulation {
         .feed(pokemon-habitat_listQUERYFeeder)
         .exec(http("pokemonHabitatList")
         .httpRequest("GET","/api/v2/pokemon-habitat/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnpokemonHabitatList with warm up and reach a constant rate for entire duration

@@ -98,7 +98,7 @@ export class PokemonColorApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "string", ""
             ) as string;
-            throw new ApiException<string>(0, "Default response", body, response.headers);
+            throw new ApiException<string>(response.httpStatusCode, "Default response", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -123,7 +123,7 @@ export class PokemonColorApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "string", ""
             ) as string;
-            throw new ApiException<string>(0, "Default response", body, response.headers);
+            throw new ApiException<string>(response.httpStatusCode, "Default response", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml

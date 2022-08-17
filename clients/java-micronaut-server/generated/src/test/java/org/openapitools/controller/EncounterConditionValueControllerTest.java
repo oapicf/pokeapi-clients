@@ -39,7 +39,7 @@ public class EncounterConditionValueControllerTest {
     EmbeddedServer server;
 
     @Inject
-    @Client("${context-path}")
+    @Client
     HttpClient client;
 
     @Inject

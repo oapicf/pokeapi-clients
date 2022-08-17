@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.encounterMethod:
-        class: Acme\MyBundle\Api\EncounterMethodApi
+    Acme\MyBundle\Api\EncounterMethodApi:
         tags:
             - { name: "open_api_server.api", api: "encounterMethod" }
     # ...
@@ -42,7 +41,7 @@ class EncounterMethodApi implements EncounterMethodApiInterface
     /**
      * Implementation of EncounterMethodApiInterface#encounterMethodList
      */
-    public function encounterMethodList($limit = null, $offset = null)
+    public function encounterMethodList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class EncounterMethodApi implements EncounterMethodApiInterface
     /**
      * Implementation of EncounterMethodApiInterface#encounterMethodRead
      */
-    public function encounterMethodRead($id)
+    public function encounterMethodRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

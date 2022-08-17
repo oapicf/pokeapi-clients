@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **EvolutionTriggerList**
-> character EvolutionTriggerList(limit=var.limit, offset=var.offset)
+> character EvolutionTriggerList(limit = var.limit, offset = var.offset)
 
 
 
@@ -17,11 +17,11 @@ Method | HTTP request | Description
 ```R
 library(openapi)
 
-var.limit <- 56 # integer | 
-var.offset <- 56 # integer | 
+var_limit <- 56 # integer | 
+var_offset <- 56 # integer | 
 
-api.instance <- EvolutionTriggerApi$new()
-result <- api.instance$EvolutionTriggerList(limit=var.limit, offset=var.offset)
+api_instance <- EvolutionTriggerApi$new()
+result <- api_instance$EvolutionTriggerList(limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -59,10 +59,10 @@ No authorization required
 ```R
 library(openapi)
 
-var.id <- 56 # integer | 
+var_id <- 56 # integer | 
 
-api.instance <- EvolutionTriggerApi$new()
-result <- api.instance$EvolutionTriggerRead(var.id)
+api_instance <- EvolutionTriggerApi$new()
+result <- api_instance$EvolutionTriggerRead(var_id)
 dput(result)
 ```
 

@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.locationArea:
-        class: Acme\MyBundle\Api\LocationAreaApi
+    Acme\MyBundle\Api\LocationAreaApi:
         tags:
             - { name: "open_api_server.api", api: "locationArea" }
     # ...
@@ -42,7 +41,7 @@ class LocationAreaApi implements LocationAreaApiInterface
     /**
      * Implementation of LocationAreaApiInterface#locationAreaList
      */
-    public function locationAreaList($limit = null, $offset = null)
+    public function locationAreaList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class LocationAreaApi implements LocationAreaApiInterface
     /**
      * Implementation of LocationAreaApiInterface#locationAreaRead
      */
-    public function locationAreaRead($id)
+    public function locationAreaRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

@@ -3,13 +3,14 @@ package org.openapitools.api;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import jakarta.inject.Inject;
-import reactor.core.publisher.Mono;
-
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.HashSet;
 
 
 /**
@@ -26,12 +27,17 @@ public class MoveAilmentApiTest {
      * 
      */
     @Test
+    @Disabled("Not Implemented")
     public void moveAilmentListTest() {
-        Integer limit = null;
-        Integer offset = null;
-        // String response = api.moveAilmentList(limit, offset).block();
-        // Mono<String> asyncResponse = api.moveAilmentList(limit, offset);
-        // TODO: test validations
+        // given
+        Integer limit = 56;
+        Integer offset = 56;
+
+        // when
+        String body = api.moveAilmentList(limit, offset).block();
+
+        // then
+        // TODO implement the moveAilmentListTest()
     }
 
     
@@ -39,11 +45,16 @@ public class MoveAilmentApiTest {
      * 
      */
     @Test
+    @Disabled("Not Implemented")
     public void moveAilmentReadTest() {
-        Integer id = null;
-        // String response = api.moveAilmentRead(id).block();
-        // Mono<String> asyncResponse = api.moveAilmentRead(id);
-        // TODO: test validations
+        // given
+        Integer id = 56;
+
+        // when
+        String body = api.moveAilmentRead(id).block();
+
+        // then
+        // TODO implement the moveAilmentReadTest()
     }
 
     

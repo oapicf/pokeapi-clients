@@ -3,7 +3,7 @@
 
 context("Test MachineApi")
 
-api.instance <- MachineApi$new()
+api_instance <- MachineApi$new()
 
 test_that("MachineList", {
   # tests for MachineList
@@ -25,4 +25,3 @@ test_that("MachineRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

@@ -3,7 +3,7 @@
 
 context("Test GrowthRateApi")
 
-api.instance <- GrowthRateApi$new()
+api_instance <- GrowthRateApi$new()
 
 test_that("GrowthRateList", {
   # tests for GrowthRateList
@@ -25,4 +25,3 @@ test_that("GrowthRateRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

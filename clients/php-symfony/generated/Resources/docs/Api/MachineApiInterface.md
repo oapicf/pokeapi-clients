@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.machine:
-        class: Acme\MyBundle\Api\MachineApi
+    Acme\MyBundle\Api\MachineApi:
         tags:
             - { name: "open_api_server.api", api: "machine" }
     # ...
@@ -42,7 +41,7 @@ class MachineApi implements MachineApiInterface
     /**
      * Implementation of MachineApiInterface#machineList
      */
-    public function machineList($limit = null, $offset = null)
+    public function machineList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class MachineApi implements MachineApiInterface
     /**
      * Implementation of MachineApiInterface#machineRead
      */
-    public function machineRead($id)
+    public function machineRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **EggGroupList**
-> character EggGroupList(limit=var.limit, offset=var.offset)
+> character EggGroupList(limit = var.limit, offset = var.offset)
 
 
 
@@ -17,11 +17,11 @@ Method | HTTP request | Description
 ```R
 library(openapi)
 
-var.limit <- 56 # integer | 
-var.offset <- 56 # integer | 
+var_limit <- 56 # integer | 
+var_offset <- 56 # integer | 
 
-api.instance <- EggGroupApi$new()
-result <- api.instance$EggGroupList(limit=var.limit, offset=var.offset)
+api_instance <- EggGroupApi$new()
+result <- api_instance$EggGroupList(limit = var_limit, offset = var_offset)
 dput(result)
 ```
 
@@ -59,10 +59,10 @@ No authorization required
 ```R
 library(openapi)
 
-var.id <- 56 # integer | 
+var_id <- 56 # integer | 
 
-api.instance <- EggGroupApi$new()
-result <- api.instance$EggGroupRead(var.id)
+api_instance <- EggGroupApi$new()
+result <- api_instance$EggGroupRead(var_id)
 dput(result)
 ```
 

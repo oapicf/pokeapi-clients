@@ -72,8 +72,8 @@ class PokemonSpeciesApiSimulation extends Simulation {
         .feed(pokemon-species_listQUERYFeeder)
         .exec(http("pokemonSpeciesList")
         .httpRequest("GET","/api/v2/pokemon-species/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnpokemonSpeciesList with warm up and reach a constant rate for entire duration

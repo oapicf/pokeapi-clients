@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.contestType:
-        class: Acme\MyBundle\Api\ContestTypeApi
+    Acme\MyBundle\Api\ContestTypeApi:
         tags:
             - { name: "open_api_server.api", api: "contestType" }
     # ...
@@ -42,7 +41,7 @@ class ContestTypeApi implements ContestTypeApiInterface
     /**
      * Implementation of ContestTypeApiInterface#contestTypeList
      */
-    public function contestTypeList($limit = null, $offset = null)
+    public function contestTypeList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class ContestTypeApi implements ContestTypeApiInterface
     /**
      * Implementation of ContestTypeApiInterface#contestTypeRead
      */
-    public function contestTypeRead($id)
+    public function contestTypeRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

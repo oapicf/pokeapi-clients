@@ -3,13 +3,14 @@ package org.openapitools.api;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import jakarta.inject.Inject;
-import reactor.core.publisher.Mono;
-
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.HashSet;
 
 
 /**
@@ -26,12 +27,17 @@ public class MoveTargetApiTest {
      * 
      */
     @Test
+    @Disabled("Not Implemented")
     public void moveTargetListTest() {
-        Integer limit = null;
-        Integer offset = null;
-        // String response = api.moveTargetList(limit, offset).block();
-        // Mono<String> asyncResponse = api.moveTargetList(limit, offset);
-        // TODO: test validations
+        // given
+        Integer limit = 56;
+        Integer offset = 56;
+
+        // when
+        String body = api.moveTargetList(limit, offset).block();
+
+        // then
+        // TODO implement the moveTargetListTest()
     }
 
     
@@ -39,11 +45,16 @@ public class MoveTargetApiTest {
      * 
      */
     @Test
+    @Disabled("Not Implemented")
     public void moveTargetReadTest() {
-        Integer id = null;
-        // String response = api.moveTargetRead(id).block();
-        // Mono<String> asyncResponse = api.moveTargetRead(id);
-        // TODO: test validations
+        // given
+        Integer id = 56;
+
+        // when
+        String body = api.moveTargetRead(id).block();
+
+        // then
+        // TODO implement the moveTargetReadTest()
     }
 
     

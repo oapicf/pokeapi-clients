@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.itemPocket:
-        class: Acme\MyBundle\Api\ItemPocketApi
+    Acme\MyBundle\Api\ItemPocketApi:
         tags:
             - { name: "open_api_server.api", api: "itemPocket" }
     # ...
@@ -42,7 +41,7 @@ class ItemPocketApi implements ItemPocketApiInterface
     /**
      * Implementation of ItemPocketApiInterface#itemPocketList
      */
-    public function itemPocketList($limit = null, $offset = null)
+    public function itemPocketList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class ItemPocketApi implements ItemPocketApiInterface
     /**
      * Implementation of ItemPocketApiInterface#itemPocketRead
      */
-    public function itemPocketRead($id)
+    public function itemPocketRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

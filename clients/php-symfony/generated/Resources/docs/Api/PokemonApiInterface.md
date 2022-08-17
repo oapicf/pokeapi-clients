@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.pokemon:
-        class: Acme\MyBundle\Api\PokemonApi
+    Acme\MyBundle\Api\PokemonApi:
         tags:
             - { name: "open_api_server.api", api: "pokemon" }
     # ...
@@ -42,7 +41,7 @@ class PokemonApi implements PokemonApiInterface
     /**
      * Implementation of PokemonApiInterface#pokemonList
      */
-    public function pokemonList($limit = null, $offset = null)
+    public function pokemonList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class PokemonApi implements PokemonApiInterface
     /**
      * Implementation of PokemonApiInterface#pokemonRead
      */
-    public function pokemonRead($id)
+    public function pokemonRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

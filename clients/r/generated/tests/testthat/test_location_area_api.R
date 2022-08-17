@@ -3,7 +3,7 @@
 
 context("Test LocationAreaApi")
 
-api.instance <- LocationAreaApi$new()
+api_instance <- LocationAreaApi$new()
 
 test_that("LocationAreaList", {
   # tests for LocationAreaList
@@ -25,4 +25,3 @@ test_that("LocationAreaRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

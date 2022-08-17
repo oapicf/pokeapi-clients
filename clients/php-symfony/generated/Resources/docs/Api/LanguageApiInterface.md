@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.language:
-        class: Acme\MyBundle\Api\LanguageApi
+    Acme\MyBundle\Api\LanguageApi:
         tags:
             - { name: "open_api_server.api", api: "language" }
     # ...
@@ -42,7 +41,7 @@ class LanguageApi implements LanguageApiInterface
     /**
      * Implementation of LanguageApiInterface#languageList
      */
-    public function languageList($limit = null, $offset = null)
+    public function languageList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class LanguageApi implements LanguageApiInterface
     /**
      * Implementation of LanguageApiInterface#languageRead
      */
-    public function languageRead($id)
+    public function languageRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

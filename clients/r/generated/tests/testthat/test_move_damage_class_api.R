@@ -3,7 +3,7 @@
 
 context("Test MoveDamageClassApi")
 
-api.instance <- MoveDamageClassApi$new()
+api_instance <- MoveDamageClassApi$new()
 
 test_that("MoveDamageClassList", {
   # tests for MoveDamageClassList
@@ -25,4 +25,3 @@ test_that("MoveDamageClassRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

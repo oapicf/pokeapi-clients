@@ -50,5 +50,6 @@ src/main/scala/org/openapitools/client/api/SuperContestEffectApi.scala
 src/main/scala/org/openapitools/client/api/TypeApi.scala
 src/main/scala/org/openapitools/client/api/VersionApi.scala
 src/main/scala/org/openapitools/client/api/VersionGroupApi.scala
+src/main/scala/org/openapitools/client/core/AdditionalTypeSerializers.scala
 src/main/scala/org/openapitools/client/core/DateSerializers.scala
 src/main/scala/org/openapitools/client/core/JsonSupport.scala

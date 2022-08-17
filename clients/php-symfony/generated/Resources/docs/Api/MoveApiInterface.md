@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.move:
-        class: Acme\MyBundle\Api\MoveApi
+    Acme\MyBundle\Api\MoveApi:
         tags:
             - { name: "open_api_server.api", api: "move" }
     # ...
@@ -42,7 +41,7 @@ class MoveApi implements MoveApiInterface
     /**
      * Implementation of MoveApiInterface#moveList
      */
-    public function moveList($limit = null, $offset = null)
+    public function moveList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class MoveApi implements MoveApiInterface
     /**
      * Implementation of MoveApiInterface#moveRead
      */
-    public function moveRead($id)
+    public function moveRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

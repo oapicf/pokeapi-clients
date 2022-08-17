@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.encounterCondition:
-        class: Acme\MyBundle\Api\EncounterConditionApi
+    Acme\MyBundle\Api\EncounterConditionApi:
         tags:
             - { name: "open_api_server.api", api: "encounterCondition" }
     # ...
@@ -42,7 +41,7 @@ class EncounterConditionApi implements EncounterConditionApiInterface
     /**
      * Implementation of EncounterConditionApiInterface#encounterConditionList
      */
-    public function encounterConditionList($limit = null, $offset = null)
+    public function encounterConditionList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class EncounterConditionApi implements EncounterConditionApiInterface
     /**
      * Implementation of EncounterConditionApiInterface#encounterConditionRead
      */
-    public function encounterConditionRead($id)
+    public function encounterConditionRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }

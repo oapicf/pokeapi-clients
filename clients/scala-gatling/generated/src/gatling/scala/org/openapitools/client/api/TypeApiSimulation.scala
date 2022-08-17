@@ -72,8 +72,8 @@ class TypeApiSimulation extends Simulation {
         .feed(type_listQUERYFeeder)
         .exec(http("typeList")
         .httpRequest("GET","/api/v2/type/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scntypeList with warm up and reach a constant rate for entire duration

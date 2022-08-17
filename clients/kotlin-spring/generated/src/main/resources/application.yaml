@@ -1,6 +1,6 @@
 spring:
   application:
-    name: OpenAPI Kotlin Spring
+    name: 
 
   jackson:
     serialization:

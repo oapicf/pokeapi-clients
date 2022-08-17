@@ -3,7 +3,7 @@
 
 context("Test ContestEffectApi")
 
-api.instance <- ContestEffectApi$new()
+api_instance <- ContestEffectApi$new()
 
 test_that("ContestEffectList", {
   # tests for ContestEffectList
@@ -25,4 +25,3 @@ test_that("ContestEffectRead", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-

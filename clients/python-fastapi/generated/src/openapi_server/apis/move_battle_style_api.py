@@ -28,6 +28,7 @@ router = APIRouter()
         200: {"model": str, "description": "Default response"},
     },
     tags=["move-battle-style"],
+    response_model_by_alias=True,
 )
 async def move_battle_style_list(
     limit: int = Query(None, description=""),
@@ -42,6 +43,7 @@ async def move_battle_style_list(
         200: {"model": str, "description": "Default response"},
     },
     tags=["move-battle-style"],
+    response_model_by_alias=True,
 )
 async def move_battle_style_read(
     id: int = Path(None, description=""),

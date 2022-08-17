@@ -72,8 +72,8 @@ class PokemonColorApiSimulation extends Simulation {
         .feed(pokemon-color_listQUERYFeeder)
         .exec(http("pokemonColorList")
         .httpRequest("GET","/api/v2/pokemon-color/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnpokemonColorList with warm up and reach a constant rate for entire duration

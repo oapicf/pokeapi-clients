@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**genderList**](GenderApi.md#genderList) | **GET** /api/v2/gender/ | 
-[**genderRead**](GenderApi.md#genderRead) | **GET** /api/v2/gender/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**genderList**](GenderApi.md#genderList) | **GET** /api/v2/gender/ |  |
+| [**genderRead**](GenderApi.md#genderRead) | **GET** /api/v2/gender/{id}/ |  |
 
 
 ## Creating GenderApi
@@ -45,10 +45,10 @@ Mono<String> GenderApi.genderList(limitoffset)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | `Integer`|  | [optional parameter]
- **offset** | `Integer`|  | [optional parameter]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `Integer`|  | [optional parameter] |
+| **offset** | `Integer`|  | [optional parameter] |
 
 
 ### Return type
@@ -69,9 +69,9 @@ Mono<String> GenderApi.genderRead(id)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | `Integer`|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `Integer`|  | |
 
 
 ### Return type

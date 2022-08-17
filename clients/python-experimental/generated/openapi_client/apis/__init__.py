@@ -7,7 +7,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.ability_api import AbilityApi
+#   from openapi_client.api.ability_api import AbilityApi
 #
 # or import this package, but before doing it, use:
 #

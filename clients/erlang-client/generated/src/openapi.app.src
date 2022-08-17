@@ -14,5 +14,5 @@
 
   {maintainers, []},
   {licenses, []},
-  {links, []}
+  {links, ["https://github.com/cliffano/pokeapi-clients"]}
 ]}.

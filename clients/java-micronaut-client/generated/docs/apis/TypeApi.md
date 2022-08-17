@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**typeList**](TypeApi.md#typeList) | **GET** /api/v2/type/ | 
-[**typeRead**](TypeApi.md#typeRead) | **GET** /api/v2/type/{id}/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**typeList**](TypeApi.md#typeList) | **GET** /api/v2/type/ |  |
+| [**typeRead**](TypeApi.md#typeRead) | **GET** /api/v2/type/{id}/ |  |
 
 
 ## Creating TypeApi
@@ -45,10 +45,10 @@ Mono<String> TypeApi.typeList(limitoffset)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | `Integer`|  | [optional parameter]
- **offset** | `Integer`|  | [optional parameter]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **limit** | `Integer`|  | [optional parameter] |
+| **offset** | `Integer`|  | [optional parameter] |
 
 
 ### Return type
@@ -69,9 +69,9 @@ Mono<String> TypeApi.typeRead(id)
 
 
 ### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | `Integer`|  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `Integer`|  | |
 
 
 ### Return type

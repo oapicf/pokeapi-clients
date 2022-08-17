@@ -10,11 +10,10 @@ Method | HTTP request | Description
 
 ## Service Declaration
 ```yaml
-# src/Acme/MyBundle/Resources/services.yml
+# config/services.yml
 services:
     # ...
-    acme.my_bundle.api.moveDamageClass:
-        class: Acme\MyBundle\Api\MoveDamageClassApi
+    Acme\MyBundle\Api\MoveDamageClassApi:
         tags:
             - { name: "open_api_server.api", api: "moveDamageClass" }
     # ...
@@ -42,7 +41,7 @@ class MoveDamageClassApi implements MoveDamageClassApiInterface
     /**
      * Implementation of MoveDamageClassApiInterface#moveDamageClassList
      */
-    public function moveDamageClassList($limit = null, $offset = null)
+    public function moveDamageClassList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -95,7 +94,7 @@ class MoveDamageClassApi implements MoveDamageClassApiInterface
     /**
      * Implementation of MoveDamageClassApiInterface#moveDamageClassRead
      */
-    public function moveDamageClassRead($id)
+    public function moveDamageClassRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
