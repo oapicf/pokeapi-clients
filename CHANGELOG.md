@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+- Switch build system to use Swaggy C
+- Upgrade OpenAPI Generator to 6.0.1
+
 ## 0.9.1 - 2022-05-24
 ### Fixed
 - Fix missing generated source

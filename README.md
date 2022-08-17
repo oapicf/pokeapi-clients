@@ -19,7 +19,7 @@ Published packages
 | Python | [pokeapiclient]((https://pypi.python.org/pypi/pokeapiclient)) | [![Published Version](https://img.shields.io/pypi/v/pokeapiclient.svg)](https://pypi.python.org/pypi/pokeapiclient) |
 | Ruby | [pokeapi_client]((https://rubygems.org/gems/pokeapi_client)) | [![Published Version](https://img.shields.io/gem/v/pokeapi_client.svg)](https://rubygems.org/gems/pokeapi_client) |
 
-Version Matrix
+Version matrix
 --------------
 
 Note: Version 0.9.0 returns response as String since the specification does not yet include any response schema.
@@ -27,13 +27,6 @@ Note: Version 0.9.0 returns response as String since the specification does not 
 | PokéAPI Clients Version | PokéAPI OpenAPI Spec Version | OpenAPI Version | OpenAPI Generator Version |
 |-------------------------|------------------------------|-----------------|---------------------------|
 | 0.9.1 | 20220523 | 3.0.0 | 5.4.0 |
-
-Usage
------
-
-Generate API clients of the currently supported languages:
-
-    make generate GEN_BASE_DIR=<path/to/pokeapi-clients>
 
 Installation
 ------------

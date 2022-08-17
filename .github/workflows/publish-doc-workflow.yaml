@@ -14,9 +14,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '16'
-      - run: npm install -g bootprint bootprint-openapi gh-pages
-      - run: make doc-version
+      - run: make deps init-spec doc-latest doc-version
       - run: >-
           CACHE_DIR=/tmp gh-pages --dist doc/ --user "pakkunbot
-          <blah+pakkun@cliffano.com>" --repo "https://${{ secrets.STUDIO_GITHUB_TOKEN
-          }}@github.com/cliffano/pokeapi-clients.git"
+          <blah+pakkun@cliffano.com>" --repo "https://${{
+          secrets.STUDIO_GITHUB_TOKEN }}@github.com/cliffano/pokeapi-clients.git"
