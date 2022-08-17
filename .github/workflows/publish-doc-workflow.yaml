@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: ${{ secrets.STUDIO_GITHUB_TOKEN }}
-          ref: main
+          ref: 0.10.0
       - uses: actions/setup-node@v1
         with:
           node-version: '16'
@@ -18,4 +18,5 @@ jobs:
       - run: >-
           CACHE_DIR=/tmp gh-pages --dist doc/ --user "pakkunbot
           <blah+pakkun@cliffano.com>" --repo "https://${{
-          secrets.STUDIO_GITHUB_TOKEN }}@github.com/cliffano/pokeapi-clients.git"
+          secrets.STUDIO_GITHUB_TOKEN
+          }}@github.com/cliffano/pokeapi-clients.git"
