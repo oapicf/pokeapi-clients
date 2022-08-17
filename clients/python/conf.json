@@ -1,6 +1,6 @@
 {
   "packageName": "pokeapiclient",
-  "packageVersion": "0.10.0",
+  "packageVersion": "0.10.1-pre.0",
   "packageUrl": "https://github.com/cliffano/pokeapi-clients",
   "gitUserId": "cliffano",
   "gitRepoId": "pokeapi-clients"
