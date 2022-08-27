@@ -4,7 +4,7 @@
 ################################################################
 
 # The version of Swaggy C
-SWAGGY_C_VERSION = 1.0.0-pre.0
+SWAGGY_C_VERSION = 1.0.1-pre.0
 
 # The version of OpenAPI Generator (https://openapi-generator.tech/) used for generating the API clients
 OPENAPI_GENERATOR_VERSION = 6.0.1
@@ -30,7 +30,7 @@ LOCAL_SPEC_PATH = stage/specification.yml
 #   github_actions: /home/runner/work/someapp/someapp
 #   local: /home/someuser/someapp
 
-# SPEC_URI is the location where the OpenAPI specification is located, for example:
+# SPEC_URI is the file path or URL where the OpenAPI specification is located, for example:
 # - local file path: spec/some-app.yaml
 # - remote URL: https://some-app.com/some-app.yaml
 SPEC_URI=$(shell yq .spec_uri swaggy-c.yml)
@@ -70,7 +70,7 @@ stage:
 
 # Remove all generated API clients code
 clean:
-	rm -rf clients/*/generated
+	rm -rf stage/ clients/*/generated
 
 # Retrieve the OpenAPI Generator Docker image and npm modules
 deps:
@@ -95,8 +95,16 @@ init-spec: stage
 init-langs-config:
 	for lang in ${LANGS_ALL} ; do \
 	  mkdir -p clients/$$lang/; \
-	  cat "{}" > clients/$$lang/conf.json; \
+		echo "{}" > clients/$$lang/conf.json; \
 	done
+
+# Update Makefile to the latest version on origin's main branch
+update-to-latest:
+	curl https://raw.githubusercontent.com/cliffano/swaggy-c/main/src/Makefile-swaggy-c -o Makefile
+
+# Update Makefile to the version defined in TARGET_SWAGGY_C_VERSION parameter
+update-to-version:
+	curl https://raw.githubusercontent.com/cliffano/swaggy-c/v$(TARGET_SWAGGY_C_VERSION)/Makefile -o Makefile
 
 ################################################################
 # API clients generate targets
@@ -104,8 +112,8 @@ init-langs-config:
 # Alias for generate-all target
 generate: generate-all
 
-# Generate API clients for all languages, this is separate from generate-primary target due to
-# the possibility of different command arguments
+# Generate API clients for all languages, this is separate from generate-primary target in order to
+# reduce the build time when processing primary languages
 # This target requires APP_BASE_DIR parameter to be supplied by user
 generate-all:
 	for lang in ${LANGS_ALL} ; do \
@@ -213,4 +221,4 @@ doc-publish:
 
 ################################################################
 
-.PHONY: ci stage clean deps init-spec init-langs-config generate generate-all generate-primary build-javascript build-python build-ruby test-javascript test-python test-ruby publish-javascript publish-python publish-ruby doc doc-latest doc-version doc-publish
+.PHONY: all test ci stage clean deps init-spec init-langs-config generate generate-all generate-primary build-javascript build-python build-ruby test-javascript test-python test-ruby publish-javascript publish-python publish-ruby doc doc-latest doc-version doc-publish
