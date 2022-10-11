@@ -51,4 +51,4 @@ Install Ruby client:
 Colophon
 --------
 
-* [API Documentation](http://cliffano.github.io/pokeapi-clients/api/latest/)
+* [API Documentation](https://cliffano.github.io/pokeapi-clients/api/latest/)
