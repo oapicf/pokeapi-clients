@@ -1,5 +1,6 @@
 .gitignore
 .openapi-generator-ignore
+.swiftformat
 Cartfile
 OpenAPIClient.podspec
 OpenAPIClient/Classes/OpenAPIs/APIHelper.swift

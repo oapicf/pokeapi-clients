@@ -30,11 +30,11 @@ class MoveTargetApi(baseUrl: String) {
    * @param offset 
    */
   def moveTargetList(limit: Option[Int] = None, offset: Option[Int] = None
-): Request[Either[ResponseException[String, Exception], String], Nothing] =
+): Request[Either[Either[String, String], Unit], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-target/?limit=${ limit }&offset=${ offset }")
       .contentType("application/json")
-      .response(asJson[String])
+      .response(asEither(asString, ignore))
 
   /**
    * Expected answers:
@@ -43,10 +43,10 @@ class MoveTargetApi(baseUrl: String) {
    * @param id 
    */
   def moveTargetRead(id: Int
-): Request[Either[ResponseException[String, Exception], String], Nothing] =
+): Request[Either[Either[String, String], Unit], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-target/${id}/")
       .contentType("application/json")
-      .response(asJson[String])
+      .response(asEither(asString, ignore))
 
 }

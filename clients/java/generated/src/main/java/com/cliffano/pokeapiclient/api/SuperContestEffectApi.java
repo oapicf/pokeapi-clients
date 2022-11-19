@@ -127,7 +127,6 @@ public class SuperContestEffectApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -140,10 +139,7 @@ public class SuperContestEffectApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call superContestEffectListValidateBeforeCall(Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = superContestEffectListCall(limit, offset, _callback);
-        return localVarCall;
+        return superContestEffectListCall(limit, offset, _callback);
 
     }
 
@@ -235,7 +231,7 @@ public class SuperContestEffectApi {
 
         // create path and map variables
         String localVarPath = "/api/v2/super-contest-effect/{id}/"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -252,7 +248,6 @@ public class SuperContestEffectApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -265,15 +260,12 @@ public class SuperContestEffectApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call superContestEffectReadValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling superContestEffectRead(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = superContestEffectReadCall(id, _callback);
-        return localVarCall;
+        return superContestEffectReadCall(id, _callback);
 
     }
 

@@ -3,4 +3,5 @@ README.md
 pom.xml
 src/gen/java/org/openapitools/api/ApiApi.java
 src/gen/java/org/openapitools/api/RestApplication.java
+src/gen/java/org/openapitools/api/RestResourceRoot.java
 src/main/openapi/openapi.yaml

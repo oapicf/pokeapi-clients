@@ -1,11 +1,11 @@
 # OpenAPI\Client\GenderApi
 
-All URIs are relative to https://pokeapi.co.
+All URIs are relative to https://pokeapi.co, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**genderList()**](GenderApi.md#genderList) | **GET** /api/v2/gender/ | 
-[**genderRead()**](GenderApi.md#genderRead) | **GET** /api/v2/gender/{id}/ | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**genderList()**](GenderApi.md#genderList) | **GET** /api/v2/gender/ |  |
+| [**genderRead()**](GenderApi.md#genderRead) | **GET** /api/v2/gender/{id}/ |  |
 
 
 ## `genderList()`
@@ -42,10 +42,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int**|  | [optional]
- **offset** | **int**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **int**|  | [optional] |
+| **offset** | **int**|  | [optional] |
 
 ### Return type
 
@@ -97,9 +97,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
 
 ### Return type
 

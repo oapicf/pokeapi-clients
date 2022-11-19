@@ -1,11 +1,11 @@
 # OpenAPI\Client\PokemonColorApi
 
-All URIs are relative to https://pokeapi.co.
+All URIs are relative to https://pokeapi.co, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**pokemonColorList()**](PokemonColorApi.md#pokemonColorList) | **GET** /api/v2/pokemon-color/ | 
-[**pokemonColorRead()**](PokemonColorApi.md#pokemonColorRead) | **GET** /api/v2/pokemon-color/{id}/ | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**pokemonColorList()**](PokemonColorApi.md#pokemonColorList) | **GET** /api/v2/pokemon-color/ |  |
+| [**pokemonColorRead()**](PokemonColorApi.md#pokemonColorRead) | **GET** /api/v2/pokemon-color/{id}/ |  |
 
 
 ## `pokemonColorList()`
@@ -42,10 +42,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int**|  | [optional]
- **offset** | **int**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **int**|  | [optional] |
+| **offset** | **int**|  | [optional] |
 
 ### Return type
 
@@ -97,9 +97,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
 
 ### Return type
 

@@ -16,6 +16,7 @@ using System.Net;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Net.Http;
 
 namespace Org.OpenAPITools.Client
 {
@@ -107,7 +108,7 @@ namespace Org.OpenAPITools.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "OpenAPI-Generator/1.0.0/csharp";
+            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/1.0.0/csharp");
             BasePath = "https://pokeapi.co";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();

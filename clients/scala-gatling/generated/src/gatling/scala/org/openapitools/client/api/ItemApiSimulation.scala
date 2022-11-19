@@ -72,8 +72,8 @@ class ItemApiSimulation extends Simulation {
         .feed(item_listQUERYFeeder)
         .exec(http("itemList")
         .httpRequest("GET","/api/v2/item/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scnitemList with warm up and reach a constant rate for entire duration

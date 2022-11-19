@@ -72,8 +72,8 @@ class BerryFirmnessApiSimulation extends Simulation {
         .feed(berry-firmness_listQUERYFeeder)
         .exec(http("berryFirmnessList")
         .httpRequest("GET","/api/v2/berry-firmness/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scnberryFirmnessList with warm up and reach a constant rate for entire duration

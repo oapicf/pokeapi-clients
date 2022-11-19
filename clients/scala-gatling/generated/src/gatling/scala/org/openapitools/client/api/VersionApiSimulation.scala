@@ -72,8 +72,8 @@ class VersionApiSimulation extends Simulation {
         .feed(version_listQUERYFeeder)
         .exec(http("versionList")
         .httpRequest("GET","/api/v2/version/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scnversionList with warm up and reach a constant rate for entire duration

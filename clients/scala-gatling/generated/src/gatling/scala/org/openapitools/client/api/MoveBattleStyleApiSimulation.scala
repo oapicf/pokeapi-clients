@@ -72,8 +72,8 @@ class MoveBattleStyleApiSimulation extends Simulation {
         .feed(move-battle-style_listQUERYFeeder)
         .exec(http("moveBattleStyleList")
         .httpRequest("GET","/api/v2/move-battle-style/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scnmoveBattleStyleList with warm up and reach a constant rate for entire duration

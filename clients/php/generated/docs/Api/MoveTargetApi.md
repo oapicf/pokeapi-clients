@@ -1,11 +1,11 @@
 # OpenAPI\Client\MoveTargetApi
 
-All URIs are relative to https://pokeapi.co.
+All URIs are relative to https://pokeapi.co, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**moveTargetList()**](MoveTargetApi.md#moveTargetList) | **GET** /api/v2/move-target/ | 
-[**moveTargetRead()**](MoveTargetApi.md#moveTargetRead) | **GET** /api/v2/move-target/{id}/ | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**moveTargetList()**](MoveTargetApi.md#moveTargetList) | **GET** /api/v2/move-target/ |  |
+| [**moveTargetRead()**](MoveTargetApi.md#moveTargetRead) | **GET** /api/v2/move-target/{id}/ |  |
 
 
 ## `moveTargetList()`
@@ -42,10 +42,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int**|  | [optional]
- **offset** | **int**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **int**|  | [optional] |
+| **offset** | **int**|  | [optional] |
 
 ### Return type
 
@@ -97,9 +97,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
 
 ### Return type
 

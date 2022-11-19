@@ -1,11 +1,11 @@
 # OpenAPI\Client\GenerationApi
 
-All URIs are relative to https://pokeapi.co.
+All URIs are relative to https://pokeapi.co, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**generationList()**](GenerationApi.md#generationList) | **GET** /api/v2/generation/ | 
-[**generationRead()**](GenerationApi.md#generationRead) | **GET** /api/v2/generation/{id}/ | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**generationList()**](GenerationApi.md#generationList) | **GET** /api/v2/generation/ |  |
+| [**generationRead()**](GenerationApi.md#generationRead) | **GET** /api/v2/generation/{id}/ |  |
 
 
 ## `generationList()`
@@ -42,10 +42,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int**|  | [optional]
- **offset** | **int**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **int**|  | [optional] |
+| **offset** | **int**|  | [optional] |
 
 ### Return type
 
@@ -97,9 +97,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
 
 ### Return type
 

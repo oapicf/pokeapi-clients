@@ -12,7 +12,7 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-08-17T11:01:51.125942Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-11-19T09:48:29.839591Z[Etc/UTC]")
 public class ApiApiServiceImpl implements ApiApi {
       public Response abilityList(Integer limit,Integer offset,SecurityContext securityContext) {
       // do some magic!

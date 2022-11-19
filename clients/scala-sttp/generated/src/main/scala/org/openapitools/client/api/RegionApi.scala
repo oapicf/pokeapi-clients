@@ -30,11 +30,11 @@ class RegionApi(baseUrl: String) {
    * @param offset 
    */
   def regionList(limit: Option[Int] = None, offset: Option[Int] = None
-): Request[Either[ResponseException[String, Exception], String], Nothing] =
+): Request[Either[Either[String, String], Unit], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/region/?limit=${ limit }&offset=${ offset }")
       .contentType("application/json")
-      .response(asJson[String])
+      .response(asEither(asString, ignore))
 
   /**
    * Expected answers:
@@ -43,10 +43,10 @@ class RegionApi(baseUrl: String) {
    * @param id 
    */
   def regionRead(id: Int
-): Request[Either[ResponseException[String, Exception], String], Nothing] =
+): Request[Either[Either[String, String], Unit], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/region/${id}/")
       .contentType("application/json")
-      .response(asJson[String])
+      .response(asEither(asString, ignore))
 
 }

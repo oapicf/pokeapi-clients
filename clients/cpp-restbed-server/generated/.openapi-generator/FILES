@@ -1,5 +1,7 @@
 .gitignore
 .openapi-generator-ignore
+CMakeLists.txt
+FindRestbedAndBoost.cmake
 README.md
 api/AbilityApi.cpp
 api/AbilityApi.h
@@ -98,3 +100,4 @@ api/VersionApi.h
 api/VersionGroupApi.cpp
 api/VersionGroupApi.h
 git_push.sh
+model/helpers.h

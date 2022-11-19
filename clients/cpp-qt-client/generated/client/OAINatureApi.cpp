@@ -60,7 +60,7 @@ void OAINatureApi::setServerIndex(const QString &operation, int serverIndex) {
 }
 
 void OAINatureApi::setApiKey(const QString &apiKeyName, const QString &apiKey) {
-    _apiKeys.insert(apiKeyName,apiKey);
+    _apiKeys.insert(apiKeyName, apiKey);
 }
 
 void OAINatureApi::setBearerToken(const QString &token) {
@@ -361,8 +361,8 @@ void OAINatureApi::natureReadCallback(OAIHttpRequestWorker *worker) {
 }
 
 void OAINatureApi::tokenAvailable(){
-  
-    oauthToken token; 
+
+    oauthToken token;
     switch (_OauthMethod) {
     case 1: //implicit flow
         token = _implicitFlow.getToken(_latestScope.join(" "));
@@ -380,7 +380,7 @@ void OAINatureApi::tokenAvailable(){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
             _latestWorker->execute(&_latestInput);
         }else{
-            _authFlow.removeToken(_latestScope.join(" "));    
+            _authFlow.removeToken(_latestScope.join(" "));
             qDebug() << "Could not retrieve a valid token";
         }
         break;
@@ -390,7 +390,7 @@ void OAINatureApi::tokenAvailable(){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
             _latestWorker->execute(&_latestInput);
         }else{
-            _credentialFlow.removeToken(_latestScope.join(" "));    
+            _credentialFlow.removeToken(_latestScope.join(" "));
             qDebug() << "Could not retrieve a valid token";
         }
         break;
@@ -400,7 +400,7 @@ void OAINatureApi::tokenAvailable(){
             _latestInput.headers.insert("Authorization", "Bearer " + token.getToken());
             _latestWorker->execute(&_latestInput);
         }else{
-            _credentialFlow.removeToken(_latestScope.join(" "));    
+            _credentialFlow.removeToken(_latestScope.join(" "));
             qDebug() << "Could not retrieve a valid token";
         }
         break;

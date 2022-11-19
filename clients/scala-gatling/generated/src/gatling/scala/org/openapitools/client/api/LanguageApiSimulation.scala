@@ -72,8 +72,8 @@ class LanguageApiSimulation extends Simulation {
         .feed(language_listQUERYFeeder)
         .exec(http("languageList")
         .httpRequest("GET","/api/v2/language/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scnlanguageList with warm up and reach a constant rate for entire duration

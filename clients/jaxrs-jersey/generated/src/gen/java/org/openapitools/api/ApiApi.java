@@ -1,6 +1,5 @@
 package org.openapitools.api;
 
-import org.openapitools.model.*;
 import org.openapitools.api.ApiApiService;
 import org.openapitools.api.factories.ApiApiServiceFactory;
 
@@ -29,7 +28,7 @@ import javax.validation.Valid;
 
 
 @io.swagger.annotations.Api(description = "the api API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2022-08-17T11:01:46.409467Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2022-11-19T09:48:20.538471Z[Etc/UTC]")
 public class ApiApi  {
    private final ApiApiService delegate;
 

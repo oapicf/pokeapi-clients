@@ -1,11 +1,11 @@
 # OpenAPI\Client\AbilityApi
 
-All URIs are relative to https://pokeapi.co.
+All URIs are relative to https://pokeapi.co, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**abilityList()**](AbilityApi.md#abilityList) | **GET** /api/v2/ability/ | 
-[**abilityRead()**](AbilityApi.md#abilityRead) | **GET** /api/v2/ability/{id}/ | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**abilityList()**](AbilityApi.md#abilityList) | **GET** /api/v2/ability/ |  |
+| [**abilityRead()**](AbilityApi.md#abilityRead) | **GET** /api/v2/ability/{id}/ |  |
 
 
 ## `abilityList()`
@@ -42,10 +42,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int**|  | [optional]
- **offset** | **int**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **int**|  | [optional] |
+| **offset** | **int**|  | [optional] |
 
 ### Return type
 
@@ -97,9 +97,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
 
 ### Return type
 

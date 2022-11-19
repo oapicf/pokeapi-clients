@@ -14,7 +14,7 @@ To see how to make this your own, look here:
 [README]((https://openapi-generator.tech))
 
 - API version: 20220523
-- Build date: 2022-08-17T11:04:05.500363Z[Etc/UTC]
+- Build date: 2022-11-19T09:52:56.734219Z[Etc/UTC]
 
 For more information, please visit [https://github.com/cliffano/pokeapi-clients](https://github.com/cliffano/pokeapi-clients)
 
@@ -240,8 +240,8 @@ Method | HTTP request | Description
 [**location-area_read**](docs/location_area_api.md#location-area_read) | **GET** /api/v2/location-area/{id}/ | 
 [**machine_list**](docs/machine_api.md#machine_list) | **GET** /api/v2/machine/ | 
 [**machine_read**](docs/machine_api.md#machine_read) | **GET** /api/v2/machine/{id}/ | 
-[**move_list**](docs/move_api.md#move_list) | **GET** /api/v2/move/ | 
-[**move_read**](docs/move_api.md#move_read) | **GET** /api/v2/move/{id}/ | 
+[**move_list**](docs/r#move_api.md#move_list) | **GET** /api/v2/move/ | 
+[**move_read**](docs/r#move_api.md#move_read) | **GET** /api/v2/move/{id}/ | 
 [**move-ailment_list**](docs/move_ailment_api.md#move-ailment_list) | **GET** /api/v2/move-ailment/ | 
 [**move-ailment_read**](docs/move_ailment_api.md#move-ailment_read) | **GET** /api/v2/move-ailment/{id}/ | 
 [**move-battle-style_list**](docs/move_battle_style_api.md#move-battle-style_list) | **GET** /api/v2/move-battle-style/ | 
@@ -280,8 +280,8 @@ Method | HTTP request | Description
 [**stat_read**](docs/stat_api.md#stat_read) | **GET** /api/v2/stat/{id}/ | 
 [**super-contest-effect_list**](docs/super_contest_effect_api.md#super-contest-effect_list) | **GET** /api/v2/super-contest-effect/ | 
 [**super-contest-effect_read**](docs/super_contest_effect_api.md#super-contest-effect_read) | **GET** /api/v2/super-contest-effect/{id}/ | 
-[**type_list**](docs/type_api.md#type_list) | **GET** /api/v2/type/ | 
-[**type_read**](docs/type_api.md#type_read) | **GET** /api/v2/type/{id}/ | 
+[**type_list**](docs/r#type_api.md#type_list) | **GET** /api/v2/type/ | 
+[**type_read**](docs/r#type_api.md#type_read) | **GET** /api/v2/type/{id}/ | 
 [**version_list**](docs/version_api.md#version_list) | **GET** /api/v2/version/ | 
 [**version_read**](docs/version_api.md#version_read) | **GET** /api/v2/version/{id}/ | 
 [**version-group_list**](docs/version_group_api.md#version-group_list) | **GET** /api/v2/version-group/ | 

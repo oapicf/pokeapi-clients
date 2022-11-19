@@ -30,7 +30,6 @@ docs/location_api.md
 docs/location_area_api.md
 docs/machine_api.md
 docs/move_ailment_api.md
-docs/move_api.md
 docs/move_battle_style_api.md
 docs/move_category_api.md
 docs/move_damage_class_api.md
@@ -46,10 +45,11 @@ docs/pokemon_form_api.md
 docs/pokemon_habitat_api.md
 docs/pokemon_shape_api.md
 docs/pokemon_species_api.md
+docs/r#move_api.md
+docs/r#type_api.md
 docs/region_api.md
 docs/stat_api.md
 docs/super_contest_effect_api.md
-docs/type_api.md
 docs/version_api.md
 docs/version_group_api.md
 examples/ca.pem

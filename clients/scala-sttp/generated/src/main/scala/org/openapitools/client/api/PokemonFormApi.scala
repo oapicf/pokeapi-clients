@@ -30,11 +30,11 @@ class PokemonFormApi(baseUrl: String) {
    * @param offset 
    */
   def pokemonFormList(limit: Option[Int] = None, offset: Option[Int] = None
-): Request[Either[ResponseException[String, Exception], String], Nothing] =
+): Request[Either[Either[String, String], Unit], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/pokemon-form/?limit=${ limit }&offset=${ offset }")
       .contentType("application/json")
-      .response(asJson[String])
+      .response(asEither(asString, ignore))
 
   /**
    * Expected answers:
@@ -43,10 +43,10 @@ class PokemonFormApi(baseUrl: String) {
    * @param id 
    */
   def pokemonFormRead(id: Int
-): Request[Either[ResponseException[String, Exception], String], Nothing] =
+): Request[Either[Either[String, String], Unit], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/pokemon-form/${id}/")
       .contentType("application/json")
-      .response(asJson[String])
+      .response(asEither(asString, ignore))
 
 }

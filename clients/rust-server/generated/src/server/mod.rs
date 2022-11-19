@@ -228,6 +228,7 @@ mod paths {
     pub(crate) static ID_API_V2_ABILITY_ID_: usize = 1;
     lazy_static! {
         pub static ref REGEX_API_V2_ABILITY_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/ability/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_ABILITY_ID_");
     }
@@ -235,6 +236,7 @@ mod paths {
     pub(crate) static ID_API_V2_BERRY_FIRMNESS_ID_: usize = 3;
     lazy_static! {
         pub static ref REGEX_API_V2_BERRY_FIRMNESS_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/berry-firmness/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_BERRY_FIRMNESS_ID_");
     }
@@ -242,6 +244,7 @@ mod paths {
     pub(crate) static ID_API_V2_BERRY_FLAVOR_ID_: usize = 5;
     lazy_static! {
         pub static ref REGEX_API_V2_BERRY_FLAVOR_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/berry-flavor/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_BERRY_FLAVOR_ID_");
     }
@@ -249,6 +252,7 @@ mod paths {
     pub(crate) static ID_API_V2_BERRY_ID_: usize = 7;
     lazy_static! {
         pub static ref REGEX_API_V2_BERRY_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/berry/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_BERRY_ID_");
     }
@@ -256,6 +260,7 @@ mod paths {
     pub(crate) static ID_API_V2_CHARACTERISTIC_ID_: usize = 9;
     lazy_static! {
         pub static ref REGEX_API_V2_CHARACTERISTIC_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/characteristic/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_CHARACTERISTIC_ID_");
     }
@@ -263,6 +268,7 @@ mod paths {
     pub(crate) static ID_API_V2_CONTEST_EFFECT_ID_: usize = 11;
     lazy_static! {
         pub static ref REGEX_API_V2_CONTEST_EFFECT_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/contest-effect/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_CONTEST_EFFECT_ID_");
     }
@@ -270,6 +276,7 @@ mod paths {
     pub(crate) static ID_API_V2_CONTEST_TYPE_ID_: usize = 13;
     lazy_static! {
         pub static ref REGEX_API_V2_CONTEST_TYPE_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/contest-type/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_CONTEST_TYPE_ID_");
     }
@@ -277,6 +284,7 @@ mod paths {
     pub(crate) static ID_API_V2_EGG_GROUP_ID_: usize = 15;
     lazy_static! {
         pub static ref REGEX_API_V2_EGG_GROUP_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/egg-group/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_EGG_GROUP_ID_");
     }
@@ -284,6 +292,7 @@ mod paths {
     pub(crate) static ID_API_V2_ENCOUNTER_CONDITION_VALUE_ID_: usize = 17;
     lazy_static! {
         pub static ref REGEX_API_V2_ENCOUNTER_CONDITION_VALUE_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/encounter-condition-value/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_ENCOUNTER_CONDITION_VALUE_ID_");
     }
@@ -291,6 +300,7 @@ mod paths {
     pub(crate) static ID_API_V2_ENCOUNTER_CONDITION_ID_: usize = 19;
     lazy_static! {
         pub static ref REGEX_API_V2_ENCOUNTER_CONDITION_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/encounter-condition/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_ENCOUNTER_CONDITION_ID_");
     }
@@ -298,6 +308,7 @@ mod paths {
     pub(crate) static ID_API_V2_ENCOUNTER_METHOD_ID_: usize = 21;
     lazy_static! {
         pub static ref REGEX_API_V2_ENCOUNTER_METHOD_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/encounter-method/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_ENCOUNTER_METHOD_ID_");
     }
@@ -305,6 +316,7 @@ mod paths {
     pub(crate) static ID_API_V2_EVOLUTION_CHAIN_ID_: usize = 23;
     lazy_static! {
         pub static ref REGEX_API_V2_EVOLUTION_CHAIN_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/evolution-chain/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_EVOLUTION_CHAIN_ID_");
     }
@@ -312,6 +324,7 @@ mod paths {
     pub(crate) static ID_API_V2_EVOLUTION_TRIGGER_ID_: usize = 25;
     lazy_static! {
         pub static ref REGEX_API_V2_EVOLUTION_TRIGGER_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/evolution-trigger/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_EVOLUTION_TRIGGER_ID_");
     }
@@ -319,6 +332,7 @@ mod paths {
     pub(crate) static ID_API_V2_GENDER_ID_: usize = 27;
     lazy_static! {
         pub static ref REGEX_API_V2_GENDER_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/gender/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_GENDER_ID_");
     }
@@ -326,6 +340,7 @@ mod paths {
     pub(crate) static ID_API_V2_GENERATION_ID_: usize = 29;
     lazy_static! {
         pub static ref REGEX_API_V2_GENERATION_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/generation/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_GENERATION_ID_");
     }
@@ -333,6 +348,7 @@ mod paths {
     pub(crate) static ID_API_V2_GROWTH_RATE_ID_: usize = 31;
     lazy_static! {
         pub static ref REGEX_API_V2_GROWTH_RATE_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/growth-rate/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_GROWTH_RATE_ID_");
     }
@@ -340,6 +356,7 @@ mod paths {
     pub(crate) static ID_API_V2_ITEM_ATTRIBUTE_ID_: usize = 33;
     lazy_static! {
         pub static ref REGEX_API_V2_ITEM_ATTRIBUTE_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/item-attribute/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_ITEM_ATTRIBUTE_ID_");
     }
@@ -347,6 +364,7 @@ mod paths {
     pub(crate) static ID_API_V2_ITEM_CATEGORY_ID_: usize = 35;
     lazy_static! {
         pub static ref REGEX_API_V2_ITEM_CATEGORY_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/item-category/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_ITEM_CATEGORY_ID_");
     }
@@ -354,6 +372,7 @@ mod paths {
     pub(crate) static ID_API_V2_ITEM_FLING_EFFECT_ID_: usize = 37;
     lazy_static! {
         pub static ref REGEX_API_V2_ITEM_FLING_EFFECT_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/item-fling-effect/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_ITEM_FLING_EFFECT_ID_");
     }
@@ -361,6 +380,7 @@ mod paths {
     pub(crate) static ID_API_V2_ITEM_POCKET_ID_: usize = 39;
     lazy_static! {
         pub static ref REGEX_API_V2_ITEM_POCKET_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/item-pocket/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_ITEM_POCKET_ID_");
     }
@@ -368,6 +388,7 @@ mod paths {
     pub(crate) static ID_API_V2_ITEM_ID_: usize = 41;
     lazy_static! {
         pub static ref REGEX_API_V2_ITEM_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/item/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_ITEM_ID_");
     }
@@ -375,6 +396,7 @@ mod paths {
     pub(crate) static ID_API_V2_LANGUAGE_ID_: usize = 43;
     lazy_static! {
         pub static ref REGEX_API_V2_LANGUAGE_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/language/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_LANGUAGE_ID_");
     }
@@ -382,6 +404,7 @@ mod paths {
     pub(crate) static ID_API_V2_LOCATION_AREA_ID_: usize = 45;
     lazy_static! {
         pub static ref REGEX_API_V2_LOCATION_AREA_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/location-area/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_LOCATION_AREA_ID_");
     }
@@ -389,6 +412,7 @@ mod paths {
     pub(crate) static ID_API_V2_LOCATION_ID_: usize = 47;
     lazy_static! {
         pub static ref REGEX_API_V2_LOCATION_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/location/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_LOCATION_ID_");
     }
@@ -396,6 +420,7 @@ mod paths {
     pub(crate) static ID_API_V2_MACHINE_ID_: usize = 49;
     lazy_static! {
         pub static ref REGEX_API_V2_MACHINE_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/machine/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_MACHINE_ID_");
     }
@@ -403,6 +428,7 @@ mod paths {
     pub(crate) static ID_API_V2_MOVE_AILMENT_ID_: usize = 51;
     lazy_static! {
         pub static ref REGEX_API_V2_MOVE_AILMENT_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/move-ailment/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_MOVE_AILMENT_ID_");
     }
@@ -410,6 +436,7 @@ mod paths {
     pub(crate) static ID_API_V2_MOVE_BATTLE_STYLE_ID_: usize = 53;
     lazy_static! {
         pub static ref REGEX_API_V2_MOVE_BATTLE_STYLE_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/move-battle-style/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_MOVE_BATTLE_STYLE_ID_");
     }
@@ -417,6 +444,7 @@ mod paths {
     pub(crate) static ID_API_V2_MOVE_CATEGORY_ID_: usize = 55;
     lazy_static! {
         pub static ref REGEX_API_V2_MOVE_CATEGORY_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/move-category/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_MOVE_CATEGORY_ID_");
     }
@@ -424,6 +452,7 @@ mod paths {
     pub(crate) static ID_API_V2_MOVE_DAMAGE_CLASS_ID_: usize = 57;
     lazy_static! {
         pub static ref REGEX_API_V2_MOVE_DAMAGE_CLASS_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/move-damage-class/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_MOVE_DAMAGE_CLASS_ID_");
     }
@@ -431,6 +460,7 @@ mod paths {
     pub(crate) static ID_API_V2_MOVE_LEARN_METHOD_ID_: usize = 59;
     lazy_static! {
         pub static ref REGEX_API_V2_MOVE_LEARN_METHOD_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/move-learn-method/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_MOVE_LEARN_METHOD_ID_");
     }
@@ -438,6 +468,7 @@ mod paths {
     pub(crate) static ID_API_V2_MOVE_TARGET_ID_: usize = 61;
     lazy_static! {
         pub static ref REGEX_API_V2_MOVE_TARGET_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/move-target/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_MOVE_TARGET_ID_");
     }
@@ -445,6 +476,7 @@ mod paths {
     pub(crate) static ID_API_V2_MOVE_ID_: usize = 63;
     lazy_static! {
         pub static ref REGEX_API_V2_MOVE_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/move/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_MOVE_ID_");
     }
@@ -452,6 +484,7 @@ mod paths {
     pub(crate) static ID_API_V2_NATURE_ID_: usize = 65;
     lazy_static! {
         pub static ref REGEX_API_V2_NATURE_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/nature/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_NATURE_ID_");
     }
@@ -459,6 +492,7 @@ mod paths {
     pub(crate) static ID_API_V2_PAL_PARK_AREA_ID_: usize = 67;
     lazy_static! {
         pub static ref REGEX_API_V2_PAL_PARK_AREA_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pal-park-area/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_PAL_PARK_AREA_ID_");
     }
@@ -466,6 +500,7 @@ mod paths {
     pub(crate) static ID_API_V2_POKEATHLON_STAT_ID_: usize = 69;
     lazy_static! {
         pub static ref REGEX_API_V2_POKEATHLON_STAT_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pokeathlon-stat/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEATHLON_STAT_ID_");
     }
@@ -473,6 +508,7 @@ mod paths {
     pub(crate) static ID_API_V2_POKEDEX_ID_: usize = 71;
     lazy_static! {
         pub static ref REGEX_API_V2_POKEDEX_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pokedex/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEDEX_ID_");
     }
@@ -480,6 +516,7 @@ mod paths {
     pub(crate) static ID_API_V2_POKEMON_COLOR_ID_: usize = 73;
     lazy_static! {
         pub static ref REGEX_API_V2_POKEMON_COLOR_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pokemon-color/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEMON_COLOR_ID_");
     }
@@ -487,6 +524,7 @@ mod paths {
     pub(crate) static ID_API_V2_POKEMON_FORM_ID_: usize = 75;
     lazy_static! {
         pub static ref REGEX_API_V2_POKEMON_FORM_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pokemon-form/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEMON_FORM_ID_");
     }
@@ -494,6 +532,7 @@ mod paths {
     pub(crate) static ID_API_V2_POKEMON_HABITAT_ID_: usize = 77;
     lazy_static! {
         pub static ref REGEX_API_V2_POKEMON_HABITAT_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pokemon-habitat/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEMON_HABITAT_ID_");
     }
@@ -501,6 +540,7 @@ mod paths {
     pub(crate) static ID_API_V2_POKEMON_SHAPE_ID_: usize = 79;
     lazy_static! {
         pub static ref REGEX_API_V2_POKEMON_SHAPE_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pokemon-shape/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEMON_SHAPE_ID_");
     }
@@ -508,6 +548,7 @@ mod paths {
     pub(crate) static ID_API_V2_POKEMON_SPECIES_ID_: usize = 81;
     lazy_static! {
         pub static ref REGEX_API_V2_POKEMON_SPECIES_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pokemon-species/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEMON_SPECIES_ID_");
     }
@@ -515,6 +556,7 @@ mod paths {
     pub(crate) static ID_API_V2_POKEMON_ID_: usize = 83;
     lazy_static! {
         pub static ref REGEX_API_V2_POKEMON_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/pokemon/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEMON_ID_");
     }
@@ -522,6 +564,7 @@ mod paths {
     pub(crate) static ID_API_V2_REGION_ID_: usize = 85;
     lazy_static! {
         pub static ref REGEX_API_V2_REGION_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/region/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_REGION_ID_");
     }
@@ -529,6 +572,7 @@ mod paths {
     pub(crate) static ID_API_V2_STAT_ID_: usize = 87;
     lazy_static! {
         pub static ref REGEX_API_V2_STAT_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/stat/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_STAT_ID_");
     }
@@ -536,6 +580,7 @@ mod paths {
     pub(crate) static ID_API_V2_SUPER_CONTEST_EFFECT_ID_: usize = 89;
     lazy_static! {
         pub static ref REGEX_API_V2_SUPER_CONTEST_EFFECT_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/super-contest-effect/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_SUPER_CONTEST_EFFECT_ID_");
     }
@@ -543,6 +588,7 @@ mod paths {
     pub(crate) static ID_API_V2_TYPE_ID_: usize = 91;
     lazy_static! {
         pub static ref REGEX_API_V2_TYPE_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/type/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_TYPE_ID_");
     }
@@ -550,6 +596,7 @@ mod paths {
     pub(crate) static ID_API_V2_VERSION_GROUP_ID_: usize = 93;
     lazy_static! {
         pub static ref REGEX_API_V2_VERSION_GROUP_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/version-group/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_VERSION_GROUP_ID_");
     }
@@ -557,6 +604,7 @@ mod paths {
     pub(crate) static ID_API_V2_VERSION_ID_: usize = 95;
     lazy_static! {
         pub static ref REGEX_API_V2_VERSION_ID_: regex::Regex =
+            #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/version/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_VERSION_ID_");
     }
@@ -623,7 +671,7 @@ impl<T, C> Service<T, C> where
 {
     pub fn new(api_impl: T) -> Self {
         Service {
-            api_impl: api_impl,
+            api_impl,
             marker: PhantomData
         }
     }
@@ -636,7 +684,7 @@ impl<T, C> Clone for Service<T, C> where
     fn clone(&self) -> Self {
         Service {
             api_impl: self.api_impl.clone(),
-            marker: self.marker.clone(),
+            marker: self.marker,
         }
     }
 }
@@ -662,14 +710,14 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
         let (method, uri, headers) = (parts.method, parts.uri, parts.headers);
         let path = paths::GLOBAL_REGEX_SET.matches(uri.path());
 
-        match &method {
+        match method {
 
             // AbilityList - GET /api/v2/ability/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -686,7 +734,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -711,7 +759,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -740,12 +788,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // AbilityRead - GET /api/v2/ability/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_ABILITY_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_ABILITY_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ABILITY_ID_.as_str())
                     );
@@ -771,7 +819,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -800,11 +848,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // BerryList - GET /api/v2/berry/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -821,7 +869,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -846,7 +894,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -875,12 +923,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // BerryRead - GET /api/v2/berry/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_BERRY_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_BERRY_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_BERRY_ID_.as_str())
                     );
@@ -906,7 +954,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -935,11 +983,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // BerryFirmnessList - GET /api/v2/berry-firmness/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FIRMNESS_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FIRMNESS_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -956,7 +1004,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -981,7 +1029,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -1010,12 +1058,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // BerryFirmnessRead - GET /api/v2/berry-firmness/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FIRMNESS_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FIRMNESS_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_BERRY_FIRMNESS_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_BERRY_FIRMNESS_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_BERRY_FIRMNESS_ID_.as_str())
                     );
@@ -1041,7 +1089,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -1070,11 +1118,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // BerryFlavorList - GET /api/v2/berry-flavor/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FLAVOR_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FLAVOR_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -1091,7 +1139,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -1116,7 +1164,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -1145,12 +1193,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // BerryFlavorRead - GET /api/v2/berry-flavor/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FLAVOR_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FLAVOR_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_BERRY_FLAVOR_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_BERRY_FLAVOR_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_BERRY_FLAVOR_ID_.as_str())
                     );
@@ -1176,7 +1224,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -1205,11 +1253,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // CharacteristicList - GET /api/v2/characteristic/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_CHARACTERISTIC_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CHARACTERISTIC_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -1226,7 +1274,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -1251,7 +1299,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -1280,12 +1328,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // CharacteristicRead - GET /api/v2/characteristic/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_CHARACTERISTIC_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CHARACTERISTIC_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_CHARACTERISTIC_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_CHARACTERISTIC_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_CHARACTERISTIC_ID_.as_str())
                     );
@@ -1311,7 +1359,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -1340,11 +1388,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // ContestEffectList - GET /api/v2/contest-effect/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_EFFECT_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_EFFECT_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -1361,7 +1409,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -1386,7 +1434,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -1415,12 +1463,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // ContestEffectRead - GET /api/v2/contest-effect/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_EFFECT_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_EFFECT_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_CONTEST_EFFECT_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_CONTEST_EFFECT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_CONTEST_EFFECT_ID_.as_str())
                     );
@@ -1446,7 +1494,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -1475,11 +1523,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // ContestTypeList - GET /api/v2/contest-type/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_TYPE_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_TYPE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -1496,7 +1544,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -1521,7 +1569,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -1550,12 +1598,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // ContestTypeRead - GET /api/v2/contest-type/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_TYPE_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_TYPE_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_CONTEST_TYPE_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_CONTEST_TYPE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_CONTEST_TYPE_ID_.as_str())
                     );
@@ -1581,7 +1629,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -1610,11 +1658,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // EggGroupList - GET /api/v2/egg-group/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_EGG_GROUP_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EGG_GROUP_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -1631,7 +1679,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -1656,7 +1704,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -1685,12 +1733,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // EggGroupRead - GET /api/v2/egg-group/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_EGG_GROUP_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EGG_GROUP_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_EGG_GROUP_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_EGG_GROUP_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_EGG_GROUP_ID_.as_str())
                     );
@@ -1716,7 +1764,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -1745,11 +1793,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // EncounterConditionList - GET /api/v2/encounter-condition/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -1766,7 +1814,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -1791,7 +1839,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -1820,12 +1868,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // EncounterConditionRead - GET /api/v2/encounter-condition/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_ENCOUNTER_CONDITION_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_ENCOUNTER_CONDITION_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ENCOUNTER_CONDITION_ID_.as_str())
                     );
@@ -1851,7 +1899,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -1880,11 +1928,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // EncounterConditionValueList - GET /api/v2/encounter-condition-value/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -1901,7 +1949,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -1926,7 +1974,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -1955,12 +2003,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // EncounterConditionValueRead - GET /api/v2/encounter-condition-value/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_ENCOUNTER_CONDITION_VALUE_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_ENCOUNTER_CONDITION_VALUE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ENCOUNTER_CONDITION_VALUE_ID_.as_str())
                     );
@@ -1986,7 +2034,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -2015,11 +2063,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // EncounterMethodList - GET /api/v2/encounter-method/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_METHOD_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_METHOD_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -2036,7 +2084,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -2061,7 +2109,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -2090,12 +2138,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // EncounterMethodRead - GET /api/v2/encounter-method/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_METHOD_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_METHOD_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_ENCOUNTER_METHOD_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_ENCOUNTER_METHOD_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ENCOUNTER_METHOD_ID_.as_str())
                     );
@@ -2121,7 +2169,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -2150,11 +2198,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // EvolutionChainList - GET /api/v2/evolution-chain/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -2171,7 +2219,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -2196,7 +2244,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -2225,12 +2273,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // EvolutionChainRead - GET /api/v2/evolution-chain/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_EVOLUTION_CHAIN_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_EVOLUTION_CHAIN_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_EVOLUTION_CHAIN_ID_.as_str())
                     );
@@ -2256,7 +2304,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -2285,11 +2333,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // EvolutionTriggerList - GET /api/v2/evolution-trigger/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -2306,7 +2354,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -2331,7 +2379,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -2360,12 +2408,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // EvolutionTriggerRead - GET /api/v2/evolution-trigger/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_EVOLUTION_TRIGGER_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_EVOLUTION_TRIGGER_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_EVOLUTION_TRIGGER_ID_.as_str())
                     );
@@ -2391,7 +2439,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -2420,11 +2468,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // GenderList - GET /api/v2/gender/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_GENDER_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GENDER_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -2441,7 +2489,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -2466,7 +2514,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -2495,12 +2543,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // GenderRead - GET /api/v2/gender/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_GENDER_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GENDER_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_GENDER_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_GENDER_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_GENDER_ID_.as_str())
                     );
@@ -2526,7 +2574,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -2555,11 +2603,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // GenerationList - GET /api/v2/generation/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_GENERATION_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GENERATION_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -2576,7 +2624,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -2601,7 +2649,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -2630,12 +2678,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // GenerationRead - GET /api/v2/generation/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_GENERATION_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GENERATION_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_GENERATION_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_GENERATION_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_GENERATION_ID_.as_str())
                     );
@@ -2661,7 +2709,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -2690,11 +2738,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // GrowthRateList - GET /api/v2/growth-rate/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_GROWTH_RATE_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GROWTH_RATE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -2711,7 +2759,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -2736,7 +2784,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -2765,12 +2813,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // GrowthRateRead - GET /api/v2/growth-rate/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_GROWTH_RATE_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GROWTH_RATE_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_GROWTH_RATE_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_GROWTH_RATE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_GROWTH_RATE_ID_.as_str())
                     );
@@ -2796,7 +2844,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -2825,11 +2873,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // ItemList - GET /api/v2/item/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -2846,7 +2894,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -2871,7 +2919,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -2900,12 +2948,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // ItemRead - GET /api/v2/item/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_ITEM_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_ITEM_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ITEM_ID_.as_str())
                     );
@@ -2931,7 +2979,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -2960,11 +3008,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // ItemAttributeList - GET /api/v2/item-attribute/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -2981,7 +3029,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -3006,7 +3054,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -3035,12 +3083,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // ItemAttributeRead - GET /api/v2/item-attribute/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_ITEM_ATTRIBUTE_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_ITEM_ATTRIBUTE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ITEM_ATTRIBUTE_ID_.as_str())
                     );
@@ -3066,7 +3114,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -3095,11 +3143,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // ItemCategoryList - GET /api/v2/item-category/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_CATEGORY_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_CATEGORY_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -3116,7 +3164,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -3141,7 +3189,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -3170,12 +3218,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // ItemCategoryRead - GET /api/v2/item-category/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_CATEGORY_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_CATEGORY_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_ITEM_CATEGORY_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_ITEM_CATEGORY_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ITEM_CATEGORY_ID_.as_str())
                     );
@@ -3201,7 +3249,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -3230,11 +3278,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // ItemFlingEffectList - GET /api/v2/item-fling-effect/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_FLING_EFFECT_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_FLING_EFFECT_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -3251,7 +3299,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -3276,7 +3324,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -3305,12 +3353,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // ItemFlingEffectRead - GET /api/v2/item-fling-effect/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_FLING_EFFECT_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_FLING_EFFECT_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_ITEM_FLING_EFFECT_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_ITEM_FLING_EFFECT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ITEM_FLING_EFFECT_ID_.as_str())
                     );
@@ -3336,7 +3384,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -3365,11 +3413,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // ItemPocketList - GET /api/v2/item-pocket/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_POCKET_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_POCKET_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -3386,7 +3434,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -3411,7 +3459,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -3440,12 +3488,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // ItemPocketRead - GET /api/v2/item-pocket/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_POCKET_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_POCKET_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_ITEM_POCKET_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_ITEM_POCKET_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ITEM_POCKET_ID_.as_str())
                     );
@@ -3471,7 +3519,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -3500,11 +3548,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // LanguageList - GET /api/v2/language/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -3521,7 +3569,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -3546,7 +3594,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -3575,12 +3623,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // LanguageRead - GET /api/v2/language/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_LANGUAGE_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_LANGUAGE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_LANGUAGE_ID_.as_str())
                     );
@@ -3606,7 +3654,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -3635,11 +3683,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // LocationList - GET /api/v2/location/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -3656,7 +3704,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -3681,7 +3729,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -3710,12 +3758,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // LocationRead - GET /api/v2/location/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_LOCATION_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_LOCATION_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_LOCATION_ID_.as_str())
                     );
@@ -3741,7 +3789,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -3770,11 +3818,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // LocationAreaList - GET /api/v2/location-area/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_AREA_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_AREA_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -3791,7 +3839,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -3816,7 +3864,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -3845,12 +3893,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // LocationAreaRead - GET /api/v2/location-area/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_AREA_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_AREA_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_LOCATION_AREA_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_LOCATION_AREA_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_LOCATION_AREA_ID_.as_str())
                     );
@@ -3876,7 +3924,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -3905,11 +3953,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // MachineList - GET /api/v2/machine/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MACHINE_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MACHINE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -3926,7 +3974,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -3951,7 +3999,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -3980,12 +4028,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // MachineRead - GET /api/v2/machine/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MACHINE_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MACHINE_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_MACHINE_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_MACHINE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MACHINE_ID_.as_str())
                     );
@@ -4011,7 +4059,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -4040,11 +4088,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // MoveList - GET /api/v2/move/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -4061,7 +4109,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -4086,7 +4134,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -4115,12 +4163,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // MoveRead - GET /api/v2/move/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_MOVE_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_MOVE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_ID_.as_str())
                     );
@@ -4146,7 +4194,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -4175,11 +4223,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // MoveAilmentList - GET /api/v2/move-ailment/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_AILMENT_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_AILMENT_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -4196,7 +4244,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -4221,7 +4269,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -4250,12 +4298,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // MoveAilmentRead - GET /api/v2/move-ailment/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_AILMENT_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_AILMENT_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_MOVE_AILMENT_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_MOVE_AILMENT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_AILMENT_ID_.as_str())
                     );
@@ -4281,7 +4329,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -4310,11 +4358,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // MoveBattleStyleList - GET /api/v2/move-battle-style/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_BATTLE_STYLE_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_BATTLE_STYLE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -4331,7 +4379,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -4356,7 +4404,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -4385,12 +4433,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // MoveBattleStyleRead - GET /api/v2/move-battle-style/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_BATTLE_STYLE_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_BATTLE_STYLE_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_MOVE_BATTLE_STYLE_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_MOVE_BATTLE_STYLE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_BATTLE_STYLE_ID_.as_str())
                     );
@@ -4416,7 +4464,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -4445,11 +4493,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // MoveCategoryList - GET /api/v2/move-category/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_CATEGORY_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_CATEGORY_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -4466,7 +4514,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -4491,7 +4539,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -4520,12 +4568,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // MoveCategoryRead - GET /api/v2/move-category/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_CATEGORY_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_CATEGORY_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_MOVE_CATEGORY_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_MOVE_CATEGORY_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_CATEGORY_ID_.as_str())
                     );
@@ -4551,7 +4599,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -4580,11 +4628,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // MoveDamageClassList - GET /api/v2/move-damage-class/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_DAMAGE_CLASS_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_DAMAGE_CLASS_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -4601,7 +4649,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -4626,7 +4674,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -4655,12 +4703,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // MoveDamageClassRead - GET /api/v2/move-damage-class/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_DAMAGE_CLASS_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_DAMAGE_CLASS_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_MOVE_DAMAGE_CLASS_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_MOVE_DAMAGE_CLASS_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_DAMAGE_CLASS_ID_.as_str())
                     );
@@ -4686,7 +4734,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -4715,11 +4763,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // MoveLearnMethodList - GET /api/v2/move-learn-method/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_LEARN_METHOD_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_LEARN_METHOD_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -4736,7 +4784,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -4761,7 +4809,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -4790,12 +4838,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // MoveLearnMethodRead - GET /api/v2/move-learn-method/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_LEARN_METHOD_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_LEARN_METHOD_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_MOVE_LEARN_METHOD_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_MOVE_LEARN_METHOD_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_LEARN_METHOD_ID_.as_str())
                     );
@@ -4821,7 +4869,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -4850,11 +4898,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // MoveTargetList - GET /api/v2/move-target/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_TARGET_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_TARGET_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -4871,7 +4919,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -4896,7 +4944,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -4925,12 +4973,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // MoveTargetRead - GET /api/v2/move-target/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_TARGET_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_TARGET_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_MOVE_TARGET_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_MOVE_TARGET_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_TARGET_ID_.as_str())
                     );
@@ -4956,7 +5004,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -4985,11 +5033,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // NatureList - GET /api/v2/nature/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_NATURE_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_NATURE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -5006,7 +5054,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -5031,7 +5079,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -5060,12 +5108,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // NatureRead - GET /api/v2/nature/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_NATURE_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_NATURE_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_NATURE_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_NATURE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_NATURE_ID_.as_str())
                     );
@@ -5091,7 +5139,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -5120,11 +5168,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PalParkAreaList - GET /api/v2/pal-park-area/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_PAL_PARK_AREA_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_PAL_PARK_AREA_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -5141,7 +5189,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -5166,7 +5214,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -5195,12 +5243,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PalParkAreaRead - GET /api/v2/pal-park-area/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_PAL_PARK_AREA_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_PAL_PARK_AREA_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_PAL_PARK_AREA_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_PAL_PARK_AREA_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_PAL_PARK_AREA_ID_.as_str())
                     );
@@ -5226,7 +5274,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -5255,11 +5303,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PokeathlonStatList - GET /api/v2/pokeathlon-stat/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEATHLON_STAT_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEATHLON_STAT_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -5276,7 +5324,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -5301,7 +5349,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -5330,12 +5378,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PokeathlonStatRead - GET /api/v2/pokeathlon-stat/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEATHLON_STAT_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEATHLON_STAT_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_POKEATHLON_STAT_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_POKEATHLON_STAT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEATHLON_STAT_ID_.as_str())
                     );
@@ -5361,7 +5409,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -5390,11 +5438,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PokedexList - GET /api/v2/pokedex/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEDEX_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEDEX_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -5411,7 +5459,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -5436,7 +5484,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -5465,12 +5513,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PokedexRead - GET /api/v2/pokedex/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEDEX_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEDEX_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_POKEDEX_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_POKEDEX_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEDEX_ID_.as_str())
                     );
@@ -5496,7 +5544,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -5525,11 +5573,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PokemonList - GET /api/v2/pokemon/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -5546,7 +5594,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -5571,7 +5619,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -5600,12 +5648,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PokemonRead - GET /api/v2/pokemon/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_POKEMON_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_POKEMON_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_ID_.as_str())
                     );
@@ -5631,7 +5679,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -5660,11 +5708,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PokemonColorList - GET /api/v2/pokemon-color/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_COLOR_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_COLOR_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -5681,7 +5729,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -5706,7 +5754,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -5735,12 +5783,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PokemonColorRead - GET /api/v2/pokemon-color/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_COLOR_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_COLOR_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_POKEMON_COLOR_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_POKEMON_COLOR_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_COLOR_ID_.as_str())
                     );
@@ -5766,7 +5814,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -5795,11 +5843,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PokemonFormList - GET /api/v2/pokemon-form/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_FORM_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_FORM_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -5816,7 +5864,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -5841,7 +5889,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -5870,12 +5918,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PokemonFormRead - GET /api/v2/pokemon-form/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_FORM_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_FORM_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_POKEMON_FORM_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_POKEMON_FORM_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_FORM_ID_.as_str())
                     );
@@ -5901,7 +5949,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -5930,11 +5978,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PokemonHabitatList - GET /api/v2/pokemon-habitat/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_HABITAT_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_HABITAT_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -5951,7 +5999,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -5976,7 +6024,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -6005,12 +6053,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PokemonHabitatRead - GET /api/v2/pokemon-habitat/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_HABITAT_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_HABITAT_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_POKEMON_HABITAT_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_POKEMON_HABITAT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_HABITAT_ID_.as_str())
                     );
@@ -6036,7 +6084,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -6065,11 +6113,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PokemonShapeList - GET /api/v2/pokemon-shape/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SHAPE_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SHAPE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -6086,7 +6134,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -6111,7 +6159,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -6140,12 +6188,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PokemonShapeRead - GET /api/v2/pokemon-shape/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SHAPE_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SHAPE_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_POKEMON_SHAPE_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_POKEMON_SHAPE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_SHAPE_ID_.as_str())
                     );
@@ -6171,7 +6219,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -6200,11 +6248,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PokemonSpeciesList - GET /api/v2/pokemon-species/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SPECIES_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SPECIES_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -6221,7 +6269,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -6246,7 +6294,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -6275,12 +6323,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // PokemonSpeciesRead - GET /api/v2/pokemon-species/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SPECIES_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SPECIES_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_POKEMON_SPECIES_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_POKEMON_SPECIES_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_SPECIES_ID_.as_str())
                     );
@@ -6306,7 +6354,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -6335,11 +6383,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // RegionList - GET /api/v2/region/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_REGION_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_REGION_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -6356,7 +6404,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -6381,7 +6429,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -6410,12 +6458,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // RegionRead - GET /api/v2/region/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_REGION_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_REGION_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_REGION_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_REGION_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_REGION_ID_.as_str())
                     );
@@ -6441,7 +6489,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -6470,11 +6518,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // StatList - GET /api/v2/stat/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_STAT_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_STAT_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -6491,7 +6539,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -6516,7 +6564,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -6545,12 +6593,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // StatRead - GET /api/v2/stat/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_STAT_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_STAT_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_STAT_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_STAT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_STAT_ID_.as_str())
                     );
@@ -6576,7 +6624,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -6605,11 +6653,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // SuperContestEffectList - GET /api/v2/super-contest-effect/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_SUPER_CONTEST_EFFECT_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_SUPER_CONTEST_EFFECT_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -6626,7 +6674,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -6651,7 +6699,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -6680,12 +6728,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // SuperContestEffectRead - GET /api/v2/super-contest-effect/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_SUPER_CONTEST_EFFECT_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_SUPER_CONTEST_EFFECT_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_SUPER_CONTEST_EFFECT_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_SUPER_CONTEST_EFFECT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_SUPER_CONTEST_EFFECT_ID_.as_str())
                     );
@@ -6711,7 +6759,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -6740,11 +6788,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // TypeList - GET /api/v2/type/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_TYPE_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_TYPE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -6761,7 +6809,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -6786,7 +6834,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -6815,12 +6863,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // TypeRead - GET /api/v2/type/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_TYPE_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_TYPE_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_TYPE_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_TYPE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_TYPE_ID_.as_str())
                     );
@@ -6846,7 +6894,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -6875,11 +6923,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // VersionList - GET /api/v2/version/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -6896,7 +6944,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -6921,7 +6969,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -6950,12 +6998,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // VersionRead - GET /api/v2/version/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_VERSION_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_VERSION_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_VERSION_ID_.as_str())
                     );
@@ -6981,7 +7029,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -7010,11 +7058,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // VersionGroupList - GET /api/v2/version-group/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_GROUP_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_GROUP_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
                         let param_limit =
@@ -7031,7 +7079,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     None => None,
                 };
                 let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
-                    .nth(0);
+                    .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
                         let param_offset =
@@ -7056,7 +7104,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -7085,12 +7133,12 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             },
 
             // VersionGroupRead - GET /api/v2/version-group/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_GROUP_ID_) => {
+            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_GROUP_ID_) => {
                 // Path parameters
-                let path: &str = &uri.path().to_string();
+                let path: &str = uri.path();
                 let path_params =
                     paths::REGEX_API_V2_VERSION_GROUP_ID_
-                    .captures(&path)
+                    .captures(path)
                     .unwrap_or_else(||
                         panic!("Path {} matched RE API_V2_VERSION_GROUP_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_VERSION_GROUP_ID_.as_str())
                     );
@@ -7116,7 +7164,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                 let mut response = Response::new(Body::empty());
                                 response.headers_mut().insert(
                                             HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().to_string().as_str())
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
                                                 .expect("Unable to create X-Span-ID header value"));
 
                                         match result {
@@ -7252,199 +7300,199 @@ pub struct ApiRequestParser;
 impl<T> RequestParser<T> for ApiRequestParser {
     fn parse_operation_id(request: &Request<T>) -> Option<&'static str> {
         let path = paths::GLOBAL_REGEX_SET.matches(request.uri().path());
-        match request.method() {
+        match *request.method() {
             // AbilityList - GET /api/v2/ability/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_) => Some("AbilityList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_) => Some("AbilityList"),
             // AbilityRead - GET /api/v2/ability/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_ID_) => Some("AbilityRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_ID_) => Some("AbilityRead"),
             // BerryList - GET /api/v2/berry/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_) => Some("BerryList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_) => Some("BerryList"),
             // BerryRead - GET /api/v2/berry/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_ID_) => Some("BerryRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_ID_) => Some("BerryRead"),
             // BerryFirmnessList - GET /api/v2/berry-firmness/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FIRMNESS_) => Some("BerryFirmnessList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FIRMNESS_) => Some("BerryFirmnessList"),
             // BerryFirmnessRead - GET /api/v2/berry-firmness/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FIRMNESS_ID_) => Some("BerryFirmnessRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FIRMNESS_ID_) => Some("BerryFirmnessRead"),
             // BerryFlavorList - GET /api/v2/berry-flavor/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FLAVOR_) => Some("BerryFlavorList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FLAVOR_) => Some("BerryFlavorList"),
             // BerryFlavorRead - GET /api/v2/berry-flavor/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FLAVOR_ID_) => Some("BerryFlavorRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FLAVOR_ID_) => Some("BerryFlavorRead"),
             // CharacteristicList - GET /api/v2/characteristic/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_CHARACTERISTIC_) => Some("CharacteristicList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CHARACTERISTIC_) => Some("CharacteristicList"),
             // CharacteristicRead - GET /api/v2/characteristic/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_CHARACTERISTIC_ID_) => Some("CharacteristicRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CHARACTERISTIC_ID_) => Some("CharacteristicRead"),
             // ContestEffectList - GET /api/v2/contest-effect/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_EFFECT_) => Some("ContestEffectList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_EFFECT_) => Some("ContestEffectList"),
             // ContestEffectRead - GET /api/v2/contest-effect/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_EFFECT_ID_) => Some("ContestEffectRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_EFFECT_ID_) => Some("ContestEffectRead"),
             // ContestTypeList - GET /api/v2/contest-type/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_TYPE_) => Some("ContestTypeList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_TYPE_) => Some("ContestTypeList"),
             // ContestTypeRead - GET /api/v2/contest-type/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_TYPE_ID_) => Some("ContestTypeRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_TYPE_ID_) => Some("ContestTypeRead"),
             // EggGroupList - GET /api/v2/egg-group/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_EGG_GROUP_) => Some("EggGroupList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EGG_GROUP_) => Some("EggGroupList"),
             // EggGroupRead - GET /api/v2/egg-group/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_EGG_GROUP_ID_) => Some("EggGroupRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EGG_GROUP_ID_) => Some("EggGroupRead"),
             // EncounterConditionList - GET /api/v2/encounter-condition/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_) => Some("EncounterConditionList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_) => Some("EncounterConditionList"),
             // EncounterConditionRead - GET /api/v2/encounter-condition/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_ID_) => Some("EncounterConditionRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_ID_) => Some("EncounterConditionRead"),
             // EncounterConditionValueList - GET /api/v2/encounter-condition-value/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_) => Some("EncounterConditionValueList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_) => Some("EncounterConditionValueList"),
             // EncounterConditionValueRead - GET /api/v2/encounter-condition-value/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_ID_) => Some("EncounterConditionValueRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_ID_) => Some("EncounterConditionValueRead"),
             // EncounterMethodList - GET /api/v2/encounter-method/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_METHOD_) => Some("EncounterMethodList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_METHOD_) => Some("EncounterMethodList"),
             // EncounterMethodRead - GET /api/v2/encounter-method/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_METHOD_ID_) => Some("EncounterMethodRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_METHOD_ID_) => Some("EncounterMethodRead"),
             // EvolutionChainList - GET /api/v2/evolution-chain/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_) => Some("EvolutionChainList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_) => Some("EvolutionChainList"),
             // EvolutionChainRead - GET /api/v2/evolution-chain/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_ID_) => Some("EvolutionChainRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_ID_) => Some("EvolutionChainRead"),
             // EvolutionTriggerList - GET /api/v2/evolution-trigger/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_) => Some("EvolutionTriggerList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_) => Some("EvolutionTriggerList"),
             // EvolutionTriggerRead - GET /api/v2/evolution-trigger/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_ID_) => Some("EvolutionTriggerRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_ID_) => Some("EvolutionTriggerRead"),
             // GenderList - GET /api/v2/gender/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_GENDER_) => Some("GenderList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GENDER_) => Some("GenderList"),
             // GenderRead - GET /api/v2/gender/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_GENDER_ID_) => Some("GenderRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GENDER_ID_) => Some("GenderRead"),
             // GenerationList - GET /api/v2/generation/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_GENERATION_) => Some("GenerationList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GENERATION_) => Some("GenerationList"),
             // GenerationRead - GET /api/v2/generation/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_GENERATION_ID_) => Some("GenerationRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GENERATION_ID_) => Some("GenerationRead"),
             // GrowthRateList - GET /api/v2/growth-rate/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_GROWTH_RATE_) => Some("GrowthRateList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GROWTH_RATE_) => Some("GrowthRateList"),
             // GrowthRateRead - GET /api/v2/growth-rate/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_GROWTH_RATE_ID_) => Some("GrowthRateRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GROWTH_RATE_ID_) => Some("GrowthRateRead"),
             // ItemList - GET /api/v2/item/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_) => Some("ItemList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_) => Some("ItemList"),
             // ItemRead - GET /api/v2/item/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ID_) => Some("ItemRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ID_) => Some("ItemRead"),
             // ItemAttributeList - GET /api/v2/item-attribute/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_) => Some("ItemAttributeList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_) => Some("ItemAttributeList"),
             // ItemAttributeRead - GET /api/v2/item-attribute/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_ID_) => Some("ItemAttributeRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_ID_) => Some("ItemAttributeRead"),
             // ItemCategoryList - GET /api/v2/item-category/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_CATEGORY_) => Some("ItemCategoryList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_CATEGORY_) => Some("ItemCategoryList"),
             // ItemCategoryRead - GET /api/v2/item-category/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_CATEGORY_ID_) => Some("ItemCategoryRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_CATEGORY_ID_) => Some("ItemCategoryRead"),
             // ItemFlingEffectList - GET /api/v2/item-fling-effect/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_FLING_EFFECT_) => Some("ItemFlingEffectList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_FLING_EFFECT_) => Some("ItemFlingEffectList"),
             // ItemFlingEffectRead - GET /api/v2/item-fling-effect/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_FLING_EFFECT_ID_) => Some("ItemFlingEffectRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_FLING_EFFECT_ID_) => Some("ItemFlingEffectRead"),
             // ItemPocketList - GET /api/v2/item-pocket/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_POCKET_) => Some("ItemPocketList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_POCKET_) => Some("ItemPocketList"),
             // ItemPocketRead - GET /api/v2/item-pocket/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_POCKET_ID_) => Some("ItemPocketRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_POCKET_ID_) => Some("ItemPocketRead"),
             // LanguageList - GET /api/v2/language/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_) => Some("LanguageList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_) => Some("LanguageList"),
             // LanguageRead - GET /api/v2/language/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_ID_) => Some("LanguageRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_ID_) => Some("LanguageRead"),
             // LocationList - GET /api/v2/location/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_) => Some("LocationList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_) => Some("LocationList"),
             // LocationRead - GET /api/v2/location/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_ID_) => Some("LocationRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_ID_) => Some("LocationRead"),
             // LocationAreaList - GET /api/v2/location-area/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_AREA_) => Some("LocationAreaList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_AREA_) => Some("LocationAreaList"),
             // LocationAreaRead - GET /api/v2/location-area/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_AREA_ID_) => Some("LocationAreaRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_AREA_ID_) => Some("LocationAreaRead"),
             // MachineList - GET /api/v2/machine/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MACHINE_) => Some("MachineList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MACHINE_) => Some("MachineList"),
             // MachineRead - GET /api/v2/machine/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MACHINE_ID_) => Some("MachineRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MACHINE_ID_) => Some("MachineRead"),
             // MoveList - GET /api/v2/move/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_) => Some("MoveList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_) => Some("MoveList"),
             // MoveRead - GET /api/v2/move/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_ID_) => Some("MoveRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_ID_) => Some("MoveRead"),
             // MoveAilmentList - GET /api/v2/move-ailment/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_AILMENT_) => Some("MoveAilmentList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_AILMENT_) => Some("MoveAilmentList"),
             // MoveAilmentRead - GET /api/v2/move-ailment/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_AILMENT_ID_) => Some("MoveAilmentRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_AILMENT_ID_) => Some("MoveAilmentRead"),
             // MoveBattleStyleList - GET /api/v2/move-battle-style/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_BATTLE_STYLE_) => Some("MoveBattleStyleList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_BATTLE_STYLE_) => Some("MoveBattleStyleList"),
             // MoveBattleStyleRead - GET /api/v2/move-battle-style/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_BATTLE_STYLE_ID_) => Some("MoveBattleStyleRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_BATTLE_STYLE_ID_) => Some("MoveBattleStyleRead"),
             // MoveCategoryList - GET /api/v2/move-category/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_CATEGORY_) => Some("MoveCategoryList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_CATEGORY_) => Some("MoveCategoryList"),
             // MoveCategoryRead - GET /api/v2/move-category/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_CATEGORY_ID_) => Some("MoveCategoryRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_CATEGORY_ID_) => Some("MoveCategoryRead"),
             // MoveDamageClassList - GET /api/v2/move-damage-class/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_DAMAGE_CLASS_) => Some("MoveDamageClassList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_DAMAGE_CLASS_) => Some("MoveDamageClassList"),
             // MoveDamageClassRead - GET /api/v2/move-damage-class/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_DAMAGE_CLASS_ID_) => Some("MoveDamageClassRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_DAMAGE_CLASS_ID_) => Some("MoveDamageClassRead"),
             // MoveLearnMethodList - GET /api/v2/move-learn-method/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_LEARN_METHOD_) => Some("MoveLearnMethodList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_LEARN_METHOD_) => Some("MoveLearnMethodList"),
             // MoveLearnMethodRead - GET /api/v2/move-learn-method/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_LEARN_METHOD_ID_) => Some("MoveLearnMethodRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_LEARN_METHOD_ID_) => Some("MoveLearnMethodRead"),
             // MoveTargetList - GET /api/v2/move-target/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_TARGET_) => Some("MoveTargetList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_TARGET_) => Some("MoveTargetList"),
             // MoveTargetRead - GET /api/v2/move-target/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_TARGET_ID_) => Some("MoveTargetRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_TARGET_ID_) => Some("MoveTargetRead"),
             // NatureList - GET /api/v2/nature/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_NATURE_) => Some("NatureList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_NATURE_) => Some("NatureList"),
             // NatureRead - GET /api/v2/nature/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_NATURE_ID_) => Some("NatureRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_NATURE_ID_) => Some("NatureRead"),
             // PalParkAreaList - GET /api/v2/pal-park-area/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_PAL_PARK_AREA_) => Some("PalParkAreaList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_PAL_PARK_AREA_) => Some("PalParkAreaList"),
             // PalParkAreaRead - GET /api/v2/pal-park-area/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_PAL_PARK_AREA_ID_) => Some("PalParkAreaRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_PAL_PARK_AREA_ID_) => Some("PalParkAreaRead"),
             // PokeathlonStatList - GET /api/v2/pokeathlon-stat/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEATHLON_STAT_) => Some("PokeathlonStatList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEATHLON_STAT_) => Some("PokeathlonStatList"),
             // PokeathlonStatRead - GET /api/v2/pokeathlon-stat/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEATHLON_STAT_ID_) => Some("PokeathlonStatRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEATHLON_STAT_ID_) => Some("PokeathlonStatRead"),
             // PokedexList - GET /api/v2/pokedex/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEDEX_) => Some("PokedexList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEDEX_) => Some("PokedexList"),
             // PokedexRead - GET /api/v2/pokedex/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEDEX_ID_) => Some("PokedexRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEDEX_ID_) => Some("PokedexRead"),
             // PokemonList - GET /api/v2/pokemon/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_) => Some("PokemonList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_) => Some("PokemonList"),
             // PokemonRead - GET /api/v2/pokemon/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_ID_) => Some("PokemonRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_ID_) => Some("PokemonRead"),
             // PokemonColorList - GET /api/v2/pokemon-color/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_COLOR_) => Some("PokemonColorList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_COLOR_) => Some("PokemonColorList"),
             // PokemonColorRead - GET /api/v2/pokemon-color/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_COLOR_ID_) => Some("PokemonColorRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_COLOR_ID_) => Some("PokemonColorRead"),
             // PokemonFormList - GET /api/v2/pokemon-form/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_FORM_) => Some("PokemonFormList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_FORM_) => Some("PokemonFormList"),
             // PokemonFormRead - GET /api/v2/pokemon-form/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_FORM_ID_) => Some("PokemonFormRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_FORM_ID_) => Some("PokemonFormRead"),
             // PokemonHabitatList - GET /api/v2/pokemon-habitat/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_HABITAT_) => Some("PokemonHabitatList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_HABITAT_) => Some("PokemonHabitatList"),
             // PokemonHabitatRead - GET /api/v2/pokemon-habitat/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_HABITAT_ID_) => Some("PokemonHabitatRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_HABITAT_ID_) => Some("PokemonHabitatRead"),
             // PokemonShapeList - GET /api/v2/pokemon-shape/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SHAPE_) => Some("PokemonShapeList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SHAPE_) => Some("PokemonShapeList"),
             // PokemonShapeRead - GET /api/v2/pokemon-shape/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SHAPE_ID_) => Some("PokemonShapeRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SHAPE_ID_) => Some("PokemonShapeRead"),
             // PokemonSpeciesList - GET /api/v2/pokemon-species/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SPECIES_) => Some("PokemonSpeciesList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SPECIES_) => Some("PokemonSpeciesList"),
             // PokemonSpeciesRead - GET /api/v2/pokemon-species/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SPECIES_ID_) => Some("PokemonSpeciesRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SPECIES_ID_) => Some("PokemonSpeciesRead"),
             // RegionList - GET /api/v2/region/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_REGION_) => Some("RegionList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_REGION_) => Some("RegionList"),
             // RegionRead - GET /api/v2/region/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_REGION_ID_) => Some("RegionRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_REGION_ID_) => Some("RegionRead"),
             // StatList - GET /api/v2/stat/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_STAT_) => Some("StatList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_STAT_) => Some("StatList"),
             // StatRead - GET /api/v2/stat/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_STAT_ID_) => Some("StatRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_STAT_ID_) => Some("StatRead"),
             // SuperContestEffectList - GET /api/v2/super-contest-effect/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_SUPER_CONTEST_EFFECT_) => Some("SuperContestEffectList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_SUPER_CONTEST_EFFECT_) => Some("SuperContestEffectList"),
             // SuperContestEffectRead - GET /api/v2/super-contest-effect/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_SUPER_CONTEST_EFFECT_ID_) => Some("SuperContestEffectRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_SUPER_CONTEST_EFFECT_ID_) => Some("SuperContestEffectRead"),
             // TypeList - GET /api/v2/type/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_TYPE_) => Some("TypeList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_TYPE_) => Some("TypeList"),
             // TypeRead - GET /api/v2/type/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_TYPE_ID_) => Some("TypeRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_TYPE_ID_) => Some("TypeRead"),
             // VersionList - GET /api/v2/version/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_) => Some("VersionList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_) => Some("VersionList"),
             // VersionRead - GET /api/v2/version/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_ID_) => Some("VersionRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_ID_) => Some("VersionRead"),
             // VersionGroupList - GET /api/v2/version-group/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_GROUP_) => Some("VersionGroupList"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_GROUP_) => Some("VersionGroupList"),
             // VersionGroupRead - GET /api/v2/version-group/{id}/
-            &hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_GROUP_ID_) => Some("VersionGroupRead"),
+            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_GROUP_ID_) => Some("VersionGroupRead"),
             _ => None,
         }
     }

@@ -17,7 +17,7 @@ import ApiClient from "../ApiClient";
 /**
 * EggGroup service.
 * @module api/EggGroupApi
-* @version 0.9.2-pre.0
+* @version 0.10.1-pre.0
 */
 export default class EggGroupApi {
 

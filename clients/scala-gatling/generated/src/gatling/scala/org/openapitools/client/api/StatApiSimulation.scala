@@ -72,8 +72,8 @@ class StatApiSimulation extends Simulation {
         .feed(stat_listQUERYFeeder)
         .exec(http("statList")
         .httpRequest("GET","/api/v2/stat/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scnstatList with warm up and reach a constant rate for entire duration

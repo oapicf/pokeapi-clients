@@ -1,11 +1,11 @@
 # OpenAPI\Client\LocationAreaApi
 
-All URIs are relative to https://pokeapi.co.
+All URIs are relative to https://pokeapi.co, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**locationAreaList()**](LocationAreaApi.md#locationAreaList) | **GET** /api/v2/location-area/ | 
-[**locationAreaRead()**](LocationAreaApi.md#locationAreaRead) | **GET** /api/v2/location-area/{id}/ | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**locationAreaList()**](LocationAreaApi.md#locationAreaList) | **GET** /api/v2/location-area/ |  |
+| [**locationAreaRead()**](LocationAreaApi.md#locationAreaRead) | **GET** /api/v2/location-area/{id}/ |  |
 
 
 ## `locationAreaList()`
@@ -42,10 +42,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int**|  | [optional]
- **offset** | **int**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **int**|  | [optional] |
+| **offset** | **int**|  | [optional] |
 
 ### Return type
 
@@ -97,9 +97,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
 
 ### Return type
 

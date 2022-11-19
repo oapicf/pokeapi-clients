@@ -17,10 +17,13 @@ Method | HTTP request | Description
 ```R
 library(openapi)
 
-var_limit <- 56 # integer | 
-var_offset <- 56 # integer | 
+# prepare function argument(s)
+var_limit <- 56 # integer |  (Optional)
+var_offset <- 56 # integer |  (Optional)
 
 api_instance <- AbilityApi$new()
+# to save the result into a file, simply add the optional `data_file` parameter, e.g.
+# result <- api_instance$AbilityList(limit = var_limit, offset = var_offsetdata_file = "result.txt")
 result <- api_instance$AbilityList(limit = var_limit, offset = var_offset)
 dput(result)
 ```
@@ -59,9 +62,12 @@ No authorization required
 ```R
 library(openapi)
 
+# prepare function argument(s)
 var_id <- 56 # integer | 
 
 api_instance <- AbilityApi$new()
+# to save the result into a file, simply add the optional `data_file` parameter, e.g.
+# result <- api_instance$AbilityRead(var_iddata_file = "result.txt")
 result <- api_instance$AbilityRead(var_id)
 dput(result)
 ```

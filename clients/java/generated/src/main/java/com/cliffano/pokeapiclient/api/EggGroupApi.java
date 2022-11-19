@@ -127,7 +127,6 @@ public class EggGroupApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -140,10 +139,7 @@ public class EggGroupApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call eggGroupListValidateBeforeCall(Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = eggGroupListCall(limit, offset, _callback);
-        return localVarCall;
+        return eggGroupListCall(limit, offset, _callback);
 
     }
 
@@ -235,7 +231,7 @@ public class EggGroupApi {
 
         // create path and map variables
         String localVarPath = "/api/v2/egg-group/{id}/"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -252,7 +248,6 @@ public class EggGroupApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -265,15 +260,12 @@ public class EggGroupApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call eggGroupReadValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling eggGroupRead(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = eggGroupReadCall(id, _callback);
-        return localVarCall;
+        return eggGroupReadCall(id, _callback);
 
     }
 

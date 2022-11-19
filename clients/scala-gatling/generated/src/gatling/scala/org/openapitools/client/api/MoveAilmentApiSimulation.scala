@@ -72,8 +72,8 @@ class MoveAilmentApiSimulation extends Simulation {
         .feed(move-ailment_listQUERYFeeder)
         .exec(http("moveAilmentList")
         .httpRequest("GET","/api/v2/move-ailment/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scnmoveAilmentList with warm up and reach a constant rate for entire duration

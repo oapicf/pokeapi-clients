@@ -17,7 +17,7 @@ import ApiClient from "../ApiClient";
 /**
 * MoveBattleStyle service.
 * @module api/MoveBattleStyleApi
-* @version 0.9.2-pre.0
+* @version 0.10.1-pre.0
 */
 export default class MoveBattleStyleApi {
 

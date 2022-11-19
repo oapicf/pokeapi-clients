@@ -127,7 +127,6 @@ public class MoveApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -140,10 +139,7 @@ public class MoveApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call moveListValidateBeforeCall(Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = moveListCall(limit, offset, _callback);
-        return localVarCall;
+        return moveListCall(limit, offset, _callback);
 
     }
 
@@ -235,7 +231,7 @@ public class MoveApi {
 
         // create path and map variables
         String localVarPath = "/api/v2/move/{id}/"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -252,7 +248,6 @@ public class MoveApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -265,15 +260,12 @@ public class MoveApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call moveReadValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling moveRead(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = moveReadCall(id, _callback);
-        return localVarCall;
+        return moveReadCall(id, _callback);
 
     }
 

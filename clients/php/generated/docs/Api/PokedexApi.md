@@ -1,11 +1,11 @@
 # OpenAPI\Client\PokedexApi
 
-All URIs are relative to https://pokeapi.co.
+All URIs are relative to https://pokeapi.co, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**pokedexList()**](PokedexApi.md#pokedexList) | **GET** /api/v2/pokedex/ | 
-[**pokedexRead()**](PokedexApi.md#pokedexRead) | **GET** /api/v2/pokedex/{id}/ | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**pokedexList()**](PokedexApi.md#pokedexList) | **GET** /api/v2/pokedex/ |  |
+| [**pokedexRead()**](PokedexApi.md#pokedexRead) | **GET** /api/v2/pokedex/{id}/ |  |
 
 
 ## `pokedexList()`
@@ -42,10 +42,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int**|  | [optional]
- **offset** | **int**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **limit** | **int**|  | [optional] |
+| **offset** | **int**|  | [optional] |
 
 ### Return type
 
@@ -97,9 +97,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
 
 ### Return type
 

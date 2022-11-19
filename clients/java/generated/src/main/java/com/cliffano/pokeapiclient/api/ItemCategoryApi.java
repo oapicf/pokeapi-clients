@@ -127,7 +127,6 @@ public class ItemCategoryApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -140,10 +139,7 @@ public class ItemCategoryApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call itemCategoryListValidateBeforeCall(Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = itemCategoryListCall(limit, offset, _callback);
-        return localVarCall;
+        return itemCategoryListCall(limit, offset, _callback);
 
     }
 
@@ -235,7 +231,7 @@ public class ItemCategoryApi {
 
         // create path and map variables
         String localVarPath = "/api/v2/item-category/{id}/"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -252,7 +248,6 @@ public class ItemCategoryApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -265,15 +260,12 @@ public class ItemCategoryApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call itemCategoryReadValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling itemCategoryRead(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = itemCategoryReadCall(id, _callback);
-        return localVarCall;
+        return itemCategoryReadCall(id, _callback);
 
     }
 

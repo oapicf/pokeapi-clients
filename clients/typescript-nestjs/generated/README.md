@@ -16,7 +16,7 @@ In your Nestjs project:
 ```
 // without configuring providers
 import { ApiModule } from '';
-import { HttpModule } from '@nestjs/common';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
     imports: [
@@ -66,7 +66,7 @@ in order to avoid naming conflicts:
 ```
 import { ApiModule } from 'my-api-path';
 import { ApiModule as OtherApiModule } from 'my-other-api-path';
-import { HttpModule } from '@nestjs/common';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [

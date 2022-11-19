@@ -127,7 +127,6 @@ public class PokeathlonStatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -140,10 +139,7 @@ public class PokeathlonStatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call pokeathlonStatListValidateBeforeCall(Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = pokeathlonStatListCall(limit, offset, _callback);
-        return localVarCall;
+        return pokeathlonStatListCall(limit, offset, _callback);
 
     }
 
@@ -235,7 +231,7 @@ public class PokeathlonStatApi {
 
         // create path and map variables
         String localVarPath = "/api/v2/pokeathlon-stat/{id}/"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -252,7 +248,6 @@ public class PokeathlonStatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -265,15 +260,12 @@ public class PokeathlonStatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call pokeathlonStatReadValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling pokeathlonStatRead(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = pokeathlonStatReadCall(id, _callback);
-        return localVarCall;
+        return pokeathlonStatReadCall(id, _callback);
 
     }
 

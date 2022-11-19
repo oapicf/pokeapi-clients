@@ -72,8 +72,8 @@ class ContestEffectApiSimulation extends Simulation {
         .feed(contest-effect_listQUERYFeeder)
         .exec(http("contestEffectList")
         .httpRequest("GET","/api/v2/contest-effect/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scncontestEffectList with warm up and reach a constant rate for entire duration

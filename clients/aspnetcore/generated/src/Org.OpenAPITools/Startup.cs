@@ -69,6 +69,8 @@ namespace Org.OpenAPITools
             services
                 .AddSwaggerGen(c =>
                 {
+                    c.EnableAnnotations(enableAnnotationsForInheritance: true, enableAnnotationsForPolymorphism: true);
+                    
                     c.SwaggerDoc("20220523", new OpenApiInfo
                     {
                         Title = "Org.OpenAPITools",
