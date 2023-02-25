@@ -7,13 +7,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{ secrets.STUDIO_GITHUB_TOKEN }}
           ref: main
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
       - run: make deps init-spec doc-latest doc-version
       - run: >-
           CACHE_DIR=/tmp gh-pages --dist doc/ --user "pakkunbot
