@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## EncounterConditionList
 
-> string EncounterConditionList(ctx).Limit(limit).Offset(offset).Execute()
+> EncounterConditionList200Response EncounterConditionList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `EncounterConditionApi.EncounterConditionList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `EncounterConditionList`: string
+    // response from `EncounterConditionList`: EncounterConditionList200Response
     fmt.Fprintf(os.Stdout, "Response from `EncounterConditionApi.EncounterConditionList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**EncounterConditionList200Response**](EncounterConditionList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## EncounterConditionRead
 
-> string EncounterConditionRead(ctx, id).Execute()
+> EncounterCondition EncounterConditionRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `EncounterConditionApi.EncounterConditionRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `EncounterConditionRead`: string
+    // response from `EncounterConditionRead`: EncounterCondition
     fmt.Fprintf(os.Stdout, "Response from `EncounterConditionApi.EncounterConditionRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**EncounterCondition**](EncounterCondition.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

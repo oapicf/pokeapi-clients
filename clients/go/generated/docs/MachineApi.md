@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## MachineList
 
-> string MachineList(ctx).Limit(limit).Offset(offset).Execute()
+> MachineList200Response MachineList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MachineApi.MachineList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `MachineList`: string
+    // response from `MachineList`: MachineList200Response
     fmt.Fprintf(os.Stdout, "Response from `MachineApi.MachineList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**MachineList200Response**](MachineList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## MachineRead
 
-> string MachineRead(ctx, id).Execute()
+> Machine MachineRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MachineApi.MachineRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `MachineRead`: string
+    // response from `MachineRead`: Machine
     fmt.Fprintf(os.Stdout, "Response from `MachineApi.MachineRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**Machine**](Machine.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

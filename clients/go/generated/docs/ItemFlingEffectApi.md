@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## ItemFlingEffectList
 
-> string ItemFlingEffectList(ctx).Limit(limit).Offset(offset).Execute()
+> ItemFlingEffectList200Response ItemFlingEffectList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ItemFlingEffectApi.ItemFlingEffectList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ItemFlingEffectList`: string
+    // response from `ItemFlingEffectList`: ItemFlingEffectList200Response
     fmt.Fprintf(os.Stdout, "Response from `ItemFlingEffectApi.ItemFlingEffectList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**ItemFlingEffectList200Response**](ItemFlingEffectList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## ItemFlingEffectRead
 
-> string ItemFlingEffectRead(ctx, id).Execute()
+> ItemFlingEffect ItemFlingEffectRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ItemFlingEffectApi.ItemFlingEffectRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ItemFlingEffectRead`: string
+    // response from `ItemFlingEffectRead`: ItemFlingEffect
     fmt.Fprintf(os.Stdout, "Response from `ItemFlingEffectApi.ItemFlingEffectRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**ItemFlingEffect**](ItemFlingEffect.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

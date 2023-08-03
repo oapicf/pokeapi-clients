@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## LanguageList
 
-> string LanguageList(ctx).Limit(limit).Offset(offset).Execute()
+> LanguageList200Response LanguageList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `LanguageApi.LanguageList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `LanguageList`: string
+    // response from `LanguageList`: LanguageList200Response
     fmt.Fprintf(os.Stdout, "Response from `LanguageApi.LanguageList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**LanguageList200Response**](LanguageList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## LanguageRead
 
-> string LanguageRead(ctx, id).Execute()
+> Language LanguageRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `LanguageApi.LanguageRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `LanguageRead`: string
+    // response from `LanguageRead`: Language
     fmt.Fprintf(os.Stdout, "Response from `LanguageApi.LanguageRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**Language**](Language.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

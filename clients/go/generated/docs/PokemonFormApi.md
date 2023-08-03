@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## PokemonFormList
 
-> string PokemonFormList(ctx).Limit(limit).Offset(offset).Execute()
+> PokemonFormList200Response PokemonFormList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `PokemonFormApi.PokemonFormList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PokemonFormList`: string
+    // response from `PokemonFormList`: PokemonFormList200Response
     fmt.Fprintf(os.Stdout, "Response from `PokemonFormApi.PokemonFormList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**PokemonFormList200Response**](PokemonFormList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## PokemonFormRead
 
-> string PokemonFormRead(ctx, id).Execute()
+> PokemonForm PokemonFormRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `PokemonFormApi.PokemonFormRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PokemonFormRead`: string
+    // response from `PokemonFormRead`: PokemonForm
     fmt.Fprintf(os.Stdout, "Response from `PokemonFormApi.PokemonFormRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**PokemonForm**](PokemonForm.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

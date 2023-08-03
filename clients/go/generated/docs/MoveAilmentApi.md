@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## MoveAilmentList
 
-> string MoveAilmentList(ctx).Limit(limit).Offset(offset).Execute()
+> MoveAilmentList200Response MoveAilmentList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MoveAilmentApi.MoveAilmentList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `MoveAilmentList`: string
+    // response from `MoveAilmentList`: MoveAilmentList200Response
     fmt.Fprintf(os.Stdout, "Response from `MoveAilmentApi.MoveAilmentList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**MoveAilmentList200Response**](MoveAilmentList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## MoveAilmentRead
 
-> string MoveAilmentRead(ctx, id).Execute()
+> MoveAilment MoveAilmentRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MoveAilmentApi.MoveAilmentRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `MoveAilmentRead`: string
+    // response from `MoveAilmentRead`: MoveAilment
     fmt.Fprintf(os.Stdout, "Response from `MoveAilmentApi.MoveAilmentRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**MoveAilment**](MoveAilment.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

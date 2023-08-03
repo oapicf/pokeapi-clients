@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## SuperContestEffectList
 
-> string SuperContestEffectList(ctx).Limit(limit).Offset(offset).Execute()
+> SuperContestEffectList200Response SuperContestEffectList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SuperContestEffectApi.SuperContestEffectList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `SuperContestEffectList`: string
+    // response from `SuperContestEffectList`: SuperContestEffectList200Response
     fmt.Fprintf(os.Stdout, "Response from `SuperContestEffectApi.SuperContestEffectList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**SuperContestEffectList200Response**](SuperContestEffectList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## SuperContestEffectRead
 
-> string SuperContestEffectRead(ctx, id).Execute()
+> SuperContestEffect SuperContestEffectRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SuperContestEffectApi.SuperContestEffectRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `SuperContestEffectRead`: string
+    // response from `SuperContestEffectRead`: SuperContestEffect
     fmt.Fprintf(os.Stdout, "Response from `SuperContestEffectApi.SuperContestEffectRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**SuperContestEffect**](SuperContestEffect.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

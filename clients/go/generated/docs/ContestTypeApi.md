@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## ContestTypeList
 
-> string ContestTypeList(ctx).Limit(limit).Offset(offset).Execute()
+> ContestTypeList200Response ContestTypeList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ContestTypeApi.ContestTypeList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ContestTypeList`: string
+    // response from `ContestTypeList`: ContestTypeList200Response
     fmt.Fprintf(os.Stdout, "Response from `ContestTypeApi.ContestTypeList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**ContestTypeList200Response**](ContestTypeList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## ContestTypeRead
 
-> string ContestTypeRead(ctx, id).Execute()
+> ContestType ContestTypeRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ContestTypeApi.ContestTypeRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ContestTypeRead`: string
+    // response from `ContestTypeRead`: ContestType
     fmt.Fprintf(os.Stdout, "Response from `ContestTypeApi.ContestTypeRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**ContestType**](ContestType.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## EggGroupList
 
-> string EggGroupList(ctx).Limit(limit).Offset(offset).Execute()
+> []EggGroup EggGroupList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `EggGroupApi.EggGroupList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `EggGroupList`: string
+    // response from `EggGroupList`: []EggGroup
     fmt.Fprintf(os.Stdout, "Response from `EggGroupApi.EggGroupList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**[]EggGroup**](EggGroup.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## EggGroupRead
 
-> string EggGroupRead(ctx, id).Execute()
+> EggGroup EggGroupRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `EggGroupApi.EggGroupRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `EggGroupRead`: string
+    // response from `EggGroupRead`: EggGroup
     fmt.Fprintf(os.Stdout, "Response from `EggGroupApi.EggGroupRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**EggGroup**](EggGroup.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

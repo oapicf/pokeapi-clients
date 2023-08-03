@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## PalParkAreaList
 
-> string PalParkAreaList(ctx).Limit(limit).Offset(offset).Execute()
+> PalParkAreaList200Response PalParkAreaList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `PalParkAreaApi.PalParkAreaList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PalParkAreaList`: string
+    // response from `PalParkAreaList`: PalParkAreaList200Response
     fmt.Fprintf(os.Stdout, "Response from `PalParkAreaApi.PalParkAreaList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**PalParkAreaList200Response**](PalParkAreaList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## PalParkAreaRead
 
-> string PalParkAreaRead(ctx, id).Execute()
+> PalParkArea PalParkAreaRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `PalParkAreaApi.PalParkAreaRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PalParkAreaRead`: string
+    // response from `PalParkAreaRead`: PalParkArea
     fmt.Fprintf(os.Stdout, "Response from `PalParkAreaApi.PalParkAreaRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**PalParkArea**](PalParkArea.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

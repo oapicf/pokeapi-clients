@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## ItemPocketList
 
-> string ItemPocketList(ctx).Limit(limit).Offset(offset).Execute()
+> ItemPocketList200Response ItemPocketList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ItemPocketApi.ItemPocketList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ItemPocketList`: string
+    // response from `ItemPocketList`: ItemPocketList200Response
     fmt.Fprintf(os.Stdout, "Response from `ItemPocketApi.ItemPocketList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**ItemPocketList200Response**](ItemPocketList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## ItemPocketRead
 
-> string ItemPocketRead(ctx, id).Execute()
+> ItemPocket ItemPocketRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ItemPocketApi.ItemPocketRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ItemPocketRead`: string
+    // response from `ItemPocketRead`: ItemPocket
     fmt.Fprintf(os.Stdout, "Response from `ItemPocketApi.ItemPocketRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**ItemPocket**](ItemPocket.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

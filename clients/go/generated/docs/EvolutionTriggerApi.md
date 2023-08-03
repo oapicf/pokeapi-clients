@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## EvolutionTriggerList
 
-> string EvolutionTriggerList(ctx).Limit(limit).Offset(offset).Execute()
+> EvolutionTriggerList200Response EvolutionTriggerList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `EvolutionTriggerApi.EvolutionTriggerList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `EvolutionTriggerList`: string
+    // response from `EvolutionTriggerList`: EvolutionTriggerList200Response
     fmt.Fprintf(os.Stdout, "Response from `EvolutionTriggerApi.EvolutionTriggerList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**EvolutionTriggerList200Response**](EvolutionTriggerList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## EvolutionTriggerRead
 
-> string EvolutionTriggerRead(ctx, id).Execute()
+> EvolutionTrigger EvolutionTriggerRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `EvolutionTriggerApi.EvolutionTriggerRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `EvolutionTriggerRead`: string
+    // response from `EvolutionTriggerRead`: EvolutionTrigger
     fmt.Fprintf(os.Stdout, "Response from `EvolutionTriggerApi.EvolutionTriggerRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**EvolutionTrigger**](EvolutionTrigger.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
