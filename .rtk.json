@@ -36,7 +36,7 @@
       "path": ".github/workflows/publish-doc-workflow.yaml",
       "type": "yaml",
       "params": {
-        "property": "jobs.build.steps.0.with.ref",
+        "property": "jobs.build.steps[0].with.ref",
         "post_release_value": "main"
       }
     },
@@ -44,7 +44,7 @@
       "path": ".github/workflows/publish-javascript-workflow.yaml",
       "type": "yaml",
       "params": {
-        "property": "jobs.build.steps.0.with.ref",
+        "property": "jobs.build.steps[0].with.ref",
         "post_release_value": "main"
       }
     },
@@ -52,7 +52,7 @@
       "path": ".github/workflows/publish-python-workflow.yaml",
       "type": "yaml",
       "params": {
-        "property": "jobs.build.steps.0.with.ref",
+        "property": "jobs.build.steps[0].with.ref",
         "post_release_value": "main"
       }
     },
@@ -60,7 +60,7 @@
       "path": ".github/workflows/publish-ruby-workflow.yaml",
       "type": "yaml",
       "params": {
-        "property": "jobs.build.steps.0.with.ref",
+        "property": "jobs.build.steps[0].with.ref",
         "post_release_value": "main"
       }
     }
