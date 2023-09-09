@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## MoveLearnMethodList
 
-> string MoveLearnMethodList(ctx).Limit(limit).Offset(offset).Execute()
+> MoveLearnMethodList200Response MoveLearnMethodList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MoveLearnMethodApi.MoveLearnMethodList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `MoveLearnMethodList`: string
+    // response from `MoveLearnMethodList`: MoveLearnMethodList200Response
     fmt.Fprintf(os.Stdout, "Response from `MoveLearnMethodApi.MoveLearnMethodList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**MoveLearnMethodList200Response**](MoveLearnMethodList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## MoveLearnMethodRead
 
-> string MoveLearnMethodRead(ctx, id).Execute()
+> MoveLearnMethod MoveLearnMethodRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MoveLearnMethodApi.MoveLearnMethodRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `MoveLearnMethodRead`: string
+    // response from `MoveLearnMethodRead`: MoveLearnMethod
     fmt.Fprintf(os.Stdout, "Response from `MoveLearnMethodApi.MoveLearnMethodRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**MoveLearnMethod**](MoveLearnMethod.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

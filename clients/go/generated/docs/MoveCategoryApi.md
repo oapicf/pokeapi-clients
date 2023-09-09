@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## MoveCategoryList
 
-> string MoveCategoryList(ctx).Limit(limit).Offset(offset).Execute()
+> MoveCategoryList200Response MoveCategoryList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MoveCategoryApi.MoveCategoryList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `MoveCategoryList`: string
+    // response from `MoveCategoryList`: MoveCategoryList200Response
     fmt.Fprintf(os.Stdout, "Response from `MoveCategoryApi.MoveCategoryList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**MoveCategoryList200Response**](MoveCategoryList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## MoveCategoryRead
 
-> string MoveCategoryRead(ctx, id).Execute()
+> MoveCategory MoveCategoryRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MoveCategoryApi.MoveCategoryRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `MoveCategoryRead`: string
+    // response from `MoveCategoryRead`: MoveCategory
     fmt.Fprintf(os.Stdout, "Response from `MoveCategoryApi.MoveCategoryRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**MoveCategory**](MoveCategory.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

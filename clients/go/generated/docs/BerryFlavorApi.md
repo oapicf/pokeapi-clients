@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## BerryFlavorList
 
-> string BerryFlavorList(ctx).Limit(limit).Offset(offset).Execute()
+> BerryFlavorList200Response BerryFlavorList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `BerryFlavorApi.BerryFlavorList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `BerryFlavorList`: string
+    // response from `BerryFlavorList`: BerryFlavorList200Response
     fmt.Fprintf(os.Stdout, "Response from `BerryFlavorApi.BerryFlavorList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**BerryFlavorList200Response**](BerryFlavorList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## BerryFlavorRead
 
-> string BerryFlavorRead(ctx, id).Execute()
+> BerryFlavor BerryFlavorRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `BerryFlavorApi.BerryFlavorRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `BerryFlavorRead`: string
+    // response from `BerryFlavorRead`: BerryFlavor
     fmt.Fprintf(os.Stdout, "Response from `BerryFlavorApi.BerryFlavorRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**BerryFlavor**](BerryFlavor.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

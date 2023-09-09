@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## LocationAreaList
 
-> string LocationAreaList(ctx).Limit(limit).Offset(offset).Execute()
+> LocationAreaList200Response LocationAreaList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `LocationAreaApi.LocationAreaList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `LocationAreaList`: string
+    // response from `LocationAreaList`: LocationAreaList200Response
     fmt.Fprintf(os.Stdout, "Response from `LocationAreaApi.LocationAreaList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**LocationAreaList200Response**](LocationAreaList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## LocationAreaRead
 
-> string LocationAreaRead(ctx, id).Execute()
+> LocationArea LocationAreaRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `LocationAreaApi.LocationAreaRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `LocationAreaRead`: string
+    // response from `LocationAreaRead`: LocationArea
     fmt.Fprintf(os.Stdout, "Response from `LocationAreaApi.LocationAreaRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**LocationArea**](LocationArea.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

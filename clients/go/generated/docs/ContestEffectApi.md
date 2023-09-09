@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## ContestEffectList
 
-> string ContestEffectList(ctx).Limit(limit).Offset(offset).Execute()
+> ContestEffectList200Response ContestEffectList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ContestEffectApi.ContestEffectList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ContestEffectList`: string
+    // response from `ContestEffectList`: ContestEffectList200Response
     fmt.Fprintf(os.Stdout, "Response from `ContestEffectApi.ContestEffectList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**ContestEffectList200Response**](ContestEffectList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## ContestEffectRead
 
-> string ContestEffectRead(ctx, id).Execute()
+> ContestEffect ContestEffectRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ContestEffectApi.ContestEffectRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ContestEffectRead`: string
+    // response from `ContestEffectRead`: ContestEffect
     fmt.Fprintf(os.Stdout, "Response from `ContestEffectApi.ContestEffectRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**ContestEffect**](ContestEffect.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

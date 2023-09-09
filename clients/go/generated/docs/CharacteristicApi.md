@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## CharacteristicList
 
-> string CharacteristicList(ctx).Limit(limit).Offset(offset).Execute()
+> []Characteristic CharacteristicList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `CharacteristicApi.CharacteristicList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CharacteristicList`: string
+    // response from `CharacteristicList`: []Characteristic
     fmt.Fprintf(os.Stdout, "Response from `CharacteristicApi.CharacteristicList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**[]Characteristic**](Characteristic.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## CharacteristicRead
 
-> string CharacteristicRead(ctx, id).Execute()
+> Characteristic CharacteristicRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `CharacteristicApi.CharacteristicRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CharacteristicRead`: string
+    // response from `CharacteristicRead`: Characteristic
     fmt.Fprintf(os.Stdout, "Response from `CharacteristicApi.CharacteristicRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**Characteristic**](Characteristic.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

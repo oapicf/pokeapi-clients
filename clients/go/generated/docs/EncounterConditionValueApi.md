@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## EncounterConditionValueList
 
-> string EncounterConditionValueList(ctx).Limit(limit).Offset(offset).Execute()
+> []EncounterConditionValue EncounterConditionValueList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `EncounterConditionValueApi.EncounterConditionValueList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `EncounterConditionValueList`: string
+    // response from `EncounterConditionValueList`: []EncounterConditionValue
     fmt.Fprintf(os.Stdout, "Response from `EncounterConditionValueApi.EncounterConditionValueList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**[]EncounterConditionValue**](EncounterConditionValue.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## EncounterConditionValueRead
 
-> string EncounterConditionValueRead(ctx, id).Execute()
+> EncounterConditionValue EncounterConditionValueRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `EncounterConditionValueApi.EncounterConditionValueRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `EncounterConditionValueRead`: string
+    // response from `EncounterConditionValueRead`: EncounterConditionValue
     fmt.Fprintf(os.Stdout, "Response from `EncounterConditionValueApi.EncounterConditionValueRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**EncounterConditionValue**](EncounterConditionValue.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

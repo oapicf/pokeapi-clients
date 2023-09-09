@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## PokeathlonStatList
 
-> string PokeathlonStatList(ctx).Limit(limit).Offset(offset).Execute()
+> PokeathlonStatList200Response PokeathlonStatList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `PokeathlonStatApi.PokeathlonStatList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PokeathlonStatList`: string
+    // response from `PokeathlonStatList`: PokeathlonStatList200Response
     fmt.Fprintf(os.Stdout, "Response from `PokeathlonStatApi.PokeathlonStatList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**PokeathlonStatList200Response**](PokeathlonStatList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## PokeathlonStatRead
 
-> string PokeathlonStatRead(ctx, id).Execute()
+> PokeathlonStat PokeathlonStatRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `PokeathlonStatApi.PokeathlonStatRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PokeathlonStatRead`: string
+    // response from `PokeathlonStatRead`: PokeathlonStat
     fmt.Fprintf(os.Stdout, "Response from `PokeathlonStatApi.PokeathlonStatRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**PokeathlonStat**](PokeathlonStat.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

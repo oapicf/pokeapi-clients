@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## PokemonColorList
 
-> string PokemonColorList(ctx).Limit(limit).Offset(offset).Execute()
+> PokemonColorList200Response PokemonColorList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `PokemonColorApi.PokemonColorList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PokemonColorList`: string
+    // response from `PokemonColorList`: PokemonColorList200Response
     fmt.Fprintf(os.Stdout, "Response from `PokemonColorApi.PokemonColorList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**PokemonColorList200Response**](PokemonColorList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## PokemonColorRead
 
-> string PokemonColorRead(ctx, id).Execute()
+> PokemonColor PokemonColorRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `PokemonColorApi.PokemonColorRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PokemonColorRead`: string
+    // response from `PokemonColorRead`: PokemonColor
     fmt.Fprintf(os.Stdout, "Response from `PokemonColorApi.PokemonColorRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**PokemonColor**](PokemonColor.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

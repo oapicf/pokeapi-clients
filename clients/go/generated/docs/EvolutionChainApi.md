@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## EvolutionChainList
 
-> string EvolutionChainList(ctx).Limit(limit).Offset(offset).Execute()
+> EvolutionChainList200Response EvolutionChainList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `EvolutionChainApi.EvolutionChainList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `EvolutionChainList`: string
+    // response from `EvolutionChainList`: EvolutionChainList200Response
     fmt.Fprintf(os.Stdout, "Response from `EvolutionChainApi.EvolutionChainList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**EvolutionChainList200Response**](EvolutionChainList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## EvolutionChainRead
 
-> string EvolutionChainRead(ctx, id).Execute()
+> EvolutionChain EvolutionChainRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `EvolutionChainApi.EvolutionChainRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `EvolutionChainRead`: string
+    // response from `EvolutionChainRead`: EvolutionChain
     fmt.Fprintf(os.Stdout, "Response from `EvolutionChainApi.EvolutionChainRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**EvolutionChain**](EvolutionChain.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

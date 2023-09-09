@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## ItemAttributeList
 
-> string ItemAttributeList(ctx).Limit(limit).Offset(offset).Execute()
+> ItemAttributeList200Response ItemAttributeList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ItemAttributeApi.ItemAttributeList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ItemAttributeList`: string
+    // response from `ItemAttributeList`: ItemAttributeList200Response
     fmt.Fprintf(os.Stdout, "Response from `ItemAttributeApi.ItemAttributeList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**ItemAttributeList200Response**](ItemAttributeList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## ItemAttributeRead
 
-> string ItemAttributeRead(ctx, id).Execute()
+> ItemAttribute ItemAttributeRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ItemAttributeApi.ItemAttributeRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ItemAttributeRead`: string
+    // response from `ItemAttributeRead`: ItemAttribute
     fmt.Fprintf(os.Stdout, "Response from `ItemAttributeApi.ItemAttributeRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**ItemAttribute**](ItemAttribute.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

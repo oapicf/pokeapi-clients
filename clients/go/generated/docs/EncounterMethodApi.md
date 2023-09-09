@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## EncounterMethodList
 
-> string EncounterMethodList(ctx).Limit(limit).Offset(offset).Execute()
+> EncounterMethodList200Response EncounterMethodList(ctx).Limit(limit).Offset(offset).Execute()
 
 
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `EncounterMethodApi.EncounterMethodList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `EncounterMethodList`: string
+    // response from `EncounterMethodList`: EncounterMethodList200Response
     fmt.Fprintf(os.Stdout, "Response from `EncounterMethodApi.EncounterMethodList`: %v\n", resp)
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**EncounterMethodList200Response**](EncounterMethodList200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -77,7 +77,7 @@ No authorization required
 
 ## EncounterMethodRead
 
-> string EncounterMethodRead(ctx, id).Execute()
+> EncounterMethod EncounterMethodRead(ctx, id).Execute()
 
 
 
@@ -103,7 +103,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `EncounterMethodApi.EncounterMethodRead``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `EncounterMethodRead`: string
+    // response from `EncounterMethodRead`: EncounterMethod
     fmt.Fprintf(os.Stdout, "Response from `EncounterMethodApi.EncounterMethodRead`: %v\n", resp)
 }
 ```
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**EncounterMethod**](EncounterMethod.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
