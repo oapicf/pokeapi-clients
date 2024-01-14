@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// LocationApiService is a service that implements the logic for the LocationApiServicer
-// This service should implement the business logic for every endpoint for the LocationApi API.
+// LocationAPIService is a service that implements the logic for the LocationAPIServicer
+// This service should implement the business logic for every endpoint for the LocationAPI API.
 // Include any external packages or services that will be required by this service.
-type LocationApiService struct {
+type LocationAPIService struct {
 }
 
-// NewLocationApiService creates a default api service
-func NewLocationApiService() LocationApiServicer {
-	return &LocationApiService{}
+// NewLocationAPIService creates a default api service
+func NewLocationAPIService() LocationAPIServicer {
+	return &LocationAPIService{}
 }
 
 // LocationList - 
-func (s *LocationApiService) LocationList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *LocationAPIService) LocationList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update LocationList with the required logic for this service method.
 	// Add api_location_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("LocationList method not implemented")
 }
 
 // LocationRead - 
-func (s *LocationApiService) LocationRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *LocationAPIService) LocationRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update LocationRead with the required logic for this service method.
 	// Add api_location_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("LocationRead method not implemented")
 }

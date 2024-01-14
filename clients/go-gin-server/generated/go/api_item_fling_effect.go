@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// ItemFlingEffectList - 
-func ItemFlingEffectList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type ItemFlingEffectAPI struct {
 }
 
-// ItemFlingEffectRead - 
-func ItemFlingEffectRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/item-fling-effect/
+func (api *ItemFlingEffectAPI) ItemFlingEffectList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/item-fling-effect/:id/
+func (api *ItemFlingEffectAPI) ItemFlingEffectRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

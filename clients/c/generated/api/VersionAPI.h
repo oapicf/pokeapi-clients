@@ -8,10 +8,10 @@
 
 
 char*
-VersionAPI_versionList(apiClient_t *apiClient, int limit , int offset );
+VersionAPI_versionList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-VersionAPI_versionRead(apiClient_t *apiClient, int id );
+VersionAPI_versionRead(apiClient_t *apiClient, int *id);
 
 

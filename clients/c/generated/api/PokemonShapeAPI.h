@@ -8,10 +8,10 @@
 
 
 char*
-PokemonShapeAPI_pokemonShapeList(apiClient_t *apiClient, int limit , int offset );
+PokemonShapeAPI_pokemonShapeList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-PokemonShapeAPI_pokemonShapeRead(apiClient_t *apiClient, int id );
+PokemonShapeAPI_pokemonShapeRead(apiClient_t *apiClient, int *id);
 
 

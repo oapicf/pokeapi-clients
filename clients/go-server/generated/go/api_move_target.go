@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// MoveTargetApiController binds http requests to an api service and writes the service results to the http response
-type MoveTargetApiController struct {
-	service MoveTargetApiServicer
+// MoveTargetAPIController binds http requests to an api service and writes the service results to the http response
+type MoveTargetAPIController struct {
+	service MoveTargetAPIServicer
 	errorHandler ErrorHandler
 }
 
-// MoveTargetApiOption for how the controller is set up.
-type MoveTargetApiOption func(*MoveTargetApiController)
+// MoveTargetAPIOption for how the controller is set up.
+type MoveTargetAPIOption func(*MoveTargetAPIController)
 
-// WithMoveTargetApiErrorHandler inject ErrorHandler into controller
-func WithMoveTargetApiErrorHandler(h ErrorHandler) MoveTargetApiOption {
-	return func(c *MoveTargetApiController) {
+// WithMoveTargetAPIErrorHandler inject ErrorHandler into controller
+func WithMoveTargetAPIErrorHandler(h ErrorHandler) MoveTargetAPIOption {
+	return func(c *MoveTargetAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewMoveTargetApiController creates a default api controller
-func NewMoveTargetApiController(s MoveTargetApiServicer, opts ...MoveTargetApiOption) Router {
-	controller := &MoveTargetApiController{
+// NewMoveTargetAPIController creates a default api controller
+func NewMoveTargetAPIController(s MoveTargetAPIServicer, opts ...MoveTargetAPIOption) Router {
+	controller := &MoveTargetAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewMoveTargetApiController(s MoveTargetApiServicer, opts ...MoveTargetApiOp
 	return controller
 }
 
-// Routes returns all the api routes for the MoveTargetApiController
-func (c *MoveTargetApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"MoveTargetList",
+// Routes returns all the api routes for the MoveTargetAPIController
+func (c *MoveTargetAPIController) Routes() Routes {
+	return Routes{
+		"MoveTargetList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/move-target/",
 			c.MoveTargetList,
 		},
-		{
-			"MoveTargetRead",
+		"MoveTargetRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/move-target/{id}/",
 			c.MoveTargetRead,
@@ -67,17 +65,35 @@ func (c *MoveTargetApiController) Routes() Routes {
 }
 
 // MoveTargetList - 
-func (c *MoveTargetApiController) MoveTargetList(w http.ResponseWriter, r *http.Request) {
+func (c *MoveTargetAPIController) MoveTargetList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.MoveTargetList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *MoveTargetApiController) MoveTargetList(w http.ResponseWriter, r *http.
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // MoveTargetRead - 
-func (c *MoveTargetApiController) MoveTargetRead(w http.ResponseWriter, r *http.Request) {
+func (c *MoveTargetAPIController) MoveTargetRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.MoveTargetRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *MoveTargetApiController) MoveTargetRead(w http.ResponseWriter, r *http.
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

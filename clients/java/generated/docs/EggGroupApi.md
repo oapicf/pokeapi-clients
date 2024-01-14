@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**eggGroupRead**](EggGroupApi.md#eggGroupRead) | **GET** /api/v2/egg-group/{id}/ |  |
 
 
-<a name="eggGroupList"></a>
+<a id="eggGroupList"></a>
 # **eggGroupList**
 > String eggGroupList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="eggGroupRead"></a>
+<a id="eggGroupRead"></a>
 # **eggGroupRead**
 > String eggGroupRead(id)
 

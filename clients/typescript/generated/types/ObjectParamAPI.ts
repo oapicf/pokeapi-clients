@@ -1,4 +1,4 @@
-import { ResponseContext, RequestContext, HttpFile } from '../http/http';
+import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/http';
 import { Configuration} from '../configuration'
 
 
@@ -39,8 +39,22 @@ export class ObjectAbilityApi {
     /**
      * @param param the request object
      */
+    public abilityListWithHttpInfo(param: AbilityApiAbilityListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.abilityListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public abilityList(param: AbilityApiAbilityListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.abilityList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public abilityReadWithHttpInfo(param: AbilityApiAbilityReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.abilityReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -89,8 +103,22 @@ export class ObjectBerryApi {
     /**
      * @param param the request object
      */
+    public berryListWithHttpInfo(param: BerryApiBerryListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.berryListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public berryList(param: BerryApiBerryListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.berryList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public berryReadWithHttpInfo(param: BerryApiBerryReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.berryReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -139,8 +167,22 @@ export class ObjectBerryFirmnessApi {
     /**
      * @param param the request object
      */
+    public berryFirmnessListWithHttpInfo(param: BerryFirmnessApiBerryFirmnessListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.berryFirmnessListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public berryFirmnessList(param: BerryFirmnessApiBerryFirmnessListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.berryFirmnessList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public berryFirmnessReadWithHttpInfo(param: BerryFirmnessApiBerryFirmnessReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.berryFirmnessReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -189,8 +231,22 @@ export class ObjectBerryFlavorApi {
     /**
      * @param param the request object
      */
+    public berryFlavorListWithHttpInfo(param: BerryFlavorApiBerryFlavorListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.berryFlavorListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public berryFlavorList(param: BerryFlavorApiBerryFlavorListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.berryFlavorList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public berryFlavorReadWithHttpInfo(param: BerryFlavorApiBerryFlavorReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.berryFlavorReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -239,8 +295,22 @@ export class ObjectCharacteristicApi {
     /**
      * @param param the request object
      */
+    public characteristicListWithHttpInfo(param: CharacteristicApiCharacteristicListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.characteristicListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public characteristicList(param: CharacteristicApiCharacteristicListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.characteristicList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public characteristicReadWithHttpInfo(param: CharacteristicApiCharacteristicReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.characteristicReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -289,8 +359,22 @@ export class ObjectContestEffectApi {
     /**
      * @param param the request object
      */
+    public contestEffectListWithHttpInfo(param: ContestEffectApiContestEffectListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.contestEffectListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public contestEffectList(param: ContestEffectApiContestEffectListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.contestEffectList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public contestEffectReadWithHttpInfo(param: ContestEffectApiContestEffectReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.contestEffectReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -339,8 +423,22 @@ export class ObjectContestTypeApi {
     /**
      * @param param the request object
      */
+    public contestTypeListWithHttpInfo(param: ContestTypeApiContestTypeListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.contestTypeListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public contestTypeList(param: ContestTypeApiContestTypeListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.contestTypeList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public contestTypeReadWithHttpInfo(param: ContestTypeApiContestTypeReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.contestTypeReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -389,8 +487,22 @@ export class ObjectEggGroupApi {
     /**
      * @param param the request object
      */
+    public eggGroupListWithHttpInfo(param: EggGroupApiEggGroupListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.eggGroupListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public eggGroupList(param: EggGroupApiEggGroupListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.eggGroupList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eggGroupReadWithHttpInfo(param: EggGroupApiEggGroupReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.eggGroupReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -439,8 +551,22 @@ export class ObjectEncounterConditionApi {
     /**
      * @param param the request object
      */
+    public encounterConditionListWithHttpInfo(param: EncounterConditionApiEncounterConditionListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.encounterConditionListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public encounterConditionList(param: EncounterConditionApiEncounterConditionListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.encounterConditionList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public encounterConditionReadWithHttpInfo(param: EncounterConditionApiEncounterConditionReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.encounterConditionReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -489,8 +615,22 @@ export class ObjectEncounterConditionValueApi {
     /**
      * @param param the request object
      */
+    public encounterConditionValueListWithHttpInfo(param: EncounterConditionValueApiEncounterConditionValueListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.encounterConditionValueListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public encounterConditionValueList(param: EncounterConditionValueApiEncounterConditionValueListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.encounterConditionValueList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public encounterConditionValueReadWithHttpInfo(param: EncounterConditionValueApiEncounterConditionValueReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.encounterConditionValueReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -539,8 +679,22 @@ export class ObjectEncounterMethodApi {
     /**
      * @param param the request object
      */
+    public encounterMethodListWithHttpInfo(param: EncounterMethodApiEncounterMethodListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.encounterMethodListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public encounterMethodList(param: EncounterMethodApiEncounterMethodListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.encounterMethodList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public encounterMethodReadWithHttpInfo(param: EncounterMethodApiEncounterMethodReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.encounterMethodReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -589,8 +743,22 @@ export class ObjectEvolutionChainApi {
     /**
      * @param param the request object
      */
+    public evolutionChainListWithHttpInfo(param: EvolutionChainApiEvolutionChainListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.evolutionChainListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public evolutionChainList(param: EvolutionChainApiEvolutionChainListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.evolutionChainList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public evolutionChainReadWithHttpInfo(param: EvolutionChainApiEvolutionChainReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.evolutionChainReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -639,8 +807,22 @@ export class ObjectEvolutionTriggerApi {
     /**
      * @param param the request object
      */
+    public evolutionTriggerListWithHttpInfo(param: EvolutionTriggerApiEvolutionTriggerListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.evolutionTriggerListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public evolutionTriggerList(param: EvolutionTriggerApiEvolutionTriggerListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.evolutionTriggerList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public evolutionTriggerReadWithHttpInfo(param: EvolutionTriggerApiEvolutionTriggerReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.evolutionTriggerReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -689,8 +871,22 @@ export class ObjectGenderApi {
     /**
      * @param param the request object
      */
+    public genderListWithHttpInfo(param: GenderApiGenderListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.genderListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public genderList(param: GenderApiGenderListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.genderList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public genderReadWithHttpInfo(param: GenderApiGenderReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.genderReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -739,8 +935,22 @@ export class ObjectGenerationApi {
     /**
      * @param param the request object
      */
+    public generationListWithHttpInfo(param: GenerationApiGenerationListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.generationListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public generationList(param: GenerationApiGenerationListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.generationList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public generationReadWithHttpInfo(param: GenerationApiGenerationReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.generationReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -789,8 +999,22 @@ export class ObjectGrowthRateApi {
     /**
      * @param param the request object
      */
+    public growthRateListWithHttpInfo(param: GrowthRateApiGrowthRateListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.growthRateListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public growthRateList(param: GrowthRateApiGrowthRateListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.growthRateList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public growthRateReadWithHttpInfo(param: GrowthRateApiGrowthRateReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.growthRateReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -839,8 +1063,22 @@ export class ObjectItemApi {
     /**
      * @param param the request object
      */
+    public itemListWithHttpInfo(param: ItemApiItemListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.itemListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public itemList(param: ItemApiItemListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.itemList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public itemReadWithHttpInfo(param: ItemApiItemReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.itemReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -889,8 +1127,22 @@ export class ObjectItemAttributeApi {
     /**
      * @param param the request object
      */
+    public itemAttributeListWithHttpInfo(param: ItemAttributeApiItemAttributeListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.itemAttributeListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public itemAttributeList(param: ItemAttributeApiItemAttributeListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.itemAttributeList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public itemAttributeReadWithHttpInfo(param: ItemAttributeApiItemAttributeReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.itemAttributeReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -939,8 +1191,22 @@ export class ObjectItemCategoryApi {
     /**
      * @param param the request object
      */
+    public itemCategoryListWithHttpInfo(param: ItemCategoryApiItemCategoryListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.itemCategoryListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public itemCategoryList(param: ItemCategoryApiItemCategoryListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.itemCategoryList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public itemCategoryReadWithHttpInfo(param: ItemCategoryApiItemCategoryReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.itemCategoryReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -989,8 +1255,22 @@ export class ObjectItemFlingEffectApi {
     /**
      * @param param the request object
      */
+    public itemFlingEffectListWithHttpInfo(param: ItemFlingEffectApiItemFlingEffectListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.itemFlingEffectListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public itemFlingEffectList(param: ItemFlingEffectApiItemFlingEffectListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.itemFlingEffectList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public itemFlingEffectReadWithHttpInfo(param: ItemFlingEffectApiItemFlingEffectReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.itemFlingEffectReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1039,8 +1319,22 @@ export class ObjectItemPocketApi {
     /**
      * @param param the request object
      */
+    public itemPocketListWithHttpInfo(param: ItemPocketApiItemPocketListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.itemPocketListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public itemPocketList(param: ItemPocketApiItemPocketListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.itemPocketList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public itemPocketReadWithHttpInfo(param: ItemPocketApiItemPocketReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.itemPocketReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1089,8 +1383,22 @@ export class ObjectLanguageApi {
     /**
      * @param param the request object
      */
+    public languageListWithHttpInfo(param: LanguageApiLanguageListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.languageListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public languageList(param: LanguageApiLanguageListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.languageList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public languageReadWithHttpInfo(param: LanguageApiLanguageReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.languageReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1139,8 +1447,22 @@ export class ObjectLocationApi {
     /**
      * @param param the request object
      */
+    public locationListWithHttpInfo(param: LocationApiLocationListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.locationListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public locationList(param: LocationApiLocationListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.locationList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public locationReadWithHttpInfo(param: LocationApiLocationReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.locationReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1189,8 +1511,22 @@ export class ObjectLocationAreaApi {
     /**
      * @param param the request object
      */
+    public locationAreaListWithHttpInfo(param: LocationAreaApiLocationAreaListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.locationAreaListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public locationAreaList(param: LocationAreaApiLocationAreaListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.locationAreaList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public locationAreaReadWithHttpInfo(param: LocationAreaApiLocationAreaReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.locationAreaReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1239,8 +1575,22 @@ export class ObjectMachineApi {
     /**
      * @param param the request object
      */
+    public machineListWithHttpInfo(param: MachineApiMachineListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.machineListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public machineList(param: MachineApiMachineListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.machineList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public machineReadWithHttpInfo(param: MachineApiMachineReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.machineReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1289,8 +1639,22 @@ export class ObjectMoveApi {
     /**
      * @param param the request object
      */
+    public moveListWithHttpInfo(param: MoveApiMoveListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.moveListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public moveList(param: MoveApiMoveListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.moveList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public moveReadWithHttpInfo(param: MoveApiMoveReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.moveReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1339,8 +1703,22 @@ export class ObjectMoveAilmentApi {
     /**
      * @param param the request object
      */
+    public moveAilmentListWithHttpInfo(param: MoveAilmentApiMoveAilmentListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.moveAilmentListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public moveAilmentList(param: MoveAilmentApiMoveAilmentListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.moveAilmentList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public moveAilmentReadWithHttpInfo(param: MoveAilmentApiMoveAilmentReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.moveAilmentReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1389,8 +1767,22 @@ export class ObjectMoveBattleStyleApi {
     /**
      * @param param the request object
      */
+    public moveBattleStyleListWithHttpInfo(param: MoveBattleStyleApiMoveBattleStyleListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.moveBattleStyleListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public moveBattleStyleList(param: MoveBattleStyleApiMoveBattleStyleListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.moveBattleStyleList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public moveBattleStyleReadWithHttpInfo(param: MoveBattleStyleApiMoveBattleStyleReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.moveBattleStyleReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1439,8 +1831,22 @@ export class ObjectMoveCategoryApi {
     /**
      * @param param the request object
      */
+    public moveCategoryListWithHttpInfo(param: MoveCategoryApiMoveCategoryListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.moveCategoryListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public moveCategoryList(param: MoveCategoryApiMoveCategoryListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.moveCategoryList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public moveCategoryReadWithHttpInfo(param: MoveCategoryApiMoveCategoryReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.moveCategoryReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1489,8 +1895,22 @@ export class ObjectMoveDamageClassApi {
     /**
      * @param param the request object
      */
+    public moveDamageClassListWithHttpInfo(param: MoveDamageClassApiMoveDamageClassListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.moveDamageClassListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public moveDamageClassList(param: MoveDamageClassApiMoveDamageClassListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.moveDamageClassList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public moveDamageClassReadWithHttpInfo(param: MoveDamageClassApiMoveDamageClassReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.moveDamageClassReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1539,8 +1959,22 @@ export class ObjectMoveLearnMethodApi {
     /**
      * @param param the request object
      */
+    public moveLearnMethodListWithHttpInfo(param: MoveLearnMethodApiMoveLearnMethodListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.moveLearnMethodListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public moveLearnMethodList(param: MoveLearnMethodApiMoveLearnMethodListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.moveLearnMethodList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public moveLearnMethodReadWithHttpInfo(param: MoveLearnMethodApiMoveLearnMethodReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.moveLearnMethodReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1589,8 +2023,22 @@ export class ObjectMoveTargetApi {
     /**
      * @param param the request object
      */
+    public moveTargetListWithHttpInfo(param: MoveTargetApiMoveTargetListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.moveTargetListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public moveTargetList(param: MoveTargetApiMoveTargetListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.moveTargetList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public moveTargetReadWithHttpInfo(param: MoveTargetApiMoveTargetReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.moveTargetReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1639,8 +2087,22 @@ export class ObjectNatureApi {
     /**
      * @param param the request object
      */
+    public natureListWithHttpInfo(param: NatureApiNatureListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.natureListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public natureList(param: NatureApiNatureListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.natureList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public natureReadWithHttpInfo(param: NatureApiNatureReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.natureReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1689,8 +2151,22 @@ export class ObjectPalParkAreaApi {
     /**
      * @param param the request object
      */
+    public palParkAreaListWithHttpInfo(param: PalParkAreaApiPalParkAreaListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.palParkAreaListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public palParkAreaList(param: PalParkAreaApiPalParkAreaListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.palParkAreaList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public palParkAreaReadWithHttpInfo(param: PalParkAreaApiPalParkAreaReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.palParkAreaReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1739,8 +2215,22 @@ export class ObjectPokeathlonStatApi {
     /**
      * @param param the request object
      */
+    public pokeathlonStatListWithHttpInfo(param: PokeathlonStatApiPokeathlonStatListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.pokeathlonStatListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public pokeathlonStatList(param: PokeathlonStatApiPokeathlonStatListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.pokeathlonStatList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public pokeathlonStatReadWithHttpInfo(param: PokeathlonStatApiPokeathlonStatReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.pokeathlonStatReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1789,8 +2279,22 @@ export class ObjectPokedexApi {
     /**
      * @param param the request object
      */
+    public pokedexListWithHttpInfo(param: PokedexApiPokedexListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.pokedexListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public pokedexList(param: PokedexApiPokedexListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.pokedexList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public pokedexReadWithHttpInfo(param: PokedexApiPokedexReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.pokedexReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1839,8 +2343,22 @@ export class ObjectPokemonApi {
     /**
      * @param param the request object
      */
+    public pokemonListWithHttpInfo(param: PokemonApiPokemonListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.pokemonListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public pokemonList(param: PokemonApiPokemonListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.pokemonList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public pokemonReadWithHttpInfo(param: PokemonApiPokemonReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.pokemonReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1889,8 +2407,22 @@ export class ObjectPokemonColorApi {
     /**
      * @param param the request object
      */
+    public pokemonColorListWithHttpInfo(param: PokemonColorApiPokemonColorListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.pokemonColorListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public pokemonColorList(param: PokemonColorApiPokemonColorListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.pokemonColorList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public pokemonColorReadWithHttpInfo(param: PokemonColorApiPokemonColorReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.pokemonColorReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1939,8 +2471,22 @@ export class ObjectPokemonFormApi {
     /**
      * @param param the request object
      */
+    public pokemonFormListWithHttpInfo(param: PokemonFormApiPokemonFormListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.pokemonFormListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public pokemonFormList(param: PokemonFormApiPokemonFormListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.pokemonFormList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public pokemonFormReadWithHttpInfo(param: PokemonFormApiPokemonFormReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.pokemonFormReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -1989,8 +2535,22 @@ export class ObjectPokemonHabitatApi {
     /**
      * @param param the request object
      */
+    public pokemonHabitatListWithHttpInfo(param: PokemonHabitatApiPokemonHabitatListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.pokemonHabitatListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public pokemonHabitatList(param: PokemonHabitatApiPokemonHabitatListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.pokemonHabitatList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public pokemonHabitatReadWithHttpInfo(param: PokemonHabitatApiPokemonHabitatReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.pokemonHabitatReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -2039,8 +2599,22 @@ export class ObjectPokemonShapeApi {
     /**
      * @param param the request object
      */
+    public pokemonShapeListWithHttpInfo(param: PokemonShapeApiPokemonShapeListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.pokemonShapeListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public pokemonShapeList(param: PokemonShapeApiPokemonShapeListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.pokemonShapeList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public pokemonShapeReadWithHttpInfo(param: PokemonShapeApiPokemonShapeReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.pokemonShapeReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -2089,8 +2663,22 @@ export class ObjectPokemonSpeciesApi {
     /**
      * @param param the request object
      */
+    public pokemonSpeciesListWithHttpInfo(param: PokemonSpeciesApiPokemonSpeciesListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.pokemonSpeciesListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public pokemonSpeciesList(param: PokemonSpeciesApiPokemonSpeciesListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.pokemonSpeciesList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public pokemonSpeciesReadWithHttpInfo(param: PokemonSpeciesApiPokemonSpeciesReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.pokemonSpeciesReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -2139,8 +2727,22 @@ export class ObjectRegionApi {
     /**
      * @param param the request object
      */
+    public regionListWithHttpInfo(param: RegionApiRegionListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.regionListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public regionList(param: RegionApiRegionListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.regionList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public regionReadWithHttpInfo(param: RegionApiRegionReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.regionReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -2189,8 +2791,22 @@ export class ObjectStatApi {
     /**
      * @param param the request object
      */
+    public statListWithHttpInfo(param: StatApiStatListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.statListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public statList(param: StatApiStatListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.statList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public statReadWithHttpInfo(param: StatApiStatReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.statReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -2239,8 +2855,22 @@ export class ObjectSuperContestEffectApi {
     /**
      * @param param the request object
      */
+    public superContestEffectListWithHttpInfo(param: SuperContestEffectApiSuperContestEffectListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.superContestEffectListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public superContestEffectList(param: SuperContestEffectApiSuperContestEffectListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.superContestEffectList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public superContestEffectReadWithHttpInfo(param: SuperContestEffectApiSuperContestEffectReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.superContestEffectReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -2289,8 +2919,22 @@ export class ObjectTypeApi {
     /**
      * @param param the request object
      */
+    public typeListWithHttpInfo(param: TypeApiTypeListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.typeListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public typeList(param: TypeApiTypeListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.typeList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public typeReadWithHttpInfo(param: TypeApiTypeReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.typeReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -2339,8 +2983,22 @@ export class ObjectVersionApi {
     /**
      * @param param the request object
      */
+    public versionListWithHttpInfo(param: VersionApiVersionListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.versionListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public versionList(param: VersionApiVersionListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.versionList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public versionReadWithHttpInfo(param: VersionApiVersionReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.versionReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
@@ -2389,8 +3047,22 @@ export class ObjectVersionGroupApi {
     /**
      * @param param the request object
      */
+    public versionGroupListWithHttpInfo(param: VersionGroupApiVersionGroupListRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.versionGroupListWithHttpInfo(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public versionGroupList(param: VersionGroupApiVersionGroupListRequest = {}, options?: Configuration): Promise<void> {
         return this.api.versionGroupList(param.limit, param.offset,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public versionGroupReadWithHttpInfo(param: VersionGroupApiVersionGroupReadRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.versionGroupReadWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**

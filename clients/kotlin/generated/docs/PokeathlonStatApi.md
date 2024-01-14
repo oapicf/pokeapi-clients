@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**pokeathlonStatRead**](PokeathlonStatApi.md#pokeathlonStatRead) | **GET** /api/v2/pokeathlon-stat/{id}/ | 
 
 
-<a name="pokeathlonStatList"></a>
+<a id="pokeathlonStatList"></a>
 # **pokeathlonStatList**
 > kotlin.String pokeathlonStatList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="pokeathlonStatRead"></a>
+<a id="pokeathlonStatRead"></a>
 # **pokeathlonStatRead**
 > kotlin.String pokeathlonStatRead(id)
 

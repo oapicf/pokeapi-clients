@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// GrowthRateApiService GrowthRateApi service
-type GrowthRateApiService service
+// GrowthRateAPIService GrowthRateAPI service
+type GrowthRateAPIService service
 
 type ApiGrowthRateListRequest struct {
 	ctx context.Context
-	ApiService *GrowthRateApiService
+	ApiService *GrowthRateAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ GrowthRateList Method for GrowthRateList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGrowthRateListRequest
 */
-func (a *GrowthRateApiService) GrowthRateList(ctx context.Context) ApiGrowthRateListRequest {
+func (a *GrowthRateAPIService) GrowthRateList(ctx context.Context) ApiGrowthRateListRequest {
 	return ApiGrowthRateListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *GrowthRateApiService) GrowthRateList(ctx context.Context) ApiGrowthRate
 
 // Execute executes the request
 //  @return string
-func (a *GrowthRateApiService) GrowthRateListExecute(r ApiGrowthRateListRequest) (string, *http.Response, error) {
+func (a *GrowthRateAPIService) GrowthRateListExecute(r ApiGrowthRateListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *GrowthRateApiService) GrowthRateListExecute(r ApiGrowthRateListRequest)
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GrowthRateApiService.GrowthRateList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GrowthRateAPIService.GrowthRateList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *GrowthRateApiService) GrowthRateListExecute(r ApiGrowthRateListRequest)
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *GrowthRateApiService) GrowthRateListExecute(r ApiGrowthRateListRequest)
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *GrowthRateApiService) GrowthRateListExecute(r ApiGrowthRateListRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *GrowthRateApiService) GrowthRateListExecute(r ApiGrowthRateListRequest)
 
 type ApiGrowthRateReadRequest struct {
 	ctx context.Context
-	ApiService *GrowthRateApiService
+	ApiService *GrowthRateAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ GrowthRateRead Method for GrowthRateRead
  @param id
  @return ApiGrowthRateReadRequest
 */
-func (a *GrowthRateApiService) GrowthRateRead(ctx context.Context, id int32) ApiGrowthRateReadRequest {
+func (a *GrowthRateAPIService) GrowthRateRead(ctx context.Context, id int32) ApiGrowthRateReadRequest {
 	return ApiGrowthRateReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *GrowthRateApiService) GrowthRateRead(ctx context.Context, id int32) Api
 
 // Execute executes the request
 //  @return string
-func (a *GrowthRateApiService) GrowthRateReadExecute(r ApiGrowthRateReadRequest) (string, *http.Response, error) {
+func (a *GrowthRateAPIService) GrowthRateReadExecute(r ApiGrowthRateReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *GrowthRateApiService) GrowthRateReadExecute(r ApiGrowthRateReadRequest)
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GrowthRateApiService.GrowthRateRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GrowthRateAPIService.GrowthRateRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/growth-rate/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *GrowthRateApiService) GrowthRateReadExecute(r ApiGrowthRateReadRequest)
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *GrowthRateApiService) GrowthRateReadExecute(r ApiGrowthRateReadRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

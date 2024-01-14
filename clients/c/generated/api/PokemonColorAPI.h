@@ -8,10 +8,10 @@
 
 
 char*
-PokemonColorAPI_pokemonColorList(apiClient_t *apiClient, int limit , int offset );
+PokemonColorAPI_pokemonColorList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-PokemonColorAPI_pokemonColorRead(apiClient_t *apiClient, int id );
+PokemonColorAPI_pokemonColorRead(apiClient_t *apiClient, int *id);
 
 

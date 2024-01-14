@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="versionList"></a>
+<a id="versionList"></a>
 # **versionList**
 ```java
 Mono<String> VersionApi.versionList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> VersionApi.versionList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="versionRead"></a>
+<a id="versionRead"></a>
 # **versionRead**
 ```java
 Mono<String> VersionApi.versionRead(id)

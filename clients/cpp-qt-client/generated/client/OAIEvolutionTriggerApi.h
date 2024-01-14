@@ -101,18 +101,25 @@ signals:
     void evolutionTriggerListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void evolutionTriggerReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use evolutionTriggerListSignalError() instead")
     void evolutionTriggerListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void evolutionTriggerListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use evolutionTriggerReadSignalError() instead")
     void evolutionTriggerReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void evolutionTriggerReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use evolutionTriggerListSignalErrorFull() instead")
     void evolutionTriggerListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void evolutionTriggerListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use evolutionTriggerReadSignalErrorFull() instead")
     void evolutionTriggerReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void evolutionTriggerReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

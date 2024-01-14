@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="itemFlingEffectList"></a>
+<a id="itemFlingEffectList"></a>
 # **itemFlingEffectList**
 ```java
 Mono<String> ItemFlingEffectApi.itemFlingEffectList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> ItemFlingEffectApi.itemFlingEffectList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="itemFlingEffectRead"></a>
+<a id="itemFlingEffectRead"></a>
 # **itemFlingEffectRead**
 ```java
 Mono<String> ItemFlingEffectApi.itemFlingEffectRead(id)

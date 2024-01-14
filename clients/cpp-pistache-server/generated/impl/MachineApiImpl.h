@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class MachineApiImpl : public org::openapitools::server::api::MachineApi {
+class  MachineApiImpl : public org::openapitools::server::api::MachineApi {
 public:
     explicit MachineApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~MachineApiImpl() override = default;

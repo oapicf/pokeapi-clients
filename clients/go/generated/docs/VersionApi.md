@@ -1,11 +1,11 @@
-# \VersionApi
+# \VersionAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**VersionList**](VersionApi.md#VersionList) | **Get** /api/v2/version/ | 
-[**VersionRead**](VersionApi.md#VersionRead) | **Get** /api/v2/version/{id}/ | 
+[**VersionList**](VersionAPI.md#VersionList) | **Get** /api/v2/version/ | 
+[**VersionRead**](VersionAPI.md#VersionRead) | **Get** /api/v2/version/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.VersionApi.VersionList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `VersionApi.VersionList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `VersionList`: string
-    fmt.Fprintf(os.Stdout, "Response from `VersionApi.VersionList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.VersionAPI.VersionList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `VersionAPI.VersionList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VersionList`: string
+	fmt.Fprintf(os.Stdout, "Response from `VersionAPI.VersionList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.VersionApi.VersionRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `VersionApi.VersionRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `VersionRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `VersionApi.VersionRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.VersionAPI.VersionRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `VersionAPI.VersionRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VersionRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `VersionAPI.VersionRead`: %v\n", resp)
 }
 ```
 

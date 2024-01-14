@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.BerryFirmnessApi
+# PSOpenAPITools.PSOpenAPITools\Api.BerryFirmnessApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-BerryFirmnessRead**](BerryFirmnessApi.md#Invoke-BerryFirmnessRead) | **GET** /api/v2/berry-firmness/{id}/ | 
 
 
-<a name="Invoke-BerryFirmnessList"></a>
+<a id="Invoke-BerryFirmnessList"></a>
 # **Invoke-BerryFirmnessList**
 > String Invoke-BerryFirmnessList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BerryFirmnessRead"></a>
+<a id="Invoke-BerryFirmnessRead"></a>
 # **Invoke-BerryFirmnessRead**
 > String Invoke-BerryFirmnessRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

@@ -101,18 +101,25 @@ signals:
     void pokemonColorListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void pokemonColorReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use pokemonColorListSignalError() instead")
     void pokemonColorListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void pokemonColorListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use pokemonColorReadSignalError() instead")
     void pokemonColorReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void pokemonColorReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use pokemonColorListSignalErrorFull() instead")
     void pokemonColorListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void pokemonColorListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use pokemonColorReadSignalErrorFull() instead")
     void pokemonColorReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void pokemonColorReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

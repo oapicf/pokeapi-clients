@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// RegionApiService is a service that implements the logic for the RegionApiServicer
-// This service should implement the business logic for every endpoint for the RegionApi API.
+// RegionAPIService is a service that implements the logic for the RegionAPIServicer
+// This service should implement the business logic for every endpoint for the RegionAPI API.
 // Include any external packages or services that will be required by this service.
-type RegionApiService struct {
+type RegionAPIService struct {
 }
 
-// NewRegionApiService creates a default api service
-func NewRegionApiService() RegionApiServicer {
-	return &RegionApiService{}
+// NewRegionAPIService creates a default api service
+func NewRegionAPIService() RegionAPIServicer {
+	return &RegionAPIService{}
 }
 
 // RegionList - 
-func (s *RegionApiService) RegionList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *RegionAPIService) RegionList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update RegionList with the required logic for this service method.
 	// Add api_region_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("RegionList method not implemented")
 }
 
 // RegionRead - 
-func (s *RegionApiService) RegionRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *RegionAPIService) RegionRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update RegionRead with the required logic for this service method.
 	// Add api_region_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("RegionRead method not implemented")
 }

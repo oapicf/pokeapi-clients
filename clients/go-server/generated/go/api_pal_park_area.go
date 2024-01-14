@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// PalParkAreaApiController binds http requests to an api service and writes the service results to the http response
-type PalParkAreaApiController struct {
-	service PalParkAreaApiServicer
+// PalParkAreaAPIController binds http requests to an api service and writes the service results to the http response
+type PalParkAreaAPIController struct {
+	service PalParkAreaAPIServicer
 	errorHandler ErrorHandler
 }
 
-// PalParkAreaApiOption for how the controller is set up.
-type PalParkAreaApiOption func(*PalParkAreaApiController)
+// PalParkAreaAPIOption for how the controller is set up.
+type PalParkAreaAPIOption func(*PalParkAreaAPIController)
 
-// WithPalParkAreaApiErrorHandler inject ErrorHandler into controller
-func WithPalParkAreaApiErrorHandler(h ErrorHandler) PalParkAreaApiOption {
-	return func(c *PalParkAreaApiController) {
+// WithPalParkAreaAPIErrorHandler inject ErrorHandler into controller
+func WithPalParkAreaAPIErrorHandler(h ErrorHandler) PalParkAreaAPIOption {
+	return func(c *PalParkAreaAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewPalParkAreaApiController creates a default api controller
-func NewPalParkAreaApiController(s PalParkAreaApiServicer, opts ...PalParkAreaApiOption) Router {
-	controller := &PalParkAreaApiController{
+// NewPalParkAreaAPIController creates a default api controller
+func NewPalParkAreaAPIController(s PalParkAreaAPIServicer, opts ...PalParkAreaAPIOption) Router {
+	controller := &PalParkAreaAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewPalParkAreaApiController(s PalParkAreaApiServicer, opts ...PalParkAreaAp
 	return controller
 }
 
-// Routes returns all the api routes for the PalParkAreaApiController
-func (c *PalParkAreaApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"PalParkAreaList",
+// Routes returns all the api routes for the PalParkAreaAPIController
+func (c *PalParkAreaAPIController) Routes() Routes {
+	return Routes{
+		"PalParkAreaList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/pal-park-area/",
 			c.PalParkAreaList,
 		},
-		{
-			"PalParkAreaRead",
+		"PalParkAreaRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/pal-park-area/{id}/",
 			c.PalParkAreaRead,
@@ -67,17 +65,35 @@ func (c *PalParkAreaApiController) Routes() Routes {
 }
 
 // PalParkAreaList - 
-func (c *PalParkAreaApiController) PalParkAreaList(w http.ResponseWriter, r *http.Request) {
+func (c *PalParkAreaAPIController) PalParkAreaList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.PalParkAreaList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *PalParkAreaApiController) PalParkAreaList(w http.ResponseWriter, r *htt
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // PalParkAreaRead - 
-func (c *PalParkAreaApiController) PalParkAreaRead(w http.ResponseWriter, r *http.Request) {
+func (c *PalParkAreaAPIController) PalParkAreaRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.PalParkAreaRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *PalParkAreaApiController) PalParkAreaRead(w http.ResponseWriter, r *htt
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

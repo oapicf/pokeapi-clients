@@ -291,8 +291,34 @@ void OAIBerryApi::berryListCallback(OAIHttpRequestWorker *worker) {
         emit berryListSignal(output);
         emit berryListSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit berryListSignalE(output, error_type, error_str);
         emit berryListSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit berryListSignalError(output, error_type, error_str);
+        emit berryListSignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -355,8 +381,34 @@ void OAIBerryApi::berryReadCallback(OAIHttpRequestWorker *worker) {
         emit berryReadSignal(output);
         emit berryReadSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit berryReadSignalE(output, error_type, error_str);
         emit berryReadSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit berryReadSignalError(output, error_type, error_str);
+        emit berryReadSignalErrorFull(worker, error_type, error_str);
     }
 }
 

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**palParkAreaRead**](PalParkAreaApi.md#palParkAreaRead) | **GET** /api/v2/pal-park-area/{id}/ | 
 
 
-<a name="palParkAreaList"></a>
+<a id="palParkAreaList"></a>
 # **palParkAreaList**
 > kotlin.String palParkAreaList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="palParkAreaRead"></a>
+<a id="palParkAreaRead"></a>
 # **palParkAreaRead**
 > kotlin.String palParkAreaRead(id)
 

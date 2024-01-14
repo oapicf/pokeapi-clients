@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="statList"></a>
+<a id="statList"></a>
 # **statList**
 ```java
 Mono<String> StatApi.statList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> StatApi.statList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="statRead"></a>
+<a id="statRead"></a>
 # **statRead**
 ```java
 Mono<String> StatApi.statRead(id)

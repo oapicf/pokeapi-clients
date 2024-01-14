@@ -20,15 +20,13 @@ module Api.Request.PokemonHabitat exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-pokemonHabitatList : Maybe Int -> Maybe Int -> Api.Request 
+pokemonHabitatList : Maybe Int -> Maybe Int -> Api.Request ()
 pokemonHabitatList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ pokemonHabitatList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-pokemonHabitatRead : Int -> Api.Request 
+pokemonHabitatRead : Int -> Api.Request ()
 pokemonHabitatRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ pokemonHabitatRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

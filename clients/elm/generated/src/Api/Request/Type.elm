@@ -20,15 +20,13 @@ module Api.Request.Type exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-typeList : Maybe Int -> Maybe Int -> Api.Request 
+typeList : Maybe Int -> Maybe Int -> Api.Request ()
 typeList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ typeList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-typeRead : Int -> Api.Request 
+typeRead : Int -> Api.Request ()
 typeRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ typeRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**statList**](#statList) | **GET** /api/v2/stat/ | 
 [**statRead**](#statRead) | **GET** /api/v2/stat/{id}/ | 
 
-<a name="statList"></a>
+<a id="statList"></a>
 # **statList**
 ```java
 Mono<String> StatController.statList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="statRead"></a>
+<a id="statRead"></a>
 # **statRead**
 ```java
 Mono<String> StatController.statRead(id)

@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class EncounterMethodApiImpl : public org::openapitools::server::api::EncounterMethodApi {
+class  EncounterMethodApiImpl : public org::openapitools::server::api::EncounterMethodApi {
 public:
     explicit EncounterMethodApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~EncounterMethodApiImpl() override = default;

@@ -22,7 +22,7 @@ using namespace org::openapitools::server::helpers;
 const std::string MoveTargetApi::base = "";
 
 MoveTargetApi::MoveTargetApi(const std::shared_ptr<Pistache::Rest::Router>& rtr)
-    : router(rtr)
+    : ApiBase(rtr)
 {
 }
 

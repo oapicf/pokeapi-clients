@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.ItemCategoryApi
+# PSOpenAPITools.PSOpenAPITools\Api.ItemCategoryApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-ItemCategoryRead**](ItemCategoryApi.md#Invoke-ItemCategoryRead) | **GET** /api/v2/item-category/{id}/ | 
 
 
-<a name="Invoke-ItemCategoryList"></a>
+<a id="Invoke-ItemCategoryList"></a>
 # **Invoke-ItemCategoryList**
 > String Invoke-ItemCategoryList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ItemCategoryRead"></a>
+<a id="Invoke-ItemCategoryRead"></a>
 # **Invoke-ItemCategoryRead**
 > String Invoke-ItemCategoryRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

@@ -19,6 +19,8 @@
 #define EncounterConditionValueApi_H_
 
 
+#include "ApiBase.h"
+
 #include <pistache/http.h>
 #include <pistache/router.h>
 #include <pistache/http_headers.h>
@@ -31,11 +33,11 @@
 namespace org::openapitools::server::api
 {
 
-class  EncounterConditionValueApi {
+class  EncounterConditionValueApi : public ApiBase {
 public:
     explicit EncounterConditionValueApi(const std::shared_ptr<Pistache::Rest::Router>& rtr);
-    virtual ~EncounterConditionValueApi() = default;
-    void init();
+    ~EncounterConditionValueApi() override = default;
+    void init() override;
 
     static const std::string base;
 
@@ -45,8 +47,6 @@ private:
     void encounter_condition_value_list_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
     void encounter_condition_value_read_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
     void encounter_condition_value_api_default_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
-
-    const std::shared_ptr<Pistache::Rest::Router> router;
 
     /// <summary>
     /// Helper function to handle unexpected Exceptions during Parameter parsing and validation.

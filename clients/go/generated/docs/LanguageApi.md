@@ -1,11 +1,11 @@
-# \LanguageApi
+# \LanguageAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**LanguageList**](LanguageApi.md#LanguageList) | **Get** /api/v2/language/ | 
-[**LanguageRead**](LanguageApi.md#LanguageRead) | **Get** /api/v2/language/{id}/ | 
+[**LanguageList**](LanguageAPI.md#LanguageList) | **Get** /api/v2/language/ | 
+[**LanguageRead**](LanguageAPI.md#LanguageRead) | **Get** /api/v2/language/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LanguageApi.LanguageList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LanguageApi.LanguageList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `LanguageList`: string
-    fmt.Fprintf(os.Stdout, "Response from `LanguageApi.LanguageList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LanguageAPI.LanguageList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LanguageAPI.LanguageList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `LanguageList`: string
+	fmt.Fprintf(os.Stdout, "Response from `LanguageAPI.LanguageList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LanguageApi.LanguageRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LanguageApi.LanguageRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `LanguageRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `LanguageApi.LanguageRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LanguageAPI.LanguageRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LanguageAPI.LanguageRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `LanguageRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `LanguageAPI.LanguageRead`: %v\n", resp)
 }
 ```
 

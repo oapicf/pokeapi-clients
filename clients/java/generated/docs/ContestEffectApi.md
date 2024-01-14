@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**contestEffectRead**](ContestEffectApi.md#contestEffectRead) | **GET** /api/v2/contest-effect/{id}/ |  |
 
 
-<a name="contestEffectList"></a>
+<a id="contestEffectList"></a>
 # **contestEffectList**
 > String contestEffectList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="contestEffectRead"></a>
+<a id="contestEffectRead"></a>
 # **contestEffectRead**
 > String contestEffectRead(id)
 

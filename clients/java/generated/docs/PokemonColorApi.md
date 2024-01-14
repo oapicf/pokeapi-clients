@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**pokemonColorRead**](PokemonColorApi.md#pokemonColorRead) | **GET** /api/v2/pokemon-color/{id}/ |  |
 
 
-<a name="pokemonColorList"></a>
+<a id="pokemonColorList"></a>
 # **pokemonColorList**
 > String pokemonColorList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="pokemonColorRead"></a>
+<a id="pokemonColorRead"></a>
 # **pokemonColorRead**
 > String pokemonColorRead(id)
 

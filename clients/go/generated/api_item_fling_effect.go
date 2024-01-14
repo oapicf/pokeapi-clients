@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// ItemFlingEffectApiService ItemFlingEffectApi service
-type ItemFlingEffectApiService service
+// ItemFlingEffectAPIService ItemFlingEffectAPI service
+type ItemFlingEffectAPIService service
 
 type ApiItemFlingEffectListRequest struct {
 	ctx context.Context
-	ApiService *ItemFlingEffectApiService
+	ApiService *ItemFlingEffectAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ ItemFlingEffectList Method for ItemFlingEffectList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiItemFlingEffectListRequest
 */
-func (a *ItemFlingEffectApiService) ItemFlingEffectList(ctx context.Context) ApiItemFlingEffectListRequest {
+func (a *ItemFlingEffectAPIService) ItemFlingEffectList(ctx context.Context) ApiItemFlingEffectListRequest {
 	return ApiItemFlingEffectListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *ItemFlingEffectApiService) ItemFlingEffectList(ctx context.Context) Api
 
 // Execute executes the request
 //  @return string
-func (a *ItemFlingEffectApiService) ItemFlingEffectListExecute(r ApiItemFlingEffectListRequest) (string, *http.Response, error) {
+func (a *ItemFlingEffectAPIService) ItemFlingEffectListExecute(r ApiItemFlingEffectListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *ItemFlingEffectApiService) ItemFlingEffectListExecute(r ApiItemFlingEff
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemFlingEffectApiService.ItemFlingEffectList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemFlingEffectAPIService.ItemFlingEffectList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *ItemFlingEffectApiService) ItemFlingEffectListExecute(r ApiItemFlingEff
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *ItemFlingEffectApiService) ItemFlingEffectListExecute(r ApiItemFlingEff
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *ItemFlingEffectApiService) ItemFlingEffectListExecute(r ApiItemFlingEff
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *ItemFlingEffectApiService) ItemFlingEffectListExecute(r ApiItemFlingEff
 
 type ApiItemFlingEffectReadRequest struct {
 	ctx context.Context
-	ApiService *ItemFlingEffectApiService
+	ApiService *ItemFlingEffectAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ ItemFlingEffectRead Method for ItemFlingEffectRead
  @param id
  @return ApiItemFlingEffectReadRequest
 */
-func (a *ItemFlingEffectApiService) ItemFlingEffectRead(ctx context.Context, id int32) ApiItemFlingEffectReadRequest {
+func (a *ItemFlingEffectAPIService) ItemFlingEffectRead(ctx context.Context, id int32) ApiItemFlingEffectReadRequest {
 	return ApiItemFlingEffectReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *ItemFlingEffectApiService) ItemFlingEffectRead(ctx context.Context, id 
 
 // Execute executes the request
 //  @return string
-func (a *ItemFlingEffectApiService) ItemFlingEffectReadExecute(r ApiItemFlingEffectReadRequest) (string, *http.Response, error) {
+func (a *ItemFlingEffectAPIService) ItemFlingEffectReadExecute(r ApiItemFlingEffectReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *ItemFlingEffectApiService) ItemFlingEffectReadExecute(r ApiItemFlingEff
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemFlingEffectApiService.ItemFlingEffectRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemFlingEffectAPIService.ItemFlingEffectRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/item-fling-effect/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *ItemFlingEffectApiService) ItemFlingEffectReadExecute(r ApiItemFlingEff
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *ItemFlingEffectApiService) ItemFlingEffectReadExecute(r ApiItemFlingEff
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

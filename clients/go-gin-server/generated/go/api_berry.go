@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// BerryList - 
-func BerryList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type BerryAPI struct {
 }
 
-// BerryRead - 
-func BerryRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/berry/
+func (api *BerryAPI) BerryList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/berry/:id/
+func (api *BerryAPI) BerryRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

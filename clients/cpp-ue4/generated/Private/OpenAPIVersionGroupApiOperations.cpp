@@ -70,7 +70,7 @@ bool OpenAPIVersionGroupApi::VersionGroupListResponse::FromJson(const TSharedPtr
 FString OpenAPIVersionGroupApi::VersionGroupReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/version-group/{id}/"), PathParams);
 

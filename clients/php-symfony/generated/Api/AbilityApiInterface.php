@@ -52,8 +52,12 @@ interface AbilityApiInterface
      *
      * @return array|object|null
      */
-    public function abilityList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function abilityList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation abilityRead
@@ -64,6 +68,9 @@ interface AbilityApiInterface
      *
      * @return array|object|null
      */
-    public function abilityRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function abilityRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

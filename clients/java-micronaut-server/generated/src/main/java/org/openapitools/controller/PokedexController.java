@@ -36,7 +36,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2022-11-19T09:47:10.451639Z[Etc/UTC]")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-01-14T06:30:51.572508268Z[Etc/UTC]")
 @Controller
 @Tag(name = "Pokedex", description = "The Pokedex API")
 public class PokedexController {

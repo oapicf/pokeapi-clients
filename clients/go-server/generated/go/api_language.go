@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// LanguageApiController binds http requests to an api service and writes the service results to the http response
-type LanguageApiController struct {
-	service LanguageApiServicer
+// LanguageAPIController binds http requests to an api service and writes the service results to the http response
+type LanguageAPIController struct {
+	service LanguageAPIServicer
 	errorHandler ErrorHandler
 }
 
-// LanguageApiOption for how the controller is set up.
-type LanguageApiOption func(*LanguageApiController)
+// LanguageAPIOption for how the controller is set up.
+type LanguageAPIOption func(*LanguageAPIController)
 
-// WithLanguageApiErrorHandler inject ErrorHandler into controller
-func WithLanguageApiErrorHandler(h ErrorHandler) LanguageApiOption {
-	return func(c *LanguageApiController) {
+// WithLanguageAPIErrorHandler inject ErrorHandler into controller
+func WithLanguageAPIErrorHandler(h ErrorHandler) LanguageAPIOption {
+	return func(c *LanguageAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewLanguageApiController creates a default api controller
-func NewLanguageApiController(s LanguageApiServicer, opts ...LanguageApiOption) Router {
-	controller := &LanguageApiController{
+// NewLanguageAPIController creates a default api controller
+func NewLanguageAPIController(s LanguageAPIServicer, opts ...LanguageAPIOption) Router {
+	controller := &LanguageAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewLanguageApiController(s LanguageApiServicer, opts ...LanguageApiOption) 
 	return controller
 }
 
-// Routes returns all the api routes for the LanguageApiController
-func (c *LanguageApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"LanguageList",
+// Routes returns all the api routes for the LanguageAPIController
+func (c *LanguageAPIController) Routes() Routes {
+	return Routes{
+		"LanguageList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/language/",
 			c.LanguageList,
 		},
-		{
-			"LanguageRead",
+		"LanguageRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/language/{id}/",
 			c.LanguageRead,
@@ -67,17 +65,35 @@ func (c *LanguageApiController) Routes() Routes {
 }
 
 // LanguageList - 
-func (c *LanguageApiController) LanguageList(w http.ResponseWriter, r *http.Request) {
+func (c *LanguageAPIController) LanguageList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.LanguageList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *LanguageApiController) LanguageList(w http.ResponseWriter, r *http.Requ
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // LanguageRead - 
-func (c *LanguageApiController) LanguageRead(w http.ResponseWriter, r *http.Request) {
+func (c *LanguageAPIController) LanguageRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.LanguageRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *LanguageApiController) LanguageRead(w http.ResponseWriter, r *http.Requ
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

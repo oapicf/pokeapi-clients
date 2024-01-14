@@ -62,6 +62,7 @@ OpenAPIClient/Classes/OpenAPIs/Models.swift
 OpenAPIClient/Classes/OpenAPIs/OpenISO8601DateFormatter.swift
 OpenAPIClient/Classes/OpenAPIs/SynchronizedDictionary.swift
 OpenAPIClient/Classes/OpenAPIs/URLSessionImplementations.swift
+OpenAPIClient/Classes/OpenAPIs/Validation.swift
 Package.swift
 README.md
 docs/AbilityAPI.md

@@ -52,8 +52,12 @@ interface SuperContestEffectApiInterface
      *
      * @return array|object|null
      */
-    public function superContestEffectList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function superContestEffectList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation superContestEffectRead
@@ -64,6 +68,9 @@ interface SuperContestEffectApiInterface
      *
      * @return array|object|null
      */
-    public function superContestEffectRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function superContestEffectRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

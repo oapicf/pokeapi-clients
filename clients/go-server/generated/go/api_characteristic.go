@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// CharacteristicApiController binds http requests to an api service and writes the service results to the http response
-type CharacteristicApiController struct {
-	service CharacteristicApiServicer
+// CharacteristicAPIController binds http requests to an api service and writes the service results to the http response
+type CharacteristicAPIController struct {
+	service CharacteristicAPIServicer
 	errorHandler ErrorHandler
 }
 
-// CharacteristicApiOption for how the controller is set up.
-type CharacteristicApiOption func(*CharacteristicApiController)
+// CharacteristicAPIOption for how the controller is set up.
+type CharacteristicAPIOption func(*CharacteristicAPIController)
 
-// WithCharacteristicApiErrorHandler inject ErrorHandler into controller
-func WithCharacteristicApiErrorHandler(h ErrorHandler) CharacteristicApiOption {
-	return func(c *CharacteristicApiController) {
+// WithCharacteristicAPIErrorHandler inject ErrorHandler into controller
+func WithCharacteristicAPIErrorHandler(h ErrorHandler) CharacteristicAPIOption {
+	return func(c *CharacteristicAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewCharacteristicApiController creates a default api controller
-func NewCharacteristicApiController(s CharacteristicApiServicer, opts ...CharacteristicApiOption) Router {
-	controller := &CharacteristicApiController{
+// NewCharacteristicAPIController creates a default api controller
+func NewCharacteristicAPIController(s CharacteristicAPIServicer, opts ...CharacteristicAPIOption) Router {
+	controller := &CharacteristicAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewCharacteristicApiController(s CharacteristicApiServicer, opts ...Charact
 	return controller
 }
 
-// Routes returns all the api routes for the CharacteristicApiController
-func (c *CharacteristicApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"CharacteristicList",
+// Routes returns all the api routes for the CharacteristicAPIController
+func (c *CharacteristicAPIController) Routes() Routes {
+	return Routes{
+		"CharacteristicList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/characteristic/",
 			c.CharacteristicList,
 		},
-		{
-			"CharacteristicRead",
+		"CharacteristicRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/characteristic/{id}/",
 			c.CharacteristicRead,
@@ -67,17 +65,35 @@ func (c *CharacteristicApiController) Routes() Routes {
 }
 
 // CharacteristicList - 
-func (c *CharacteristicApiController) CharacteristicList(w http.ResponseWriter, r *http.Request) {
+func (c *CharacteristicAPIController) CharacteristicList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.CharacteristicList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *CharacteristicApiController) CharacteristicList(w http.ResponseWriter, 
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // CharacteristicRead - 
-func (c *CharacteristicApiController) CharacteristicRead(w http.ResponseWriter, r *http.Request) {
+func (c *CharacteristicAPIController) CharacteristicRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.CharacteristicRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *CharacteristicApiController) CharacteristicRead(w http.ResponseWriter, 
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

@@ -52,8 +52,12 @@ interface CharacteristicApiInterface
      *
      * @return array|object|null
      */
-    public function characteristicList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function characteristicList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation characteristicRead
@@ -64,6 +68,9 @@ interface CharacteristicApiInterface
      *
      * @return array|object|null
      */
-    public function characteristicRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function characteristicRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

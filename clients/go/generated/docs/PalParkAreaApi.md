@@ -1,11 +1,11 @@
-# \PalParkAreaApi
+# \PalParkAreaAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PalParkAreaList**](PalParkAreaApi.md#PalParkAreaList) | **Get** /api/v2/pal-park-area/ | 
-[**PalParkAreaRead**](PalParkAreaApi.md#PalParkAreaRead) | **Get** /api/v2/pal-park-area/{id}/ | 
+[**PalParkAreaList**](PalParkAreaAPI.md#PalParkAreaList) | **Get** /api/v2/pal-park-area/ | 
+[**PalParkAreaRead**](PalParkAreaAPI.md#PalParkAreaRead) | **Get** /api/v2/pal-park-area/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PalParkAreaApi.PalParkAreaList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PalParkAreaApi.PalParkAreaList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PalParkAreaList`: string
-    fmt.Fprintf(os.Stdout, "Response from `PalParkAreaApi.PalParkAreaList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PalParkAreaAPI.PalParkAreaList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PalParkAreaAPI.PalParkAreaList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PalParkAreaList`: string
+	fmt.Fprintf(os.Stdout, "Response from `PalParkAreaAPI.PalParkAreaList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PalParkAreaApi.PalParkAreaRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PalParkAreaApi.PalParkAreaRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PalParkAreaRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `PalParkAreaApi.PalParkAreaRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PalParkAreaAPI.PalParkAreaRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PalParkAreaAPI.PalParkAreaRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PalParkAreaRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `PalParkAreaAPI.PalParkAreaRead`: %v\n", resp)
 }
 ```
 

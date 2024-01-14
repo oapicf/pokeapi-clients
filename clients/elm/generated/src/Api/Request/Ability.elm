@@ -20,15 +20,13 @@ module Api.Request.Ability exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-abilityList : Maybe Int -> Maybe Int -> Api.Request 
+abilityList : Maybe Int -> Maybe Int -> Api.Request ()
 abilityList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ abilityList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-abilityRead : Int -> Api.Request 
+abilityRead : Int -> Api.Request ()
 abilityRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ abilityRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

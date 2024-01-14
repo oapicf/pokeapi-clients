@@ -101,18 +101,25 @@ signals:
     void characteristicListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void characteristicReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use characteristicListSignalError() instead")
     void characteristicListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void characteristicListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use characteristicReadSignalError() instead")
     void characteristicReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void characteristicReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use characteristicListSignalErrorFull() instead")
     void characteristicListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void characteristicListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use characteristicReadSignalErrorFull() instead")
     void characteristicReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void characteristicReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

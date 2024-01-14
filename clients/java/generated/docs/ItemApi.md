@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**itemRead**](ItemApi.md#itemRead) | **GET** /api/v2/item/{id}/ |  |
 
 
-<a name="itemList"></a>
+<a id="itemList"></a>
 # **itemList**
 > String itemList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="itemRead"></a>
+<a id="itemRead"></a>
 # **itemRead**
 > String itemRead(id)
 

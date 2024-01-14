@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// BerryFlavorApiService is a service that implements the logic for the BerryFlavorApiServicer
-// This service should implement the business logic for every endpoint for the BerryFlavorApi API.
+// BerryFlavorAPIService is a service that implements the logic for the BerryFlavorAPIServicer
+// This service should implement the business logic for every endpoint for the BerryFlavorAPI API.
 // Include any external packages or services that will be required by this service.
-type BerryFlavorApiService struct {
+type BerryFlavorAPIService struct {
 }
 
-// NewBerryFlavorApiService creates a default api service
-func NewBerryFlavorApiService() BerryFlavorApiServicer {
-	return &BerryFlavorApiService{}
+// NewBerryFlavorAPIService creates a default api service
+func NewBerryFlavorAPIService() BerryFlavorAPIServicer {
+	return &BerryFlavorAPIService{}
 }
 
 // BerryFlavorList - 
-func (s *BerryFlavorApiService) BerryFlavorList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *BerryFlavorAPIService) BerryFlavorList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update BerryFlavorList with the required logic for this service method.
 	// Add api_berry_flavor_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("BerryFlavorList method not implemented")
 }
 
 // BerryFlavorRead - 
-func (s *BerryFlavorApiService) BerryFlavorRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *BerryFlavorAPIService) BerryFlavorRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update BerryFlavorRead with the required logic for this service method.
 	// Add api_berry_flavor_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("BerryFlavorRead method not implemented")
 }

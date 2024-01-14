@@ -1,11 +1,11 @@
-# \MoveApi
+# \MoveAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**MoveList**](MoveApi.md#MoveList) | **Get** /api/v2/move/ | 
-[**MoveRead**](MoveApi.md#MoveRead) | **Get** /api/v2/move/{id}/ | 
+[**MoveList**](MoveAPI.md#MoveList) | **Get** /api/v2/move/ | 
+[**MoveRead**](MoveAPI.md#MoveRead) | **Get** /api/v2/move/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoveApi.MoveList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoveApi.MoveList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `MoveList`: string
-    fmt.Fprintf(os.Stdout, "Response from `MoveApi.MoveList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MoveAPI.MoveList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MoveAPI.MoveList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MoveList`: string
+	fmt.Fprintf(os.Stdout, "Response from `MoveAPI.MoveList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoveApi.MoveRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoveApi.MoveRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `MoveRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `MoveApi.MoveRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MoveAPI.MoveRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MoveAPI.MoveRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MoveRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `MoveAPI.MoveRead`: %v\n", resp)
 }
 ```
 

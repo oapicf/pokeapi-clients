@@ -70,7 +70,7 @@ bool OpenAPIPokemonColorApi::PokemonColorListResponse::FromJson(const TSharedPtr
 FString OpenAPIPokemonColorApi::PokemonColorReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/pokemon-color/{id}/"), PathParams);
 

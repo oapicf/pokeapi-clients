@@ -8,10 +8,10 @@
 
 
 char*
-StatAPI_statList(apiClient_t *apiClient, int limit , int offset );
+StatAPI_statList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-StatAPI_statRead(apiClient_t *apiClient, int id );
+StatAPI_statRead(apiClient_t *apiClient, int *id);
 
 

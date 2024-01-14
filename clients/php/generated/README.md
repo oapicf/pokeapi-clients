@@ -175,7 +175,8 @@ Class | Method | HTTP request | Description
 
 
 ## Authorization
-All endpoints do not require authorization.
+Endpoints do not require authorization.
+
 ## Tests
 
 To run the tests, use:

@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**typeRead**](TypeApi.md#typeRead) | **GET** /api/v2/type/{id}/ |  |
 
 
-<a name="typeList"></a>
+<a id="typeList"></a>
 # **typeList**
 > String typeList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="typeRead"></a>
+<a id="typeRead"></a>
 # **typeRead**
 > String typeRead(id)
 

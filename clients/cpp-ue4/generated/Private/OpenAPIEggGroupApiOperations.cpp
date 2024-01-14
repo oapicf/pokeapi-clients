@@ -70,7 +70,7 @@ bool OpenAPIEggGroupApi::EggGroupListResponse::FromJson(const TSharedPtr<FJsonVa
 FString OpenAPIEggGroupApi::EggGroupReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/egg-group/{id}/"), PathParams);
 

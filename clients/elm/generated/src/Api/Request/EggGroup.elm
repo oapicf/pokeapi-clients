@@ -20,15 +20,13 @@ module Api.Request.EggGroup exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-eggGroupList : Maybe Int -> Maybe Int -> Api.Request 
+eggGroupList : Maybe Int -> Maybe Int -> Api.Request ()
 eggGroupList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ eggGroupList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-eggGroupRead : Int -> Api.Request 
+eggGroupRead : Int -> Api.Request ()
 eggGroupRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ eggGroupRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

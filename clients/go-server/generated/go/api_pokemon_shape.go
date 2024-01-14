@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// PokemonShapeApiController binds http requests to an api service and writes the service results to the http response
-type PokemonShapeApiController struct {
-	service PokemonShapeApiServicer
+// PokemonShapeAPIController binds http requests to an api service and writes the service results to the http response
+type PokemonShapeAPIController struct {
+	service PokemonShapeAPIServicer
 	errorHandler ErrorHandler
 }
 
-// PokemonShapeApiOption for how the controller is set up.
-type PokemonShapeApiOption func(*PokemonShapeApiController)
+// PokemonShapeAPIOption for how the controller is set up.
+type PokemonShapeAPIOption func(*PokemonShapeAPIController)
 
-// WithPokemonShapeApiErrorHandler inject ErrorHandler into controller
-func WithPokemonShapeApiErrorHandler(h ErrorHandler) PokemonShapeApiOption {
-	return func(c *PokemonShapeApiController) {
+// WithPokemonShapeAPIErrorHandler inject ErrorHandler into controller
+func WithPokemonShapeAPIErrorHandler(h ErrorHandler) PokemonShapeAPIOption {
+	return func(c *PokemonShapeAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewPokemonShapeApiController creates a default api controller
-func NewPokemonShapeApiController(s PokemonShapeApiServicer, opts ...PokemonShapeApiOption) Router {
-	controller := &PokemonShapeApiController{
+// NewPokemonShapeAPIController creates a default api controller
+func NewPokemonShapeAPIController(s PokemonShapeAPIServicer, opts ...PokemonShapeAPIOption) Router {
+	controller := &PokemonShapeAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewPokemonShapeApiController(s PokemonShapeApiServicer, opts ...PokemonShap
 	return controller
 }
 
-// Routes returns all the api routes for the PokemonShapeApiController
-func (c *PokemonShapeApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"PokemonShapeList",
+// Routes returns all the api routes for the PokemonShapeAPIController
+func (c *PokemonShapeAPIController) Routes() Routes {
+	return Routes{
+		"PokemonShapeList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-shape/",
 			c.PokemonShapeList,
 		},
-		{
-			"PokemonShapeRead",
+		"PokemonShapeRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-shape/{id}/",
 			c.PokemonShapeRead,
@@ -67,17 +65,35 @@ func (c *PokemonShapeApiController) Routes() Routes {
 }
 
 // PokemonShapeList - 
-func (c *PokemonShapeApiController) PokemonShapeList(w http.ResponseWriter, r *http.Request) {
+func (c *PokemonShapeAPIController) PokemonShapeList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.PokemonShapeList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *PokemonShapeApiController) PokemonShapeList(w http.ResponseWriter, r *h
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // PokemonShapeRead - 
-func (c *PokemonShapeApiController) PokemonShapeRead(w http.ResponseWriter, r *http.Request) {
+func (c *PokemonShapeAPIController) PokemonShapeRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.PokemonShapeRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *PokemonShapeApiController) PokemonShapeRead(w http.ResponseWriter, r *h
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

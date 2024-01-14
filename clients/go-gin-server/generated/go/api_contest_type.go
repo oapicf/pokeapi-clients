@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// ContestTypeList - 
-func ContestTypeList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type ContestTypeAPI struct {
 }
 
-// ContestTypeRead - 
-func ContestTypeRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/contest-type/
+func (api *ContestTypeAPI) ContestTypeList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/contest-type/:id/
+func (api *ContestTypeAPI) ContestTypeRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

@@ -20,15 +20,13 @@ module Api.Request.PokemonForm exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-pokemonFormList : Maybe Int -> Maybe Int -> Api.Request 
+pokemonFormList : Maybe Int -> Maybe Int -> Api.Request ()
 pokemonFormList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ pokemonFormList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-pokemonFormRead : Int -> Api.Request 
+pokemonFormRead : Int -> Api.Request ()
 pokemonFormRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ pokemonFormRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

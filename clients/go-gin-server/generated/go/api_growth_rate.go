@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// GrowthRateList - 
-func GrowthRateList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type GrowthRateAPI struct {
 }
 
-// GrowthRateRead - 
-func GrowthRateRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/growth-rate/
+func (api *GrowthRateAPI) GrowthRateList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/growth-rate/:id/
+func (api *GrowthRateAPI) GrowthRateRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

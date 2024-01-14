@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="abilityList"></a>
+<a id="abilityList"></a>
 # **abilityList**
 ```java
 Mono<String> AbilityApi.abilityList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> AbilityApi.abilityList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="abilityRead"></a>
+<a id="abilityRead"></a>
 # **abilityRead**
 ```java
 Mono<String> AbilityApi.abilityRead(id)

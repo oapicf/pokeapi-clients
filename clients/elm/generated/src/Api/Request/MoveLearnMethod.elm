@@ -20,15 +20,13 @@ module Api.Request.MoveLearnMethod exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-moveLearnMethodList : Maybe Int -> Maybe Int -> Api.Request 
+moveLearnMethodList : Maybe Int -> Maybe Int -> Api.Request ()
 moveLearnMethodList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ moveLearnMethodList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-moveLearnMethodRead : Int -> Api.Request 
+moveLearnMethodRead : Int -> Api.Request ()
 moveLearnMethodRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ moveLearnMethodRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

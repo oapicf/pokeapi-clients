@@ -52,8 +52,12 @@ interface BerryFlavorApiInterface
      *
      * @return array|object|null
      */
-    public function berryFlavorList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function berryFlavorList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation berryFlavorRead
@@ -64,6 +68,9 @@ interface BerryFlavorApiInterface
      *
      * @return array|object|null
      */
-    public function berryFlavorRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function berryFlavorRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

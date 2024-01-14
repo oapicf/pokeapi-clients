@@ -8,10 +8,10 @@
 
 
 char*
-EggGroupAPI_eggGroupList(apiClient_t *apiClient, int limit , int offset );
+EggGroupAPI_eggGroupList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-EggGroupAPI_eggGroupRead(apiClient_t *apiClient, int id );
+EggGroupAPI_eggGroupRead(apiClient_t *apiClient, int *id);
 
 

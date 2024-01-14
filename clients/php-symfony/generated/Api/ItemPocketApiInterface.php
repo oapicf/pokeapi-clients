@@ -52,8 +52,12 @@ interface ItemPocketApiInterface
      *
      * @return array|object|null
      */
-    public function itemPocketList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function itemPocketList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation itemPocketRead
@@ -64,6 +68,9 @@ interface ItemPocketApiInterface
      *
      * @return array|object|null
      */
-    public function itemPocketRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function itemPocketRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

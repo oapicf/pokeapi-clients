@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**versionGroupRead**](VersionGroupApi.md#versionGroupRead) | **GET** /api/v2/version-group/{id}/ |  |
 
 
-<a name="versionGroupList"></a>
+<a id="versionGroupList"></a>
 # **versionGroupList**
 > String versionGroupList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="versionGroupRead"></a>
+<a id="versionGroupRead"></a>
 # **versionGroupRead**
 > String versionGroupRead(id)
 

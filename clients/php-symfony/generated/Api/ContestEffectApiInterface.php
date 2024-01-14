@@ -52,8 +52,12 @@ interface ContestEffectApiInterface
      *
      * @return array|object|null
      */
-    public function contestEffectList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function contestEffectList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation contestEffectRead
@@ -64,6 +68,9 @@ interface ContestEffectApiInterface
      *
      * @return array|object|null
      */
-    public function contestEffectRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function contestEffectRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

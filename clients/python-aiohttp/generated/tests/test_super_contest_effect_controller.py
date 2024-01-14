@@ -6,6 +6,8 @@ from aiohttp import web
 
 
 
+pytestmark = pytest.mark.asyncio
+
 async def test_super_contest_effect_list(client):
     """Test case for super_contest_effect_list
 
@@ -24,6 +26,8 @@ async def test_super_contest_effect_list(client):
         )
     assert response.status == 200, 'Response body is : ' + (await response.read()).decode('utf-8')
 
+
+pytestmark = pytest.mark.asyncio
 
 async def test_super_contest_effect_read(client):
     """Test case for super_contest_effect_read

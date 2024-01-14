@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.MoveAilmentApi
+# PSOpenAPITools.PSOpenAPITools\Api.MoveAilmentApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Move-AilmentRead**](MoveAilmentApi.md#Move-AilmentRead) | **GET** /api/v2/move-ailment/{id}/ | 
 
 
-<a name="Move-AilmentList"></a>
+<a id="Move-AilmentList"></a>
 # **Move-AilmentList**
 > String Move-AilmentList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Move-AilmentRead"></a>
+<a id="Move-AilmentRead"></a>
 # **Move-AilmentRead**
 > String Move-AilmentRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

@@ -8,10 +8,10 @@
 
 
 char*
-GenderAPI_genderList(apiClient_t *apiClient, int limit , int offset );
+GenderAPI_genderList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-GenderAPI_genderRead(apiClient_t *apiClient, int id );
+GenderAPI_genderRead(apiClient_t *apiClient, int *id);
 
 

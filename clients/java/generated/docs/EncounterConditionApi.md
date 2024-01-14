@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**encounterConditionRead**](EncounterConditionApi.md#encounterConditionRead) | **GET** /api/v2/encounter-condition/{id}/ |  |
 
 
-<a name="encounterConditionList"></a>
+<a id="encounterConditionList"></a>
 # **encounterConditionList**
 > String encounterConditionList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="encounterConditionRead"></a>
+<a id="encounterConditionRead"></a>
 # **encounterConditionRead**
 > String encounterConditionRead(id)
 

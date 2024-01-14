@@ -101,18 +101,25 @@ signals:
     void itemFlingEffectListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void itemFlingEffectReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use itemFlingEffectListSignalError() instead")
     void itemFlingEffectListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void itemFlingEffectListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use itemFlingEffectReadSignalError() instead")
     void itemFlingEffectReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void itemFlingEffectReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use itemFlingEffectListSignalErrorFull() instead")
     void itemFlingEffectListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void itemFlingEffectListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use itemFlingEffectReadSignalErrorFull() instead")
     void itemFlingEffectReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void itemFlingEffectReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

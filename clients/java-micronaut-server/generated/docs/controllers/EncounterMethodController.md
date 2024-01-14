@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**encounterMethodList**](#encounterMethodList) | **GET** /api/v2/encounter-method/ | 
 [**encounterMethodRead**](#encounterMethodRead) | **GET** /api/v2/encounter-method/{id}/ | 
 
-<a name="encounterMethodList"></a>
+<a id="encounterMethodList"></a>
 # **encounterMethodList**
 ```java
 Mono<String> EncounterMethodController.encounterMethodList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="encounterMethodRead"></a>
+<a id="encounterMethodRead"></a>
 # **encounterMethodRead**
 ```java
 Mono<String> EncounterMethodController.encounterMethodRead(id)

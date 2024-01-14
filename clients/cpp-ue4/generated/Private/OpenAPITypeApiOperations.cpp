@@ -70,7 +70,7 @@ bool OpenAPITypeApi::TypeListResponse::FromJson(const TSharedPtr<FJsonValue>& Js
 FString OpenAPITypeApi::TypeReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/type/{id}/"), PathParams);
 

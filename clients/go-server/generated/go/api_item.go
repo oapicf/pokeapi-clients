@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// ItemApiController binds http requests to an api service and writes the service results to the http response
-type ItemApiController struct {
-	service ItemApiServicer
+// ItemAPIController binds http requests to an api service and writes the service results to the http response
+type ItemAPIController struct {
+	service ItemAPIServicer
 	errorHandler ErrorHandler
 }
 
-// ItemApiOption for how the controller is set up.
-type ItemApiOption func(*ItemApiController)
+// ItemAPIOption for how the controller is set up.
+type ItemAPIOption func(*ItemAPIController)
 
-// WithItemApiErrorHandler inject ErrorHandler into controller
-func WithItemApiErrorHandler(h ErrorHandler) ItemApiOption {
-	return func(c *ItemApiController) {
+// WithItemAPIErrorHandler inject ErrorHandler into controller
+func WithItemAPIErrorHandler(h ErrorHandler) ItemAPIOption {
+	return func(c *ItemAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewItemApiController creates a default api controller
-func NewItemApiController(s ItemApiServicer, opts ...ItemApiOption) Router {
-	controller := &ItemApiController{
+// NewItemAPIController creates a default api controller
+func NewItemAPIController(s ItemAPIServicer, opts ...ItemAPIOption) Router {
+	controller := &ItemAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewItemApiController(s ItemApiServicer, opts ...ItemApiOption) Router {
 	return controller
 }
 
-// Routes returns all the api routes for the ItemApiController
-func (c *ItemApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"ItemList",
+// Routes returns all the api routes for the ItemAPIController
+func (c *ItemAPIController) Routes() Routes {
+	return Routes{
+		"ItemList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/item/",
 			c.ItemList,
 		},
-		{
-			"ItemRead",
+		"ItemRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/item/{id}/",
 			c.ItemRead,
@@ -67,17 +65,35 @@ func (c *ItemApiController) Routes() Routes {
 }
 
 // ItemList - 
-func (c *ItemApiController) ItemList(w http.ResponseWriter, r *http.Request) {
+func (c *ItemAPIController) ItemList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.ItemList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *ItemApiController) ItemList(w http.ResponseWriter, r *http.Request) {
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // ItemRead - 
-func (c *ItemApiController) ItemRead(w http.ResponseWriter, r *http.Request) {
+func (c *ItemAPIController) ItemRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.ItemRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *ItemApiController) ItemRead(w http.ResponseWriter, r *http.Request) {
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

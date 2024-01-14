@@ -1,11 +1,11 @@
-# \SuperContestEffectApi
+# \SuperContestEffectAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SuperContestEffectList**](SuperContestEffectApi.md#SuperContestEffectList) | **Get** /api/v2/super-contest-effect/ | 
-[**SuperContestEffectRead**](SuperContestEffectApi.md#SuperContestEffectRead) | **Get** /api/v2/super-contest-effect/{id}/ | 
+[**SuperContestEffectList**](SuperContestEffectAPI.md#SuperContestEffectList) | **Get** /api/v2/super-contest-effect/ | 
+[**SuperContestEffectRead**](SuperContestEffectAPI.md#SuperContestEffectRead) | **Get** /api/v2/super-contest-effect/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SuperContestEffectApi.SuperContestEffectList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SuperContestEffectApi.SuperContestEffectList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SuperContestEffectList`: string
-    fmt.Fprintf(os.Stdout, "Response from `SuperContestEffectApi.SuperContestEffectList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SuperContestEffectAPI.SuperContestEffectList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SuperContestEffectAPI.SuperContestEffectList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SuperContestEffectList`: string
+	fmt.Fprintf(os.Stdout, "Response from `SuperContestEffectAPI.SuperContestEffectList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SuperContestEffectApi.SuperContestEffectRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SuperContestEffectApi.SuperContestEffectRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SuperContestEffectRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `SuperContestEffectApi.SuperContestEffectRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SuperContestEffectAPI.SuperContestEffectRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SuperContestEffectAPI.SuperContestEffectRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SuperContestEffectRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `SuperContestEffectAPI.SuperContestEffectRead`: %v\n", resp)
 }
 ```
 

@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.PokeathlonStatApi
+# PSOpenAPITools.PSOpenAPITools\Api.PokeathlonStatApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-PokeathlonStatRead**](PokeathlonStatApi.md#Invoke-PokeathlonStatRead) | **GET** /api/v2/pokeathlon-stat/{id}/ | 
 
 
-<a name="Invoke-PokeathlonStatList"></a>
+<a id="Invoke-PokeathlonStatList"></a>
 # **Invoke-PokeathlonStatList**
 > String Invoke-PokeathlonStatList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-PokeathlonStatRead"></a>
+<a id="Invoke-PokeathlonStatRead"></a>
 # **Invoke-PokeathlonStatRead**
 > String Invoke-PokeathlonStatRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

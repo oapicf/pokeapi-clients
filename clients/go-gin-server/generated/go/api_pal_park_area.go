@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// PalParkAreaList - 
-func PalParkAreaList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type PalParkAreaAPI struct {
 }
 
-// PalParkAreaRead - 
-func PalParkAreaRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/pal-park-area/
+func (api *PalParkAreaAPI) PalParkAreaList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/pal-park-area/:id/
+func (api *PalParkAreaAPI) PalParkAreaRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

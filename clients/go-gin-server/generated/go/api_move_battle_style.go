@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// MoveBattleStyleList - 
-func MoveBattleStyleList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type MoveBattleStyleAPI struct {
 }
 
-// MoveBattleStyleRead - 
-func MoveBattleStyleRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/move-battle-style/
+func (api *MoveBattleStyleAPI) MoveBattleStyleList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/move-battle-style/:id/
+func (api *MoveBattleStyleAPI) MoveBattleStyleRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

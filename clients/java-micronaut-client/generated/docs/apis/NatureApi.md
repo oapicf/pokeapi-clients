@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="natureList"></a>
+<a id="natureList"></a>
 # **natureList**
 ```java
 Mono<String> NatureApi.natureList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> NatureApi.natureList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="natureRead"></a>
+<a id="natureRead"></a>
 # **natureRead**
 ```java
 Mono<String> NatureApi.natureRead(id)

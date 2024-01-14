@@ -20,15 +20,13 @@ module Api.Request.BerryFirmness exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-berryFirmnessList : Maybe Int -> Maybe Int -> Api.Request 
+berryFirmnessList : Maybe Int -> Maybe Int -> Api.Request ()
 berryFirmnessList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ berryFirmnessList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-berryFirmnessRead : Int -> Api.Request 
+berryFirmnessRead : Int -> Api.Request ()
 berryFirmnessRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ berryFirmnessRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

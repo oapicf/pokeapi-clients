@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**growthRateRead**](GrowthRateApi.md#growthRateRead) | **GET** /api/v2/growth-rate/{id}/ |  |
 
 
-<a name="growthRateList"></a>
+<a id="growthRateList"></a>
 # **growthRateList**
 > String growthRateList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="growthRateRead"></a>
+<a id="growthRateRead"></a>
 # **growthRateRead**
 > String growthRateRead(id)
 

@@ -8,10 +8,10 @@
 
 
 char*
-PokeathlonStatAPI_pokeathlonStatList(apiClient_t *apiClient, int limit , int offset );
+PokeathlonStatAPI_pokeathlonStatList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-PokeathlonStatAPI_pokeathlonStatRead(apiClient_t *apiClient, int id );
+PokeathlonStatAPI_pokeathlonStatRead(apiClient_t *apiClient, int *id);
 
 

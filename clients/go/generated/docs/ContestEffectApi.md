@@ -1,11 +1,11 @@
-# \ContestEffectApi
+# \ContestEffectAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ContestEffectList**](ContestEffectApi.md#ContestEffectList) | **Get** /api/v2/contest-effect/ | 
-[**ContestEffectRead**](ContestEffectApi.md#ContestEffectRead) | **Get** /api/v2/contest-effect/{id}/ | 
+[**ContestEffectList**](ContestEffectAPI.md#ContestEffectList) | **Get** /api/v2/contest-effect/ | 
+[**ContestEffectRead**](ContestEffectAPI.md#ContestEffectRead) | **Get** /api/v2/contest-effect/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContestEffectApi.ContestEffectList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ContestEffectApi.ContestEffectList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ContestEffectList`: string
-    fmt.Fprintf(os.Stdout, "Response from `ContestEffectApi.ContestEffectList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ContestEffectAPI.ContestEffectList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ContestEffectAPI.ContestEffectList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ContestEffectList`: string
+	fmt.Fprintf(os.Stdout, "Response from `ContestEffectAPI.ContestEffectList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContestEffectApi.ContestEffectRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ContestEffectApi.ContestEffectRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ContestEffectRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `ContestEffectApi.ContestEffectRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ContestEffectAPI.ContestEffectRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ContestEffectAPI.ContestEffectRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ContestEffectRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `ContestEffectAPI.ContestEffectRead`: %v\n", resp)
 }
 ```
 

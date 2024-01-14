@@ -1,11 +1,11 @@
-# \PokemonSpeciesApi
+# \PokemonSpeciesAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PokemonSpeciesList**](PokemonSpeciesApi.md#PokemonSpeciesList) | **Get** /api/v2/pokemon-species/ | 
-[**PokemonSpeciesRead**](PokemonSpeciesApi.md#PokemonSpeciesRead) | **Get** /api/v2/pokemon-species/{id}/ | 
+[**PokemonSpeciesList**](PokemonSpeciesAPI.md#PokemonSpeciesList) | **Get** /api/v2/pokemon-species/ | 
+[**PokemonSpeciesRead**](PokemonSpeciesAPI.md#PokemonSpeciesRead) | **Get** /api/v2/pokemon-species/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PokemonSpeciesApi.PokemonSpeciesList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PokemonSpeciesApi.PokemonSpeciesList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PokemonSpeciesList`: string
-    fmt.Fprintf(os.Stdout, "Response from `PokemonSpeciesApi.PokemonSpeciesList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PokemonSpeciesAPI.PokemonSpeciesList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PokemonSpeciesAPI.PokemonSpeciesList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PokemonSpeciesList`: string
+	fmt.Fprintf(os.Stdout, "Response from `PokemonSpeciesAPI.PokemonSpeciesList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PokemonSpeciesApi.PokemonSpeciesRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PokemonSpeciesApi.PokemonSpeciesRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PokemonSpeciesRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `PokemonSpeciesApi.PokemonSpeciesRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PokemonSpeciesAPI.PokemonSpeciesRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PokemonSpeciesAPI.PokemonSpeciesRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PokemonSpeciesRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `PokemonSpeciesAPI.PokemonSpeciesRead`: %v\n", resp)
 }
 ```
 

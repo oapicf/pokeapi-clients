@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**itemList**](#itemList) | **GET** /api/v2/item/ | 
 [**itemRead**](#itemRead) | **GET** /api/v2/item/{id}/ | 
 
-<a name="itemList"></a>
+<a id="itemList"></a>
 # **itemList**
 ```java
 Mono<String> ItemController.itemList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="itemRead"></a>
+<a id="itemRead"></a>
 # **itemRead**
 ```java
 Mono<String> ItemController.itemRead(id)

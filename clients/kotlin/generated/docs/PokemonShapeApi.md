@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**pokemonShapeRead**](PokemonShapeApi.md#pokemonShapeRead) | **GET** /api/v2/pokemon-shape/{id}/ | 
 
 
-<a name="pokemonShapeList"></a>
+<a id="pokemonShapeList"></a>
 # **pokemonShapeList**
 > kotlin.String pokemonShapeList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="pokemonShapeRead"></a>
+<a id="pokemonShapeRead"></a>
 # **pokemonShapeRead**
 > kotlin.String pokemonShapeRead(id)
 

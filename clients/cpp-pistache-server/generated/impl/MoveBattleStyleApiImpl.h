@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class MoveBattleStyleApiImpl : public org::openapitools::server::api::MoveBattleStyleApi {
+class  MoveBattleStyleApiImpl : public org::openapitools::server::api::MoveBattleStyleApi {
 public:
     explicit MoveBattleStyleApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~MoveBattleStyleApiImpl() override = default;

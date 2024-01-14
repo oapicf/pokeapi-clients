@@ -8,10 +8,10 @@
 
 
 char*
-MoveCategoryAPI_moveCategoryList(apiClient_t *apiClient, int limit , int offset );
+MoveCategoryAPI_moveCategoryList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-MoveCategoryAPI_moveCategoryRead(apiClient_t *apiClient, int id );
+MoveCategoryAPI_moveCategoryRead(apiClient_t *apiClient, int *id);
 
 

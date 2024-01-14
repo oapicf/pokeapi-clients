@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**berryFlavorRead**](BerryFlavorApi.md#berryFlavorRead) | **GET** /api/v2/berry-flavor/{id}/ | 
 
 
-<a name="berryFlavorList"></a>
+<a id="berryFlavorList"></a>
 # **berryFlavorList**
 > kotlin.String berryFlavorList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="berryFlavorRead"></a>
+<a id="berryFlavorRead"></a>
 # **berryFlavorRead**
 > kotlin.String berryFlavorRead(id)
 

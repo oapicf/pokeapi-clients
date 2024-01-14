@@ -8,10 +8,10 @@
 
 
 char*
-CharacteristicAPI_characteristicList(apiClient_t *apiClient, int limit , int offset );
+CharacteristicAPI_characteristicList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-CharacteristicAPI_characteristicRead(apiClient_t *apiClient, int id );
+CharacteristicAPI_characteristicRead(apiClient_t *apiClient, int *id);
 
 

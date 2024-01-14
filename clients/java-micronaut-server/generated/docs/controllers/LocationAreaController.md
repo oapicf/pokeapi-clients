@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**locationAreaList**](#locationAreaList) | **GET** /api/v2/location-area/ | 
 [**locationAreaRead**](#locationAreaRead) | **GET** /api/v2/location-area/{id}/ | 
 
-<a name="locationAreaList"></a>
+<a id="locationAreaList"></a>
 # **locationAreaList**
 ```java
 Mono<String> LocationAreaController.locationAreaList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="locationAreaRead"></a>
+<a id="locationAreaRead"></a>
 # **locationAreaRead**
 ```java
 Mono<String> LocationAreaController.locationAreaRead(id)

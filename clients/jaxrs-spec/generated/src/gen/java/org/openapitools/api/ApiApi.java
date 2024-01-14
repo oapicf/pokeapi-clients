@@ -14,7 +14,7 @@ import javax.validation.Valid;
 
 @Path("/api/v2")
 @Api(description = "the api API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2022-11-19T09:48:34.596391Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-01-14T06:31:51.543681386Z[Etc/UTC]")
 public class ApiApi {
 
     @GET

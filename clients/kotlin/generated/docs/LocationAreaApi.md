@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**locationAreaRead**](LocationAreaApi.md#locationAreaRead) | **GET** /api/v2/location-area/{id}/ | 
 
 
-<a name="locationAreaList"></a>
+<a id="locationAreaList"></a>
 # **locationAreaList**
 > kotlin.String locationAreaList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="locationAreaRead"></a>
+<a id="locationAreaRead"></a>
 # **locationAreaRead**
 > kotlin.String locationAreaRead(id)
 

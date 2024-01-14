@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// VersionGroupList - 
-func VersionGroupList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type VersionGroupAPI struct {
 }
 
-// VersionGroupRead - 
-func VersionGroupRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/version-group/
+func (api *VersionGroupAPI) VersionGroupList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/version-group/:id/
+func (api *VersionGroupAPI) VersionGroupRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

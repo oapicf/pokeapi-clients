@@ -52,8 +52,12 @@ interface VersionApiInterface
      *
      * @return array|object|null
      */
-    public function versionList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function versionList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation versionRead
@@ -64,6 +68,9 @@ interface VersionApiInterface
      *
      * @return array|object|null
      */
-    public function versionRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function versionRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

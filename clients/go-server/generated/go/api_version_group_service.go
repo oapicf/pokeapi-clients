@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// VersionGroupApiService is a service that implements the logic for the VersionGroupApiServicer
-// This service should implement the business logic for every endpoint for the VersionGroupApi API.
+// VersionGroupAPIService is a service that implements the logic for the VersionGroupAPIServicer
+// This service should implement the business logic for every endpoint for the VersionGroupAPI API.
 // Include any external packages or services that will be required by this service.
-type VersionGroupApiService struct {
+type VersionGroupAPIService struct {
 }
 
-// NewVersionGroupApiService creates a default api service
-func NewVersionGroupApiService() VersionGroupApiServicer {
-	return &VersionGroupApiService{}
+// NewVersionGroupAPIService creates a default api service
+func NewVersionGroupAPIService() VersionGroupAPIServicer {
+	return &VersionGroupAPIService{}
 }
 
 // VersionGroupList - 
-func (s *VersionGroupApiService) VersionGroupList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *VersionGroupAPIService) VersionGroupList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update VersionGroupList with the required logic for this service method.
 	// Add api_version_group_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("VersionGroupList method not implemented")
 }
 
 // VersionGroupRead - 
-func (s *VersionGroupApiService) VersionGroupRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *VersionGroupAPIService) VersionGroupRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update VersionGroupRead with the required logic for this service method.
 	// Add api_version_group_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("VersionGroupRead method not implemented")
 }

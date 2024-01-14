@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.ItemApi
+# PSOpenAPITools.PSOpenAPITools\Api.ItemApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-ItemRead**](ItemApi.md#Invoke-ItemRead) | **GET** /api/v2/item/{id}/ | 
 
 
-<a name="Invoke-ItemList"></a>
+<a id="Invoke-ItemList"></a>
 # **Invoke-ItemList**
 > String Invoke-ItemList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ItemRead"></a>
+<a id="Invoke-ItemRead"></a>
 # **Invoke-ItemRead**
 > String Invoke-ItemRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

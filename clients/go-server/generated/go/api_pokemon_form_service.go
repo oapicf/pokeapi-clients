@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// PokemonFormApiService is a service that implements the logic for the PokemonFormApiServicer
-// This service should implement the business logic for every endpoint for the PokemonFormApi API.
+// PokemonFormAPIService is a service that implements the logic for the PokemonFormAPIServicer
+// This service should implement the business logic for every endpoint for the PokemonFormAPI API.
 // Include any external packages or services that will be required by this service.
-type PokemonFormApiService struct {
+type PokemonFormAPIService struct {
 }
 
-// NewPokemonFormApiService creates a default api service
-func NewPokemonFormApiService() PokemonFormApiServicer {
-	return &PokemonFormApiService{}
+// NewPokemonFormAPIService creates a default api service
+func NewPokemonFormAPIService() PokemonFormAPIServicer {
+	return &PokemonFormAPIService{}
 }
 
 // PokemonFormList - 
-func (s *PokemonFormApiService) PokemonFormList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *PokemonFormAPIService) PokemonFormList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update PokemonFormList with the required logic for this service method.
 	// Add api_pokemon_form_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("PokemonFormList method not implemented")
 }
 
 // PokemonFormRead - 
-func (s *PokemonFormApiService) PokemonFormRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *PokemonFormAPIService) PokemonFormRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update PokemonFormRead with the required logic for this service method.
 	// Add api_pokemon_form_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("PokemonFormRead method not implemented")
 }

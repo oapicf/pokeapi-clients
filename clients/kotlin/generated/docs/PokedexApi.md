@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**pokedexRead**](PokedexApi.md#pokedexRead) | **GET** /api/v2/pokedex/{id}/ | 
 
 
-<a name="pokedexList"></a>
+<a id="pokedexList"></a>
 # **pokedexList**
 > kotlin.String pokedexList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="pokedexRead"></a>
+<a id="pokedexRead"></a>
 # **pokedexRead**
 > kotlin.String pokedexRead(id)
 

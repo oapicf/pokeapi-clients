@@ -22,7 +22,7 @@ import java.io.IOException;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2022-11-19T09:47:23.420529Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-01-14T06:31:00.685519388Z[Etc/UTC]")
 @Controller
 public class NatureApiController implements NatureApi {
     private final ObjectMapper objectMapper;

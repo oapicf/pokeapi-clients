@@ -291,8 +291,34 @@ void OAIStatApi::statListCallback(OAIHttpRequestWorker *worker) {
         emit statListSignal(output);
         emit statListSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit statListSignalE(output, error_type, error_str);
         emit statListSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit statListSignalError(output, error_type, error_str);
+        emit statListSignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -355,8 +381,34 @@ void OAIStatApi::statReadCallback(OAIHttpRequestWorker *worker) {
         emit statReadSignal(output);
         emit statReadSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit statReadSignalE(output, error_type, error_str);
         emit statReadSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit statReadSignalError(output, error_type, error_str);
+        emit statReadSignalErrorFull(worker, error_type, error_str);
     }
 }
 

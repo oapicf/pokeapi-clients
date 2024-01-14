@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**moveLearnMethodList**](#moveLearnMethodList) | **GET** /api/v2/move-learn-method/ | 
 [**moveLearnMethodRead**](#moveLearnMethodRead) | **GET** /api/v2/move-learn-method/{id}/ | 
 
-<a name="moveLearnMethodList"></a>
+<a id="moveLearnMethodList"></a>
 # **moveLearnMethodList**
 ```java
 Mono<String> MoveLearnMethodController.moveLearnMethodList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="moveLearnMethodRead"></a>
+<a id="moveLearnMethodRead"></a>
 # **moveLearnMethodRead**
 ```java
 Mono<String> MoveLearnMethodController.moveLearnMethodRead(id)

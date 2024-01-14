@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.GrowthRateApi
+# PSOpenAPITools.PSOpenAPITools\Api.GrowthRateApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-GrowthRateRead**](GrowthRateApi.md#Invoke-GrowthRateRead) | **GET** /api/v2/growth-rate/{id}/ | 
 
 
-<a name="Invoke-GrowthRateList"></a>
+<a id="Invoke-GrowthRateList"></a>
 # **Invoke-GrowthRateList**
 > String Invoke-GrowthRateList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-GrowthRateRead"></a>
+<a id="Invoke-GrowthRateRead"></a>
 # **Invoke-GrowthRateRead**
 > String Invoke-GrowthRateRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

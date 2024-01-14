@@ -1,11 +1,11 @@
-# \PokemonColorApi
+# \PokemonColorAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PokemonColorList**](PokemonColorApi.md#PokemonColorList) | **Get** /api/v2/pokemon-color/ | 
-[**PokemonColorRead**](PokemonColorApi.md#PokemonColorRead) | **Get** /api/v2/pokemon-color/{id}/ | 
+[**PokemonColorList**](PokemonColorAPI.md#PokemonColorList) | **Get** /api/v2/pokemon-color/ | 
+[**PokemonColorRead**](PokemonColorAPI.md#PokemonColorRead) | **Get** /api/v2/pokemon-color/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PokemonColorApi.PokemonColorList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PokemonColorApi.PokemonColorList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PokemonColorList`: string
-    fmt.Fprintf(os.Stdout, "Response from `PokemonColorApi.PokemonColorList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PokemonColorAPI.PokemonColorList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PokemonColorAPI.PokemonColorList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PokemonColorList`: string
+	fmt.Fprintf(os.Stdout, "Response from `PokemonColorAPI.PokemonColorList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PokemonColorApi.PokemonColorRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PokemonColorApi.PokemonColorRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PokemonColorRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `PokemonColorApi.PokemonColorRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PokemonColorAPI.PokemonColorRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PokemonColorAPI.PokemonColorRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PokemonColorRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `PokemonColorAPI.PokemonColorRead`: %v\n", resp)
 }
 ```
 

@@ -17,9 +17,9 @@ Below are some usage examples for Go and Ruby. For other languages, please refer
 ### Go
 ```
 # assuming `protoc-gen-go` has been installed with `go get -u github.com/golang/protobuf/protoc-gen-go`
-mkdir /var/tmp/go/
-protoc --go_out=/var/tmp/go/ services/*
-protoc --go_out=/var/tmp/go/ models/*
+mkdir /var/tmp/go/openapitools
+protoc --go_out=/var/tmp/go/openapitools services/*
+protoc --go_out=/var/tmp/go/openapitools models/*
 ```
 
 ### Ruby

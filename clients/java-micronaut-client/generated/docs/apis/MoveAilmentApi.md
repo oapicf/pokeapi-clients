@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="moveAilmentList"></a>
+<a id="moveAilmentList"></a>
 # **moveAilmentList**
 ```java
 Mono<String> MoveAilmentApi.moveAilmentList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> MoveAilmentApi.moveAilmentList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="moveAilmentRead"></a>
+<a id="moveAilmentRead"></a>
 # **moveAilmentRead**
 ```java
 Mono<String> MoveAilmentApi.moveAilmentRead(id)

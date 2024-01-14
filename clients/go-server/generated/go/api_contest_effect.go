@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// ContestEffectApiController binds http requests to an api service and writes the service results to the http response
-type ContestEffectApiController struct {
-	service ContestEffectApiServicer
+// ContestEffectAPIController binds http requests to an api service and writes the service results to the http response
+type ContestEffectAPIController struct {
+	service ContestEffectAPIServicer
 	errorHandler ErrorHandler
 }
 
-// ContestEffectApiOption for how the controller is set up.
-type ContestEffectApiOption func(*ContestEffectApiController)
+// ContestEffectAPIOption for how the controller is set up.
+type ContestEffectAPIOption func(*ContestEffectAPIController)
 
-// WithContestEffectApiErrorHandler inject ErrorHandler into controller
-func WithContestEffectApiErrorHandler(h ErrorHandler) ContestEffectApiOption {
-	return func(c *ContestEffectApiController) {
+// WithContestEffectAPIErrorHandler inject ErrorHandler into controller
+func WithContestEffectAPIErrorHandler(h ErrorHandler) ContestEffectAPIOption {
+	return func(c *ContestEffectAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewContestEffectApiController creates a default api controller
-func NewContestEffectApiController(s ContestEffectApiServicer, opts ...ContestEffectApiOption) Router {
-	controller := &ContestEffectApiController{
+// NewContestEffectAPIController creates a default api controller
+func NewContestEffectAPIController(s ContestEffectAPIServicer, opts ...ContestEffectAPIOption) Router {
+	controller := &ContestEffectAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewContestEffectApiController(s ContestEffectApiServicer, opts ...ContestEf
 	return controller
 }
 
-// Routes returns all the api routes for the ContestEffectApiController
-func (c *ContestEffectApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"ContestEffectList",
+// Routes returns all the api routes for the ContestEffectAPIController
+func (c *ContestEffectAPIController) Routes() Routes {
+	return Routes{
+		"ContestEffectList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/contest-effect/",
 			c.ContestEffectList,
 		},
-		{
-			"ContestEffectRead",
+		"ContestEffectRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/contest-effect/{id}/",
 			c.ContestEffectRead,
@@ -67,17 +65,35 @@ func (c *ContestEffectApiController) Routes() Routes {
 }
 
 // ContestEffectList - 
-func (c *ContestEffectApiController) ContestEffectList(w http.ResponseWriter, r *http.Request) {
+func (c *ContestEffectAPIController) ContestEffectList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.ContestEffectList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *ContestEffectApiController) ContestEffectList(w http.ResponseWriter, r 
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // ContestEffectRead - 
-func (c *ContestEffectApiController) ContestEffectRead(w http.ResponseWriter, r *http.Request) {
+func (c *ContestEffectAPIController) ContestEffectRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.ContestEffectRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *ContestEffectApiController) ContestEffectRead(w http.ResponseWriter, r 
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

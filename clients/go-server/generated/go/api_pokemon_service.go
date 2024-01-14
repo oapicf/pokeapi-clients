@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// PokemonApiService is a service that implements the logic for the PokemonApiServicer
-// This service should implement the business logic for every endpoint for the PokemonApi API.
+// PokemonAPIService is a service that implements the logic for the PokemonAPIServicer
+// This service should implement the business logic for every endpoint for the PokemonAPI API.
 // Include any external packages or services that will be required by this service.
-type PokemonApiService struct {
+type PokemonAPIService struct {
 }
 
-// NewPokemonApiService creates a default api service
-func NewPokemonApiService() PokemonApiServicer {
-	return &PokemonApiService{}
+// NewPokemonAPIService creates a default api service
+func NewPokemonAPIService() PokemonAPIServicer {
+	return &PokemonAPIService{}
 }
 
 // PokemonList - 
-func (s *PokemonApiService) PokemonList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *PokemonAPIService) PokemonList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update PokemonList with the required logic for this service method.
 	// Add api_pokemon_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("PokemonList method not implemented")
 }
 
 // PokemonRead - 
-func (s *PokemonApiService) PokemonRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *PokemonAPIService) PokemonRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update PokemonRead with the required logic for this service method.
 	// Add api_pokemon_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("PokemonRead method not implemented")
 }

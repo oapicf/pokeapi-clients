@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.GenderApi
+# PSOpenAPITools.PSOpenAPITools\Api.GenderApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-GenderRead**](GenderApi.md#Invoke-GenderRead) | **GET** /api/v2/gender/{id}/ | 
 
 
-<a name="Invoke-GenderList"></a>
+<a id="Invoke-GenderList"></a>
 # **Invoke-GenderList**
 > String Invoke-GenderList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-GenderRead"></a>
+<a id="Invoke-GenderRead"></a>
 # **Invoke-GenderRead**
 > String Invoke-GenderRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

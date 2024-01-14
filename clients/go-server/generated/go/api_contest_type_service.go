@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// ContestTypeApiService is a service that implements the logic for the ContestTypeApiServicer
-// This service should implement the business logic for every endpoint for the ContestTypeApi API.
+// ContestTypeAPIService is a service that implements the logic for the ContestTypeAPIServicer
+// This service should implement the business logic for every endpoint for the ContestTypeAPI API.
 // Include any external packages or services that will be required by this service.
-type ContestTypeApiService struct {
+type ContestTypeAPIService struct {
 }
 
-// NewContestTypeApiService creates a default api service
-func NewContestTypeApiService() ContestTypeApiServicer {
-	return &ContestTypeApiService{}
+// NewContestTypeAPIService creates a default api service
+func NewContestTypeAPIService() ContestTypeAPIServicer {
+	return &ContestTypeAPIService{}
 }
 
 // ContestTypeList - 
-func (s *ContestTypeApiService) ContestTypeList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *ContestTypeAPIService) ContestTypeList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update ContestTypeList with the required logic for this service method.
 	// Add api_contest_type_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("ContestTypeList method not implemented")
 }
 
 // ContestTypeRead - 
-func (s *ContestTypeApiService) ContestTypeRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *ContestTypeAPIService) ContestTypeRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update ContestTypeRead with the required logic for this service method.
 	// Add api_contest_type_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("ContestTypeRead method not implemented")
 }

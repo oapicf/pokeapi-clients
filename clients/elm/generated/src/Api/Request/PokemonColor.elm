@@ -20,15 +20,13 @@ module Api.Request.PokemonColor exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-pokemonColorList : Maybe Int -> Maybe Int -> Api.Request 
+pokemonColorList : Maybe Int -> Maybe Int -> Api.Request ()
 pokemonColorList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ pokemonColorList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-pokemonColorRead : Int -> Api.Request 
+pokemonColorRead : Int -> Api.Request ()
 pokemonColorRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ pokemonColorRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

@@ -20,15 +20,13 @@ module Api.Request.SuperContestEffect exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-superContestEffectList : Maybe Int -> Maybe Int -> Api.Request 
+superContestEffectList : Maybe Int -> Maybe Int -> Api.Request ()
 superContestEffectList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ superContestEffectList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-superContestEffectRead : Int -> Api.Request 
+superContestEffectRead : Int -> Api.Request ()
 superContestEffectRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ superContestEffectRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

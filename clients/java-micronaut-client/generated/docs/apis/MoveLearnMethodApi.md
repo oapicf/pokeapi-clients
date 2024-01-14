@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="moveLearnMethodList"></a>
+<a id="moveLearnMethodList"></a>
 # **moveLearnMethodList**
 ```java
 Mono<String> MoveLearnMethodApi.moveLearnMethodList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> MoveLearnMethodApi.moveLearnMethodList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="moveLearnMethodRead"></a>
+<a id="moveLearnMethodRead"></a>
 # **moveLearnMethodRead**
 ```java
 Mono<String> MoveLearnMethodApi.moveLearnMethodRead(id)

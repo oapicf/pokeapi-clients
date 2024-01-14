@@ -2,21 +2,18 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**MoveDamageClassList**](MoveDamageClassApi.md#movedamageclasslist) | **GET** /api/v2/move-damage-class/ | 
-[**MoveDamageClassRead**](MoveDamageClassApi.md#movedamageclassread) | **GET** /api/v2/move-damage-class/{id}/ | 
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**MoveDamageClassList**](MoveDamageClassApi.md#movedamageclasslist) | **GET** /api/v2/move-damage-class/ |  |
+| [**MoveDamageClassRead**](MoveDamageClassApi.md#movedamageclassread) | **GET** /api/v2/move-damage-class/{id}/ |  |
 
-
-
-## MoveDamageClassList
-
+<a id="movedamageclasslist"></a>
+# **MoveDamageClassList**
 > string MoveDamageClassList (int? limit = null, int? offset = null)
 
 
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -30,8 +27,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://pokeapi.co";
-            var apiInstance = new MoveDamageClassApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://pokeapi.co";
+            var apiInstance = new MoveDamageClassApi(config);
             var limit = 56;  // int? |  (optional) 
             var offset = 56;  // int? |  (optional) 
 
@@ -40,10 +38,10 @@ namespace Example
                 string result = apiInstance.MoveDamageClassList(limit, offset);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MoveDamageClassApi.MoveDamageClassList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling MoveDamageClassApi.MoveDamageClassList: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -51,13 +49,31 @@ namespace Example
 }
 ```
 
+#### Using the MoveDamageClassListWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<string> response = apiInstance.MoveDamageClassListWithHttpInfo(limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MoveDamageClassApi.MoveDamageClassListWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int?**|  | [optional] 
- **offset** | **int?**|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int?** |  | [optional]  |
+| **offset** | **int?** |  | [optional]  |
 
 ### Return type
 
@@ -69,8 +85,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain
 
 
 ### HTTP response details
@@ -78,20 +94,15 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## MoveDamageClassRead
-
+<a id="movedamageclassread"></a>
+# **MoveDamageClassRead**
 > string MoveDamageClassRead (int id)
 
 
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -105,8 +116,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://pokeapi.co";
-            var apiInstance = new MoveDamageClassApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://pokeapi.co";
+            var apiInstance = new MoveDamageClassApi(config);
             var id = 56;  // int | 
 
             try
@@ -114,10 +126,10 @@ namespace Example
                 string result = apiInstance.MoveDamageClassRead(id);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MoveDamageClassApi.MoveDamageClassRead: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling MoveDamageClassApi.MoveDamageClassRead: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -125,12 +137,30 @@ namespace Example
 }
 ```
 
+#### Using the MoveDamageClassReadWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<string> response = apiInstance.MoveDamageClassReadWithHttpInfo(id);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MoveDamageClassApi.MoveDamageClassReadWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** |  |  |
 
 ### Return type
 
@@ -142,8 +172,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain
 
 
 ### HTTP response details
@@ -151,8 +181,5 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**natureRead**](NatureApi.md#natureRead) | **GET** /api/v2/nature/{id}/ | 
 
 
-<a name="natureList"></a>
+<a id="natureList"></a>
 # **natureList**
 > kotlin.String natureList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="natureRead"></a>
+<a id="natureRead"></a>
 # **natureRead**
 > kotlin.String natureRead(id)
 

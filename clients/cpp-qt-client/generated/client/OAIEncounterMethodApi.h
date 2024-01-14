@@ -101,18 +101,25 @@ signals:
     void encounterMethodListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void encounterMethodReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use encounterMethodListSignalError() instead")
     void encounterMethodListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void encounterMethodListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use encounterMethodReadSignalError() instead")
     void encounterMethodReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void encounterMethodReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use encounterMethodListSignalErrorFull() instead")
     void encounterMethodListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void encounterMethodListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use encounterMethodReadSignalErrorFull() instead")
     void encounterMethodReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void encounterMethodReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

@@ -8,10 +8,10 @@
 
 
 char*
-PokemonSpeciesAPI_pokemonSpeciesList(apiClient_t *apiClient, int limit , int offset );
+PokemonSpeciesAPI_pokemonSpeciesList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-PokemonSpeciesAPI_pokemonSpeciesRead(apiClient_t *apiClient, int id );
+PokemonSpeciesAPI_pokemonSpeciesRead(apiClient_t *apiClient, int *id);
 
 

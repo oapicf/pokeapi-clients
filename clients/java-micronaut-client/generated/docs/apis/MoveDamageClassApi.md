@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="moveDamageClassList"></a>
+<a id="moveDamageClassList"></a>
 # **moveDamageClassList**
 ```java
 Mono<String> MoveDamageClassApi.moveDamageClassList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> MoveDamageClassApi.moveDamageClassList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="moveDamageClassRead"></a>
+<a id="moveDamageClassRead"></a>
 # **moveDamageClassRead**
 ```java
 Mono<String> MoveDamageClassApi.moveDamageClassRead(id)

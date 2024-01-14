@@ -20,15 +20,13 @@ module Api.Request.Language exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-languageList : Maybe Int -> Maybe Int -> Api.Request 
+languageList : Maybe Int -> Maybe Int -> Api.Request ()
 languageList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ languageList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-languageRead : Int -> Api.Request 
+languageRead : Int -> Api.Request ()
 languageRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ languageRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

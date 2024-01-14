@@ -52,8 +52,12 @@ interface RegionApiInterface
      *
      * @return array|object|null
      */
-    public function regionList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function regionList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation regionRead
@@ -64,6 +68,9 @@ interface RegionApiInterface
      *
      * @return array|object|null
      */
-    public function regionRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function regionRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

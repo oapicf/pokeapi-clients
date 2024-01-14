@@ -68,7 +68,7 @@ Step 4: Implement the API calls:
 
 ```php
 <?php
-// src/Acme/MyBundle/Api/AbilityApiInterface.php
+// src/Acme/MyBundle/Api/AbilityApi.php
 
 namespace Acme\MyBundle\Api;
 
@@ -206,7 +206,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
- All endpoints do not require authorization.
+Endpoints do not require authorization.
 
 
 ## Author

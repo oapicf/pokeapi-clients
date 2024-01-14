@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class TypeApiImpl : public org::openapitools::server::api::TypeApi {
+class  TypeApiImpl : public org::openapitools::server::api::TypeApi {
 public:
     explicit TypeApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~TypeApiImpl() override = default;

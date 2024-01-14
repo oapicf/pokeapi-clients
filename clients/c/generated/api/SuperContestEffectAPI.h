@@ -8,10 +8,10 @@
 
 
 char*
-SuperContestEffectAPI_superContestEffectList(apiClient_t *apiClient, int limit , int offset );
+SuperContestEffectAPI_superContestEffectList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-SuperContestEffectAPI_superContestEffectRead(apiClient_t *apiClient, int id );
+SuperContestEffectAPI_superContestEffectRead(apiClient_t *apiClient, int *id);
 
 

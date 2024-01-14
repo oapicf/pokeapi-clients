@@ -1,11 +1,11 @@
-# \BerryFirmnessApi
+# \BerryFirmnessAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**BerryFirmnessList**](BerryFirmnessApi.md#BerryFirmnessList) | **Get** /api/v2/berry-firmness/ | 
-[**BerryFirmnessRead**](BerryFirmnessApi.md#BerryFirmnessRead) | **Get** /api/v2/berry-firmness/{id}/ | 
+[**BerryFirmnessList**](BerryFirmnessAPI.md#BerryFirmnessList) | **Get** /api/v2/berry-firmness/ | 
+[**BerryFirmnessRead**](BerryFirmnessAPI.md#BerryFirmnessRead) | **Get** /api/v2/berry-firmness/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.BerryFirmnessApi.BerryFirmnessList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `BerryFirmnessApi.BerryFirmnessList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BerryFirmnessList`: string
-    fmt.Fprintf(os.Stdout, "Response from `BerryFirmnessApi.BerryFirmnessList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BerryFirmnessAPI.BerryFirmnessList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BerryFirmnessAPI.BerryFirmnessList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BerryFirmnessList`: string
+	fmt.Fprintf(os.Stdout, "Response from `BerryFirmnessAPI.BerryFirmnessList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.BerryFirmnessApi.BerryFirmnessRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `BerryFirmnessApi.BerryFirmnessRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BerryFirmnessRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `BerryFirmnessApi.BerryFirmnessRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BerryFirmnessAPI.BerryFirmnessRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BerryFirmnessAPI.BerryFirmnessRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BerryFirmnessRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `BerryFirmnessAPI.BerryFirmnessRead`: %v\n", resp)
 }
 ```
 

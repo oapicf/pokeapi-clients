@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class MoveApiImpl : public org::openapitools::server::api::MoveApi {
+class  MoveApiImpl : public org::openapitools::server::api::MoveApi {
 public:
     explicit MoveApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~MoveApiImpl() override = default;

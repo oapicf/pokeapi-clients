@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**itemFlingEffectRead**](ItemFlingEffectApi.md#itemFlingEffectRead) | **GET** /api/v2/item-fling-effect/{id}/ | 
 
 
-<a name="itemFlingEffectList"></a>
+<a id="itemFlingEffectList"></a>
 # **itemFlingEffectList**
 > kotlin.String itemFlingEffectList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="itemFlingEffectRead"></a>
+<a id="itemFlingEffectRead"></a>
 # **itemFlingEffectRead**
 > kotlin.String itemFlingEffectRead(id)
 

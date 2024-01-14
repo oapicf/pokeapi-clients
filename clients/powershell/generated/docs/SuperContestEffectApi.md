@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.SuperContestEffectApi
+# PSOpenAPITools.PSOpenAPITools\Api.SuperContestEffectApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-SuperContestEffectRead**](SuperContestEffectApi.md#Invoke-SuperContestEffectRead) | **GET** /api/v2/super-contest-effect/{id}/ | 
 
 
-<a name="Invoke-SuperContestEffectList"></a>
+<a id="Invoke-SuperContestEffectList"></a>
 # **Invoke-SuperContestEffectList**
 > String Invoke-SuperContestEffectList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-SuperContestEffectRead"></a>
+<a id="Invoke-SuperContestEffectRead"></a>
 # **Invoke-SuperContestEffectRead**
 > String Invoke-SuperContestEffectRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

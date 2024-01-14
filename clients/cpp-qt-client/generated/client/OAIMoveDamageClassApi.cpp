@@ -291,8 +291,34 @@ void OAIMoveDamageClassApi::moveDamageClassListCallback(OAIHttpRequestWorker *wo
         emit moveDamageClassListSignal(output);
         emit moveDamageClassListSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit moveDamageClassListSignalE(output, error_type, error_str);
         emit moveDamageClassListSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit moveDamageClassListSignalError(output, error_type, error_str);
+        emit moveDamageClassListSignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -355,8 +381,34 @@ void OAIMoveDamageClassApi::moveDamageClassReadCallback(OAIHttpRequestWorker *wo
         emit moveDamageClassReadSignal(output);
         emit moveDamageClassReadSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit moveDamageClassReadSignalE(output, error_type, error_str);
         emit moveDamageClassReadSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit moveDamageClassReadSignalError(output, error_type, error_str);
+        emit moveDamageClassReadSignalErrorFull(worker, error_type, error_str);
     }
 }
 

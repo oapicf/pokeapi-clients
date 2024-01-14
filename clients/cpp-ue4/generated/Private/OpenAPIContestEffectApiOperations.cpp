@@ -70,7 +70,7 @@ bool OpenAPIContestEffectApi::ContestEffectListResponse::FromJson(const TSharedP
 FString OpenAPIContestEffectApi::ContestEffectReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/contest-effect/{id}/"), PathParams);
 

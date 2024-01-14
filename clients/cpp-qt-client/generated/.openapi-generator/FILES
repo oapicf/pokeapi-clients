@@ -1,6 +1,7 @@
 .openapi-generator-ignore
 README.md
 client/CMakeLists.txt
+client/Config.cmake.in
 client/OAIAbilityApi.cpp
 client/OAIAbilityApi.h
 client/OAIBerryApi.cpp

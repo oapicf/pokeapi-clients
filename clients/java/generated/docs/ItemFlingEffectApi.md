@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**itemFlingEffectRead**](ItemFlingEffectApi.md#itemFlingEffectRead) | **GET** /api/v2/item-fling-effect/{id}/ |  |
 
 
-<a name="itemFlingEffectList"></a>
+<a id="itemFlingEffectList"></a>
 # **itemFlingEffectList**
 > String itemFlingEffectList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="itemFlingEffectRead"></a>
+<a id="itemFlingEffectRead"></a>
 # **itemFlingEffectRead**
 > String itemFlingEffectRead(id)
 

@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="regionList"></a>
+<a id="regionList"></a>
 # **regionList**
 ```java
 Mono<String> RegionApi.regionList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> RegionApi.regionList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="regionRead"></a>
+<a id="regionRead"></a>
 # **regionRead**
 ```java
 Mono<String> RegionApi.regionRead(id)

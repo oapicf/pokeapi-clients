@@ -158,6 +158,4 @@ spec/api/super_contest_effect_api_spec.rb
 spec/api/type_api_spec.rb
 spec/api/version_api_spec.rb
 spec/api/version_group_api_spec.rb
-spec/api_client_spec.rb
-spec/configuration_spec.rb
 spec/spec_helper.rb

@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// MoveLearnMethodApiService MoveLearnMethodApi service
-type MoveLearnMethodApiService service
+// MoveLearnMethodAPIService MoveLearnMethodAPI service
+type MoveLearnMethodAPIService service
 
 type ApiMoveLearnMethodListRequest struct {
 	ctx context.Context
-	ApiService *MoveLearnMethodApiService
+	ApiService *MoveLearnMethodAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ MoveLearnMethodList Method for MoveLearnMethodList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiMoveLearnMethodListRequest
 */
-func (a *MoveLearnMethodApiService) MoveLearnMethodList(ctx context.Context) ApiMoveLearnMethodListRequest {
+func (a *MoveLearnMethodAPIService) MoveLearnMethodList(ctx context.Context) ApiMoveLearnMethodListRequest {
 	return ApiMoveLearnMethodListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *MoveLearnMethodApiService) MoveLearnMethodList(ctx context.Context) Api
 
 // Execute executes the request
 //  @return string
-func (a *MoveLearnMethodApiService) MoveLearnMethodListExecute(r ApiMoveLearnMethodListRequest) (string, *http.Response, error) {
+func (a *MoveLearnMethodAPIService) MoveLearnMethodListExecute(r ApiMoveLearnMethodListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *MoveLearnMethodApiService) MoveLearnMethodListExecute(r ApiMoveLearnMet
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveLearnMethodApiService.MoveLearnMethodList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveLearnMethodAPIService.MoveLearnMethodList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *MoveLearnMethodApiService) MoveLearnMethodListExecute(r ApiMoveLearnMet
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *MoveLearnMethodApiService) MoveLearnMethodListExecute(r ApiMoveLearnMet
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *MoveLearnMethodApiService) MoveLearnMethodListExecute(r ApiMoveLearnMet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *MoveLearnMethodApiService) MoveLearnMethodListExecute(r ApiMoveLearnMet
 
 type ApiMoveLearnMethodReadRequest struct {
 	ctx context.Context
-	ApiService *MoveLearnMethodApiService
+	ApiService *MoveLearnMethodAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ MoveLearnMethodRead Method for MoveLearnMethodRead
  @param id
  @return ApiMoveLearnMethodReadRequest
 */
-func (a *MoveLearnMethodApiService) MoveLearnMethodRead(ctx context.Context, id int32) ApiMoveLearnMethodReadRequest {
+func (a *MoveLearnMethodAPIService) MoveLearnMethodRead(ctx context.Context, id int32) ApiMoveLearnMethodReadRequest {
 	return ApiMoveLearnMethodReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *MoveLearnMethodApiService) MoveLearnMethodRead(ctx context.Context, id 
 
 // Execute executes the request
 //  @return string
-func (a *MoveLearnMethodApiService) MoveLearnMethodReadExecute(r ApiMoveLearnMethodReadRequest) (string, *http.Response, error) {
+func (a *MoveLearnMethodAPIService) MoveLearnMethodReadExecute(r ApiMoveLearnMethodReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *MoveLearnMethodApiService) MoveLearnMethodReadExecute(r ApiMoveLearnMet
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveLearnMethodApiService.MoveLearnMethodRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveLearnMethodAPIService.MoveLearnMethodRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/move-learn-method/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *MoveLearnMethodApiService) MoveLearnMethodReadExecute(r ApiMoveLearnMet
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *MoveLearnMethodApiService) MoveLearnMethodReadExecute(r ApiMoveLearnMet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

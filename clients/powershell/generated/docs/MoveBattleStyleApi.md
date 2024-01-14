@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.MoveBattleStyleApi
+# PSOpenAPITools.PSOpenAPITools\Api.MoveBattleStyleApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Move-BattleStyleRead**](MoveBattleStyleApi.md#Move-BattleStyleRead) | **GET** /api/v2/move-battle-style/{id}/ | 
 
 
-<a name="Move-BattleStyleList"></a>
+<a id="Move-BattleStyleList"></a>
 # **Move-BattleStyleList**
 > String Move-BattleStyleList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Move-BattleStyleRead"></a>
+<a id="Move-BattleStyleRead"></a>
 # **Move-BattleStyleRead**
 > String Move-BattleStyleRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

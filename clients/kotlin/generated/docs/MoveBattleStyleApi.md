@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**moveBattleStyleRead**](MoveBattleStyleApi.md#moveBattleStyleRead) | **GET** /api/v2/move-battle-style/{id}/ | 
 
 
-<a name="moveBattleStyleList"></a>
+<a id="moveBattleStyleList"></a>
 # **moveBattleStyleList**
 > kotlin.String moveBattleStyleList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="moveBattleStyleRead"></a>
+<a id="moveBattleStyleRead"></a>
 # **moveBattleStyleRead**
 > kotlin.String moveBattleStyleRead(id)
 

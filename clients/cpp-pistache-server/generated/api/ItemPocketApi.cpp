@@ -22,7 +22,7 @@ using namespace org::openapitools::server::helpers;
 const std::string ItemPocketApi::base = "";
 
 ItemPocketApi::ItemPocketApi(const std::shared_ptr<Pistache::Rest::Router>& rtr)
-    : router(rtr)
+    : ApiBase(rtr)
 {
 }
 

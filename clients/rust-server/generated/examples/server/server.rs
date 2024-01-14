@@ -204,7 +204,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<AbilityListResponse, ApiError>
     {
-        let context = context.clone();
         info!("ability_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -214,7 +213,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<AbilityReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("ability_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -225,7 +223,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<BerryListResponse, ApiError>
     {
-        let context = context.clone();
         info!("berry_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -235,7 +232,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<BerryReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("berry_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -246,7 +242,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<BerryFirmnessListResponse, ApiError>
     {
-        let context = context.clone();
         info!("berry_firmness_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -256,7 +251,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<BerryFirmnessReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("berry_firmness_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -267,7 +261,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<BerryFlavorListResponse, ApiError>
     {
-        let context = context.clone();
         info!("berry_flavor_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -277,7 +270,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<BerryFlavorReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("berry_flavor_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -288,7 +280,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<CharacteristicListResponse, ApiError>
     {
-        let context = context.clone();
         info!("characteristic_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -298,7 +289,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<CharacteristicReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("characteristic_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -309,7 +299,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<ContestEffectListResponse, ApiError>
     {
-        let context = context.clone();
         info!("contest_effect_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -319,7 +308,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<ContestEffectReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("contest_effect_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -330,7 +318,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<ContestTypeListResponse, ApiError>
     {
-        let context = context.clone();
         info!("contest_type_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -340,7 +327,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<ContestTypeReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("contest_type_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -351,7 +337,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<EggGroupListResponse, ApiError>
     {
-        let context = context.clone();
         info!("egg_group_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -361,7 +346,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<EggGroupReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("egg_group_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -372,7 +356,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<EncounterConditionListResponse, ApiError>
     {
-        let context = context.clone();
         info!("encounter_condition_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -382,7 +365,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<EncounterConditionReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("encounter_condition_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -393,7 +375,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<EncounterConditionValueListResponse, ApiError>
     {
-        let context = context.clone();
         info!("encounter_condition_value_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -403,7 +384,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<EncounterConditionValueReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("encounter_condition_value_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -414,7 +394,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<EncounterMethodListResponse, ApiError>
     {
-        let context = context.clone();
         info!("encounter_method_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -424,7 +403,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<EncounterMethodReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("encounter_method_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -435,7 +413,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<EvolutionChainListResponse, ApiError>
     {
-        let context = context.clone();
         info!("evolution_chain_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -445,7 +422,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<EvolutionChainReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("evolution_chain_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -456,7 +432,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<EvolutionTriggerListResponse, ApiError>
     {
-        let context = context.clone();
         info!("evolution_trigger_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -466,7 +441,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<EvolutionTriggerReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("evolution_trigger_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -477,7 +451,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<GenderListResponse, ApiError>
     {
-        let context = context.clone();
         info!("gender_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -487,7 +460,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<GenderReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("gender_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -498,7 +470,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<GenerationListResponse, ApiError>
     {
-        let context = context.clone();
         info!("generation_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -508,7 +479,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<GenerationReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("generation_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -519,7 +489,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<GrowthRateListResponse, ApiError>
     {
-        let context = context.clone();
         info!("growth_rate_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -529,7 +498,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<GrowthRateReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("growth_rate_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -540,7 +508,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<ItemListResponse, ApiError>
     {
-        let context = context.clone();
         info!("item_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -550,7 +517,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<ItemReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("item_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -561,7 +527,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<ItemAttributeListResponse, ApiError>
     {
-        let context = context.clone();
         info!("item_attribute_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -571,7 +536,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<ItemAttributeReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("item_attribute_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -582,7 +546,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<ItemCategoryListResponse, ApiError>
     {
-        let context = context.clone();
         info!("item_category_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -592,7 +555,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<ItemCategoryReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("item_category_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -603,7 +565,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<ItemFlingEffectListResponse, ApiError>
     {
-        let context = context.clone();
         info!("item_fling_effect_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -613,7 +574,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<ItemFlingEffectReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("item_fling_effect_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -624,7 +584,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<ItemPocketListResponse, ApiError>
     {
-        let context = context.clone();
         info!("item_pocket_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -634,7 +593,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<ItemPocketReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("item_pocket_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -645,7 +603,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<LanguageListResponse, ApiError>
     {
-        let context = context.clone();
         info!("language_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -655,7 +612,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<LanguageReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("language_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -666,7 +622,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<LocationListResponse, ApiError>
     {
-        let context = context.clone();
         info!("location_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -676,7 +631,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<LocationReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("location_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -687,7 +641,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<LocationAreaListResponse, ApiError>
     {
-        let context = context.clone();
         info!("location_area_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -697,7 +650,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<LocationAreaReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("location_area_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -708,7 +660,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<MachineListResponse, ApiError>
     {
-        let context = context.clone();
         info!("machine_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -718,7 +669,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<MachineReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("machine_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -729,7 +679,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<MoveListResponse, ApiError>
     {
-        let context = context.clone();
         info!("move_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -739,7 +688,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<MoveReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("move_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -750,7 +698,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<MoveAilmentListResponse, ApiError>
     {
-        let context = context.clone();
         info!("move_ailment_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -760,7 +707,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<MoveAilmentReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("move_ailment_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -771,7 +717,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<MoveBattleStyleListResponse, ApiError>
     {
-        let context = context.clone();
         info!("move_battle_style_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -781,7 +726,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<MoveBattleStyleReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("move_battle_style_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -792,7 +736,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<MoveCategoryListResponse, ApiError>
     {
-        let context = context.clone();
         info!("move_category_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -802,7 +745,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<MoveCategoryReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("move_category_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -813,7 +755,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<MoveDamageClassListResponse, ApiError>
     {
-        let context = context.clone();
         info!("move_damage_class_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -823,7 +764,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<MoveDamageClassReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("move_damage_class_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -834,7 +774,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<MoveLearnMethodListResponse, ApiError>
     {
-        let context = context.clone();
         info!("move_learn_method_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -844,7 +783,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<MoveLearnMethodReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("move_learn_method_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -855,7 +793,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<MoveTargetListResponse, ApiError>
     {
-        let context = context.clone();
         info!("move_target_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -865,7 +802,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<MoveTargetReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("move_target_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -876,7 +812,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<NatureListResponse, ApiError>
     {
-        let context = context.clone();
         info!("nature_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -886,7 +821,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<NatureReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("nature_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -897,7 +831,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<PalParkAreaListResponse, ApiError>
     {
-        let context = context.clone();
         info!("pal_park_area_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -907,7 +840,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<PalParkAreaReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("pal_park_area_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -918,7 +850,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<PokeathlonStatListResponse, ApiError>
     {
-        let context = context.clone();
         info!("pokeathlon_stat_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -928,7 +859,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<PokeathlonStatReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("pokeathlon_stat_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -939,7 +869,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<PokedexListResponse, ApiError>
     {
-        let context = context.clone();
         info!("pokedex_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -949,7 +878,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<PokedexReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("pokedex_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -960,7 +888,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<PokemonListResponse, ApiError>
     {
-        let context = context.clone();
         info!("pokemon_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -970,7 +897,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<PokemonReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("pokemon_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -981,7 +907,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<PokemonColorListResponse, ApiError>
     {
-        let context = context.clone();
         info!("pokemon_color_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -991,7 +916,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<PokemonColorReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("pokemon_color_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1002,7 +926,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<PokemonFormListResponse, ApiError>
     {
-        let context = context.clone();
         info!("pokemon_form_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1012,7 +935,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<PokemonFormReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("pokemon_form_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1023,7 +945,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<PokemonHabitatListResponse, ApiError>
     {
-        let context = context.clone();
         info!("pokemon_habitat_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1033,7 +954,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<PokemonHabitatReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("pokemon_habitat_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1044,7 +964,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<PokemonShapeListResponse, ApiError>
     {
-        let context = context.clone();
         info!("pokemon_shape_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1054,7 +973,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<PokemonShapeReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("pokemon_shape_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1065,7 +983,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<PokemonSpeciesListResponse, ApiError>
     {
-        let context = context.clone();
         info!("pokemon_species_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1075,7 +992,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<PokemonSpeciesReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("pokemon_species_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1086,7 +1002,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<RegionListResponse, ApiError>
     {
-        let context = context.clone();
         info!("region_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1096,7 +1011,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<RegionReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("region_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1107,7 +1021,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<StatListResponse, ApiError>
     {
-        let context = context.clone();
         info!("stat_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1117,7 +1030,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<StatReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("stat_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1128,7 +1040,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<SuperContestEffectListResponse, ApiError>
     {
-        let context = context.clone();
         info!("super_contest_effect_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1138,7 +1049,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<SuperContestEffectReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("super_contest_effect_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1149,7 +1059,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<TypeListResponse, ApiError>
     {
-        let context = context.clone();
         info!("type_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1159,7 +1068,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<TypeReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("type_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1170,7 +1078,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<VersionListResponse, ApiError>
     {
-        let context = context.clone();
         info!("version_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1180,7 +1087,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<VersionReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("version_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1191,7 +1097,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         offset: Option<i32>,
         context: &C) -> Result<VersionGroupListResponse, ApiError>
     {
-        let context = context.clone();
         info!("version_group_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -1201,7 +1106,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         id: i32,
         context: &C) -> Result<VersionGroupReadResponse, ApiError>
     {
-        let context = context.clone();
         info!("version_group_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }

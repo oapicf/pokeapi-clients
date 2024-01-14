@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**moveDamageClassList**](#moveDamageClassList) | **GET** /api/v2/move-damage-class/ | 
 [**moveDamageClassRead**](#moveDamageClassRead) | **GET** /api/v2/move-damage-class/{id}/ | 
 
-<a name="moveDamageClassList"></a>
+<a id="moveDamageClassList"></a>
 # **moveDamageClassList**
 ```java
 Mono<String> MoveDamageClassController.moveDamageClassList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="moveDamageClassRead"></a>
+<a id="moveDamageClassRead"></a>
 # **moveDamageClassRead**
 ```java
 Mono<String> MoveDamageClassController.moveDamageClassRead(id)

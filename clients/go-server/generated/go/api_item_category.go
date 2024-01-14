@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// ItemCategoryApiController binds http requests to an api service and writes the service results to the http response
-type ItemCategoryApiController struct {
-	service ItemCategoryApiServicer
+// ItemCategoryAPIController binds http requests to an api service and writes the service results to the http response
+type ItemCategoryAPIController struct {
+	service ItemCategoryAPIServicer
 	errorHandler ErrorHandler
 }
 
-// ItemCategoryApiOption for how the controller is set up.
-type ItemCategoryApiOption func(*ItemCategoryApiController)
+// ItemCategoryAPIOption for how the controller is set up.
+type ItemCategoryAPIOption func(*ItemCategoryAPIController)
 
-// WithItemCategoryApiErrorHandler inject ErrorHandler into controller
-func WithItemCategoryApiErrorHandler(h ErrorHandler) ItemCategoryApiOption {
-	return func(c *ItemCategoryApiController) {
+// WithItemCategoryAPIErrorHandler inject ErrorHandler into controller
+func WithItemCategoryAPIErrorHandler(h ErrorHandler) ItemCategoryAPIOption {
+	return func(c *ItemCategoryAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewItemCategoryApiController creates a default api controller
-func NewItemCategoryApiController(s ItemCategoryApiServicer, opts ...ItemCategoryApiOption) Router {
-	controller := &ItemCategoryApiController{
+// NewItemCategoryAPIController creates a default api controller
+func NewItemCategoryAPIController(s ItemCategoryAPIServicer, opts ...ItemCategoryAPIOption) Router {
+	controller := &ItemCategoryAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewItemCategoryApiController(s ItemCategoryApiServicer, opts ...ItemCategor
 	return controller
 }
 
-// Routes returns all the api routes for the ItemCategoryApiController
-func (c *ItemCategoryApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"ItemCategoryList",
+// Routes returns all the api routes for the ItemCategoryAPIController
+func (c *ItemCategoryAPIController) Routes() Routes {
+	return Routes{
+		"ItemCategoryList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/item-category/",
 			c.ItemCategoryList,
 		},
-		{
-			"ItemCategoryRead",
+		"ItemCategoryRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/item-category/{id}/",
 			c.ItemCategoryRead,
@@ -67,17 +65,35 @@ func (c *ItemCategoryApiController) Routes() Routes {
 }
 
 // ItemCategoryList - 
-func (c *ItemCategoryApiController) ItemCategoryList(w http.ResponseWriter, r *http.Request) {
+func (c *ItemCategoryAPIController) ItemCategoryList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.ItemCategoryList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *ItemCategoryApiController) ItemCategoryList(w http.ResponseWriter, r *h
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // ItemCategoryRead - 
-func (c *ItemCategoryApiController) ItemCategoryRead(w http.ResponseWriter, r *http.Request) {
+func (c *ItemCategoryAPIController) ItemCategoryRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.ItemCategoryRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *ItemCategoryApiController) ItemCategoryRead(w http.ResponseWriter, r *h
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

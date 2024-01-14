@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**encounterConditionRead**](EncounterConditionApi.md#encounterConditionRead) | **GET** /api/v2/encounter-condition/{id}/ | 
 
 
-<a name="encounterConditionList"></a>
+<a id="encounterConditionList"></a>
 # **encounterConditionList**
 > kotlin.String encounterConditionList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="encounterConditionRead"></a>
+<a id="encounterConditionRead"></a>
 # **encounterConditionRead**
 > kotlin.String encounterConditionRead(id)
 

@@ -35,7 +35,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "abilityList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -51,7 +51,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "abilityRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -67,7 +67,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "berryFirmnessList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -83,7 +83,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "berryFirmnessRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -99,7 +99,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "berryFlavorList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -115,7 +115,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "berryFlavorRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -131,7 +131,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "berryList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -147,7 +147,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "berryRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -163,7 +163,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "characteristicList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -179,7 +179,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "characteristicRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -195,7 +195,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "contestEffectList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -211,7 +211,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "contestEffectRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -227,7 +227,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "contestTypeList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -243,7 +243,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "contestTypeRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -259,7 +259,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "eggGroupList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -275,7 +275,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "eggGroupRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -291,7 +291,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "encounterConditionList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -307,7 +307,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "encounterConditionRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -323,7 +323,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "encounterConditionValueList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -339,7 +339,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "encounterConditionValueRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -355,7 +355,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "encounterMethodList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -371,7 +371,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "encounterMethodRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -387,7 +387,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "evolutionChainList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -403,7 +403,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "evolutionChainRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -419,7 +419,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "evolutionTriggerList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -435,7 +435,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "evolutionTriggerRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -451,7 +451,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "genderList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -467,7 +467,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "genderRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -483,7 +483,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "generationList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -499,7 +499,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "generationRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -515,7 +515,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "growthRateList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -531,7 +531,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "growthRateRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -547,7 +547,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "itemAttributeList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -563,7 +563,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "itemAttributeRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -579,7 +579,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "itemCategoryList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -595,7 +595,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "itemCategoryRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -611,7 +611,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "itemFlingEffectList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -627,7 +627,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "itemFlingEffectRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -643,7 +643,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "itemList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -659,7 +659,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "itemPocketList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -675,7 +675,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "itemPocketRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -691,7 +691,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "itemRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -707,7 +707,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "languageList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -723,7 +723,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "languageRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -739,7 +739,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "locationAreaList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -755,7 +755,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "locationAreaRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -771,7 +771,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "locationList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -787,7 +787,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "locationRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -803,7 +803,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "machineList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -819,7 +819,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "machineRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -835,7 +835,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "moveAilmentList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -851,7 +851,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "moveAilmentRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -867,7 +867,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "moveBattleStyleList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -883,7 +883,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "moveBattleStyleRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -899,7 +899,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "moveCategoryList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -915,7 +915,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "moveCategoryRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -931,7 +931,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "moveDamageClassList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -947,7 +947,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "moveDamageClassRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -963,7 +963,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "moveLearnMethodList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -979,7 +979,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "moveLearnMethodRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -995,7 +995,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "moveList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1011,7 +1011,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "moveRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1027,7 +1027,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "moveTargetList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1043,7 +1043,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "moveTargetRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1059,7 +1059,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "natureList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1075,7 +1075,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "natureRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1091,7 +1091,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "palParkAreaList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1107,7 +1107,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "palParkAreaRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1123,7 +1123,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "pokeathlonStatList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1139,7 +1139,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "pokeathlonStatRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1155,7 +1155,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "pokedexList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1171,7 +1171,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "pokedexRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1187,7 +1187,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "pokemonColorList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1203,7 +1203,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "pokemonColorRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1219,7 +1219,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "pokemonFormList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1235,7 +1235,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "pokemonFormRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1251,7 +1251,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "pokemonHabitatList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1267,7 +1267,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "pokemonHabitatRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1283,7 +1283,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "pokemonList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1299,7 +1299,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "pokemonRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1315,7 +1315,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "pokemonShapeList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1331,7 +1331,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "pokemonShapeRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1347,7 +1347,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "pokemonSpeciesList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1363,7 +1363,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "pokemonSpeciesRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1379,7 +1379,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "regionList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1395,7 +1395,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "regionRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1411,7 +1411,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "statList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1427,7 +1427,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "statRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1443,7 +1443,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "superContestEffectList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1459,7 +1459,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "superContestEffectRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1475,7 +1475,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "typeList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1491,7 +1491,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "typeRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1507,7 +1507,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "versionGroupList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1523,7 +1523,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "versionGroupRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1539,7 +1539,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "versionList",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )
@@ -1555,7 +1555,7 @@ class ApiApiController() {
     @Operation(
         summary = "",
         operationId = "versionRead",
-        description = "",
+        description = """""",
         responses = [
             ApiResponse(responseCode = "200", description = "Default response", content = [Content(schema = Schema(implementation = kotlin.String::class))]) ]
     )

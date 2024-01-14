@@ -101,18 +101,25 @@ signals:
     void eggGroupListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void eggGroupReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use eggGroupListSignalError() instead")
     void eggGroupListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void eggGroupListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use eggGroupReadSignalError() instead")
     void eggGroupReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void eggGroupReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use eggGroupListSignalErrorFull() instead")
     void eggGroupListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void eggGroupListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use eggGroupReadSignalErrorFull() instead")
     void eggGroupReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void eggGroupReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

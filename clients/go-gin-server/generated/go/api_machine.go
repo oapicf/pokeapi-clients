@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// MachineList - 
-func MachineList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type MachineAPI struct {
 }
 
-// MachineRead - 
-func MachineRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/machine/
+func (api *MachineAPI) MachineList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/machine/:id/
+func (api *MachineAPI) MachineRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

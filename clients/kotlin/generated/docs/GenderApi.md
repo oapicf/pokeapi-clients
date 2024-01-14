@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**genderRead**](GenderApi.md#genderRead) | **GET** /api/v2/gender/{id}/ | 
 
 
-<a name="genderList"></a>
+<a id="genderList"></a>
 # **genderList**
 > kotlin.String genderList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="genderRead"></a>
+<a id="genderRead"></a>
 # **genderRead**
 > kotlin.String genderRead(id)
 

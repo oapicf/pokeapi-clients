@@ -1,11 +1,11 @@
-# \ItemFlingEffectApi
+# \ItemFlingEffectAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ItemFlingEffectList**](ItemFlingEffectApi.md#ItemFlingEffectList) | **Get** /api/v2/item-fling-effect/ | 
-[**ItemFlingEffectRead**](ItemFlingEffectApi.md#ItemFlingEffectRead) | **Get** /api/v2/item-fling-effect/{id}/ | 
+[**ItemFlingEffectList**](ItemFlingEffectAPI.md#ItemFlingEffectList) | **Get** /api/v2/item-fling-effect/ | 
+[**ItemFlingEffectRead**](ItemFlingEffectAPI.md#ItemFlingEffectRead) | **Get** /api/v2/item-fling-effect/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ItemFlingEffectApi.ItemFlingEffectList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ItemFlingEffectApi.ItemFlingEffectList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ItemFlingEffectList`: string
-    fmt.Fprintf(os.Stdout, "Response from `ItemFlingEffectApi.ItemFlingEffectList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ItemFlingEffectAPI.ItemFlingEffectList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemFlingEffectAPI.ItemFlingEffectList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ItemFlingEffectList`: string
+	fmt.Fprintf(os.Stdout, "Response from `ItemFlingEffectAPI.ItemFlingEffectList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ItemFlingEffectApi.ItemFlingEffectRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ItemFlingEffectApi.ItemFlingEffectRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ItemFlingEffectRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `ItemFlingEffectApi.ItemFlingEffectRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ItemFlingEffectAPI.ItemFlingEffectRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemFlingEffectAPI.ItemFlingEffectRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ItemFlingEffectRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `ItemFlingEffectAPI.ItemFlingEffectRead`: %v\n", resp)
 }
 ```
 

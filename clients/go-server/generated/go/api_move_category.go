@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// MoveCategoryApiController binds http requests to an api service and writes the service results to the http response
-type MoveCategoryApiController struct {
-	service MoveCategoryApiServicer
+// MoveCategoryAPIController binds http requests to an api service and writes the service results to the http response
+type MoveCategoryAPIController struct {
+	service MoveCategoryAPIServicer
 	errorHandler ErrorHandler
 }
 
-// MoveCategoryApiOption for how the controller is set up.
-type MoveCategoryApiOption func(*MoveCategoryApiController)
+// MoveCategoryAPIOption for how the controller is set up.
+type MoveCategoryAPIOption func(*MoveCategoryAPIController)
 
-// WithMoveCategoryApiErrorHandler inject ErrorHandler into controller
-func WithMoveCategoryApiErrorHandler(h ErrorHandler) MoveCategoryApiOption {
-	return func(c *MoveCategoryApiController) {
+// WithMoveCategoryAPIErrorHandler inject ErrorHandler into controller
+func WithMoveCategoryAPIErrorHandler(h ErrorHandler) MoveCategoryAPIOption {
+	return func(c *MoveCategoryAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewMoveCategoryApiController creates a default api controller
-func NewMoveCategoryApiController(s MoveCategoryApiServicer, opts ...MoveCategoryApiOption) Router {
-	controller := &MoveCategoryApiController{
+// NewMoveCategoryAPIController creates a default api controller
+func NewMoveCategoryAPIController(s MoveCategoryAPIServicer, opts ...MoveCategoryAPIOption) Router {
+	controller := &MoveCategoryAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewMoveCategoryApiController(s MoveCategoryApiServicer, opts ...MoveCategor
 	return controller
 }
 
-// Routes returns all the api routes for the MoveCategoryApiController
-func (c *MoveCategoryApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"MoveCategoryList",
+// Routes returns all the api routes for the MoveCategoryAPIController
+func (c *MoveCategoryAPIController) Routes() Routes {
+	return Routes{
+		"MoveCategoryList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/move-category/",
 			c.MoveCategoryList,
 		},
-		{
-			"MoveCategoryRead",
+		"MoveCategoryRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/move-category/{id}/",
 			c.MoveCategoryRead,
@@ -67,17 +65,35 @@ func (c *MoveCategoryApiController) Routes() Routes {
 }
 
 // MoveCategoryList - 
-func (c *MoveCategoryApiController) MoveCategoryList(w http.ResponseWriter, r *http.Request) {
+func (c *MoveCategoryAPIController) MoveCategoryList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.MoveCategoryList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *MoveCategoryApiController) MoveCategoryList(w http.ResponseWriter, r *h
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // MoveCategoryRead - 
-func (c *MoveCategoryApiController) MoveCategoryRead(w http.ResponseWriter, r *http.Request) {
+func (c *MoveCategoryAPIController) MoveCategoryRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.MoveCategoryRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *MoveCategoryApiController) MoveCategoryRead(w http.ResponseWriter, r *h
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// AbilityList - 
-func AbilityList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type AbilityAPI struct {
 }
 
-// AbilityRead - 
-func AbilityRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/ability/
+func (api *AbilityAPI) AbilityList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/ability/:id/
+func (api *AbilityAPI) AbilityRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

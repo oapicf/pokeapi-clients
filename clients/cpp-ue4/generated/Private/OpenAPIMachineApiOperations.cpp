@@ -70,7 +70,7 @@ bool OpenAPIMachineApi::MachineListResponse::FromJson(const TSharedPtr<FJsonValu
 FString OpenAPIMachineApi::MachineReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/machine/{id}/"), PathParams);
 

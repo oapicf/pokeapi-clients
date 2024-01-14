@@ -1,4 +1,4 @@
-import { ResponseContext, RequestContext, HttpFile } from '../http/http';
+import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/http';
 import { Configuration} from '../configuration'
 import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
@@ -23,7 +23,7 @@ export class ObservableAbilityApi {
      * @param limit 
      * @param offset 
      */
-    public abilityList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public abilityListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.abilityList(limit, offset, _options);
 
         // build promise chain
@@ -38,14 +38,22 @@ export class ObservableAbilityApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.abilityList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.abilityListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public abilityList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.abilityListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public abilityRead(id: number, _options?: Configuration): Observable<void> {
+    public abilityReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.abilityRead(id, _options);
 
         // build promise chain
@@ -60,8 +68,15 @@ export class ObservableAbilityApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.abilityRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.abilityReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public abilityRead(id: number, _options?: Configuration): Observable<void> {
+        return this.abilityReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -86,7 +101,7 @@ export class ObservableBerryApi {
      * @param limit 
      * @param offset 
      */
-    public berryList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public berryListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.berryList(limit, offset, _options);
 
         // build promise chain
@@ -101,14 +116,22 @@ export class ObservableBerryApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.berryList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.berryListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public berryList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.berryListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public berryRead(id: number, _options?: Configuration): Observable<void> {
+    public berryReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.berryRead(id, _options);
 
         // build promise chain
@@ -123,8 +146,15 @@ export class ObservableBerryApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.berryRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.berryReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public berryRead(id: number, _options?: Configuration): Observable<void> {
+        return this.berryReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -149,7 +179,7 @@ export class ObservableBerryFirmnessApi {
      * @param limit 
      * @param offset 
      */
-    public berryFirmnessList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public berryFirmnessListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.berryFirmnessList(limit, offset, _options);
 
         // build promise chain
@@ -164,14 +194,22 @@ export class ObservableBerryFirmnessApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.berryFirmnessList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.berryFirmnessListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public berryFirmnessList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.berryFirmnessListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public berryFirmnessRead(id: number, _options?: Configuration): Observable<void> {
+    public berryFirmnessReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.berryFirmnessRead(id, _options);
 
         // build promise chain
@@ -186,8 +224,15 @@ export class ObservableBerryFirmnessApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.berryFirmnessRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.berryFirmnessReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public berryFirmnessRead(id: number, _options?: Configuration): Observable<void> {
+        return this.berryFirmnessReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -212,7 +257,7 @@ export class ObservableBerryFlavorApi {
      * @param limit 
      * @param offset 
      */
-    public berryFlavorList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public berryFlavorListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.berryFlavorList(limit, offset, _options);
 
         // build promise chain
@@ -227,14 +272,22 @@ export class ObservableBerryFlavorApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.berryFlavorList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.berryFlavorListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public berryFlavorList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.berryFlavorListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public berryFlavorRead(id: number, _options?: Configuration): Observable<void> {
+    public berryFlavorReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.berryFlavorRead(id, _options);
 
         // build promise chain
@@ -249,8 +302,15 @@ export class ObservableBerryFlavorApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.berryFlavorRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.berryFlavorReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public berryFlavorRead(id: number, _options?: Configuration): Observable<void> {
+        return this.berryFlavorReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -275,7 +335,7 @@ export class ObservableCharacteristicApi {
      * @param limit 
      * @param offset 
      */
-    public characteristicList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public characteristicListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.characteristicList(limit, offset, _options);
 
         // build promise chain
@@ -290,14 +350,22 @@ export class ObservableCharacteristicApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.characteristicList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.characteristicListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public characteristicList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.characteristicListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public characteristicRead(id: number, _options?: Configuration): Observable<void> {
+    public characteristicReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.characteristicRead(id, _options);
 
         // build promise chain
@@ -312,8 +380,15 @@ export class ObservableCharacteristicApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.characteristicRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.characteristicReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public characteristicRead(id: number, _options?: Configuration): Observable<void> {
+        return this.characteristicReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -338,7 +413,7 @@ export class ObservableContestEffectApi {
      * @param limit 
      * @param offset 
      */
-    public contestEffectList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public contestEffectListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.contestEffectList(limit, offset, _options);
 
         // build promise chain
@@ -353,14 +428,22 @@ export class ObservableContestEffectApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.contestEffectList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.contestEffectListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public contestEffectList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.contestEffectListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public contestEffectRead(id: number, _options?: Configuration): Observable<void> {
+    public contestEffectReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.contestEffectRead(id, _options);
 
         // build promise chain
@@ -375,8 +458,15 @@ export class ObservableContestEffectApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.contestEffectRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.contestEffectReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public contestEffectRead(id: number, _options?: Configuration): Observable<void> {
+        return this.contestEffectReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -401,7 +491,7 @@ export class ObservableContestTypeApi {
      * @param limit 
      * @param offset 
      */
-    public contestTypeList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public contestTypeListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.contestTypeList(limit, offset, _options);
 
         // build promise chain
@@ -416,14 +506,22 @@ export class ObservableContestTypeApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.contestTypeList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.contestTypeListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public contestTypeList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.contestTypeListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public contestTypeRead(id: number, _options?: Configuration): Observable<void> {
+    public contestTypeReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.contestTypeRead(id, _options);
 
         // build promise chain
@@ -438,8 +536,15 @@ export class ObservableContestTypeApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.contestTypeRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.contestTypeReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public contestTypeRead(id: number, _options?: Configuration): Observable<void> {
+        return this.contestTypeReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -464,7 +569,7 @@ export class ObservableEggGroupApi {
      * @param limit 
      * @param offset 
      */
-    public eggGroupList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public eggGroupListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.eggGroupList(limit, offset, _options);
 
         // build promise chain
@@ -479,14 +584,22 @@ export class ObservableEggGroupApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.eggGroupList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.eggGroupListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public eggGroupList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.eggGroupListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public eggGroupRead(id: number, _options?: Configuration): Observable<void> {
+    public eggGroupReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.eggGroupRead(id, _options);
 
         // build promise chain
@@ -501,8 +614,15 @@ export class ObservableEggGroupApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.eggGroupRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.eggGroupReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public eggGroupRead(id: number, _options?: Configuration): Observable<void> {
+        return this.eggGroupReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -527,7 +647,7 @@ export class ObservableEncounterConditionApi {
      * @param limit 
      * @param offset 
      */
-    public encounterConditionList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public encounterConditionListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.encounterConditionList(limit, offset, _options);
 
         // build promise chain
@@ -542,14 +662,22 @@ export class ObservableEncounterConditionApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.encounterConditionList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.encounterConditionListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public encounterConditionList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.encounterConditionListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public encounterConditionRead(id: number, _options?: Configuration): Observable<void> {
+    public encounterConditionReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.encounterConditionRead(id, _options);
 
         // build promise chain
@@ -564,8 +692,15 @@ export class ObservableEncounterConditionApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.encounterConditionRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.encounterConditionReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public encounterConditionRead(id: number, _options?: Configuration): Observable<void> {
+        return this.encounterConditionReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -590,7 +725,7 @@ export class ObservableEncounterConditionValueApi {
      * @param limit 
      * @param offset 
      */
-    public encounterConditionValueList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public encounterConditionValueListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.encounterConditionValueList(limit, offset, _options);
 
         // build promise chain
@@ -605,14 +740,22 @@ export class ObservableEncounterConditionValueApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.encounterConditionValueList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.encounterConditionValueListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public encounterConditionValueList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.encounterConditionValueListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public encounterConditionValueRead(id: number, _options?: Configuration): Observable<void> {
+    public encounterConditionValueReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.encounterConditionValueRead(id, _options);
 
         // build promise chain
@@ -627,8 +770,15 @@ export class ObservableEncounterConditionValueApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.encounterConditionValueRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.encounterConditionValueReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public encounterConditionValueRead(id: number, _options?: Configuration): Observable<void> {
+        return this.encounterConditionValueReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -653,7 +803,7 @@ export class ObservableEncounterMethodApi {
      * @param limit 
      * @param offset 
      */
-    public encounterMethodList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public encounterMethodListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.encounterMethodList(limit, offset, _options);
 
         // build promise chain
@@ -668,14 +818,22 @@ export class ObservableEncounterMethodApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.encounterMethodList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.encounterMethodListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public encounterMethodList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.encounterMethodListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public encounterMethodRead(id: number, _options?: Configuration): Observable<void> {
+    public encounterMethodReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.encounterMethodRead(id, _options);
 
         // build promise chain
@@ -690,8 +848,15 @@ export class ObservableEncounterMethodApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.encounterMethodRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.encounterMethodReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public encounterMethodRead(id: number, _options?: Configuration): Observable<void> {
+        return this.encounterMethodReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -716,7 +881,7 @@ export class ObservableEvolutionChainApi {
      * @param limit 
      * @param offset 
      */
-    public evolutionChainList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public evolutionChainListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.evolutionChainList(limit, offset, _options);
 
         // build promise chain
@@ -731,14 +896,22 @@ export class ObservableEvolutionChainApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.evolutionChainList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.evolutionChainListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public evolutionChainList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.evolutionChainListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public evolutionChainRead(id: number, _options?: Configuration): Observable<void> {
+    public evolutionChainReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.evolutionChainRead(id, _options);
 
         // build promise chain
@@ -753,8 +926,15 @@ export class ObservableEvolutionChainApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.evolutionChainRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.evolutionChainReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public evolutionChainRead(id: number, _options?: Configuration): Observable<void> {
+        return this.evolutionChainReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -779,7 +959,7 @@ export class ObservableEvolutionTriggerApi {
      * @param limit 
      * @param offset 
      */
-    public evolutionTriggerList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public evolutionTriggerListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.evolutionTriggerList(limit, offset, _options);
 
         // build promise chain
@@ -794,14 +974,22 @@ export class ObservableEvolutionTriggerApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.evolutionTriggerList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.evolutionTriggerListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public evolutionTriggerList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.evolutionTriggerListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public evolutionTriggerRead(id: number, _options?: Configuration): Observable<void> {
+    public evolutionTriggerReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.evolutionTriggerRead(id, _options);
 
         // build promise chain
@@ -816,8 +1004,15 @@ export class ObservableEvolutionTriggerApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.evolutionTriggerRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.evolutionTriggerReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public evolutionTriggerRead(id: number, _options?: Configuration): Observable<void> {
+        return this.evolutionTriggerReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -842,7 +1037,7 @@ export class ObservableGenderApi {
      * @param limit 
      * @param offset 
      */
-    public genderList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public genderListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.genderList(limit, offset, _options);
 
         // build promise chain
@@ -857,14 +1052,22 @@ export class ObservableGenderApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.genderList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.genderListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public genderList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.genderListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public genderRead(id: number, _options?: Configuration): Observable<void> {
+    public genderReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.genderRead(id, _options);
 
         // build promise chain
@@ -879,8 +1082,15 @@ export class ObservableGenderApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.genderRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.genderReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public genderRead(id: number, _options?: Configuration): Observable<void> {
+        return this.genderReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -905,7 +1115,7 @@ export class ObservableGenerationApi {
      * @param limit 
      * @param offset 
      */
-    public generationList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public generationListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.generationList(limit, offset, _options);
 
         // build promise chain
@@ -920,14 +1130,22 @@ export class ObservableGenerationApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.generationList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.generationListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public generationList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.generationListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public generationRead(id: number, _options?: Configuration): Observable<void> {
+    public generationReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.generationRead(id, _options);
 
         // build promise chain
@@ -942,8 +1160,15 @@ export class ObservableGenerationApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.generationRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.generationReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public generationRead(id: number, _options?: Configuration): Observable<void> {
+        return this.generationReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -968,7 +1193,7 @@ export class ObservableGrowthRateApi {
      * @param limit 
      * @param offset 
      */
-    public growthRateList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public growthRateListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.growthRateList(limit, offset, _options);
 
         // build promise chain
@@ -983,14 +1208,22 @@ export class ObservableGrowthRateApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.growthRateList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.growthRateListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public growthRateList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.growthRateListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public growthRateRead(id: number, _options?: Configuration): Observable<void> {
+    public growthRateReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.growthRateRead(id, _options);
 
         // build promise chain
@@ -1005,8 +1238,15 @@ export class ObservableGrowthRateApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.growthRateRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.growthRateReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public growthRateRead(id: number, _options?: Configuration): Observable<void> {
+        return this.growthRateReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -1031,7 +1271,7 @@ export class ObservableItemApi {
      * @param limit 
      * @param offset 
      */
-    public itemList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public itemListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.itemList(limit, offset, _options);
 
         // build promise chain
@@ -1046,14 +1286,22 @@ export class ObservableItemApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public itemList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.itemListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public itemRead(id: number, _options?: Configuration): Observable<void> {
+    public itemReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.itemRead(id, _options);
 
         // build promise chain
@@ -1068,8 +1316,15 @@ export class ObservableItemApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public itemRead(id: number, _options?: Configuration): Observable<void> {
+        return this.itemReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -1094,7 +1349,7 @@ export class ObservableItemAttributeApi {
      * @param limit 
      * @param offset 
      */
-    public itemAttributeList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public itemAttributeListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.itemAttributeList(limit, offset, _options);
 
         // build promise chain
@@ -1109,14 +1364,22 @@ export class ObservableItemAttributeApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemAttributeList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemAttributeListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public itemAttributeList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.itemAttributeListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public itemAttributeRead(id: number, _options?: Configuration): Observable<void> {
+    public itemAttributeReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.itemAttributeRead(id, _options);
 
         // build promise chain
@@ -1131,8 +1394,15 @@ export class ObservableItemAttributeApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemAttributeRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemAttributeReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public itemAttributeRead(id: number, _options?: Configuration): Observable<void> {
+        return this.itemAttributeReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -1157,7 +1427,7 @@ export class ObservableItemCategoryApi {
      * @param limit 
      * @param offset 
      */
-    public itemCategoryList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public itemCategoryListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.itemCategoryList(limit, offset, _options);
 
         // build promise chain
@@ -1172,14 +1442,22 @@ export class ObservableItemCategoryApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemCategoryList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemCategoryListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public itemCategoryList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.itemCategoryListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public itemCategoryRead(id: number, _options?: Configuration): Observable<void> {
+    public itemCategoryReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.itemCategoryRead(id, _options);
 
         // build promise chain
@@ -1194,8 +1472,15 @@ export class ObservableItemCategoryApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemCategoryRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemCategoryReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public itemCategoryRead(id: number, _options?: Configuration): Observable<void> {
+        return this.itemCategoryReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -1220,7 +1505,7 @@ export class ObservableItemFlingEffectApi {
      * @param limit 
      * @param offset 
      */
-    public itemFlingEffectList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public itemFlingEffectListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.itemFlingEffectList(limit, offset, _options);
 
         // build promise chain
@@ -1235,14 +1520,22 @@ export class ObservableItemFlingEffectApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemFlingEffectList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemFlingEffectListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public itemFlingEffectList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.itemFlingEffectListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public itemFlingEffectRead(id: number, _options?: Configuration): Observable<void> {
+    public itemFlingEffectReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.itemFlingEffectRead(id, _options);
 
         // build promise chain
@@ -1257,8 +1550,15 @@ export class ObservableItemFlingEffectApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemFlingEffectRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemFlingEffectReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public itemFlingEffectRead(id: number, _options?: Configuration): Observable<void> {
+        return this.itemFlingEffectReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -1283,7 +1583,7 @@ export class ObservableItemPocketApi {
      * @param limit 
      * @param offset 
      */
-    public itemPocketList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public itemPocketListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.itemPocketList(limit, offset, _options);
 
         // build promise chain
@@ -1298,14 +1598,22 @@ export class ObservableItemPocketApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemPocketList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemPocketListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public itemPocketList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.itemPocketListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public itemPocketRead(id: number, _options?: Configuration): Observable<void> {
+    public itemPocketReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.itemPocketRead(id, _options);
 
         // build promise chain
@@ -1320,8 +1628,15 @@ export class ObservableItemPocketApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemPocketRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.itemPocketReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public itemPocketRead(id: number, _options?: Configuration): Observable<void> {
+        return this.itemPocketReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -1346,7 +1661,7 @@ export class ObservableLanguageApi {
      * @param limit 
      * @param offset 
      */
-    public languageList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public languageListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.languageList(limit, offset, _options);
 
         // build promise chain
@@ -1361,14 +1676,22 @@ export class ObservableLanguageApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.languageList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.languageListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public languageList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.languageListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public languageRead(id: number, _options?: Configuration): Observable<void> {
+    public languageReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.languageRead(id, _options);
 
         // build promise chain
@@ -1383,8 +1706,15 @@ export class ObservableLanguageApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.languageRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.languageReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public languageRead(id: number, _options?: Configuration): Observable<void> {
+        return this.languageReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -1409,7 +1739,7 @@ export class ObservableLocationApi {
      * @param limit 
      * @param offset 
      */
-    public locationList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public locationListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.locationList(limit, offset, _options);
 
         // build promise chain
@@ -1424,14 +1754,22 @@ export class ObservableLocationApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.locationList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.locationListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public locationList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.locationListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public locationRead(id: number, _options?: Configuration): Observable<void> {
+    public locationReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.locationRead(id, _options);
 
         // build promise chain
@@ -1446,8 +1784,15 @@ export class ObservableLocationApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.locationRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.locationReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public locationRead(id: number, _options?: Configuration): Observable<void> {
+        return this.locationReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -1472,7 +1817,7 @@ export class ObservableLocationAreaApi {
      * @param limit 
      * @param offset 
      */
-    public locationAreaList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public locationAreaListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.locationAreaList(limit, offset, _options);
 
         // build promise chain
@@ -1487,14 +1832,22 @@ export class ObservableLocationAreaApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.locationAreaList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.locationAreaListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public locationAreaList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.locationAreaListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public locationAreaRead(id: number, _options?: Configuration): Observable<void> {
+    public locationAreaReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.locationAreaRead(id, _options);
 
         // build promise chain
@@ -1509,8 +1862,15 @@ export class ObservableLocationAreaApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.locationAreaRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.locationAreaReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public locationAreaRead(id: number, _options?: Configuration): Observable<void> {
+        return this.locationAreaReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -1535,7 +1895,7 @@ export class ObservableMachineApi {
      * @param limit 
      * @param offset 
      */
-    public machineList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public machineListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.machineList(limit, offset, _options);
 
         // build promise chain
@@ -1550,14 +1910,22 @@ export class ObservableMachineApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.machineList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.machineListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public machineList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.machineListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public machineRead(id: number, _options?: Configuration): Observable<void> {
+    public machineReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.machineRead(id, _options);
 
         // build promise chain
@@ -1572,8 +1940,15 @@ export class ObservableMachineApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.machineRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.machineReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public machineRead(id: number, _options?: Configuration): Observable<void> {
+        return this.machineReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -1598,7 +1973,7 @@ export class ObservableMoveApi {
      * @param limit 
      * @param offset 
      */
-    public moveList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public moveListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.moveList(limit, offset, _options);
 
         // build promise chain
@@ -1613,14 +1988,22 @@ export class ObservableMoveApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public moveList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.moveListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public moveRead(id: number, _options?: Configuration): Observable<void> {
+    public moveReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.moveRead(id, _options);
 
         // build promise chain
@@ -1635,8 +2018,15 @@ export class ObservableMoveApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public moveRead(id: number, _options?: Configuration): Observable<void> {
+        return this.moveReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -1661,7 +2051,7 @@ export class ObservableMoveAilmentApi {
      * @param limit 
      * @param offset 
      */
-    public moveAilmentList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public moveAilmentListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.moveAilmentList(limit, offset, _options);
 
         // build promise chain
@@ -1676,14 +2066,22 @@ export class ObservableMoveAilmentApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveAilmentList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveAilmentListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public moveAilmentList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.moveAilmentListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public moveAilmentRead(id: number, _options?: Configuration): Observable<void> {
+    public moveAilmentReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.moveAilmentRead(id, _options);
 
         // build promise chain
@@ -1698,8 +2096,15 @@ export class ObservableMoveAilmentApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveAilmentRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveAilmentReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public moveAilmentRead(id: number, _options?: Configuration): Observable<void> {
+        return this.moveAilmentReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -1724,7 +2129,7 @@ export class ObservableMoveBattleStyleApi {
      * @param limit 
      * @param offset 
      */
-    public moveBattleStyleList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public moveBattleStyleListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.moveBattleStyleList(limit, offset, _options);
 
         // build promise chain
@@ -1739,14 +2144,22 @@ export class ObservableMoveBattleStyleApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveBattleStyleList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveBattleStyleListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public moveBattleStyleList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.moveBattleStyleListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public moveBattleStyleRead(id: number, _options?: Configuration): Observable<void> {
+    public moveBattleStyleReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.moveBattleStyleRead(id, _options);
 
         // build promise chain
@@ -1761,8 +2174,15 @@ export class ObservableMoveBattleStyleApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveBattleStyleRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveBattleStyleReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public moveBattleStyleRead(id: number, _options?: Configuration): Observable<void> {
+        return this.moveBattleStyleReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -1787,7 +2207,7 @@ export class ObservableMoveCategoryApi {
      * @param limit 
      * @param offset 
      */
-    public moveCategoryList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public moveCategoryListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.moveCategoryList(limit, offset, _options);
 
         // build promise chain
@@ -1802,14 +2222,22 @@ export class ObservableMoveCategoryApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveCategoryList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveCategoryListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public moveCategoryList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.moveCategoryListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public moveCategoryRead(id: number, _options?: Configuration): Observable<void> {
+    public moveCategoryReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.moveCategoryRead(id, _options);
 
         // build promise chain
@@ -1824,8 +2252,15 @@ export class ObservableMoveCategoryApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveCategoryRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveCategoryReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public moveCategoryRead(id: number, _options?: Configuration): Observable<void> {
+        return this.moveCategoryReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -1850,7 +2285,7 @@ export class ObservableMoveDamageClassApi {
      * @param limit 
      * @param offset 
      */
-    public moveDamageClassList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public moveDamageClassListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.moveDamageClassList(limit, offset, _options);
 
         // build promise chain
@@ -1865,14 +2300,22 @@ export class ObservableMoveDamageClassApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveDamageClassList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveDamageClassListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public moveDamageClassList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.moveDamageClassListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public moveDamageClassRead(id: number, _options?: Configuration): Observable<void> {
+    public moveDamageClassReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.moveDamageClassRead(id, _options);
 
         // build promise chain
@@ -1887,8 +2330,15 @@ export class ObservableMoveDamageClassApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveDamageClassRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveDamageClassReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public moveDamageClassRead(id: number, _options?: Configuration): Observable<void> {
+        return this.moveDamageClassReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -1913,7 +2363,7 @@ export class ObservableMoveLearnMethodApi {
      * @param limit 
      * @param offset 
      */
-    public moveLearnMethodList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public moveLearnMethodListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.moveLearnMethodList(limit, offset, _options);
 
         // build promise chain
@@ -1928,14 +2378,22 @@ export class ObservableMoveLearnMethodApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveLearnMethodList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveLearnMethodListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public moveLearnMethodList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.moveLearnMethodListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public moveLearnMethodRead(id: number, _options?: Configuration): Observable<void> {
+    public moveLearnMethodReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.moveLearnMethodRead(id, _options);
 
         // build promise chain
@@ -1950,8 +2408,15 @@ export class ObservableMoveLearnMethodApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveLearnMethodRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveLearnMethodReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public moveLearnMethodRead(id: number, _options?: Configuration): Observable<void> {
+        return this.moveLearnMethodReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -1976,7 +2441,7 @@ export class ObservableMoveTargetApi {
      * @param limit 
      * @param offset 
      */
-    public moveTargetList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public moveTargetListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.moveTargetList(limit, offset, _options);
 
         // build promise chain
@@ -1991,14 +2456,22 @@ export class ObservableMoveTargetApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveTargetList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveTargetListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public moveTargetList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.moveTargetListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public moveTargetRead(id: number, _options?: Configuration): Observable<void> {
+    public moveTargetReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.moveTargetRead(id, _options);
 
         // build promise chain
@@ -2013,8 +2486,15 @@ export class ObservableMoveTargetApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveTargetRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.moveTargetReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public moveTargetRead(id: number, _options?: Configuration): Observable<void> {
+        return this.moveTargetReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -2039,7 +2519,7 @@ export class ObservableNatureApi {
      * @param limit 
      * @param offset 
      */
-    public natureList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public natureListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.natureList(limit, offset, _options);
 
         // build promise chain
@@ -2054,14 +2534,22 @@ export class ObservableNatureApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.natureList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.natureListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public natureList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.natureListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public natureRead(id: number, _options?: Configuration): Observable<void> {
+    public natureReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.natureRead(id, _options);
 
         // build promise chain
@@ -2076,8 +2564,15 @@ export class ObservableNatureApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.natureRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.natureReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public natureRead(id: number, _options?: Configuration): Observable<void> {
+        return this.natureReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -2102,7 +2597,7 @@ export class ObservablePalParkAreaApi {
      * @param limit 
      * @param offset 
      */
-    public palParkAreaList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public palParkAreaListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.palParkAreaList(limit, offset, _options);
 
         // build promise chain
@@ -2117,14 +2612,22 @@ export class ObservablePalParkAreaApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.palParkAreaList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.palParkAreaListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public palParkAreaList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.palParkAreaListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public palParkAreaRead(id: number, _options?: Configuration): Observable<void> {
+    public palParkAreaReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.palParkAreaRead(id, _options);
 
         // build promise chain
@@ -2139,8 +2642,15 @@ export class ObservablePalParkAreaApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.palParkAreaRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.palParkAreaReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public palParkAreaRead(id: number, _options?: Configuration): Observable<void> {
+        return this.palParkAreaReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -2165,7 +2675,7 @@ export class ObservablePokeathlonStatApi {
      * @param limit 
      * @param offset 
      */
-    public pokeathlonStatList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public pokeathlonStatListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.pokeathlonStatList(limit, offset, _options);
 
         // build promise chain
@@ -2180,14 +2690,22 @@ export class ObservablePokeathlonStatApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokeathlonStatList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokeathlonStatListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public pokeathlonStatList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.pokeathlonStatListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public pokeathlonStatRead(id: number, _options?: Configuration): Observable<void> {
+    public pokeathlonStatReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.pokeathlonStatRead(id, _options);
 
         // build promise chain
@@ -2202,8 +2720,15 @@ export class ObservablePokeathlonStatApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokeathlonStatRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokeathlonStatReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public pokeathlonStatRead(id: number, _options?: Configuration): Observable<void> {
+        return this.pokeathlonStatReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -2228,7 +2753,7 @@ export class ObservablePokedexApi {
      * @param limit 
      * @param offset 
      */
-    public pokedexList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public pokedexListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.pokedexList(limit, offset, _options);
 
         // build promise chain
@@ -2243,14 +2768,22 @@ export class ObservablePokedexApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokedexList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokedexListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public pokedexList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.pokedexListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public pokedexRead(id: number, _options?: Configuration): Observable<void> {
+    public pokedexReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.pokedexRead(id, _options);
 
         // build promise chain
@@ -2265,8 +2798,15 @@ export class ObservablePokedexApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokedexRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokedexReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public pokedexRead(id: number, _options?: Configuration): Observable<void> {
+        return this.pokedexReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -2291,7 +2831,7 @@ export class ObservablePokemonApi {
      * @param limit 
      * @param offset 
      */
-    public pokemonList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public pokemonListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.pokemonList(limit, offset, _options);
 
         // build promise chain
@@ -2306,14 +2846,22 @@ export class ObservablePokemonApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public pokemonList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.pokemonListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public pokemonRead(id: number, _options?: Configuration): Observable<void> {
+    public pokemonReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.pokemonRead(id, _options);
 
         // build promise chain
@@ -2328,8 +2876,15 @@ export class ObservablePokemonApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public pokemonRead(id: number, _options?: Configuration): Observable<void> {
+        return this.pokemonReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -2354,7 +2909,7 @@ export class ObservablePokemonColorApi {
      * @param limit 
      * @param offset 
      */
-    public pokemonColorList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public pokemonColorListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.pokemonColorList(limit, offset, _options);
 
         // build promise chain
@@ -2369,14 +2924,22 @@ export class ObservablePokemonColorApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonColorList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonColorListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public pokemonColorList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.pokemonColorListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public pokemonColorRead(id: number, _options?: Configuration): Observable<void> {
+    public pokemonColorReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.pokemonColorRead(id, _options);
 
         // build promise chain
@@ -2391,8 +2954,15 @@ export class ObservablePokemonColorApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonColorRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonColorReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public pokemonColorRead(id: number, _options?: Configuration): Observable<void> {
+        return this.pokemonColorReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -2417,7 +2987,7 @@ export class ObservablePokemonFormApi {
      * @param limit 
      * @param offset 
      */
-    public pokemonFormList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public pokemonFormListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.pokemonFormList(limit, offset, _options);
 
         // build promise chain
@@ -2432,14 +3002,22 @@ export class ObservablePokemonFormApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonFormList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonFormListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public pokemonFormList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.pokemonFormListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public pokemonFormRead(id: number, _options?: Configuration): Observable<void> {
+    public pokemonFormReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.pokemonFormRead(id, _options);
 
         // build promise chain
@@ -2454,8 +3032,15 @@ export class ObservablePokemonFormApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonFormRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonFormReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public pokemonFormRead(id: number, _options?: Configuration): Observable<void> {
+        return this.pokemonFormReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -2480,7 +3065,7 @@ export class ObservablePokemonHabitatApi {
      * @param limit 
      * @param offset 
      */
-    public pokemonHabitatList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public pokemonHabitatListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.pokemonHabitatList(limit, offset, _options);
 
         // build promise chain
@@ -2495,14 +3080,22 @@ export class ObservablePokemonHabitatApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonHabitatList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonHabitatListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public pokemonHabitatList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.pokemonHabitatListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public pokemonHabitatRead(id: number, _options?: Configuration): Observable<void> {
+    public pokemonHabitatReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.pokemonHabitatRead(id, _options);
 
         // build promise chain
@@ -2517,8 +3110,15 @@ export class ObservablePokemonHabitatApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonHabitatRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonHabitatReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public pokemonHabitatRead(id: number, _options?: Configuration): Observable<void> {
+        return this.pokemonHabitatReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -2543,7 +3143,7 @@ export class ObservablePokemonShapeApi {
      * @param limit 
      * @param offset 
      */
-    public pokemonShapeList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public pokemonShapeListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.pokemonShapeList(limit, offset, _options);
 
         // build promise chain
@@ -2558,14 +3158,22 @@ export class ObservablePokemonShapeApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonShapeList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonShapeListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public pokemonShapeList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.pokemonShapeListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public pokemonShapeRead(id: number, _options?: Configuration): Observable<void> {
+    public pokemonShapeReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.pokemonShapeRead(id, _options);
 
         // build promise chain
@@ -2580,8 +3188,15 @@ export class ObservablePokemonShapeApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonShapeRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonShapeReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public pokemonShapeRead(id: number, _options?: Configuration): Observable<void> {
+        return this.pokemonShapeReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -2606,7 +3221,7 @@ export class ObservablePokemonSpeciesApi {
      * @param limit 
      * @param offset 
      */
-    public pokemonSpeciesList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public pokemonSpeciesListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.pokemonSpeciesList(limit, offset, _options);
 
         // build promise chain
@@ -2621,14 +3236,22 @@ export class ObservablePokemonSpeciesApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonSpeciesList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonSpeciesListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public pokemonSpeciesList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.pokemonSpeciesListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public pokemonSpeciesRead(id: number, _options?: Configuration): Observable<void> {
+    public pokemonSpeciesReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.pokemonSpeciesRead(id, _options);
 
         // build promise chain
@@ -2643,8 +3266,15 @@ export class ObservablePokemonSpeciesApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonSpeciesRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonSpeciesReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public pokemonSpeciesRead(id: number, _options?: Configuration): Observable<void> {
+        return this.pokemonSpeciesReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -2669,7 +3299,7 @@ export class ObservableRegionApi {
      * @param limit 
      * @param offset 
      */
-    public regionList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public regionListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.regionList(limit, offset, _options);
 
         // build promise chain
@@ -2684,14 +3314,22 @@ export class ObservableRegionApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.regionList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.regionListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public regionList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.regionListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public regionRead(id: number, _options?: Configuration): Observable<void> {
+    public regionReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.regionRead(id, _options);
 
         // build promise chain
@@ -2706,8 +3344,15 @@ export class ObservableRegionApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.regionRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.regionReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public regionRead(id: number, _options?: Configuration): Observable<void> {
+        return this.regionReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -2732,7 +3377,7 @@ export class ObservableStatApi {
      * @param limit 
      * @param offset 
      */
-    public statList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public statListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.statList(limit, offset, _options);
 
         // build promise chain
@@ -2747,14 +3392,22 @@ export class ObservableStatApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.statList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.statListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public statList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.statListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public statRead(id: number, _options?: Configuration): Observable<void> {
+    public statReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.statRead(id, _options);
 
         // build promise chain
@@ -2769,8 +3422,15 @@ export class ObservableStatApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.statRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.statReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public statRead(id: number, _options?: Configuration): Observable<void> {
+        return this.statReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -2795,7 +3455,7 @@ export class ObservableSuperContestEffectApi {
      * @param limit 
      * @param offset 
      */
-    public superContestEffectList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public superContestEffectListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.superContestEffectList(limit, offset, _options);
 
         // build promise chain
@@ -2810,14 +3470,22 @@ export class ObservableSuperContestEffectApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.superContestEffectList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.superContestEffectListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public superContestEffectList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.superContestEffectListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public superContestEffectRead(id: number, _options?: Configuration): Observable<void> {
+    public superContestEffectReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.superContestEffectRead(id, _options);
 
         // build promise chain
@@ -2832,8 +3500,15 @@ export class ObservableSuperContestEffectApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.superContestEffectRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.superContestEffectReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public superContestEffectRead(id: number, _options?: Configuration): Observable<void> {
+        return this.superContestEffectReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -2858,7 +3533,7 @@ export class ObservableTypeApi {
      * @param limit 
      * @param offset 
      */
-    public typeList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public typeListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.typeList(limit, offset, _options);
 
         // build promise chain
@@ -2873,14 +3548,22 @@ export class ObservableTypeApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.typeList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.typeListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public typeList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.typeListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public typeRead(id: number, _options?: Configuration): Observable<void> {
+    public typeReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.typeRead(id, _options);
 
         // build promise chain
@@ -2895,8 +3578,15 @@ export class ObservableTypeApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.typeRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.typeReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public typeRead(id: number, _options?: Configuration): Observable<void> {
+        return this.typeReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -2921,7 +3611,7 @@ export class ObservableVersionApi {
      * @param limit 
      * @param offset 
      */
-    public versionList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public versionListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.versionList(limit, offset, _options);
 
         // build promise chain
@@ -2936,14 +3626,22 @@ export class ObservableVersionApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.versionList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.versionListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public versionList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.versionListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public versionRead(id: number, _options?: Configuration): Observable<void> {
+    public versionReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.versionRead(id, _options);
 
         // build promise chain
@@ -2958,8 +3656,15 @@ export class ObservableVersionApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.versionRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.versionReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public versionRead(id: number, _options?: Configuration): Observable<void> {
+        return this.versionReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
@@ -2984,7 +3689,7 @@ export class ObservableVersionGroupApi {
      * @param limit 
      * @param offset 
      */
-    public versionGroupList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+    public versionGroupListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.versionGroupList(limit, offset, _options);
 
         // build promise chain
@@ -2999,14 +3704,22 @@ export class ObservableVersionGroupApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.versionGroupList(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.versionGroupListWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
+    public versionGroupList(limit?: number, offset?: number, _options?: Configuration): Observable<void> {
+        return this.versionGroupListWithHttpInfo(limit, offset, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
      * @param id 
      */
-    public versionGroupRead(id: number, _options?: Configuration): Observable<void> {
+    public versionGroupReadWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.versionGroupRead(id, _options);
 
         // build promise chain
@@ -3021,8 +3734,15 @@ export class ObservableVersionGroupApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.versionGroupRead(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.versionGroupReadWithHttpInfo(rsp)));
             }));
+    }
+
+    /**
+     * @param id 
+     */
+    public versionGroupRead(id: number, _options?: Configuration): Observable<void> {
+        return this.versionGroupReadWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }

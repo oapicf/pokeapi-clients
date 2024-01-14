@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**pokemonFormList**](#pokemonFormList) | **GET** /api/v2/pokemon-form/ | 
 [**pokemonFormRead**](#pokemonFormRead) | **GET** /api/v2/pokemon-form/{id}/ | 
 
-<a name="pokemonFormList"></a>
+<a id="pokemonFormList"></a>
 # **pokemonFormList**
 ```java
 Mono<String> PokemonFormController.pokemonFormList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="pokemonFormRead"></a>
+<a id="pokemonFormRead"></a>
 # **pokemonFormRead**
 ```java
 Mono<String> PokemonFormController.pokemonFormRead(id)

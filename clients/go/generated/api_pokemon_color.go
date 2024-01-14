@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// PokemonColorApiService PokemonColorApi service
-type PokemonColorApiService service
+// PokemonColorAPIService PokemonColorAPI service
+type PokemonColorAPIService service
 
 type ApiPokemonColorListRequest struct {
 	ctx context.Context
-	ApiService *PokemonColorApiService
+	ApiService *PokemonColorAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ PokemonColorList Method for PokemonColorList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPokemonColorListRequest
 */
-func (a *PokemonColorApiService) PokemonColorList(ctx context.Context) ApiPokemonColorListRequest {
+func (a *PokemonColorAPIService) PokemonColorList(ctx context.Context) ApiPokemonColorListRequest {
 	return ApiPokemonColorListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *PokemonColorApiService) PokemonColorList(ctx context.Context) ApiPokemo
 
 // Execute executes the request
 //  @return string
-func (a *PokemonColorApiService) PokemonColorListExecute(r ApiPokemonColorListRequest) (string, *http.Response, error) {
+func (a *PokemonColorAPIService) PokemonColorListExecute(r ApiPokemonColorListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *PokemonColorApiService) PokemonColorListExecute(r ApiPokemonColorListRe
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PokemonColorApiService.PokemonColorList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PokemonColorAPIService.PokemonColorList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *PokemonColorApiService) PokemonColorListExecute(r ApiPokemonColorListRe
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *PokemonColorApiService) PokemonColorListExecute(r ApiPokemonColorListRe
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *PokemonColorApiService) PokemonColorListExecute(r ApiPokemonColorListRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *PokemonColorApiService) PokemonColorListExecute(r ApiPokemonColorListRe
 
 type ApiPokemonColorReadRequest struct {
 	ctx context.Context
-	ApiService *PokemonColorApiService
+	ApiService *PokemonColorAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ PokemonColorRead Method for PokemonColorRead
  @param id
  @return ApiPokemonColorReadRequest
 */
-func (a *PokemonColorApiService) PokemonColorRead(ctx context.Context, id int32) ApiPokemonColorReadRequest {
+func (a *PokemonColorAPIService) PokemonColorRead(ctx context.Context, id int32) ApiPokemonColorReadRequest {
 	return ApiPokemonColorReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *PokemonColorApiService) PokemonColorRead(ctx context.Context, id int32)
 
 // Execute executes the request
 //  @return string
-func (a *PokemonColorApiService) PokemonColorReadExecute(r ApiPokemonColorReadRequest) (string, *http.Response, error) {
+func (a *PokemonColorAPIService) PokemonColorReadExecute(r ApiPokemonColorReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *PokemonColorApiService) PokemonColorReadExecute(r ApiPokemonColorReadRe
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PokemonColorApiService.PokemonColorRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PokemonColorAPIService.PokemonColorRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/pokemon-color/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *PokemonColorApiService) PokemonColorReadExecute(r ApiPokemonColorReadRe
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *PokemonColorApiService) PokemonColorReadExecute(r ApiPokemonColorReadRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

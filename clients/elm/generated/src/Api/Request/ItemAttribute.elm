@@ -20,15 +20,13 @@ module Api.Request.ItemAttribute exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-itemAttributeList : Maybe Int -> Maybe Int -> Api.Request 
+itemAttributeList : Maybe Int -> Maybe Int -> Api.Request ()
 itemAttributeList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ itemAttributeList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-itemAttributeRead : Int -> Api.Request 
+itemAttributeRead : Int -> Api.Request ()
 itemAttributeRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ itemAttributeRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

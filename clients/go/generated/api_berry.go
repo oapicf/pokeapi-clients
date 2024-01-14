@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// BerryApiService BerryApi service
-type BerryApiService service
+// BerryAPIService BerryAPI service
+type BerryAPIService service
 
 type ApiBerryListRequest struct {
 	ctx context.Context
-	ApiService *BerryApiService
+	ApiService *BerryAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ BerryList Method for BerryList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBerryListRequest
 */
-func (a *BerryApiService) BerryList(ctx context.Context) ApiBerryListRequest {
+func (a *BerryAPIService) BerryList(ctx context.Context) ApiBerryListRequest {
 	return ApiBerryListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *BerryApiService) BerryList(ctx context.Context) ApiBerryListRequest {
 
 // Execute executes the request
 //  @return string
-func (a *BerryApiService) BerryListExecute(r ApiBerryListRequest) (string, *http.Response, error) {
+func (a *BerryAPIService) BerryListExecute(r ApiBerryListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *BerryApiService) BerryListExecute(r ApiBerryListRequest) (string, *http
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BerryApiService.BerryList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BerryAPIService.BerryList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *BerryApiService) BerryListExecute(r ApiBerryListRequest) (string, *http
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *BerryApiService) BerryListExecute(r ApiBerryListRequest) (string, *http
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *BerryApiService) BerryListExecute(r ApiBerryListRequest) (string, *http
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *BerryApiService) BerryListExecute(r ApiBerryListRequest) (string, *http
 
 type ApiBerryReadRequest struct {
 	ctx context.Context
-	ApiService *BerryApiService
+	ApiService *BerryAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ BerryRead Method for BerryRead
  @param id
  @return ApiBerryReadRequest
 */
-func (a *BerryApiService) BerryRead(ctx context.Context, id int32) ApiBerryReadRequest {
+func (a *BerryAPIService) BerryRead(ctx context.Context, id int32) ApiBerryReadRequest {
 	return ApiBerryReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *BerryApiService) BerryRead(ctx context.Context, id int32) ApiBerryReadR
 
 // Execute executes the request
 //  @return string
-func (a *BerryApiService) BerryReadExecute(r ApiBerryReadRequest) (string, *http.Response, error) {
+func (a *BerryAPIService) BerryReadExecute(r ApiBerryReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *BerryApiService) BerryReadExecute(r ApiBerryReadRequest) (string, *http
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BerryApiService.BerryRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BerryAPIService.BerryRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/berry/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *BerryApiService) BerryReadExecute(r ApiBerryReadRequest) (string, *http
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *BerryApiService) BerryReadExecute(r ApiBerryReadRequest) (string, *http
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

@@ -56,7 +56,7 @@ bool OpenAPILocationApi::IsValid() const
 
 void OpenAPILocationApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

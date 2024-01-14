@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class GenderApiImpl : public org::openapitools::server::api::GenderApi {
+class  GenderApiImpl : public org::openapitools::server::api::GenderApi {
 public:
     explicit GenderApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~GenderApiImpl() override = default;

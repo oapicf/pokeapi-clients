@@ -8,10 +8,10 @@
 
 
 char*
-ItemAPI_itemList(apiClient_t *apiClient, int limit , int offset );
+ItemAPI_itemList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-ItemAPI_itemRead(apiClient_t *apiClient, int id );
+ItemAPI_itemRead(apiClient_t *apiClient, int *id);
 
 

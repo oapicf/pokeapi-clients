@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**generationRead**](GenerationApi.md#generationRead) | **GET** /api/v2/generation/{id}/ | 
 
 
-<a name="generationList"></a>
+<a id="generationList"></a>
 # **generationList**
 > kotlin.String generationList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="generationRead"></a>
+<a id="generationRead"></a>
 # **generationRead**
 > kotlin.String generationRead(id)
 

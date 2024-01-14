@@ -52,8 +52,12 @@ interface EncounterMethodApiInterface
      *
      * @return array|object|null
      */
-    public function encounterMethodList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function encounterMethodList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation encounterMethodRead
@@ -64,6 +68,9 @@ interface EncounterMethodApiInterface
      *
      * @return array|object|null
      */
-    public function encounterMethodRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function encounterMethodRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

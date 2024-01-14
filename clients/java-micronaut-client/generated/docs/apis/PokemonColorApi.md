@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="pokemonColorList"></a>
+<a id="pokemonColorList"></a>
 # **pokemonColorList**
 ```java
 Mono<String> PokemonColorApi.pokemonColorList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> PokemonColorApi.pokemonColorList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="pokemonColorRead"></a>
+<a id="pokemonColorRead"></a>
 # **pokemonColorRead**
 ```java
 Mono<String> PokemonColorApi.pokemonColorRead(id)

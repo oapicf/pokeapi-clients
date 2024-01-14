@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// ItemPocketApiController binds http requests to an api service and writes the service results to the http response
-type ItemPocketApiController struct {
-	service ItemPocketApiServicer
+// ItemPocketAPIController binds http requests to an api service and writes the service results to the http response
+type ItemPocketAPIController struct {
+	service ItemPocketAPIServicer
 	errorHandler ErrorHandler
 }
 
-// ItemPocketApiOption for how the controller is set up.
-type ItemPocketApiOption func(*ItemPocketApiController)
+// ItemPocketAPIOption for how the controller is set up.
+type ItemPocketAPIOption func(*ItemPocketAPIController)
 
-// WithItemPocketApiErrorHandler inject ErrorHandler into controller
-func WithItemPocketApiErrorHandler(h ErrorHandler) ItemPocketApiOption {
-	return func(c *ItemPocketApiController) {
+// WithItemPocketAPIErrorHandler inject ErrorHandler into controller
+func WithItemPocketAPIErrorHandler(h ErrorHandler) ItemPocketAPIOption {
+	return func(c *ItemPocketAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewItemPocketApiController creates a default api controller
-func NewItemPocketApiController(s ItemPocketApiServicer, opts ...ItemPocketApiOption) Router {
-	controller := &ItemPocketApiController{
+// NewItemPocketAPIController creates a default api controller
+func NewItemPocketAPIController(s ItemPocketAPIServicer, opts ...ItemPocketAPIOption) Router {
+	controller := &ItemPocketAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewItemPocketApiController(s ItemPocketApiServicer, opts ...ItemPocketApiOp
 	return controller
 }
 
-// Routes returns all the api routes for the ItemPocketApiController
-func (c *ItemPocketApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"ItemPocketList",
+// Routes returns all the api routes for the ItemPocketAPIController
+func (c *ItemPocketAPIController) Routes() Routes {
+	return Routes{
+		"ItemPocketList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/item-pocket/",
 			c.ItemPocketList,
 		},
-		{
-			"ItemPocketRead",
+		"ItemPocketRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/item-pocket/{id}/",
 			c.ItemPocketRead,
@@ -67,17 +65,35 @@ func (c *ItemPocketApiController) Routes() Routes {
 }
 
 // ItemPocketList - 
-func (c *ItemPocketApiController) ItemPocketList(w http.ResponseWriter, r *http.Request) {
+func (c *ItemPocketAPIController) ItemPocketList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.ItemPocketList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *ItemPocketApiController) ItemPocketList(w http.ResponseWriter, r *http.
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // ItemPocketRead - 
-func (c *ItemPocketApiController) ItemPocketRead(w http.ResponseWriter, r *http.Request) {
+func (c *ItemPocketAPIController) ItemPocketRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.ItemPocketRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *ItemPocketApiController) ItemPocketRead(w http.ResponseWriter, r *http.
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

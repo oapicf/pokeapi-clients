@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// RegionApiService RegionApi service
-type RegionApiService service
+// RegionAPIService RegionAPI service
+type RegionAPIService service
 
 type ApiRegionListRequest struct {
 	ctx context.Context
-	ApiService *RegionApiService
+	ApiService *RegionAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ RegionList Method for RegionList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiRegionListRequest
 */
-func (a *RegionApiService) RegionList(ctx context.Context) ApiRegionListRequest {
+func (a *RegionAPIService) RegionList(ctx context.Context) ApiRegionListRequest {
 	return ApiRegionListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *RegionApiService) RegionList(ctx context.Context) ApiRegionListRequest 
 
 // Execute executes the request
 //  @return string
-func (a *RegionApiService) RegionListExecute(r ApiRegionListRequest) (string, *http.Response, error) {
+func (a *RegionAPIService) RegionListExecute(r ApiRegionListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *RegionApiService) RegionListExecute(r ApiRegionListRequest) (string, *h
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegionApiService.RegionList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegionAPIService.RegionList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *RegionApiService) RegionListExecute(r ApiRegionListRequest) (string, *h
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *RegionApiService) RegionListExecute(r ApiRegionListRequest) (string, *h
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *RegionApiService) RegionListExecute(r ApiRegionListRequest) (string, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *RegionApiService) RegionListExecute(r ApiRegionListRequest) (string, *h
 
 type ApiRegionReadRequest struct {
 	ctx context.Context
-	ApiService *RegionApiService
+	ApiService *RegionAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ RegionRead Method for RegionRead
  @param id
  @return ApiRegionReadRequest
 */
-func (a *RegionApiService) RegionRead(ctx context.Context, id int32) ApiRegionReadRequest {
+func (a *RegionAPIService) RegionRead(ctx context.Context, id int32) ApiRegionReadRequest {
 	return ApiRegionReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *RegionApiService) RegionRead(ctx context.Context, id int32) ApiRegionRe
 
 // Execute executes the request
 //  @return string
-func (a *RegionApiService) RegionReadExecute(r ApiRegionReadRequest) (string, *http.Response, error) {
+func (a *RegionAPIService) RegionReadExecute(r ApiRegionReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *RegionApiService) RegionReadExecute(r ApiRegionReadRequest) (string, *h
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegionApiService.RegionRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RegionAPIService.RegionRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/region/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *RegionApiService) RegionReadExecute(r ApiRegionReadRequest) (string, *h
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *RegionApiService) RegionReadExecute(r ApiRegionReadRequest) (string, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

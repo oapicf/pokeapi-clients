@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**pokemonColorList**](#pokemonColorList) | **GET** /api/v2/pokemon-color/ | 
 [**pokemonColorRead**](#pokemonColorRead) | **GET** /api/v2/pokemon-color/{id}/ | 
 
-<a name="pokemonColorList"></a>
+<a id="pokemonColorList"></a>
 # **pokemonColorList**
 ```java
 Mono<String> PokemonColorController.pokemonColorList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="pokemonColorRead"></a>
+<a id="pokemonColorRead"></a>
 # **pokemonColorRead**
 ```java
 Mono<String> PokemonColorController.pokemonColorRead(id)

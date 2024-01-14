@@ -56,7 +56,7 @@ bool OpenAPIGenderApi::IsValid() const
 
 void OpenAPIGenderApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

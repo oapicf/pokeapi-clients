@@ -101,18 +101,25 @@ signals:
     void moveListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void moveReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use moveListSignalError() instead")
     void moveListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void moveListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use moveReadSignalError() instead")
     void moveReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void moveReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use moveListSignalErrorFull() instead")
     void moveListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void moveListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use moveReadSignalErrorFull() instead")
     void moveReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void moveReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

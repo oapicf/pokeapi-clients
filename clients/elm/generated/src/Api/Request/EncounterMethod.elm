@@ -20,15 +20,13 @@ module Api.Request.EncounterMethod exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-encounterMethodList : Maybe Int -> Maybe Int -> Api.Request 
+encounterMethodList : Maybe Int -> Maybe Int -> Api.Request ()
 encounterMethodList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ encounterMethodList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-encounterMethodRead : Int -> Api.Request 
+encounterMethodRead : Int -> Api.Request ()
 encounterMethodRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ encounterMethodRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

@@ -8,10 +8,10 @@
 
 
 char*
-BerryFirmnessAPI_berryFirmnessList(apiClient_t *apiClient, int limit , int offset );
+BerryFirmnessAPI_berryFirmnessList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-BerryFirmnessAPI_berryFirmnessRead(apiClient_t *apiClient, int id );
+BerryFirmnessAPI_berryFirmnessRead(apiClient_t *apiClient, int *id);
 
 

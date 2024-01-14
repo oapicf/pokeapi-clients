@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class LocationApiImpl : public org::openapitools::server::api::LocationApi {
+class  LocationApiImpl : public org::openapitools::server::api::LocationApi {
 public:
     explicit LocationApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~LocationApiImpl() override = default;

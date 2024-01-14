@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="machineList"></a>
+<a id="machineList"></a>
 # **machineList**
 ```java
 Mono<String> MachineApi.machineList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> MachineApi.machineList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="machineRead"></a>
+<a id="machineRead"></a>
 # **machineRead**
 ```java
 Mono<String> MachineApi.machineRead(id)

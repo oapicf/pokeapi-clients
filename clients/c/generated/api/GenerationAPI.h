@@ -8,10 +8,10 @@
 
 
 char*
-GenerationAPI_generationList(apiClient_t *apiClient, int limit , int offset );
+GenerationAPI_generationList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-GenerationAPI_generationRead(apiClient_t *apiClient, int id );
+GenerationAPI_generationRead(apiClient_t *apiClient, int *id);
 
 

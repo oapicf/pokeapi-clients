@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// MoveDamageClassApiController binds http requests to an api service and writes the service results to the http response
-type MoveDamageClassApiController struct {
-	service MoveDamageClassApiServicer
+// MoveDamageClassAPIController binds http requests to an api service and writes the service results to the http response
+type MoveDamageClassAPIController struct {
+	service MoveDamageClassAPIServicer
 	errorHandler ErrorHandler
 }
 
-// MoveDamageClassApiOption for how the controller is set up.
-type MoveDamageClassApiOption func(*MoveDamageClassApiController)
+// MoveDamageClassAPIOption for how the controller is set up.
+type MoveDamageClassAPIOption func(*MoveDamageClassAPIController)
 
-// WithMoveDamageClassApiErrorHandler inject ErrorHandler into controller
-func WithMoveDamageClassApiErrorHandler(h ErrorHandler) MoveDamageClassApiOption {
-	return func(c *MoveDamageClassApiController) {
+// WithMoveDamageClassAPIErrorHandler inject ErrorHandler into controller
+func WithMoveDamageClassAPIErrorHandler(h ErrorHandler) MoveDamageClassAPIOption {
+	return func(c *MoveDamageClassAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewMoveDamageClassApiController creates a default api controller
-func NewMoveDamageClassApiController(s MoveDamageClassApiServicer, opts ...MoveDamageClassApiOption) Router {
-	controller := &MoveDamageClassApiController{
+// NewMoveDamageClassAPIController creates a default api controller
+func NewMoveDamageClassAPIController(s MoveDamageClassAPIServicer, opts ...MoveDamageClassAPIOption) Router {
+	controller := &MoveDamageClassAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewMoveDamageClassApiController(s MoveDamageClassApiServicer, opts ...MoveD
 	return controller
 }
 
-// Routes returns all the api routes for the MoveDamageClassApiController
-func (c *MoveDamageClassApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"MoveDamageClassList",
+// Routes returns all the api routes for the MoveDamageClassAPIController
+func (c *MoveDamageClassAPIController) Routes() Routes {
+	return Routes{
+		"MoveDamageClassList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/move-damage-class/",
 			c.MoveDamageClassList,
 		},
-		{
-			"MoveDamageClassRead",
+		"MoveDamageClassRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/move-damage-class/{id}/",
 			c.MoveDamageClassRead,
@@ -67,17 +65,35 @@ func (c *MoveDamageClassApiController) Routes() Routes {
 }
 
 // MoveDamageClassList - 
-func (c *MoveDamageClassApiController) MoveDamageClassList(w http.ResponseWriter, r *http.Request) {
+func (c *MoveDamageClassAPIController) MoveDamageClassList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.MoveDamageClassList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *MoveDamageClassApiController) MoveDamageClassList(w http.ResponseWriter
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // MoveDamageClassRead - 
-func (c *MoveDamageClassApiController) MoveDamageClassRead(w http.ResponseWriter, r *http.Request) {
+func (c *MoveDamageClassAPIController) MoveDamageClassRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.MoveDamageClassRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *MoveDamageClassApiController) MoveDamageClassRead(w http.ResponseWriter
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

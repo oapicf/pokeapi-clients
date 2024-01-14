@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// PalParkAreaApiService is a service that implements the logic for the PalParkAreaApiServicer
-// This service should implement the business logic for every endpoint for the PalParkAreaApi API.
+// PalParkAreaAPIService is a service that implements the logic for the PalParkAreaAPIServicer
+// This service should implement the business logic for every endpoint for the PalParkAreaAPI API.
 // Include any external packages or services that will be required by this service.
-type PalParkAreaApiService struct {
+type PalParkAreaAPIService struct {
 }
 
-// NewPalParkAreaApiService creates a default api service
-func NewPalParkAreaApiService() PalParkAreaApiServicer {
-	return &PalParkAreaApiService{}
+// NewPalParkAreaAPIService creates a default api service
+func NewPalParkAreaAPIService() PalParkAreaAPIServicer {
+	return &PalParkAreaAPIService{}
 }
 
 // PalParkAreaList - 
-func (s *PalParkAreaApiService) PalParkAreaList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *PalParkAreaAPIService) PalParkAreaList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update PalParkAreaList with the required logic for this service method.
 	// Add api_pal_park_area_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("PalParkAreaList method not implemented")
 }
 
 // PalParkAreaRead - 
-func (s *PalParkAreaApiService) PalParkAreaRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *PalParkAreaAPIService) PalParkAreaRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update PalParkAreaRead with the required logic for this service method.
 	// Add api_pal_park_area_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("PalParkAreaRead method not implemented")
 }

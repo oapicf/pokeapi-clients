@@ -56,7 +56,7 @@ bool OpenAPIItemPocketApi::IsValid() const
 
 void OpenAPIItemPocketApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

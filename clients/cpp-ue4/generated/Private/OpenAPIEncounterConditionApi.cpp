@@ -56,7 +56,7 @@ bool OpenAPIEncounterConditionApi::IsValid() const
 
 void OpenAPIEncounterConditionApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

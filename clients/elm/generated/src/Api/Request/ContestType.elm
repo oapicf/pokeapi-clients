@@ -20,15 +20,13 @@ module Api.Request.ContestType exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-contestTypeList : Maybe Int -> Maybe Int -> Api.Request 
+contestTypeList : Maybe Int -> Maybe Int -> Api.Request ()
 contestTypeList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ contestTypeList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-contestTypeRead : Int -> Api.Request 
+contestTypeRead : Int -> Api.Request ()
 contestTypeRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ contestTypeRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

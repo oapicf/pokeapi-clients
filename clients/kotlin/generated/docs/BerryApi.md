@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**berryRead**](BerryApi.md#berryRead) | **GET** /api/v2/berry/{id}/ | 
 
 
-<a name="berryList"></a>
+<a id="berryList"></a>
 # **berryList**
 > kotlin.String berryList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="berryRead"></a>
+<a id="berryRead"></a>
 # **berryRead**
 > kotlin.String berryRead(id)
 

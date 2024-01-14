@@ -20,15 +20,13 @@ module Api.Request.MoveDamageClass exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-moveDamageClassList : Maybe Int -> Maybe Int -> Api.Request 
+moveDamageClassList : Maybe Int -> Maybe Int -> Api.Request ()
 moveDamageClassList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ moveDamageClassList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-moveDamageClassRead : Int -> Api.Request 
+moveDamageClassRead : Int -> Api.Request ()
 moveDamageClassRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ moveDamageClassRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

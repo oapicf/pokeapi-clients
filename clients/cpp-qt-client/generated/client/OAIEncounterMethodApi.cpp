@@ -291,8 +291,34 @@ void OAIEncounterMethodApi::encounterMethodListCallback(OAIHttpRequestWorker *wo
         emit encounterMethodListSignal(output);
         emit encounterMethodListSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit encounterMethodListSignalE(output, error_type, error_str);
         emit encounterMethodListSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit encounterMethodListSignalError(output, error_type, error_str);
+        emit encounterMethodListSignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -355,8 +381,34 @@ void OAIEncounterMethodApi::encounterMethodReadCallback(OAIHttpRequestWorker *wo
         emit encounterMethodReadSignal(output);
         emit encounterMethodReadSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit encounterMethodReadSignalE(output, error_type, error_str);
         emit encounterMethodReadSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit encounterMethodReadSignalError(output, error_type, error_str);
+        emit encounterMethodReadSignalErrorFull(worker, error_type, error_str);
     }
 }
 

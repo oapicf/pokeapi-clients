@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class VersionGroupApiImpl : public org::openapitools::server::api::VersionGroupApi {
+class  VersionGroupApiImpl : public org::openapitools::server::api::VersionGroupApi {
 public:
     explicit VersionGroupApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~VersionGroupApiImpl() override = default;

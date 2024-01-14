@@ -72,8 +72,8 @@ class LocationApiSimulation extends Simulation {
         .feed(location_listQUERYFeeder)
         .exec(http("locationList")
         .httpRequest("GET","/api/v2/location/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnlocationList with warm up and reach a constant rate for entire duration

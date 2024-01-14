@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// PokemonApiService PokemonApi service
-type PokemonApiService service
+// PokemonAPIService PokemonAPI service
+type PokemonAPIService service
 
 type ApiPokemonListRequest struct {
 	ctx context.Context
-	ApiService *PokemonApiService
+	ApiService *PokemonAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ PokemonList Method for PokemonList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPokemonListRequest
 */
-func (a *PokemonApiService) PokemonList(ctx context.Context) ApiPokemonListRequest {
+func (a *PokemonAPIService) PokemonList(ctx context.Context) ApiPokemonListRequest {
 	return ApiPokemonListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *PokemonApiService) PokemonList(ctx context.Context) ApiPokemonListReque
 
 // Execute executes the request
 //  @return string
-func (a *PokemonApiService) PokemonListExecute(r ApiPokemonListRequest) (string, *http.Response, error) {
+func (a *PokemonAPIService) PokemonListExecute(r ApiPokemonListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *PokemonApiService) PokemonListExecute(r ApiPokemonListRequest) (string,
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PokemonApiService.PokemonList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PokemonAPIService.PokemonList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *PokemonApiService) PokemonListExecute(r ApiPokemonListRequest) (string,
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *PokemonApiService) PokemonListExecute(r ApiPokemonListRequest) (string,
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *PokemonApiService) PokemonListExecute(r ApiPokemonListRequest) (string,
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *PokemonApiService) PokemonListExecute(r ApiPokemonListRequest) (string,
 
 type ApiPokemonReadRequest struct {
 	ctx context.Context
-	ApiService *PokemonApiService
+	ApiService *PokemonAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ PokemonRead Method for PokemonRead
  @param id
  @return ApiPokemonReadRequest
 */
-func (a *PokemonApiService) PokemonRead(ctx context.Context, id int32) ApiPokemonReadRequest {
+func (a *PokemonAPIService) PokemonRead(ctx context.Context, id int32) ApiPokemonReadRequest {
 	return ApiPokemonReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *PokemonApiService) PokemonRead(ctx context.Context, id int32) ApiPokemo
 
 // Execute executes the request
 //  @return string
-func (a *PokemonApiService) PokemonReadExecute(r ApiPokemonReadRequest) (string, *http.Response, error) {
+func (a *PokemonAPIService) PokemonReadExecute(r ApiPokemonReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *PokemonApiService) PokemonReadExecute(r ApiPokemonReadRequest) (string,
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PokemonApiService.PokemonRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PokemonAPIService.PokemonRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/pokemon/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *PokemonApiService) PokemonReadExecute(r ApiPokemonReadRequest) (string,
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *PokemonApiService) PokemonReadExecute(r ApiPokemonReadRequest) (string,
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

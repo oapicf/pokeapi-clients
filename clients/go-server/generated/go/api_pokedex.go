@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// PokedexApiController binds http requests to an api service and writes the service results to the http response
-type PokedexApiController struct {
-	service PokedexApiServicer
+// PokedexAPIController binds http requests to an api service and writes the service results to the http response
+type PokedexAPIController struct {
+	service PokedexAPIServicer
 	errorHandler ErrorHandler
 }
 
-// PokedexApiOption for how the controller is set up.
-type PokedexApiOption func(*PokedexApiController)
+// PokedexAPIOption for how the controller is set up.
+type PokedexAPIOption func(*PokedexAPIController)
 
-// WithPokedexApiErrorHandler inject ErrorHandler into controller
-func WithPokedexApiErrorHandler(h ErrorHandler) PokedexApiOption {
-	return func(c *PokedexApiController) {
+// WithPokedexAPIErrorHandler inject ErrorHandler into controller
+func WithPokedexAPIErrorHandler(h ErrorHandler) PokedexAPIOption {
+	return func(c *PokedexAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewPokedexApiController creates a default api controller
-func NewPokedexApiController(s PokedexApiServicer, opts ...PokedexApiOption) Router {
-	controller := &PokedexApiController{
+// NewPokedexAPIController creates a default api controller
+func NewPokedexAPIController(s PokedexAPIServicer, opts ...PokedexAPIOption) Router {
+	controller := &PokedexAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewPokedexApiController(s PokedexApiServicer, opts ...PokedexApiOption) Rou
 	return controller
 }
 
-// Routes returns all the api routes for the PokedexApiController
-func (c *PokedexApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"PokedexList",
+// Routes returns all the api routes for the PokedexAPIController
+func (c *PokedexAPIController) Routes() Routes {
+	return Routes{
+		"PokedexList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/pokedex/",
 			c.PokedexList,
 		},
-		{
-			"PokedexRead",
+		"PokedexRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/pokedex/{id}/",
 			c.PokedexRead,
@@ -67,17 +65,35 @@ func (c *PokedexApiController) Routes() Routes {
 }
 
 // PokedexList - 
-func (c *PokedexApiController) PokedexList(w http.ResponseWriter, r *http.Request) {
+func (c *PokedexAPIController) PokedexList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.PokedexList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *PokedexApiController) PokedexList(w http.ResponseWriter, r *http.Reques
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // PokedexRead - 
-func (c *PokedexApiController) PokedexRead(w http.ResponseWriter, r *http.Request) {
+func (c *PokedexAPIController) PokedexRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.PokedexRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *PokedexApiController) PokedexRead(w http.ResponseWriter, r *http.Reques
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

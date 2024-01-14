@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**contestTypeRead**](ContestTypeApi.md#contestTypeRead) | **GET** /api/v2/contest-type/{id}/ |  |
 
 
-<a name="contestTypeList"></a>
+<a id="contestTypeList"></a>
 # **contestTypeList**
 > String contestTypeList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="contestTypeRead"></a>
+<a id="contestTypeRead"></a>
 # **contestTypeRead**
 > String contestTypeRead(id)
 

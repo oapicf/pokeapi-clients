@@ -20,15 +20,13 @@ module Api.Request.Generation exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-generationList : Maybe Int -> Maybe Int -> Api.Request 
+generationList : Maybe Int -> Maybe Int -> Api.Request ()
 generationList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ generationList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-generationRead : Int -> Api.Request 
+generationRead : Int -> Api.Request ()
 generationRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ generationRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

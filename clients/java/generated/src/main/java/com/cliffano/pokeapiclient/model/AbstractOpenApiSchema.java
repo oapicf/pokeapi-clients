@@ -17,14 +17,11 @@ import com.cliffano.pokeapiclient.ApiException;
 import java.util.Objects;
 import java.lang.reflect.Type;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
-
-//import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Abstract class for oneOf,anyOf schemas defined in OpenAPI spec
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-19T09:46:50.737972Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-14T06:30:39.997066544Z[Etc/UTC]")
 public abstract class AbstractOpenApiSchema {
 
     // store the actual instance of the schema/object
@@ -46,7 +43,7 @@ public abstract class AbstractOpenApiSchema {
      *
      * @return an instance of the actual schema/object
      */
-    public abstract Map<String, GenericType> getSchemas();
+    public abstract Map<String, Class<?>> getSchemas();
 
     /**
      * Get the actual instance

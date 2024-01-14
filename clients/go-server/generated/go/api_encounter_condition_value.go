@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// EncounterConditionValueApiController binds http requests to an api service and writes the service results to the http response
-type EncounterConditionValueApiController struct {
-	service EncounterConditionValueApiServicer
+// EncounterConditionValueAPIController binds http requests to an api service and writes the service results to the http response
+type EncounterConditionValueAPIController struct {
+	service EncounterConditionValueAPIServicer
 	errorHandler ErrorHandler
 }
 
-// EncounterConditionValueApiOption for how the controller is set up.
-type EncounterConditionValueApiOption func(*EncounterConditionValueApiController)
+// EncounterConditionValueAPIOption for how the controller is set up.
+type EncounterConditionValueAPIOption func(*EncounterConditionValueAPIController)
 
-// WithEncounterConditionValueApiErrorHandler inject ErrorHandler into controller
-func WithEncounterConditionValueApiErrorHandler(h ErrorHandler) EncounterConditionValueApiOption {
-	return func(c *EncounterConditionValueApiController) {
+// WithEncounterConditionValueAPIErrorHandler inject ErrorHandler into controller
+func WithEncounterConditionValueAPIErrorHandler(h ErrorHandler) EncounterConditionValueAPIOption {
+	return func(c *EncounterConditionValueAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewEncounterConditionValueApiController creates a default api controller
-func NewEncounterConditionValueApiController(s EncounterConditionValueApiServicer, opts ...EncounterConditionValueApiOption) Router {
-	controller := &EncounterConditionValueApiController{
+// NewEncounterConditionValueAPIController creates a default api controller
+func NewEncounterConditionValueAPIController(s EncounterConditionValueAPIServicer, opts ...EncounterConditionValueAPIOption) Router {
+	controller := &EncounterConditionValueAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewEncounterConditionValueApiController(s EncounterConditionValueApiService
 	return controller
 }
 
-// Routes returns all the api routes for the EncounterConditionValueApiController
-func (c *EncounterConditionValueApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"EncounterConditionValueList",
+// Routes returns all the api routes for the EncounterConditionValueAPIController
+func (c *EncounterConditionValueAPIController) Routes() Routes {
+	return Routes{
+		"EncounterConditionValueList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/encounter-condition-value/",
 			c.EncounterConditionValueList,
 		},
-		{
-			"EncounterConditionValueRead",
+		"EncounterConditionValueRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/encounter-condition-value/{id}/",
 			c.EncounterConditionValueRead,
@@ -67,17 +65,35 @@ func (c *EncounterConditionValueApiController) Routes() Routes {
 }
 
 // EncounterConditionValueList - 
-func (c *EncounterConditionValueApiController) EncounterConditionValueList(w http.ResponseWriter, r *http.Request) {
+func (c *EncounterConditionValueAPIController) EncounterConditionValueList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.EncounterConditionValueList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *EncounterConditionValueApiController) EncounterConditionValueList(w htt
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // EncounterConditionValueRead - 
-func (c *EncounterConditionValueApiController) EncounterConditionValueRead(w http.ResponseWriter, r *http.Request) {
+func (c *EncounterConditionValueAPIController) EncounterConditionValueRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.EncounterConditionValueRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *EncounterConditionValueApiController) EncounterConditionValueRead(w htt
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

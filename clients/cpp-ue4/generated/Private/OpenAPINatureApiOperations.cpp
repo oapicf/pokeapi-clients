@@ -70,7 +70,7 @@ bool OpenAPINatureApi::NatureListResponse::FromJson(const TSharedPtr<FJsonValue>
 FString OpenAPINatureApi::NatureReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/nature/{id}/"), PathParams);
 

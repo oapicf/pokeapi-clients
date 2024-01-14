@@ -9,8 +9,8 @@ For more information, please visit [https://github.com/cliffano/pokeapi-clients]
 
 ## Requirements
 
-* Dart 2.12.0 or later OR Flutter 1.26.0 or later
-* Dio 4.0.0+
+* Dart 2.15.0+ or Flutter 2.8.0+
+* Dio 5.0.0+ (https://pub.dev/packages/dio)
 
 ## Installation & Usage
 
@@ -54,7 +54,7 @@ final int offset = 56; // int |
 try {
     final response = await api.abilityList(limit, offset);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print("Exception when calling AbilityApi->abilityList: $e\n");
 }
 
@@ -170,7 +170,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
- All endpoints do not require authorization.
+Endpoints do not require authorization.
 
 
 ## Author

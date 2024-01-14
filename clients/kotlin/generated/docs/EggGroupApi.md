@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**eggGroupRead**](EggGroupApi.md#eggGroupRead) | **GET** /api/v2/egg-group/{id}/ | 
 
 
-<a name="eggGroupList"></a>
+<a id="eggGroupList"></a>
 # **eggGroupList**
 > kotlin.String eggGroupList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="eggGroupRead"></a>
+<a id="eggGroupRead"></a>
 # **eggGroupRead**
 > kotlin.String eggGroupRead(id)
 

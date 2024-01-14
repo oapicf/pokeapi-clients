@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class PokemonHabitatApiImpl : public org::openapitools::server::api::PokemonHabitatApi {
+class  PokemonHabitatApiImpl : public org::openapitools::server::api::PokemonHabitatApi {
 public:
     explicit PokemonHabitatApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~PokemonHabitatApiImpl() override = default;

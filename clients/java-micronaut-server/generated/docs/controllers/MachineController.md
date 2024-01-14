@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**machineList**](#machineList) | **GET** /api/v2/machine/ | 
 [**machineRead**](#machineRead) | **GET** /api/v2/machine/{id}/ | 
 
-<a name="machineList"></a>
+<a id="machineList"></a>
 # **machineList**
 ```java
 Mono<String> MachineController.machineList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="machineRead"></a>
+<a id="machineRead"></a>
 # **machineRead**
 ```java
 Mono<String> MachineController.machineRead(id)

@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// ContestEffectList - 
-func ContestEffectList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type ContestEffectAPI struct {
 }
 
-// ContestEffectRead - 
-func ContestEffectRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/contest-effect/
+func (api *ContestEffectAPI) ContestEffectList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/contest-effect/:id/
+func (api *ContestEffectAPI) ContestEffectRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

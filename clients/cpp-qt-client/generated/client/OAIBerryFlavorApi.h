@@ -101,18 +101,25 @@ signals:
     void berryFlavorListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void berryFlavorReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use berryFlavorListSignalError() instead")
     void berryFlavorListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void berryFlavorListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use berryFlavorReadSignalError() instead")
     void berryFlavorReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void berryFlavorReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use berryFlavorListSignalErrorFull() instead")
     void berryFlavorListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void berryFlavorListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use berryFlavorReadSignalErrorFull() instead")
     void berryFlavorReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void berryFlavorReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

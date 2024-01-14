@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**evolutionTriggerRead**](EvolutionTriggerApi.md#evolutionTriggerRead) | **GET** /api/v2/evolution-trigger/{id}/ |  |
 
 
-<a name="evolutionTriggerList"></a>
+<a id="evolutionTriggerList"></a>
 # **evolutionTriggerList**
 > String evolutionTriggerList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="evolutionTriggerRead"></a>
+<a id="evolutionTriggerRead"></a>
 # **evolutionTriggerRead**
 > String evolutionTriggerRead(id)
 

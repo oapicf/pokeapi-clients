@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**pokemonFormRead**](PokemonFormApi.md#pokemonFormRead) | **GET** /api/v2/pokemon-form/{id}/ |  |
 
 
-<a name="pokemonFormList"></a>
+<a id="pokemonFormList"></a>
 # **pokemonFormList**
 > String pokemonFormList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="pokemonFormRead"></a>
+<a id="pokemonFormRead"></a>
 # **pokemonFormRead**
 > String pokemonFormRead(id)
 

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**itemRead**](ItemApi.md#itemRead) | **GET** /api/v2/item/{id}/ | 
 
 
-<a name="itemList"></a>
+<a id="itemList"></a>
 # **itemList**
 > kotlin.String itemList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="itemRead"></a>
+<a id="itemRead"></a>
 # **itemRead**
 > kotlin.String itemRead(id)
 

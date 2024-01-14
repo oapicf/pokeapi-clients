@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="palParkAreaList"></a>
+<a id="palParkAreaList"></a>
 # **palParkAreaList**
 ```java
 Mono<String> PalParkAreaApi.palParkAreaList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> PalParkAreaApi.palParkAreaList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="palParkAreaRead"></a>
+<a id="palParkAreaRead"></a>
 # **palParkAreaRead**
 ```java
 Mono<String> PalParkAreaApi.palParkAreaRead(id)

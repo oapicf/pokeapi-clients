@@ -8,10 +8,10 @@
 
 
 char*
-EncounterMethodAPI_encounterMethodList(apiClient_t *apiClient, int limit , int offset );
+EncounterMethodAPI_encounterMethodList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-EncounterMethodAPI_encounterMethodRead(apiClient_t *apiClient, int id );
+EncounterMethodAPI_encounterMethodRead(apiClient_t *apiClient, int *id);
 
 

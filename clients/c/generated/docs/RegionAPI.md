@@ -17,8 +17,8 @@ char* RegionAPI_regionList(apiClient_t *apiClient, int limit, int offset);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **apiClient** | **apiClient_t \*** | context containing the client configuration |
-**limit** | **int** |  | [optional] 
-**offset** | **int** |  | [optional] 
+**limit** | **int \*** |  | [optional] 
+**offset** | **int \*** |  | [optional] 
 
 ### Return type
 
@@ -46,7 +46,7 @@ char* RegionAPI_regionRead(apiClient_t *apiClient, int id);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **apiClient** | **apiClient_t \*** | context containing the client configuration |
-**id** | **int** |  | 
+**id** | **int \*** |  | 
 
 ### Return type
 

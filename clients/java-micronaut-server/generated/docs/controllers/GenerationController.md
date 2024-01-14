@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**generationList**](#generationList) | **GET** /api/v2/generation/ | 
 [**generationRead**](#generationRead) | **GET** /api/v2/generation/{id}/ | 
 
-<a name="generationList"></a>
+<a id="generationList"></a>
 # **generationList**
 ```java
 Mono<String> GenerationController.generationList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="generationRead"></a>
+<a id="generationRead"></a>
 # **generationRead**
 ```java
 Mono<String> GenerationController.generationRead(id)

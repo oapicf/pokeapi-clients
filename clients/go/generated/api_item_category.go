@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// ItemCategoryApiService ItemCategoryApi service
-type ItemCategoryApiService service
+// ItemCategoryAPIService ItemCategoryAPI service
+type ItemCategoryAPIService service
 
 type ApiItemCategoryListRequest struct {
 	ctx context.Context
-	ApiService *ItemCategoryApiService
+	ApiService *ItemCategoryAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ ItemCategoryList Method for ItemCategoryList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiItemCategoryListRequest
 */
-func (a *ItemCategoryApiService) ItemCategoryList(ctx context.Context) ApiItemCategoryListRequest {
+func (a *ItemCategoryAPIService) ItemCategoryList(ctx context.Context) ApiItemCategoryListRequest {
 	return ApiItemCategoryListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *ItemCategoryApiService) ItemCategoryList(ctx context.Context) ApiItemCa
 
 // Execute executes the request
 //  @return string
-func (a *ItemCategoryApiService) ItemCategoryListExecute(r ApiItemCategoryListRequest) (string, *http.Response, error) {
+func (a *ItemCategoryAPIService) ItemCategoryListExecute(r ApiItemCategoryListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *ItemCategoryApiService) ItemCategoryListExecute(r ApiItemCategoryListRe
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemCategoryApiService.ItemCategoryList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemCategoryAPIService.ItemCategoryList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *ItemCategoryApiService) ItemCategoryListExecute(r ApiItemCategoryListRe
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *ItemCategoryApiService) ItemCategoryListExecute(r ApiItemCategoryListRe
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *ItemCategoryApiService) ItemCategoryListExecute(r ApiItemCategoryListRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *ItemCategoryApiService) ItemCategoryListExecute(r ApiItemCategoryListRe
 
 type ApiItemCategoryReadRequest struct {
 	ctx context.Context
-	ApiService *ItemCategoryApiService
+	ApiService *ItemCategoryAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ ItemCategoryRead Method for ItemCategoryRead
  @param id
  @return ApiItemCategoryReadRequest
 */
-func (a *ItemCategoryApiService) ItemCategoryRead(ctx context.Context, id int32) ApiItemCategoryReadRequest {
+func (a *ItemCategoryAPIService) ItemCategoryRead(ctx context.Context, id int32) ApiItemCategoryReadRequest {
 	return ApiItemCategoryReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *ItemCategoryApiService) ItemCategoryRead(ctx context.Context, id int32)
 
 // Execute executes the request
 //  @return string
-func (a *ItemCategoryApiService) ItemCategoryReadExecute(r ApiItemCategoryReadRequest) (string, *http.Response, error) {
+func (a *ItemCategoryAPIService) ItemCategoryReadExecute(r ApiItemCategoryReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *ItemCategoryApiService) ItemCategoryReadExecute(r ApiItemCategoryReadRe
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemCategoryApiService.ItemCategoryRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemCategoryAPIService.ItemCategoryRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/item-category/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *ItemCategoryApiService) ItemCategoryReadExecute(r ApiItemCategoryReadRe
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *ItemCategoryApiService) ItemCategoryReadExecute(r ApiItemCategoryReadRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

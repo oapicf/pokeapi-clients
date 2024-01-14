@@ -8,10 +8,10 @@
 
 
 char*
-MoveBattleStyleAPI_moveBattleStyleList(apiClient_t *apiClient, int limit , int offset );
+MoveBattleStyleAPI_moveBattleStyleList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-MoveBattleStyleAPI_moveBattleStyleRead(apiClient_t *apiClient, int id );
+MoveBattleStyleAPI_moveBattleStyleRead(apiClient_t *apiClient, int *id);
 
 

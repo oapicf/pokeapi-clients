@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// GrowthRateApiController binds http requests to an api service and writes the service results to the http response
-type GrowthRateApiController struct {
-	service GrowthRateApiServicer
+// GrowthRateAPIController binds http requests to an api service and writes the service results to the http response
+type GrowthRateAPIController struct {
+	service GrowthRateAPIServicer
 	errorHandler ErrorHandler
 }
 
-// GrowthRateApiOption for how the controller is set up.
-type GrowthRateApiOption func(*GrowthRateApiController)
+// GrowthRateAPIOption for how the controller is set up.
+type GrowthRateAPIOption func(*GrowthRateAPIController)
 
-// WithGrowthRateApiErrorHandler inject ErrorHandler into controller
-func WithGrowthRateApiErrorHandler(h ErrorHandler) GrowthRateApiOption {
-	return func(c *GrowthRateApiController) {
+// WithGrowthRateAPIErrorHandler inject ErrorHandler into controller
+func WithGrowthRateAPIErrorHandler(h ErrorHandler) GrowthRateAPIOption {
+	return func(c *GrowthRateAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewGrowthRateApiController creates a default api controller
-func NewGrowthRateApiController(s GrowthRateApiServicer, opts ...GrowthRateApiOption) Router {
-	controller := &GrowthRateApiController{
+// NewGrowthRateAPIController creates a default api controller
+func NewGrowthRateAPIController(s GrowthRateAPIServicer, opts ...GrowthRateAPIOption) Router {
+	controller := &GrowthRateAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewGrowthRateApiController(s GrowthRateApiServicer, opts ...GrowthRateApiOp
 	return controller
 }
 
-// Routes returns all the api routes for the GrowthRateApiController
-func (c *GrowthRateApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"GrowthRateList",
+// Routes returns all the api routes for the GrowthRateAPIController
+func (c *GrowthRateAPIController) Routes() Routes {
+	return Routes{
+		"GrowthRateList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/growth-rate/",
 			c.GrowthRateList,
 		},
-		{
-			"GrowthRateRead",
+		"GrowthRateRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/growth-rate/{id}/",
 			c.GrowthRateRead,
@@ -67,17 +65,35 @@ func (c *GrowthRateApiController) Routes() Routes {
 }
 
 // GrowthRateList - 
-func (c *GrowthRateApiController) GrowthRateList(w http.ResponseWriter, r *http.Request) {
+func (c *GrowthRateAPIController) GrowthRateList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.GrowthRateList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *GrowthRateApiController) GrowthRateList(w http.ResponseWriter, r *http.
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // GrowthRateRead - 
-func (c *GrowthRateApiController) GrowthRateRead(w http.ResponseWriter, r *http.Request) {
+func (c *GrowthRateAPIController) GrowthRateRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.GrowthRateRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *GrowthRateApiController) GrowthRateRead(w http.ResponseWriter, r *http.
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

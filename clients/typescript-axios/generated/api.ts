@@ -13,13 +13,15 @@
  */
 
 
-import { Configuration } from './configuration';
-import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { Configuration } from './configuration';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
+import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from './common';
+import type { RequestArgs } from './base';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from './base';
+import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
 
 /**
@@ -35,7 +37,7 @@ export const AbilityApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        abilityList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        abilityList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/ability/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -73,7 +75,7 @@ export const AbilityApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        abilityRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        abilityRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('abilityRead', 'id', id)
             const localVarPath = `/api/v2/ability/{id}/`
@@ -117,9 +119,11 @@ export const AbilityApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async abilityList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async abilityList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.abilityList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AbilityApi.abilityList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -127,9 +131,11 @@ export const AbilityApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async abilityRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async abilityRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.abilityRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AbilityApi.abilityRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -178,7 +184,7 @@ export class AbilityApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AbilityApi
      */
-    public abilityList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public abilityList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return AbilityApiFp(this.configuration).abilityList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -189,10 +195,11 @@ export class AbilityApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AbilityApi
      */
-    public abilityRead(id: number, options?: AxiosRequestConfig) {
+    public abilityRead(id: number, options?: RawAxiosRequestConfig) {
         return AbilityApiFp(this.configuration).abilityRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -208,7 +215,7 @@ export const BerryApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        berryList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        berryList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/berry/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -246,7 +253,7 @@ export const BerryApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        berryRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        berryRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('berryRead', 'id', id)
             const localVarPath = `/api/v2/berry/{id}/`
@@ -290,9 +297,11 @@ export const BerryApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async berryList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async berryList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.berryList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['BerryApi.berryList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -300,9 +309,11 @@ export const BerryApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async berryRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async berryRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.berryRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['BerryApi.berryRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -351,7 +362,7 @@ export class BerryApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BerryApi
      */
-    public berryList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public berryList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return BerryApiFp(this.configuration).berryList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -362,10 +373,11 @@ export class BerryApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BerryApi
      */
-    public berryRead(id: number, options?: AxiosRequestConfig) {
+    public berryRead(id: number, options?: RawAxiosRequestConfig) {
         return BerryApiFp(this.configuration).berryRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -381,7 +393,7 @@ export const BerryFirmnessApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        berryFirmnessList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        berryFirmnessList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/berry-firmness/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -419,7 +431,7 @@ export const BerryFirmnessApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        berryFirmnessRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        berryFirmnessRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('berryFirmnessRead', 'id', id)
             const localVarPath = `/api/v2/berry-firmness/{id}/`
@@ -463,9 +475,11 @@ export const BerryFirmnessApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async berryFirmnessList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async berryFirmnessList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.berryFirmnessList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['BerryFirmnessApi.berryFirmnessList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -473,9 +487,11 @@ export const BerryFirmnessApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async berryFirmnessRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async berryFirmnessRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.berryFirmnessRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['BerryFirmnessApi.berryFirmnessRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -524,7 +540,7 @@ export class BerryFirmnessApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BerryFirmnessApi
      */
-    public berryFirmnessList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public berryFirmnessList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return BerryFirmnessApiFp(this.configuration).berryFirmnessList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -535,10 +551,11 @@ export class BerryFirmnessApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BerryFirmnessApi
      */
-    public berryFirmnessRead(id: number, options?: AxiosRequestConfig) {
+    public berryFirmnessRead(id: number, options?: RawAxiosRequestConfig) {
         return BerryFirmnessApiFp(this.configuration).berryFirmnessRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -554,7 +571,7 @@ export const BerryFlavorApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        berryFlavorList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        berryFlavorList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/berry-flavor/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -592,7 +609,7 @@ export const BerryFlavorApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        berryFlavorRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        berryFlavorRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('berryFlavorRead', 'id', id)
             const localVarPath = `/api/v2/berry-flavor/{id}/`
@@ -636,9 +653,11 @@ export const BerryFlavorApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async berryFlavorList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async berryFlavorList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.berryFlavorList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['BerryFlavorApi.berryFlavorList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -646,9 +665,11 @@ export const BerryFlavorApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async berryFlavorRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async berryFlavorRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.berryFlavorRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['BerryFlavorApi.berryFlavorRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -697,7 +718,7 @@ export class BerryFlavorApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BerryFlavorApi
      */
-    public berryFlavorList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public berryFlavorList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return BerryFlavorApiFp(this.configuration).berryFlavorList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -708,10 +729,11 @@ export class BerryFlavorApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BerryFlavorApi
      */
-    public berryFlavorRead(id: number, options?: AxiosRequestConfig) {
+    public berryFlavorRead(id: number, options?: RawAxiosRequestConfig) {
         return BerryFlavorApiFp(this.configuration).berryFlavorRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -727,7 +749,7 @@ export const CharacteristicApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        characteristicList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        characteristicList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/characteristic/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -765,7 +787,7 @@ export const CharacteristicApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        characteristicRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        characteristicRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('characteristicRead', 'id', id)
             const localVarPath = `/api/v2/characteristic/{id}/`
@@ -809,9 +831,11 @@ export const CharacteristicApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async characteristicList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async characteristicList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.characteristicList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CharacteristicApi.characteristicList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -819,9 +843,11 @@ export const CharacteristicApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async characteristicRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async characteristicRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.characteristicRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CharacteristicApi.characteristicRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -870,7 +896,7 @@ export class CharacteristicApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CharacteristicApi
      */
-    public characteristicList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public characteristicList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return CharacteristicApiFp(this.configuration).characteristicList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -881,10 +907,11 @@ export class CharacteristicApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CharacteristicApi
      */
-    public characteristicRead(id: number, options?: AxiosRequestConfig) {
+    public characteristicRead(id: number, options?: RawAxiosRequestConfig) {
         return CharacteristicApiFp(this.configuration).characteristicRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -900,7 +927,7 @@ export const ContestEffectApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contestEffectList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        contestEffectList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/contest-effect/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -938,7 +965,7 @@ export const ContestEffectApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contestEffectRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        contestEffectRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('contestEffectRead', 'id', id)
             const localVarPath = `/api/v2/contest-effect/{id}/`
@@ -982,9 +1009,11 @@ export const ContestEffectApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async contestEffectList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async contestEffectList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.contestEffectList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ContestEffectApi.contestEffectList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -992,9 +1021,11 @@ export const ContestEffectApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async contestEffectRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async contestEffectRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.contestEffectRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ContestEffectApi.contestEffectRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -1043,7 +1074,7 @@ export class ContestEffectApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ContestEffectApi
      */
-    public contestEffectList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public contestEffectList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return ContestEffectApiFp(this.configuration).contestEffectList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1054,10 +1085,11 @@ export class ContestEffectApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ContestEffectApi
      */
-    public contestEffectRead(id: number, options?: AxiosRequestConfig) {
+    public contestEffectRead(id: number, options?: RawAxiosRequestConfig) {
         return ContestEffectApiFp(this.configuration).contestEffectRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -1073,7 +1105,7 @@ export const ContestTypeApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contestTypeList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        contestTypeList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/contest-type/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1111,7 +1143,7 @@ export const ContestTypeApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contestTypeRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        contestTypeRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('contestTypeRead', 'id', id)
             const localVarPath = `/api/v2/contest-type/{id}/`
@@ -1155,9 +1187,11 @@ export const ContestTypeApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async contestTypeList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async contestTypeList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.contestTypeList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ContestTypeApi.contestTypeList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -1165,9 +1199,11 @@ export const ContestTypeApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async contestTypeRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async contestTypeRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.contestTypeRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ContestTypeApi.contestTypeRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -1216,7 +1252,7 @@ export class ContestTypeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ContestTypeApi
      */
-    public contestTypeList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public contestTypeList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return ContestTypeApiFp(this.configuration).contestTypeList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1227,10 +1263,11 @@ export class ContestTypeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ContestTypeApi
      */
-    public contestTypeRead(id: number, options?: AxiosRequestConfig) {
+    public contestTypeRead(id: number, options?: RawAxiosRequestConfig) {
         return ContestTypeApiFp(this.configuration).contestTypeRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -1246,7 +1283,7 @@ export const EggGroupApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        eggGroupList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        eggGroupList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/egg-group/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1284,7 +1321,7 @@ export const EggGroupApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        eggGroupRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        eggGroupRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('eggGroupRead', 'id', id)
             const localVarPath = `/api/v2/egg-group/{id}/`
@@ -1328,9 +1365,11 @@ export const EggGroupApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async eggGroupList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async eggGroupList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.eggGroupList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EggGroupApi.eggGroupList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -1338,9 +1377,11 @@ export const EggGroupApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async eggGroupRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async eggGroupRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.eggGroupRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EggGroupApi.eggGroupRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -1389,7 +1430,7 @@ export class EggGroupApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EggGroupApi
      */
-    public eggGroupList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public eggGroupList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return EggGroupApiFp(this.configuration).eggGroupList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1400,10 +1441,11 @@ export class EggGroupApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EggGroupApi
      */
-    public eggGroupRead(id: number, options?: AxiosRequestConfig) {
+    public eggGroupRead(id: number, options?: RawAxiosRequestConfig) {
         return EggGroupApiFp(this.configuration).eggGroupRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -1419,7 +1461,7 @@ export const EncounterConditionApiAxiosParamCreator = function (configuration?: 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        encounterConditionList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        encounterConditionList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/encounter-condition/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1457,7 +1499,7 @@ export const EncounterConditionApiAxiosParamCreator = function (configuration?: 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        encounterConditionRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        encounterConditionRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('encounterConditionRead', 'id', id)
             const localVarPath = `/api/v2/encounter-condition/{id}/`
@@ -1501,9 +1543,11 @@ export const EncounterConditionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async encounterConditionList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async encounterConditionList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.encounterConditionList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EncounterConditionApi.encounterConditionList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -1511,9 +1555,11 @@ export const EncounterConditionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async encounterConditionRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async encounterConditionRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.encounterConditionRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EncounterConditionApi.encounterConditionRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -1562,7 +1608,7 @@ export class EncounterConditionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EncounterConditionApi
      */
-    public encounterConditionList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public encounterConditionList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return EncounterConditionApiFp(this.configuration).encounterConditionList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1573,10 +1619,11 @@ export class EncounterConditionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EncounterConditionApi
      */
-    public encounterConditionRead(id: number, options?: AxiosRequestConfig) {
+    public encounterConditionRead(id: number, options?: RawAxiosRequestConfig) {
         return EncounterConditionApiFp(this.configuration).encounterConditionRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -1592,7 +1639,7 @@ export const EncounterConditionValueApiAxiosParamCreator = function (configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        encounterConditionValueList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        encounterConditionValueList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/encounter-condition-value/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1630,7 +1677,7 @@ export const EncounterConditionValueApiAxiosParamCreator = function (configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        encounterConditionValueRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        encounterConditionValueRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('encounterConditionValueRead', 'id', id)
             const localVarPath = `/api/v2/encounter-condition-value/{id}/`
@@ -1674,9 +1721,11 @@ export const EncounterConditionValueApiFp = function(configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async encounterConditionValueList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async encounterConditionValueList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.encounterConditionValueList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EncounterConditionValueApi.encounterConditionValueList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -1684,9 +1733,11 @@ export const EncounterConditionValueApiFp = function(configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async encounterConditionValueRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async encounterConditionValueRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.encounterConditionValueRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EncounterConditionValueApi.encounterConditionValueRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -1735,7 +1786,7 @@ export class EncounterConditionValueApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EncounterConditionValueApi
      */
-    public encounterConditionValueList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public encounterConditionValueList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return EncounterConditionValueApiFp(this.configuration).encounterConditionValueList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1746,10 +1797,11 @@ export class EncounterConditionValueApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EncounterConditionValueApi
      */
-    public encounterConditionValueRead(id: number, options?: AxiosRequestConfig) {
+    public encounterConditionValueRead(id: number, options?: RawAxiosRequestConfig) {
         return EncounterConditionValueApiFp(this.configuration).encounterConditionValueRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -1765,7 +1817,7 @@ export const EncounterMethodApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        encounterMethodList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        encounterMethodList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/encounter-method/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1803,7 +1855,7 @@ export const EncounterMethodApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        encounterMethodRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        encounterMethodRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('encounterMethodRead', 'id', id)
             const localVarPath = `/api/v2/encounter-method/{id}/`
@@ -1847,9 +1899,11 @@ export const EncounterMethodApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async encounterMethodList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async encounterMethodList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.encounterMethodList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EncounterMethodApi.encounterMethodList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -1857,9 +1911,11 @@ export const EncounterMethodApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async encounterMethodRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async encounterMethodRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.encounterMethodRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EncounterMethodApi.encounterMethodRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -1908,7 +1964,7 @@ export class EncounterMethodApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EncounterMethodApi
      */
-    public encounterMethodList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public encounterMethodList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return EncounterMethodApiFp(this.configuration).encounterMethodList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1919,10 +1975,11 @@ export class EncounterMethodApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EncounterMethodApi
      */
-    public encounterMethodRead(id: number, options?: AxiosRequestConfig) {
+    public encounterMethodRead(id: number, options?: RawAxiosRequestConfig) {
         return EncounterMethodApiFp(this.configuration).encounterMethodRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -1938,7 +1995,7 @@ export const EvolutionChainApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        evolutionChainList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        evolutionChainList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/evolution-chain/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1976,7 +2033,7 @@ export const EvolutionChainApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        evolutionChainRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        evolutionChainRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('evolutionChainRead', 'id', id)
             const localVarPath = `/api/v2/evolution-chain/{id}/`
@@ -2020,9 +2077,11 @@ export const EvolutionChainApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async evolutionChainList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async evolutionChainList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.evolutionChainList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EvolutionChainApi.evolutionChainList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -2030,9 +2089,11 @@ export const EvolutionChainApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async evolutionChainRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async evolutionChainRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.evolutionChainRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EvolutionChainApi.evolutionChainRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -2081,7 +2142,7 @@ export class EvolutionChainApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EvolutionChainApi
      */
-    public evolutionChainList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public evolutionChainList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return EvolutionChainApiFp(this.configuration).evolutionChainList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -2092,10 +2153,11 @@ export class EvolutionChainApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EvolutionChainApi
      */
-    public evolutionChainRead(id: number, options?: AxiosRequestConfig) {
+    public evolutionChainRead(id: number, options?: RawAxiosRequestConfig) {
         return EvolutionChainApiFp(this.configuration).evolutionChainRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -2111,7 +2173,7 @@ export const EvolutionTriggerApiAxiosParamCreator = function (configuration?: Co
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        evolutionTriggerList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        evolutionTriggerList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/evolution-trigger/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2149,7 +2211,7 @@ export const EvolutionTriggerApiAxiosParamCreator = function (configuration?: Co
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        evolutionTriggerRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        evolutionTriggerRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('evolutionTriggerRead', 'id', id)
             const localVarPath = `/api/v2/evolution-trigger/{id}/`
@@ -2193,9 +2255,11 @@ export const EvolutionTriggerApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async evolutionTriggerList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async evolutionTriggerList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.evolutionTriggerList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EvolutionTriggerApi.evolutionTriggerList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -2203,9 +2267,11 @@ export const EvolutionTriggerApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async evolutionTriggerRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async evolutionTriggerRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.evolutionTriggerRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EvolutionTriggerApi.evolutionTriggerRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -2254,7 +2320,7 @@ export class EvolutionTriggerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EvolutionTriggerApi
      */
-    public evolutionTriggerList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public evolutionTriggerList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return EvolutionTriggerApiFp(this.configuration).evolutionTriggerList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -2265,10 +2331,11 @@ export class EvolutionTriggerApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EvolutionTriggerApi
      */
-    public evolutionTriggerRead(id: number, options?: AxiosRequestConfig) {
+    public evolutionTriggerRead(id: number, options?: RawAxiosRequestConfig) {
         return EvolutionTriggerApiFp(this.configuration).evolutionTriggerRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -2284,7 +2351,7 @@ export const GenderApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        genderList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        genderList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/gender/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2322,7 +2389,7 @@ export const GenderApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        genderRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        genderRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('genderRead', 'id', id)
             const localVarPath = `/api/v2/gender/{id}/`
@@ -2366,9 +2433,11 @@ export const GenderApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async genderList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async genderList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.genderList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GenderApi.genderList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -2376,9 +2445,11 @@ export const GenderApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async genderRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async genderRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.genderRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GenderApi.genderRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -2427,7 +2498,7 @@ export class GenderApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GenderApi
      */
-    public genderList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public genderList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return GenderApiFp(this.configuration).genderList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -2438,10 +2509,11 @@ export class GenderApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GenderApi
      */
-    public genderRead(id: number, options?: AxiosRequestConfig) {
+    public genderRead(id: number, options?: RawAxiosRequestConfig) {
         return GenderApiFp(this.configuration).genderRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -2457,7 +2529,7 @@ export const GenerationApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        generationList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        generationList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/generation/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2495,7 +2567,7 @@ export const GenerationApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        generationRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        generationRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('generationRead', 'id', id)
             const localVarPath = `/api/v2/generation/{id}/`
@@ -2539,9 +2611,11 @@ export const GenerationApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async generationList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async generationList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.generationList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GenerationApi.generationList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -2549,9 +2623,11 @@ export const GenerationApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async generationRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async generationRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.generationRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GenerationApi.generationRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -2600,7 +2676,7 @@ export class GenerationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GenerationApi
      */
-    public generationList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public generationList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return GenerationApiFp(this.configuration).generationList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -2611,10 +2687,11 @@ export class GenerationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GenerationApi
      */
-    public generationRead(id: number, options?: AxiosRequestConfig) {
+    public generationRead(id: number, options?: RawAxiosRequestConfig) {
         return GenerationApiFp(this.configuration).generationRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -2630,7 +2707,7 @@ export const GrowthRateApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        growthRateList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        growthRateList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/growth-rate/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2668,7 +2745,7 @@ export const GrowthRateApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        growthRateRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        growthRateRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('growthRateRead', 'id', id)
             const localVarPath = `/api/v2/growth-rate/{id}/`
@@ -2712,9 +2789,11 @@ export const GrowthRateApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async growthRateList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async growthRateList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.growthRateList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GrowthRateApi.growthRateList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -2722,9 +2801,11 @@ export const GrowthRateApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async growthRateRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async growthRateRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.growthRateRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GrowthRateApi.growthRateRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -2773,7 +2854,7 @@ export class GrowthRateApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GrowthRateApi
      */
-    public growthRateList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public growthRateList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return GrowthRateApiFp(this.configuration).growthRateList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -2784,10 +2865,11 @@ export class GrowthRateApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GrowthRateApi
      */
-    public growthRateRead(id: number, options?: AxiosRequestConfig) {
+    public growthRateRead(id: number, options?: RawAxiosRequestConfig) {
         return GrowthRateApiFp(this.configuration).growthRateRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -2803,7 +2885,7 @@ export const ItemApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        itemList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/item/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2841,7 +2923,7 @@ export const ItemApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        itemRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('itemRead', 'id', id)
             const localVarPath = `/api/v2/item/{id}/`
@@ -2885,9 +2967,11 @@ export const ItemApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async itemList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async itemList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.itemList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ItemApi.itemList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -2895,9 +2979,11 @@ export const ItemApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async itemRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async itemRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.itemRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ItemApi.itemRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -2946,7 +3032,7 @@ export class ItemApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ItemApi
      */
-    public itemList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public itemList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return ItemApiFp(this.configuration).itemList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -2957,10 +3043,11 @@ export class ItemApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ItemApi
      */
-    public itemRead(id: number, options?: AxiosRequestConfig) {
+    public itemRead(id: number, options?: RawAxiosRequestConfig) {
         return ItemApiFp(this.configuration).itemRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -2976,7 +3063,7 @@ export const ItemAttributeApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemAttributeList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        itemAttributeList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/item-attribute/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3014,7 +3101,7 @@ export const ItemAttributeApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemAttributeRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        itemAttributeRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('itemAttributeRead', 'id', id)
             const localVarPath = `/api/v2/item-attribute/{id}/`
@@ -3058,9 +3145,11 @@ export const ItemAttributeApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async itemAttributeList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async itemAttributeList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.itemAttributeList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ItemAttributeApi.itemAttributeList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -3068,9 +3157,11 @@ export const ItemAttributeApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async itemAttributeRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async itemAttributeRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.itemAttributeRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ItemAttributeApi.itemAttributeRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -3119,7 +3210,7 @@ export class ItemAttributeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ItemAttributeApi
      */
-    public itemAttributeList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public itemAttributeList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return ItemAttributeApiFp(this.configuration).itemAttributeList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -3130,10 +3221,11 @@ export class ItemAttributeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ItemAttributeApi
      */
-    public itemAttributeRead(id: number, options?: AxiosRequestConfig) {
+    public itemAttributeRead(id: number, options?: RawAxiosRequestConfig) {
         return ItemAttributeApiFp(this.configuration).itemAttributeRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -3149,7 +3241,7 @@ export const ItemCategoryApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemCategoryList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        itemCategoryList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/item-category/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3187,7 +3279,7 @@ export const ItemCategoryApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemCategoryRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        itemCategoryRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('itemCategoryRead', 'id', id)
             const localVarPath = `/api/v2/item-category/{id}/`
@@ -3231,9 +3323,11 @@ export const ItemCategoryApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async itemCategoryList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async itemCategoryList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.itemCategoryList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ItemCategoryApi.itemCategoryList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -3241,9 +3335,11 @@ export const ItemCategoryApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async itemCategoryRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async itemCategoryRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.itemCategoryRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ItemCategoryApi.itemCategoryRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -3292,7 +3388,7 @@ export class ItemCategoryApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ItemCategoryApi
      */
-    public itemCategoryList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public itemCategoryList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return ItemCategoryApiFp(this.configuration).itemCategoryList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -3303,10 +3399,11 @@ export class ItemCategoryApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ItemCategoryApi
      */
-    public itemCategoryRead(id: number, options?: AxiosRequestConfig) {
+    public itemCategoryRead(id: number, options?: RawAxiosRequestConfig) {
         return ItemCategoryApiFp(this.configuration).itemCategoryRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -3322,7 +3419,7 @@ export const ItemFlingEffectApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemFlingEffectList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        itemFlingEffectList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/item-fling-effect/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3360,7 +3457,7 @@ export const ItemFlingEffectApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemFlingEffectRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        itemFlingEffectRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('itemFlingEffectRead', 'id', id)
             const localVarPath = `/api/v2/item-fling-effect/{id}/`
@@ -3404,9 +3501,11 @@ export const ItemFlingEffectApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async itemFlingEffectList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async itemFlingEffectList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.itemFlingEffectList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ItemFlingEffectApi.itemFlingEffectList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -3414,9 +3513,11 @@ export const ItemFlingEffectApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async itemFlingEffectRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async itemFlingEffectRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.itemFlingEffectRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ItemFlingEffectApi.itemFlingEffectRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -3465,7 +3566,7 @@ export class ItemFlingEffectApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ItemFlingEffectApi
      */
-    public itemFlingEffectList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public itemFlingEffectList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return ItemFlingEffectApiFp(this.configuration).itemFlingEffectList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -3476,10 +3577,11 @@ export class ItemFlingEffectApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ItemFlingEffectApi
      */
-    public itemFlingEffectRead(id: number, options?: AxiosRequestConfig) {
+    public itemFlingEffectRead(id: number, options?: RawAxiosRequestConfig) {
         return ItemFlingEffectApiFp(this.configuration).itemFlingEffectRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -3495,7 +3597,7 @@ export const ItemPocketApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemPocketList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        itemPocketList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/item-pocket/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3533,7 +3635,7 @@ export const ItemPocketApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemPocketRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        itemPocketRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('itemPocketRead', 'id', id)
             const localVarPath = `/api/v2/item-pocket/{id}/`
@@ -3577,9 +3679,11 @@ export const ItemPocketApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async itemPocketList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async itemPocketList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.itemPocketList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ItemPocketApi.itemPocketList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -3587,9 +3691,11 @@ export const ItemPocketApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async itemPocketRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async itemPocketRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.itemPocketRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ItemPocketApi.itemPocketRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -3638,7 +3744,7 @@ export class ItemPocketApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ItemPocketApi
      */
-    public itemPocketList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public itemPocketList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return ItemPocketApiFp(this.configuration).itemPocketList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -3649,10 +3755,11 @@ export class ItemPocketApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ItemPocketApi
      */
-    public itemPocketRead(id: number, options?: AxiosRequestConfig) {
+    public itemPocketRead(id: number, options?: RawAxiosRequestConfig) {
         return ItemPocketApiFp(this.configuration).itemPocketRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -3668,7 +3775,7 @@ export const LanguageApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        languageList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        languageList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/language/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3706,7 +3813,7 @@ export const LanguageApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        languageRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        languageRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('languageRead', 'id', id)
             const localVarPath = `/api/v2/language/{id}/`
@@ -3750,9 +3857,11 @@ export const LanguageApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async languageList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async languageList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.languageList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['LanguageApi.languageList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -3760,9 +3869,11 @@ export const LanguageApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async languageRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async languageRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.languageRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['LanguageApi.languageRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -3811,7 +3922,7 @@ export class LanguageApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof LanguageApi
      */
-    public languageList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public languageList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return LanguageApiFp(this.configuration).languageList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -3822,10 +3933,11 @@ export class LanguageApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof LanguageApi
      */
-    public languageRead(id: number, options?: AxiosRequestConfig) {
+    public languageRead(id: number, options?: RawAxiosRequestConfig) {
         return LanguageApiFp(this.configuration).languageRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -3841,7 +3953,7 @@ export const LocationApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        locationList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/location/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3879,7 +3991,7 @@ export const LocationApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        locationRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('locationRead', 'id', id)
             const localVarPath = `/api/v2/location/{id}/`
@@ -3923,9 +4035,11 @@ export const LocationApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async locationList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async locationList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.locationList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['LocationApi.locationList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -3933,9 +4047,11 @@ export const LocationApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async locationRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async locationRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.locationRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['LocationApi.locationRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -3984,7 +4100,7 @@ export class LocationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof LocationApi
      */
-    public locationList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public locationList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return LocationApiFp(this.configuration).locationList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -3995,10 +4111,11 @@ export class LocationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof LocationApi
      */
-    public locationRead(id: number, options?: AxiosRequestConfig) {
+    public locationRead(id: number, options?: RawAxiosRequestConfig) {
         return LocationApiFp(this.configuration).locationRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -4014,7 +4131,7 @@ export const LocationAreaApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationAreaList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        locationAreaList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/location-area/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4052,7 +4169,7 @@ export const LocationAreaApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationAreaRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        locationAreaRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('locationAreaRead', 'id', id)
             const localVarPath = `/api/v2/location-area/{id}/`
@@ -4096,9 +4213,11 @@ export const LocationAreaApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async locationAreaList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async locationAreaList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.locationAreaList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['LocationAreaApi.locationAreaList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -4106,9 +4225,11 @@ export const LocationAreaApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async locationAreaRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async locationAreaRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.locationAreaRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['LocationAreaApi.locationAreaRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -4157,7 +4278,7 @@ export class LocationAreaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof LocationAreaApi
      */
-    public locationAreaList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public locationAreaList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return LocationAreaApiFp(this.configuration).locationAreaList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -4168,10 +4289,11 @@ export class LocationAreaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof LocationAreaApi
      */
-    public locationAreaRead(id: number, options?: AxiosRequestConfig) {
+    public locationAreaRead(id: number, options?: RawAxiosRequestConfig) {
         return LocationAreaApiFp(this.configuration).locationAreaRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -4187,7 +4309,7 @@ export const MachineApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        machineList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        machineList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/machine/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4225,7 +4347,7 @@ export const MachineApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        machineRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        machineRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('machineRead', 'id', id)
             const localVarPath = `/api/v2/machine/{id}/`
@@ -4269,9 +4391,11 @@ export const MachineApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async machineList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async machineList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.machineList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MachineApi.machineList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -4279,9 +4403,11 @@ export const MachineApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async machineRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async machineRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.machineRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MachineApi.machineRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -4330,7 +4456,7 @@ export class MachineApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MachineApi
      */
-    public machineList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public machineList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return MachineApiFp(this.configuration).machineList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -4341,10 +4467,11 @@ export class MachineApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MachineApi
      */
-    public machineRead(id: number, options?: AxiosRequestConfig) {
+    public machineRead(id: number, options?: RawAxiosRequestConfig) {
         return MachineApiFp(this.configuration).machineRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -4360,7 +4487,7 @@ export const MoveApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        moveList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/move/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4398,7 +4525,7 @@ export const MoveApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        moveRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('moveRead', 'id', id)
             const localVarPath = `/api/v2/move/{id}/`
@@ -4442,9 +4569,11 @@ export const MoveApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async moveList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async moveList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.moveList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MoveApi.moveList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -4452,9 +4581,11 @@ export const MoveApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async moveRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async moveRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.moveRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MoveApi.moveRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -4503,7 +4634,7 @@ export class MoveApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MoveApi
      */
-    public moveList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public moveList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return MoveApiFp(this.configuration).moveList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -4514,10 +4645,11 @@ export class MoveApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MoveApi
      */
-    public moveRead(id: number, options?: AxiosRequestConfig) {
+    public moveRead(id: number, options?: RawAxiosRequestConfig) {
         return MoveApiFp(this.configuration).moveRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -4533,7 +4665,7 @@ export const MoveAilmentApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveAilmentList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        moveAilmentList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/move-ailment/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4571,7 +4703,7 @@ export const MoveAilmentApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveAilmentRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        moveAilmentRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('moveAilmentRead', 'id', id)
             const localVarPath = `/api/v2/move-ailment/{id}/`
@@ -4615,9 +4747,11 @@ export const MoveAilmentApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async moveAilmentList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async moveAilmentList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.moveAilmentList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MoveAilmentApi.moveAilmentList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -4625,9 +4759,11 @@ export const MoveAilmentApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async moveAilmentRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async moveAilmentRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.moveAilmentRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MoveAilmentApi.moveAilmentRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -4676,7 +4812,7 @@ export class MoveAilmentApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MoveAilmentApi
      */
-    public moveAilmentList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public moveAilmentList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return MoveAilmentApiFp(this.configuration).moveAilmentList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -4687,10 +4823,11 @@ export class MoveAilmentApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MoveAilmentApi
      */
-    public moveAilmentRead(id: number, options?: AxiosRequestConfig) {
+    public moveAilmentRead(id: number, options?: RawAxiosRequestConfig) {
         return MoveAilmentApiFp(this.configuration).moveAilmentRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -4706,7 +4843,7 @@ export const MoveBattleStyleApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveBattleStyleList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        moveBattleStyleList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/move-battle-style/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4744,7 +4881,7 @@ export const MoveBattleStyleApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveBattleStyleRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        moveBattleStyleRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('moveBattleStyleRead', 'id', id)
             const localVarPath = `/api/v2/move-battle-style/{id}/`
@@ -4788,9 +4925,11 @@ export const MoveBattleStyleApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async moveBattleStyleList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async moveBattleStyleList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.moveBattleStyleList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MoveBattleStyleApi.moveBattleStyleList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -4798,9 +4937,11 @@ export const MoveBattleStyleApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async moveBattleStyleRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async moveBattleStyleRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.moveBattleStyleRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MoveBattleStyleApi.moveBattleStyleRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -4849,7 +4990,7 @@ export class MoveBattleStyleApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MoveBattleStyleApi
      */
-    public moveBattleStyleList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public moveBattleStyleList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return MoveBattleStyleApiFp(this.configuration).moveBattleStyleList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -4860,10 +5001,11 @@ export class MoveBattleStyleApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MoveBattleStyleApi
      */
-    public moveBattleStyleRead(id: number, options?: AxiosRequestConfig) {
+    public moveBattleStyleRead(id: number, options?: RawAxiosRequestConfig) {
         return MoveBattleStyleApiFp(this.configuration).moveBattleStyleRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -4879,7 +5021,7 @@ export const MoveCategoryApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveCategoryList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        moveCategoryList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/move-category/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4917,7 +5059,7 @@ export const MoveCategoryApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveCategoryRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        moveCategoryRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('moveCategoryRead', 'id', id)
             const localVarPath = `/api/v2/move-category/{id}/`
@@ -4961,9 +5103,11 @@ export const MoveCategoryApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async moveCategoryList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async moveCategoryList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.moveCategoryList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MoveCategoryApi.moveCategoryList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -4971,9 +5115,11 @@ export const MoveCategoryApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async moveCategoryRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async moveCategoryRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.moveCategoryRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MoveCategoryApi.moveCategoryRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -5022,7 +5168,7 @@ export class MoveCategoryApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MoveCategoryApi
      */
-    public moveCategoryList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public moveCategoryList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return MoveCategoryApiFp(this.configuration).moveCategoryList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -5033,10 +5179,11 @@ export class MoveCategoryApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MoveCategoryApi
      */
-    public moveCategoryRead(id: number, options?: AxiosRequestConfig) {
+    public moveCategoryRead(id: number, options?: RawAxiosRequestConfig) {
         return MoveCategoryApiFp(this.configuration).moveCategoryRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -5052,7 +5199,7 @@ export const MoveDamageClassApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveDamageClassList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        moveDamageClassList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/move-damage-class/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -5090,7 +5237,7 @@ export const MoveDamageClassApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveDamageClassRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        moveDamageClassRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('moveDamageClassRead', 'id', id)
             const localVarPath = `/api/v2/move-damage-class/{id}/`
@@ -5134,9 +5281,11 @@ export const MoveDamageClassApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async moveDamageClassList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async moveDamageClassList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.moveDamageClassList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MoveDamageClassApi.moveDamageClassList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -5144,9 +5293,11 @@ export const MoveDamageClassApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async moveDamageClassRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async moveDamageClassRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.moveDamageClassRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MoveDamageClassApi.moveDamageClassRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -5195,7 +5346,7 @@ export class MoveDamageClassApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MoveDamageClassApi
      */
-    public moveDamageClassList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public moveDamageClassList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return MoveDamageClassApiFp(this.configuration).moveDamageClassList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -5206,10 +5357,11 @@ export class MoveDamageClassApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MoveDamageClassApi
      */
-    public moveDamageClassRead(id: number, options?: AxiosRequestConfig) {
+    public moveDamageClassRead(id: number, options?: RawAxiosRequestConfig) {
         return MoveDamageClassApiFp(this.configuration).moveDamageClassRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -5225,7 +5377,7 @@ export const MoveLearnMethodApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveLearnMethodList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        moveLearnMethodList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/move-learn-method/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -5263,7 +5415,7 @@ export const MoveLearnMethodApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveLearnMethodRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        moveLearnMethodRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('moveLearnMethodRead', 'id', id)
             const localVarPath = `/api/v2/move-learn-method/{id}/`
@@ -5307,9 +5459,11 @@ export const MoveLearnMethodApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async moveLearnMethodList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async moveLearnMethodList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.moveLearnMethodList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MoveLearnMethodApi.moveLearnMethodList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -5317,9 +5471,11 @@ export const MoveLearnMethodApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async moveLearnMethodRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async moveLearnMethodRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.moveLearnMethodRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MoveLearnMethodApi.moveLearnMethodRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -5368,7 +5524,7 @@ export class MoveLearnMethodApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MoveLearnMethodApi
      */
-    public moveLearnMethodList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public moveLearnMethodList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return MoveLearnMethodApiFp(this.configuration).moveLearnMethodList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -5379,10 +5535,11 @@ export class MoveLearnMethodApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MoveLearnMethodApi
      */
-    public moveLearnMethodRead(id: number, options?: AxiosRequestConfig) {
+    public moveLearnMethodRead(id: number, options?: RawAxiosRequestConfig) {
         return MoveLearnMethodApiFp(this.configuration).moveLearnMethodRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -5398,7 +5555,7 @@ export const MoveTargetApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveTargetList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        moveTargetList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/move-target/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -5436,7 +5593,7 @@ export const MoveTargetApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveTargetRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        moveTargetRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('moveTargetRead', 'id', id)
             const localVarPath = `/api/v2/move-target/{id}/`
@@ -5480,9 +5637,11 @@ export const MoveTargetApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async moveTargetList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async moveTargetList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.moveTargetList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MoveTargetApi.moveTargetList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -5490,9 +5649,11 @@ export const MoveTargetApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async moveTargetRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async moveTargetRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.moveTargetRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MoveTargetApi.moveTargetRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -5541,7 +5702,7 @@ export class MoveTargetApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MoveTargetApi
      */
-    public moveTargetList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public moveTargetList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return MoveTargetApiFp(this.configuration).moveTargetList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -5552,10 +5713,11 @@ export class MoveTargetApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MoveTargetApi
      */
-    public moveTargetRead(id: number, options?: AxiosRequestConfig) {
+    public moveTargetRead(id: number, options?: RawAxiosRequestConfig) {
         return MoveTargetApiFp(this.configuration).moveTargetRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -5571,7 +5733,7 @@ export const NatureApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        natureList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        natureList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/nature/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -5609,7 +5771,7 @@ export const NatureApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        natureRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        natureRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('natureRead', 'id', id)
             const localVarPath = `/api/v2/nature/{id}/`
@@ -5653,9 +5815,11 @@ export const NatureApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async natureList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async natureList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.natureList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NatureApi.natureList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -5663,9 +5827,11 @@ export const NatureApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async natureRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async natureRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.natureRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NatureApi.natureRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -5714,7 +5880,7 @@ export class NatureApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NatureApi
      */
-    public natureList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public natureList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return NatureApiFp(this.configuration).natureList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -5725,10 +5891,11 @@ export class NatureApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NatureApi
      */
-    public natureRead(id: number, options?: AxiosRequestConfig) {
+    public natureRead(id: number, options?: RawAxiosRequestConfig) {
         return NatureApiFp(this.configuration).natureRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -5744,7 +5911,7 @@ export const PalParkAreaApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        palParkAreaList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        palParkAreaList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/pal-park-area/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -5782,7 +5949,7 @@ export const PalParkAreaApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        palParkAreaRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        palParkAreaRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('palParkAreaRead', 'id', id)
             const localVarPath = `/api/v2/pal-park-area/{id}/`
@@ -5826,9 +5993,11 @@ export const PalParkAreaApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async palParkAreaList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async palParkAreaList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.palParkAreaList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PalParkAreaApi.palParkAreaList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -5836,9 +6005,11 @@ export const PalParkAreaApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async palParkAreaRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async palParkAreaRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.palParkAreaRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PalParkAreaApi.palParkAreaRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -5887,7 +6058,7 @@ export class PalParkAreaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PalParkAreaApi
      */
-    public palParkAreaList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public palParkAreaList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PalParkAreaApiFp(this.configuration).palParkAreaList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -5898,10 +6069,11 @@ export class PalParkAreaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PalParkAreaApi
      */
-    public palParkAreaRead(id: number, options?: AxiosRequestConfig) {
+    public palParkAreaRead(id: number, options?: RawAxiosRequestConfig) {
         return PalParkAreaApiFp(this.configuration).palParkAreaRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -5917,7 +6089,7 @@ export const PokeathlonStatApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokeathlonStatList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        pokeathlonStatList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/pokeathlon-stat/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -5955,7 +6127,7 @@ export const PokeathlonStatApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokeathlonStatRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        pokeathlonStatRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pokeathlonStatRead', 'id', id)
             const localVarPath = `/api/v2/pokeathlon-stat/{id}/`
@@ -5999,9 +6171,11 @@ export const PokeathlonStatApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async pokeathlonStatList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async pokeathlonStatList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pokeathlonStatList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PokeathlonStatApi.pokeathlonStatList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -6009,9 +6183,11 @@ export const PokeathlonStatApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async pokeathlonStatRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async pokeathlonStatRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pokeathlonStatRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PokeathlonStatApi.pokeathlonStatRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -6060,7 +6236,7 @@ export class PokeathlonStatApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PokeathlonStatApi
      */
-    public pokeathlonStatList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public pokeathlonStatList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PokeathlonStatApiFp(this.configuration).pokeathlonStatList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -6071,10 +6247,11 @@ export class PokeathlonStatApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PokeathlonStatApi
      */
-    public pokeathlonStatRead(id: number, options?: AxiosRequestConfig) {
+    public pokeathlonStatRead(id: number, options?: RawAxiosRequestConfig) {
         return PokeathlonStatApiFp(this.configuration).pokeathlonStatRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -6090,7 +6267,7 @@ export const PokedexApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokedexList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        pokedexList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/pokedex/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -6128,7 +6305,7 @@ export const PokedexApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokedexRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        pokedexRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pokedexRead', 'id', id)
             const localVarPath = `/api/v2/pokedex/{id}/`
@@ -6172,9 +6349,11 @@ export const PokedexApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async pokedexList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async pokedexList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pokedexList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PokedexApi.pokedexList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -6182,9 +6361,11 @@ export const PokedexApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async pokedexRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async pokedexRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pokedexRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PokedexApi.pokedexRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -6233,7 +6414,7 @@ export class PokedexApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PokedexApi
      */
-    public pokedexList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public pokedexList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PokedexApiFp(this.configuration).pokedexList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -6244,10 +6425,11 @@ export class PokedexApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PokedexApi
      */
-    public pokedexRead(id: number, options?: AxiosRequestConfig) {
+    public pokedexRead(id: number, options?: RawAxiosRequestConfig) {
         return PokedexApiFp(this.configuration).pokedexRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -6263,7 +6445,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        pokemonList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/pokemon/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -6301,7 +6483,7 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        pokemonRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pokemonRead', 'id', id)
             const localVarPath = `/api/v2/pokemon/{id}/`
@@ -6345,9 +6527,11 @@ export const PokemonApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async pokemonList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async pokemonList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pokemonList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PokemonApi.pokemonList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -6355,9 +6539,11 @@ export const PokemonApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async pokemonRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async pokemonRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pokemonRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PokemonApi.pokemonRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -6406,7 +6592,7 @@ export class PokemonApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PokemonApi
      */
-    public pokemonList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public pokemonList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PokemonApiFp(this.configuration).pokemonList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -6417,10 +6603,11 @@ export class PokemonApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PokemonApi
      */
-    public pokemonRead(id: number, options?: AxiosRequestConfig) {
+    public pokemonRead(id: number, options?: RawAxiosRequestConfig) {
         return PokemonApiFp(this.configuration).pokemonRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -6436,7 +6623,7 @@ export const PokemonColorApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonColorList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        pokemonColorList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/pokemon-color/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -6474,7 +6661,7 @@ export const PokemonColorApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonColorRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        pokemonColorRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pokemonColorRead', 'id', id)
             const localVarPath = `/api/v2/pokemon-color/{id}/`
@@ -6518,9 +6705,11 @@ export const PokemonColorApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async pokemonColorList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async pokemonColorList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pokemonColorList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PokemonColorApi.pokemonColorList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -6528,9 +6717,11 @@ export const PokemonColorApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async pokemonColorRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async pokemonColorRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pokemonColorRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PokemonColorApi.pokemonColorRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -6579,7 +6770,7 @@ export class PokemonColorApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PokemonColorApi
      */
-    public pokemonColorList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public pokemonColorList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PokemonColorApiFp(this.configuration).pokemonColorList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -6590,10 +6781,11 @@ export class PokemonColorApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PokemonColorApi
      */
-    public pokemonColorRead(id: number, options?: AxiosRequestConfig) {
+    public pokemonColorRead(id: number, options?: RawAxiosRequestConfig) {
         return PokemonColorApiFp(this.configuration).pokemonColorRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -6609,7 +6801,7 @@ export const PokemonFormApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonFormList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        pokemonFormList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/pokemon-form/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -6647,7 +6839,7 @@ export const PokemonFormApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonFormRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        pokemonFormRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pokemonFormRead', 'id', id)
             const localVarPath = `/api/v2/pokemon-form/{id}/`
@@ -6691,9 +6883,11 @@ export const PokemonFormApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async pokemonFormList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async pokemonFormList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pokemonFormList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PokemonFormApi.pokemonFormList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -6701,9 +6895,11 @@ export const PokemonFormApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async pokemonFormRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async pokemonFormRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pokemonFormRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PokemonFormApi.pokemonFormRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -6752,7 +6948,7 @@ export class PokemonFormApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PokemonFormApi
      */
-    public pokemonFormList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public pokemonFormList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PokemonFormApiFp(this.configuration).pokemonFormList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -6763,10 +6959,11 @@ export class PokemonFormApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PokemonFormApi
      */
-    public pokemonFormRead(id: number, options?: AxiosRequestConfig) {
+    public pokemonFormRead(id: number, options?: RawAxiosRequestConfig) {
         return PokemonFormApiFp(this.configuration).pokemonFormRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -6782,7 +6979,7 @@ export const PokemonHabitatApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonHabitatList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        pokemonHabitatList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/pokemon-habitat/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -6820,7 +7017,7 @@ export const PokemonHabitatApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonHabitatRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        pokemonHabitatRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pokemonHabitatRead', 'id', id)
             const localVarPath = `/api/v2/pokemon-habitat/{id}/`
@@ -6864,9 +7061,11 @@ export const PokemonHabitatApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async pokemonHabitatList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async pokemonHabitatList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pokemonHabitatList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PokemonHabitatApi.pokemonHabitatList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -6874,9 +7073,11 @@ export const PokemonHabitatApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async pokemonHabitatRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async pokemonHabitatRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pokemonHabitatRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PokemonHabitatApi.pokemonHabitatRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -6925,7 +7126,7 @@ export class PokemonHabitatApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PokemonHabitatApi
      */
-    public pokemonHabitatList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public pokemonHabitatList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PokemonHabitatApiFp(this.configuration).pokemonHabitatList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -6936,10 +7137,11 @@ export class PokemonHabitatApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PokemonHabitatApi
      */
-    public pokemonHabitatRead(id: number, options?: AxiosRequestConfig) {
+    public pokemonHabitatRead(id: number, options?: RawAxiosRequestConfig) {
         return PokemonHabitatApiFp(this.configuration).pokemonHabitatRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -6955,7 +7157,7 @@ export const PokemonShapeApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonShapeList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        pokemonShapeList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/pokemon-shape/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -6993,7 +7195,7 @@ export const PokemonShapeApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonShapeRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        pokemonShapeRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pokemonShapeRead', 'id', id)
             const localVarPath = `/api/v2/pokemon-shape/{id}/`
@@ -7037,9 +7239,11 @@ export const PokemonShapeApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async pokemonShapeList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async pokemonShapeList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pokemonShapeList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PokemonShapeApi.pokemonShapeList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -7047,9 +7251,11 @@ export const PokemonShapeApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async pokemonShapeRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async pokemonShapeRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pokemonShapeRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PokemonShapeApi.pokemonShapeRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -7098,7 +7304,7 @@ export class PokemonShapeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PokemonShapeApi
      */
-    public pokemonShapeList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public pokemonShapeList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PokemonShapeApiFp(this.configuration).pokemonShapeList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -7109,10 +7315,11 @@ export class PokemonShapeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PokemonShapeApi
      */
-    public pokemonShapeRead(id: number, options?: AxiosRequestConfig) {
+    public pokemonShapeRead(id: number, options?: RawAxiosRequestConfig) {
         return PokemonShapeApiFp(this.configuration).pokemonShapeRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -7128,7 +7335,7 @@ export const PokemonSpeciesApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonSpeciesList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        pokemonSpeciesList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/pokemon-species/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -7166,7 +7373,7 @@ export const PokemonSpeciesApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonSpeciesRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        pokemonSpeciesRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('pokemonSpeciesRead', 'id', id)
             const localVarPath = `/api/v2/pokemon-species/{id}/`
@@ -7210,9 +7417,11 @@ export const PokemonSpeciesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async pokemonSpeciesList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async pokemonSpeciesList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pokemonSpeciesList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PokemonSpeciesApi.pokemonSpeciesList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -7220,9 +7429,11 @@ export const PokemonSpeciesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async pokemonSpeciesRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async pokemonSpeciesRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pokemonSpeciesRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PokemonSpeciesApi.pokemonSpeciesRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -7271,7 +7482,7 @@ export class PokemonSpeciesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PokemonSpeciesApi
      */
-    public pokemonSpeciesList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public pokemonSpeciesList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PokemonSpeciesApiFp(this.configuration).pokemonSpeciesList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -7282,10 +7493,11 @@ export class PokemonSpeciesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PokemonSpeciesApi
      */
-    public pokemonSpeciesRead(id: number, options?: AxiosRequestConfig) {
+    public pokemonSpeciesRead(id: number, options?: RawAxiosRequestConfig) {
         return PokemonSpeciesApiFp(this.configuration).pokemonSpeciesRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -7301,7 +7513,7 @@ export const RegionApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        regionList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        regionList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/region/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -7339,7 +7551,7 @@ export const RegionApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        regionRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        regionRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('regionRead', 'id', id)
             const localVarPath = `/api/v2/region/{id}/`
@@ -7383,9 +7595,11 @@ export const RegionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async regionList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async regionList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.regionList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RegionApi.regionList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -7393,9 +7607,11 @@ export const RegionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async regionRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async regionRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.regionRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RegionApi.regionRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -7444,7 +7660,7 @@ export class RegionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RegionApi
      */
-    public regionList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public regionList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return RegionApiFp(this.configuration).regionList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -7455,10 +7671,11 @@ export class RegionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RegionApi
      */
-    public regionRead(id: number, options?: AxiosRequestConfig) {
+    public regionRead(id: number, options?: RawAxiosRequestConfig) {
         return RegionApiFp(this.configuration).regionRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -7474,7 +7691,7 @@ export const StatApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        statList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/stat/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -7512,7 +7729,7 @@ export const StatApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        statRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('statRead', 'id', id)
             const localVarPath = `/api/v2/stat/{id}/`
@@ -7556,9 +7773,11 @@ export const StatApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async statList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async statList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.statList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['StatApi.statList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -7566,9 +7785,11 @@ export const StatApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async statRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async statRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.statRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['StatApi.statRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -7617,7 +7838,7 @@ export class StatApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof StatApi
      */
-    public statList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public statList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return StatApiFp(this.configuration).statList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -7628,10 +7849,11 @@ export class StatApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof StatApi
      */
-    public statRead(id: number, options?: AxiosRequestConfig) {
+    public statRead(id: number, options?: RawAxiosRequestConfig) {
         return StatApiFp(this.configuration).statRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -7647,7 +7869,7 @@ export const SuperContestEffectApiAxiosParamCreator = function (configuration?: 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        superContestEffectList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        superContestEffectList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/super-contest-effect/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -7685,7 +7907,7 @@ export const SuperContestEffectApiAxiosParamCreator = function (configuration?: 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        superContestEffectRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        superContestEffectRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('superContestEffectRead', 'id', id)
             const localVarPath = `/api/v2/super-contest-effect/{id}/`
@@ -7729,9 +7951,11 @@ export const SuperContestEffectApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async superContestEffectList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async superContestEffectList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.superContestEffectList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SuperContestEffectApi.superContestEffectList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -7739,9 +7963,11 @@ export const SuperContestEffectApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async superContestEffectRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async superContestEffectRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.superContestEffectRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SuperContestEffectApi.superContestEffectRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -7790,7 +8016,7 @@ export class SuperContestEffectApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SuperContestEffectApi
      */
-    public superContestEffectList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public superContestEffectList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return SuperContestEffectApiFp(this.configuration).superContestEffectList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -7801,10 +8027,11 @@ export class SuperContestEffectApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SuperContestEffectApi
      */
-    public superContestEffectRead(id: number, options?: AxiosRequestConfig) {
+    public superContestEffectRead(id: number, options?: RawAxiosRequestConfig) {
         return SuperContestEffectApiFp(this.configuration).superContestEffectRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -7820,7 +8047,7 @@ export const TypeApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        typeList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        typeList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/type/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -7858,7 +8085,7 @@ export const TypeApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        typeRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        typeRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('typeRead', 'id', id)
             const localVarPath = `/api/v2/type/{id}/`
@@ -7902,9 +8129,11 @@ export const TypeApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async typeList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async typeList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.typeList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TypeApi.typeList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -7912,9 +8141,11 @@ export const TypeApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async typeRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async typeRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.typeRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TypeApi.typeRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -7963,7 +8194,7 @@ export class TypeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TypeApi
      */
-    public typeList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public typeList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return TypeApiFp(this.configuration).typeList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -7974,10 +8205,11 @@ export class TypeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TypeApi
      */
-    public typeRead(id: number, options?: AxiosRequestConfig) {
+    public typeRead(id: number, options?: RawAxiosRequestConfig) {
         return TypeApiFp(this.configuration).typeRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -7993,7 +8225,7 @@ export const VersionApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        versionList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        versionList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/version/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -8031,7 +8263,7 @@ export const VersionApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        versionRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        versionRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('versionRead', 'id', id)
             const localVarPath = `/api/v2/version/{id}/`
@@ -8075,9 +8307,11 @@ export const VersionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async versionList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async versionList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.versionList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['VersionApi.versionList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -8085,9 +8319,11 @@ export const VersionApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async versionRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async versionRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.versionRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['VersionApi.versionRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -8136,7 +8372,7 @@ export class VersionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof VersionApi
      */
-    public versionList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public versionList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return VersionApiFp(this.configuration).versionList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -8147,10 +8383,11 @@ export class VersionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof VersionApi
      */
-    public versionRead(id: number, options?: AxiosRequestConfig) {
+    public versionRead(id: number, options?: RawAxiosRequestConfig) {
         return VersionApiFp(this.configuration).versionRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -8166,7 +8403,7 @@ export const VersionGroupApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        versionGroupList: async (limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        versionGroupList: async (limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/v2/version-group/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -8204,7 +8441,7 @@ export const VersionGroupApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        versionGroupRead: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        versionGroupRead: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('versionGroupRead', 'id', id)
             const localVarPath = `/api/v2/version-group/{id}/`
@@ -8248,9 +8485,11 @@ export const VersionGroupApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async versionGroupList(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async versionGroupList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.versionGroupList(limit, offset, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['VersionGroupApi.versionGroupList']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -8258,9 +8497,11 @@ export const VersionGroupApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async versionGroupRead(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async versionGroupRead(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.versionGroupRead(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['VersionGroupApi.versionGroupRead']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -8309,7 +8550,7 @@ export class VersionGroupApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof VersionGroupApi
      */
-    public versionGroupList(limit?: number, offset?: number, options?: AxiosRequestConfig) {
+    public versionGroupList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return VersionGroupApiFp(this.configuration).versionGroupList(limit, offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -8320,9 +8561,10 @@ export class VersionGroupApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof VersionGroupApi
      */
-    public versionGroupRead(id: number, options?: AxiosRequestConfig) {
+    public versionGroupRead(id: number, options?: RawAxiosRequestConfig) {
         return VersionGroupApiFp(this.configuration).versionGroupRead(id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 

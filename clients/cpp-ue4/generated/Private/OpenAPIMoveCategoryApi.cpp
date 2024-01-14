@@ -56,7 +56,7 @@ bool OpenAPIMoveCategoryApi::IsValid() const
 
 void OpenAPIMoveCategoryApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

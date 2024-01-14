@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// ItemCategoryApiService is a service that implements the logic for the ItemCategoryApiServicer
-// This service should implement the business logic for every endpoint for the ItemCategoryApi API.
+// ItemCategoryAPIService is a service that implements the logic for the ItemCategoryAPIServicer
+// This service should implement the business logic for every endpoint for the ItemCategoryAPI API.
 // Include any external packages or services that will be required by this service.
-type ItemCategoryApiService struct {
+type ItemCategoryAPIService struct {
 }
 
-// NewItemCategoryApiService creates a default api service
-func NewItemCategoryApiService() ItemCategoryApiServicer {
-	return &ItemCategoryApiService{}
+// NewItemCategoryAPIService creates a default api service
+func NewItemCategoryAPIService() ItemCategoryAPIServicer {
+	return &ItemCategoryAPIService{}
 }
 
 // ItemCategoryList - 
-func (s *ItemCategoryApiService) ItemCategoryList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *ItemCategoryAPIService) ItemCategoryList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update ItemCategoryList with the required logic for this service method.
 	// Add api_item_category_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("ItemCategoryList method not implemented")
 }
 
 // ItemCategoryRead - 
-func (s *ItemCategoryApiService) ItemCategoryRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *ItemCategoryAPIService) ItemCategoryRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update ItemCategoryRead with the required logic for this service method.
 	// Add api_item_category_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("ItemCategoryRead method not implemented")
 }

@@ -14,7 +14,7 @@ To see how to make this your own, look here:
 [README]((https://openapi-generator.tech))
 
 - API version: 20220523
-- Build date: 2022-11-19T09:52:56.734219Z[Etc/UTC]
+- Build date: 2024-01-14T06:34:38.460975891Z[Etc/UTC]
 
 For more information, please visit [https://github.com/cliffano/pokeapi-clients](https://github.com/cliffano/pokeapi-clients)
 
@@ -293,7 +293,7 @@ Method | HTTP request | Description
 
 
 ## Documentation For Authorization
- Endpoints do not require authorization.
+Endpoints do not require authorization.
 
 
 ## Author

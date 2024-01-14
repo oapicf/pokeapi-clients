@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// EncounterConditionValueApiService EncounterConditionValueApi service
-type EncounterConditionValueApiService service
+// EncounterConditionValueAPIService EncounterConditionValueAPI service
+type EncounterConditionValueAPIService service
 
 type ApiEncounterConditionValueListRequest struct {
 	ctx context.Context
-	ApiService *EncounterConditionValueApiService
+	ApiService *EncounterConditionValueAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ EncounterConditionValueList Method for EncounterConditionValueList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiEncounterConditionValueListRequest
 */
-func (a *EncounterConditionValueApiService) EncounterConditionValueList(ctx context.Context) ApiEncounterConditionValueListRequest {
+func (a *EncounterConditionValueAPIService) EncounterConditionValueList(ctx context.Context) ApiEncounterConditionValueListRequest {
 	return ApiEncounterConditionValueListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *EncounterConditionValueApiService) EncounterConditionValueList(ctx cont
 
 // Execute executes the request
 //  @return string
-func (a *EncounterConditionValueApiService) EncounterConditionValueListExecute(r ApiEncounterConditionValueListRequest) (string, *http.Response, error) {
+func (a *EncounterConditionValueAPIService) EncounterConditionValueListExecute(r ApiEncounterConditionValueListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *EncounterConditionValueApiService) EncounterConditionValueListExecute(r
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EncounterConditionValueApiService.EncounterConditionValueList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EncounterConditionValueAPIService.EncounterConditionValueList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *EncounterConditionValueApiService) EncounterConditionValueListExecute(r
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *EncounterConditionValueApiService) EncounterConditionValueListExecute(r
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *EncounterConditionValueApiService) EncounterConditionValueListExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *EncounterConditionValueApiService) EncounterConditionValueListExecute(r
 
 type ApiEncounterConditionValueReadRequest struct {
 	ctx context.Context
-	ApiService *EncounterConditionValueApiService
+	ApiService *EncounterConditionValueAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ EncounterConditionValueRead Method for EncounterConditionValueRead
  @param id
  @return ApiEncounterConditionValueReadRequest
 */
-func (a *EncounterConditionValueApiService) EncounterConditionValueRead(ctx context.Context, id int32) ApiEncounterConditionValueReadRequest {
+func (a *EncounterConditionValueAPIService) EncounterConditionValueRead(ctx context.Context, id int32) ApiEncounterConditionValueReadRequest {
 	return ApiEncounterConditionValueReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *EncounterConditionValueApiService) EncounterConditionValueRead(ctx cont
 
 // Execute executes the request
 //  @return string
-func (a *EncounterConditionValueApiService) EncounterConditionValueReadExecute(r ApiEncounterConditionValueReadRequest) (string, *http.Response, error) {
+func (a *EncounterConditionValueAPIService) EncounterConditionValueReadExecute(r ApiEncounterConditionValueReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *EncounterConditionValueApiService) EncounterConditionValueReadExecute(r
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EncounterConditionValueApiService.EncounterConditionValueRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EncounterConditionValueAPIService.EncounterConditionValueRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/encounter-condition-value/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *EncounterConditionValueApiService) EncounterConditionValueReadExecute(r
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *EncounterConditionValueApiService) EncounterConditionValueReadExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

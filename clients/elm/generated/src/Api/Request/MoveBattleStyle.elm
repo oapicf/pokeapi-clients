@@ -20,15 +20,13 @@ module Api.Request.MoveBattleStyle exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-moveBattleStyleList : Maybe Int -> Maybe Int -> Api.Request 
+moveBattleStyleList : Maybe Int -> Maybe Int -> Api.Request ()
 moveBattleStyleList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ moveBattleStyleList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-moveBattleStyleRead : Int -> Api.Request 
+moveBattleStyleRead : Int -> Api.Request ()
 moveBattleStyleRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ moveBattleStyleRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

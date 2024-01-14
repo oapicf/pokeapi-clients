@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**versionGroupList**](#versionGroupList) | **GET** /api/v2/version-group/ | 
 [**versionGroupRead**](#versionGroupRead) | **GET** /api/v2/version-group/{id}/ | 
 
-<a name="versionGroupList"></a>
+<a id="versionGroupList"></a>
 # **versionGroupList**
 ```java
 Mono<String> VersionGroupController.versionGroupList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="versionGroupRead"></a>
+<a id="versionGroupRead"></a>
 # **versionGroupRead**
 ```java
 Mono<String> VersionGroupController.versionGroupRead(id)

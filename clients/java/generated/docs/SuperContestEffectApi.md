@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**superContestEffectRead**](SuperContestEffectApi.md#superContestEffectRead) | **GET** /api/v2/super-contest-effect/{id}/ |  |
 
 
-<a name="superContestEffectList"></a>
+<a id="superContestEffectList"></a>
 # **superContestEffectList**
 > String superContestEffectList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="superContestEffectRead"></a>
+<a id="superContestEffectRead"></a>
 # **superContestEffectRead**
 > String superContestEffectRead(id)
 

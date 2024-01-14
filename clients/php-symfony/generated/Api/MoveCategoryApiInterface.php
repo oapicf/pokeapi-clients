@@ -52,8 +52,12 @@ interface MoveCategoryApiInterface
      *
      * @return array|object|null
      */
-    public function moveCategoryList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function moveCategoryList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation moveCategoryRead
@@ -64,6 +68,9 @@ interface MoveCategoryApiInterface
      *
      * @return array|object|null
      */
-    public function moveCategoryRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function moveCategoryRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

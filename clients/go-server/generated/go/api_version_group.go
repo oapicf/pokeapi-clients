@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// VersionGroupApiController binds http requests to an api service and writes the service results to the http response
-type VersionGroupApiController struct {
-	service VersionGroupApiServicer
+// VersionGroupAPIController binds http requests to an api service and writes the service results to the http response
+type VersionGroupAPIController struct {
+	service VersionGroupAPIServicer
 	errorHandler ErrorHandler
 }
 
-// VersionGroupApiOption for how the controller is set up.
-type VersionGroupApiOption func(*VersionGroupApiController)
+// VersionGroupAPIOption for how the controller is set up.
+type VersionGroupAPIOption func(*VersionGroupAPIController)
 
-// WithVersionGroupApiErrorHandler inject ErrorHandler into controller
-func WithVersionGroupApiErrorHandler(h ErrorHandler) VersionGroupApiOption {
-	return func(c *VersionGroupApiController) {
+// WithVersionGroupAPIErrorHandler inject ErrorHandler into controller
+func WithVersionGroupAPIErrorHandler(h ErrorHandler) VersionGroupAPIOption {
+	return func(c *VersionGroupAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewVersionGroupApiController creates a default api controller
-func NewVersionGroupApiController(s VersionGroupApiServicer, opts ...VersionGroupApiOption) Router {
-	controller := &VersionGroupApiController{
+// NewVersionGroupAPIController creates a default api controller
+func NewVersionGroupAPIController(s VersionGroupAPIServicer, opts ...VersionGroupAPIOption) Router {
+	controller := &VersionGroupAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewVersionGroupApiController(s VersionGroupApiServicer, opts ...VersionGrou
 	return controller
 }
 
-// Routes returns all the api routes for the VersionGroupApiController
-func (c *VersionGroupApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"VersionGroupList",
+// Routes returns all the api routes for the VersionGroupAPIController
+func (c *VersionGroupAPIController) Routes() Routes {
+	return Routes{
+		"VersionGroupList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/version-group/",
 			c.VersionGroupList,
 		},
-		{
-			"VersionGroupRead",
+		"VersionGroupRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/version-group/{id}/",
 			c.VersionGroupRead,
@@ -67,17 +65,35 @@ func (c *VersionGroupApiController) Routes() Routes {
 }
 
 // VersionGroupList - 
-func (c *VersionGroupApiController) VersionGroupList(w http.ResponseWriter, r *http.Request) {
+func (c *VersionGroupAPIController) VersionGroupList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.VersionGroupList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *VersionGroupApiController) VersionGroupList(w http.ResponseWriter, r *h
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // VersionGroupRead - 
-func (c *VersionGroupApiController) VersionGroupRead(w http.ResponseWriter, r *http.Request) {
+func (c *VersionGroupAPIController) VersionGroupRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.VersionGroupRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *VersionGroupApiController) VersionGroupRead(w http.ResponseWriter, r *h
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

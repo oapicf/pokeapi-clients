@@ -56,7 +56,7 @@ bool OpenAPIItemFlingEffectApi::IsValid() const
 
 void OpenAPIItemFlingEffectApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

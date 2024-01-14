@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// MachineApiController binds http requests to an api service and writes the service results to the http response
-type MachineApiController struct {
-	service MachineApiServicer
+// MachineAPIController binds http requests to an api service and writes the service results to the http response
+type MachineAPIController struct {
+	service MachineAPIServicer
 	errorHandler ErrorHandler
 }
 
-// MachineApiOption for how the controller is set up.
-type MachineApiOption func(*MachineApiController)
+// MachineAPIOption for how the controller is set up.
+type MachineAPIOption func(*MachineAPIController)
 
-// WithMachineApiErrorHandler inject ErrorHandler into controller
-func WithMachineApiErrorHandler(h ErrorHandler) MachineApiOption {
-	return func(c *MachineApiController) {
+// WithMachineAPIErrorHandler inject ErrorHandler into controller
+func WithMachineAPIErrorHandler(h ErrorHandler) MachineAPIOption {
+	return func(c *MachineAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewMachineApiController creates a default api controller
-func NewMachineApiController(s MachineApiServicer, opts ...MachineApiOption) Router {
-	controller := &MachineApiController{
+// NewMachineAPIController creates a default api controller
+func NewMachineAPIController(s MachineAPIServicer, opts ...MachineAPIOption) Router {
+	controller := &MachineAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewMachineApiController(s MachineApiServicer, opts ...MachineApiOption) Rou
 	return controller
 }
 
-// Routes returns all the api routes for the MachineApiController
-func (c *MachineApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"MachineList",
+// Routes returns all the api routes for the MachineAPIController
+func (c *MachineAPIController) Routes() Routes {
+	return Routes{
+		"MachineList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/machine/",
 			c.MachineList,
 		},
-		{
-			"MachineRead",
+		"MachineRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/machine/{id}/",
 			c.MachineRead,
@@ -67,17 +65,35 @@ func (c *MachineApiController) Routes() Routes {
 }
 
 // MachineList - 
-func (c *MachineApiController) MachineList(w http.ResponseWriter, r *http.Request) {
+func (c *MachineAPIController) MachineList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.MachineList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *MachineApiController) MachineList(w http.ResponseWriter, r *http.Reques
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // MachineRead - 
-func (c *MachineApiController) MachineRead(w http.ResponseWriter, r *http.Request) {
+func (c *MachineAPIController) MachineRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.MachineRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *MachineApiController) MachineRead(w http.ResponseWriter, r *http.Reques
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

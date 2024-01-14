@@ -56,7 +56,7 @@ bool OpenAPIEvolutionChainApi::IsValid() const
 
 void OpenAPIEvolutionChainApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

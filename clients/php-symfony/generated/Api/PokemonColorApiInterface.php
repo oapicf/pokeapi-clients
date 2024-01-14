@@ -52,8 +52,12 @@ interface PokemonColorApiInterface
      *
      * @return array|object|null
      */
-    public function pokemonColorList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function pokemonColorList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation pokemonColorRead
@@ -64,6 +68,9 @@ interface PokemonColorApiInterface
      *
      * @return array|object|null
      */
-    public function pokemonColorRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function pokemonColorRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

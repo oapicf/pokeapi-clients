@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// EggGroupApiController binds http requests to an api service and writes the service results to the http response
-type EggGroupApiController struct {
-	service EggGroupApiServicer
+// EggGroupAPIController binds http requests to an api service and writes the service results to the http response
+type EggGroupAPIController struct {
+	service EggGroupAPIServicer
 	errorHandler ErrorHandler
 }
 
-// EggGroupApiOption for how the controller is set up.
-type EggGroupApiOption func(*EggGroupApiController)
+// EggGroupAPIOption for how the controller is set up.
+type EggGroupAPIOption func(*EggGroupAPIController)
 
-// WithEggGroupApiErrorHandler inject ErrorHandler into controller
-func WithEggGroupApiErrorHandler(h ErrorHandler) EggGroupApiOption {
-	return func(c *EggGroupApiController) {
+// WithEggGroupAPIErrorHandler inject ErrorHandler into controller
+func WithEggGroupAPIErrorHandler(h ErrorHandler) EggGroupAPIOption {
+	return func(c *EggGroupAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewEggGroupApiController creates a default api controller
-func NewEggGroupApiController(s EggGroupApiServicer, opts ...EggGroupApiOption) Router {
-	controller := &EggGroupApiController{
+// NewEggGroupAPIController creates a default api controller
+func NewEggGroupAPIController(s EggGroupAPIServicer, opts ...EggGroupAPIOption) Router {
+	controller := &EggGroupAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewEggGroupApiController(s EggGroupApiServicer, opts ...EggGroupApiOption) 
 	return controller
 }
 
-// Routes returns all the api routes for the EggGroupApiController
-func (c *EggGroupApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"EggGroupList",
+// Routes returns all the api routes for the EggGroupAPIController
+func (c *EggGroupAPIController) Routes() Routes {
+	return Routes{
+		"EggGroupList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/egg-group/",
 			c.EggGroupList,
 		},
-		{
-			"EggGroupRead",
+		"EggGroupRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/egg-group/{id}/",
 			c.EggGroupRead,
@@ -67,17 +65,35 @@ func (c *EggGroupApiController) Routes() Routes {
 }
 
 // EggGroupList - 
-func (c *EggGroupApiController) EggGroupList(w http.ResponseWriter, r *http.Request) {
+func (c *EggGroupAPIController) EggGroupList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.EggGroupList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *EggGroupApiController) EggGroupList(w http.ResponseWriter, r *http.Requ
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // EggGroupRead - 
-func (c *EggGroupApiController) EggGroupRead(w http.ResponseWriter, r *http.Request) {
+func (c *EggGroupAPIController) EggGroupRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.EggGroupRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *EggGroupApiController) EggGroupRead(w http.ResponseWriter, r *http.Requ
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

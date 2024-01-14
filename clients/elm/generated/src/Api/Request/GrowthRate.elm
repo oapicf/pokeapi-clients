@@ -20,15 +20,13 @@ module Api.Request.GrowthRate exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-growthRateList : Maybe Int -> Maybe Int -> Api.Request 
+growthRateList : Maybe Int -> Maybe Int -> Api.Request ()
 growthRateList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ growthRateList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-growthRateRead : Int -> Api.Request 
+growthRateRead : Int -> Api.Request ()
 growthRateRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ growthRateRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

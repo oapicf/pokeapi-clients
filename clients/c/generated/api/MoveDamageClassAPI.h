@@ -8,10 +8,10 @@
 
 
 char*
-MoveDamageClassAPI_moveDamageClassList(apiClient_t *apiClient, int limit , int offset );
+MoveDamageClassAPI_moveDamageClassList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-MoveDamageClassAPI_moveDamageClassRead(apiClient_t *apiClient, int id );
+MoveDamageClassAPI_moveDamageClassRead(apiClient_t *apiClient, int *id);
 
 

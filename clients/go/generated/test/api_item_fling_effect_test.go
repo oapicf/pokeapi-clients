@@ -1,7 +1,7 @@
 /*
 
 
-Testing ItemFlingEffectApiService
+Testing ItemFlingEffectAPIService
 
 */
 
@@ -10,42 +10,42 @@ Testing ItemFlingEffectApiService
 package openapi
 
 import (
-    "context"
-    "github.com/stretchr/testify/assert"
-    "github.com/stretchr/testify/require"
-    "testing"
-    openapiclient "./openapi"
+	"context"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
-func Test_openapi_ItemFlingEffectApiService(t *testing.T) {
+func Test_openapi_ItemFlingEffectAPIService(t *testing.T) {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
 
-    t.Run("Test ItemFlingEffectApiService ItemFlingEffectList", func(t *testing.T) {
+	t.Run("Test ItemFlingEffectAPIService ItemFlingEffectList", func(t *testing.T) {
 
-        t.Skip("skip test")  // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-        resp, httpRes, err := apiClient.ItemFlingEffectApi.ItemFlingEffectList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ItemFlingEffectAPI.ItemFlingEffectList(context.Background()).Execute()
 
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
 
-    })
+	})
 
-    t.Run("Test ItemFlingEffectApiService ItemFlingEffectRead", func(t *testing.T) {
+	t.Run("Test ItemFlingEffectAPIService ItemFlingEffectRead", func(t *testing.T) {
 
-        t.Skip("skip test")  // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-        var id int32
+		var id int32
 
-        resp, httpRes, err := apiClient.ItemFlingEffectApi.ItemFlingEffectRead(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.ItemFlingEffectAPI.ItemFlingEffectRead(context.Background(), id).Execute()
 
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
 
-    })
+	})
 
 }

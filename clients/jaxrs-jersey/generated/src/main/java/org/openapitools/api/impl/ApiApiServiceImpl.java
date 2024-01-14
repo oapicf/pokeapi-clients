@@ -12,7 +12,8 @@ import org.glassfish.jersey.media.multipart.FormDataBodyPart;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2022-11-19T09:48:20.538471Z[Etc/UTC]")
+import javax.validation.Valid;
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-01-14T06:31:41.982942378Z[Etc/UTC]")
 public class ApiApiServiceImpl extends ApiApiService {
     @Override
     public Response abilityList(Integer limit, Integer offset, SecurityContext securityContext) throws NotFoundException {

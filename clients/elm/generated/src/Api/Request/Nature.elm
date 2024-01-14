@@ -20,15 +20,13 @@ module Api.Request.Nature exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-natureList : Maybe Int -> Maybe Int -> Api.Request 
+natureList : Maybe Int -> Maybe Int -> Api.Request ()
 natureList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ natureList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-natureRead : Int -> Api.Request 
+natureRead : Int -> Api.Request ()
 natureRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ natureRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

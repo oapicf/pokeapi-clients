@@ -8,10 +8,10 @@
 
 
 char*
-LanguageAPI_languageList(apiClient_t *apiClient, int limit , int offset );
+LanguageAPI_languageList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-LanguageAPI_languageRead(apiClient_t *apiClient, int id );
+LanguageAPI_languageRead(apiClient_t *apiClient, int *id);
 
 

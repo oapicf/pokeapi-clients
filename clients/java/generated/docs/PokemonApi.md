@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**pokemonRead**](PokemonApi.md#pokemonRead) | **GET** /api/v2/pokemon/{id}/ |  |
 
 
-<a name="pokemonList"></a>
+<a id="pokemonList"></a>
 # **pokemonList**
 > String pokemonList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="pokemonRead"></a>
+<a id="pokemonRead"></a>
 # **pokemonRead**
 > String pokemonRead(id)
 

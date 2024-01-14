@@ -56,7 +56,7 @@ bool OpenAPIPokemonHabitatApi::IsValid() const
 
 void OpenAPIPokemonHabitatApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

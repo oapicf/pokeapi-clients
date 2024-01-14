@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**versionGroupRead**](VersionGroupApi.md#versionGroupRead) | **GET** /api/v2/version-group/{id}/ | 
 
 
-<a name="versionGroupList"></a>
+<a id="versionGroupList"></a>
 # **versionGroupList**
 > kotlin.String versionGroupList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="versionGroupRead"></a>
+<a id="versionGroupRead"></a>
 # **versionGroupRead**
 > kotlin.String versionGroupRead(id)
 

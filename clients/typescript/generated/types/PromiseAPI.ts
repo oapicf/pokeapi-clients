@@ -1,4 +1,4 @@
-import { ResponseContext, RequestContext, HttpFile } from '../http/http';
+import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/http';
 import { Configuration} from '../configuration'
 
 import { ObservableAbilityApi } from './ObservableAPI';
@@ -19,8 +19,25 @@ export class PromiseAbilityApi {
      * @param limit 
      * @param offset 
      */
+    public abilityListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.abilityListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public abilityList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.abilityList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public abilityReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.abilityReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -55,8 +72,25 @@ export class PromiseBerryApi {
      * @param limit 
      * @param offset 
      */
+    public berryListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.berryListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public berryList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.berryList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public berryReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.berryReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -91,8 +125,25 @@ export class PromiseBerryFirmnessApi {
      * @param limit 
      * @param offset 
      */
+    public berryFirmnessListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.berryFirmnessListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public berryFirmnessList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.berryFirmnessList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public berryFirmnessReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.berryFirmnessReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -127,8 +178,25 @@ export class PromiseBerryFlavorApi {
      * @param limit 
      * @param offset 
      */
+    public berryFlavorListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.berryFlavorListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public berryFlavorList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.berryFlavorList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public berryFlavorReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.berryFlavorReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -163,8 +231,25 @@ export class PromiseCharacteristicApi {
      * @param limit 
      * @param offset 
      */
+    public characteristicListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.characteristicListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public characteristicList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.characteristicList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public characteristicReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.characteristicReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -199,8 +284,25 @@ export class PromiseContestEffectApi {
      * @param limit 
      * @param offset 
      */
+    public contestEffectListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.contestEffectListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public contestEffectList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.contestEffectList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public contestEffectReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.contestEffectReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -235,8 +337,25 @@ export class PromiseContestTypeApi {
      * @param limit 
      * @param offset 
      */
+    public contestTypeListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.contestTypeListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public contestTypeList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.contestTypeList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public contestTypeReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.contestTypeReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -271,8 +390,25 @@ export class PromiseEggGroupApi {
      * @param limit 
      * @param offset 
      */
+    public eggGroupListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.eggGroupListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public eggGroupList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.eggGroupList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public eggGroupReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.eggGroupReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -307,8 +443,25 @@ export class PromiseEncounterConditionApi {
      * @param limit 
      * @param offset 
      */
+    public encounterConditionListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.encounterConditionListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public encounterConditionList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.encounterConditionList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public encounterConditionReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.encounterConditionReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -343,8 +496,25 @@ export class PromiseEncounterConditionValueApi {
      * @param limit 
      * @param offset 
      */
+    public encounterConditionValueListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.encounterConditionValueListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public encounterConditionValueList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.encounterConditionValueList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public encounterConditionValueReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.encounterConditionValueReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -379,8 +549,25 @@ export class PromiseEncounterMethodApi {
      * @param limit 
      * @param offset 
      */
+    public encounterMethodListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.encounterMethodListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public encounterMethodList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.encounterMethodList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public encounterMethodReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.encounterMethodReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -415,8 +602,25 @@ export class PromiseEvolutionChainApi {
      * @param limit 
      * @param offset 
      */
+    public evolutionChainListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.evolutionChainListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public evolutionChainList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.evolutionChainList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public evolutionChainReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.evolutionChainReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -451,8 +655,25 @@ export class PromiseEvolutionTriggerApi {
      * @param limit 
      * @param offset 
      */
+    public evolutionTriggerListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.evolutionTriggerListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public evolutionTriggerList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.evolutionTriggerList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public evolutionTriggerReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.evolutionTriggerReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -487,8 +708,25 @@ export class PromiseGenderApi {
      * @param limit 
      * @param offset 
      */
+    public genderListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.genderListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public genderList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.genderList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public genderReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.genderReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -523,8 +761,25 @@ export class PromiseGenerationApi {
      * @param limit 
      * @param offset 
      */
+    public generationListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.generationListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public generationList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.generationList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public generationReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.generationReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -559,8 +814,25 @@ export class PromiseGrowthRateApi {
      * @param limit 
      * @param offset 
      */
+    public growthRateListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.growthRateListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public growthRateList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.growthRateList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public growthRateReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.growthRateReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -595,8 +867,25 @@ export class PromiseItemApi {
      * @param limit 
      * @param offset 
      */
+    public itemListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.itemListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public itemList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.itemList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public itemReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.itemReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -631,8 +920,25 @@ export class PromiseItemAttributeApi {
      * @param limit 
      * @param offset 
      */
+    public itemAttributeListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.itemAttributeListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public itemAttributeList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.itemAttributeList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public itemAttributeReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.itemAttributeReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -667,8 +973,25 @@ export class PromiseItemCategoryApi {
      * @param limit 
      * @param offset 
      */
+    public itemCategoryListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.itemCategoryListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public itemCategoryList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.itemCategoryList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public itemCategoryReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.itemCategoryReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -703,8 +1026,25 @@ export class PromiseItemFlingEffectApi {
      * @param limit 
      * @param offset 
      */
+    public itemFlingEffectListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.itemFlingEffectListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public itemFlingEffectList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.itemFlingEffectList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public itemFlingEffectReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.itemFlingEffectReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -739,8 +1079,25 @@ export class PromiseItemPocketApi {
      * @param limit 
      * @param offset 
      */
+    public itemPocketListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.itemPocketListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public itemPocketList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.itemPocketList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public itemPocketReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.itemPocketReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -775,8 +1132,25 @@ export class PromiseLanguageApi {
      * @param limit 
      * @param offset 
      */
+    public languageListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.languageListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public languageList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.languageList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public languageReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.languageReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -811,8 +1185,25 @@ export class PromiseLocationApi {
      * @param limit 
      * @param offset 
      */
+    public locationListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.locationListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public locationList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.locationList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public locationReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.locationReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -847,8 +1238,25 @@ export class PromiseLocationAreaApi {
      * @param limit 
      * @param offset 
      */
+    public locationAreaListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.locationAreaListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public locationAreaList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.locationAreaList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public locationAreaReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.locationAreaReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -883,8 +1291,25 @@ export class PromiseMachineApi {
      * @param limit 
      * @param offset 
      */
+    public machineListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.machineListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public machineList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.machineList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public machineReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.machineReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -919,8 +1344,25 @@ export class PromiseMoveApi {
      * @param limit 
      * @param offset 
      */
+    public moveListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.moveListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public moveList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.moveList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public moveReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.moveReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -955,8 +1397,25 @@ export class PromiseMoveAilmentApi {
      * @param limit 
      * @param offset 
      */
+    public moveAilmentListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.moveAilmentListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public moveAilmentList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.moveAilmentList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public moveAilmentReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.moveAilmentReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -991,8 +1450,25 @@ export class PromiseMoveBattleStyleApi {
      * @param limit 
      * @param offset 
      */
+    public moveBattleStyleListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.moveBattleStyleListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public moveBattleStyleList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.moveBattleStyleList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public moveBattleStyleReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.moveBattleStyleReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1027,8 +1503,25 @@ export class PromiseMoveCategoryApi {
      * @param limit 
      * @param offset 
      */
+    public moveCategoryListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.moveCategoryListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public moveCategoryList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.moveCategoryList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public moveCategoryReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.moveCategoryReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1063,8 +1556,25 @@ export class PromiseMoveDamageClassApi {
      * @param limit 
      * @param offset 
      */
+    public moveDamageClassListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.moveDamageClassListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public moveDamageClassList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.moveDamageClassList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public moveDamageClassReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.moveDamageClassReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1099,8 +1609,25 @@ export class PromiseMoveLearnMethodApi {
      * @param limit 
      * @param offset 
      */
+    public moveLearnMethodListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.moveLearnMethodListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public moveLearnMethodList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.moveLearnMethodList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public moveLearnMethodReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.moveLearnMethodReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1135,8 +1662,25 @@ export class PromiseMoveTargetApi {
      * @param limit 
      * @param offset 
      */
+    public moveTargetListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.moveTargetListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public moveTargetList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.moveTargetList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public moveTargetReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.moveTargetReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1171,8 +1715,25 @@ export class PromiseNatureApi {
      * @param limit 
      * @param offset 
      */
+    public natureListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.natureListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public natureList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.natureList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public natureReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.natureReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1207,8 +1768,25 @@ export class PromisePalParkAreaApi {
      * @param limit 
      * @param offset 
      */
+    public palParkAreaListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.palParkAreaListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public palParkAreaList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.palParkAreaList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public palParkAreaReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.palParkAreaReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1243,8 +1821,25 @@ export class PromisePokeathlonStatApi {
      * @param limit 
      * @param offset 
      */
+    public pokeathlonStatListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.pokeathlonStatListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public pokeathlonStatList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.pokeathlonStatList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public pokeathlonStatReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.pokeathlonStatReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1279,8 +1874,25 @@ export class PromisePokedexApi {
      * @param limit 
      * @param offset 
      */
+    public pokedexListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.pokedexListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public pokedexList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.pokedexList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public pokedexReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.pokedexReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1315,8 +1927,25 @@ export class PromisePokemonApi {
      * @param limit 
      * @param offset 
      */
+    public pokemonListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.pokemonListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public pokemonList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.pokemonList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public pokemonReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.pokemonReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1351,8 +1980,25 @@ export class PromisePokemonColorApi {
      * @param limit 
      * @param offset 
      */
+    public pokemonColorListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.pokemonColorListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public pokemonColorList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.pokemonColorList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public pokemonColorReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.pokemonColorReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1387,8 +2033,25 @@ export class PromisePokemonFormApi {
      * @param limit 
      * @param offset 
      */
+    public pokemonFormListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.pokemonFormListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public pokemonFormList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.pokemonFormList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public pokemonFormReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.pokemonFormReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1423,8 +2086,25 @@ export class PromisePokemonHabitatApi {
      * @param limit 
      * @param offset 
      */
+    public pokemonHabitatListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.pokemonHabitatListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public pokemonHabitatList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.pokemonHabitatList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public pokemonHabitatReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.pokemonHabitatReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1459,8 +2139,25 @@ export class PromisePokemonShapeApi {
      * @param limit 
      * @param offset 
      */
+    public pokemonShapeListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.pokemonShapeListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public pokemonShapeList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.pokemonShapeList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public pokemonShapeReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.pokemonShapeReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1495,8 +2192,25 @@ export class PromisePokemonSpeciesApi {
      * @param limit 
      * @param offset 
      */
+    public pokemonSpeciesListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.pokemonSpeciesListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public pokemonSpeciesList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.pokemonSpeciesList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public pokemonSpeciesReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.pokemonSpeciesReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1531,8 +2245,25 @@ export class PromiseRegionApi {
      * @param limit 
      * @param offset 
      */
+    public regionListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.regionListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public regionList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.regionList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public regionReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.regionReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1567,8 +2298,25 @@ export class PromiseStatApi {
      * @param limit 
      * @param offset 
      */
+    public statListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.statListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public statList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.statList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public statReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.statReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1603,8 +2351,25 @@ export class PromiseSuperContestEffectApi {
      * @param limit 
      * @param offset 
      */
+    public superContestEffectListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.superContestEffectListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public superContestEffectList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.superContestEffectList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public superContestEffectReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.superContestEffectReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1639,8 +2404,25 @@ export class PromiseTypeApi {
      * @param limit 
      * @param offset 
      */
+    public typeListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.typeListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public typeList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.typeList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public typeReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.typeReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1675,8 +2457,25 @@ export class PromiseVersionApi {
      * @param limit 
      * @param offset 
      */
+    public versionListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.versionListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public versionList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.versionList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public versionReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.versionReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
@@ -1711,8 +2510,25 @@ export class PromiseVersionGroupApi {
      * @param limit 
      * @param offset 
      */
+    public versionGroupListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.versionGroupListWithHttpInfo(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param limit 
+     * @param offset 
+     */
     public versionGroupList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
         const result = this.api.versionGroupList(limit, offset, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public versionGroupReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.versionGroupReadWithHttpInfo(id, _options);
         return result.toPromise();
     }
 

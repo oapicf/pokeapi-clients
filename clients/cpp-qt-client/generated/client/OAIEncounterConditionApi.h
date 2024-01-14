@@ -101,18 +101,25 @@ signals:
     void encounterConditionListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void encounterConditionReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use encounterConditionListSignalError() instead")
     void encounterConditionListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void encounterConditionListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use encounterConditionReadSignalError() instead")
     void encounterConditionReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void encounterConditionReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use encounterConditionListSignalErrorFull() instead")
     void encounterConditionListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void encounterConditionListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use encounterConditionReadSignalErrorFull() instead")
     void encounterConditionReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void encounterConditionReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

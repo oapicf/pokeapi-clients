@@ -17,8 +17,8 @@ char* BerryFlavorAPI_berryFlavorList(apiClient_t *apiClient, int limit, int offs
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **apiClient** | **apiClient_t \*** | context containing the client configuration |
-**limit** | **int** |  | [optional] 
-**offset** | **int** |  | [optional] 
+**limit** | **int \*** |  | [optional] 
+**offset** | **int \*** |  | [optional] 
 
 ### Return type
 
@@ -46,7 +46,7 @@ char* BerryFlavorAPI_berryFlavorRead(apiClient_t *apiClient, int id);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **apiClient** | **apiClient_t \*** | context containing the client configuration |
-**id** | **int** |  | 
+**id** | **int \*** |  | 
 
 ### Return type
 

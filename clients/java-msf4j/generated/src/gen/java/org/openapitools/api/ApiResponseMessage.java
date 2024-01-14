@@ -3,7 +3,7 @@ package org.openapitools.api;
 import javax.xml.bind.annotation.XmlTransient;
 
 @javax.xml.bind.annotation.XmlRootElement
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2022-11-19T09:47:18.678252Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-01-14T06:30:57.429366381Z[Etc/UTC]")
 public class ApiResponseMessage {
     public static final int ERROR = 1;
     public static final int WARNING = 2;

@@ -65,7 +65,6 @@ namespace Org.OpenAPITools
                         NamingStrategy = new CamelCaseNamingStrategy()
                     });
                 });
-
             services
                 .AddSwaggerGen(c =>
                 {

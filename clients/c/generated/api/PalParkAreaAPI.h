@@ -8,10 +8,10 @@
 
 
 char*
-PalParkAreaAPI_palParkAreaList(apiClient_t *apiClient, int limit , int offset );
+PalParkAreaAPI_palParkAreaList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-PalParkAreaAPI_palParkAreaRead(apiClient_t *apiClient, int id );
+PalParkAreaAPI_palParkAreaRead(apiClient_t *apiClient, int *id);
 
 

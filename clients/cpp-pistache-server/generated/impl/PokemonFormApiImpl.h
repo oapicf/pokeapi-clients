@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class PokemonFormApiImpl : public org::openapitools::server::api::PokemonFormApi {
+class  PokemonFormApiImpl : public org::openapitools::server::api::PokemonFormApi {
 public:
     explicit PokemonFormApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~PokemonFormApiImpl() override = default;

@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.MoveLearnMethodApi
+# PSOpenAPITools.PSOpenAPITools\Api.MoveLearnMethodApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Move-LearnMethodRead**](MoveLearnMethodApi.md#Move-LearnMethodRead) | **GET** /api/v2/move-learn-method/{id}/ | 
 
 
-<a name="Move-LearnMethodList"></a>
+<a id="Move-LearnMethodList"></a>
 # **Move-LearnMethodList**
 > String Move-LearnMethodList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Move-LearnMethodRead"></a>
+<a id="Move-LearnMethodRead"></a>
 # **Move-LearnMethodRead**
 > String Move-LearnMethodRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

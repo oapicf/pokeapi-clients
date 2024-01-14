@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**characteristicRead**](CharacteristicApi.md#characteristicRead) | **GET** /api/v2/characteristic/{id}/ |  |
 
 
-<a name="characteristicList"></a>
+<a id="characteristicList"></a>
 # **characteristicList**
 > String characteristicList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="characteristicRead"></a>
+<a id="characteristicRead"></a>
 # **characteristicRead**
 > String characteristicRead(id)
 

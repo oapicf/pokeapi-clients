@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**languageRead**](LanguageApi.md#languageRead) | **GET** /api/v2/language/{id}/ |  |
 
 
-<a name="languageList"></a>
+<a id="languageList"></a>
 # **languageList**
 > String languageList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="languageRead"></a>
+<a id="languageRead"></a>
 # **languageRead**
 > String languageRead(id)
 

@@ -19,6 +19,8 @@
 #define ItemApi_H_
 
 
+#include "ApiBase.h"
+
 #include <pistache/http.h>
 #include <pistache/router.h>
 #include <pistache/http_headers.h>
@@ -31,11 +33,11 @@
 namespace org::openapitools::server::api
 {
 
-class  ItemApi {
+class  ItemApi : public ApiBase {
 public:
     explicit ItemApi(const std::shared_ptr<Pistache::Rest::Router>& rtr);
-    virtual ~ItemApi() = default;
-    void init();
+    ~ItemApi() override = default;
+    void init() override;
 
     static const std::string base;
 
@@ -45,8 +47,6 @@ private:
     void item_list_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
     void item_read_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
     void item_api_default_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
-
-    const std::shared_ptr<Pistache::Rest::Router> router;
 
     /// <summary>
     /// Helper function to handle unexpected Exceptions during Parameter parsing and validation.

@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// RegionList - 
-func RegionList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type RegionAPI struct {
 }
 
-// RegionRead - 
-func RegionRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/region/
+func (api *RegionAPI) RegionList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/region/:id/
+func (api *RegionAPI) RegionRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

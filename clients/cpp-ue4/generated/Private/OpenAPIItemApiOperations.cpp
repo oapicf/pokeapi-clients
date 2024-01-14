@@ -70,7 +70,7 @@ bool OpenAPIItemApi::ItemListResponse::FromJson(const TSharedPtr<FJsonValue>& Js
 FString OpenAPIItemApi::ItemReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/item/{id}/"), PathParams);
 

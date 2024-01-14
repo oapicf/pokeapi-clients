@@ -1,11 +1,11 @@
-# \VersionGroupApi
+# \VersionGroupAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**VersionGroupList**](VersionGroupApi.md#VersionGroupList) | **Get** /api/v2/version-group/ | 
-[**VersionGroupRead**](VersionGroupApi.md#VersionGroupRead) | **Get** /api/v2/version-group/{id}/ | 
+[**VersionGroupList**](VersionGroupAPI.md#VersionGroupList) | **Get** /api/v2/version-group/ | 
+[**VersionGroupRead**](VersionGroupAPI.md#VersionGroupRead) | **Get** /api/v2/version-group/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.VersionGroupApi.VersionGroupList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `VersionGroupApi.VersionGroupList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `VersionGroupList`: string
-    fmt.Fprintf(os.Stdout, "Response from `VersionGroupApi.VersionGroupList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.VersionGroupAPI.VersionGroupList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `VersionGroupAPI.VersionGroupList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VersionGroupList`: string
+	fmt.Fprintf(os.Stdout, "Response from `VersionGroupAPI.VersionGroupList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.VersionGroupApi.VersionGroupRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `VersionGroupApi.VersionGroupRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `VersionGroupRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `VersionGroupApi.VersionGroupRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.VersionGroupAPI.VersionGroupRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `VersionGroupAPI.VersionGroupRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VersionGroupRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `VersionGroupAPI.VersionGroupRead`: %v\n", resp)
 }
 ```
 

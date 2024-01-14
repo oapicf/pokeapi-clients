@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// TypeList - 
-func TypeList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type TypeAPI struct {
 }
 
-// TypeRead - 
-func TypeRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/type/
+func (api *TypeAPI) TypeList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/type/:id/
+func (api *TypeAPI) TypeRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

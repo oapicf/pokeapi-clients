@@ -70,7 +70,7 @@ bool OpenAPIItemPocketApi::ItemPocketListResponse::FromJson(const TSharedPtr<FJs
 FString OpenAPIItemPocketApi::ItemPocketReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/item-pocket/{id}/"), PathParams);
 

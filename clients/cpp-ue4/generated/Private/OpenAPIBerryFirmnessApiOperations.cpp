@@ -70,7 +70,7 @@ bool OpenAPIBerryFirmnessApi::BerryFirmnessListResponse::FromJson(const TSharedP
 FString OpenAPIBerryFirmnessApi::BerryFirmnessReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/berry-firmness/{id}/"), PathParams);
 

@@ -19,6 +19,8 @@
 #define TypeApi_H_
 
 
+#include "ApiBase.h"
+
 #include <pistache/http.h>
 #include <pistache/router.h>
 #include <pistache/http_headers.h>
@@ -31,11 +33,11 @@
 namespace org::openapitools::server::api
 {
 
-class  TypeApi {
+class  TypeApi : public ApiBase {
 public:
     explicit TypeApi(const std::shared_ptr<Pistache::Rest::Router>& rtr);
-    virtual ~TypeApi() = default;
-    void init();
+    ~TypeApi() override = default;
+    void init() override;
 
     static const std::string base;
 
@@ -45,8 +47,6 @@ private:
     void type_list_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
     void type_read_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
     void type_api_default_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
-
-    const std::shared_ptr<Pistache::Rest::Router> router;
 
     /// <summary>
     /// Helper function to handle unexpected Exceptions during Parameter parsing and validation.

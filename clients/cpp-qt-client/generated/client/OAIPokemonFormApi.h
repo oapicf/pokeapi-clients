@@ -101,18 +101,25 @@ signals:
     void pokemonFormListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void pokemonFormReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use pokemonFormListSignalError() instead")
     void pokemonFormListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void pokemonFormListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use pokemonFormReadSignalError() instead")
     void pokemonFormReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void pokemonFormReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use pokemonFormListSignalErrorFull() instead")
     void pokemonFormListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void pokemonFormListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use pokemonFormReadSignalErrorFull() instead")
     void pokemonFormReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void pokemonFormReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

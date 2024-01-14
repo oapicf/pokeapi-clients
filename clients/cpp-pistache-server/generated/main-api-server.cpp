@@ -20,6 +20,8 @@
 #include <unistd.h>
 #endif
 
+#include "ApiBase.h"
+
 #include "AbilityApiImpl.h"
 #include "BerryApiImpl.h"
 #include "BerryFirmnessApiImpl.h"
@@ -123,107 +125,63 @@ int main() {
     opts.maxResponseSize(PISTACHE_SERVER_MAX_RESPONSE_SIZE);
     httpEndpoint->init(opts);
 
+    auto apiImpls = std::vector<std::shared_ptr<ApiBase>>();
     
-    AbilityApiImpl AbilityApiserver(router);
-    AbilityApiserver.init();
-    BerryApiImpl BerryApiserver(router);
-    BerryApiserver.init();
-    BerryFirmnessApiImpl BerryFirmnessApiserver(router);
-    BerryFirmnessApiserver.init();
-    BerryFlavorApiImpl BerryFlavorApiserver(router);
-    BerryFlavorApiserver.init();
-    CharacteristicApiImpl CharacteristicApiserver(router);
-    CharacteristicApiserver.init();
-    ContestEffectApiImpl ContestEffectApiserver(router);
-    ContestEffectApiserver.init();
-    ContestTypeApiImpl ContestTypeApiserver(router);
-    ContestTypeApiserver.init();
-    EggGroupApiImpl EggGroupApiserver(router);
-    EggGroupApiserver.init();
-    EncounterConditionApiImpl EncounterConditionApiserver(router);
-    EncounterConditionApiserver.init();
-    EncounterConditionValueApiImpl EncounterConditionValueApiserver(router);
-    EncounterConditionValueApiserver.init();
-    EncounterMethodApiImpl EncounterMethodApiserver(router);
-    EncounterMethodApiserver.init();
-    EvolutionChainApiImpl EvolutionChainApiserver(router);
-    EvolutionChainApiserver.init();
-    EvolutionTriggerApiImpl EvolutionTriggerApiserver(router);
-    EvolutionTriggerApiserver.init();
-    GenderApiImpl GenderApiserver(router);
-    GenderApiserver.init();
-    GenerationApiImpl GenerationApiserver(router);
-    GenerationApiserver.init();
-    GrowthRateApiImpl GrowthRateApiserver(router);
-    GrowthRateApiserver.init();
-    ItemApiImpl ItemApiserver(router);
-    ItemApiserver.init();
-    ItemAttributeApiImpl ItemAttributeApiserver(router);
-    ItemAttributeApiserver.init();
-    ItemCategoryApiImpl ItemCategoryApiserver(router);
-    ItemCategoryApiserver.init();
-    ItemFlingEffectApiImpl ItemFlingEffectApiserver(router);
-    ItemFlingEffectApiserver.init();
-    ItemPocketApiImpl ItemPocketApiserver(router);
-    ItemPocketApiserver.init();
-    LanguageApiImpl LanguageApiserver(router);
-    LanguageApiserver.init();
-    LocationApiImpl LocationApiserver(router);
-    LocationApiserver.init();
-    LocationAreaApiImpl LocationAreaApiserver(router);
-    LocationAreaApiserver.init();
-    MachineApiImpl MachineApiserver(router);
-    MachineApiserver.init();
-    MoveApiImpl MoveApiserver(router);
-    MoveApiserver.init();
-    MoveAilmentApiImpl MoveAilmentApiserver(router);
-    MoveAilmentApiserver.init();
-    MoveBattleStyleApiImpl MoveBattleStyleApiserver(router);
-    MoveBattleStyleApiserver.init();
-    MoveCategoryApiImpl MoveCategoryApiserver(router);
-    MoveCategoryApiserver.init();
-    MoveDamageClassApiImpl MoveDamageClassApiserver(router);
-    MoveDamageClassApiserver.init();
-    MoveLearnMethodApiImpl MoveLearnMethodApiserver(router);
-    MoveLearnMethodApiserver.init();
-    MoveTargetApiImpl MoveTargetApiserver(router);
-    MoveTargetApiserver.init();
-    NatureApiImpl NatureApiserver(router);
-    NatureApiserver.init();
-    PalParkAreaApiImpl PalParkAreaApiserver(router);
-    PalParkAreaApiserver.init();
-    PokeathlonStatApiImpl PokeathlonStatApiserver(router);
-    PokeathlonStatApiserver.init();
-    PokedexApiImpl PokedexApiserver(router);
-    PokedexApiserver.init();
-    PokemonApiImpl PokemonApiserver(router);
-    PokemonApiserver.init();
-    PokemonColorApiImpl PokemonColorApiserver(router);
-    PokemonColorApiserver.init();
-    PokemonFormApiImpl PokemonFormApiserver(router);
-    PokemonFormApiserver.init();
-    PokemonHabitatApiImpl PokemonHabitatApiserver(router);
-    PokemonHabitatApiserver.init();
-    PokemonShapeApiImpl PokemonShapeApiserver(router);
-    PokemonShapeApiserver.init();
-    PokemonSpeciesApiImpl PokemonSpeciesApiserver(router);
-    PokemonSpeciesApiserver.init();
-    RegionApiImpl RegionApiserver(router);
-    RegionApiserver.init();
-    StatApiImpl StatApiserver(router);
-    StatApiserver.init();
-    SuperContestEffectApiImpl SuperContestEffectApiserver(router);
-    SuperContestEffectApiserver.init();
-    TypeApiImpl TypeApiserver(router);
-    TypeApiserver.init();
-    VersionApiImpl VersionApiserver(router);
-    VersionApiserver.init();
-    VersionGroupApiImpl VersionGroupApiserver(router);
-    VersionGroupApiserver.init();
+    apiImpls.push_back(std::make_shared<AbilityApiImpl>(router));
+    apiImpls.push_back(std::make_shared<BerryApiImpl>(router));
+    apiImpls.push_back(std::make_shared<BerryFirmnessApiImpl>(router));
+    apiImpls.push_back(std::make_shared<BerryFlavorApiImpl>(router));
+    apiImpls.push_back(std::make_shared<CharacteristicApiImpl>(router));
+    apiImpls.push_back(std::make_shared<ContestEffectApiImpl>(router));
+    apiImpls.push_back(std::make_shared<ContestTypeApiImpl>(router));
+    apiImpls.push_back(std::make_shared<EggGroupApiImpl>(router));
+    apiImpls.push_back(std::make_shared<EncounterConditionApiImpl>(router));
+    apiImpls.push_back(std::make_shared<EncounterConditionValueApiImpl>(router));
+    apiImpls.push_back(std::make_shared<EncounterMethodApiImpl>(router));
+    apiImpls.push_back(std::make_shared<EvolutionChainApiImpl>(router));
+    apiImpls.push_back(std::make_shared<EvolutionTriggerApiImpl>(router));
+    apiImpls.push_back(std::make_shared<GenderApiImpl>(router));
+    apiImpls.push_back(std::make_shared<GenerationApiImpl>(router));
+    apiImpls.push_back(std::make_shared<GrowthRateApiImpl>(router));
+    apiImpls.push_back(std::make_shared<ItemApiImpl>(router));
+    apiImpls.push_back(std::make_shared<ItemAttributeApiImpl>(router));
+    apiImpls.push_back(std::make_shared<ItemCategoryApiImpl>(router));
+    apiImpls.push_back(std::make_shared<ItemFlingEffectApiImpl>(router));
+    apiImpls.push_back(std::make_shared<ItemPocketApiImpl>(router));
+    apiImpls.push_back(std::make_shared<LanguageApiImpl>(router));
+    apiImpls.push_back(std::make_shared<LocationApiImpl>(router));
+    apiImpls.push_back(std::make_shared<LocationAreaApiImpl>(router));
+    apiImpls.push_back(std::make_shared<MachineApiImpl>(router));
+    apiImpls.push_back(std::make_shared<MoveApiImpl>(router));
+    apiImpls.push_back(std::make_shared<MoveAilmentApiImpl>(router));
+    apiImpls.push_back(std::make_shared<MoveBattleStyleApiImpl>(router));
+    apiImpls.push_back(std::make_shared<MoveCategoryApiImpl>(router));
+    apiImpls.push_back(std::make_shared<MoveDamageClassApiImpl>(router));
+    apiImpls.push_back(std::make_shared<MoveLearnMethodApiImpl>(router));
+    apiImpls.push_back(std::make_shared<MoveTargetApiImpl>(router));
+    apiImpls.push_back(std::make_shared<NatureApiImpl>(router));
+    apiImpls.push_back(std::make_shared<PalParkAreaApiImpl>(router));
+    apiImpls.push_back(std::make_shared<PokeathlonStatApiImpl>(router));
+    apiImpls.push_back(std::make_shared<PokedexApiImpl>(router));
+    apiImpls.push_back(std::make_shared<PokemonApiImpl>(router));
+    apiImpls.push_back(std::make_shared<PokemonColorApiImpl>(router));
+    apiImpls.push_back(std::make_shared<PokemonFormApiImpl>(router));
+    apiImpls.push_back(std::make_shared<PokemonHabitatApiImpl>(router));
+    apiImpls.push_back(std::make_shared<PokemonShapeApiImpl>(router));
+    apiImpls.push_back(std::make_shared<PokemonSpeciesApiImpl>(router));
+    apiImpls.push_back(std::make_shared<RegionApiImpl>(router));
+    apiImpls.push_back(std::make_shared<StatApiImpl>(router));
+    apiImpls.push_back(std::make_shared<SuperContestEffectApiImpl>(router));
+    apiImpls.push_back(std::make_shared<TypeApiImpl>(router));
+    apiImpls.push_back(std::make_shared<VersionApiImpl>(router));
+    apiImpls.push_back(std::make_shared<VersionGroupApiImpl>(router));
+
+    for (auto api : apiImpls) {
+        api->init();
+    }
 
     httpEndpoint->setHandler(router->handler());
     httpEndpoint->serve();
 
     httpEndpoint->shutdown();
-
 }

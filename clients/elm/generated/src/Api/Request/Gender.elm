@@ -20,15 +20,13 @@ module Api.Request.Gender exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-genderList : Maybe Int -> Maybe Int -> Api.Request 
+genderList : Maybe Int -> Maybe Int -> Api.Request ()
 genderList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ genderList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-genderRead : Int -> Api.Request 
+genderRead : Int -> Api.Request ()
 genderRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ genderRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

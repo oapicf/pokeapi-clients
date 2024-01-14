@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**itemPocketRead**](ItemPocketApi.md#itemPocketRead) | **GET** /api/v2/item-pocket/{id}/ | 
 
 
-<a name="itemPocketList"></a>
+<a id="itemPocketList"></a>
 # **itemPocketList**
 > kotlin.String itemPocketList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="itemPocketRead"></a>
+<a id="itemPocketRead"></a>
 # **itemPocketRead**
 > kotlin.String itemPocketRead(id)
 

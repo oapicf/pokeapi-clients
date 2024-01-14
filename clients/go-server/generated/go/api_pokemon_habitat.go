@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// PokemonHabitatApiController binds http requests to an api service and writes the service results to the http response
-type PokemonHabitatApiController struct {
-	service PokemonHabitatApiServicer
+// PokemonHabitatAPIController binds http requests to an api service and writes the service results to the http response
+type PokemonHabitatAPIController struct {
+	service PokemonHabitatAPIServicer
 	errorHandler ErrorHandler
 }
 
-// PokemonHabitatApiOption for how the controller is set up.
-type PokemonHabitatApiOption func(*PokemonHabitatApiController)
+// PokemonHabitatAPIOption for how the controller is set up.
+type PokemonHabitatAPIOption func(*PokemonHabitatAPIController)
 
-// WithPokemonHabitatApiErrorHandler inject ErrorHandler into controller
-func WithPokemonHabitatApiErrorHandler(h ErrorHandler) PokemonHabitatApiOption {
-	return func(c *PokemonHabitatApiController) {
+// WithPokemonHabitatAPIErrorHandler inject ErrorHandler into controller
+func WithPokemonHabitatAPIErrorHandler(h ErrorHandler) PokemonHabitatAPIOption {
+	return func(c *PokemonHabitatAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewPokemonHabitatApiController creates a default api controller
-func NewPokemonHabitatApiController(s PokemonHabitatApiServicer, opts ...PokemonHabitatApiOption) Router {
-	controller := &PokemonHabitatApiController{
+// NewPokemonHabitatAPIController creates a default api controller
+func NewPokemonHabitatAPIController(s PokemonHabitatAPIServicer, opts ...PokemonHabitatAPIOption) Router {
+	controller := &PokemonHabitatAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewPokemonHabitatApiController(s PokemonHabitatApiServicer, opts ...Pokemon
 	return controller
 }
 
-// Routes returns all the api routes for the PokemonHabitatApiController
-func (c *PokemonHabitatApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"PokemonHabitatList",
+// Routes returns all the api routes for the PokemonHabitatAPIController
+func (c *PokemonHabitatAPIController) Routes() Routes {
+	return Routes{
+		"PokemonHabitatList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-habitat/",
 			c.PokemonHabitatList,
 		},
-		{
-			"PokemonHabitatRead",
+		"PokemonHabitatRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-habitat/{id}/",
 			c.PokemonHabitatRead,
@@ -67,17 +65,35 @@ func (c *PokemonHabitatApiController) Routes() Routes {
 }
 
 // PokemonHabitatList - 
-func (c *PokemonHabitatApiController) PokemonHabitatList(w http.ResponseWriter, r *http.Request) {
+func (c *PokemonHabitatAPIController) PokemonHabitatList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.PokemonHabitatList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *PokemonHabitatApiController) PokemonHabitatList(w http.ResponseWriter, 
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // PokemonHabitatRead - 
-func (c *PokemonHabitatApiController) PokemonHabitatRead(w http.ResponseWriter, r *http.Request) {
+func (c *PokemonHabitatAPIController) PokemonHabitatRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.PokemonHabitatRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *PokemonHabitatApiController) PokemonHabitatRead(w http.ResponseWriter, 
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

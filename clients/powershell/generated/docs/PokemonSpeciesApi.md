@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.PokemonSpeciesApi
+# PSOpenAPITools.PSOpenAPITools\Api.PokemonSpeciesApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-PokemonSpeciesRead**](PokemonSpeciesApi.md#Invoke-PokemonSpeciesRead) | **GET** /api/v2/pokemon-species/{id}/ | 
 
 
-<a name="Invoke-PokemonSpeciesList"></a>
+<a id="Invoke-PokemonSpeciesList"></a>
 # **Invoke-PokemonSpeciesList**
 > String Invoke-PokemonSpeciesList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-PokemonSpeciesRead"></a>
+<a id="Invoke-PokemonSpeciesRead"></a>
 # **Invoke-PokemonSpeciesRead**
 > String Invoke-PokemonSpeciesRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

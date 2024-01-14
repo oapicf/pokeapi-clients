@@ -47,14 +47,14 @@ openapi_server/controllers/pokemon_habitat_controller.py
 openapi_server/controllers/pokemon_shape_controller.py
 openapi_server/controllers/pokemon_species_controller.py
 openapi_server/controllers/region_controller.py
-openapi_server/controllers/security_controller_.py
+openapi_server/controllers/security_controller.py
 openapi_server/controllers/stat_controller.py
 openapi_server/controllers/super_contest_effect_controller.py
 openapi_server/controllers/type_controller.py
 openapi_server/controllers/version_controller.py
 openapi_server/controllers/version_group_controller.py
 openapi_server/models/__init__.py
-openapi_server/models/base_model_.py
+openapi_server/models/base_model.py
 openapi_server/openapi/openapi.yaml
 openapi_server/typing_utils.py
 openapi_server/util.py

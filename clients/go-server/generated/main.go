@@ -20,151 +20,151 @@ import (
 func main() {
 	log.Printf("Server started")
 
-	AbilityApiService := openapi.NewAbilityApiService()
-	AbilityApiController := openapi.NewAbilityApiController(AbilityApiService)
+	AbilityAPIService := openapi.NewAbilityAPIService()
+	AbilityAPIController := openapi.NewAbilityAPIController(AbilityAPIService)
 
-	BerryApiService := openapi.NewBerryApiService()
-	BerryApiController := openapi.NewBerryApiController(BerryApiService)
+	BerryAPIService := openapi.NewBerryAPIService()
+	BerryAPIController := openapi.NewBerryAPIController(BerryAPIService)
 
-	BerryFirmnessApiService := openapi.NewBerryFirmnessApiService()
-	BerryFirmnessApiController := openapi.NewBerryFirmnessApiController(BerryFirmnessApiService)
+	BerryFirmnessAPIService := openapi.NewBerryFirmnessAPIService()
+	BerryFirmnessAPIController := openapi.NewBerryFirmnessAPIController(BerryFirmnessAPIService)
 
-	BerryFlavorApiService := openapi.NewBerryFlavorApiService()
-	BerryFlavorApiController := openapi.NewBerryFlavorApiController(BerryFlavorApiService)
+	BerryFlavorAPIService := openapi.NewBerryFlavorAPIService()
+	BerryFlavorAPIController := openapi.NewBerryFlavorAPIController(BerryFlavorAPIService)
 
-	CharacteristicApiService := openapi.NewCharacteristicApiService()
-	CharacteristicApiController := openapi.NewCharacteristicApiController(CharacteristicApiService)
+	CharacteristicAPIService := openapi.NewCharacteristicAPIService()
+	CharacteristicAPIController := openapi.NewCharacteristicAPIController(CharacteristicAPIService)
 
-	ContestEffectApiService := openapi.NewContestEffectApiService()
-	ContestEffectApiController := openapi.NewContestEffectApiController(ContestEffectApiService)
+	ContestEffectAPIService := openapi.NewContestEffectAPIService()
+	ContestEffectAPIController := openapi.NewContestEffectAPIController(ContestEffectAPIService)
 
-	ContestTypeApiService := openapi.NewContestTypeApiService()
-	ContestTypeApiController := openapi.NewContestTypeApiController(ContestTypeApiService)
+	ContestTypeAPIService := openapi.NewContestTypeAPIService()
+	ContestTypeAPIController := openapi.NewContestTypeAPIController(ContestTypeAPIService)
 
-	EggGroupApiService := openapi.NewEggGroupApiService()
-	EggGroupApiController := openapi.NewEggGroupApiController(EggGroupApiService)
+	EggGroupAPIService := openapi.NewEggGroupAPIService()
+	EggGroupAPIController := openapi.NewEggGroupAPIController(EggGroupAPIService)
 
-	EncounterConditionApiService := openapi.NewEncounterConditionApiService()
-	EncounterConditionApiController := openapi.NewEncounterConditionApiController(EncounterConditionApiService)
+	EncounterConditionAPIService := openapi.NewEncounterConditionAPIService()
+	EncounterConditionAPIController := openapi.NewEncounterConditionAPIController(EncounterConditionAPIService)
 
-	EncounterConditionValueApiService := openapi.NewEncounterConditionValueApiService()
-	EncounterConditionValueApiController := openapi.NewEncounterConditionValueApiController(EncounterConditionValueApiService)
+	EncounterConditionValueAPIService := openapi.NewEncounterConditionValueAPIService()
+	EncounterConditionValueAPIController := openapi.NewEncounterConditionValueAPIController(EncounterConditionValueAPIService)
 
-	EncounterMethodApiService := openapi.NewEncounterMethodApiService()
-	EncounterMethodApiController := openapi.NewEncounterMethodApiController(EncounterMethodApiService)
+	EncounterMethodAPIService := openapi.NewEncounterMethodAPIService()
+	EncounterMethodAPIController := openapi.NewEncounterMethodAPIController(EncounterMethodAPIService)
 
-	EvolutionChainApiService := openapi.NewEvolutionChainApiService()
-	EvolutionChainApiController := openapi.NewEvolutionChainApiController(EvolutionChainApiService)
+	EvolutionChainAPIService := openapi.NewEvolutionChainAPIService()
+	EvolutionChainAPIController := openapi.NewEvolutionChainAPIController(EvolutionChainAPIService)
 
-	EvolutionTriggerApiService := openapi.NewEvolutionTriggerApiService()
-	EvolutionTriggerApiController := openapi.NewEvolutionTriggerApiController(EvolutionTriggerApiService)
+	EvolutionTriggerAPIService := openapi.NewEvolutionTriggerAPIService()
+	EvolutionTriggerAPIController := openapi.NewEvolutionTriggerAPIController(EvolutionTriggerAPIService)
 
-	GenderApiService := openapi.NewGenderApiService()
-	GenderApiController := openapi.NewGenderApiController(GenderApiService)
+	GenderAPIService := openapi.NewGenderAPIService()
+	GenderAPIController := openapi.NewGenderAPIController(GenderAPIService)
 
-	GenerationApiService := openapi.NewGenerationApiService()
-	GenerationApiController := openapi.NewGenerationApiController(GenerationApiService)
+	GenerationAPIService := openapi.NewGenerationAPIService()
+	GenerationAPIController := openapi.NewGenerationAPIController(GenerationAPIService)
 
-	GrowthRateApiService := openapi.NewGrowthRateApiService()
-	GrowthRateApiController := openapi.NewGrowthRateApiController(GrowthRateApiService)
+	GrowthRateAPIService := openapi.NewGrowthRateAPIService()
+	GrowthRateAPIController := openapi.NewGrowthRateAPIController(GrowthRateAPIService)
 
-	ItemApiService := openapi.NewItemApiService()
-	ItemApiController := openapi.NewItemApiController(ItemApiService)
+	ItemAPIService := openapi.NewItemAPIService()
+	ItemAPIController := openapi.NewItemAPIController(ItemAPIService)
 
-	ItemAttributeApiService := openapi.NewItemAttributeApiService()
-	ItemAttributeApiController := openapi.NewItemAttributeApiController(ItemAttributeApiService)
+	ItemAttributeAPIService := openapi.NewItemAttributeAPIService()
+	ItemAttributeAPIController := openapi.NewItemAttributeAPIController(ItemAttributeAPIService)
 
-	ItemCategoryApiService := openapi.NewItemCategoryApiService()
-	ItemCategoryApiController := openapi.NewItemCategoryApiController(ItemCategoryApiService)
+	ItemCategoryAPIService := openapi.NewItemCategoryAPIService()
+	ItemCategoryAPIController := openapi.NewItemCategoryAPIController(ItemCategoryAPIService)
 
-	ItemFlingEffectApiService := openapi.NewItemFlingEffectApiService()
-	ItemFlingEffectApiController := openapi.NewItemFlingEffectApiController(ItemFlingEffectApiService)
+	ItemFlingEffectAPIService := openapi.NewItemFlingEffectAPIService()
+	ItemFlingEffectAPIController := openapi.NewItemFlingEffectAPIController(ItemFlingEffectAPIService)
 
-	ItemPocketApiService := openapi.NewItemPocketApiService()
-	ItemPocketApiController := openapi.NewItemPocketApiController(ItemPocketApiService)
+	ItemPocketAPIService := openapi.NewItemPocketAPIService()
+	ItemPocketAPIController := openapi.NewItemPocketAPIController(ItemPocketAPIService)
 
-	LanguageApiService := openapi.NewLanguageApiService()
-	LanguageApiController := openapi.NewLanguageApiController(LanguageApiService)
+	LanguageAPIService := openapi.NewLanguageAPIService()
+	LanguageAPIController := openapi.NewLanguageAPIController(LanguageAPIService)
 
-	LocationApiService := openapi.NewLocationApiService()
-	LocationApiController := openapi.NewLocationApiController(LocationApiService)
+	LocationAPIService := openapi.NewLocationAPIService()
+	LocationAPIController := openapi.NewLocationAPIController(LocationAPIService)
 
-	LocationAreaApiService := openapi.NewLocationAreaApiService()
-	LocationAreaApiController := openapi.NewLocationAreaApiController(LocationAreaApiService)
+	LocationAreaAPIService := openapi.NewLocationAreaAPIService()
+	LocationAreaAPIController := openapi.NewLocationAreaAPIController(LocationAreaAPIService)
 
-	MachineApiService := openapi.NewMachineApiService()
-	MachineApiController := openapi.NewMachineApiController(MachineApiService)
+	MachineAPIService := openapi.NewMachineAPIService()
+	MachineAPIController := openapi.NewMachineAPIController(MachineAPIService)
 
-	MoveApiService := openapi.NewMoveApiService()
-	MoveApiController := openapi.NewMoveApiController(MoveApiService)
+	MoveAPIService := openapi.NewMoveAPIService()
+	MoveAPIController := openapi.NewMoveAPIController(MoveAPIService)
 
-	MoveAilmentApiService := openapi.NewMoveAilmentApiService()
-	MoveAilmentApiController := openapi.NewMoveAilmentApiController(MoveAilmentApiService)
+	MoveAilmentAPIService := openapi.NewMoveAilmentAPIService()
+	MoveAilmentAPIController := openapi.NewMoveAilmentAPIController(MoveAilmentAPIService)
 
-	MoveBattleStyleApiService := openapi.NewMoveBattleStyleApiService()
-	MoveBattleStyleApiController := openapi.NewMoveBattleStyleApiController(MoveBattleStyleApiService)
+	MoveBattleStyleAPIService := openapi.NewMoveBattleStyleAPIService()
+	MoveBattleStyleAPIController := openapi.NewMoveBattleStyleAPIController(MoveBattleStyleAPIService)
 
-	MoveCategoryApiService := openapi.NewMoveCategoryApiService()
-	MoveCategoryApiController := openapi.NewMoveCategoryApiController(MoveCategoryApiService)
+	MoveCategoryAPIService := openapi.NewMoveCategoryAPIService()
+	MoveCategoryAPIController := openapi.NewMoveCategoryAPIController(MoveCategoryAPIService)
 
-	MoveDamageClassApiService := openapi.NewMoveDamageClassApiService()
-	MoveDamageClassApiController := openapi.NewMoveDamageClassApiController(MoveDamageClassApiService)
+	MoveDamageClassAPIService := openapi.NewMoveDamageClassAPIService()
+	MoveDamageClassAPIController := openapi.NewMoveDamageClassAPIController(MoveDamageClassAPIService)
 
-	MoveLearnMethodApiService := openapi.NewMoveLearnMethodApiService()
-	MoveLearnMethodApiController := openapi.NewMoveLearnMethodApiController(MoveLearnMethodApiService)
+	MoveLearnMethodAPIService := openapi.NewMoveLearnMethodAPIService()
+	MoveLearnMethodAPIController := openapi.NewMoveLearnMethodAPIController(MoveLearnMethodAPIService)
 
-	MoveTargetApiService := openapi.NewMoveTargetApiService()
-	MoveTargetApiController := openapi.NewMoveTargetApiController(MoveTargetApiService)
+	MoveTargetAPIService := openapi.NewMoveTargetAPIService()
+	MoveTargetAPIController := openapi.NewMoveTargetAPIController(MoveTargetAPIService)
 
-	NatureApiService := openapi.NewNatureApiService()
-	NatureApiController := openapi.NewNatureApiController(NatureApiService)
+	NatureAPIService := openapi.NewNatureAPIService()
+	NatureAPIController := openapi.NewNatureAPIController(NatureAPIService)
 
-	PalParkAreaApiService := openapi.NewPalParkAreaApiService()
-	PalParkAreaApiController := openapi.NewPalParkAreaApiController(PalParkAreaApiService)
+	PalParkAreaAPIService := openapi.NewPalParkAreaAPIService()
+	PalParkAreaAPIController := openapi.NewPalParkAreaAPIController(PalParkAreaAPIService)
 
-	PokeathlonStatApiService := openapi.NewPokeathlonStatApiService()
-	PokeathlonStatApiController := openapi.NewPokeathlonStatApiController(PokeathlonStatApiService)
+	PokeathlonStatAPIService := openapi.NewPokeathlonStatAPIService()
+	PokeathlonStatAPIController := openapi.NewPokeathlonStatAPIController(PokeathlonStatAPIService)
 
-	PokedexApiService := openapi.NewPokedexApiService()
-	PokedexApiController := openapi.NewPokedexApiController(PokedexApiService)
+	PokedexAPIService := openapi.NewPokedexAPIService()
+	PokedexAPIController := openapi.NewPokedexAPIController(PokedexAPIService)
 
-	PokemonApiService := openapi.NewPokemonApiService()
-	PokemonApiController := openapi.NewPokemonApiController(PokemonApiService)
+	PokemonAPIService := openapi.NewPokemonAPIService()
+	PokemonAPIController := openapi.NewPokemonAPIController(PokemonAPIService)
 
-	PokemonColorApiService := openapi.NewPokemonColorApiService()
-	PokemonColorApiController := openapi.NewPokemonColorApiController(PokemonColorApiService)
+	PokemonColorAPIService := openapi.NewPokemonColorAPIService()
+	PokemonColorAPIController := openapi.NewPokemonColorAPIController(PokemonColorAPIService)
 
-	PokemonFormApiService := openapi.NewPokemonFormApiService()
-	PokemonFormApiController := openapi.NewPokemonFormApiController(PokemonFormApiService)
+	PokemonFormAPIService := openapi.NewPokemonFormAPIService()
+	PokemonFormAPIController := openapi.NewPokemonFormAPIController(PokemonFormAPIService)
 
-	PokemonHabitatApiService := openapi.NewPokemonHabitatApiService()
-	PokemonHabitatApiController := openapi.NewPokemonHabitatApiController(PokemonHabitatApiService)
+	PokemonHabitatAPIService := openapi.NewPokemonHabitatAPIService()
+	PokemonHabitatAPIController := openapi.NewPokemonHabitatAPIController(PokemonHabitatAPIService)
 
-	PokemonShapeApiService := openapi.NewPokemonShapeApiService()
-	PokemonShapeApiController := openapi.NewPokemonShapeApiController(PokemonShapeApiService)
+	PokemonShapeAPIService := openapi.NewPokemonShapeAPIService()
+	PokemonShapeAPIController := openapi.NewPokemonShapeAPIController(PokemonShapeAPIService)
 
-	PokemonSpeciesApiService := openapi.NewPokemonSpeciesApiService()
-	PokemonSpeciesApiController := openapi.NewPokemonSpeciesApiController(PokemonSpeciesApiService)
+	PokemonSpeciesAPIService := openapi.NewPokemonSpeciesAPIService()
+	PokemonSpeciesAPIController := openapi.NewPokemonSpeciesAPIController(PokemonSpeciesAPIService)
 
-	RegionApiService := openapi.NewRegionApiService()
-	RegionApiController := openapi.NewRegionApiController(RegionApiService)
+	RegionAPIService := openapi.NewRegionAPIService()
+	RegionAPIController := openapi.NewRegionAPIController(RegionAPIService)
 
-	StatApiService := openapi.NewStatApiService()
-	StatApiController := openapi.NewStatApiController(StatApiService)
+	StatAPIService := openapi.NewStatAPIService()
+	StatAPIController := openapi.NewStatAPIController(StatAPIService)
 
-	SuperContestEffectApiService := openapi.NewSuperContestEffectApiService()
-	SuperContestEffectApiController := openapi.NewSuperContestEffectApiController(SuperContestEffectApiService)
+	SuperContestEffectAPIService := openapi.NewSuperContestEffectAPIService()
+	SuperContestEffectAPIController := openapi.NewSuperContestEffectAPIController(SuperContestEffectAPIService)
 
-	TypeApiService := openapi.NewTypeApiService()
-	TypeApiController := openapi.NewTypeApiController(TypeApiService)
+	TypeAPIService := openapi.NewTypeAPIService()
+	TypeAPIController := openapi.NewTypeAPIController(TypeAPIService)
 
-	VersionApiService := openapi.NewVersionApiService()
-	VersionApiController := openapi.NewVersionApiController(VersionApiService)
+	VersionAPIService := openapi.NewVersionAPIService()
+	VersionAPIController := openapi.NewVersionAPIController(VersionAPIService)
 
-	VersionGroupApiService := openapi.NewVersionGroupApiService()
-	VersionGroupApiController := openapi.NewVersionGroupApiController(VersionGroupApiService)
+	VersionGroupAPIService := openapi.NewVersionGroupAPIService()
+	VersionGroupAPIController := openapi.NewVersionGroupAPIController(VersionGroupAPIService)
 
-	router := openapi.NewRouter(AbilityApiController, BerryApiController, BerryFirmnessApiController, BerryFlavorApiController, CharacteristicApiController, ContestEffectApiController, ContestTypeApiController, EggGroupApiController, EncounterConditionApiController, EncounterConditionValueApiController, EncounterMethodApiController, EvolutionChainApiController, EvolutionTriggerApiController, GenderApiController, GenerationApiController, GrowthRateApiController, ItemApiController, ItemAttributeApiController, ItemCategoryApiController, ItemFlingEffectApiController, ItemPocketApiController, LanguageApiController, LocationApiController, LocationAreaApiController, MachineApiController, MoveApiController, MoveAilmentApiController, MoveBattleStyleApiController, MoveCategoryApiController, MoveDamageClassApiController, MoveLearnMethodApiController, MoveTargetApiController, NatureApiController, PalParkAreaApiController, PokeathlonStatApiController, PokedexApiController, PokemonApiController, PokemonColorApiController, PokemonFormApiController, PokemonHabitatApiController, PokemonShapeApiController, PokemonSpeciesApiController, RegionApiController, StatApiController, SuperContestEffectApiController, TypeApiController, VersionApiController, VersionGroupApiController)
+	router := openapi.NewRouter(AbilityAPIController, BerryAPIController, BerryFirmnessAPIController, BerryFlavorAPIController, CharacteristicAPIController, ContestEffectAPIController, ContestTypeAPIController, EggGroupAPIController, EncounterConditionAPIController, EncounterConditionValueAPIController, EncounterMethodAPIController, EvolutionChainAPIController, EvolutionTriggerAPIController, GenderAPIController, GenerationAPIController, GrowthRateAPIController, ItemAPIController, ItemAttributeAPIController, ItemCategoryAPIController, ItemFlingEffectAPIController, ItemPocketAPIController, LanguageAPIController, LocationAPIController, LocationAreaAPIController, MachineAPIController, MoveAPIController, MoveAilmentAPIController, MoveBattleStyleAPIController, MoveCategoryAPIController, MoveDamageClassAPIController, MoveLearnMethodAPIController, MoveTargetAPIController, NatureAPIController, PalParkAreaAPIController, PokeathlonStatAPIController, PokedexAPIController, PokemonAPIController, PokemonColorAPIController, PokemonFormAPIController, PokemonHabitatAPIController, PokemonShapeAPIController, PokemonSpeciesAPIController, RegionAPIController, StatAPIController, SuperContestEffectAPIController, TypeAPIController, VersionAPIController, VersionGroupAPIController)
 
 	log.Fatal(http.ListenAndServe(":8080", router))
 }

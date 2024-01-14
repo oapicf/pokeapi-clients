@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// PokemonSpeciesApiController binds http requests to an api service and writes the service results to the http response
-type PokemonSpeciesApiController struct {
-	service PokemonSpeciesApiServicer
+// PokemonSpeciesAPIController binds http requests to an api service and writes the service results to the http response
+type PokemonSpeciesAPIController struct {
+	service PokemonSpeciesAPIServicer
 	errorHandler ErrorHandler
 }
 
-// PokemonSpeciesApiOption for how the controller is set up.
-type PokemonSpeciesApiOption func(*PokemonSpeciesApiController)
+// PokemonSpeciesAPIOption for how the controller is set up.
+type PokemonSpeciesAPIOption func(*PokemonSpeciesAPIController)
 
-// WithPokemonSpeciesApiErrorHandler inject ErrorHandler into controller
-func WithPokemonSpeciesApiErrorHandler(h ErrorHandler) PokemonSpeciesApiOption {
-	return func(c *PokemonSpeciesApiController) {
+// WithPokemonSpeciesAPIErrorHandler inject ErrorHandler into controller
+func WithPokemonSpeciesAPIErrorHandler(h ErrorHandler) PokemonSpeciesAPIOption {
+	return func(c *PokemonSpeciesAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewPokemonSpeciesApiController creates a default api controller
-func NewPokemonSpeciesApiController(s PokemonSpeciesApiServicer, opts ...PokemonSpeciesApiOption) Router {
-	controller := &PokemonSpeciesApiController{
+// NewPokemonSpeciesAPIController creates a default api controller
+func NewPokemonSpeciesAPIController(s PokemonSpeciesAPIServicer, opts ...PokemonSpeciesAPIOption) Router {
+	controller := &PokemonSpeciesAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewPokemonSpeciesApiController(s PokemonSpeciesApiServicer, opts ...Pokemon
 	return controller
 }
 
-// Routes returns all the api routes for the PokemonSpeciesApiController
-func (c *PokemonSpeciesApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"PokemonSpeciesList",
+// Routes returns all the api routes for the PokemonSpeciesAPIController
+func (c *PokemonSpeciesAPIController) Routes() Routes {
+	return Routes{
+		"PokemonSpeciesList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-species/",
 			c.PokemonSpeciesList,
 		},
-		{
-			"PokemonSpeciesRead",
+		"PokemonSpeciesRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-species/{id}/",
 			c.PokemonSpeciesRead,
@@ -67,17 +65,35 @@ func (c *PokemonSpeciesApiController) Routes() Routes {
 }
 
 // PokemonSpeciesList - 
-func (c *PokemonSpeciesApiController) PokemonSpeciesList(w http.ResponseWriter, r *http.Request) {
+func (c *PokemonSpeciesAPIController) PokemonSpeciesList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.PokemonSpeciesList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *PokemonSpeciesApiController) PokemonSpeciesList(w http.ResponseWriter, 
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // PokemonSpeciesRead - 
-func (c *PokemonSpeciesApiController) PokemonSpeciesRead(w http.ResponseWriter, r *http.Request) {
+func (c *PokemonSpeciesAPIController) PokemonSpeciesRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.PokemonSpeciesRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *PokemonSpeciesApiController) PokemonSpeciesRead(w http.ResponseWriter, 
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

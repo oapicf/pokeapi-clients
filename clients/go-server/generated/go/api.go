@@ -17,819 +17,819 @@ import (
 
 
 
-// AbilityApiRouter defines the required methods for binding the api requests to a responses for the AbilityApi
-// The AbilityApiRouter implementation should parse necessary information from the http request,
-// pass the data to a AbilityApiServicer to perform the required actions, then write the service results to the http response.
-type AbilityApiRouter interface { 
+// AbilityAPIRouter defines the required methods for binding the api requests to a responses for the AbilityAPI
+// The AbilityAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a AbilityAPIServicer to perform the required actions, then write the service results to the http response.
+type AbilityAPIRouter interface { 
 	AbilityList(http.ResponseWriter, *http.Request)
 	AbilityRead(http.ResponseWriter, *http.Request)
 }
-// BerryApiRouter defines the required methods for binding the api requests to a responses for the BerryApi
-// The BerryApiRouter implementation should parse necessary information from the http request,
-// pass the data to a BerryApiServicer to perform the required actions, then write the service results to the http response.
-type BerryApiRouter interface { 
+// BerryAPIRouter defines the required methods for binding the api requests to a responses for the BerryAPI
+// The BerryAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a BerryAPIServicer to perform the required actions, then write the service results to the http response.
+type BerryAPIRouter interface { 
 	BerryList(http.ResponseWriter, *http.Request)
 	BerryRead(http.ResponseWriter, *http.Request)
 }
-// BerryFirmnessApiRouter defines the required methods for binding the api requests to a responses for the BerryFirmnessApi
-// The BerryFirmnessApiRouter implementation should parse necessary information from the http request,
-// pass the data to a BerryFirmnessApiServicer to perform the required actions, then write the service results to the http response.
-type BerryFirmnessApiRouter interface { 
+// BerryFirmnessAPIRouter defines the required methods for binding the api requests to a responses for the BerryFirmnessAPI
+// The BerryFirmnessAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a BerryFirmnessAPIServicer to perform the required actions, then write the service results to the http response.
+type BerryFirmnessAPIRouter interface { 
 	BerryFirmnessList(http.ResponseWriter, *http.Request)
 	BerryFirmnessRead(http.ResponseWriter, *http.Request)
 }
-// BerryFlavorApiRouter defines the required methods for binding the api requests to a responses for the BerryFlavorApi
-// The BerryFlavorApiRouter implementation should parse necessary information from the http request,
-// pass the data to a BerryFlavorApiServicer to perform the required actions, then write the service results to the http response.
-type BerryFlavorApiRouter interface { 
+// BerryFlavorAPIRouter defines the required methods for binding the api requests to a responses for the BerryFlavorAPI
+// The BerryFlavorAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a BerryFlavorAPIServicer to perform the required actions, then write the service results to the http response.
+type BerryFlavorAPIRouter interface { 
 	BerryFlavorList(http.ResponseWriter, *http.Request)
 	BerryFlavorRead(http.ResponseWriter, *http.Request)
 }
-// CharacteristicApiRouter defines the required methods for binding the api requests to a responses for the CharacteristicApi
-// The CharacteristicApiRouter implementation should parse necessary information from the http request,
-// pass the data to a CharacteristicApiServicer to perform the required actions, then write the service results to the http response.
-type CharacteristicApiRouter interface { 
+// CharacteristicAPIRouter defines the required methods for binding the api requests to a responses for the CharacteristicAPI
+// The CharacteristicAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a CharacteristicAPIServicer to perform the required actions, then write the service results to the http response.
+type CharacteristicAPIRouter interface { 
 	CharacteristicList(http.ResponseWriter, *http.Request)
 	CharacteristicRead(http.ResponseWriter, *http.Request)
 }
-// ContestEffectApiRouter defines the required methods for binding the api requests to a responses for the ContestEffectApi
-// The ContestEffectApiRouter implementation should parse necessary information from the http request,
-// pass the data to a ContestEffectApiServicer to perform the required actions, then write the service results to the http response.
-type ContestEffectApiRouter interface { 
+// ContestEffectAPIRouter defines the required methods for binding the api requests to a responses for the ContestEffectAPI
+// The ContestEffectAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a ContestEffectAPIServicer to perform the required actions, then write the service results to the http response.
+type ContestEffectAPIRouter interface { 
 	ContestEffectList(http.ResponseWriter, *http.Request)
 	ContestEffectRead(http.ResponseWriter, *http.Request)
 }
-// ContestTypeApiRouter defines the required methods for binding the api requests to a responses for the ContestTypeApi
-// The ContestTypeApiRouter implementation should parse necessary information from the http request,
-// pass the data to a ContestTypeApiServicer to perform the required actions, then write the service results to the http response.
-type ContestTypeApiRouter interface { 
+// ContestTypeAPIRouter defines the required methods for binding the api requests to a responses for the ContestTypeAPI
+// The ContestTypeAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a ContestTypeAPIServicer to perform the required actions, then write the service results to the http response.
+type ContestTypeAPIRouter interface { 
 	ContestTypeList(http.ResponseWriter, *http.Request)
 	ContestTypeRead(http.ResponseWriter, *http.Request)
 }
-// EggGroupApiRouter defines the required methods for binding the api requests to a responses for the EggGroupApi
-// The EggGroupApiRouter implementation should parse necessary information from the http request,
-// pass the data to a EggGroupApiServicer to perform the required actions, then write the service results to the http response.
-type EggGroupApiRouter interface { 
+// EggGroupAPIRouter defines the required methods for binding the api requests to a responses for the EggGroupAPI
+// The EggGroupAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a EggGroupAPIServicer to perform the required actions, then write the service results to the http response.
+type EggGroupAPIRouter interface { 
 	EggGroupList(http.ResponseWriter, *http.Request)
 	EggGroupRead(http.ResponseWriter, *http.Request)
 }
-// EncounterConditionApiRouter defines the required methods for binding the api requests to a responses for the EncounterConditionApi
-// The EncounterConditionApiRouter implementation should parse necessary information from the http request,
-// pass the data to a EncounterConditionApiServicer to perform the required actions, then write the service results to the http response.
-type EncounterConditionApiRouter interface { 
+// EncounterConditionAPIRouter defines the required methods for binding the api requests to a responses for the EncounterConditionAPI
+// The EncounterConditionAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a EncounterConditionAPIServicer to perform the required actions, then write the service results to the http response.
+type EncounterConditionAPIRouter interface { 
 	EncounterConditionList(http.ResponseWriter, *http.Request)
 	EncounterConditionRead(http.ResponseWriter, *http.Request)
 }
-// EncounterConditionValueApiRouter defines the required methods for binding the api requests to a responses for the EncounterConditionValueApi
-// The EncounterConditionValueApiRouter implementation should parse necessary information from the http request,
-// pass the data to a EncounterConditionValueApiServicer to perform the required actions, then write the service results to the http response.
-type EncounterConditionValueApiRouter interface { 
+// EncounterConditionValueAPIRouter defines the required methods for binding the api requests to a responses for the EncounterConditionValueAPI
+// The EncounterConditionValueAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a EncounterConditionValueAPIServicer to perform the required actions, then write the service results to the http response.
+type EncounterConditionValueAPIRouter interface { 
 	EncounterConditionValueList(http.ResponseWriter, *http.Request)
 	EncounterConditionValueRead(http.ResponseWriter, *http.Request)
 }
-// EncounterMethodApiRouter defines the required methods for binding the api requests to a responses for the EncounterMethodApi
-// The EncounterMethodApiRouter implementation should parse necessary information from the http request,
-// pass the data to a EncounterMethodApiServicer to perform the required actions, then write the service results to the http response.
-type EncounterMethodApiRouter interface { 
+// EncounterMethodAPIRouter defines the required methods for binding the api requests to a responses for the EncounterMethodAPI
+// The EncounterMethodAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a EncounterMethodAPIServicer to perform the required actions, then write the service results to the http response.
+type EncounterMethodAPIRouter interface { 
 	EncounterMethodList(http.ResponseWriter, *http.Request)
 	EncounterMethodRead(http.ResponseWriter, *http.Request)
 }
-// EvolutionChainApiRouter defines the required methods for binding the api requests to a responses for the EvolutionChainApi
-// The EvolutionChainApiRouter implementation should parse necessary information from the http request,
-// pass the data to a EvolutionChainApiServicer to perform the required actions, then write the service results to the http response.
-type EvolutionChainApiRouter interface { 
+// EvolutionChainAPIRouter defines the required methods for binding the api requests to a responses for the EvolutionChainAPI
+// The EvolutionChainAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a EvolutionChainAPIServicer to perform the required actions, then write the service results to the http response.
+type EvolutionChainAPIRouter interface { 
 	EvolutionChainList(http.ResponseWriter, *http.Request)
 	EvolutionChainRead(http.ResponseWriter, *http.Request)
 }
-// EvolutionTriggerApiRouter defines the required methods for binding the api requests to a responses for the EvolutionTriggerApi
-// The EvolutionTriggerApiRouter implementation should parse necessary information from the http request,
-// pass the data to a EvolutionTriggerApiServicer to perform the required actions, then write the service results to the http response.
-type EvolutionTriggerApiRouter interface { 
+// EvolutionTriggerAPIRouter defines the required methods for binding the api requests to a responses for the EvolutionTriggerAPI
+// The EvolutionTriggerAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a EvolutionTriggerAPIServicer to perform the required actions, then write the service results to the http response.
+type EvolutionTriggerAPIRouter interface { 
 	EvolutionTriggerList(http.ResponseWriter, *http.Request)
 	EvolutionTriggerRead(http.ResponseWriter, *http.Request)
 }
-// GenderApiRouter defines the required methods for binding the api requests to a responses for the GenderApi
-// The GenderApiRouter implementation should parse necessary information from the http request,
-// pass the data to a GenderApiServicer to perform the required actions, then write the service results to the http response.
-type GenderApiRouter interface { 
+// GenderAPIRouter defines the required methods for binding the api requests to a responses for the GenderAPI
+// The GenderAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a GenderAPIServicer to perform the required actions, then write the service results to the http response.
+type GenderAPIRouter interface { 
 	GenderList(http.ResponseWriter, *http.Request)
 	GenderRead(http.ResponseWriter, *http.Request)
 }
-// GenerationApiRouter defines the required methods for binding the api requests to a responses for the GenerationApi
-// The GenerationApiRouter implementation should parse necessary information from the http request,
-// pass the data to a GenerationApiServicer to perform the required actions, then write the service results to the http response.
-type GenerationApiRouter interface { 
+// GenerationAPIRouter defines the required methods for binding the api requests to a responses for the GenerationAPI
+// The GenerationAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a GenerationAPIServicer to perform the required actions, then write the service results to the http response.
+type GenerationAPIRouter interface { 
 	GenerationList(http.ResponseWriter, *http.Request)
 	GenerationRead(http.ResponseWriter, *http.Request)
 }
-// GrowthRateApiRouter defines the required methods for binding the api requests to a responses for the GrowthRateApi
-// The GrowthRateApiRouter implementation should parse necessary information from the http request,
-// pass the data to a GrowthRateApiServicer to perform the required actions, then write the service results to the http response.
-type GrowthRateApiRouter interface { 
+// GrowthRateAPIRouter defines the required methods for binding the api requests to a responses for the GrowthRateAPI
+// The GrowthRateAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a GrowthRateAPIServicer to perform the required actions, then write the service results to the http response.
+type GrowthRateAPIRouter interface { 
 	GrowthRateList(http.ResponseWriter, *http.Request)
 	GrowthRateRead(http.ResponseWriter, *http.Request)
 }
-// ItemApiRouter defines the required methods for binding the api requests to a responses for the ItemApi
-// The ItemApiRouter implementation should parse necessary information from the http request,
-// pass the data to a ItemApiServicer to perform the required actions, then write the service results to the http response.
-type ItemApiRouter interface { 
+// ItemAPIRouter defines the required methods for binding the api requests to a responses for the ItemAPI
+// The ItemAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a ItemAPIServicer to perform the required actions, then write the service results to the http response.
+type ItemAPIRouter interface { 
 	ItemList(http.ResponseWriter, *http.Request)
 	ItemRead(http.ResponseWriter, *http.Request)
 }
-// ItemAttributeApiRouter defines the required methods for binding the api requests to a responses for the ItemAttributeApi
-// The ItemAttributeApiRouter implementation should parse necessary information from the http request,
-// pass the data to a ItemAttributeApiServicer to perform the required actions, then write the service results to the http response.
-type ItemAttributeApiRouter interface { 
+// ItemAttributeAPIRouter defines the required methods for binding the api requests to a responses for the ItemAttributeAPI
+// The ItemAttributeAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a ItemAttributeAPIServicer to perform the required actions, then write the service results to the http response.
+type ItemAttributeAPIRouter interface { 
 	ItemAttributeList(http.ResponseWriter, *http.Request)
 	ItemAttributeRead(http.ResponseWriter, *http.Request)
 }
-// ItemCategoryApiRouter defines the required methods for binding the api requests to a responses for the ItemCategoryApi
-// The ItemCategoryApiRouter implementation should parse necessary information from the http request,
-// pass the data to a ItemCategoryApiServicer to perform the required actions, then write the service results to the http response.
-type ItemCategoryApiRouter interface { 
+// ItemCategoryAPIRouter defines the required methods for binding the api requests to a responses for the ItemCategoryAPI
+// The ItemCategoryAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a ItemCategoryAPIServicer to perform the required actions, then write the service results to the http response.
+type ItemCategoryAPIRouter interface { 
 	ItemCategoryList(http.ResponseWriter, *http.Request)
 	ItemCategoryRead(http.ResponseWriter, *http.Request)
 }
-// ItemFlingEffectApiRouter defines the required methods for binding the api requests to a responses for the ItemFlingEffectApi
-// The ItemFlingEffectApiRouter implementation should parse necessary information from the http request,
-// pass the data to a ItemFlingEffectApiServicer to perform the required actions, then write the service results to the http response.
-type ItemFlingEffectApiRouter interface { 
+// ItemFlingEffectAPIRouter defines the required methods for binding the api requests to a responses for the ItemFlingEffectAPI
+// The ItemFlingEffectAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a ItemFlingEffectAPIServicer to perform the required actions, then write the service results to the http response.
+type ItemFlingEffectAPIRouter interface { 
 	ItemFlingEffectList(http.ResponseWriter, *http.Request)
 	ItemFlingEffectRead(http.ResponseWriter, *http.Request)
 }
-// ItemPocketApiRouter defines the required methods for binding the api requests to a responses for the ItemPocketApi
-// The ItemPocketApiRouter implementation should parse necessary information from the http request,
-// pass the data to a ItemPocketApiServicer to perform the required actions, then write the service results to the http response.
-type ItemPocketApiRouter interface { 
+// ItemPocketAPIRouter defines the required methods for binding the api requests to a responses for the ItemPocketAPI
+// The ItemPocketAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a ItemPocketAPIServicer to perform the required actions, then write the service results to the http response.
+type ItemPocketAPIRouter interface { 
 	ItemPocketList(http.ResponseWriter, *http.Request)
 	ItemPocketRead(http.ResponseWriter, *http.Request)
 }
-// LanguageApiRouter defines the required methods for binding the api requests to a responses for the LanguageApi
-// The LanguageApiRouter implementation should parse necessary information from the http request,
-// pass the data to a LanguageApiServicer to perform the required actions, then write the service results to the http response.
-type LanguageApiRouter interface { 
+// LanguageAPIRouter defines the required methods for binding the api requests to a responses for the LanguageAPI
+// The LanguageAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a LanguageAPIServicer to perform the required actions, then write the service results to the http response.
+type LanguageAPIRouter interface { 
 	LanguageList(http.ResponseWriter, *http.Request)
 	LanguageRead(http.ResponseWriter, *http.Request)
 }
-// LocationApiRouter defines the required methods for binding the api requests to a responses for the LocationApi
-// The LocationApiRouter implementation should parse necessary information from the http request,
-// pass the data to a LocationApiServicer to perform the required actions, then write the service results to the http response.
-type LocationApiRouter interface { 
+// LocationAPIRouter defines the required methods for binding the api requests to a responses for the LocationAPI
+// The LocationAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a LocationAPIServicer to perform the required actions, then write the service results to the http response.
+type LocationAPIRouter interface { 
 	LocationList(http.ResponseWriter, *http.Request)
 	LocationRead(http.ResponseWriter, *http.Request)
 }
-// LocationAreaApiRouter defines the required methods for binding the api requests to a responses for the LocationAreaApi
-// The LocationAreaApiRouter implementation should parse necessary information from the http request,
-// pass the data to a LocationAreaApiServicer to perform the required actions, then write the service results to the http response.
-type LocationAreaApiRouter interface { 
+// LocationAreaAPIRouter defines the required methods for binding the api requests to a responses for the LocationAreaAPI
+// The LocationAreaAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a LocationAreaAPIServicer to perform the required actions, then write the service results to the http response.
+type LocationAreaAPIRouter interface { 
 	LocationAreaList(http.ResponseWriter, *http.Request)
 	LocationAreaRead(http.ResponseWriter, *http.Request)
 }
-// MachineApiRouter defines the required methods for binding the api requests to a responses for the MachineApi
-// The MachineApiRouter implementation should parse necessary information from the http request,
-// pass the data to a MachineApiServicer to perform the required actions, then write the service results to the http response.
-type MachineApiRouter interface { 
+// MachineAPIRouter defines the required methods for binding the api requests to a responses for the MachineAPI
+// The MachineAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a MachineAPIServicer to perform the required actions, then write the service results to the http response.
+type MachineAPIRouter interface { 
 	MachineList(http.ResponseWriter, *http.Request)
 	MachineRead(http.ResponseWriter, *http.Request)
 }
-// MoveApiRouter defines the required methods for binding the api requests to a responses for the MoveApi
-// The MoveApiRouter implementation should parse necessary information from the http request,
-// pass the data to a MoveApiServicer to perform the required actions, then write the service results to the http response.
-type MoveApiRouter interface { 
+// MoveAPIRouter defines the required methods for binding the api requests to a responses for the MoveAPI
+// The MoveAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a MoveAPIServicer to perform the required actions, then write the service results to the http response.
+type MoveAPIRouter interface { 
 	MoveList(http.ResponseWriter, *http.Request)
 	MoveRead(http.ResponseWriter, *http.Request)
 }
-// MoveAilmentApiRouter defines the required methods for binding the api requests to a responses for the MoveAilmentApi
-// The MoveAilmentApiRouter implementation should parse necessary information from the http request,
-// pass the data to a MoveAilmentApiServicer to perform the required actions, then write the service results to the http response.
-type MoveAilmentApiRouter interface { 
+// MoveAilmentAPIRouter defines the required methods for binding the api requests to a responses for the MoveAilmentAPI
+// The MoveAilmentAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a MoveAilmentAPIServicer to perform the required actions, then write the service results to the http response.
+type MoveAilmentAPIRouter interface { 
 	MoveAilmentList(http.ResponseWriter, *http.Request)
 	MoveAilmentRead(http.ResponseWriter, *http.Request)
 }
-// MoveBattleStyleApiRouter defines the required methods for binding the api requests to a responses for the MoveBattleStyleApi
-// The MoveBattleStyleApiRouter implementation should parse necessary information from the http request,
-// pass the data to a MoveBattleStyleApiServicer to perform the required actions, then write the service results to the http response.
-type MoveBattleStyleApiRouter interface { 
+// MoveBattleStyleAPIRouter defines the required methods for binding the api requests to a responses for the MoveBattleStyleAPI
+// The MoveBattleStyleAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a MoveBattleStyleAPIServicer to perform the required actions, then write the service results to the http response.
+type MoveBattleStyleAPIRouter interface { 
 	MoveBattleStyleList(http.ResponseWriter, *http.Request)
 	MoveBattleStyleRead(http.ResponseWriter, *http.Request)
 }
-// MoveCategoryApiRouter defines the required methods for binding the api requests to a responses for the MoveCategoryApi
-// The MoveCategoryApiRouter implementation should parse necessary information from the http request,
-// pass the data to a MoveCategoryApiServicer to perform the required actions, then write the service results to the http response.
-type MoveCategoryApiRouter interface { 
+// MoveCategoryAPIRouter defines the required methods for binding the api requests to a responses for the MoveCategoryAPI
+// The MoveCategoryAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a MoveCategoryAPIServicer to perform the required actions, then write the service results to the http response.
+type MoveCategoryAPIRouter interface { 
 	MoveCategoryList(http.ResponseWriter, *http.Request)
 	MoveCategoryRead(http.ResponseWriter, *http.Request)
 }
-// MoveDamageClassApiRouter defines the required methods for binding the api requests to a responses for the MoveDamageClassApi
-// The MoveDamageClassApiRouter implementation should parse necessary information from the http request,
-// pass the data to a MoveDamageClassApiServicer to perform the required actions, then write the service results to the http response.
-type MoveDamageClassApiRouter interface { 
+// MoveDamageClassAPIRouter defines the required methods for binding the api requests to a responses for the MoveDamageClassAPI
+// The MoveDamageClassAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a MoveDamageClassAPIServicer to perform the required actions, then write the service results to the http response.
+type MoveDamageClassAPIRouter interface { 
 	MoveDamageClassList(http.ResponseWriter, *http.Request)
 	MoveDamageClassRead(http.ResponseWriter, *http.Request)
 }
-// MoveLearnMethodApiRouter defines the required methods for binding the api requests to a responses for the MoveLearnMethodApi
-// The MoveLearnMethodApiRouter implementation should parse necessary information from the http request,
-// pass the data to a MoveLearnMethodApiServicer to perform the required actions, then write the service results to the http response.
-type MoveLearnMethodApiRouter interface { 
+// MoveLearnMethodAPIRouter defines the required methods for binding the api requests to a responses for the MoveLearnMethodAPI
+// The MoveLearnMethodAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a MoveLearnMethodAPIServicer to perform the required actions, then write the service results to the http response.
+type MoveLearnMethodAPIRouter interface { 
 	MoveLearnMethodList(http.ResponseWriter, *http.Request)
 	MoveLearnMethodRead(http.ResponseWriter, *http.Request)
 }
-// MoveTargetApiRouter defines the required methods for binding the api requests to a responses for the MoveTargetApi
-// The MoveTargetApiRouter implementation should parse necessary information from the http request,
-// pass the data to a MoveTargetApiServicer to perform the required actions, then write the service results to the http response.
-type MoveTargetApiRouter interface { 
+// MoveTargetAPIRouter defines the required methods for binding the api requests to a responses for the MoveTargetAPI
+// The MoveTargetAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a MoveTargetAPIServicer to perform the required actions, then write the service results to the http response.
+type MoveTargetAPIRouter interface { 
 	MoveTargetList(http.ResponseWriter, *http.Request)
 	MoveTargetRead(http.ResponseWriter, *http.Request)
 }
-// NatureApiRouter defines the required methods for binding the api requests to a responses for the NatureApi
-// The NatureApiRouter implementation should parse necessary information from the http request,
-// pass the data to a NatureApiServicer to perform the required actions, then write the service results to the http response.
-type NatureApiRouter interface { 
+// NatureAPIRouter defines the required methods for binding the api requests to a responses for the NatureAPI
+// The NatureAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a NatureAPIServicer to perform the required actions, then write the service results to the http response.
+type NatureAPIRouter interface { 
 	NatureList(http.ResponseWriter, *http.Request)
 	NatureRead(http.ResponseWriter, *http.Request)
 }
-// PalParkAreaApiRouter defines the required methods for binding the api requests to a responses for the PalParkAreaApi
-// The PalParkAreaApiRouter implementation should parse necessary information from the http request,
-// pass the data to a PalParkAreaApiServicer to perform the required actions, then write the service results to the http response.
-type PalParkAreaApiRouter interface { 
+// PalParkAreaAPIRouter defines the required methods for binding the api requests to a responses for the PalParkAreaAPI
+// The PalParkAreaAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a PalParkAreaAPIServicer to perform the required actions, then write the service results to the http response.
+type PalParkAreaAPIRouter interface { 
 	PalParkAreaList(http.ResponseWriter, *http.Request)
 	PalParkAreaRead(http.ResponseWriter, *http.Request)
 }
-// PokeathlonStatApiRouter defines the required methods for binding the api requests to a responses for the PokeathlonStatApi
-// The PokeathlonStatApiRouter implementation should parse necessary information from the http request,
-// pass the data to a PokeathlonStatApiServicer to perform the required actions, then write the service results to the http response.
-type PokeathlonStatApiRouter interface { 
+// PokeathlonStatAPIRouter defines the required methods for binding the api requests to a responses for the PokeathlonStatAPI
+// The PokeathlonStatAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a PokeathlonStatAPIServicer to perform the required actions, then write the service results to the http response.
+type PokeathlonStatAPIRouter interface { 
 	PokeathlonStatList(http.ResponseWriter, *http.Request)
 	PokeathlonStatRead(http.ResponseWriter, *http.Request)
 }
-// PokedexApiRouter defines the required methods for binding the api requests to a responses for the PokedexApi
-// The PokedexApiRouter implementation should parse necessary information from the http request,
-// pass the data to a PokedexApiServicer to perform the required actions, then write the service results to the http response.
-type PokedexApiRouter interface { 
+// PokedexAPIRouter defines the required methods for binding the api requests to a responses for the PokedexAPI
+// The PokedexAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a PokedexAPIServicer to perform the required actions, then write the service results to the http response.
+type PokedexAPIRouter interface { 
 	PokedexList(http.ResponseWriter, *http.Request)
 	PokedexRead(http.ResponseWriter, *http.Request)
 }
-// PokemonApiRouter defines the required methods for binding the api requests to a responses for the PokemonApi
-// The PokemonApiRouter implementation should parse necessary information from the http request,
-// pass the data to a PokemonApiServicer to perform the required actions, then write the service results to the http response.
-type PokemonApiRouter interface { 
+// PokemonAPIRouter defines the required methods for binding the api requests to a responses for the PokemonAPI
+// The PokemonAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a PokemonAPIServicer to perform the required actions, then write the service results to the http response.
+type PokemonAPIRouter interface { 
 	PokemonList(http.ResponseWriter, *http.Request)
 	PokemonRead(http.ResponseWriter, *http.Request)
 }
-// PokemonColorApiRouter defines the required methods for binding the api requests to a responses for the PokemonColorApi
-// The PokemonColorApiRouter implementation should parse necessary information from the http request,
-// pass the data to a PokemonColorApiServicer to perform the required actions, then write the service results to the http response.
-type PokemonColorApiRouter interface { 
+// PokemonColorAPIRouter defines the required methods for binding the api requests to a responses for the PokemonColorAPI
+// The PokemonColorAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a PokemonColorAPIServicer to perform the required actions, then write the service results to the http response.
+type PokemonColorAPIRouter interface { 
 	PokemonColorList(http.ResponseWriter, *http.Request)
 	PokemonColorRead(http.ResponseWriter, *http.Request)
 }
-// PokemonFormApiRouter defines the required methods for binding the api requests to a responses for the PokemonFormApi
-// The PokemonFormApiRouter implementation should parse necessary information from the http request,
-// pass the data to a PokemonFormApiServicer to perform the required actions, then write the service results to the http response.
-type PokemonFormApiRouter interface { 
+// PokemonFormAPIRouter defines the required methods for binding the api requests to a responses for the PokemonFormAPI
+// The PokemonFormAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a PokemonFormAPIServicer to perform the required actions, then write the service results to the http response.
+type PokemonFormAPIRouter interface { 
 	PokemonFormList(http.ResponseWriter, *http.Request)
 	PokemonFormRead(http.ResponseWriter, *http.Request)
 }
-// PokemonHabitatApiRouter defines the required methods for binding the api requests to a responses for the PokemonHabitatApi
-// The PokemonHabitatApiRouter implementation should parse necessary information from the http request,
-// pass the data to a PokemonHabitatApiServicer to perform the required actions, then write the service results to the http response.
-type PokemonHabitatApiRouter interface { 
+// PokemonHabitatAPIRouter defines the required methods for binding the api requests to a responses for the PokemonHabitatAPI
+// The PokemonHabitatAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a PokemonHabitatAPIServicer to perform the required actions, then write the service results to the http response.
+type PokemonHabitatAPIRouter interface { 
 	PokemonHabitatList(http.ResponseWriter, *http.Request)
 	PokemonHabitatRead(http.ResponseWriter, *http.Request)
 }
-// PokemonShapeApiRouter defines the required methods for binding the api requests to a responses for the PokemonShapeApi
-// The PokemonShapeApiRouter implementation should parse necessary information from the http request,
-// pass the data to a PokemonShapeApiServicer to perform the required actions, then write the service results to the http response.
-type PokemonShapeApiRouter interface { 
+// PokemonShapeAPIRouter defines the required methods for binding the api requests to a responses for the PokemonShapeAPI
+// The PokemonShapeAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a PokemonShapeAPIServicer to perform the required actions, then write the service results to the http response.
+type PokemonShapeAPIRouter interface { 
 	PokemonShapeList(http.ResponseWriter, *http.Request)
 	PokemonShapeRead(http.ResponseWriter, *http.Request)
 }
-// PokemonSpeciesApiRouter defines the required methods for binding the api requests to a responses for the PokemonSpeciesApi
-// The PokemonSpeciesApiRouter implementation should parse necessary information from the http request,
-// pass the data to a PokemonSpeciesApiServicer to perform the required actions, then write the service results to the http response.
-type PokemonSpeciesApiRouter interface { 
+// PokemonSpeciesAPIRouter defines the required methods for binding the api requests to a responses for the PokemonSpeciesAPI
+// The PokemonSpeciesAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a PokemonSpeciesAPIServicer to perform the required actions, then write the service results to the http response.
+type PokemonSpeciesAPIRouter interface { 
 	PokemonSpeciesList(http.ResponseWriter, *http.Request)
 	PokemonSpeciesRead(http.ResponseWriter, *http.Request)
 }
-// RegionApiRouter defines the required methods for binding the api requests to a responses for the RegionApi
-// The RegionApiRouter implementation should parse necessary information from the http request,
-// pass the data to a RegionApiServicer to perform the required actions, then write the service results to the http response.
-type RegionApiRouter interface { 
+// RegionAPIRouter defines the required methods for binding the api requests to a responses for the RegionAPI
+// The RegionAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a RegionAPIServicer to perform the required actions, then write the service results to the http response.
+type RegionAPIRouter interface { 
 	RegionList(http.ResponseWriter, *http.Request)
 	RegionRead(http.ResponseWriter, *http.Request)
 }
-// StatApiRouter defines the required methods for binding the api requests to a responses for the StatApi
-// The StatApiRouter implementation should parse necessary information from the http request,
-// pass the data to a StatApiServicer to perform the required actions, then write the service results to the http response.
-type StatApiRouter interface { 
+// StatAPIRouter defines the required methods for binding the api requests to a responses for the StatAPI
+// The StatAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a StatAPIServicer to perform the required actions, then write the service results to the http response.
+type StatAPIRouter interface { 
 	StatList(http.ResponseWriter, *http.Request)
 	StatRead(http.ResponseWriter, *http.Request)
 }
-// SuperContestEffectApiRouter defines the required methods for binding the api requests to a responses for the SuperContestEffectApi
-// The SuperContestEffectApiRouter implementation should parse necessary information from the http request,
-// pass the data to a SuperContestEffectApiServicer to perform the required actions, then write the service results to the http response.
-type SuperContestEffectApiRouter interface { 
+// SuperContestEffectAPIRouter defines the required methods for binding the api requests to a responses for the SuperContestEffectAPI
+// The SuperContestEffectAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a SuperContestEffectAPIServicer to perform the required actions, then write the service results to the http response.
+type SuperContestEffectAPIRouter interface { 
 	SuperContestEffectList(http.ResponseWriter, *http.Request)
 	SuperContestEffectRead(http.ResponseWriter, *http.Request)
 }
-// TypeApiRouter defines the required methods for binding the api requests to a responses for the TypeApi
-// The TypeApiRouter implementation should parse necessary information from the http request,
-// pass the data to a TypeApiServicer to perform the required actions, then write the service results to the http response.
-type TypeApiRouter interface { 
+// TypeAPIRouter defines the required methods for binding the api requests to a responses for the TypeAPI
+// The TypeAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a TypeAPIServicer to perform the required actions, then write the service results to the http response.
+type TypeAPIRouter interface { 
 	TypeList(http.ResponseWriter, *http.Request)
 	TypeRead(http.ResponseWriter, *http.Request)
 }
-// VersionApiRouter defines the required methods for binding the api requests to a responses for the VersionApi
-// The VersionApiRouter implementation should parse necessary information from the http request,
-// pass the data to a VersionApiServicer to perform the required actions, then write the service results to the http response.
-type VersionApiRouter interface { 
+// VersionAPIRouter defines the required methods for binding the api requests to a responses for the VersionAPI
+// The VersionAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a VersionAPIServicer to perform the required actions, then write the service results to the http response.
+type VersionAPIRouter interface { 
 	VersionList(http.ResponseWriter, *http.Request)
 	VersionRead(http.ResponseWriter, *http.Request)
 }
-// VersionGroupApiRouter defines the required methods for binding the api requests to a responses for the VersionGroupApi
-// The VersionGroupApiRouter implementation should parse necessary information from the http request,
-// pass the data to a VersionGroupApiServicer to perform the required actions, then write the service results to the http response.
-type VersionGroupApiRouter interface { 
+// VersionGroupAPIRouter defines the required methods for binding the api requests to a responses for the VersionGroupAPI
+// The VersionGroupAPIRouter implementation should parse necessary information from the http request,
+// pass the data to a VersionGroupAPIServicer to perform the required actions, then write the service results to the http response.
+type VersionGroupAPIRouter interface { 
 	VersionGroupList(http.ResponseWriter, *http.Request)
 	VersionGroupRead(http.ResponseWriter, *http.Request)
 }
 
 
-// AbilityApiServicer defines the api actions for the AbilityApi service
+// AbilityAPIServicer defines the api actions for the AbilityAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type AbilityApiServicer interface { 
+type AbilityAPIServicer interface { 
 	AbilityList(context.Context, int32, int32) (ImplResponse, error)
 	AbilityRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// BerryApiServicer defines the api actions for the BerryApi service
+// BerryAPIServicer defines the api actions for the BerryAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type BerryApiServicer interface { 
+type BerryAPIServicer interface { 
 	BerryList(context.Context, int32, int32) (ImplResponse, error)
 	BerryRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// BerryFirmnessApiServicer defines the api actions for the BerryFirmnessApi service
+// BerryFirmnessAPIServicer defines the api actions for the BerryFirmnessAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type BerryFirmnessApiServicer interface { 
+type BerryFirmnessAPIServicer interface { 
 	BerryFirmnessList(context.Context, int32, int32) (ImplResponse, error)
 	BerryFirmnessRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// BerryFlavorApiServicer defines the api actions for the BerryFlavorApi service
+// BerryFlavorAPIServicer defines the api actions for the BerryFlavorAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type BerryFlavorApiServicer interface { 
+type BerryFlavorAPIServicer interface { 
 	BerryFlavorList(context.Context, int32, int32) (ImplResponse, error)
 	BerryFlavorRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// CharacteristicApiServicer defines the api actions for the CharacteristicApi service
+// CharacteristicAPIServicer defines the api actions for the CharacteristicAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type CharacteristicApiServicer interface { 
+type CharacteristicAPIServicer interface { 
 	CharacteristicList(context.Context, int32, int32) (ImplResponse, error)
 	CharacteristicRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// ContestEffectApiServicer defines the api actions for the ContestEffectApi service
+// ContestEffectAPIServicer defines the api actions for the ContestEffectAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type ContestEffectApiServicer interface { 
+type ContestEffectAPIServicer interface { 
 	ContestEffectList(context.Context, int32, int32) (ImplResponse, error)
 	ContestEffectRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// ContestTypeApiServicer defines the api actions for the ContestTypeApi service
+// ContestTypeAPIServicer defines the api actions for the ContestTypeAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type ContestTypeApiServicer interface { 
+type ContestTypeAPIServicer interface { 
 	ContestTypeList(context.Context, int32, int32) (ImplResponse, error)
 	ContestTypeRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// EggGroupApiServicer defines the api actions for the EggGroupApi service
+// EggGroupAPIServicer defines the api actions for the EggGroupAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type EggGroupApiServicer interface { 
+type EggGroupAPIServicer interface { 
 	EggGroupList(context.Context, int32, int32) (ImplResponse, error)
 	EggGroupRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// EncounterConditionApiServicer defines the api actions for the EncounterConditionApi service
+// EncounterConditionAPIServicer defines the api actions for the EncounterConditionAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type EncounterConditionApiServicer interface { 
+type EncounterConditionAPIServicer interface { 
 	EncounterConditionList(context.Context, int32, int32) (ImplResponse, error)
 	EncounterConditionRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// EncounterConditionValueApiServicer defines the api actions for the EncounterConditionValueApi service
+// EncounterConditionValueAPIServicer defines the api actions for the EncounterConditionValueAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type EncounterConditionValueApiServicer interface { 
+type EncounterConditionValueAPIServicer interface { 
 	EncounterConditionValueList(context.Context, int32, int32) (ImplResponse, error)
 	EncounterConditionValueRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// EncounterMethodApiServicer defines the api actions for the EncounterMethodApi service
+// EncounterMethodAPIServicer defines the api actions for the EncounterMethodAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type EncounterMethodApiServicer interface { 
+type EncounterMethodAPIServicer interface { 
 	EncounterMethodList(context.Context, int32, int32) (ImplResponse, error)
 	EncounterMethodRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// EvolutionChainApiServicer defines the api actions for the EvolutionChainApi service
+// EvolutionChainAPIServicer defines the api actions for the EvolutionChainAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type EvolutionChainApiServicer interface { 
+type EvolutionChainAPIServicer interface { 
 	EvolutionChainList(context.Context, int32, int32) (ImplResponse, error)
 	EvolutionChainRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// EvolutionTriggerApiServicer defines the api actions for the EvolutionTriggerApi service
+// EvolutionTriggerAPIServicer defines the api actions for the EvolutionTriggerAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type EvolutionTriggerApiServicer interface { 
+type EvolutionTriggerAPIServicer interface { 
 	EvolutionTriggerList(context.Context, int32, int32) (ImplResponse, error)
 	EvolutionTriggerRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// GenderApiServicer defines the api actions for the GenderApi service
+// GenderAPIServicer defines the api actions for the GenderAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type GenderApiServicer interface { 
+type GenderAPIServicer interface { 
 	GenderList(context.Context, int32, int32) (ImplResponse, error)
 	GenderRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// GenerationApiServicer defines the api actions for the GenerationApi service
+// GenerationAPIServicer defines the api actions for the GenerationAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type GenerationApiServicer interface { 
+type GenerationAPIServicer interface { 
 	GenerationList(context.Context, int32, int32) (ImplResponse, error)
 	GenerationRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// GrowthRateApiServicer defines the api actions for the GrowthRateApi service
+// GrowthRateAPIServicer defines the api actions for the GrowthRateAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type GrowthRateApiServicer interface { 
+type GrowthRateAPIServicer interface { 
 	GrowthRateList(context.Context, int32, int32) (ImplResponse, error)
 	GrowthRateRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// ItemApiServicer defines the api actions for the ItemApi service
+// ItemAPIServicer defines the api actions for the ItemAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type ItemApiServicer interface { 
+type ItemAPIServicer interface { 
 	ItemList(context.Context, int32, int32) (ImplResponse, error)
 	ItemRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// ItemAttributeApiServicer defines the api actions for the ItemAttributeApi service
+// ItemAttributeAPIServicer defines the api actions for the ItemAttributeAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type ItemAttributeApiServicer interface { 
+type ItemAttributeAPIServicer interface { 
 	ItemAttributeList(context.Context, int32, int32) (ImplResponse, error)
 	ItemAttributeRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// ItemCategoryApiServicer defines the api actions for the ItemCategoryApi service
+// ItemCategoryAPIServicer defines the api actions for the ItemCategoryAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type ItemCategoryApiServicer interface { 
+type ItemCategoryAPIServicer interface { 
 	ItemCategoryList(context.Context, int32, int32) (ImplResponse, error)
 	ItemCategoryRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// ItemFlingEffectApiServicer defines the api actions for the ItemFlingEffectApi service
+// ItemFlingEffectAPIServicer defines the api actions for the ItemFlingEffectAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type ItemFlingEffectApiServicer interface { 
+type ItemFlingEffectAPIServicer interface { 
 	ItemFlingEffectList(context.Context, int32, int32) (ImplResponse, error)
 	ItemFlingEffectRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// ItemPocketApiServicer defines the api actions for the ItemPocketApi service
+// ItemPocketAPIServicer defines the api actions for the ItemPocketAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type ItemPocketApiServicer interface { 
+type ItemPocketAPIServicer interface { 
 	ItemPocketList(context.Context, int32, int32) (ImplResponse, error)
 	ItemPocketRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// LanguageApiServicer defines the api actions for the LanguageApi service
+// LanguageAPIServicer defines the api actions for the LanguageAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type LanguageApiServicer interface { 
+type LanguageAPIServicer interface { 
 	LanguageList(context.Context, int32, int32) (ImplResponse, error)
 	LanguageRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// LocationApiServicer defines the api actions for the LocationApi service
+// LocationAPIServicer defines the api actions for the LocationAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type LocationApiServicer interface { 
+type LocationAPIServicer interface { 
 	LocationList(context.Context, int32, int32) (ImplResponse, error)
 	LocationRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// LocationAreaApiServicer defines the api actions for the LocationAreaApi service
+// LocationAreaAPIServicer defines the api actions for the LocationAreaAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type LocationAreaApiServicer interface { 
+type LocationAreaAPIServicer interface { 
 	LocationAreaList(context.Context, int32, int32) (ImplResponse, error)
 	LocationAreaRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// MachineApiServicer defines the api actions for the MachineApi service
+// MachineAPIServicer defines the api actions for the MachineAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type MachineApiServicer interface { 
+type MachineAPIServicer interface { 
 	MachineList(context.Context, int32, int32) (ImplResponse, error)
 	MachineRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// MoveApiServicer defines the api actions for the MoveApi service
+// MoveAPIServicer defines the api actions for the MoveAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type MoveApiServicer interface { 
+type MoveAPIServicer interface { 
 	MoveList(context.Context, int32, int32) (ImplResponse, error)
 	MoveRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// MoveAilmentApiServicer defines the api actions for the MoveAilmentApi service
+// MoveAilmentAPIServicer defines the api actions for the MoveAilmentAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type MoveAilmentApiServicer interface { 
+type MoveAilmentAPIServicer interface { 
 	MoveAilmentList(context.Context, int32, int32) (ImplResponse, error)
 	MoveAilmentRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// MoveBattleStyleApiServicer defines the api actions for the MoveBattleStyleApi service
+// MoveBattleStyleAPIServicer defines the api actions for the MoveBattleStyleAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type MoveBattleStyleApiServicer interface { 
+type MoveBattleStyleAPIServicer interface { 
 	MoveBattleStyleList(context.Context, int32, int32) (ImplResponse, error)
 	MoveBattleStyleRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// MoveCategoryApiServicer defines the api actions for the MoveCategoryApi service
+// MoveCategoryAPIServicer defines the api actions for the MoveCategoryAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type MoveCategoryApiServicer interface { 
+type MoveCategoryAPIServicer interface { 
 	MoveCategoryList(context.Context, int32, int32) (ImplResponse, error)
 	MoveCategoryRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// MoveDamageClassApiServicer defines the api actions for the MoveDamageClassApi service
+// MoveDamageClassAPIServicer defines the api actions for the MoveDamageClassAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type MoveDamageClassApiServicer interface { 
+type MoveDamageClassAPIServicer interface { 
 	MoveDamageClassList(context.Context, int32, int32) (ImplResponse, error)
 	MoveDamageClassRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// MoveLearnMethodApiServicer defines the api actions for the MoveLearnMethodApi service
+// MoveLearnMethodAPIServicer defines the api actions for the MoveLearnMethodAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type MoveLearnMethodApiServicer interface { 
+type MoveLearnMethodAPIServicer interface { 
 	MoveLearnMethodList(context.Context, int32, int32) (ImplResponse, error)
 	MoveLearnMethodRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// MoveTargetApiServicer defines the api actions for the MoveTargetApi service
+// MoveTargetAPIServicer defines the api actions for the MoveTargetAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type MoveTargetApiServicer interface { 
+type MoveTargetAPIServicer interface { 
 	MoveTargetList(context.Context, int32, int32) (ImplResponse, error)
 	MoveTargetRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// NatureApiServicer defines the api actions for the NatureApi service
+// NatureAPIServicer defines the api actions for the NatureAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type NatureApiServicer interface { 
+type NatureAPIServicer interface { 
 	NatureList(context.Context, int32, int32) (ImplResponse, error)
 	NatureRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// PalParkAreaApiServicer defines the api actions for the PalParkAreaApi service
+// PalParkAreaAPIServicer defines the api actions for the PalParkAreaAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type PalParkAreaApiServicer interface { 
+type PalParkAreaAPIServicer interface { 
 	PalParkAreaList(context.Context, int32, int32) (ImplResponse, error)
 	PalParkAreaRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// PokeathlonStatApiServicer defines the api actions for the PokeathlonStatApi service
+// PokeathlonStatAPIServicer defines the api actions for the PokeathlonStatAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type PokeathlonStatApiServicer interface { 
+type PokeathlonStatAPIServicer interface { 
 	PokeathlonStatList(context.Context, int32, int32) (ImplResponse, error)
 	PokeathlonStatRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// PokedexApiServicer defines the api actions for the PokedexApi service
+// PokedexAPIServicer defines the api actions for the PokedexAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type PokedexApiServicer interface { 
+type PokedexAPIServicer interface { 
 	PokedexList(context.Context, int32, int32) (ImplResponse, error)
 	PokedexRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// PokemonApiServicer defines the api actions for the PokemonApi service
+// PokemonAPIServicer defines the api actions for the PokemonAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type PokemonApiServicer interface { 
+type PokemonAPIServicer interface { 
 	PokemonList(context.Context, int32, int32) (ImplResponse, error)
 	PokemonRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// PokemonColorApiServicer defines the api actions for the PokemonColorApi service
+// PokemonColorAPIServicer defines the api actions for the PokemonColorAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type PokemonColorApiServicer interface { 
+type PokemonColorAPIServicer interface { 
 	PokemonColorList(context.Context, int32, int32) (ImplResponse, error)
 	PokemonColorRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// PokemonFormApiServicer defines the api actions for the PokemonFormApi service
+// PokemonFormAPIServicer defines the api actions for the PokemonFormAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type PokemonFormApiServicer interface { 
+type PokemonFormAPIServicer interface { 
 	PokemonFormList(context.Context, int32, int32) (ImplResponse, error)
 	PokemonFormRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// PokemonHabitatApiServicer defines the api actions for the PokemonHabitatApi service
+// PokemonHabitatAPIServicer defines the api actions for the PokemonHabitatAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type PokemonHabitatApiServicer interface { 
+type PokemonHabitatAPIServicer interface { 
 	PokemonHabitatList(context.Context, int32, int32) (ImplResponse, error)
 	PokemonHabitatRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// PokemonShapeApiServicer defines the api actions for the PokemonShapeApi service
+// PokemonShapeAPIServicer defines the api actions for the PokemonShapeAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type PokemonShapeApiServicer interface { 
+type PokemonShapeAPIServicer interface { 
 	PokemonShapeList(context.Context, int32, int32) (ImplResponse, error)
 	PokemonShapeRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// PokemonSpeciesApiServicer defines the api actions for the PokemonSpeciesApi service
+// PokemonSpeciesAPIServicer defines the api actions for the PokemonSpeciesAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type PokemonSpeciesApiServicer interface { 
+type PokemonSpeciesAPIServicer interface { 
 	PokemonSpeciesList(context.Context, int32, int32) (ImplResponse, error)
 	PokemonSpeciesRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// RegionApiServicer defines the api actions for the RegionApi service
+// RegionAPIServicer defines the api actions for the RegionAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type RegionApiServicer interface { 
+type RegionAPIServicer interface { 
 	RegionList(context.Context, int32, int32) (ImplResponse, error)
 	RegionRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// StatApiServicer defines the api actions for the StatApi service
+// StatAPIServicer defines the api actions for the StatAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type StatApiServicer interface { 
+type StatAPIServicer interface { 
 	StatList(context.Context, int32, int32) (ImplResponse, error)
 	StatRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// SuperContestEffectApiServicer defines the api actions for the SuperContestEffectApi service
+// SuperContestEffectAPIServicer defines the api actions for the SuperContestEffectAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type SuperContestEffectApiServicer interface { 
+type SuperContestEffectAPIServicer interface { 
 	SuperContestEffectList(context.Context, int32, int32) (ImplResponse, error)
 	SuperContestEffectRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// TypeApiServicer defines the api actions for the TypeApi service
+// TypeAPIServicer defines the api actions for the TypeAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type TypeApiServicer interface { 
+type TypeAPIServicer interface { 
 	TypeList(context.Context, int32, int32) (ImplResponse, error)
 	TypeRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// VersionApiServicer defines the api actions for the VersionApi service
+// VersionAPIServicer defines the api actions for the VersionAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type VersionApiServicer interface { 
+type VersionAPIServicer interface { 
 	VersionList(context.Context, int32, int32) (ImplResponse, error)
 	VersionRead(context.Context, int32) (ImplResponse, error)
 }
 
 
-// VersionGroupApiServicer defines the api actions for the VersionGroupApi service
+// VersionGroupAPIServicer defines the api actions for the VersionGroupAPI service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type VersionGroupApiServicer interface { 
+type VersionGroupAPIServicer interface { 
 	VersionGroupList(context.Context, int32, int32) (ImplResponse, error)
 	VersionGroupRead(context.Context, int32) (ImplResponse, error)
 }

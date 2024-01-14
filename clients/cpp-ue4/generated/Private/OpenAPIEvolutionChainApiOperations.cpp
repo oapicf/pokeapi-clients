@@ -70,7 +70,7 @@ bool OpenAPIEvolutionChainApi::EvolutionChainListResponse::FromJson(const TShare
 FString OpenAPIEvolutionChainApi::EvolutionChainReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/evolution-chain/{id}/"), PathParams);
 

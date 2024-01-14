@@ -8,10 +8,10 @@
 
 
 char*
-MoveAilmentAPI_moveAilmentList(apiClient_t *apiClient, int limit , int offset );
+MoveAilmentAPI_moveAilmentList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-MoveAilmentAPI_moveAilmentRead(apiClient_t *apiClient, int id );
+MoveAilmentAPI_moveAilmentRead(apiClient_t *apiClient, int *id);
 
 

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**moveTargetRead**](MoveTargetApi.md#moveTargetRead) | **GET** /api/v2/move-target/{id}/ | 
 
 
-<a name="moveTargetList"></a>
+<a id="moveTargetList"></a>
 # **moveTargetList**
 > kotlin.String moveTargetList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="moveTargetRead"></a>
+<a id="moveTargetRead"></a>
 # **moveTargetRead**
 > kotlin.String moveTargetRead(id)
 

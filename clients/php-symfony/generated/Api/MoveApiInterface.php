@@ -52,8 +52,12 @@ interface MoveApiInterface
      *
      * @return array|object|null
      */
-    public function moveList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function moveList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation moveRead
@@ -64,6 +68,9 @@ interface MoveApiInterface
      *
      * @return array|object|null
      */
-    public function moveRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function moveRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

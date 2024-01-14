@@ -8,10 +8,10 @@
 
 
 char*
-RegionAPI_regionList(apiClient_t *apiClient, int limit , int offset );
+RegionAPI_regionList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-RegionAPI_regionRead(apiClient_t *apiClient, int id );
+RegionAPI_regionRead(apiClient_t *apiClient, int *id);
 
 

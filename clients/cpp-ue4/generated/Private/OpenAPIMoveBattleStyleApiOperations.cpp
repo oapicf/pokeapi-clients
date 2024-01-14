@@ -70,7 +70,7 @@ bool OpenAPIMoveBattleStyleApi::MoveBattleStyleListResponse::FromJson(const TSha
 FString OpenAPIMoveBattleStyleApi::MoveBattleStyleReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/move-battle-style/{id}/"), PathParams);
 

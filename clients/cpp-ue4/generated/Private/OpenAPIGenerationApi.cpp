@@ -56,7 +56,7 @@ bool OpenAPIGenerationApi::IsValid() const
 
 void OpenAPIGenerationApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

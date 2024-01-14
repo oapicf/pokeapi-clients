@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// MoveAilmentList - 
-func MoveAilmentList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type MoveAilmentAPI struct {
 }
 
-// MoveAilmentRead - 
-func MoveAilmentRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/move-ailment/
+func (api *MoveAilmentAPI) MoveAilmentList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/move-ailment/:id/
+func (api *MoveAilmentAPI) MoveAilmentRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

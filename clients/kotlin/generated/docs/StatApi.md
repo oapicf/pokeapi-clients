@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**statRead**](StatApi.md#statRead) | **GET** /api/v2/stat/{id}/ | 
 
 
-<a name="statList"></a>
+<a id="statList"></a>
 # **statList**
 > kotlin.String statList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="statRead"></a>
+<a id="statRead"></a>
 # **statRead**
 > kotlin.String statRead(id)
 

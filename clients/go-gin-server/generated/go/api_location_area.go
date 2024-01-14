@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// LocationAreaList - 
-func LocationAreaList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type LocationAreaAPI struct {
 }
 
-// LocationAreaRead - 
-func LocationAreaRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/location-area/
+func (api *LocationAreaAPI) LocationAreaList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/location-area/:id/
+func (api *LocationAreaAPI) LocationAreaRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

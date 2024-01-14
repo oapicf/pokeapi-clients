@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// CharacteristicList - 
-func CharacteristicList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type CharacteristicAPI struct {
 }
 
-// CharacteristicRead - 
-func CharacteristicRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/characteristic/
+func (api *CharacteristicAPI) CharacteristicList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/characteristic/:id/
+func (api *CharacteristicAPI) CharacteristicRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

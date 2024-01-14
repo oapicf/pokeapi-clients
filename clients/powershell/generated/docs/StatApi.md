@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.StatApi
+# PSOpenAPITools.PSOpenAPITools\Api.StatApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-StatRead**](StatApi.md#Invoke-StatRead) | **GET** /api/v2/stat/{id}/ | 
 
 
-<a name="Invoke-StatList"></a>
+<a id="Invoke-StatList"></a>
 # **Invoke-StatList**
 > String Invoke-StatList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-StatRead"></a>
+<a id="Invoke-StatRead"></a>
 # **Invoke-StatRead**
 > String Invoke-StatRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

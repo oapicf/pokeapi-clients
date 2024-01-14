@@ -71,7 +71,7 @@ class MoveAilmentApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -120,6 +120,7 @@ class MoveAilmentApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
             path = "/api/v2/move-ailment/",
             query = localVariableQuery,
             headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -150,7 +151,7 @@ class MoveAilmentApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -189,6 +190,7 @@ class MoveAilmentApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
             path = "/api/v2/move-ailment/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

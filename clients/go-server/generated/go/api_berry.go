@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// BerryApiController binds http requests to an api service and writes the service results to the http response
-type BerryApiController struct {
-	service BerryApiServicer
+// BerryAPIController binds http requests to an api service and writes the service results to the http response
+type BerryAPIController struct {
+	service BerryAPIServicer
 	errorHandler ErrorHandler
 }
 
-// BerryApiOption for how the controller is set up.
-type BerryApiOption func(*BerryApiController)
+// BerryAPIOption for how the controller is set up.
+type BerryAPIOption func(*BerryAPIController)
 
-// WithBerryApiErrorHandler inject ErrorHandler into controller
-func WithBerryApiErrorHandler(h ErrorHandler) BerryApiOption {
-	return func(c *BerryApiController) {
+// WithBerryAPIErrorHandler inject ErrorHandler into controller
+func WithBerryAPIErrorHandler(h ErrorHandler) BerryAPIOption {
+	return func(c *BerryAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewBerryApiController creates a default api controller
-func NewBerryApiController(s BerryApiServicer, opts ...BerryApiOption) Router {
-	controller := &BerryApiController{
+// NewBerryAPIController creates a default api controller
+func NewBerryAPIController(s BerryAPIServicer, opts ...BerryAPIOption) Router {
+	controller := &BerryAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewBerryApiController(s BerryApiServicer, opts ...BerryApiOption) Router {
 	return controller
 }
 
-// Routes returns all the api routes for the BerryApiController
-func (c *BerryApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"BerryList",
+// Routes returns all the api routes for the BerryAPIController
+func (c *BerryAPIController) Routes() Routes {
+	return Routes{
+		"BerryList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/berry/",
 			c.BerryList,
 		},
-		{
-			"BerryRead",
+		"BerryRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/berry/{id}/",
 			c.BerryRead,
@@ -67,17 +65,35 @@ func (c *BerryApiController) Routes() Routes {
 }
 
 // BerryList - 
-func (c *BerryApiController) BerryList(w http.ResponseWriter, r *http.Request) {
+func (c *BerryAPIController) BerryList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.BerryList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *BerryApiController) BerryList(w http.ResponseWriter, r *http.Request) {
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // BerryRead - 
-func (c *BerryApiController) BerryRead(w http.ResponseWriter, r *http.Request) {
+func (c *BerryAPIController) BerryRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.BerryRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *BerryApiController) BerryRead(w http.ResponseWriter, r *http.Request) {
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

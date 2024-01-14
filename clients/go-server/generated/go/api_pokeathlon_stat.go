@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// PokeathlonStatApiController binds http requests to an api service and writes the service results to the http response
-type PokeathlonStatApiController struct {
-	service PokeathlonStatApiServicer
+// PokeathlonStatAPIController binds http requests to an api service and writes the service results to the http response
+type PokeathlonStatAPIController struct {
+	service PokeathlonStatAPIServicer
 	errorHandler ErrorHandler
 }
 
-// PokeathlonStatApiOption for how the controller is set up.
-type PokeathlonStatApiOption func(*PokeathlonStatApiController)
+// PokeathlonStatAPIOption for how the controller is set up.
+type PokeathlonStatAPIOption func(*PokeathlonStatAPIController)
 
-// WithPokeathlonStatApiErrorHandler inject ErrorHandler into controller
-func WithPokeathlonStatApiErrorHandler(h ErrorHandler) PokeathlonStatApiOption {
-	return func(c *PokeathlonStatApiController) {
+// WithPokeathlonStatAPIErrorHandler inject ErrorHandler into controller
+func WithPokeathlonStatAPIErrorHandler(h ErrorHandler) PokeathlonStatAPIOption {
+	return func(c *PokeathlonStatAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewPokeathlonStatApiController creates a default api controller
-func NewPokeathlonStatApiController(s PokeathlonStatApiServicer, opts ...PokeathlonStatApiOption) Router {
-	controller := &PokeathlonStatApiController{
+// NewPokeathlonStatAPIController creates a default api controller
+func NewPokeathlonStatAPIController(s PokeathlonStatAPIServicer, opts ...PokeathlonStatAPIOption) Router {
+	controller := &PokeathlonStatAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewPokeathlonStatApiController(s PokeathlonStatApiServicer, opts ...Pokeath
 	return controller
 }
 
-// Routes returns all the api routes for the PokeathlonStatApiController
-func (c *PokeathlonStatApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"PokeathlonStatList",
+// Routes returns all the api routes for the PokeathlonStatAPIController
+func (c *PokeathlonStatAPIController) Routes() Routes {
+	return Routes{
+		"PokeathlonStatList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/pokeathlon-stat/",
 			c.PokeathlonStatList,
 		},
-		{
-			"PokeathlonStatRead",
+		"PokeathlonStatRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/pokeathlon-stat/{id}/",
 			c.PokeathlonStatRead,
@@ -67,17 +65,35 @@ func (c *PokeathlonStatApiController) Routes() Routes {
 }
 
 // PokeathlonStatList - 
-func (c *PokeathlonStatApiController) PokeathlonStatList(w http.ResponseWriter, r *http.Request) {
+func (c *PokeathlonStatAPIController) PokeathlonStatList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.PokeathlonStatList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *PokeathlonStatApiController) PokeathlonStatList(w http.ResponseWriter, 
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // PokeathlonStatRead - 
-func (c *PokeathlonStatApiController) PokeathlonStatRead(w http.ResponseWriter, r *http.Request) {
+func (c *PokeathlonStatAPIController) PokeathlonStatRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.PokeathlonStatRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *PokeathlonStatApiController) PokeathlonStatRead(w http.ResponseWriter, 
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

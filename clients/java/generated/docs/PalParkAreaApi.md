@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**palParkAreaRead**](PalParkAreaApi.md#palParkAreaRead) | **GET** /api/v2/pal-park-area/{id}/ |  |
 
 
-<a name="palParkAreaList"></a>
+<a id="palParkAreaList"></a>
 # **palParkAreaList**
 > String palParkAreaList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="palParkAreaRead"></a>
+<a id="palParkAreaRead"></a>
 # **palParkAreaRead**
 > String palParkAreaRead(id)
 

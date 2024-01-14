@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// TypeApiController binds http requests to an api service and writes the service results to the http response
-type TypeApiController struct {
-	service TypeApiServicer
+// TypeAPIController binds http requests to an api service and writes the service results to the http response
+type TypeAPIController struct {
+	service TypeAPIServicer
 	errorHandler ErrorHandler
 }
 
-// TypeApiOption for how the controller is set up.
-type TypeApiOption func(*TypeApiController)
+// TypeAPIOption for how the controller is set up.
+type TypeAPIOption func(*TypeAPIController)
 
-// WithTypeApiErrorHandler inject ErrorHandler into controller
-func WithTypeApiErrorHandler(h ErrorHandler) TypeApiOption {
-	return func(c *TypeApiController) {
+// WithTypeAPIErrorHandler inject ErrorHandler into controller
+func WithTypeAPIErrorHandler(h ErrorHandler) TypeAPIOption {
+	return func(c *TypeAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewTypeApiController creates a default api controller
-func NewTypeApiController(s TypeApiServicer, opts ...TypeApiOption) Router {
-	controller := &TypeApiController{
+// NewTypeAPIController creates a default api controller
+func NewTypeAPIController(s TypeAPIServicer, opts ...TypeAPIOption) Router {
+	controller := &TypeAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewTypeApiController(s TypeApiServicer, opts ...TypeApiOption) Router {
 	return controller
 }
 
-// Routes returns all the api routes for the TypeApiController
-func (c *TypeApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"TypeList",
+// Routes returns all the api routes for the TypeAPIController
+func (c *TypeAPIController) Routes() Routes {
+	return Routes{
+		"TypeList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/type/",
 			c.TypeList,
 		},
-		{
-			"TypeRead",
+		"TypeRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/type/{id}/",
 			c.TypeRead,
@@ -67,17 +65,35 @@ func (c *TypeApiController) Routes() Routes {
 }
 
 // TypeList - 
-func (c *TypeApiController) TypeList(w http.ResponseWriter, r *http.Request) {
+func (c *TypeAPIController) TypeList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.TypeList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *TypeApiController) TypeList(w http.ResponseWriter, r *http.Request) {
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // TypeRead - 
-func (c *TypeApiController) TypeRead(w http.ResponseWriter, r *http.Request) {
+func (c *TypeAPIController) TypeRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.TypeRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *TypeApiController) TypeRead(w http.ResponseWriter, r *http.Request) {
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

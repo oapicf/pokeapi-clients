@@ -6,6 +6,8 @@ from aiohttp import web
 
 
 
+pytestmark = pytest.mark.asyncio
+
 async def test_gender_list(client):
     """Test case for gender_list
 
@@ -24,6 +26,8 @@ async def test_gender_list(client):
         )
     assert response.status == 200, 'Response body is : ' + (await response.read()).decode('utf-8')
 
+
+pytestmark = pytest.mark.asyncio
 
 async def test_gender_read(client):
     """Test case for gender_read

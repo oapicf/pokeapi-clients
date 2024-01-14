@@ -52,8 +52,12 @@ interface MoveDamageClassApiInterface
      *
      * @return array|object|null
      */
-    public function moveDamageClassList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function moveDamageClassList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation moveDamageClassRead
@@ -64,6 +68,9 @@ interface MoveDamageClassApiInterface
      *
      * @return array|object|null
      */
-    public function moveDamageClassRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function moveDamageClassRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

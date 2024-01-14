@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// BerryApiService is a service that implements the logic for the BerryApiServicer
-// This service should implement the business logic for every endpoint for the BerryApi API.
+// BerryAPIService is a service that implements the logic for the BerryAPIServicer
+// This service should implement the business logic for every endpoint for the BerryAPI API.
 // Include any external packages or services that will be required by this service.
-type BerryApiService struct {
+type BerryAPIService struct {
 }
 
-// NewBerryApiService creates a default api service
-func NewBerryApiService() BerryApiServicer {
-	return &BerryApiService{}
+// NewBerryAPIService creates a default api service
+func NewBerryAPIService() BerryAPIServicer {
+	return &BerryAPIService{}
 }
 
 // BerryList - 
-func (s *BerryApiService) BerryList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *BerryAPIService) BerryList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update BerryList with the required logic for this service method.
 	// Add api_berry_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("BerryList method not implemented")
 }
 
 // BerryRead - 
-func (s *BerryApiService) BerryRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *BerryAPIService) BerryRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update BerryRead with the required logic for this service method.
 	// Add api_berry_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("BerryRead method not implemented")
 }

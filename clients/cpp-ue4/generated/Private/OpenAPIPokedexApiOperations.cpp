@@ -70,7 +70,7 @@ bool OpenAPIPokedexApi::PokedexListResponse::FromJson(const TSharedPtr<FJsonValu
 FString OpenAPIPokedexApi::PokedexReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/pokedex/{id}/"), PathParams);
 

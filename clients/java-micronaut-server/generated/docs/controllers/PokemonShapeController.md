@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**pokemonShapeList**](#pokemonShapeList) | **GET** /api/v2/pokemon-shape/ | 
 [**pokemonShapeRead**](#pokemonShapeRead) | **GET** /api/v2/pokemon-shape/{id}/ | 
 
-<a name="pokemonShapeList"></a>
+<a id="pokemonShapeList"></a>
 # **pokemonShapeList**
 ```java
 Mono<String> PokemonShapeController.pokemonShapeList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="pokemonShapeRead"></a>
+<a id="pokemonShapeRead"></a>
 # **pokemonShapeRead**
 ```java
 Mono<String> PokemonShapeController.pokemonShapeRead(id)

@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**generationRead**](GenerationApi.md#generationRead) | **GET** /api/v2/generation/{id}/ |  |
 
 
-<a name="generationList"></a>
+<a id="generationList"></a>
 # **generationList**
 > String generationList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="generationRead"></a>
+<a id="generationRead"></a>
 # **generationRead**
 > String generationRead(id)
 

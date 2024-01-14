@@ -8,10 +8,10 @@
 
 
 char*
-ContestEffectAPI_contestEffectList(apiClient_t *apiClient, int limit , int offset );
+ContestEffectAPI_contestEffectList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-ContestEffectAPI_contestEffectRead(apiClient_t *apiClient, int id );
+ContestEffectAPI_contestEffectRead(apiClient_t *apiClient, int *id);
 
 

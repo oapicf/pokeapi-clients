@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**moveTargetRead**](MoveTargetApi.md#moveTargetRead) | **GET** /api/v2/move-target/{id}/ |  |
 
 
-<a name="moveTargetList"></a>
+<a id="moveTargetList"></a>
 # **moveTargetList**
 > String moveTargetList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="moveTargetRead"></a>
+<a id="moveTargetRead"></a>
 # **moveTargetRead**
 > String moveTargetRead(id)
 

@@ -71,7 +71,7 @@ class EvolutionChainApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -120,6 +120,7 @@ class EvolutionChainApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
             path = "/api/v2/evolution-chain/",
             query = localVariableQuery,
             headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -150,7 +151,7 @@ class EvolutionChainApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -189,6 +190,7 @@ class EvolutionChainApi(basePath: kotlin.String = defaultBasePath, client: OkHtt
             path = "/api/v2/evolution-chain/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

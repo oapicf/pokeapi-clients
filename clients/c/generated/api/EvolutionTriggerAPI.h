@@ -8,10 +8,10 @@
 
 
 char*
-EvolutionTriggerAPI_evolutionTriggerList(apiClient_t *apiClient, int limit , int offset );
+EvolutionTriggerAPI_evolutionTriggerList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-EvolutionTriggerAPI_evolutionTriggerRead(apiClient_t *apiClient, int id );
+EvolutionTriggerAPI_evolutionTriggerRead(apiClient_t *apiClient, int *id);
 
 

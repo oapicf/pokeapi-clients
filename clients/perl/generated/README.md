@@ -474,5 +474,5 @@ Class | Method | HTTP request | Description
 
 
 # DOCUMENTATION FOR AUTHORIZATION
- All endpoints do not require authorization.
+Endpoints do not require authorization.
 

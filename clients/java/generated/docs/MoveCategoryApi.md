@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**moveCategoryRead**](MoveCategoryApi.md#moveCategoryRead) | **GET** /api/v2/move-category/{id}/ |  |
 
 
-<a name="moveCategoryList"></a>
+<a id="moveCategoryList"></a>
 # **moveCategoryList**
 > String moveCategoryList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="moveCategoryRead"></a>
+<a id="moveCategoryRead"></a>
 # **moveCategoryRead**
 > String moveCategoryRead(id)
 

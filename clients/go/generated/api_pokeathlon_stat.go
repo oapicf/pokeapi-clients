@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// PokeathlonStatApiService PokeathlonStatApi service
-type PokeathlonStatApiService service
+// PokeathlonStatAPIService PokeathlonStatAPI service
+type PokeathlonStatAPIService service
 
 type ApiPokeathlonStatListRequest struct {
 	ctx context.Context
-	ApiService *PokeathlonStatApiService
+	ApiService *PokeathlonStatAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ PokeathlonStatList Method for PokeathlonStatList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPokeathlonStatListRequest
 */
-func (a *PokeathlonStatApiService) PokeathlonStatList(ctx context.Context) ApiPokeathlonStatListRequest {
+func (a *PokeathlonStatAPIService) PokeathlonStatList(ctx context.Context) ApiPokeathlonStatListRequest {
 	return ApiPokeathlonStatListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *PokeathlonStatApiService) PokeathlonStatList(ctx context.Context) ApiPo
 
 // Execute executes the request
 //  @return string
-func (a *PokeathlonStatApiService) PokeathlonStatListExecute(r ApiPokeathlonStatListRequest) (string, *http.Response, error) {
+func (a *PokeathlonStatAPIService) PokeathlonStatListExecute(r ApiPokeathlonStatListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *PokeathlonStatApiService) PokeathlonStatListExecute(r ApiPokeathlonStat
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PokeathlonStatApiService.PokeathlonStatList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PokeathlonStatAPIService.PokeathlonStatList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *PokeathlonStatApiService) PokeathlonStatListExecute(r ApiPokeathlonStat
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *PokeathlonStatApiService) PokeathlonStatListExecute(r ApiPokeathlonStat
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *PokeathlonStatApiService) PokeathlonStatListExecute(r ApiPokeathlonStat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *PokeathlonStatApiService) PokeathlonStatListExecute(r ApiPokeathlonStat
 
 type ApiPokeathlonStatReadRequest struct {
 	ctx context.Context
-	ApiService *PokeathlonStatApiService
+	ApiService *PokeathlonStatAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ PokeathlonStatRead Method for PokeathlonStatRead
  @param id
  @return ApiPokeathlonStatReadRequest
 */
-func (a *PokeathlonStatApiService) PokeathlonStatRead(ctx context.Context, id int32) ApiPokeathlonStatReadRequest {
+func (a *PokeathlonStatAPIService) PokeathlonStatRead(ctx context.Context, id int32) ApiPokeathlonStatReadRequest {
 	return ApiPokeathlonStatReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *PokeathlonStatApiService) PokeathlonStatRead(ctx context.Context, id in
 
 // Execute executes the request
 //  @return string
-func (a *PokeathlonStatApiService) PokeathlonStatReadExecute(r ApiPokeathlonStatReadRequest) (string, *http.Response, error) {
+func (a *PokeathlonStatAPIService) PokeathlonStatReadExecute(r ApiPokeathlonStatReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *PokeathlonStatApiService) PokeathlonStatReadExecute(r ApiPokeathlonStat
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PokeathlonStatApiService.PokeathlonStatRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PokeathlonStatAPIService.PokeathlonStatRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/pokeathlon-stat/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *PokeathlonStatApiService) PokeathlonStatReadExecute(r ApiPokeathlonStat
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *PokeathlonStatApiService) PokeathlonStatReadExecute(r ApiPokeathlonStat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

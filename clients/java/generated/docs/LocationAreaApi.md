@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**locationAreaRead**](LocationAreaApi.md#locationAreaRead) | **GET** /api/v2/location-area/{id}/ |  |
 
 
-<a name="locationAreaList"></a>
+<a id="locationAreaList"></a>
 # **locationAreaList**
 > String locationAreaList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="locationAreaRead"></a>
+<a id="locationAreaRead"></a>
 # **locationAreaRead**
 > String locationAreaRead(id)
 

@@ -8,10 +8,10 @@
 
 
 char*
-TypeAPI_typeList(apiClient_t *apiClient, int limit , int offset );
+TypeAPI_typeList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-TypeAPI_typeRead(apiClient_t *apiClient, int id );
+TypeAPI_typeRead(apiClient_t *apiClient, int *id);
 
 

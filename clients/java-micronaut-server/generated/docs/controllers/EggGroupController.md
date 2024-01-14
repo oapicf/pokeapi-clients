@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**eggGroupList**](#eggGroupList) | **GET** /api/v2/egg-group/ | 
 [**eggGroupRead**](#eggGroupRead) | **GET** /api/v2/egg-group/{id}/ | 
 
-<a name="eggGroupList"></a>
+<a id="eggGroupList"></a>
 # **eggGroupList**
 ```java
 Mono<String> EggGroupController.eggGroupList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="eggGroupRead"></a>
+<a id="eggGroupRead"></a>
 # **eggGroupRead**
 ```java
 Mono<String> EggGroupController.eggGroupRead(id)

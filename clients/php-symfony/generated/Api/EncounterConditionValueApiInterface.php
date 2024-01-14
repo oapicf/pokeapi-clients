@@ -52,8 +52,12 @@ interface EncounterConditionValueApiInterface
      *
      * @return array|object|null
      */
-    public function encounterConditionValueList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function encounterConditionValueList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation encounterConditionValueRead
@@ -64,6 +68,9 @@ interface EncounterConditionValueApiInterface
      *
      * @return array|object|null
      */
-    public function encounterConditionValueRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function encounterConditionValueRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

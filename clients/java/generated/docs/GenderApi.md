@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**genderRead**](GenderApi.md#genderRead) | **GET** /api/v2/gender/{id}/ |  |
 
 
-<a name="genderList"></a>
+<a id="genderList"></a>
 # **genderList**
 > String genderList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="genderRead"></a>
+<a id="genderRead"></a>
 # **genderRead**
 > String genderRead(id)
 

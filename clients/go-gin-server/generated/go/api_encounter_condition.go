@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// EncounterConditionList - 
-func EncounterConditionList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type EncounterConditionAPI struct {
 }
 
-// EncounterConditionRead - 
-func EncounterConditionRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/encounter-condition/
+func (api *EncounterConditionAPI) EncounterConditionList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/encounter-condition/:id/
+func (api *EncounterConditionAPI) EncounterConditionRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

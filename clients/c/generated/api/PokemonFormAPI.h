@@ -8,10 +8,10 @@
 
 
 char*
-PokemonFormAPI_pokemonFormList(apiClient_t *apiClient, int limit , int offset );
+PokemonFormAPI_pokemonFormList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-PokemonFormAPI_pokemonFormRead(apiClient_t *apiClient, int id );
+PokemonFormAPI_pokemonFormRead(apiClient_t *apiClient, int *id);
 
 

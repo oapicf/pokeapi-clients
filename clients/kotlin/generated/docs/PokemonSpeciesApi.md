@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**pokemonSpeciesRead**](PokemonSpeciesApi.md#pokemonSpeciesRead) | **GET** /api/v2/pokemon-species/{id}/ | 
 
 
-<a name="pokemonSpeciesList"></a>
+<a id="pokemonSpeciesList"></a>
 # **pokemonSpeciesList**
 > kotlin.String pokemonSpeciesList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="pokemonSpeciesRead"></a>
+<a id="pokemonSpeciesRead"></a>
 # **pokemonSpeciesRead**
 > kotlin.String pokemonSpeciesRead(id)
 

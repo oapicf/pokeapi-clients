@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**berryFirmnessRead**](BerryFirmnessApi.md#berryFirmnessRead) | **GET** /api/v2/berry-firmness/{id}/ |  |
 
 
-<a name="berryFirmnessList"></a>
+<a id="berryFirmnessList"></a>
 # **berryFirmnessList**
 > String berryFirmnessList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="berryFirmnessRead"></a>
+<a id="berryFirmnessRead"></a>
 # **berryFirmnessRead**
 > String berryFirmnessRead(id)
 

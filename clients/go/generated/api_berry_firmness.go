@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// BerryFirmnessApiService BerryFirmnessApi service
-type BerryFirmnessApiService service
+// BerryFirmnessAPIService BerryFirmnessAPI service
+type BerryFirmnessAPIService service
 
 type ApiBerryFirmnessListRequest struct {
 	ctx context.Context
-	ApiService *BerryFirmnessApiService
+	ApiService *BerryFirmnessAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ BerryFirmnessList Method for BerryFirmnessList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBerryFirmnessListRequest
 */
-func (a *BerryFirmnessApiService) BerryFirmnessList(ctx context.Context) ApiBerryFirmnessListRequest {
+func (a *BerryFirmnessAPIService) BerryFirmnessList(ctx context.Context) ApiBerryFirmnessListRequest {
 	return ApiBerryFirmnessListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *BerryFirmnessApiService) BerryFirmnessList(ctx context.Context) ApiBerr
 
 // Execute executes the request
 //  @return string
-func (a *BerryFirmnessApiService) BerryFirmnessListExecute(r ApiBerryFirmnessListRequest) (string, *http.Response, error) {
+func (a *BerryFirmnessAPIService) BerryFirmnessListExecute(r ApiBerryFirmnessListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *BerryFirmnessApiService) BerryFirmnessListExecute(r ApiBerryFirmnessLis
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BerryFirmnessApiService.BerryFirmnessList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BerryFirmnessAPIService.BerryFirmnessList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *BerryFirmnessApiService) BerryFirmnessListExecute(r ApiBerryFirmnessLis
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *BerryFirmnessApiService) BerryFirmnessListExecute(r ApiBerryFirmnessLis
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *BerryFirmnessApiService) BerryFirmnessListExecute(r ApiBerryFirmnessLis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *BerryFirmnessApiService) BerryFirmnessListExecute(r ApiBerryFirmnessLis
 
 type ApiBerryFirmnessReadRequest struct {
 	ctx context.Context
-	ApiService *BerryFirmnessApiService
+	ApiService *BerryFirmnessAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ BerryFirmnessRead Method for BerryFirmnessRead
  @param id
  @return ApiBerryFirmnessReadRequest
 */
-func (a *BerryFirmnessApiService) BerryFirmnessRead(ctx context.Context, id int32) ApiBerryFirmnessReadRequest {
+func (a *BerryFirmnessAPIService) BerryFirmnessRead(ctx context.Context, id int32) ApiBerryFirmnessReadRequest {
 	return ApiBerryFirmnessReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *BerryFirmnessApiService) BerryFirmnessRead(ctx context.Context, id int3
 
 // Execute executes the request
 //  @return string
-func (a *BerryFirmnessApiService) BerryFirmnessReadExecute(r ApiBerryFirmnessReadRequest) (string, *http.Response, error) {
+func (a *BerryFirmnessAPIService) BerryFirmnessReadExecute(r ApiBerryFirmnessReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *BerryFirmnessApiService) BerryFirmnessReadExecute(r ApiBerryFirmnessRea
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BerryFirmnessApiService.BerryFirmnessRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BerryFirmnessAPIService.BerryFirmnessRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/berry-firmness/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *BerryFirmnessApiService) BerryFirmnessReadExecute(r ApiBerryFirmnessRea
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *BerryFirmnessApiService) BerryFirmnessReadExecute(r ApiBerryFirmnessRea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

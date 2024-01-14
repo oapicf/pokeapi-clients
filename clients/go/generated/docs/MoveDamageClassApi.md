@@ -1,11 +1,11 @@
-# \MoveDamageClassApi
+# \MoveDamageClassAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**MoveDamageClassList**](MoveDamageClassApi.md#MoveDamageClassList) | **Get** /api/v2/move-damage-class/ | 
-[**MoveDamageClassRead**](MoveDamageClassApi.md#MoveDamageClassRead) | **Get** /api/v2/move-damage-class/{id}/ | 
+[**MoveDamageClassList**](MoveDamageClassAPI.md#MoveDamageClassList) | **Get** /api/v2/move-damage-class/ | 
+[**MoveDamageClassRead**](MoveDamageClassAPI.md#MoveDamageClassRead) | **Get** /api/v2/move-damage-class/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoveDamageClassApi.MoveDamageClassList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoveDamageClassApi.MoveDamageClassList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `MoveDamageClassList`: string
-    fmt.Fprintf(os.Stdout, "Response from `MoveDamageClassApi.MoveDamageClassList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MoveDamageClassAPI.MoveDamageClassList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MoveDamageClassAPI.MoveDamageClassList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MoveDamageClassList`: string
+	fmt.Fprintf(os.Stdout, "Response from `MoveDamageClassAPI.MoveDamageClassList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoveDamageClassApi.MoveDamageClassRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoveDamageClassApi.MoveDamageClassRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `MoveDamageClassRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `MoveDamageClassApi.MoveDamageClassRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MoveDamageClassAPI.MoveDamageClassRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MoveDamageClassAPI.MoveDamageClassRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MoveDamageClassRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `MoveDamageClassAPI.MoveDamageClassRead`: %v\n", resp)
 }
 ```
 

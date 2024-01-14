@@ -52,8 +52,12 @@ interface VersionGroupApiInterface
      *
      * @return array|object|null
      */
-    public function versionGroupList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function versionGroupList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation versionGroupRead
@@ -64,6 +68,9 @@ interface VersionGroupApiInterface
      *
      * @return array|object|null
      */
-    public function versionGroupRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function versionGroupRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

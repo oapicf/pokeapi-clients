@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="genderList"></a>
+<a id="genderList"></a>
 # **genderList**
 ```java
 Mono<String> GenderApi.genderList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> GenderApi.genderList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="genderRead"></a>
+<a id="genderRead"></a>
 # **genderRead**
 ```java
 Mono<String> GenderApi.genderRead(id)

@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// ItemAttributeList - 
-func ItemAttributeList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type ItemAttributeAPI struct {
 }
 
-// ItemAttributeRead - 
-func ItemAttributeRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/item-attribute/
+func (api *ItemAttributeAPI) ItemAttributeList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/item-attribute/:id/
+func (api *ItemAttributeAPI) ItemAttributeRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

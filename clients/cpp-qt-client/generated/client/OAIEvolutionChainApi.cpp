@@ -291,8 +291,34 @@ void OAIEvolutionChainApi::evolutionChainListCallback(OAIHttpRequestWorker *work
         emit evolutionChainListSignal(output);
         emit evolutionChainListSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit evolutionChainListSignalE(output, error_type, error_str);
         emit evolutionChainListSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit evolutionChainListSignalError(output, error_type, error_str);
+        emit evolutionChainListSignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -355,8 +381,34 @@ void OAIEvolutionChainApi::evolutionChainReadCallback(OAIHttpRequestWorker *work
         emit evolutionChainReadSignal(output);
         emit evolutionChainReadSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit evolutionChainReadSignalE(output, error_type, error_str);
         emit evolutionChainReadSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit evolutionChainReadSignalError(output, error_type, error_str);
+        emit evolutionChainReadSignalErrorFull(worker, error_type, error_str);
     }
 }
 

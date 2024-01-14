@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**moveBattleStyleList**](#moveBattleStyleList) | **GET** /api/v2/move-battle-style/ | 
 [**moveBattleStyleRead**](#moveBattleStyleRead) | **GET** /api/v2/move-battle-style/{id}/ | 
 
-<a name="moveBattleStyleList"></a>
+<a id="moveBattleStyleList"></a>
 # **moveBattleStyleList**
 ```java
 Mono<String> MoveBattleStyleController.moveBattleStyleList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="moveBattleStyleRead"></a>
+<a id="moveBattleStyleRead"></a>
 # **moveBattleStyleRead**
 ```java
 Mono<String> MoveBattleStyleController.moveBattleStyleRead(id)

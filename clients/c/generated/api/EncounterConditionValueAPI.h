@@ -8,10 +8,10 @@
 
 
 char*
-EncounterConditionValueAPI_encounterConditionValueList(apiClient_t *apiClient, int limit , int offset );
+EncounterConditionValueAPI_encounterConditionValueList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-EncounterConditionValueAPI_encounterConditionValueRead(apiClient_t *apiClient, int id );
+EncounterConditionValueAPI_encounterConditionValueRead(apiClient_t *apiClient, int *id);
 
 

@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class BerryFirmnessApiImpl : public org::openapitools::server::api::BerryFirmnessApi {
+class  BerryFirmnessApiImpl : public org::openapitools::server::api::BerryFirmnessApi {
 public:
     explicit BerryFirmnessApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~BerryFirmnessApiImpl() override = default;

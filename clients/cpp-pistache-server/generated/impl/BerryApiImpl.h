@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class BerryApiImpl : public org::openapitools::server::api::BerryApi {
+class  BerryApiImpl : public org::openapitools::server::api::BerryApi {
 public:
     explicit BerryApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~BerryApiImpl() override = default;

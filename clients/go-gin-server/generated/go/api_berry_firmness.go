@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// BerryFirmnessList - 
-func BerryFirmnessList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type BerryFirmnessAPI struct {
 }
 
-// BerryFirmnessRead - 
-func BerryFirmnessRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/berry-firmness/
+func (api *BerryFirmnessAPI) BerryFirmnessList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/berry-firmness/:id/
+func (api *BerryFirmnessAPI) BerryFirmnessRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

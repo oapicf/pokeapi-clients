@@ -52,8 +52,12 @@ interface ContestTypeApiInterface
      *
      * @return array|object|null
      */
-    public function contestTypeList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function contestTypeList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation contestTypeRead
@@ -64,6 +68,9 @@ interface ContestTypeApiInterface
      *
      * @return array|object|null
      */
-    public function contestTypeRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function contestTypeRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

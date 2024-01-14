@@ -52,8 +52,12 @@ interface MachineApiInterface
      *
      * @return array|object|null
      */
-    public function machineList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function machineList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation machineRead
@@ -64,6 +68,9 @@ interface MachineApiInterface
      *
      * @return array|object|null
      */
-    public function machineRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function machineRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

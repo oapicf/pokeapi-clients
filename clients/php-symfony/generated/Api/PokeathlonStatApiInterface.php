@@ -52,8 +52,12 @@ interface PokeathlonStatApiInterface
      *
      * @return array|object|null
      */
-    public function pokeathlonStatList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function pokeathlonStatList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation pokeathlonStatRead
@@ -64,6 +68,9 @@ interface PokeathlonStatApiInterface
      *
      * @return array|object|null
      */
-    public function pokeathlonStatRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function pokeathlonStatRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

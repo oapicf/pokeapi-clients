@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="berryFirmnessList"></a>
+<a id="berryFirmnessList"></a>
 # **berryFirmnessList**
 ```java
 Mono<String> BerryFirmnessApi.berryFirmnessList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> BerryFirmnessApi.berryFirmnessList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="berryFirmnessRead"></a>
+<a id="berryFirmnessRead"></a>
 # **berryFirmnessRead**
 ```java
 Mono<String> BerryFirmnessApi.berryFirmnessRead(id)

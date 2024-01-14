@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// GenderApiService GenderApi service
-type GenderApiService service
+// GenderAPIService GenderAPI service
+type GenderAPIService service
 
 type ApiGenderListRequest struct {
 	ctx context.Context
-	ApiService *GenderApiService
+	ApiService *GenderAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ GenderList Method for GenderList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGenderListRequest
 */
-func (a *GenderApiService) GenderList(ctx context.Context) ApiGenderListRequest {
+func (a *GenderAPIService) GenderList(ctx context.Context) ApiGenderListRequest {
 	return ApiGenderListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *GenderApiService) GenderList(ctx context.Context) ApiGenderListRequest 
 
 // Execute executes the request
 //  @return string
-func (a *GenderApiService) GenderListExecute(r ApiGenderListRequest) (string, *http.Response, error) {
+func (a *GenderAPIService) GenderListExecute(r ApiGenderListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *GenderApiService) GenderListExecute(r ApiGenderListRequest) (string, *h
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GenderApiService.GenderList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GenderAPIService.GenderList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *GenderApiService) GenderListExecute(r ApiGenderListRequest) (string, *h
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *GenderApiService) GenderListExecute(r ApiGenderListRequest) (string, *h
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *GenderApiService) GenderListExecute(r ApiGenderListRequest) (string, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *GenderApiService) GenderListExecute(r ApiGenderListRequest) (string, *h
 
 type ApiGenderReadRequest struct {
 	ctx context.Context
-	ApiService *GenderApiService
+	ApiService *GenderAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ GenderRead Method for GenderRead
  @param id
  @return ApiGenderReadRequest
 */
-func (a *GenderApiService) GenderRead(ctx context.Context, id int32) ApiGenderReadRequest {
+func (a *GenderAPIService) GenderRead(ctx context.Context, id int32) ApiGenderReadRequest {
 	return ApiGenderReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *GenderApiService) GenderRead(ctx context.Context, id int32) ApiGenderRe
 
 // Execute executes the request
 //  @return string
-func (a *GenderApiService) GenderReadExecute(r ApiGenderReadRequest) (string, *http.Response, error) {
+func (a *GenderAPIService) GenderReadExecute(r ApiGenderReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *GenderApiService) GenderReadExecute(r ApiGenderReadRequest) (string, *h
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GenderApiService.GenderRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GenderAPIService.GenderRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/gender/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *GenderApiService) GenderReadExecute(r ApiGenderReadRequest) (string, *h
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *GenderApiService) GenderReadExecute(r ApiGenderReadRequest) (string, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

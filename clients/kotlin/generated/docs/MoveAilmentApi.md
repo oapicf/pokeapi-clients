@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**moveAilmentRead**](MoveAilmentApi.md#moveAilmentRead) | **GET** /api/v2/move-ailment/{id}/ | 
 
 
-<a name="moveAilmentList"></a>
+<a id="moveAilmentList"></a>
 # **moveAilmentList**
 > kotlin.String moveAilmentList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="moveAilmentRead"></a>
+<a id="moveAilmentRead"></a>
 # **moveAilmentRead**
 > kotlin.String moveAilmentRead(id)
 

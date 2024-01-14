@@ -101,18 +101,25 @@ signals:
     void palParkAreaListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void palParkAreaReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use palParkAreaListSignalError() instead")
     void palParkAreaListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void palParkAreaListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use palParkAreaReadSignalError() instead")
     void palParkAreaReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void palParkAreaReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use palParkAreaListSignalErrorFull() instead")
     void palParkAreaListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void palParkAreaListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use palParkAreaReadSignalErrorFull() instead")
     void palParkAreaReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void palParkAreaReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

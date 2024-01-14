@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="pokemonSpeciesList"></a>
+<a id="pokemonSpeciesList"></a>
 # **pokemonSpeciesList**
 ```java
 Mono<String> PokemonSpeciesApi.pokemonSpeciesList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> PokemonSpeciesApi.pokemonSpeciesList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="pokemonSpeciesRead"></a>
+<a id="pokemonSpeciesRead"></a>
 # **pokemonSpeciesRead**
 ```java
 Mono<String> PokemonSpeciesApi.pokemonSpeciesRead(id)

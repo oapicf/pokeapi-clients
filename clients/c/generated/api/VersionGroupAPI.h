@@ -8,10 +8,10 @@
 
 
 char*
-VersionGroupAPI_versionGroupList(apiClient_t *apiClient, int limit , int offset );
+VersionGroupAPI_versionGroupList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-VersionGroupAPI_versionGroupRead(apiClient_t *apiClient, int id );
+VersionGroupAPI_versionGroupRead(apiClient_t *apiClient, int *id);
 
 

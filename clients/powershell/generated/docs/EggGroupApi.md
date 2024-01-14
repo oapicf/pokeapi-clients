@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.EggGroupApi
+# PSOpenAPITools.PSOpenAPITools\Api.EggGroupApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-EggGroupRead**](EggGroupApi.md#Invoke-EggGroupRead) | **GET** /api/v2/egg-group/{id}/ | 
 
 
-<a name="Invoke-EggGroupList"></a>
+<a id="Invoke-EggGroupList"></a>
 # **Invoke-EggGroupList**
 > String Invoke-EggGroupList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-EggGroupRead"></a>
+<a id="Invoke-EggGroupRead"></a>
 # **Invoke-EggGroupRead**
 > String Invoke-EggGroupRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

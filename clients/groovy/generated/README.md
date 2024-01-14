@@ -6,7 +6,7 @@ This Groovy package, using the [http-builder-ng library](https://http-builder-ng
 
 - API version: 20220523
 - Package version: 20220523
-- Build date: 2022-11-19T09:45:55.469825Z[Etc/UTC]
+- Build date: 2024-01-14T06:30:01.483479813Z[Etc/UTC]
 - Build package: org.openapitools.codegen.languages.GroovyClientCodegen
 For more information, please visit [https://github.com/cliffano/pokeapi-clients](https://github.com/cliffano/pokeapi-clients)
 

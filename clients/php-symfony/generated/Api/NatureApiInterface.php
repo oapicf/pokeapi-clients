@@ -52,8 +52,12 @@ interface NatureApiInterface
      *
      * @return array|object|null
      */
-    public function natureList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function natureList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation natureRead
@@ -64,6 +68,9 @@ interface NatureApiInterface
      *
      * @return array|object|null
      */
-    public function natureRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function natureRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

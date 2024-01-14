@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.GenerationApi
+# PSOpenAPITools.PSOpenAPITools\Api.GenerationApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-GenerationRead**](GenerationApi.md#Invoke-GenerationRead) | **GET** /api/v2/generation/{id}/ | 
 
 
-<a name="Invoke-GenerationList"></a>
+<a id="Invoke-GenerationList"></a>
 # **Invoke-GenerationList**
 > String Invoke-GenerationList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-GenerationRead"></a>
+<a id="Invoke-GenerationRead"></a>
 # **Invoke-GenerationRead**
 > String Invoke-GenerationRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

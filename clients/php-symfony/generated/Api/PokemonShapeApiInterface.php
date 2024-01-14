@@ -52,8 +52,12 @@ interface PokemonShapeApiInterface
      *
      * @return array|object|null
      */
-    public function pokemonShapeList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function pokemonShapeList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation pokemonShapeRead
@@ -64,6 +68,9 @@ interface PokemonShapeApiInterface
      *
      * @return array|object|null
      */
-    public function pokemonShapeRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function pokemonShapeRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

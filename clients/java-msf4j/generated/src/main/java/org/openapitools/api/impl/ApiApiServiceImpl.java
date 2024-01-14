@@ -15,7 +15,7 @@ import org.wso2.msf4j.formparam.FileInfo;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2022-11-19T09:47:18.678252Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-01-14T06:30:57.429366381Z[Etc/UTC]")
 public class ApiApiServiceImpl extends ApiApiService {
     @Override
     public Response abilityList(Integer limit

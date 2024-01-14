@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class EvolutionChainApiImpl : public org::openapitools::server::api::EvolutionChainApi {
+class  EvolutionChainApiImpl : public org::openapitools::server::api::EvolutionChainApi {
 public:
     explicit EvolutionChainApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~EvolutionChainApiImpl() override = default;

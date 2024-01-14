@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// MoveAilmentApiService is a service that implements the logic for the MoveAilmentApiServicer
-// This service should implement the business logic for every endpoint for the MoveAilmentApi API.
+// MoveAilmentAPIService is a service that implements the logic for the MoveAilmentAPIServicer
+// This service should implement the business logic for every endpoint for the MoveAilmentAPI API.
 // Include any external packages or services that will be required by this service.
-type MoveAilmentApiService struct {
+type MoveAilmentAPIService struct {
 }
 
-// NewMoveAilmentApiService creates a default api service
-func NewMoveAilmentApiService() MoveAilmentApiServicer {
-	return &MoveAilmentApiService{}
+// NewMoveAilmentAPIService creates a default api service
+func NewMoveAilmentAPIService() MoveAilmentAPIServicer {
+	return &MoveAilmentAPIService{}
 }
 
 // MoveAilmentList - 
-func (s *MoveAilmentApiService) MoveAilmentList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *MoveAilmentAPIService) MoveAilmentList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update MoveAilmentList with the required logic for this service method.
 	// Add api_move_ailment_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("MoveAilmentList method not implemented")
 }
 
 // MoveAilmentRead - 
-func (s *MoveAilmentApiService) MoveAilmentRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *MoveAilmentAPIService) MoveAilmentRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update MoveAilmentRead with the required logic for this service method.
 	// Add api_move_ailment_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("MoveAilmentRead method not implemented")
 }

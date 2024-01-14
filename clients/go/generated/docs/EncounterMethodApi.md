@@ -1,11 +1,11 @@
-# \EncounterMethodApi
+# \EncounterMethodAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**EncounterMethodList**](EncounterMethodApi.md#EncounterMethodList) | **Get** /api/v2/encounter-method/ | 
-[**EncounterMethodRead**](EncounterMethodApi.md#EncounterMethodRead) | **Get** /api/v2/encounter-method/{id}/ | 
+[**EncounterMethodList**](EncounterMethodAPI.md#EncounterMethodList) | **Get** /api/v2/encounter-method/ | 
+[**EncounterMethodRead**](EncounterMethodAPI.md#EncounterMethodRead) | **Get** /api/v2/encounter-method/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EncounterMethodApi.EncounterMethodList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EncounterMethodApi.EncounterMethodList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EncounterMethodList`: string
-    fmt.Fprintf(os.Stdout, "Response from `EncounterMethodApi.EncounterMethodList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.EncounterMethodAPI.EncounterMethodList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EncounterMethodAPI.EncounterMethodList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EncounterMethodList`: string
+	fmt.Fprintf(os.Stdout, "Response from `EncounterMethodAPI.EncounterMethodList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EncounterMethodApi.EncounterMethodRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EncounterMethodApi.EncounterMethodRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EncounterMethodRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `EncounterMethodApi.EncounterMethodRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.EncounterMethodAPI.EncounterMethodRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EncounterMethodAPI.EncounterMethodRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EncounterMethodRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `EncounterMethodAPI.EncounterMethodRead`: %v\n", resp)
 }
 ```
 

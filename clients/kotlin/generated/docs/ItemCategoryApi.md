@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**itemCategoryRead**](ItemCategoryApi.md#itemCategoryRead) | **GET** /api/v2/item-category/{id}/ | 
 
 
-<a name="itemCategoryList"></a>
+<a id="itemCategoryList"></a>
 # **itemCategoryList**
 > kotlin.String itemCategoryList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="itemCategoryRead"></a>
+<a id="itemCategoryRead"></a>
 # **itemCategoryRead**
 > kotlin.String itemCategoryRead(id)
 

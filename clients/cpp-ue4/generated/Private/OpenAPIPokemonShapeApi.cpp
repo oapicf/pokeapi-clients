@@ -56,7 +56,7 @@ bool OpenAPIPokemonShapeApi::IsValid() const
 
 void OpenAPIPokemonShapeApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

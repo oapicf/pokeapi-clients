@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="encounterConditionList"></a>
+<a id="encounterConditionList"></a>
 # **encounterConditionList**
 ```java
 Mono<String> EncounterConditionApi.encounterConditionList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> EncounterConditionApi.encounterConditionList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="encounterConditionRead"></a>
+<a id="encounterConditionRead"></a>
 # **encounterConditionRead**
 ```java
 Mono<String> EncounterConditionApi.encounterConditionRead(id)

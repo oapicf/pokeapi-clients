@@ -1,11 +1,11 @@
-# \PokeathlonStatApi
+# \PokeathlonStatAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PokeathlonStatList**](PokeathlonStatApi.md#PokeathlonStatList) | **Get** /api/v2/pokeathlon-stat/ | 
-[**PokeathlonStatRead**](PokeathlonStatApi.md#PokeathlonStatRead) | **Get** /api/v2/pokeathlon-stat/{id}/ | 
+[**PokeathlonStatList**](PokeathlonStatAPI.md#PokeathlonStatList) | **Get** /api/v2/pokeathlon-stat/ | 
+[**PokeathlonStatRead**](PokeathlonStatAPI.md#PokeathlonStatRead) | **Get** /api/v2/pokeathlon-stat/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PokeathlonStatApi.PokeathlonStatList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PokeathlonStatApi.PokeathlonStatList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PokeathlonStatList`: string
-    fmt.Fprintf(os.Stdout, "Response from `PokeathlonStatApi.PokeathlonStatList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PokeathlonStatAPI.PokeathlonStatList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PokeathlonStatAPI.PokeathlonStatList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PokeathlonStatList`: string
+	fmt.Fprintf(os.Stdout, "Response from `PokeathlonStatAPI.PokeathlonStatList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PokeathlonStatApi.PokeathlonStatRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PokeathlonStatApi.PokeathlonStatRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PokeathlonStatRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `PokeathlonStatApi.PokeathlonStatRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PokeathlonStatAPI.PokeathlonStatRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PokeathlonStatAPI.PokeathlonStatRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PokeathlonStatRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `PokeathlonStatAPI.PokeathlonStatRead`: %v\n", resp)
 }
 ```
 

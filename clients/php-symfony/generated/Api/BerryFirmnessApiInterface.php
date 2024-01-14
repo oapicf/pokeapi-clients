@@ -52,8 +52,12 @@ interface BerryFirmnessApiInterface
      *
      * @return array|object|null
      */
-    public function berryFirmnessList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function berryFirmnessList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation berryFirmnessRead
@@ -64,6 +68,9 @@ interface BerryFirmnessApiInterface
      *
      * @return array|object|null
      */
-    public function berryFirmnessRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function berryFirmnessRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

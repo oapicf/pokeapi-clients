@@ -101,18 +101,25 @@ signals:
     void locationListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void locationReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use locationListSignalError() instead")
     void locationListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void locationListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use locationReadSignalError() instead")
     void locationReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void locationReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use locationListSignalErrorFull() instead")
     void locationListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void locationListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use locationReadSignalErrorFull() instead")
     void locationReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void locationReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

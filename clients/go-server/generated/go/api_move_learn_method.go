@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// MoveLearnMethodApiController binds http requests to an api service and writes the service results to the http response
-type MoveLearnMethodApiController struct {
-	service MoveLearnMethodApiServicer
+// MoveLearnMethodAPIController binds http requests to an api service and writes the service results to the http response
+type MoveLearnMethodAPIController struct {
+	service MoveLearnMethodAPIServicer
 	errorHandler ErrorHandler
 }
 
-// MoveLearnMethodApiOption for how the controller is set up.
-type MoveLearnMethodApiOption func(*MoveLearnMethodApiController)
+// MoveLearnMethodAPIOption for how the controller is set up.
+type MoveLearnMethodAPIOption func(*MoveLearnMethodAPIController)
 
-// WithMoveLearnMethodApiErrorHandler inject ErrorHandler into controller
-func WithMoveLearnMethodApiErrorHandler(h ErrorHandler) MoveLearnMethodApiOption {
-	return func(c *MoveLearnMethodApiController) {
+// WithMoveLearnMethodAPIErrorHandler inject ErrorHandler into controller
+func WithMoveLearnMethodAPIErrorHandler(h ErrorHandler) MoveLearnMethodAPIOption {
+	return func(c *MoveLearnMethodAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewMoveLearnMethodApiController creates a default api controller
-func NewMoveLearnMethodApiController(s MoveLearnMethodApiServicer, opts ...MoveLearnMethodApiOption) Router {
-	controller := &MoveLearnMethodApiController{
+// NewMoveLearnMethodAPIController creates a default api controller
+func NewMoveLearnMethodAPIController(s MoveLearnMethodAPIServicer, opts ...MoveLearnMethodAPIOption) Router {
+	controller := &MoveLearnMethodAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewMoveLearnMethodApiController(s MoveLearnMethodApiServicer, opts ...MoveL
 	return controller
 }
 
-// Routes returns all the api routes for the MoveLearnMethodApiController
-func (c *MoveLearnMethodApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"MoveLearnMethodList",
+// Routes returns all the api routes for the MoveLearnMethodAPIController
+func (c *MoveLearnMethodAPIController) Routes() Routes {
+	return Routes{
+		"MoveLearnMethodList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/move-learn-method/",
 			c.MoveLearnMethodList,
 		},
-		{
-			"MoveLearnMethodRead",
+		"MoveLearnMethodRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/move-learn-method/{id}/",
 			c.MoveLearnMethodRead,
@@ -67,17 +65,35 @@ func (c *MoveLearnMethodApiController) Routes() Routes {
 }
 
 // MoveLearnMethodList - 
-func (c *MoveLearnMethodApiController) MoveLearnMethodList(w http.ResponseWriter, r *http.Request) {
+func (c *MoveLearnMethodAPIController) MoveLearnMethodList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.MoveLearnMethodList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *MoveLearnMethodApiController) MoveLearnMethodList(w http.ResponseWriter
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // MoveLearnMethodRead - 
-func (c *MoveLearnMethodApiController) MoveLearnMethodRead(w http.ResponseWriter, r *http.Request) {
+func (c *MoveLearnMethodAPIController) MoveLearnMethodRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.MoveLearnMethodRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *MoveLearnMethodApiController) MoveLearnMethodRead(w http.ResponseWriter
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

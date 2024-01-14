@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// BerryFlavorApiService BerryFlavorApi service
-type BerryFlavorApiService service
+// BerryFlavorAPIService BerryFlavorAPI service
+type BerryFlavorAPIService service
 
 type ApiBerryFlavorListRequest struct {
 	ctx context.Context
-	ApiService *BerryFlavorApiService
+	ApiService *BerryFlavorAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ BerryFlavorList Method for BerryFlavorList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBerryFlavorListRequest
 */
-func (a *BerryFlavorApiService) BerryFlavorList(ctx context.Context) ApiBerryFlavorListRequest {
+func (a *BerryFlavorAPIService) BerryFlavorList(ctx context.Context) ApiBerryFlavorListRequest {
 	return ApiBerryFlavorListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *BerryFlavorApiService) BerryFlavorList(ctx context.Context) ApiBerryFla
 
 // Execute executes the request
 //  @return string
-func (a *BerryFlavorApiService) BerryFlavorListExecute(r ApiBerryFlavorListRequest) (string, *http.Response, error) {
+func (a *BerryFlavorAPIService) BerryFlavorListExecute(r ApiBerryFlavorListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *BerryFlavorApiService) BerryFlavorListExecute(r ApiBerryFlavorListReque
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BerryFlavorApiService.BerryFlavorList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BerryFlavorAPIService.BerryFlavorList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *BerryFlavorApiService) BerryFlavorListExecute(r ApiBerryFlavorListReque
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *BerryFlavorApiService) BerryFlavorListExecute(r ApiBerryFlavorListReque
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *BerryFlavorApiService) BerryFlavorListExecute(r ApiBerryFlavorListReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *BerryFlavorApiService) BerryFlavorListExecute(r ApiBerryFlavorListReque
 
 type ApiBerryFlavorReadRequest struct {
 	ctx context.Context
-	ApiService *BerryFlavorApiService
+	ApiService *BerryFlavorAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ BerryFlavorRead Method for BerryFlavorRead
  @param id
  @return ApiBerryFlavorReadRequest
 */
-func (a *BerryFlavorApiService) BerryFlavorRead(ctx context.Context, id int32) ApiBerryFlavorReadRequest {
+func (a *BerryFlavorAPIService) BerryFlavorRead(ctx context.Context, id int32) ApiBerryFlavorReadRequest {
 	return ApiBerryFlavorReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *BerryFlavorApiService) BerryFlavorRead(ctx context.Context, id int32) A
 
 // Execute executes the request
 //  @return string
-func (a *BerryFlavorApiService) BerryFlavorReadExecute(r ApiBerryFlavorReadRequest) (string, *http.Response, error) {
+func (a *BerryFlavorAPIService) BerryFlavorReadExecute(r ApiBerryFlavorReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *BerryFlavorApiService) BerryFlavorReadExecute(r ApiBerryFlavorReadReque
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BerryFlavorApiService.BerryFlavorRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BerryFlavorAPIService.BerryFlavorRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/berry-flavor/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *BerryFlavorApiService) BerryFlavorReadExecute(r ApiBerryFlavorReadReque
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *BerryFlavorApiService) BerryFlavorReadExecute(r ApiBerryFlavorReadReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

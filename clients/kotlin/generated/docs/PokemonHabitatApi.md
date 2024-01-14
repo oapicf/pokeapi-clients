@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**pokemonHabitatRead**](PokemonHabitatApi.md#pokemonHabitatRead) | **GET** /api/v2/pokemon-habitat/{id}/ | 
 
 
-<a name="pokemonHabitatList"></a>
+<a id="pokemonHabitatList"></a>
 # **pokemonHabitatList**
 > kotlin.String pokemonHabitatList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="pokemonHabitatRead"></a>
+<a id="pokemonHabitatRead"></a>
 # **pokemonHabitatRead**
 > kotlin.String pokemonHabitatRead(id)
 

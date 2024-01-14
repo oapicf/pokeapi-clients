@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.NatureApi
+# PSOpenAPITools.PSOpenAPITools\Api.NatureApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-NatureRead**](NatureApi.md#Invoke-NatureRead) | **GET** /api/v2/nature/{id}/ | 
 
 
-<a name="Invoke-NatureList"></a>
+<a id="Invoke-NatureList"></a>
 # **Invoke-NatureList**
 > String Invoke-NatureList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-NatureRead"></a>
+<a id="Invoke-NatureRead"></a>
 # **Invoke-NatureRead**
 > String Invoke-NatureRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

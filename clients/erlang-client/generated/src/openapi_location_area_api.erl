@@ -14,17 +14,17 @@ location_area_list(Ctx) ->
 -spec location_area_list(ctx:ctx(), maps:map()) -> {ok, binary(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 location_area_list(Ctx, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
-    Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
+    Cfg = maps:get(cfg, Optional, application:get_env(openapi_api, config, #{})),
 
     Method = get,
-    Path = [<<"/api/v2/location-area/">>],
+    Path = [?BASE_URL, "/api/v2/location-area/"],
     QS = lists:flatten([])++openapi_utils:optional_params(['limit', 'offset'], _OptionalParams),
     Headers = [],
     Body1 = [],
     ContentTypeHeader = openapi_utils:select_header_content_type([]),
     Opts = maps:get(hackney_opts, Optional, []),
 
-    openapi_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
+    openapi_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc 
 %% 
@@ -35,16 +35,16 @@ location_area_read(Ctx, Id) ->
 -spec location_area_read(ctx:ctx(), integer(), maps:map()) -> {ok, binary(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 location_area_read(Ctx, Id, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
-    Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
+    Cfg = maps:get(cfg, Optional, application:get_env(openapi_api, config, #{})),
 
     Method = get,
-    Path = [<<"/api/v2/location-area/", Id, "/">>],
+    Path = [?BASE_URL, "/api/v2/location-area/", Id, "/"],
     QS = [],
     Headers = [],
     Body1 = [],
     ContentTypeHeader = openapi_utils:select_header_content_type([]),
     Opts = maps:get(hackney_opts, Optional, []),
 
-    openapi_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
+    openapi_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 

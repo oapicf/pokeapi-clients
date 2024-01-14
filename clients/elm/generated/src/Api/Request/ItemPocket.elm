@@ -20,15 +20,13 @@ module Api.Request.ItemPocket exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-itemPocketList : Maybe Int -> Maybe Int -> Api.Request 
+itemPocketList : Maybe Int -> Maybe Int -> Api.Request ()
 itemPocketList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ itemPocketList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-itemPocketRead : Int -> Api.Request 
+itemPocketRead : Int -> Api.Request ()
 itemPocketRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ itemPocketRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

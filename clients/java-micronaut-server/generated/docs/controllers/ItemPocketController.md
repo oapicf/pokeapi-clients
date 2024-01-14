@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**itemPocketList**](#itemPocketList) | **GET** /api/v2/item-pocket/ | 
 [**itemPocketRead**](#itemPocketRead) | **GET** /api/v2/item-pocket/{id}/ | 
 
-<a name="itemPocketList"></a>
+<a id="itemPocketList"></a>
 # **itemPocketList**
 ```java
 Mono<String> ItemPocketController.itemPocketList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="itemPocketRead"></a>
+<a id="itemPocketRead"></a>
 # **itemPocketRead**
 ```java
 Mono<String> ItemPocketController.itemPocketRead(id)

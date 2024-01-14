@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**characteristicRead**](CharacteristicApi.md#characteristicRead) | **GET** /api/v2/characteristic/{id}/ | 
 
 
-<a name="characteristicList"></a>
+<a id="characteristicList"></a>
 # **characteristicList**
 > kotlin.String characteristicList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="characteristicRead"></a>
+<a id="characteristicRead"></a>
 # **characteristicRead**
 > kotlin.String characteristicRead(id)
 

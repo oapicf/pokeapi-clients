@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**natureList**](#natureList) | **GET** /api/v2/nature/ | 
 [**natureRead**](#natureRead) | **GET** /api/v2/nature/{id}/ | 
 
-<a name="natureList"></a>
+<a id="natureList"></a>
 # **natureList**
 ```java
 Mono<String> NatureController.natureList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="natureRead"></a>
+<a id="natureRead"></a>
 # **natureRead**
 ```java
 Mono<String> NatureController.natureRead(id)

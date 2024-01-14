@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**contestEffectRead**](ContestEffectApi.md#contestEffectRead) | **GET** /api/v2/contest-effect/{id}/ | 
 
 
-<a name="contestEffectList"></a>
+<a id="contestEffectList"></a>
 # **contestEffectList**
 > kotlin.String contestEffectList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="contestEffectRead"></a>
+<a id="contestEffectRead"></a>
 # **contestEffectRead**
 > kotlin.String contestEffectRead(id)
 

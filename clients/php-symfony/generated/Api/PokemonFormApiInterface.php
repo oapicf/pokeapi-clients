@@ -52,8 +52,12 @@ interface PokemonFormApiInterface
      *
      * @return array|object|null
      */
-    public function pokemonFormList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function pokemonFormList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation pokemonFormRead
@@ -64,6 +68,9 @@ interface PokemonFormApiInterface
      *
      * @return array|object|null
      */
-    public function pokemonFormRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function pokemonFormRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

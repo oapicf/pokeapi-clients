@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// PokemonColorApiController binds http requests to an api service and writes the service results to the http response
-type PokemonColorApiController struct {
-	service PokemonColorApiServicer
+// PokemonColorAPIController binds http requests to an api service and writes the service results to the http response
+type PokemonColorAPIController struct {
+	service PokemonColorAPIServicer
 	errorHandler ErrorHandler
 }
 
-// PokemonColorApiOption for how the controller is set up.
-type PokemonColorApiOption func(*PokemonColorApiController)
+// PokemonColorAPIOption for how the controller is set up.
+type PokemonColorAPIOption func(*PokemonColorAPIController)
 
-// WithPokemonColorApiErrorHandler inject ErrorHandler into controller
-func WithPokemonColorApiErrorHandler(h ErrorHandler) PokemonColorApiOption {
-	return func(c *PokemonColorApiController) {
+// WithPokemonColorAPIErrorHandler inject ErrorHandler into controller
+func WithPokemonColorAPIErrorHandler(h ErrorHandler) PokemonColorAPIOption {
+	return func(c *PokemonColorAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewPokemonColorApiController creates a default api controller
-func NewPokemonColorApiController(s PokemonColorApiServicer, opts ...PokemonColorApiOption) Router {
-	controller := &PokemonColorApiController{
+// NewPokemonColorAPIController creates a default api controller
+func NewPokemonColorAPIController(s PokemonColorAPIServicer, opts ...PokemonColorAPIOption) Router {
+	controller := &PokemonColorAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewPokemonColorApiController(s PokemonColorApiServicer, opts ...PokemonColo
 	return controller
 }
 
-// Routes returns all the api routes for the PokemonColorApiController
-func (c *PokemonColorApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"PokemonColorList",
+// Routes returns all the api routes for the PokemonColorAPIController
+func (c *PokemonColorAPIController) Routes() Routes {
+	return Routes{
+		"PokemonColorList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-color/",
 			c.PokemonColorList,
 		},
-		{
-			"PokemonColorRead",
+		"PokemonColorRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-color/{id}/",
 			c.PokemonColorRead,
@@ -67,17 +65,35 @@ func (c *PokemonColorApiController) Routes() Routes {
 }
 
 // PokemonColorList - 
-func (c *PokemonColorApiController) PokemonColorList(w http.ResponseWriter, r *http.Request) {
+func (c *PokemonColorAPIController) PokemonColorList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.PokemonColorList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *PokemonColorApiController) PokemonColorList(w http.ResponseWriter, r *h
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // PokemonColorRead - 
-func (c *PokemonColorApiController) PokemonColorRead(w http.ResponseWriter, r *http.Request) {
+func (c *PokemonColorAPIController) PokemonColorRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.PokemonColorRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *PokemonColorApiController) PokemonColorRead(w http.ResponseWriter, r *h
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

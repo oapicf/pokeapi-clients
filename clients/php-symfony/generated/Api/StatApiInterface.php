@@ -52,8 +52,12 @@ interface StatApiInterface
      *
      * @return array|object|null
      */
-    public function statList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function statList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation statRead
@@ -64,6 +68,9 @@ interface StatApiInterface
      *
      * @return array|object|null
      */
-    public function statRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function statRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

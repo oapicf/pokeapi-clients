@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// SuperContestEffectApiController binds http requests to an api service and writes the service results to the http response
-type SuperContestEffectApiController struct {
-	service SuperContestEffectApiServicer
+// SuperContestEffectAPIController binds http requests to an api service and writes the service results to the http response
+type SuperContestEffectAPIController struct {
+	service SuperContestEffectAPIServicer
 	errorHandler ErrorHandler
 }
 
-// SuperContestEffectApiOption for how the controller is set up.
-type SuperContestEffectApiOption func(*SuperContestEffectApiController)
+// SuperContestEffectAPIOption for how the controller is set up.
+type SuperContestEffectAPIOption func(*SuperContestEffectAPIController)
 
-// WithSuperContestEffectApiErrorHandler inject ErrorHandler into controller
-func WithSuperContestEffectApiErrorHandler(h ErrorHandler) SuperContestEffectApiOption {
-	return func(c *SuperContestEffectApiController) {
+// WithSuperContestEffectAPIErrorHandler inject ErrorHandler into controller
+func WithSuperContestEffectAPIErrorHandler(h ErrorHandler) SuperContestEffectAPIOption {
+	return func(c *SuperContestEffectAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewSuperContestEffectApiController creates a default api controller
-func NewSuperContestEffectApiController(s SuperContestEffectApiServicer, opts ...SuperContestEffectApiOption) Router {
-	controller := &SuperContestEffectApiController{
+// NewSuperContestEffectAPIController creates a default api controller
+func NewSuperContestEffectAPIController(s SuperContestEffectAPIServicer, opts ...SuperContestEffectAPIOption) Router {
+	controller := &SuperContestEffectAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewSuperContestEffectApiController(s SuperContestEffectApiServicer, opts ..
 	return controller
 }
 
-// Routes returns all the api routes for the SuperContestEffectApiController
-func (c *SuperContestEffectApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"SuperContestEffectList",
+// Routes returns all the api routes for the SuperContestEffectAPIController
+func (c *SuperContestEffectAPIController) Routes() Routes {
+	return Routes{
+		"SuperContestEffectList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/super-contest-effect/",
 			c.SuperContestEffectList,
 		},
-		{
-			"SuperContestEffectRead",
+		"SuperContestEffectRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/super-contest-effect/{id}/",
 			c.SuperContestEffectRead,
@@ -67,17 +65,35 @@ func (c *SuperContestEffectApiController) Routes() Routes {
 }
 
 // SuperContestEffectList - 
-func (c *SuperContestEffectApiController) SuperContestEffectList(w http.ResponseWriter, r *http.Request) {
+func (c *SuperContestEffectAPIController) SuperContestEffectList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.SuperContestEffectList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *SuperContestEffectApiController) SuperContestEffectList(w http.Response
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // SuperContestEffectRead - 
-func (c *SuperContestEffectApiController) SuperContestEffectRead(w http.ResponseWriter, r *http.Request) {
+func (c *SuperContestEffectAPIController) SuperContestEffectRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.SuperContestEffectRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *SuperContestEffectApiController) SuperContestEffectRead(w http.Response
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

@@ -101,18 +101,25 @@ signals:
     void natureListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void natureReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use natureListSignalError() instead")
     void natureListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void natureListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use natureReadSignalError() instead")
     void natureReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void natureReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use natureListSignalErrorFull() instead")
     void natureListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void natureListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use natureReadSignalErrorFull() instead")
     void natureReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void natureReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

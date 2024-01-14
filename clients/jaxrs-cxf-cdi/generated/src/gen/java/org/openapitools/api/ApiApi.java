@@ -19,13 +19,14 @@ import org.apache.cxf.jaxrs.ext.multipart.Multipart;
 import java.util.Map;
 import java.util.List;
 import javax.validation.constraints.*;
+import javax.validation.Valid;
 @Path("/api/v2")
 @RequestScoped
 
 @Api(description = "the api API")
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2022-11-19T09:48:16.063362Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2024-01-14T06:31:38.354555575Z[Etc/UTC]")
 
 public class ApiApi  {
 

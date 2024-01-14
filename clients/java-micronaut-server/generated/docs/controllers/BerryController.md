@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**berryList**](#berryList) | **GET** /api/v2/berry/ | 
 [**berryRead**](#berryRead) | **GET** /api/v2/berry/{id}/ | 
 
-<a name="berryList"></a>
+<a id="berryList"></a>
 # **berryList**
 ```java
 Mono<String> BerryController.berryList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="berryRead"></a>
+<a id="berryRead"></a>
 # **berryRead**
 ```java
 Mono<String> BerryController.berryRead(id)

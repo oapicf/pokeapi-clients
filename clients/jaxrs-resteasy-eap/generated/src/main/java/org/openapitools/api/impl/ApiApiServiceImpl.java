@@ -9,10 +9,12 @@ import java.util.List;
 
 import java.io.InputStream;
 
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2022-11-19T09:48:29.839591Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2024-01-14T06:31:48.615660734Z[Etc/UTC]")
 public class ApiApiServiceImpl implements ApiApi {
       public Response abilityList(Integer limit,Integer offset,SecurityContext securityContext) {
       // do some magic!

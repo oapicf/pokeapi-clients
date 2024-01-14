@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**moveDamageClassRead**](MoveDamageClassApi.md#moveDamageClassRead) | **GET** /api/v2/move-damage-class/{id}/ |  |
 
 
-<a name="moveDamageClassList"></a>
+<a id="moveDamageClassList"></a>
 # **moveDamageClassList**
 > String moveDamageClassList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="moveDamageClassRead"></a>
+<a id="moveDamageClassRead"></a>
 # **moveDamageClassRead**
 > String moveDamageClassRead(id)
 

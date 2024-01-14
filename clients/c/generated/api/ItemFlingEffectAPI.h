@@ -8,10 +8,10 @@
 
 
 char*
-ItemFlingEffectAPI_itemFlingEffectList(apiClient_t *apiClient, int limit , int offset );
+ItemFlingEffectAPI_itemFlingEffectList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-ItemFlingEffectAPI_itemFlingEffectRead(apiClient_t *apiClient, int id );
+ItemFlingEffectAPI_itemFlingEffectRead(apiClient_t *apiClient, int *id);
 
 

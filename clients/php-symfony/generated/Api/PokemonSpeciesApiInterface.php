@@ -52,8 +52,12 @@ interface PokemonSpeciesApiInterface
      *
      * @return array|object|null
      */
-    public function pokemonSpeciesList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function pokemonSpeciesList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation pokemonSpeciesRead
@@ -64,6 +68,9 @@ interface PokemonSpeciesApiInterface
      *
      * @return array|object|null
      */
-    public function pokemonSpeciesRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function pokemonSpeciesRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

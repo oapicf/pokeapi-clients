@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// EvolutionTriggerApiService EvolutionTriggerApi service
-type EvolutionTriggerApiService service
+// EvolutionTriggerAPIService EvolutionTriggerAPI service
+type EvolutionTriggerAPIService service
 
 type ApiEvolutionTriggerListRequest struct {
 	ctx context.Context
-	ApiService *EvolutionTriggerApiService
+	ApiService *EvolutionTriggerAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ EvolutionTriggerList Method for EvolutionTriggerList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiEvolutionTriggerListRequest
 */
-func (a *EvolutionTriggerApiService) EvolutionTriggerList(ctx context.Context) ApiEvolutionTriggerListRequest {
+func (a *EvolutionTriggerAPIService) EvolutionTriggerList(ctx context.Context) ApiEvolutionTriggerListRequest {
 	return ApiEvolutionTriggerListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *EvolutionTriggerApiService) EvolutionTriggerList(ctx context.Context) A
 
 // Execute executes the request
 //  @return string
-func (a *EvolutionTriggerApiService) EvolutionTriggerListExecute(r ApiEvolutionTriggerListRequest) (string, *http.Response, error) {
+func (a *EvolutionTriggerAPIService) EvolutionTriggerListExecute(r ApiEvolutionTriggerListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *EvolutionTriggerApiService) EvolutionTriggerListExecute(r ApiEvolutionT
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EvolutionTriggerApiService.EvolutionTriggerList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EvolutionTriggerAPIService.EvolutionTriggerList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *EvolutionTriggerApiService) EvolutionTriggerListExecute(r ApiEvolutionT
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *EvolutionTriggerApiService) EvolutionTriggerListExecute(r ApiEvolutionT
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *EvolutionTriggerApiService) EvolutionTriggerListExecute(r ApiEvolutionT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *EvolutionTriggerApiService) EvolutionTriggerListExecute(r ApiEvolutionT
 
 type ApiEvolutionTriggerReadRequest struct {
 	ctx context.Context
-	ApiService *EvolutionTriggerApiService
+	ApiService *EvolutionTriggerAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ EvolutionTriggerRead Method for EvolutionTriggerRead
  @param id
  @return ApiEvolutionTriggerReadRequest
 */
-func (a *EvolutionTriggerApiService) EvolutionTriggerRead(ctx context.Context, id int32) ApiEvolutionTriggerReadRequest {
+func (a *EvolutionTriggerAPIService) EvolutionTriggerRead(ctx context.Context, id int32) ApiEvolutionTriggerReadRequest {
 	return ApiEvolutionTriggerReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *EvolutionTriggerApiService) EvolutionTriggerRead(ctx context.Context, i
 
 // Execute executes the request
 //  @return string
-func (a *EvolutionTriggerApiService) EvolutionTriggerReadExecute(r ApiEvolutionTriggerReadRequest) (string, *http.Response, error) {
+func (a *EvolutionTriggerAPIService) EvolutionTriggerReadExecute(r ApiEvolutionTriggerReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *EvolutionTriggerApiService) EvolutionTriggerReadExecute(r ApiEvolutionT
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EvolutionTriggerApiService.EvolutionTriggerRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EvolutionTriggerAPIService.EvolutionTriggerRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/evolution-trigger/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *EvolutionTriggerApiService) EvolutionTriggerReadExecute(r ApiEvolutionT
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *EvolutionTriggerApiService) EvolutionTriggerReadExecute(r ApiEvolutionT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

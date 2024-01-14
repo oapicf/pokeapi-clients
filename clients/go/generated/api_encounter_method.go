@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// EncounterMethodApiService EncounterMethodApi service
-type EncounterMethodApiService service
+// EncounterMethodAPIService EncounterMethodAPI service
+type EncounterMethodAPIService service
 
 type ApiEncounterMethodListRequest struct {
 	ctx context.Context
-	ApiService *EncounterMethodApiService
+	ApiService *EncounterMethodAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ EncounterMethodList Method for EncounterMethodList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiEncounterMethodListRequest
 */
-func (a *EncounterMethodApiService) EncounterMethodList(ctx context.Context) ApiEncounterMethodListRequest {
+func (a *EncounterMethodAPIService) EncounterMethodList(ctx context.Context) ApiEncounterMethodListRequest {
 	return ApiEncounterMethodListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *EncounterMethodApiService) EncounterMethodList(ctx context.Context) Api
 
 // Execute executes the request
 //  @return string
-func (a *EncounterMethodApiService) EncounterMethodListExecute(r ApiEncounterMethodListRequest) (string, *http.Response, error) {
+func (a *EncounterMethodAPIService) EncounterMethodListExecute(r ApiEncounterMethodListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *EncounterMethodApiService) EncounterMethodListExecute(r ApiEncounterMet
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EncounterMethodApiService.EncounterMethodList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EncounterMethodAPIService.EncounterMethodList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *EncounterMethodApiService) EncounterMethodListExecute(r ApiEncounterMet
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *EncounterMethodApiService) EncounterMethodListExecute(r ApiEncounterMet
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *EncounterMethodApiService) EncounterMethodListExecute(r ApiEncounterMet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *EncounterMethodApiService) EncounterMethodListExecute(r ApiEncounterMet
 
 type ApiEncounterMethodReadRequest struct {
 	ctx context.Context
-	ApiService *EncounterMethodApiService
+	ApiService *EncounterMethodAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ EncounterMethodRead Method for EncounterMethodRead
  @param id
  @return ApiEncounterMethodReadRequest
 */
-func (a *EncounterMethodApiService) EncounterMethodRead(ctx context.Context, id int32) ApiEncounterMethodReadRequest {
+func (a *EncounterMethodAPIService) EncounterMethodRead(ctx context.Context, id int32) ApiEncounterMethodReadRequest {
 	return ApiEncounterMethodReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *EncounterMethodApiService) EncounterMethodRead(ctx context.Context, id 
 
 // Execute executes the request
 //  @return string
-func (a *EncounterMethodApiService) EncounterMethodReadExecute(r ApiEncounterMethodReadRequest) (string, *http.Response, error) {
+func (a *EncounterMethodAPIService) EncounterMethodReadExecute(r ApiEncounterMethodReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *EncounterMethodApiService) EncounterMethodReadExecute(r ApiEncounterMet
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EncounterMethodApiService.EncounterMethodRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EncounterMethodAPIService.EncounterMethodRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/encounter-method/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *EncounterMethodApiService) EncounterMethodReadExecute(r ApiEncounterMet
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *EncounterMethodApiService) EncounterMethodReadExecute(r ApiEncounterMet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

@@ -101,18 +101,25 @@ signals:
     void typeListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void typeReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use typeListSignalError() instead")
     void typeListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void typeListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use typeReadSignalError() instead")
     void typeReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void typeReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use typeListSignalErrorFull() instead")
     void typeListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void typeListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use typeReadSignalErrorFull() instead")
     void typeReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void typeReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

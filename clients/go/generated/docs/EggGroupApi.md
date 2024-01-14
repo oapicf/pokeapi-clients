@@ -1,11 +1,11 @@
-# \EggGroupApi
+# \EggGroupAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**EggGroupList**](EggGroupApi.md#EggGroupList) | **Get** /api/v2/egg-group/ | 
-[**EggGroupRead**](EggGroupApi.md#EggGroupRead) | **Get** /api/v2/egg-group/{id}/ | 
+[**EggGroupList**](EggGroupAPI.md#EggGroupList) | **Get** /api/v2/egg-group/ | 
+[**EggGroupRead**](EggGroupAPI.md#EggGroupRead) | **Get** /api/v2/egg-group/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EggGroupApi.EggGroupList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EggGroupApi.EggGroupList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EggGroupList`: string
-    fmt.Fprintf(os.Stdout, "Response from `EggGroupApi.EggGroupList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.EggGroupAPI.EggGroupList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EggGroupAPI.EggGroupList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EggGroupList`: string
+	fmt.Fprintf(os.Stdout, "Response from `EggGroupAPI.EggGroupList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EggGroupApi.EggGroupRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EggGroupApi.EggGroupRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EggGroupRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `EggGroupApi.EggGroupRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.EggGroupAPI.EggGroupRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EggGroupAPI.EggGroupRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EggGroupRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `EggGroupAPI.EggGroupRead`: %v\n", resp)
 }
 ```
 

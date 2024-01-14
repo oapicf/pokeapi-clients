@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// MoveDamageClassList - 
-func MoveDamageClassList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type MoveDamageClassAPI struct {
 }
 
-// MoveDamageClassRead - 
-func MoveDamageClassRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/move-damage-class/
+func (api *MoveDamageClassAPI) MoveDamageClassList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/move-damage-class/:id/
+func (api *MoveDamageClassAPI) MoveDamageClassRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

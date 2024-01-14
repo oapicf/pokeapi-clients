@@ -56,7 +56,7 @@ bool OpenAPISuperContestEffectApi::IsValid() const
 
 void OpenAPISuperContestEffectApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

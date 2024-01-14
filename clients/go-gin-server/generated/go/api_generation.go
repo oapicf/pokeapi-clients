@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// GenerationList - 
-func GenerationList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type GenerationAPI struct {
 }
 
-// GenerationRead - 
-func GenerationRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/generation/
+func (api *GenerationAPI) GenerationList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/generation/:id/
+func (api *GenerationAPI) GenerationRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

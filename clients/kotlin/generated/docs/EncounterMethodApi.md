@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**encounterMethodRead**](EncounterMethodApi.md#encounterMethodRead) | **GET** /api/v2/encounter-method/{id}/ | 
 
 
-<a name="encounterMethodList"></a>
+<a id="encounterMethodList"></a>
 # **encounterMethodList**
 > kotlin.String encounterMethodList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="encounterMethodRead"></a>
+<a id="encounterMethodRead"></a>
 # **encounterMethodRead**
 > kotlin.String encounterMethodRead(id)
 

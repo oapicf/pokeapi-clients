@@ -291,8 +291,34 @@ void OAIMoveCategoryApi::moveCategoryListCallback(OAIHttpRequestWorker *worker) 
         emit moveCategoryListSignal(output);
         emit moveCategoryListSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit moveCategoryListSignalE(output, error_type, error_str);
         emit moveCategoryListSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit moveCategoryListSignalError(output, error_type, error_str);
+        emit moveCategoryListSignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -355,8 +381,34 @@ void OAIMoveCategoryApi::moveCategoryReadCallback(OAIHttpRequestWorker *worker) 
         emit moveCategoryReadSignal(output);
         emit moveCategoryReadSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit moveCategoryReadSignalE(output, error_type, error_str);
         emit moveCategoryReadSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit moveCategoryReadSignalError(output, error_type, error_str);
+        emit moveCategoryReadSignalErrorFull(worker, error_type, error_str);
     }
 }
 

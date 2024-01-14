@@ -12,7 +12,7 @@ For more information, please visit [https://github.com/cliffano/pokeapi-clients]
 
 ## Requires
 
-* Kotlin 1.6.10
+* Kotlin 1.7.21
 * Gradle 7.5
 
 ## Build
@@ -38,7 +38,7 @@ This runs all tests and packages the library.
 * Some Kotlin and Java types are fully qualified to avoid conflicts with types defined in OpenAPI definitions.
 * Implementation of ApiClient is intended to reduce method counts, specifically to benefit Android targets.
 
-<a name="documentation-for-api-endpoints"></a>
+<a id="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
 All URIs are relative to *https://pokeapi.co*
@@ -143,15 +143,16 @@ Class | Method | HTTP request | Description
 *VersionGroupApi* | [**versionGroupRead**](docs/VersionGroupApi.md#versiongroupread) | **GET** /api/v2/version-group/{id}/ | 
 
 
-<a name="documentation-for-models"></a>
+<a id="documentation-for-models"></a>
 ## Documentation for Models
 
 
 
-<a name="documentation-for-authorization"></a>
+<a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
+Endpoints do not require authorization.
+
 
 
 ## Author

@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.EncounterMethodApi
+# PSOpenAPITools.PSOpenAPITools\Api.EncounterMethodApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-EncounterMethodRead**](EncounterMethodApi.md#Invoke-EncounterMethodRead) | **GET** /api/v2/encounter-method/{id}/ | 
 
 
-<a name="Invoke-EncounterMethodList"></a>
+<a id="Invoke-EncounterMethodList"></a>
 # **Invoke-EncounterMethodList**
 > String Invoke-EncounterMethodList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-EncounterMethodRead"></a>
+<a id="Invoke-EncounterMethodRead"></a>
 # **Invoke-EncounterMethodRead**
 > String Invoke-EncounterMethodRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

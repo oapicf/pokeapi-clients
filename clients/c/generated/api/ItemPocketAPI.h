@@ -8,10 +8,10 @@
 
 
 char*
-ItemPocketAPI_itemPocketList(apiClient_t *apiClient, int limit , int offset );
+ItemPocketAPI_itemPocketList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-ItemPocketAPI_itemPocketRead(apiClient_t *apiClient, int id );
+ItemPocketAPI_itemPocketRead(apiClient_t *apiClient, int *id);
 
 

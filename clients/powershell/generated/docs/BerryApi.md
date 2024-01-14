@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.BerryApi
+# PSOpenAPITools.PSOpenAPITools\Api.BerryApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-BerryRead**](BerryApi.md#Invoke-BerryRead) | **GET** /api/v2/berry/{id}/ | 
 
 
-<a name="Invoke-BerryList"></a>
+<a id="Invoke-BerryList"></a>
 # **Invoke-BerryList**
 > String Invoke-BerryList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BerryRead"></a>
+<a id="Invoke-BerryRead"></a>
 # **Invoke-BerryRead**
 > String Invoke-BerryRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

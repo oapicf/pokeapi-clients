@@ -20,15 +20,13 @@ module Api.Request.VersionGroup exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-versionGroupList : Maybe Int -> Maybe Int -> Api.Request 
+versionGroupList : Maybe Int -> Maybe Int -> Api.Request ()
 versionGroupList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ versionGroupList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-versionGroupRead : Int -> Api.Request 
+versionGroupRead : Int -> Api.Request ()
 versionGroupRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ versionGroupRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

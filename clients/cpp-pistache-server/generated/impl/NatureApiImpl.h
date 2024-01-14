@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class NatureApiImpl : public org::openapitools::server::api::NatureApi {
+class  NatureApiImpl : public org::openapitools::server::api::NatureApi {
 public:
     explicit NatureApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~NatureApiImpl() override = default;

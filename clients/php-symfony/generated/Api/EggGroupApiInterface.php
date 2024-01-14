@@ -52,8 +52,12 @@ interface EggGroupApiInterface
      *
      * @return array|object|null
      */
-    public function eggGroupList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function eggGroupList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation eggGroupRead
@@ -64,6 +68,9 @@ interface EggGroupApiInterface
      *
      * @return array|object|null
      */
-    public function eggGroupRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function eggGroupRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

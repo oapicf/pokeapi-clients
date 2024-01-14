@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// ItemPocketList - 
-func ItemPocketList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type ItemPocketAPI struct {
 }
 
-// ItemPocketRead - 
-func ItemPocketRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/item-pocket/
+func (api *ItemPocketAPI) ItemPocketList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/item-pocket/:id/
+func (api *ItemPocketAPI) ItemPocketRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

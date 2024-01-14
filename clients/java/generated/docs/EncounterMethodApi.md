@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**encounterMethodRead**](EncounterMethodApi.md#encounterMethodRead) | **GET** /api/v2/encounter-method/{id}/ |  |
 
 
-<a name="encounterMethodList"></a>
+<a id="encounterMethodList"></a>
 # **encounterMethodList**
 > String encounterMethodList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="encounterMethodRead"></a>
+<a id="encounterMethodRead"></a>
 # **encounterMethodRead**
 > String encounterMethodRead(id)
 

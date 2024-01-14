@@ -2,21 +2,18 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**PokeathlonStatList**](PokeathlonStatApi.md#pokeathlonstatlist) | **GET** /api/v2/pokeathlon-stat/ | 
-[**PokeathlonStatRead**](PokeathlonStatApi.md#pokeathlonstatread) | **GET** /api/v2/pokeathlon-stat/{id}/ | 
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**PokeathlonStatList**](PokeathlonStatApi.md#pokeathlonstatlist) | **GET** /api/v2/pokeathlon-stat/ |  |
+| [**PokeathlonStatRead**](PokeathlonStatApi.md#pokeathlonstatread) | **GET** /api/v2/pokeathlon-stat/{id}/ |  |
 
-
-
-## PokeathlonStatList
-
+<a id="pokeathlonstatlist"></a>
+# **PokeathlonStatList**
 > string PokeathlonStatList (int? limit = null, int? offset = null)
 
 
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -30,8 +27,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://pokeapi.co";
-            var apiInstance = new PokeathlonStatApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://pokeapi.co";
+            var apiInstance = new PokeathlonStatApi(config);
             var limit = 56;  // int? |  (optional) 
             var offset = 56;  // int? |  (optional) 
 
@@ -40,10 +38,10 @@ namespace Example
                 string result = apiInstance.PokeathlonStatList(limit, offset);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PokeathlonStatApi.PokeathlonStatList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PokeathlonStatApi.PokeathlonStatList: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -51,13 +49,31 @@ namespace Example
 }
 ```
 
+#### Using the PokeathlonStatListWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<string> response = apiInstance.PokeathlonStatListWithHttpInfo(limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PokeathlonStatApi.PokeathlonStatListWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int?**|  | [optional] 
- **offset** | **int?**|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int?** |  | [optional]  |
+| **offset** | **int?** |  | [optional]  |
 
 ### Return type
 
@@ -69,8 +85,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain
 
 
 ### HTTP response details
@@ -78,20 +94,15 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## PokeathlonStatRead
-
+<a id="pokeathlonstatread"></a>
+# **PokeathlonStatRead**
 > string PokeathlonStatRead (int id)
 
 
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -105,8 +116,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://pokeapi.co";
-            var apiInstance = new PokeathlonStatApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://pokeapi.co";
+            var apiInstance = new PokeathlonStatApi(config);
             var id = 56;  // int | 
 
             try
@@ -114,10 +126,10 @@ namespace Example
                 string result = apiInstance.PokeathlonStatRead(id);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PokeathlonStatApi.PokeathlonStatRead: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PokeathlonStatApi.PokeathlonStatRead: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -125,12 +137,30 @@ namespace Example
 }
 ```
 
+#### Using the PokeathlonStatReadWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<string> response = apiInstance.PokeathlonStatReadWithHttpInfo(id);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PokeathlonStatApi.PokeathlonStatReadWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** |  |  |
 
 ### Return type
 
@@ -142,8 +172,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain
 
 
 ### HTTP response details
@@ -151,8 +181,5 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

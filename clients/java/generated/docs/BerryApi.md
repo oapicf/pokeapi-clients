@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**berryRead**](BerryApi.md#berryRead) | **GET** /api/v2/berry/{id}/ |  |
 
 
-<a name="berryList"></a>
+<a id="berryList"></a>
 # **berryList**
 > String berryList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="berryRead"></a>
+<a id="berryRead"></a>
 # **berryRead**
 > String berryRead(id)
 

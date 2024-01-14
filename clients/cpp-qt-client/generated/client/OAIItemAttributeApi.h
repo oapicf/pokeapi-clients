@@ -101,18 +101,25 @@ signals:
     void itemAttributeListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void itemAttributeReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use itemAttributeListSignalError() instead")
     void itemAttributeListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void itemAttributeListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use itemAttributeReadSignalError() instead")
     void itemAttributeReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void itemAttributeReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use itemAttributeListSignalErrorFull() instead")
     void itemAttributeListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void itemAttributeListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use itemAttributeReadSignalErrorFull() instead")
     void itemAttributeReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void itemAttributeReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

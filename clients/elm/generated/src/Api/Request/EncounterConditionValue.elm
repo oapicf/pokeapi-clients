@@ -20,15 +20,13 @@ module Api.Request.EncounterConditionValue exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-encounterConditionValueList : Maybe Int -> Maybe Int -> Api.Request 
+encounterConditionValueList : Maybe Int -> Maybe Int -> Api.Request ()
 encounterConditionValueList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ encounterConditionValueList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-encounterConditionValueRead : Int -> Api.Request 
+encounterConditionValueRead : Int -> Api.Request ()
 encounterConditionValueRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ encounterConditionValueRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

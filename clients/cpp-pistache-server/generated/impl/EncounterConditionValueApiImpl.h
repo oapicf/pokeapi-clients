@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class EncounterConditionValueApiImpl : public org::openapitools::server::api::EncounterConditionValueApi {
+class  EncounterConditionValueApiImpl : public org::openapitools::server::api::EncounterConditionValueApi {
 public:
     explicit EncounterConditionValueApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~EncounterConditionValueApiImpl() override = default;

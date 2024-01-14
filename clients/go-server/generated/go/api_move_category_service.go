@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// MoveCategoryApiService is a service that implements the logic for the MoveCategoryApiServicer
-// This service should implement the business logic for every endpoint for the MoveCategoryApi API.
+// MoveCategoryAPIService is a service that implements the logic for the MoveCategoryAPIServicer
+// This service should implement the business logic for every endpoint for the MoveCategoryAPI API.
 // Include any external packages or services that will be required by this service.
-type MoveCategoryApiService struct {
+type MoveCategoryAPIService struct {
 }
 
-// NewMoveCategoryApiService creates a default api service
-func NewMoveCategoryApiService() MoveCategoryApiServicer {
-	return &MoveCategoryApiService{}
+// NewMoveCategoryAPIService creates a default api service
+func NewMoveCategoryAPIService() MoveCategoryAPIServicer {
+	return &MoveCategoryAPIService{}
 }
 
 // MoveCategoryList - 
-func (s *MoveCategoryApiService) MoveCategoryList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *MoveCategoryAPIService) MoveCategoryList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update MoveCategoryList with the required logic for this service method.
 	// Add api_move_category_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("MoveCategoryList method not implemented")
 }
 
 // MoveCategoryRead - 
-func (s *MoveCategoryApiService) MoveCategoryRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *MoveCategoryAPIService) MoveCategoryRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update MoveCategoryRead with the required logic for this service method.
 	// Add api_move_category_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("MoveCategoryRead method not implemented")
 }

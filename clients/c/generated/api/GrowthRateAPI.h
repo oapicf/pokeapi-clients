@@ -8,10 +8,10 @@
 
 
 char*
-GrowthRateAPI_growthRateList(apiClient_t *apiClient, int limit , int offset );
+GrowthRateAPI_growthRateList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-GrowthRateAPI_growthRateRead(apiClient_t *apiClient, int id );
+GrowthRateAPI_growthRateRead(apiClient_t *apiClient, int *id);
 
 

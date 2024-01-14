@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**pokeathlonStatRead**](PokeathlonStatApi.md#pokeathlonStatRead) | **GET** /api/v2/pokeathlon-stat/{id}/ |  |
 
 
-<a name="pokeathlonStatList"></a>
+<a id="pokeathlonStatList"></a>
 # **pokeathlonStatList**
 > String pokeathlonStatList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="pokeathlonStatRead"></a>
+<a id="pokeathlonStatRead"></a>
 # **pokeathlonStatRead**
 > String pokeathlonStatRead(id)
 

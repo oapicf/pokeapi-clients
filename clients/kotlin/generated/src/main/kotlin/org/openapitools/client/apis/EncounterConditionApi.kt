@@ -71,7 +71,7 @@ class EncounterConditionApi(basePath: kotlin.String = defaultBasePath, client: O
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -120,6 +120,7 @@ class EncounterConditionApi(basePath: kotlin.String = defaultBasePath, client: O
             path = "/api/v2/encounter-condition/",
             query = localVariableQuery,
             headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }
@@ -150,7 +151,7 @@ class EncounterConditionApi(basePath: kotlin.String = defaultBasePath, client: O
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -189,6 +190,7 @@ class EncounterConditionApi(basePath: kotlin.String = defaultBasePath, client: O
             path = "/api/v2/encounter-condition/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
+            requiresAuthentication = false,
             body = localVariableBody
         )
     }

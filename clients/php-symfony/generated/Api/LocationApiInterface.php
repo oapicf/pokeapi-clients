@@ -52,8 +52,12 @@ interface LocationApiInterface
      *
      * @return array|object|null
      */
-    public function locationList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function locationList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation locationRead
@@ -64,6 +68,9 @@ interface LocationApiInterface
      *
      * @return array|object|null
      */
-    public function locationRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function locationRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

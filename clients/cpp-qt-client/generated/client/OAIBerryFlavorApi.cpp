@@ -291,8 +291,34 @@ void OAIBerryFlavorApi::berryFlavorListCallback(OAIHttpRequestWorker *worker) {
         emit berryFlavorListSignal(output);
         emit berryFlavorListSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit berryFlavorListSignalE(output, error_type, error_str);
         emit berryFlavorListSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit berryFlavorListSignalError(output, error_type, error_str);
+        emit berryFlavorListSignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -355,8 +381,34 @@ void OAIBerryFlavorApi::berryFlavorReadCallback(OAIHttpRequestWorker *worker) {
         emit berryFlavorReadSignal(output);
         emit berryFlavorReadSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit berryFlavorReadSignalE(output, error_type, error_str);
         emit berryFlavorReadSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit berryFlavorReadSignalError(output, error_type, error_str);
+        emit berryFlavorReadSignalErrorFull(worker, error_type, error_str);
     }
 }
 

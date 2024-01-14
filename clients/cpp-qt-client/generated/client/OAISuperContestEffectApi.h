@@ -101,18 +101,25 @@ signals:
     void superContestEffectListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void superContestEffectReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use superContestEffectListSignalError() instead")
     void superContestEffectListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void superContestEffectListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use superContestEffectReadSignalError() instead")
     void superContestEffectReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void superContestEffectReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use superContestEffectListSignalErrorFull() instead")
     void superContestEffectListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void superContestEffectListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use superContestEffectReadSignalErrorFull() instead")
     void superContestEffectReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void superContestEffectReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

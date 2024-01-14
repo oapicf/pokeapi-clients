@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.CharacteristicApi
+# PSOpenAPITools.PSOpenAPITools\Api.CharacteristicApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-CharacteristicRead**](CharacteristicApi.md#Invoke-CharacteristicRead) | **GET** /api/v2/characteristic/{id}/ | 
 
 
-<a name="Invoke-CharacteristicList"></a>
+<a id="Invoke-CharacteristicList"></a>
 # **Invoke-CharacteristicList**
 > String Invoke-CharacteristicList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-CharacteristicRead"></a>
+<a id="Invoke-CharacteristicRead"></a>
 # **Invoke-CharacteristicRead**
 > String Invoke-CharacteristicRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

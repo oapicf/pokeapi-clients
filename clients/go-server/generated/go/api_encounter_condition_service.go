@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// EncounterConditionApiService is a service that implements the logic for the EncounterConditionApiServicer
-// This service should implement the business logic for every endpoint for the EncounterConditionApi API.
+// EncounterConditionAPIService is a service that implements the logic for the EncounterConditionAPIServicer
+// This service should implement the business logic for every endpoint for the EncounterConditionAPI API.
 // Include any external packages or services that will be required by this service.
-type EncounterConditionApiService struct {
+type EncounterConditionAPIService struct {
 }
 
-// NewEncounterConditionApiService creates a default api service
-func NewEncounterConditionApiService() EncounterConditionApiServicer {
-	return &EncounterConditionApiService{}
+// NewEncounterConditionAPIService creates a default api service
+func NewEncounterConditionAPIService() EncounterConditionAPIServicer {
+	return &EncounterConditionAPIService{}
 }
 
 // EncounterConditionList - 
-func (s *EncounterConditionApiService) EncounterConditionList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *EncounterConditionAPIService) EncounterConditionList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update EncounterConditionList with the required logic for this service method.
 	// Add api_encounter_condition_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("EncounterConditionList method not implemented")
 }
 
 // EncounterConditionRead - 
-func (s *EncounterConditionApiService) EncounterConditionRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *EncounterConditionAPIService) EncounterConditionRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update EncounterConditionRead with the required logic for this service method.
 	// Add api_encounter_condition_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("EncounterConditionRead method not implemented")
 }

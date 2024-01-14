@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.VersionGroupApi
+# PSOpenAPITools.PSOpenAPITools\Api.VersionGroupApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-VersionGroupRead**](VersionGroupApi.md#Invoke-VersionGroupRead) | **GET** /api/v2/version-group/{id}/ | 
 
 
-<a name="Invoke-VersionGroupList"></a>
+<a id="Invoke-VersionGroupList"></a>
 # **Invoke-VersionGroupList**
 > String Invoke-VersionGroupList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-VersionGroupRead"></a>
+<a id="Invoke-VersionGroupRead"></a>
 # **Invoke-VersionGroupRead**
 > String Invoke-VersionGroupRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

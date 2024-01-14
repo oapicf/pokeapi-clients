@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// EvolutionTriggerApiController binds http requests to an api service and writes the service results to the http response
-type EvolutionTriggerApiController struct {
-	service EvolutionTriggerApiServicer
+// EvolutionTriggerAPIController binds http requests to an api service and writes the service results to the http response
+type EvolutionTriggerAPIController struct {
+	service EvolutionTriggerAPIServicer
 	errorHandler ErrorHandler
 }
 
-// EvolutionTriggerApiOption for how the controller is set up.
-type EvolutionTriggerApiOption func(*EvolutionTriggerApiController)
+// EvolutionTriggerAPIOption for how the controller is set up.
+type EvolutionTriggerAPIOption func(*EvolutionTriggerAPIController)
 
-// WithEvolutionTriggerApiErrorHandler inject ErrorHandler into controller
-func WithEvolutionTriggerApiErrorHandler(h ErrorHandler) EvolutionTriggerApiOption {
-	return func(c *EvolutionTriggerApiController) {
+// WithEvolutionTriggerAPIErrorHandler inject ErrorHandler into controller
+func WithEvolutionTriggerAPIErrorHandler(h ErrorHandler) EvolutionTriggerAPIOption {
+	return func(c *EvolutionTriggerAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewEvolutionTriggerApiController creates a default api controller
-func NewEvolutionTriggerApiController(s EvolutionTriggerApiServicer, opts ...EvolutionTriggerApiOption) Router {
-	controller := &EvolutionTriggerApiController{
+// NewEvolutionTriggerAPIController creates a default api controller
+func NewEvolutionTriggerAPIController(s EvolutionTriggerAPIServicer, opts ...EvolutionTriggerAPIOption) Router {
+	controller := &EvolutionTriggerAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewEvolutionTriggerApiController(s EvolutionTriggerApiServicer, opts ...Evo
 	return controller
 }
 
-// Routes returns all the api routes for the EvolutionTriggerApiController
-func (c *EvolutionTriggerApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"EvolutionTriggerList",
+// Routes returns all the api routes for the EvolutionTriggerAPIController
+func (c *EvolutionTriggerAPIController) Routes() Routes {
+	return Routes{
+		"EvolutionTriggerList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/evolution-trigger/",
 			c.EvolutionTriggerList,
 		},
-		{
-			"EvolutionTriggerRead",
+		"EvolutionTriggerRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/evolution-trigger/{id}/",
 			c.EvolutionTriggerRead,
@@ -67,17 +65,35 @@ func (c *EvolutionTriggerApiController) Routes() Routes {
 }
 
 // EvolutionTriggerList - 
-func (c *EvolutionTriggerApiController) EvolutionTriggerList(w http.ResponseWriter, r *http.Request) {
+func (c *EvolutionTriggerAPIController) EvolutionTriggerList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.EvolutionTriggerList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *EvolutionTriggerApiController) EvolutionTriggerList(w http.ResponseWrit
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // EvolutionTriggerRead - 
-func (c *EvolutionTriggerApiController) EvolutionTriggerRead(w http.ResponseWriter, r *http.Request) {
+func (c *EvolutionTriggerAPIController) EvolutionTriggerRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.EvolutionTriggerRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *EvolutionTriggerApiController) EvolutionTriggerRead(w http.ResponseWrit
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

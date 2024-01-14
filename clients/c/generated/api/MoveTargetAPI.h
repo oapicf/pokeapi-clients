@@ -8,10 +8,10 @@
 
 
 char*
-MoveTargetAPI_moveTargetList(apiClient_t *apiClient, int limit , int offset );
+MoveTargetAPI_moveTargetList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-MoveTargetAPI_moveTargetRead(apiClient_t *apiClient, int id );
+MoveTargetAPI_moveTargetRead(apiClient_t *apiClient, int *id);
 
 

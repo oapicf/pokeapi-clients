@@ -17,8 +17,8 @@ char* EncounterMethodAPI_encounterMethodList(apiClient_t *apiClient, int limit, 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **apiClient** | **apiClient_t \*** | context containing the client configuration |
-**limit** | **int** |  | [optional] 
-**offset** | **int** |  | [optional] 
+**limit** | **int \*** |  | [optional] 
+**offset** | **int \*** |  | [optional] 
 
 ### Return type
 
@@ -46,7 +46,7 @@ char* EncounterMethodAPI_encounterMethodRead(apiClient_t *apiClient, int id);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **apiClient** | **apiClient_t \*** | context containing the client configuration |
-**id** | **int** |  | 
+**id** | **int \*** |  | 
 
 ### Return type
 

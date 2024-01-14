@@ -70,7 +70,7 @@ bool OpenAPIMoveLearnMethodApi::MoveLearnMethodListResponse::FromJson(const TSha
 FString OpenAPIMoveLearnMethodApi::MoveLearnMethodReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/move-learn-method/{id}/"), PathParams);
 

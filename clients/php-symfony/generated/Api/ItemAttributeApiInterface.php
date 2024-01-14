@@ -52,8 +52,12 @@ interface ItemAttributeApiInterface
      *
      * @return array|object|null
      */
-    public function itemAttributeList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function itemAttributeList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation itemAttributeRead
@@ -64,6 +68,9 @@ interface ItemAttributeApiInterface
      *
      * @return array|object|null
      */
-    public function itemAttributeRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function itemAttributeRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

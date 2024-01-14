@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**pokemonShapeRead**](PokemonShapeApi.md#pokemonShapeRead) | **GET** /api/v2/pokemon-shape/{id}/ |  |
 
 
-<a name="pokemonShapeList"></a>
+<a id="pokemonShapeList"></a>
 # **pokemonShapeList**
 > String pokemonShapeList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="pokemonShapeRead"></a>
+<a id="pokemonShapeRead"></a>
 # **pokemonShapeRead**
 > String pokemonShapeRead(id)
 

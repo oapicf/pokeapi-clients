@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// EncounterMethodList - 
-func EncounterMethodList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type EncounterMethodAPI struct {
 }
 
-// EncounterMethodRead - 
-func EncounterMethodRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/encounter-method/
+func (api *EncounterMethodAPI) EncounterMethodList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/encounter-method/:id/
+func (api *EncounterMethodAPI) EncounterMethodRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

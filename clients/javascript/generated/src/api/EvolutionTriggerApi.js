@@ -43,8 +43,8 @@ export default class EvolutionTriggerApi {
 
     /**
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.limit 
-     * @param {Number} opts.offset 
+     * @param {Number} [limit] 
+     * @param {Number} [offset] 
      * @param {module:api/EvolutionTriggerApi~evolutionTriggerListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
      */

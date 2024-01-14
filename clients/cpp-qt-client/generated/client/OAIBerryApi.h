@@ -101,18 +101,25 @@ signals:
     void berryListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void berryReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use berryListSignalError() instead")
     void berryListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void berryListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use berryReadSignalError() instead")
     void berryReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void berryReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use berryListSignalErrorFull() instead")
     void berryListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void berryListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use berryReadSignalErrorFull() instead")
     void berryReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void berryReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

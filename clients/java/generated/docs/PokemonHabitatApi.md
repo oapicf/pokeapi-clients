@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**pokemonHabitatRead**](PokemonHabitatApi.md#pokemonHabitatRead) | **GET** /api/v2/pokemon-habitat/{id}/ |  |
 
 
-<a name="pokemonHabitatList"></a>
+<a id="pokemonHabitatList"></a>
 # **pokemonHabitatList**
 > String pokemonHabitatList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="pokemonHabitatRead"></a>
+<a id="pokemonHabitatRead"></a>
 # **pokemonHabitatRead**
 > String pokemonHabitatRead(id)
 

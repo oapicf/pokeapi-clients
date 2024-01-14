@@ -1,11 +1,11 @@
-# \GrowthRateApi
+# \GrowthRateAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GrowthRateList**](GrowthRateApi.md#GrowthRateList) | **Get** /api/v2/growth-rate/ | 
-[**GrowthRateRead**](GrowthRateApi.md#GrowthRateRead) | **Get** /api/v2/growth-rate/{id}/ | 
+[**GrowthRateList**](GrowthRateAPI.md#GrowthRateList) | **Get** /api/v2/growth-rate/ | 
+[**GrowthRateRead**](GrowthRateAPI.md#GrowthRateRead) | **Get** /api/v2/growth-rate/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GrowthRateApi.GrowthRateList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GrowthRateApi.GrowthRateList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GrowthRateList`: string
-    fmt.Fprintf(os.Stdout, "Response from `GrowthRateApi.GrowthRateList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.GrowthRateAPI.GrowthRateList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GrowthRateAPI.GrowthRateList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GrowthRateList`: string
+	fmt.Fprintf(os.Stdout, "Response from `GrowthRateAPI.GrowthRateList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GrowthRateApi.GrowthRateRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GrowthRateApi.GrowthRateRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GrowthRateRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `GrowthRateApi.GrowthRateRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.GrowthRateAPI.GrowthRateRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GrowthRateAPI.GrowthRateRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GrowthRateRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `GrowthRateAPI.GrowthRateRead`: %v\n", resp)
 }
 ```
 

@@ -1,11 +1,11 @@
-# \CharacteristicApi
+# \CharacteristicAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CharacteristicList**](CharacteristicApi.md#CharacteristicList) | **Get** /api/v2/characteristic/ | 
-[**CharacteristicRead**](CharacteristicApi.md#CharacteristicRead) | **Get** /api/v2/characteristic/{id}/ | 
+[**CharacteristicList**](CharacteristicAPI.md#CharacteristicList) | **Get** /api/v2/characteristic/ | 
+[**CharacteristicRead**](CharacteristicAPI.md#CharacteristicRead) | **Get** /api/v2/characteristic/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CharacteristicApi.CharacteristicList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CharacteristicApi.CharacteristicList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CharacteristicList`: string
-    fmt.Fprintf(os.Stdout, "Response from `CharacteristicApi.CharacteristicList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CharacteristicAPI.CharacteristicList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CharacteristicAPI.CharacteristicList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CharacteristicList`: string
+	fmt.Fprintf(os.Stdout, "Response from `CharacteristicAPI.CharacteristicList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CharacteristicApi.CharacteristicRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CharacteristicApi.CharacteristicRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CharacteristicRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `CharacteristicApi.CharacteristicRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CharacteristicAPI.CharacteristicRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CharacteristicAPI.CharacteristicRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CharacteristicRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `CharacteristicAPI.CharacteristicRead`: %v\n", resp)
 }
 ```
 

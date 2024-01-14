@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="versionGroupList"></a>
+<a id="versionGroupList"></a>
 # **versionGroupList**
 ```java
 Mono<String> VersionGroupApi.versionGroupList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> VersionGroupApi.versionGroupList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="versionGroupRead"></a>
+<a id="versionGroupRead"></a>
 # **versionGroupRead**
 ```java
 Mono<String> VersionGroupApi.versionGroupRead(id)

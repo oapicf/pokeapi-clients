@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// MoveApiController binds http requests to an api service and writes the service results to the http response
-type MoveApiController struct {
-	service MoveApiServicer
+// MoveAPIController binds http requests to an api service and writes the service results to the http response
+type MoveAPIController struct {
+	service MoveAPIServicer
 	errorHandler ErrorHandler
 }
 
-// MoveApiOption for how the controller is set up.
-type MoveApiOption func(*MoveApiController)
+// MoveAPIOption for how the controller is set up.
+type MoveAPIOption func(*MoveAPIController)
 
-// WithMoveApiErrorHandler inject ErrorHandler into controller
-func WithMoveApiErrorHandler(h ErrorHandler) MoveApiOption {
-	return func(c *MoveApiController) {
+// WithMoveAPIErrorHandler inject ErrorHandler into controller
+func WithMoveAPIErrorHandler(h ErrorHandler) MoveAPIOption {
+	return func(c *MoveAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewMoveApiController creates a default api controller
-func NewMoveApiController(s MoveApiServicer, opts ...MoveApiOption) Router {
-	controller := &MoveApiController{
+// NewMoveAPIController creates a default api controller
+func NewMoveAPIController(s MoveAPIServicer, opts ...MoveAPIOption) Router {
+	controller := &MoveAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewMoveApiController(s MoveApiServicer, opts ...MoveApiOption) Router {
 	return controller
 }
 
-// Routes returns all the api routes for the MoveApiController
-func (c *MoveApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"MoveList",
+// Routes returns all the api routes for the MoveAPIController
+func (c *MoveAPIController) Routes() Routes {
+	return Routes{
+		"MoveList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/move/",
 			c.MoveList,
 		},
-		{
-			"MoveRead",
+		"MoveRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/move/{id}/",
 			c.MoveRead,
@@ -67,17 +65,35 @@ func (c *MoveApiController) Routes() Routes {
 }
 
 // MoveList - 
-func (c *MoveApiController) MoveList(w http.ResponseWriter, r *http.Request) {
+func (c *MoveAPIController) MoveList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.MoveList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *MoveApiController) MoveList(w http.ResponseWriter, r *http.Request) {
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // MoveRead - 
-func (c *MoveApiController) MoveRead(w http.ResponseWriter, r *http.Request) {
+func (c *MoveAPIController) MoveRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.MoveRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *MoveApiController) MoveRead(w http.ResponseWriter, r *http.Request) {
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

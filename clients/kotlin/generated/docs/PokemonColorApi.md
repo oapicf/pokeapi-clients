@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**pokemonColorRead**](PokemonColorApi.md#pokemonColorRead) | **GET** /api/v2/pokemon-color/{id}/ | 
 
 
-<a name="pokemonColorList"></a>
+<a id="pokemonColorList"></a>
 # **pokemonColorList**
 > kotlin.String pokemonColorList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="pokemonColorRead"></a>
+<a id="pokemonColorRead"></a>
 # **pokemonColorRead**
 > kotlin.String pokemonColorRead(id)
 

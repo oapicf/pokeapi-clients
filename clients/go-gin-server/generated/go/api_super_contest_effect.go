@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// SuperContestEffectList - 
-func SuperContestEffectList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type SuperContestEffectAPI struct {
 }
 
-// SuperContestEffectRead - 
-func SuperContestEffectRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/super-contest-effect/
+func (api *SuperContestEffectAPI) SuperContestEffectList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/super-contest-effect/:id/
+func (api *SuperContestEffectAPI) SuperContestEffectRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

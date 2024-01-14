@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class ItemFlingEffectApiImpl : public org::openapitools::server::api::ItemFlingEffectApi {
+class  ItemFlingEffectApiImpl : public org::openapitools::server::api::ItemFlingEffectApi {
 public:
     explicit ItemFlingEffectApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~ItemFlingEffectApiImpl() override = default;

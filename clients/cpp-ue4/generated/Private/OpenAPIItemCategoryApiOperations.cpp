@@ -70,7 +70,7 @@ bool OpenAPIItemCategoryApi::ItemCategoryListResponse::FromJson(const TSharedPtr
 FString OpenAPIItemCategoryApi::ItemCategoryReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/item-category/{id}/"), PathParams);
 

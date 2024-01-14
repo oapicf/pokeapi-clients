@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// MoveCategoryList - 
-func MoveCategoryList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type MoveCategoryAPI struct {
 }
 
-// MoveCategoryRead - 
-func MoveCategoryRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/move-category/
+func (api *MoveCategoryAPI) MoveCategoryList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/move-category/:id/
+func (api *MoveCategoryAPI) MoveCategoryRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

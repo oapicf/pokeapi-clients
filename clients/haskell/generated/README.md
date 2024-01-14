@@ -50,7 +50,7 @@ main = do
   manager <- newManager tlsManagerSettings
 
   -- Create the client (all endpoint functions will be available)
-  Backend{..} <- API.createClient
+  let Backend{..} = API.createClient
 
   -- Any  API call can go here, e.g. here we call `getSomeEndpoint`
   API.call (mkClientEnv manager url) getSomeEndpoint

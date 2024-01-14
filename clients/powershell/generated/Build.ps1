@@ -46,7 +46,9 @@ function Get-FunctionsToExport {
 }
 
 $ScriptDir = Split-Path $script:MyInvocation.MyCommand.Path
-$FunctionPath = 'Api', 'Model', 'Client' | ForEach-Object {Join-Path "$ScriptDir\src\PSOpenAPITools\" $_}
+$FunctionPath = 'Api', 'Model', 'Client' | Where-Object {
+    Join-Path "$ScriptDir\src\PSOpenAPITools\" $_ | Test-Path
+} | ForEach-Object { Join-Path "$ScriptDir\src\PSOpenAPITools\" $_ }
 
 $Manifest = @{
     Path = "$ScriptDir\src\PSOpenAPITools\PSOpenAPITools.psd1"
@@ -58,7 +60,7 @@ $Manifest = @{
     ModuleVersion = '0.1.2'
 
     RootModule = 'PSOpenAPITools.psm1'
-    Guid = '{8160288B-F754-40CF-8BEC-6E460816A603}' # Has to be static, otherwise each new build will be considered different module
+    Guid = '{775EF9B4-46CD-4AB1-9B01-55E7C1328C26}' # Has to be static, otherwise each new build will be considered different module
 
     PowerShellVersion = '6.2'
 

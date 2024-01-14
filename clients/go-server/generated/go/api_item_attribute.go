@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// ItemAttributeApiController binds http requests to an api service and writes the service results to the http response
-type ItemAttributeApiController struct {
-	service ItemAttributeApiServicer
+// ItemAttributeAPIController binds http requests to an api service and writes the service results to the http response
+type ItemAttributeAPIController struct {
+	service ItemAttributeAPIServicer
 	errorHandler ErrorHandler
 }
 
-// ItemAttributeApiOption for how the controller is set up.
-type ItemAttributeApiOption func(*ItemAttributeApiController)
+// ItemAttributeAPIOption for how the controller is set up.
+type ItemAttributeAPIOption func(*ItemAttributeAPIController)
 
-// WithItemAttributeApiErrorHandler inject ErrorHandler into controller
-func WithItemAttributeApiErrorHandler(h ErrorHandler) ItemAttributeApiOption {
-	return func(c *ItemAttributeApiController) {
+// WithItemAttributeAPIErrorHandler inject ErrorHandler into controller
+func WithItemAttributeAPIErrorHandler(h ErrorHandler) ItemAttributeAPIOption {
+	return func(c *ItemAttributeAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewItemAttributeApiController creates a default api controller
-func NewItemAttributeApiController(s ItemAttributeApiServicer, opts ...ItemAttributeApiOption) Router {
-	controller := &ItemAttributeApiController{
+// NewItemAttributeAPIController creates a default api controller
+func NewItemAttributeAPIController(s ItemAttributeAPIServicer, opts ...ItemAttributeAPIOption) Router {
+	controller := &ItemAttributeAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewItemAttributeApiController(s ItemAttributeApiServicer, opts ...ItemAttri
 	return controller
 }
 
-// Routes returns all the api routes for the ItemAttributeApiController
-func (c *ItemAttributeApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"ItemAttributeList",
+// Routes returns all the api routes for the ItemAttributeAPIController
+func (c *ItemAttributeAPIController) Routes() Routes {
+	return Routes{
+		"ItemAttributeList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/item-attribute/",
 			c.ItemAttributeList,
 		},
-		{
-			"ItemAttributeRead",
+		"ItemAttributeRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/item-attribute/{id}/",
 			c.ItemAttributeRead,
@@ -67,17 +65,35 @@ func (c *ItemAttributeApiController) Routes() Routes {
 }
 
 // ItemAttributeList - 
-func (c *ItemAttributeApiController) ItemAttributeList(w http.ResponseWriter, r *http.Request) {
+func (c *ItemAttributeAPIController) ItemAttributeList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.ItemAttributeList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *ItemAttributeApiController) ItemAttributeList(w http.ResponseWriter, r 
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // ItemAttributeRead - 
-func (c *ItemAttributeApiController) ItemAttributeRead(w http.ResponseWriter, r *http.Request) {
+func (c *ItemAttributeAPIController) ItemAttributeRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.ItemAttributeRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *ItemAttributeApiController) ItemAttributeRead(w http.ResponseWriter, r 
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

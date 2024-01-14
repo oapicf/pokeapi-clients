@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="moveCategoryList"></a>
+<a id="moveCategoryList"></a>
 # **moveCategoryList**
 ```java
 Mono<String> MoveCategoryApi.moveCategoryList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> MoveCategoryApi.moveCategoryList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="moveCategoryRead"></a>
+<a id="moveCategoryRead"></a>
 # **moveCategoryRead**
 ```java
 Mono<String> MoveCategoryApi.moveCategoryRead(id)

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**machineRead**](MachineApi.md#machineRead) | **GET** /api/v2/machine/{id}/ | 
 
 
-<a name="machineList"></a>
+<a id="machineList"></a>
 # **machineList**
 > kotlin.String machineList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="machineRead"></a>
+<a id="machineRead"></a>
 # **machineRead**
 > kotlin.String machineRead(id)
 

@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.PokedexApi
+# PSOpenAPITools.PSOpenAPITools\Api.PokedexApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-PokedexRead**](PokedexApi.md#Invoke-PokedexRead) | **GET** /api/v2/pokedex/{id}/ | 
 
 
-<a name="Invoke-PokedexList"></a>
+<a id="Invoke-PokedexList"></a>
 # **Invoke-PokedexList**
 > String Invoke-PokedexList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-PokedexRead"></a>
+<a id="Invoke-PokedexRead"></a>
 # **Invoke-PokedexRead**
 > String Invoke-PokedexRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

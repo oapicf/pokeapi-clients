@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class MoveCategoryApiImpl : public org::openapitools::server::api::MoveCategoryApi {
+class  MoveCategoryApiImpl : public org::openapitools::server::api::MoveCategoryApi {
 public:
     explicit MoveCategoryApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~MoveCategoryApiImpl() override = default;

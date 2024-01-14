@@ -1242,6 +1242,7 @@ ul.nav-tabs {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Ability-abilityList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Ability-abilityList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Ability-abilityList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Ability-abilityList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Ability-abilityList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Ability-abilityList-0-objc">Obj-C</a></li>
@@ -1287,6 +1288,24 @@ public class AbilityApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Ability-abilityList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.abilityList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->abilityList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -1599,6 +1618,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Ability-abilityRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Ability-abilityRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Ability-abilityRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Ability-abilityRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Ability-abilityRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Ability-abilityRead-0-objc">Obj-C</a></li>
@@ -1643,6 +1663,23 @@ public class AbilityApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Ability-abilityRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.abilityRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->abilityRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -1933,6 +1970,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Berry-berryList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Berry-berryList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Berry-berryList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Berry-berryList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Berry-berryList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Berry-berryList-0-objc">Obj-C</a></li>
@@ -1978,6 +2016,24 @@ public class BerryApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Berry-berryList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.berryList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->berryList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -2290,6 +2346,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Berry-berryRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Berry-berryRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Berry-berryRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Berry-berryRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Berry-berryRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Berry-berryRead-0-objc">Obj-C</a></li>
@@ -2334,6 +2391,23 @@ public class BerryApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Berry-berryRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.berryRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->berryRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -2624,6 +2698,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-BerryFirmness-berryFirmnessList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-BerryFirmness-berryFirmnessList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-BerryFirmness-berryFirmnessList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-BerryFirmness-berryFirmnessList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-BerryFirmness-berryFirmnessList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-BerryFirmness-berryFirmnessList-0-objc">Obj-C</a></li>
@@ -2669,6 +2744,24 @@ public class BerryFirmnessApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-BerryFirmness-berryFirmnessList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.berryFirmnessList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->berryFirmnessList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -2981,6 +3074,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-BerryFirmness-berryFirmnessRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-BerryFirmness-berryFirmnessRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-BerryFirmness-berryFirmnessRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-BerryFirmness-berryFirmnessRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-BerryFirmness-berryFirmnessRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-BerryFirmness-berryFirmnessRead-0-objc">Obj-C</a></li>
@@ -3025,6 +3119,23 @@ public class BerryFirmnessApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-BerryFirmness-berryFirmnessRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.berryFirmnessRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->berryFirmnessRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -3315,6 +3426,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-BerryFlavor-berryFlavorList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-BerryFlavor-berryFlavorList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-BerryFlavor-berryFlavorList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-BerryFlavor-berryFlavorList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-BerryFlavor-berryFlavorList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-BerryFlavor-berryFlavorList-0-objc">Obj-C</a></li>
@@ -3360,6 +3472,24 @@ public class BerryFlavorApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-BerryFlavor-berryFlavorList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.berryFlavorList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->berryFlavorList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -3672,6 +3802,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-BerryFlavor-berryFlavorRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-BerryFlavor-berryFlavorRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-BerryFlavor-berryFlavorRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-BerryFlavor-berryFlavorRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-BerryFlavor-berryFlavorRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-BerryFlavor-berryFlavorRead-0-objc">Obj-C</a></li>
@@ -3716,6 +3847,23 @@ public class BerryFlavorApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-BerryFlavor-berryFlavorRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.berryFlavorRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->berryFlavorRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -4006,6 +4154,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Characteristic-characteristicList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Characteristic-characteristicList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Characteristic-characteristicList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Characteristic-characteristicList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Characteristic-characteristicList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Characteristic-characteristicList-0-objc">Obj-C</a></li>
@@ -4051,6 +4200,24 @@ public class CharacteristicApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Characteristic-characteristicList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.characteristicList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->characteristicList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -4363,6 +4530,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Characteristic-characteristicRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Characteristic-characteristicRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Characteristic-characteristicRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Characteristic-characteristicRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Characteristic-characteristicRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Characteristic-characteristicRead-0-objc">Obj-C</a></li>
@@ -4407,6 +4575,23 @@ public class CharacteristicApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Characteristic-characteristicRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.characteristicRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->characteristicRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -4697,6 +4882,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-ContestEffect-contestEffectList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-ContestEffect-contestEffectList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ContestEffect-contestEffectList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-ContestEffect-contestEffectList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-ContestEffect-contestEffectList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-ContestEffect-contestEffectList-0-objc">Obj-C</a></li>
@@ -4742,6 +4928,24 @@ public class ContestEffectApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ContestEffect-contestEffectList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.contestEffectList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->contestEffectList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -5054,6 +5258,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-ContestEffect-contestEffectRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-ContestEffect-contestEffectRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ContestEffect-contestEffectRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-ContestEffect-contestEffectRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-ContestEffect-contestEffectRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-ContestEffect-contestEffectRead-0-objc">Obj-C</a></li>
@@ -5098,6 +5303,23 @@ public class ContestEffectApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ContestEffect-contestEffectRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.contestEffectRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->contestEffectRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -5388,6 +5610,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-ContestType-contestTypeList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-ContestType-contestTypeList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ContestType-contestTypeList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-ContestType-contestTypeList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-ContestType-contestTypeList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-ContestType-contestTypeList-0-objc">Obj-C</a></li>
@@ -5433,6 +5656,24 @@ public class ContestTypeApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ContestType-contestTypeList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.contestTypeList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->contestTypeList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -5745,6 +5986,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-ContestType-contestTypeRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-ContestType-contestTypeRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ContestType-contestTypeRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-ContestType-contestTypeRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-ContestType-contestTypeRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-ContestType-contestTypeRead-0-objc">Obj-C</a></li>
@@ -5789,6 +6031,23 @@ public class ContestTypeApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ContestType-contestTypeRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.contestTypeRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->contestTypeRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -6079,6 +6338,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-EggGroup-eggGroupList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-EggGroup-eggGroupList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-EggGroup-eggGroupList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-EggGroup-eggGroupList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-EggGroup-eggGroupList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-EggGroup-eggGroupList-0-objc">Obj-C</a></li>
@@ -6124,6 +6384,24 @@ public class EggGroupApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-EggGroup-eggGroupList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.eggGroupList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->eggGroupList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -6436,6 +6714,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-EggGroup-eggGroupRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-EggGroup-eggGroupRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-EggGroup-eggGroupRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-EggGroup-eggGroupRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-EggGroup-eggGroupRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-EggGroup-eggGroupRead-0-objc">Obj-C</a></li>
@@ -6480,6 +6759,23 @@ public class EggGroupApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-EggGroup-eggGroupRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.eggGroupRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->eggGroupRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -6770,6 +7066,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-EncounterCondition-encounterConditionList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-EncounterCondition-encounterConditionList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-EncounterCondition-encounterConditionList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-EncounterCondition-encounterConditionList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-EncounterCondition-encounterConditionList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-EncounterCondition-encounterConditionList-0-objc">Obj-C</a></li>
@@ -6815,6 +7112,24 @@ public class EncounterConditionApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-EncounterCondition-encounterConditionList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.encounterConditionList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->encounterConditionList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -7127,6 +7442,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-EncounterCondition-encounterConditionRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-EncounterCondition-encounterConditionRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-EncounterCondition-encounterConditionRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-EncounterCondition-encounterConditionRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-EncounterCondition-encounterConditionRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-EncounterCondition-encounterConditionRead-0-objc">Obj-C</a></li>
@@ -7171,6 +7487,23 @@ public class EncounterConditionApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-EncounterCondition-encounterConditionRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.encounterConditionRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->encounterConditionRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -7461,6 +7794,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-EncounterConditionValue-encounterConditionValueList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-EncounterConditionValue-encounterConditionValueList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-EncounterConditionValue-encounterConditionValueList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-EncounterConditionValue-encounterConditionValueList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-EncounterConditionValue-encounterConditionValueList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-EncounterConditionValue-encounterConditionValueList-0-objc">Obj-C</a></li>
@@ -7506,6 +7840,24 @@ public class EncounterConditionValueApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-EncounterConditionValue-encounterConditionValueList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.encounterConditionValueList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->encounterConditionValueList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -7818,6 +8170,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-EncounterConditionValue-encounterConditionValueRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-EncounterConditionValue-encounterConditionValueRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-EncounterConditionValue-encounterConditionValueRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-EncounterConditionValue-encounterConditionValueRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-EncounterConditionValue-encounterConditionValueRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-EncounterConditionValue-encounterConditionValueRead-0-objc">Obj-C</a></li>
@@ -7862,6 +8215,23 @@ public class EncounterConditionValueApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-EncounterConditionValue-encounterConditionValueRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.encounterConditionValueRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->encounterConditionValueRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -8152,6 +8522,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-EncounterMethod-encounterMethodList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-EncounterMethod-encounterMethodList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-EncounterMethod-encounterMethodList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-EncounterMethod-encounterMethodList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-EncounterMethod-encounterMethodList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-EncounterMethod-encounterMethodList-0-objc">Obj-C</a></li>
@@ -8197,6 +8568,24 @@ public class EncounterMethodApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-EncounterMethod-encounterMethodList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.encounterMethodList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->encounterMethodList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -8509,6 +8898,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-EncounterMethod-encounterMethodRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-EncounterMethod-encounterMethodRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-EncounterMethod-encounterMethodRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-EncounterMethod-encounterMethodRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-EncounterMethod-encounterMethodRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-EncounterMethod-encounterMethodRead-0-objc">Obj-C</a></li>
@@ -8553,6 +8943,23 @@ public class EncounterMethodApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-EncounterMethod-encounterMethodRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.encounterMethodRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->encounterMethodRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -8843,6 +9250,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-EvolutionChain-evolutionChainList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-EvolutionChain-evolutionChainList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-EvolutionChain-evolutionChainList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-EvolutionChain-evolutionChainList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-EvolutionChain-evolutionChainList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-EvolutionChain-evolutionChainList-0-objc">Obj-C</a></li>
@@ -8888,6 +9296,24 @@ public class EvolutionChainApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-EvolutionChain-evolutionChainList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.evolutionChainList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->evolutionChainList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -9200,6 +9626,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-EvolutionChain-evolutionChainRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-EvolutionChain-evolutionChainRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-EvolutionChain-evolutionChainRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-EvolutionChain-evolutionChainRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-EvolutionChain-evolutionChainRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-EvolutionChain-evolutionChainRead-0-objc">Obj-C</a></li>
@@ -9244,6 +9671,23 @@ public class EvolutionChainApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-EvolutionChain-evolutionChainRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.evolutionChainRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->evolutionChainRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -9534,6 +9978,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-EvolutionTrigger-evolutionTriggerList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-EvolutionTrigger-evolutionTriggerList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-EvolutionTrigger-evolutionTriggerList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-EvolutionTrigger-evolutionTriggerList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-EvolutionTrigger-evolutionTriggerList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-EvolutionTrigger-evolutionTriggerList-0-objc">Obj-C</a></li>
@@ -9579,6 +10024,24 @@ public class EvolutionTriggerApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-EvolutionTrigger-evolutionTriggerList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.evolutionTriggerList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->evolutionTriggerList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -9891,6 +10354,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-EvolutionTrigger-evolutionTriggerRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-EvolutionTrigger-evolutionTriggerRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-EvolutionTrigger-evolutionTriggerRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-EvolutionTrigger-evolutionTriggerRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-EvolutionTrigger-evolutionTriggerRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-EvolutionTrigger-evolutionTriggerRead-0-objc">Obj-C</a></li>
@@ -9935,6 +10399,23 @@ public class EvolutionTriggerApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-EvolutionTrigger-evolutionTriggerRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.evolutionTriggerRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->evolutionTriggerRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -10225,6 +10706,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Gender-genderList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Gender-genderList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Gender-genderList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Gender-genderList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Gender-genderList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Gender-genderList-0-objc">Obj-C</a></li>
@@ -10270,6 +10752,24 @@ public class GenderApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Gender-genderList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.genderList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->genderList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -10582,6 +11082,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Gender-genderRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Gender-genderRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Gender-genderRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Gender-genderRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Gender-genderRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Gender-genderRead-0-objc">Obj-C</a></li>
@@ -10626,6 +11127,23 @@ public class GenderApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Gender-genderRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.genderRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->genderRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -10916,6 +11434,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Generation-generationList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Generation-generationList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Generation-generationList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Generation-generationList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Generation-generationList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Generation-generationList-0-objc">Obj-C</a></li>
@@ -10961,6 +11480,24 @@ public class GenerationApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Generation-generationList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.generationList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->generationList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -11273,6 +11810,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Generation-generationRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Generation-generationRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Generation-generationRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Generation-generationRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Generation-generationRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Generation-generationRead-0-objc">Obj-C</a></li>
@@ -11317,6 +11855,23 @@ public class GenerationApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Generation-generationRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.generationRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->generationRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -11607,6 +12162,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-GrowthRate-growthRateList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-GrowthRate-growthRateList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-GrowthRate-growthRateList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-GrowthRate-growthRateList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-GrowthRate-growthRateList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-GrowthRate-growthRateList-0-objc">Obj-C</a></li>
@@ -11652,6 +12208,24 @@ public class GrowthRateApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-GrowthRate-growthRateList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.growthRateList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->growthRateList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -11964,6 +12538,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-GrowthRate-growthRateRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-GrowthRate-growthRateRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-GrowthRate-growthRateRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-GrowthRate-growthRateRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-GrowthRate-growthRateRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-GrowthRate-growthRateRead-0-objc">Obj-C</a></li>
@@ -12008,6 +12583,23 @@ public class GrowthRateApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-GrowthRate-growthRateRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.growthRateRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->growthRateRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -12298,6 +12890,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Item-itemList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Item-itemList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Item-itemList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Item-itemList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Item-itemList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Item-itemList-0-objc">Obj-C</a></li>
@@ -12343,6 +12936,24 @@ public class ItemApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Item-itemList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.itemList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->itemList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -12655,6 +13266,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Item-itemRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Item-itemRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Item-itemRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Item-itemRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Item-itemRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Item-itemRead-0-objc">Obj-C</a></li>
@@ -12699,6 +13311,23 @@ public class ItemApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Item-itemRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.itemRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->itemRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -12989,6 +13618,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-ItemAttribute-itemAttributeList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-ItemAttribute-itemAttributeList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ItemAttribute-itemAttributeList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-ItemAttribute-itemAttributeList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-ItemAttribute-itemAttributeList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-ItemAttribute-itemAttributeList-0-objc">Obj-C</a></li>
@@ -13034,6 +13664,24 @@ public class ItemAttributeApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ItemAttribute-itemAttributeList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.itemAttributeList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->itemAttributeList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -13346,6 +13994,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-ItemAttribute-itemAttributeRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-ItemAttribute-itemAttributeRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ItemAttribute-itemAttributeRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-ItemAttribute-itemAttributeRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-ItemAttribute-itemAttributeRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-ItemAttribute-itemAttributeRead-0-objc">Obj-C</a></li>
@@ -13390,6 +14039,23 @@ public class ItemAttributeApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ItemAttribute-itemAttributeRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.itemAttributeRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->itemAttributeRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -13680,6 +14346,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-ItemCategory-itemCategoryList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-ItemCategory-itemCategoryList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ItemCategory-itemCategoryList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-ItemCategory-itemCategoryList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-ItemCategory-itemCategoryList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-ItemCategory-itemCategoryList-0-objc">Obj-C</a></li>
@@ -13725,6 +14392,24 @@ public class ItemCategoryApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ItemCategory-itemCategoryList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.itemCategoryList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->itemCategoryList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -14037,6 +14722,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-ItemCategory-itemCategoryRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-ItemCategory-itemCategoryRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ItemCategory-itemCategoryRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-ItemCategory-itemCategoryRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-ItemCategory-itemCategoryRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-ItemCategory-itemCategoryRead-0-objc">Obj-C</a></li>
@@ -14081,6 +14767,23 @@ public class ItemCategoryApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ItemCategory-itemCategoryRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.itemCategoryRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->itemCategoryRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -14371,6 +15074,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-ItemFlingEffect-itemFlingEffectList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-ItemFlingEffect-itemFlingEffectList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ItemFlingEffect-itemFlingEffectList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-ItemFlingEffect-itemFlingEffectList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-ItemFlingEffect-itemFlingEffectList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-ItemFlingEffect-itemFlingEffectList-0-objc">Obj-C</a></li>
@@ -14416,6 +15120,24 @@ public class ItemFlingEffectApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ItemFlingEffect-itemFlingEffectList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.itemFlingEffectList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->itemFlingEffectList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -14728,6 +15450,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-ItemFlingEffect-itemFlingEffectRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-ItemFlingEffect-itemFlingEffectRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ItemFlingEffect-itemFlingEffectRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-ItemFlingEffect-itemFlingEffectRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-ItemFlingEffect-itemFlingEffectRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-ItemFlingEffect-itemFlingEffectRead-0-objc">Obj-C</a></li>
@@ -14772,6 +15495,23 @@ public class ItemFlingEffectApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ItemFlingEffect-itemFlingEffectRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.itemFlingEffectRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->itemFlingEffectRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -15062,6 +15802,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-ItemPocket-itemPocketList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-ItemPocket-itemPocketList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ItemPocket-itemPocketList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-ItemPocket-itemPocketList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-ItemPocket-itemPocketList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-ItemPocket-itemPocketList-0-objc">Obj-C</a></li>
@@ -15107,6 +15848,24 @@ public class ItemPocketApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ItemPocket-itemPocketList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.itemPocketList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->itemPocketList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -15419,6 +16178,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-ItemPocket-itemPocketRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-ItemPocket-itemPocketRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ItemPocket-itemPocketRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-ItemPocket-itemPocketRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-ItemPocket-itemPocketRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-ItemPocket-itemPocketRead-0-objc">Obj-C</a></li>
@@ -15463,6 +16223,23 @@ public class ItemPocketApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ItemPocket-itemPocketRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.itemPocketRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->itemPocketRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -15753,6 +16530,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Language-languageList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Language-languageList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Language-languageList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Language-languageList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Language-languageList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Language-languageList-0-objc">Obj-C</a></li>
@@ -15798,6 +16576,24 @@ public class LanguageApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Language-languageList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.languageList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->languageList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -16110,6 +16906,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Language-languageRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Language-languageRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Language-languageRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Language-languageRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Language-languageRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Language-languageRead-0-objc">Obj-C</a></li>
@@ -16154,6 +16951,23 @@ public class LanguageApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Language-languageRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.languageRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->languageRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -16444,6 +17258,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Location-locationList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Location-locationList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Location-locationList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Location-locationList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Location-locationList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Location-locationList-0-objc">Obj-C</a></li>
@@ -16489,6 +17304,24 @@ public class LocationApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Location-locationList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.locationList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->locationList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -16801,6 +17634,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Location-locationRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Location-locationRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Location-locationRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Location-locationRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Location-locationRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Location-locationRead-0-objc">Obj-C</a></li>
@@ -16845,6 +17679,23 @@ public class LocationApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Location-locationRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.locationRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->locationRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -17135,6 +17986,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-LocationArea-locationAreaList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-LocationArea-locationAreaList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-LocationArea-locationAreaList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-LocationArea-locationAreaList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-LocationArea-locationAreaList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-LocationArea-locationAreaList-0-objc">Obj-C</a></li>
@@ -17180,6 +18032,24 @@ public class LocationAreaApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-LocationArea-locationAreaList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.locationAreaList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->locationAreaList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -17492,6 +18362,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-LocationArea-locationAreaRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-LocationArea-locationAreaRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-LocationArea-locationAreaRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-LocationArea-locationAreaRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-LocationArea-locationAreaRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-LocationArea-locationAreaRead-0-objc">Obj-C</a></li>
@@ -17536,6 +18407,23 @@ public class LocationAreaApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-LocationArea-locationAreaRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.locationAreaRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->locationAreaRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -17826,6 +18714,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Machine-machineList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Machine-machineList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Machine-machineList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Machine-machineList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Machine-machineList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Machine-machineList-0-objc">Obj-C</a></li>
@@ -17871,6 +18760,24 @@ public class MachineApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Machine-machineList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.machineList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->machineList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -18183,6 +19090,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Machine-machineRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Machine-machineRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Machine-machineRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Machine-machineRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Machine-machineRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Machine-machineRead-0-objc">Obj-C</a></li>
@@ -18227,6 +19135,23 @@ public class MachineApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Machine-machineRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.machineRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->machineRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -18517,6 +19442,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Move-moveList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Move-moveList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Move-moveList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Move-moveList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Move-moveList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Move-moveList-0-objc">Obj-C</a></li>
@@ -18562,6 +19488,24 @@ public class MoveApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Move-moveList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.moveList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->moveList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -18874,6 +19818,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Move-moveRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Move-moveRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Move-moveRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Move-moveRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Move-moveRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Move-moveRead-0-objc">Obj-C</a></li>
@@ -18918,6 +19863,23 @@ public class MoveApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Move-moveRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.moveRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->moveRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -19208,6 +20170,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-MoveAilment-moveAilmentList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-MoveAilment-moveAilmentList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-MoveAilment-moveAilmentList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-MoveAilment-moveAilmentList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-MoveAilment-moveAilmentList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-MoveAilment-moveAilmentList-0-objc">Obj-C</a></li>
@@ -19253,6 +20216,24 @@ public class MoveAilmentApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-MoveAilment-moveAilmentList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.moveAilmentList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->moveAilmentList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -19565,6 +20546,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-MoveAilment-moveAilmentRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-MoveAilment-moveAilmentRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-MoveAilment-moveAilmentRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-MoveAilment-moveAilmentRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-MoveAilment-moveAilmentRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-MoveAilment-moveAilmentRead-0-objc">Obj-C</a></li>
@@ -19609,6 +20591,23 @@ public class MoveAilmentApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-MoveAilment-moveAilmentRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.moveAilmentRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->moveAilmentRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -19899,6 +20898,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-MoveBattleStyle-moveBattleStyleList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-MoveBattleStyle-moveBattleStyleList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-MoveBattleStyle-moveBattleStyleList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-MoveBattleStyle-moveBattleStyleList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-MoveBattleStyle-moveBattleStyleList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-MoveBattleStyle-moveBattleStyleList-0-objc">Obj-C</a></li>
@@ -19944,6 +20944,24 @@ public class MoveBattleStyleApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-MoveBattleStyle-moveBattleStyleList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.moveBattleStyleList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->moveBattleStyleList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -20256,6 +21274,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-MoveBattleStyle-moveBattleStyleRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-MoveBattleStyle-moveBattleStyleRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-MoveBattleStyle-moveBattleStyleRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-MoveBattleStyle-moveBattleStyleRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-MoveBattleStyle-moveBattleStyleRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-MoveBattleStyle-moveBattleStyleRead-0-objc">Obj-C</a></li>
@@ -20300,6 +21319,23 @@ public class MoveBattleStyleApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-MoveBattleStyle-moveBattleStyleRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.moveBattleStyleRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->moveBattleStyleRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -20590,6 +21626,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-MoveCategory-moveCategoryList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-MoveCategory-moveCategoryList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-MoveCategory-moveCategoryList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-MoveCategory-moveCategoryList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-MoveCategory-moveCategoryList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-MoveCategory-moveCategoryList-0-objc">Obj-C</a></li>
@@ -20635,6 +21672,24 @@ public class MoveCategoryApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-MoveCategory-moveCategoryList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.moveCategoryList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->moveCategoryList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -20947,6 +22002,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-MoveCategory-moveCategoryRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-MoveCategory-moveCategoryRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-MoveCategory-moveCategoryRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-MoveCategory-moveCategoryRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-MoveCategory-moveCategoryRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-MoveCategory-moveCategoryRead-0-objc">Obj-C</a></li>
@@ -20991,6 +22047,23 @@ public class MoveCategoryApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-MoveCategory-moveCategoryRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.moveCategoryRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->moveCategoryRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -21281,6 +22354,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-MoveDamageClass-moveDamageClassList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-MoveDamageClass-moveDamageClassList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-MoveDamageClass-moveDamageClassList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-MoveDamageClass-moveDamageClassList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-MoveDamageClass-moveDamageClassList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-MoveDamageClass-moveDamageClassList-0-objc">Obj-C</a></li>
@@ -21326,6 +22400,24 @@ public class MoveDamageClassApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-MoveDamageClass-moveDamageClassList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.moveDamageClassList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->moveDamageClassList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -21638,6 +22730,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-MoveDamageClass-moveDamageClassRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-MoveDamageClass-moveDamageClassRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-MoveDamageClass-moveDamageClassRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-MoveDamageClass-moveDamageClassRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-MoveDamageClass-moveDamageClassRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-MoveDamageClass-moveDamageClassRead-0-objc">Obj-C</a></li>
@@ -21682,6 +22775,23 @@ public class MoveDamageClassApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-MoveDamageClass-moveDamageClassRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.moveDamageClassRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->moveDamageClassRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -21972,6 +23082,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-MoveLearnMethod-moveLearnMethodList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-MoveLearnMethod-moveLearnMethodList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-MoveLearnMethod-moveLearnMethodList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-MoveLearnMethod-moveLearnMethodList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-MoveLearnMethod-moveLearnMethodList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-MoveLearnMethod-moveLearnMethodList-0-objc">Obj-C</a></li>
@@ -22017,6 +23128,24 @@ public class MoveLearnMethodApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-MoveLearnMethod-moveLearnMethodList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.moveLearnMethodList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->moveLearnMethodList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -22329,6 +23458,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-MoveLearnMethod-moveLearnMethodRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-MoveLearnMethod-moveLearnMethodRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-MoveLearnMethod-moveLearnMethodRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-MoveLearnMethod-moveLearnMethodRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-MoveLearnMethod-moveLearnMethodRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-MoveLearnMethod-moveLearnMethodRead-0-objc">Obj-C</a></li>
@@ -22373,6 +23503,23 @@ public class MoveLearnMethodApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-MoveLearnMethod-moveLearnMethodRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.moveLearnMethodRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->moveLearnMethodRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -22663,6 +23810,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-MoveTarget-moveTargetList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-MoveTarget-moveTargetList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-MoveTarget-moveTargetList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-MoveTarget-moveTargetList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-MoveTarget-moveTargetList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-MoveTarget-moveTargetList-0-objc">Obj-C</a></li>
@@ -22708,6 +23856,24 @@ public class MoveTargetApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-MoveTarget-moveTargetList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.moveTargetList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->moveTargetList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -23020,6 +24186,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-MoveTarget-moveTargetRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-MoveTarget-moveTargetRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-MoveTarget-moveTargetRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-MoveTarget-moveTargetRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-MoveTarget-moveTargetRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-MoveTarget-moveTargetRead-0-objc">Obj-C</a></li>
@@ -23064,6 +24231,23 @@ public class MoveTargetApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-MoveTarget-moveTargetRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.moveTargetRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->moveTargetRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -23354,6 +24538,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Nature-natureList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Nature-natureList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Nature-natureList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Nature-natureList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Nature-natureList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Nature-natureList-0-objc">Obj-C</a></li>
@@ -23399,6 +24584,24 @@ public class NatureApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Nature-natureList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.natureList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->natureList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -23711,6 +24914,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Nature-natureRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Nature-natureRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Nature-natureRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Nature-natureRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Nature-natureRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Nature-natureRead-0-objc">Obj-C</a></li>
@@ -23755,6 +24959,23 @@ public class NatureApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Nature-natureRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.natureRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->natureRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -24045,6 +25266,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-PalParkArea-palParkAreaList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-PalParkArea-palParkAreaList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-PalParkArea-palParkAreaList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-PalParkArea-palParkAreaList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-PalParkArea-palParkAreaList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-PalParkArea-palParkAreaList-0-objc">Obj-C</a></li>
@@ -24090,6 +25312,24 @@ public class PalParkAreaApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-PalParkArea-palParkAreaList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.palParkAreaList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->palParkAreaList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -24402,6 +25642,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-PalParkArea-palParkAreaRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-PalParkArea-palParkAreaRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-PalParkArea-palParkAreaRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-PalParkArea-palParkAreaRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-PalParkArea-palParkAreaRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-PalParkArea-palParkAreaRead-0-objc">Obj-C</a></li>
@@ -24446,6 +25687,23 @@ public class PalParkAreaApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-PalParkArea-palParkAreaRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.palParkAreaRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->palParkAreaRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -24736,6 +25994,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-PokeathlonStat-pokeathlonStatList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-PokeathlonStat-pokeathlonStatList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-PokeathlonStat-pokeathlonStatList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-PokeathlonStat-pokeathlonStatList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-PokeathlonStat-pokeathlonStatList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-PokeathlonStat-pokeathlonStatList-0-objc">Obj-C</a></li>
@@ -24781,6 +26040,24 @@ public class PokeathlonStatApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-PokeathlonStat-pokeathlonStatList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.pokeathlonStatList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->pokeathlonStatList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -25093,6 +26370,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-PokeathlonStat-pokeathlonStatRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-PokeathlonStat-pokeathlonStatRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-PokeathlonStat-pokeathlonStatRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-PokeathlonStat-pokeathlonStatRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-PokeathlonStat-pokeathlonStatRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-PokeathlonStat-pokeathlonStatRead-0-objc">Obj-C</a></li>
@@ -25137,6 +26415,23 @@ public class PokeathlonStatApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-PokeathlonStat-pokeathlonStatRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.pokeathlonStatRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->pokeathlonStatRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -25427,6 +26722,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Pokedex-pokedexList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Pokedex-pokedexList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Pokedex-pokedexList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Pokedex-pokedexList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Pokedex-pokedexList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Pokedex-pokedexList-0-objc">Obj-C</a></li>
@@ -25472,6 +26768,24 @@ public class PokedexApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Pokedex-pokedexList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.pokedexList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->pokedexList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -25784,6 +27098,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Pokedex-pokedexRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Pokedex-pokedexRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Pokedex-pokedexRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Pokedex-pokedexRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Pokedex-pokedexRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Pokedex-pokedexRead-0-objc">Obj-C</a></li>
@@ -25828,6 +27143,23 @@ public class PokedexApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Pokedex-pokedexRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.pokedexRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->pokedexRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -26118,6 +27450,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Pokemon-pokemonList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Pokemon-pokemonList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Pokemon-pokemonList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Pokemon-pokemonList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Pokemon-pokemonList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Pokemon-pokemonList-0-objc">Obj-C</a></li>
@@ -26163,6 +27496,24 @@ public class PokemonApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Pokemon-pokemonList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.pokemonList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->pokemonList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -26475,6 +27826,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Pokemon-pokemonRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Pokemon-pokemonRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Pokemon-pokemonRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Pokemon-pokemonRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Pokemon-pokemonRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Pokemon-pokemonRead-0-objc">Obj-C</a></li>
@@ -26519,6 +27871,23 @@ public class PokemonApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Pokemon-pokemonRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.pokemonRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->pokemonRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -26809,6 +28178,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-PokemonColor-pokemonColorList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-PokemonColor-pokemonColorList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-PokemonColor-pokemonColorList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-PokemonColor-pokemonColorList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-PokemonColor-pokemonColorList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-PokemonColor-pokemonColorList-0-objc">Obj-C</a></li>
@@ -26854,6 +28224,24 @@ public class PokemonColorApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-PokemonColor-pokemonColorList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.pokemonColorList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->pokemonColorList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -27166,6 +28554,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-PokemonColor-pokemonColorRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-PokemonColor-pokemonColorRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-PokemonColor-pokemonColorRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-PokemonColor-pokemonColorRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-PokemonColor-pokemonColorRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-PokemonColor-pokemonColorRead-0-objc">Obj-C</a></li>
@@ -27210,6 +28599,23 @@ public class PokemonColorApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-PokemonColor-pokemonColorRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.pokemonColorRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->pokemonColorRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -27500,6 +28906,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-PokemonForm-pokemonFormList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-PokemonForm-pokemonFormList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-PokemonForm-pokemonFormList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-PokemonForm-pokemonFormList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-PokemonForm-pokemonFormList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-PokemonForm-pokemonFormList-0-objc">Obj-C</a></li>
@@ -27545,6 +28952,24 @@ public class PokemonFormApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-PokemonForm-pokemonFormList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.pokemonFormList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->pokemonFormList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -27857,6 +29282,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-PokemonForm-pokemonFormRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-PokemonForm-pokemonFormRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-PokemonForm-pokemonFormRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-PokemonForm-pokemonFormRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-PokemonForm-pokemonFormRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-PokemonForm-pokemonFormRead-0-objc">Obj-C</a></li>
@@ -27901,6 +29327,23 @@ public class PokemonFormApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-PokemonForm-pokemonFormRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.pokemonFormRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->pokemonFormRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -28191,6 +29634,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-PokemonHabitat-pokemonHabitatList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-PokemonHabitat-pokemonHabitatList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-PokemonHabitat-pokemonHabitatList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-PokemonHabitat-pokemonHabitatList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-PokemonHabitat-pokemonHabitatList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-PokemonHabitat-pokemonHabitatList-0-objc">Obj-C</a></li>
@@ -28236,6 +29680,24 @@ public class PokemonHabitatApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-PokemonHabitat-pokemonHabitatList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.pokemonHabitatList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->pokemonHabitatList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -28548,6 +30010,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-PokemonHabitat-pokemonHabitatRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-PokemonHabitat-pokemonHabitatRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-PokemonHabitat-pokemonHabitatRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-PokemonHabitat-pokemonHabitatRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-PokemonHabitat-pokemonHabitatRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-PokemonHabitat-pokemonHabitatRead-0-objc">Obj-C</a></li>
@@ -28592,6 +30055,23 @@ public class PokemonHabitatApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-PokemonHabitat-pokemonHabitatRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.pokemonHabitatRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->pokemonHabitatRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -28882,6 +30362,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-PokemonShape-pokemonShapeList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-PokemonShape-pokemonShapeList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-PokemonShape-pokemonShapeList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-PokemonShape-pokemonShapeList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-PokemonShape-pokemonShapeList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-PokemonShape-pokemonShapeList-0-objc">Obj-C</a></li>
@@ -28927,6 +30408,24 @@ public class PokemonShapeApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-PokemonShape-pokemonShapeList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.pokemonShapeList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->pokemonShapeList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -29239,6 +30738,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-PokemonShape-pokemonShapeRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-PokemonShape-pokemonShapeRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-PokemonShape-pokemonShapeRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-PokemonShape-pokemonShapeRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-PokemonShape-pokemonShapeRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-PokemonShape-pokemonShapeRead-0-objc">Obj-C</a></li>
@@ -29283,6 +30783,23 @@ public class PokemonShapeApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-PokemonShape-pokemonShapeRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.pokemonShapeRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->pokemonShapeRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -29573,6 +31090,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-PokemonSpecies-pokemonSpeciesList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-PokemonSpecies-pokemonSpeciesList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-PokemonSpecies-pokemonSpeciesList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-PokemonSpecies-pokemonSpeciesList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-PokemonSpecies-pokemonSpeciesList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-PokemonSpecies-pokemonSpeciesList-0-objc">Obj-C</a></li>
@@ -29618,6 +31136,24 @@ public class PokemonSpeciesApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-PokemonSpecies-pokemonSpeciesList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.pokemonSpeciesList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->pokemonSpeciesList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -29930,6 +31466,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-PokemonSpecies-pokemonSpeciesRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-PokemonSpecies-pokemonSpeciesRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-PokemonSpecies-pokemonSpeciesRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-PokemonSpecies-pokemonSpeciesRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-PokemonSpecies-pokemonSpeciesRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-PokemonSpecies-pokemonSpeciesRead-0-objc">Obj-C</a></li>
@@ -29974,6 +31511,23 @@ public class PokemonSpeciesApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-PokemonSpecies-pokemonSpeciesRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.pokemonSpeciesRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->pokemonSpeciesRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -30264,6 +31818,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Region-regionList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Region-regionList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Region-regionList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Region-regionList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Region-regionList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Region-regionList-0-objc">Obj-C</a></li>
@@ -30309,6 +31864,24 @@ public class RegionApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Region-regionList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.regionList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->regionList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -30621,6 +32194,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Region-regionRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Region-regionRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Region-regionRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Region-regionRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Region-regionRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Region-regionRead-0-objc">Obj-C</a></li>
@@ -30665,6 +32239,23 @@ public class RegionApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Region-regionRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.regionRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->regionRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -30955,6 +32546,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Stat-statList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Stat-statList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Stat-statList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Stat-statList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Stat-statList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Stat-statList-0-objc">Obj-C</a></li>
@@ -31000,6 +32592,24 @@ public class StatApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Stat-statList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.statList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->statList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -31312,6 +32922,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Stat-statRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Stat-statRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Stat-statRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Stat-statRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Stat-statRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Stat-statRead-0-objc">Obj-C</a></li>
@@ -31356,6 +32967,23 @@ public class StatApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Stat-statRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.statRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->statRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -31646,6 +33274,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-SuperContestEffect-superContestEffectList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-SuperContestEffect-superContestEffectList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-SuperContestEffect-superContestEffectList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-SuperContestEffect-superContestEffectList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-SuperContestEffect-superContestEffectList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-SuperContestEffect-superContestEffectList-0-objc">Obj-C</a></li>
@@ -31691,6 +33320,24 @@ public class SuperContestEffectApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-SuperContestEffect-superContestEffectList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.superContestEffectList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->superContestEffectList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -32003,6 +33650,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-SuperContestEffect-superContestEffectRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-SuperContestEffect-superContestEffectRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-SuperContestEffect-superContestEffectRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-SuperContestEffect-superContestEffectRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-SuperContestEffect-superContestEffectRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-SuperContestEffect-superContestEffectRead-0-objc">Obj-C</a></li>
@@ -32047,6 +33695,23 @@ public class SuperContestEffectApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-SuperContestEffect-superContestEffectRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.superContestEffectRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->superContestEffectRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -32337,6 +34002,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Type-typeList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Type-typeList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Type-typeList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Type-typeList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Type-typeList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Type-typeList-0-objc">Obj-C</a></li>
@@ -32382,6 +34048,24 @@ public class TypeApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Type-typeList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.typeList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->typeList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -32694,6 +34378,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Type-typeRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Type-typeRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Type-typeRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Type-typeRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Type-typeRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Type-typeRead-0-objc">Obj-C</a></li>
@@ -32738,6 +34423,23 @@ public class TypeApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Type-typeRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.typeRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->typeRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -33028,6 +34730,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Version-versionList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Version-versionList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Version-versionList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Version-versionList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Version-versionList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Version-versionList-0-objc">Obj-C</a></li>
@@ -33073,6 +34776,24 @@ public class VersionApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Version-versionList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.versionList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->versionList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -33385,6 +35106,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-Version-versionRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-Version-versionRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Version-versionRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-Version-versionRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-Version-versionRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-Version-versionRead-0-objc">Obj-C</a></li>
@@ -33429,6 +35151,23 @@ public class VersionApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Version-versionRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.versionRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->versionRead: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -33719,6 +35458,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-VersionGroup-versionGroupList-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-VersionGroup-versionGroupList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-VersionGroup-versionGroupList-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-VersionGroup-versionGroupList-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-VersionGroup-versionGroupList-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-VersionGroup-versionGroupList-0-objc">Obj-C</a></li>
@@ -33764,6 +35504,24 @@ public class VersionGroupApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-VersionGroup-versionGroupList-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer limit = new Integer(); // Integer | 
+final Integer offset = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.versionGroupList(limit, offset);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->versionGroupList: $e\n');
+}
+
 </code></pre>
                           </div>
 
@@ -34076,6 +35834,7 @@ pub fn main() {
                         <ul class="nav nav-tabs nav-tabs-examples">
                           <li class="active"><a href="#examples-VersionGroup-versionGroupRead-0-curl">Curl</a></li>
                           <li class=""><a href="#examples-VersionGroup-versionGroupRead-0-java">Java</a></li>
+                          <li class=""><a href="#examples-VersionGroup-versionGroupRead-0-dart">Dart</a></li>
                           <li class=""><a href="#examples-VersionGroup-versionGroupRead-0-android">Android</a></li>
                           <!--<li class=""><a href="#examples-VersionGroup-versionGroupRead-0-groovy">Groovy</a></li>-->
                           <li class=""><a href="#examples-VersionGroup-versionGroupRead-0-objc">Obj-C</a></li>
@@ -34120,6 +35879,23 @@ public class VersionGroupApiExample {
         }
     }
 }
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-VersionGroup-versionGroupRead-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final Integer id = new Integer(); // Integer | 
+
+try {
+    final result = await api_instance.versionGroupRead(id);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->versionGroupRead: $e\n');
+}
+
 </code></pre>
                           </div>
 

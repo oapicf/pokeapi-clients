@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// ContestTypeApiService ContestTypeApi service
-type ContestTypeApiService service
+// ContestTypeAPIService ContestTypeAPI service
+type ContestTypeAPIService service
 
 type ApiContestTypeListRequest struct {
 	ctx context.Context
-	ApiService *ContestTypeApiService
+	ApiService *ContestTypeAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ ContestTypeList Method for ContestTypeList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiContestTypeListRequest
 */
-func (a *ContestTypeApiService) ContestTypeList(ctx context.Context) ApiContestTypeListRequest {
+func (a *ContestTypeAPIService) ContestTypeList(ctx context.Context) ApiContestTypeListRequest {
 	return ApiContestTypeListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *ContestTypeApiService) ContestTypeList(ctx context.Context) ApiContestT
 
 // Execute executes the request
 //  @return string
-func (a *ContestTypeApiService) ContestTypeListExecute(r ApiContestTypeListRequest) (string, *http.Response, error) {
+func (a *ContestTypeAPIService) ContestTypeListExecute(r ApiContestTypeListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *ContestTypeApiService) ContestTypeListExecute(r ApiContestTypeListReque
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContestTypeApiService.ContestTypeList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContestTypeAPIService.ContestTypeList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *ContestTypeApiService) ContestTypeListExecute(r ApiContestTypeListReque
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *ContestTypeApiService) ContestTypeListExecute(r ApiContestTypeListReque
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *ContestTypeApiService) ContestTypeListExecute(r ApiContestTypeListReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *ContestTypeApiService) ContestTypeListExecute(r ApiContestTypeListReque
 
 type ApiContestTypeReadRequest struct {
 	ctx context.Context
-	ApiService *ContestTypeApiService
+	ApiService *ContestTypeAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ ContestTypeRead Method for ContestTypeRead
  @param id
  @return ApiContestTypeReadRequest
 */
-func (a *ContestTypeApiService) ContestTypeRead(ctx context.Context, id int32) ApiContestTypeReadRequest {
+func (a *ContestTypeAPIService) ContestTypeRead(ctx context.Context, id int32) ApiContestTypeReadRequest {
 	return ApiContestTypeReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *ContestTypeApiService) ContestTypeRead(ctx context.Context, id int32) A
 
 // Execute executes the request
 //  @return string
-func (a *ContestTypeApiService) ContestTypeReadExecute(r ApiContestTypeReadRequest) (string, *http.Response, error) {
+func (a *ContestTypeAPIService) ContestTypeReadExecute(r ApiContestTypeReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *ContestTypeApiService) ContestTypeReadExecute(r ApiContestTypeReadReque
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContestTypeApiService.ContestTypeRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ContestTypeAPIService.ContestTypeRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/contest-type/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *ContestTypeApiService) ContestTypeReadExecute(r ApiContestTypeReadReque
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *ContestTypeApiService) ContestTypeReadExecute(r ApiContestTypeReadReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

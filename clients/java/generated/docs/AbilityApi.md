@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**abilityRead**](AbilityApi.md#abilityRead) | **GET** /api/v2/ability/{id}/ |  |
 
 
-<a name="abilityList"></a>
+<a id="abilityList"></a>
 # **abilityList**
 > String abilityList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="abilityRead"></a>
+<a id="abilityRead"></a>
 # **abilityRead**
 > String abilityRead(id)
 

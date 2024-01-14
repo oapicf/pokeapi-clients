@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**typeRead**](TypeApi.md#typeRead) | **GET** /api/v2/type/{id}/ | 
 
 
-<a name="typeList"></a>
+<a id="typeList"></a>
 # **typeList**
 > kotlin.String typeList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="typeRead"></a>
+<a id="typeRead"></a>
 # **typeRead**
 > kotlin.String typeRead(id)
 

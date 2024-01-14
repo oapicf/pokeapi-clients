@@ -8,10 +8,10 @@
 
 
 char*
-NatureAPI_natureList(apiClient_t *apiClient, int limit , int offset );
+NatureAPI_natureList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-NatureAPI_natureRead(apiClient_t *apiClient, int id );
+NatureAPI_natureRead(apiClient_t *apiClient, int *id);
 
 

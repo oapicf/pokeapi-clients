@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// EvolutionChainApiService EvolutionChainApi service
-type EvolutionChainApiService service
+// EvolutionChainAPIService EvolutionChainAPI service
+type EvolutionChainAPIService service
 
 type ApiEvolutionChainListRequest struct {
 	ctx context.Context
-	ApiService *EvolutionChainApiService
+	ApiService *EvolutionChainAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ EvolutionChainList Method for EvolutionChainList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiEvolutionChainListRequest
 */
-func (a *EvolutionChainApiService) EvolutionChainList(ctx context.Context) ApiEvolutionChainListRequest {
+func (a *EvolutionChainAPIService) EvolutionChainList(ctx context.Context) ApiEvolutionChainListRequest {
 	return ApiEvolutionChainListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *EvolutionChainApiService) EvolutionChainList(ctx context.Context) ApiEv
 
 // Execute executes the request
 //  @return string
-func (a *EvolutionChainApiService) EvolutionChainListExecute(r ApiEvolutionChainListRequest) (string, *http.Response, error) {
+func (a *EvolutionChainAPIService) EvolutionChainListExecute(r ApiEvolutionChainListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *EvolutionChainApiService) EvolutionChainListExecute(r ApiEvolutionChain
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EvolutionChainApiService.EvolutionChainList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EvolutionChainAPIService.EvolutionChainList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *EvolutionChainApiService) EvolutionChainListExecute(r ApiEvolutionChain
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *EvolutionChainApiService) EvolutionChainListExecute(r ApiEvolutionChain
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *EvolutionChainApiService) EvolutionChainListExecute(r ApiEvolutionChain
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *EvolutionChainApiService) EvolutionChainListExecute(r ApiEvolutionChain
 
 type ApiEvolutionChainReadRequest struct {
 	ctx context.Context
-	ApiService *EvolutionChainApiService
+	ApiService *EvolutionChainAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ EvolutionChainRead Method for EvolutionChainRead
  @param id
  @return ApiEvolutionChainReadRequest
 */
-func (a *EvolutionChainApiService) EvolutionChainRead(ctx context.Context, id int32) ApiEvolutionChainReadRequest {
+func (a *EvolutionChainAPIService) EvolutionChainRead(ctx context.Context, id int32) ApiEvolutionChainReadRequest {
 	return ApiEvolutionChainReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *EvolutionChainApiService) EvolutionChainRead(ctx context.Context, id in
 
 // Execute executes the request
 //  @return string
-func (a *EvolutionChainApiService) EvolutionChainReadExecute(r ApiEvolutionChainReadRequest) (string, *http.Response, error) {
+func (a *EvolutionChainAPIService) EvolutionChainReadExecute(r ApiEvolutionChainReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *EvolutionChainApiService) EvolutionChainReadExecute(r ApiEvolutionChain
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EvolutionChainApiService.EvolutionChainRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EvolutionChainAPIService.EvolutionChainRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/evolution-chain/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *EvolutionChainApiService) EvolutionChainReadExecute(r ApiEvolutionChain
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *EvolutionChainApiService) EvolutionChainReadExecute(r ApiEvolutionChain
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

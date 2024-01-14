@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**growthRateRead**](GrowthRateApi.md#growthRateRead) | **GET** /api/v2/growth-rate/{id}/ | 
 
 
-<a name="growthRateList"></a>
+<a id="growthRateList"></a>
 # **growthRateList**
 > kotlin.String growthRateList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="growthRateRead"></a>
+<a id="growthRateRead"></a>
 # **growthRateRead**
 > kotlin.String growthRateRead(id)
 

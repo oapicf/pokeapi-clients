@@ -8,10 +8,10 @@
 
 
 char*
-PokemonHabitatAPI_pokemonHabitatList(apiClient_t *apiClient, int limit , int offset );
+PokemonHabitatAPI_pokemonHabitatList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-PokemonHabitatAPI_pokemonHabitatRead(apiClient_t *apiClient, int id );
+PokemonHabitatAPI_pokemonHabitatRead(apiClient_t *apiClient, int *id);
 
 

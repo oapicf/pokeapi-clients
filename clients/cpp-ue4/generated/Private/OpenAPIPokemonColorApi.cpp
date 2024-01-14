@@ -56,7 +56,7 @@ bool OpenAPIPokemonColorApi::IsValid() const
 
 void OpenAPIPokemonColorApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

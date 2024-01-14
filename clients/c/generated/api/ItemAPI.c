@@ -13,7 +13,7 @@
 
 
 char*
-ItemAPI_itemList(apiClient_t *apiClient, int limit , int offset )
+ItemAPI_itemList(apiClient_t *apiClient, int *limit, int *offset)
 {
     list_t    *localVarQueryParameters = list_createList();
     list_t    *localVarHeaderParameters = NULL;
@@ -38,7 +38,7 @@ ItemAPI_itemList(apiClient_t *apiClient, int limit , int offset )
     {
         keyQuery_limit = strdup("limit");
         valueQuery_limit = calloc(1,MAX_NUMBER_LENGTH);
-        snprintf(valueQuery_limit, MAX_NUMBER_LENGTH, "%d", limit);
+        snprintf(valueQuery_limit, MAX_NUMBER_LENGTH, "%d", *limit);
         keyPairQuery_limit = keyValuePair_create(keyQuery_limit, valueQuery_limit);
         list_addElement(localVarQueryParameters,keyPairQuery_limit);
     }
@@ -51,7 +51,7 @@ ItemAPI_itemList(apiClient_t *apiClient, int limit , int offset )
     {
         keyQuery_offset = strdup("offset");
         valueQuery_offset = calloc(1,MAX_NUMBER_LENGTH);
-        snprintf(valueQuery_offset, MAX_NUMBER_LENGTH, "%d", offset);
+        snprintf(valueQuery_offset, MAX_NUMBER_LENGTH, "%d", *offset);
         keyPairQuery_offset = keyValuePair_create(keyQuery_offset, valueQuery_offset);
         list_addElement(localVarQueryParameters,keyPairQuery_offset);
     }
@@ -116,7 +116,7 @@ end:
 }
 
 char*
-ItemAPI_itemRead(apiClient_t *apiClient, int id )
+ItemAPI_itemRead(apiClient_t *apiClient, int *id)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -140,7 +140,7 @@ ItemAPI_itemRead(apiClient_t *apiClient, int id )
     snprintf(localVarToReplace_id, sizeOfPathParams_id, "{%s}", "id");
 
     char localVarBuff_id[256];
-    intToStr(localVarBuff_id, id);
+    intToStr(localVarBuff_id, *id);
 
     localVarPath = strReplace(localVarPath, localVarToReplace_id, localVarBuff_id);
 

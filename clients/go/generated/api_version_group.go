@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// VersionGroupApiService VersionGroupApi service
-type VersionGroupApiService service
+// VersionGroupAPIService VersionGroupAPI service
+type VersionGroupAPIService service
 
 type ApiVersionGroupListRequest struct {
 	ctx context.Context
-	ApiService *VersionGroupApiService
+	ApiService *VersionGroupAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ VersionGroupList Method for VersionGroupList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiVersionGroupListRequest
 */
-func (a *VersionGroupApiService) VersionGroupList(ctx context.Context) ApiVersionGroupListRequest {
+func (a *VersionGroupAPIService) VersionGroupList(ctx context.Context) ApiVersionGroupListRequest {
 	return ApiVersionGroupListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *VersionGroupApiService) VersionGroupList(ctx context.Context) ApiVersio
 
 // Execute executes the request
 //  @return string
-func (a *VersionGroupApiService) VersionGroupListExecute(r ApiVersionGroupListRequest) (string, *http.Response, error) {
+func (a *VersionGroupAPIService) VersionGroupListExecute(r ApiVersionGroupListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *VersionGroupApiService) VersionGroupListExecute(r ApiVersionGroupListRe
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VersionGroupApiService.VersionGroupList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VersionGroupAPIService.VersionGroupList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *VersionGroupApiService) VersionGroupListExecute(r ApiVersionGroupListRe
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *VersionGroupApiService) VersionGroupListExecute(r ApiVersionGroupListRe
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *VersionGroupApiService) VersionGroupListExecute(r ApiVersionGroupListRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *VersionGroupApiService) VersionGroupListExecute(r ApiVersionGroupListRe
 
 type ApiVersionGroupReadRequest struct {
 	ctx context.Context
-	ApiService *VersionGroupApiService
+	ApiService *VersionGroupAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ VersionGroupRead Method for VersionGroupRead
  @param id
  @return ApiVersionGroupReadRequest
 */
-func (a *VersionGroupApiService) VersionGroupRead(ctx context.Context, id int32) ApiVersionGroupReadRequest {
+func (a *VersionGroupAPIService) VersionGroupRead(ctx context.Context, id int32) ApiVersionGroupReadRequest {
 	return ApiVersionGroupReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *VersionGroupApiService) VersionGroupRead(ctx context.Context, id int32)
 
 // Execute executes the request
 //  @return string
-func (a *VersionGroupApiService) VersionGroupReadExecute(r ApiVersionGroupReadRequest) (string, *http.Response, error) {
+func (a *VersionGroupAPIService) VersionGroupReadExecute(r ApiVersionGroupReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *VersionGroupApiService) VersionGroupReadExecute(r ApiVersionGroupReadRe
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VersionGroupApiService.VersionGroupRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VersionGroupAPIService.VersionGroupRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/version-group/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *VersionGroupApiService) VersionGroupReadExecute(r ApiVersionGroupReadRe
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *VersionGroupApiService) VersionGroupReadExecute(r ApiVersionGroupReadRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

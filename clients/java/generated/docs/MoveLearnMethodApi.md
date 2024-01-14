@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**moveLearnMethodRead**](MoveLearnMethodApi.md#moveLearnMethodRead) | **GET** /api/v2/move-learn-method/{id}/ |  |
 
 
-<a name="moveLearnMethodList"></a>
+<a id="moveLearnMethodList"></a>
 # **moveLearnMethodList**
 > String moveLearnMethodList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="moveLearnMethodRead"></a>
+<a id="moveLearnMethodRead"></a>
 # **moveLearnMethodRead**
 > String moveLearnMethodRead(id)
 

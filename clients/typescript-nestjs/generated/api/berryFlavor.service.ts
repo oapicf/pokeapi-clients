@@ -52,15 +52,15 @@ export class BerryFlavorService {
 
 
 
-        let queryParameters = {};
+        let queryParameters = new URLSearchParams();
         if (limit !== undefined && limit !== null) {
-            queryParameters['limit'] = <any>limit;
+            queryParameters.append('limit', <any>limit);
         }
         if (offset !== undefined && offset !== null) {
-            queryParameters['offset'] = <any>offset;
+            queryParameters.append('offset', <any>offset);
         }
 
-        let headers = this.defaultHeaders;
+        let headers = {...this.defaultHeaders};
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -96,7 +96,7 @@ export class BerryFlavorService {
             throw new Error('Required parameter id was null or undefined when calling berryFlavorRead.');
         }
 
-        let headers = this.defaultHeaders;
+        let headers = {...this.defaultHeaders};
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [

@@ -8,10 +8,10 @@
 
 
 char*
-AbilityAPI_abilityList(apiClient_t *apiClient, int limit , int offset );
+AbilityAPI_abilityList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-AbilityAPI_abilityRead(apiClient_t *apiClient, int id );
+AbilityAPI_abilityRead(apiClient_t *apiClient, int *id);
 
 

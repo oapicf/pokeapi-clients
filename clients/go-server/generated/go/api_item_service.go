@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// ItemApiService is a service that implements the logic for the ItemApiServicer
-// This service should implement the business logic for every endpoint for the ItemApi API.
+// ItemAPIService is a service that implements the logic for the ItemAPIServicer
+// This service should implement the business logic for every endpoint for the ItemAPI API.
 // Include any external packages or services that will be required by this service.
-type ItemApiService struct {
+type ItemAPIService struct {
 }
 
-// NewItemApiService creates a default api service
-func NewItemApiService() ItemApiServicer {
-	return &ItemApiService{}
+// NewItemAPIService creates a default api service
+func NewItemAPIService() ItemAPIServicer {
+	return &ItemAPIService{}
 }
 
 // ItemList - 
-func (s *ItemApiService) ItemList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *ItemAPIService) ItemList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update ItemList with the required logic for this service method.
 	// Add api_item_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("ItemList method not implemented")
 }
 
 // ItemRead - 
-func (s *ItemApiService) ItemRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *ItemAPIService) ItemRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update ItemRead with the required logic for this service method.
 	// Add api_item_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("ItemRead method not implemented")
 }

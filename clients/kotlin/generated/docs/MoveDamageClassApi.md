@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**moveDamageClassRead**](MoveDamageClassApi.md#moveDamageClassRead) | **GET** /api/v2/move-damage-class/{id}/ | 
 
 
-<a name="moveDamageClassList"></a>
+<a id="moveDamageClassList"></a>
 # **moveDamageClassList**
 > kotlin.String moveDamageClassList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="moveDamageClassRead"></a>
+<a id="moveDamageClassRead"></a>
 # **moveDamageClassRead**
 > kotlin.String moveDamageClassRead(id)
 

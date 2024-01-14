@@ -716,7 +716,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -733,7 +733,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -772,8 +772,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ABILITY_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -832,8 +832,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ABILITY_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -851,7 +851,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -868,7 +868,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -907,8 +907,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for BERRY_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -967,8 +967,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for BERRY_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -986,7 +986,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FIRMNESS_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -1003,7 +1003,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -1042,8 +1042,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for BERRY_FIRMNESS_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -1102,8 +1102,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for BERRY_FIRMNESS_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -1121,7 +1121,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FLAVOR_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -1138,7 +1138,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -1177,8 +1177,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for BERRY_FLAVOR_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -1237,8 +1237,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for BERRY_FLAVOR_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -1256,7 +1256,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_CHARACTERISTIC_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -1273,7 +1273,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -1312,8 +1312,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for CHARACTERISTIC_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -1372,8 +1372,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for CHARACTERISTIC_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -1391,7 +1391,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_EFFECT_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -1408,7 +1408,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -1447,8 +1447,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for CONTEST_EFFECT_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -1507,8 +1507,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for CONTEST_EFFECT_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -1526,7 +1526,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_TYPE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -1543,7 +1543,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -1582,8 +1582,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for CONTEST_TYPE_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -1642,8 +1642,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for CONTEST_TYPE_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -1661,7 +1661,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_EGG_GROUP_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -1678,7 +1678,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -1717,8 +1717,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for EGG_GROUP_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -1777,8 +1777,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for EGG_GROUP_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -1796,7 +1796,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -1813,7 +1813,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -1852,8 +1852,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ENCOUNTER_CONDITION_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -1912,8 +1912,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ENCOUNTER_CONDITION_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -1931,7 +1931,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -1948,7 +1948,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -1987,8 +1987,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ENCOUNTER_CONDITION_VALUE_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -2047,8 +2047,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ENCOUNTER_CONDITION_VALUE_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -2066,7 +2066,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_METHOD_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -2083,7 +2083,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -2122,8 +2122,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ENCOUNTER_METHOD_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -2182,8 +2182,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ENCOUNTER_METHOD_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -2201,7 +2201,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -2218,7 +2218,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -2257,8 +2257,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for EVOLUTION_CHAIN_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -2317,8 +2317,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for EVOLUTION_CHAIN_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -2336,7 +2336,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -2353,7 +2353,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -2392,8 +2392,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for EVOLUTION_TRIGGER_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -2452,8 +2452,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for EVOLUTION_TRIGGER_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -2471,7 +2471,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_GENDER_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -2488,7 +2488,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -2527,8 +2527,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for GENDER_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -2587,8 +2587,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for GENDER_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -2606,7 +2606,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_GENERATION_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -2623,7 +2623,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -2662,8 +2662,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for GENERATION_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -2722,8 +2722,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for GENERATION_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -2741,7 +2741,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_GROWTH_RATE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -2758,7 +2758,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -2797,8 +2797,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for GROWTH_RATE_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -2857,8 +2857,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for GROWTH_RATE_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -2876,7 +2876,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -2893,7 +2893,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -2932,8 +2932,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ITEM_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -2992,8 +2992,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ITEM_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -3011,7 +3011,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -3028,7 +3028,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -3067,8 +3067,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ITEM_ATTRIBUTE_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -3127,8 +3127,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ITEM_ATTRIBUTE_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -3146,7 +3146,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_CATEGORY_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -3163,7 +3163,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -3202,8 +3202,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ITEM_CATEGORY_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -3262,8 +3262,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ITEM_CATEGORY_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -3281,7 +3281,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_FLING_EFFECT_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -3298,7 +3298,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -3337,8 +3337,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ITEM_FLING_EFFECT_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -3397,8 +3397,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ITEM_FLING_EFFECT_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -3416,7 +3416,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_POCKET_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -3433,7 +3433,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -3472,8 +3472,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ITEM_POCKET_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -3532,8 +3532,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for ITEM_POCKET_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -3551,7 +3551,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -3568,7 +3568,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -3607,8 +3607,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for LANGUAGE_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -3667,8 +3667,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for LANGUAGE_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -3686,7 +3686,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -3703,7 +3703,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -3742,8 +3742,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for LOCATION_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -3802,8 +3802,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for LOCATION_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -3821,7 +3821,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_AREA_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -3838,7 +3838,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -3877,8 +3877,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for LOCATION_AREA_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -3937,8 +3937,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for LOCATION_AREA_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -3956,7 +3956,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_MACHINE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -3973,7 +3973,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -4012,8 +4012,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for MACHINE_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -4072,8 +4072,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for MACHINE_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -4091,7 +4091,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -4108,7 +4108,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -4147,8 +4147,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for MOVE_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -4207,8 +4207,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for MOVE_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -4226,7 +4226,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_AILMENT_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -4243,7 +4243,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -4282,8 +4282,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for MOVE_AILMENT_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -4342,8 +4342,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for MOVE_AILMENT_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -4361,7 +4361,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_BATTLE_STYLE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -4378,7 +4378,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -4417,8 +4417,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for MOVE_BATTLE_STYLE_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -4477,8 +4477,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for MOVE_BATTLE_STYLE_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -4496,7 +4496,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_CATEGORY_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -4513,7 +4513,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -4552,8 +4552,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for MOVE_CATEGORY_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -4612,8 +4612,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for MOVE_CATEGORY_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -4631,7 +4631,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_DAMAGE_CLASS_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -4648,7 +4648,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -4687,8 +4687,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for MOVE_DAMAGE_CLASS_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -4747,8 +4747,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for MOVE_DAMAGE_CLASS_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -4766,7 +4766,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_LEARN_METHOD_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -4783,7 +4783,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -4822,8 +4822,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for MOVE_LEARN_METHOD_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -4882,8 +4882,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for MOVE_LEARN_METHOD_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -4901,7 +4901,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_TARGET_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -4918,7 +4918,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -4957,8 +4957,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for MOVE_TARGET_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -5017,8 +5017,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for MOVE_TARGET_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -5036,7 +5036,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_NATURE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -5053,7 +5053,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -5092,8 +5092,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for NATURE_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -5152,8 +5152,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for NATURE_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -5171,7 +5171,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_PAL_PARK_AREA_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -5188,7 +5188,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -5227,8 +5227,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for PAL_PARK_AREA_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -5287,8 +5287,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for PAL_PARK_AREA_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -5306,7 +5306,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_POKEATHLON_STAT_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -5323,7 +5323,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -5362,8 +5362,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for POKEATHLON_STAT_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -5422,8 +5422,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for POKEATHLON_STAT_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -5441,7 +5441,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_POKEDEX_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -5458,7 +5458,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -5497,8 +5497,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for POKEDEX_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -5557,8 +5557,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for POKEDEX_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -5576,7 +5576,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -5593,7 +5593,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -5632,8 +5632,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for POKEMON_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -5692,8 +5692,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for POKEMON_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -5711,7 +5711,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_COLOR_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -5728,7 +5728,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -5767,8 +5767,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for POKEMON_COLOR_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -5827,8 +5827,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for POKEMON_COLOR_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -5846,7 +5846,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_FORM_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -5863,7 +5863,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -5902,8 +5902,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for POKEMON_FORM_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -5962,8 +5962,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for POKEMON_FORM_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -5981,7 +5981,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_HABITAT_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -5998,7 +5998,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -6037,8 +6037,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for POKEMON_HABITAT_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -6097,8 +6097,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for POKEMON_HABITAT_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -6116,7 +6116,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SHAPE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -6133,7 +6133,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -6172,8 +6172,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for POKEMON_SHAPE_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -6232,8 +6232,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for POKEMON_SHAPE_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -6251,7 +6251,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SPECIES_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -6268,7 +6268,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -6307,8 +6307,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for POKEMON_SPECIES_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -6367,8 +6367,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for POKEMON_SPECIES_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -6386,7 +6386,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_REGION_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -6403,7 +6403,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -6442,8 +6442,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for REGION_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -6502,8 +6502,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for REGION_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -6521,7 +6521,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_STAT_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -6538,7 +6538,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -6577,8 +6577,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for STAT_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -6637,8 +6637,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for STAT_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -6656,7 +6656,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_SUPER_CONTEST_EFFECT_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -6673,7 +6673,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -6712,8 +6712,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for SUPER_CONTEST_EFFECT_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -6772,8 +6772,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for SUPER_CONTEST_EFFECT_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -6791,7 +6791,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_TYPE_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -6808,7 +6808,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -6847,8 +6847,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for TYPE_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -6907,8 +6907,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for TYPE_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -6926,7 +6926,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -6943,7 +6943,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -6982,8 +6982,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for VERSION_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -7042,8 +7042,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for VERSION_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -7061,7 +7061,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_GROUP_) => {
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.to_owned())
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
                     .next();
                 let param_limit = match param_limit {
                     Some(param_limit) => {
@@ -7078,7 +7078,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     },
                     None => None,
                 };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.to_owned())
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
                     .next();
                 let param_offset = match param_offset {
                     Some(param_offset) => {
@@ -7117,8 +7117,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for VERSION_GROUP_LIST_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -7177,8 +7177,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
                                                             .expect("Unable to create Content-Type header for VERSION_GROUP_READ_DEFAULT_RESPONSE"));
-                                                    let body = body;
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = body;
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {

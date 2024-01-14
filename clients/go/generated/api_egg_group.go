@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// EggGroupApiService EggGroupApi service
-type EggGroupApiService service
+// EggGroupAPIService EggGroupAPI service
+type EggGroupAPIService service
 
 type ApiEggGroupListRequest struct {
 	ctx context.Context
-	ApiService *EggGroupApiService
+	ApiService *EggGroupAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ EggGroupList Method for EggGroupList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiEggGroupListRequest
 */
-func (a *EggGroupApiService) EggGroupList(ctx context.Context) ApiEggGroupListRequest {
+func (a *EggGroupAPIService) EggGroupList(ctx context.Context) ApiEggGroupListRequest {
 	return ApiEggGroupListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *EggGroupApiService) EggGroupList(ctx context.Context) ApiEggGroupListRe
 
 // Execute executes the request
 //  @return string
-func (a *EggGroupApiService) EggGroupListExecute(r ApiEggGroupListRequest) (string, *http.Response, error) {
+func (a *EggGroupAPIService) EggGroupListExecute(r ApiEggGroupListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *EggGroupApiService) EggGroupListExecute(r ApiEggGroupListRequest) (stri
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EggGroupApiService.EggGroupList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EggGroupAPIService.EggGroupList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *EggGroupApiService) EggGroupListExecute(r ApiEggGroupListRequest) (stri
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *EggGroupApiService) EggGroupListExecute(r ApiEggGroupListRequest) (stri
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *EggGroupApiService) EggGroupListExecute(r ApiEggGroupListRequest) (stri
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *EggGroupApiService) EggGroupListExecute(r ApiEggGroupListRequest) (stri
 
 type ApiEggGroupReadRequest struct {
 	ctx context.Context
-	ApiService *EggGroupApiService
+	ApiService *EggGroupAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ EggGroupRead Method for EggGroupRead
  @param id
  @return ApiEggGroupReadRequest
 */
-func (a *EggGroupApiService) EggGroupRead(ctx context.Context, id int32) ApiEggGroupReadRequest {
+func (a *EggGroupAPIService) EggGroupRead(ctx context.Context, id int32) ApiEggGroupReadRequest {
 	return ApiEggGroupReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *EggGroupApiService) EggGroupRead(ctx context.Context, id int32) ApiEggG
 
 // Execute executes the request
 //  @return string
-func (a *EggGroupApiService) EggGroupReadExecute(r ApiEggGroupReadRequest) (string, *http.Response, error) {
+func (a *EggGroupAPIService) EggGroupReadExecute(r ApiEggGroupReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *EggGroupApiService) EggGroupReadExecute(r ApiEggGroupReadRequest) (stri
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EggGroupApiService.EggGroupRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EggGroupAPIService.EggGroupRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/egg-group/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *EggGroupApiService) EggGroupReadExecute(r ApiEggGroupReadRequest) (stri
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *EggGroupApiService) EggGroupReadExecute(r ApiEggGroupReadRequest) (stri
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**itemAttributeList**](#itemAttributeList) | **GET** /api/v2/item-attribute/ | 
 [**itemAttributeRead**](#itemAttributeRead) | **GET** /api/v2/item-attribute/{id}/ | 
 
-<a name="itemAttributeList"></a>
+<a id="itemAttributeList"></a>
 # **itemAttributeList**
 ```java
 Mono<String> ItemAttributeController.itemAttributeList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="itemAttributeRead"></a>
+<a id="itemAttributeRead"></a>
 # **itemAttributeRead**
 ```java
 Mono<String> ItemAttributeController.itemAttributeRead(id)

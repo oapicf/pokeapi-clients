@@ -8,10 +8,10 @@
 
 
 char*
-EvolutionChainAPI_evolutionChainList(apiClient_t *apiClient, int limit , int offset );
+EvolutionChainAPI_evolutionChainList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-EvolutionChainAPI_evolutionChainRead(apiClient_t *apiClient, int id );
+EvolutionChainAPI_evolutionChainRead(apiClient_t *apiClient, int *id);
 
 

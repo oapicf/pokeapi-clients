@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="encounterMethodList"></a>
+<a id="encounterMethodList"></a>
 # **encounterMethodList**
 ```java
 Mono<String> EncounterMethodApi.encounterMethodList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> EncounterMethodApi.encounterMethodList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="encounterMethodRead"></a>
+<a id="encounterMethodRead"></a>
 # **encounterMethodRead**
 ```java
 Mono<String> EncounterMethodApi.encounterMethodRead(id)

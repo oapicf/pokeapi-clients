@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// AbilityApiService AbilityApi service
-type AbilityApiService service
+// AbilityAPIService AbilityAPI service
+type AbilityAPIService service
 
 type ApiAbilityListRequest struct {
 	ctx context.Context
-	ApiService *AbilityApiService
+	ApiService *AbilityAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ AbilityList Method for AbilityList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAbilityListRequest
 */
-func (a *AbilityApiService) AbilityList(ctx context.Context) ApiAbilityListRequest {
+func (a *AbilityAPIService) AbilityList(ctx context.Context) ApiAbilityListRequest {
 	return ApiAbilityListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *AbilityApiService) AbilityList(ctx context.Context) ApiAbilityListReque
 
 // Execute executes the request
 //  @return string
-func (a *AbilityApiService) AbilityListExecute(r ApiAbilityListRequest) (string, *http.Response, error) {
+func (a *AbilityAPIService) AbilityListExecute(r ApiAbilityListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *AbilityApiService) AbilityListExecute(r ApiAbilityListRequest) (string,
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AbilityApiService.AbilityList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AbilityAPIService.AbilityList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *AbilityApiService) AbilityListExecute(r ApiAbilityListRequest) (string,
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *AbilityApiService) AbilityListExecute(r ApiAbilityListRequest) (string,
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *AbilityApiService) AbilityListExecute(r ApiAbilityListRequest) (string,
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *AbilityApiService) AbilityListExecute(r ApiAbilityListRequest) (string,
 
 type ApiAbilityReadRequest struct {
 	ctx context.Context
-	ApiService *AbilityApiService
+	ApiService *AbilityAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ AbilityRead Method for AbilityRead
  @param id
  @return ApiAbilityReadRequest
 */
-func (a *AbilityApiService) AbilityRead(ctx context.Context, id int32) ApiAbilityReadRequest {
+func (a *AbilityAPIService) AbilityRead(ctx context.Context, id int32) ApiAbilityReadRequest {
 	return ApiAbilityReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *AbilityApiService) AbilityRead(ctx context.Context, id int32) ApiAbilit
 
 // Execute executes the request
 //  @return string
-func (a *AbilityApiService) AbilityReadExecute(r ApiAbilityReadRequest) (string, *http.Response, error) {
+func (a *AbilityAPIService) AbilityReadExecute(r ApiAbilityReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *AbilityApiService) AbilityReadExecute(r ApiAbilityReadRequest) (string,
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AbilityApiService.AbilityRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AbilityAPIService.AbilityRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/ability/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *AbilityApiService) AbilityReadExecute(r ApiAbilityReadRequest) (string,
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *AbilityApiService) AbilityReadExecute(r ApiAbilityReadRequest) (string,
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

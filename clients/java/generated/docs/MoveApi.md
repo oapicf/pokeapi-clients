@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**moveRead**](MoveApi.md#moveRead) | **GET** /api/v2/move/{id}/ |  |
 
 
-<a name="moveList"></a>
+<a id="moveList"></a>
 # **moveList**
 > String moveList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="moveRead"></a>
+<a id="moveRead"></a>
 # **moveRead**
 > String moveRead(id)
 

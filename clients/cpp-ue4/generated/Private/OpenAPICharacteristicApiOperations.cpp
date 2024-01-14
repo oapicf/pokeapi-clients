@@ -70,7 +70,7 @@ bool OpenAPICharacteristicApi::CharacteristicListResponse::FromJson(const TShare
 FString OpenAPICharacteristicApi::CharacteristicReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/characteristic/{id}/"), PathParams);
 

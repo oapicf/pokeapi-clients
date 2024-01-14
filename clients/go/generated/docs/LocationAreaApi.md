@@ -1,11 +1,11 @@
-# \LocationAreaApi
+# \LocationAreaAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**LocationAreaList**](LocationAreaApi.md#LocationAreaList) | **Get** /api/v2/location-area/ | 
-[**LocationAreaRead**](LocationAreaApi.md#LocationAreaRead) | **Get** /api/v2/location-area/{id}/ | 
+[**LocationAreaList**](LocationAreaAPI.md#LocationAreaList) | **Get** /api/v2/location-area/ | 
+[**LocationAreaRead**](LocationAreaAPI.md#LocationAreaRead) | **Get** /api/v2/location-area/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LocationAreaApi.LocationAreaList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LocationAreaApi.LocationAreaList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `LocationAreaList`: string
-    fmt.Fprintf(os.Stdout, "Response from `LocationAreaApi.LocationAreaList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LocationAreaAPI.LocationAreaList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LocationAreaAPI.LocationAreaList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `LocationAreaList`: string
+	fmt.Fprintf(os.Stdout, "Response from `LocationAreaAPI.LocationAreaList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LocationAreaApi.LocationAreaRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LocationAreaApi.LocationAreaRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `LocationAreaRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `LocationAreaApi.LocationAreaRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.LocationAreaAPI.LocationAreaRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `LocationAreaAPI.LocationAreaRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `LocationAreaRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `LocationAreaAPI.LocationAreaRead`: %v\n", resp)
 }
 ```
 

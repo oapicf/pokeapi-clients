@@ -1,11 +1,11 @@
-# \MoveLearnMethodApi
+# \MoveLearnMethodAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**MoveLearnMethodList**](MoveLearnMethodApi.md#MoveLearnMethodList) | **Get** /api/v2/move-learn-method/ | 
-[**MoveLearnMethodRead**](MoveLearnMethodApi.md#MoveLearnMethodRead) | **Get** /api/v2/move-learn-method/{id}/ | 
+[**MoveLearnMethodList**](MoveLearnMethodAPI.md#MoveLearnMethodList) | **Get** /api/v2/move-learn-method/ | 
+[**MoveLearnMethodRead**](MoveLearnMethodAPI.md#MoveLearnMethodRead) | **Get** /api/v2/move-learn-method/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoveLearnMethodApi.MoveLearnMethodList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoveLearnMethodApi.MoveLearnMethodList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `MoveLearnMethodList`: string
-    fmt.Fprintf(os.Stdout, "Response from `MoveLearnMethodApi.MoveLearnMethodList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MoveLearnMethodAPI.MoveLearnMethodList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MoveLearnMethodAPI.MoveLearnMethodList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MoveLearnMethodList`: string
+	fmt.Fprintf(os.Stdout, "Response from `MoveLearnMethodAPI.MoveLearnMethodList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoveLearnMethodApi.MoveLearnMethodRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoveLearnMethodApi.MoveLearnMethodRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `MoveLearnMethodRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `MoveLearnMethodApi.MoveLearnMethodRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MoveLearnMethodAPI.MoveLearnMethodRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MoveLearnMethodAPI.MoveLearnMethodRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MoveLearnMethodRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `MoveLearnMethodAPI.MoveLearnMethodRead`: %v\n", resp)
 }
 ```
 

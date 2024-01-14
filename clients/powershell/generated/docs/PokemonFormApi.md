@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.PokemonFormApi
+# PSOpenAPITools.PSOpenAPITools\Api.PokemonFormApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-PokemonFormRead**](PokemonFormApi.md#Invoke-PokemonFormRead) | **GET** /api/v2/pokemon-form/{id}/ | 
 
 
-<a name="Invoke-PokemonFormList"></a>
+<a id="Invoke-PokemonFormList"></a>
 # **Invoke-PokemonFormList**
 > String Invoke-PokemonFormList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-PokemonFormRead"></a>
+<a id="Invoke-PokemonFormRead"></a>
 # **Invoke-PokemonFormRead**
 > String Invoke-PokemonFormRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

@@ -70,7 +70,7 @@ bool OpenAPIPokemonFormApi::PokemonFormListResponse::FromJson(const TSharedPtr<F
 FString OpenAPIPokemonFormApi::PokemonFormReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/pokemon-form/{id}/"), PathParams);
 

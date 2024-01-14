@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// MoveBattleStyleApiService MoveBattleStyleApi service
-type MoveBattleStyleApiService service
+// MoveBattleStyleAPIService MoveBattleStyleAPI service
+type MoveBattleStyleAPIService service
 
 type ApiMoveBattleStyleListRequest struct {
 	ctx context.Context
-	ApiService *MoveBattleStyleApiService
+	ApiService *MoveBattleStyleAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ MoveBattleStyleList Method for MoveBattleStyleList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiMoveBattleStyleListRequest
 */
-func (a *MoveBattleStyleApiService) MoveBattleStyleList(ctx context.Context) ApiMoveBattleStyleListRequest {
+func (a *MoveBattleStyleAPIService) MoveBattleStyleList(ctx context.Context) ApiMoveBattleStyleListRequest {
 	return ApiMoveBattleStyleListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *MoveBattleStyleApiService) MoveBattleStyleList(ctx context.Context) Api
 
 // Execute executes the request
 //  @return string
-func (a *MoveBattleStyleApiService) MoveBattleStyleListExecute(r ApiMoveBattleStyleListRequest) (string, *http.Response, error) {
+func (a *MoveBattleStyleAPIService) MoveBattleStyleListExecute(r ApiMoveBattleStyleListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *MoveBattleStyleApiService) MoveBattleStyleListExecute(r ApiMoveBattleSt
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveBattleStyleApiService.MoveBattleStyleList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveBattleStyleAPIService.MoveBattleStyleList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *MoveBattleStyleApiService) MoveBattleStyleListExecute(r ApiMoveBattleSt
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *MoveBattleStyleApiService) MoveBattleStyleListExecute(r ApiMoveBattleSt
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *MoveBattleStyleApiService) MoveBattleStyleListExecute(r ApiMoveBattleSt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *MoveBattleStyleApiService) MoveBattleStyleListExecute(r ApiMoveBattleSt
 
 type ApiMoveBattleStyleReadRequest struct {
 	ctx context.Context
-	ApiService *MoveBattleStyleApiService
+	ApiService *MoveBattleStyleAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ MoveBattleStyleRead Method for MoveBattleStyleRead
  @param id
  @return ApiMoveBattleStyleReadRequest
 */
-func (a *MoveBattleStyleApiService) MoveBattleStyleRead(ctx context.Context, id int32) ApiMoveBattleStyleReadRequest {
+func (a *MoveBattleStyleAPIService) MoveBattleStyleRead(ctx context.Context, id int32) ApiMoveBattleStyleReadRequest {
 	return ApiMoveBattleStyleReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *MoveBattleStyleApiService) MoveBattleStyleRead(ctx context.Context, id 
 
 // Execute executes the request
 //  @return string
-func (a *MoveBattleStyleApiService) MoveBattleStyleReadExecute(r ApiMoveBattleStyleReadRequest) (string, *http.Response, error) {
+func (a *MoveBattleStyleAPIService) MoveBattleStyleReadExecute(r ApiMoveBattleStyleReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *MoveBattleStyleApiService) MoveBattleStyleReadExecute(r ApiMoveBattleSt
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveBattleStyleApiService.MoveBattleStyleRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveBattleStyleAPIService.MoveBattleStyleRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/move-battle-style/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *MoveBattleStyleApiService) MoveBattleStyleReadExecute(r ApiMoveBattleSt
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *MoveBattleStyleApiService) MoveBattleStyleReadExecute(r ApiMoveBattleSt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

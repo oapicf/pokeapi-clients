@@ -20,15 +20,13 @@ module Api.Request.LocationArea exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-locationAreaList : Maybe Int -> Maybe Int -> Api.Request 
+locationAreaList : Maybe Int -> Maybe Int -> Api.Request ()
 locationAreaList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ locationAreaList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-locationAreaRead : Int -> Api.Request 
+locationAreaRead : Int -> Api.Request ()
 locationAreaRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ locationAreaRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

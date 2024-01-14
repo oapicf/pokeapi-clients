@@ -19,6 +19,8 @@
 #define EggGroupApi_H_
 
 
+#include "ApiBase.h"
+
 #include <pistache/http.h>
 #include <pistache/router.h>
 #include <pistache/http_headers.h>
@@ -31,11 +33,11 @@
 namespace org::openapitools::server::api
 {
 
-class  EggGroupApi {
+class  EggGroupApi : public ApiBase {
 public:
     explicit EggGroupApi(const std::shared_ptr<Pistache::Rest::Router>& rtr);
-    virtual ~EggGroupApi() = default;
-    void init();
+    ~EggGroupApi() override = default;
+    void init() override;
 
     static const std::string base;
 
@@ -45,8 +47,6 @@ private:
     void egg_group_list_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
     void egg_group_read_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
     void egg_group_api_default_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
-
-    const std::shared_ptr<Pistache::Rest::Router> router;
 
     /// <summary>
     /// Helper function to handle unexpected Exceptions during Parameter parsing and validation.

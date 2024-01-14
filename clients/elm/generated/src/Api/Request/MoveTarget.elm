@@ -20,15 +20,13 @@ module Api.Request.MoveTarget exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-moveTargetList : Maybe Int -> Maybe Int -> Api.Request 
+moveTargetList : Maybe Int -> Maybe Int -> Api.Request ()
 moveTargetList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ moveTargetList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-moveTargetRead : Int -> Api.Request 
+moveTargetRead : Int -> Api.Request ()
 moveTargetRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ moveTargetRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

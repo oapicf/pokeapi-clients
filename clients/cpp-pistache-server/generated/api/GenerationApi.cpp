@@ -22,7 +22,7 @@ using namespace org::openapitools::server::helpers;
 const std::string GenerationApi::base = "";
 
 GenerationApi::GenerationApi(const std::shared_ptr<Pistache::Rest::Router>& rtr)
-    : router(rtr)
+    : ApiBase(rtr)
 {
 }
 

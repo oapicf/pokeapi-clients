@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// PokemonSpeciesList - 
-func PokemonSpeciesList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type PokemonSpeciesAPI struct {
 }
 
-// PokemonSpeciesRead - 
-func PokemonSpeciesRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/pokemon-species/
+func (api *PokemonSpeciesAPI) PokemonSpeciesList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/pokemon-species/:id/
+func (api *PokemonSpeciesAPI) PokemonSpeciesRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

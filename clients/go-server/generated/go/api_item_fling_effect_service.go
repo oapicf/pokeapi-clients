@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// ItemFlingEffectApiService is a service that implements the logic for the ItemFlingEffectApiServicer
-// This service should implement the business logic for every endpoint for the ItemFlingEffectApi API.
+// ItemFlingEffectAPIService is a service that implements the logic for the ItemFlingEffectAPIServicer
+// This service should implement the business logic for every endpoint for the ItemFlingEffectAPI API.
 // Include any external packages or services that will be required by this service.
-type ItemFlingEffectApiService struct {
+type ItemFlingEffectAPIService struct {
 }
 
-// NewItemFlingEffectApiService creates a default api service
-func NewItemFlingEffectApiService() ItemFlingEffectApiServicer {
-	return &ItemFlingEffectApiService{}
+// NewItemFlingEffectAPIService creates a default api service
+func NewItemFlingEffectAPIService() ItemFlingEffectAPIServicer {
+	return &ItemFlingEffectAPIService{}
 }
 
 // ItemFlingEffectList - 
-func (s *ItemFlingEffectApiService) ItemFlingEffectList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *ItemFlingEffectAPIService) ItemFlingEffectList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update ItemFlingEffectList with the required logic for this service method.
 	// Add api_item_fling_effect_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("ItemFlingEffectList method not implemented")
 }
 
 // ItemFlingEffectRead - 
-func (s *ItemFlingEffectApiService) ItemFlingEffectRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *ItemFlingEffectAPIService) ItemFlingEffectRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update ItemFlingEffectRead with the required logic for this service method.
 	// Add api_item_fling_effect_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("ItemFlingEffectRead method not implemented")
 }

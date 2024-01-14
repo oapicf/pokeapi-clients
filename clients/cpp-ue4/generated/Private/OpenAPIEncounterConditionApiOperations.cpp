@@ -70,7 +70,7 @@ bool OpenAPIEncounterConditionApi::EncounterConditionListResponse::FromJson(cons
 FString OpenAPIEncounterConditionApi::EncounterConditionReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/encounter-condition/{id}/"), PathParams);
 

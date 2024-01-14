@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="contestTypeList"></a>
+<a id="contestTypeList"></a>
 # **contestTypeList**
 ```java
 Mono<String> ContestTypeApi.contestTypeList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> ContestTypeApi.contestTypeList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="contestTypeRead"></a>
+<a id="contestTypeRead"></a>
 # **contestTypeRead**
 ```java
 Mono<String> ContestTypeApi.contestTypeRead(id)

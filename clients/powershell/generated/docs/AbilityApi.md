@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.AbilityApi
+# PSOpenAPITools.PSOpenAPITools\Api.AbilityApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-AbilityRead**](AbilityApi.md#Invoke-AbilityRead) | **GET** /api/v2/ability/{id}/ | 
 
 
-<a name="Invoke-AbilityList"></a>
+<a id="Invoke-AbilityList"></a>
 # **Invoke-AbilityList**
 > String Invoke-AbilityList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-AbilityRead"></a>
+<a id="Invoke-AbilityRead"></a>
 # **Invoke-AbilityRead**
 > String Invoke-AbilityRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

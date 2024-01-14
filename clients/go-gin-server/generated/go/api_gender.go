@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// GenderList - 
-func GenderList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type GenderAPI struct {
 }
 
-// GenderRead - 
-func GenderRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/gender/
+func (api *GenderAPI) GenderList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/gender/:id/
+func (api *GenderAPI) GenderRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="characteristicList"></a>
+<a id="characteristicList"></a>
 # **characteristicList**
 ```java
 Mono<String> CharacteristicApi.characteristicList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> CharacteristicApi.characteristicList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="characteristicRead"></a>
+<a id="characteristicRead"></a>
 # **characteristicRead**
 ```java
 Mono<String> CharacteristicApi.characteristicRead(id)

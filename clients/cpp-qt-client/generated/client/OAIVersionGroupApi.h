@@ -101,18 +101,25 @@ signals:
     void versionGroupListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void versionGroupReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use versionGroupListSignalError() instead")
     void versionGroupListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void versionGroupListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use versionGroupReadSignalError() instead")
     void versionGroupReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void versionGroupReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use versionGroupListSignalErrorFull() instead")
     void versionGroupListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void versionGroupListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use versionGroupReadSignalErrorFull() instead")
     void versionGroupReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void versionGroupReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

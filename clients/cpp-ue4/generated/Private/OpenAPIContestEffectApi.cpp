@@ -56,7 +56,7 @@ bool OpenAPIContestEffectApi::IsValid() const
 
 void OpenAPIContestEffectApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

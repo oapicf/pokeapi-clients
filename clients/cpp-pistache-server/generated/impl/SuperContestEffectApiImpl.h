@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class SuperContestEffectApiImpl : public org::openapitools::server::api::SuperContestEffectApi {
+class  SuperContestEffectApiImpl : public org::openapitools::server::api::SuperContestEffectApi {
 public:
     explicit SuperContestEffectApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~SuperContestEffectApiImpl() override = default;

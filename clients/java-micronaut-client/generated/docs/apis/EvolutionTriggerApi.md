@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="evolutionTriggerList"></a>
+<a id="evolutionTriggerList"></a>
 # **evolutionTriggerList**
 ```java
 Mono<String> EvolutionTriggerApi.evolutionTriggerList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> EvolutionTriggerApi.evolutionTriggerList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="evolutionTriggerRead"></a>
+<a id="evolutionTriggerRead"></a>
 # **evolutionTriggerRead**
 ```java
 Mono<String> EvolutionTriggerApi.evolutionTriggerRead(id)

@@ -70,7 +70,7 @@ bool OpenAPIContestTypeApi::ContestTypeListResponse::FromJson(const TSharedPtr<F
 FString OpenAPIContestTypeApi::ContestTypeReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/contest-type/{id}/"), PathParams);
 

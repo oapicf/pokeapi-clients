@@ -1,7 +1,7 @@
 /*
 
 
-Testing MoveBattleStyleApiService
+Testing MoveBattleStyleAPIService
 
 */
 
@@ -10,42 +10,42 @@ Testing MoveBattleStyleApiService
 package openapi
 
 import (
-    "context"
-    "github.com/stretchr/testify/assert"
-    "github.com/stretchr/testify/require"
-    "testing"
-    openapiclient "./openapi"
+	"context"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
-func Test_openapi_MoveBattleStyleApiService(t *testing.T) {
+func Test_openapi_MoveBattleStyleAPIService(t *testing.T) {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
 
-    t.Run("Test MoveBattleStyleApiService MoveBattleStyleList", func(t *testing.T) {
+	t.Run("Test MoveBattleStyleAPIService MoveBattleStyleList", func(t *testing.T) {
 
-        t.Skip("skip test")  // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-        resp, httpRes, err := apiClient.MoveBattleStyleApi.MoveBattleStyleList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MoveBattleStyleAPI.MoveBattleStyleList(context.Background()).Execute()
 
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
 
-    })
+	})
 
-    t.Run("Test MoveBattleStyleApiService MoveBattleStyleRead", func(t *testing.T) {
+	t.Run("Test MoveBattleStyleAPIService MoveBattleStyleRead", func(t *testing.T) {
 
-        t.Skip("skip test")  // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-        var id int32
+		var id int32
 
-        resp, httpRes, err := apiClient.MoveBattleStyleApi.MoveBattleStyleRead(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.MoveBattleStyleAPI.MoveBattleStyleRead(context.Background(), id).Execute()
 
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
 
-    })
+	})
 
 }

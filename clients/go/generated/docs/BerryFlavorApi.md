@@ -1,11 +1,11 @@
-# \BerryFlavorApi
+# \BerryFlavorAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**BerryFlavorList**](BerryFlavorApi.md#BerryFlavorList) | **Get** /api/v2/berry-flavor/ | 
-[**BerryFlavorRead**](BerryFlavorApi.md#BerryFlavorRead) | **Get** /api/v2/berry-flavor/{id}/ | 
+[**BerryFlavorList**](BerryFlavorAPI.md#BerryFlavorList) | **Get** /api/v2/berry-flavor/ | 
+[**BerryFlavorRead**](BerryFlavorAPI.md#BerryFlavorRead) | **Get** /api/v2/berry-flavor/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.BerryFlavorApi.BerryFlavorList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `BerryFlavorApi.BerryFlavorList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BerryFlavorList`: string
-    fmt.Fprintf(os.Stdout, "Response from `BerryFlavorApi.BerryFlavorList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BerryFlavorAPI.BerryFlavorList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BerryFlavorAPI.BerryFlavorList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BerryFlavorList`: string
+	fmt.Fprintf(os.Stdout, "Response from `BerryFlavorAPI.BerryFlavorList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.BerryFlavorApi.BerryFlavorRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `BerryFlavorApi.BerryFlavorRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BerryFlavorRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `BerryFlavorApi.BerryFlavorRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BerryFlavorAPI.BerryFlavorRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BerryFlavorAPI.BerryFlavorRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BerryFlavorRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `BerryFlavorAPI.BerryFlavorRead`: %v\n", resp)
 }
 ```
 

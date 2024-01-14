@@ -101,18 +101,25 @@ signals:
     void itemPocketListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void itemPocketReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use itemPocketListSignalError() instead")
     void itemPocketListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void itemPocketListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use itemPocketReadSignalError() instead")
     void itemPocketReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void itemPocketReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use itemPocketListSignalErrorFull() instead")
     void itemPocketListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void itemPocketListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use itemPocketReadSignalErrorFull() instead")
     void itemPocketReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void itemPocketReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

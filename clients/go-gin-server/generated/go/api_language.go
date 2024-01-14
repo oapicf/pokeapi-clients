@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// LanguageList - 
-func LanguageList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type LanguageAPI struct {
 }
 
-// LanguageRead - 
-func LanguageRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/language/
+func (api *LanguageAPI) LanguageList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/language/:id/
+func (api *LanguageAPI) LanguageRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

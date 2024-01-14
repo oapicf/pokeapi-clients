@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// EvolutionTriggerApiService is a service that implements the logic for the EvolutionTriggerApiServicer
-// This service should implement the business logic for every endpoint for the EvolutionTriggerApi API.
+// EvolutionTriggerAPIService is a service that implements the logic for the EvolutionTriggerAPIServicer
+// This service should implement the business logic for every endpoint for the EvolutionTriggerAPI API.
 // Include any external packages or services that will be required by this service.
-type EvolutionTriggerApiService struct {
+type EvolutionTriggerAPIService struct {
 }
 
-// NewEvolutionTriggerApiService creates a default api service
-func NewEvolutionTriggerApiService() EvolutionTriggerApiServicer {
-	return &EvolutionTriggerApiService{}
+// NewEvolutionTriggerAPIService creates a default api service
+func NewEvolutionTriggerAPIService() EvolutionTriggerAPIServicer {
+	return &EvolutionTriggerAPIService{}
 }
 
 // EvolutionTriggerList - 
-func (s *EvolutionTriggerApiService) EvolutionTriggerList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *EvolutionTriggerAPIService) EvolutionTriggerList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update EvolutionTriggerList with the required logic for this service method.
 	// Add api_evolution_trigger_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("EvolutionTriggerList method not implemented")
 }
 
 // EvolutionTriggerRead - 
-func (s *EvolutionTriggerApiService) EvolutionTriggerRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *EvolutionTriggerAPIService) EvolutionTriggerRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update EvolutionTriggerRead with the required logic for this service method.
 	// Add api_evolution_trigger_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("EvolutionTriggerRead method not implemented")
 }

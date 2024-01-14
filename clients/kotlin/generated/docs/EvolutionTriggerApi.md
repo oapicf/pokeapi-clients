@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**evolutionTriggerRead**](EvolutionTriggerApi.md#evolutionTriggerRead) | **GET** /api/v2/evolution-trigger/{id}/ | 
 
 
-<a name="evolutionTriggerList"></a>
+<a id="evolutionTriggerList"></a>
 # **evolutionTriggerList**
 > kotlin.String evolutionTriggerList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="evolutionTriggerRead"></a>
+<a id="evolutionTriggerRead"></a>
 # **evolutionTriggerRead**
 > kotlin.String evolutionTriggerRead(id)
 

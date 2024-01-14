@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**pokemonSpeciesList**](#pokemonSpeciesList) | **GET** /api/v2/pokemon-species/ | 
 [**pokemonSpeciesRead**](#pokemonSpeciesRead) | **GET** /api/v2/pokemon-species/{id}/ | 
 
-<a name="pokemonSpeciesList"></a>
+<a id="pokemonSpeciesList"></a>
 # **pokemonSpeciesList**
 ```java
 Mono<String> PokemonSpeciesController.pokemonSpeciesList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="pokemonSpeciesRead"></a>
+<a id="pokemonSpeciesRead"></a>
 # **pokemonSpeciesRead**
 ```java
 Mono<String> PokemonSpeciesController.pokemonSpeciesRead(id)

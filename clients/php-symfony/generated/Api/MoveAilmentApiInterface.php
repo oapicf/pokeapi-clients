@@ -52,8 +52,12 @@ interface MoveAilmentApiInterface
      *
      * @return array|object|null
      */
-    public function moveAilmentList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function moveAilmentList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation moveAilmentRead
@@ -64,6 +68,9 @@ interface MoveAilmentApiInterface
      *
      * @return array|object|null
      */
-    public function moveAilmentRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function moveAilmentRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

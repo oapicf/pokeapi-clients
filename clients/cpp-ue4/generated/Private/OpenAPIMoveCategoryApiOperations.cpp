@@ -70,7 +70,7 @@ bool OpenAPIMoveCategoryApi::MoveCategoryListResponse::FromJson(const TSharedPtr
 FString OpenAPIMoveCategoryApi::MoveCategoryReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/move-category/{id}/"), PathParams);
 

@@ -101,18 +101,25 @@ signals:
     void genderListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void genderReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use genderListSignalError() instead")
     void genderListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void genderListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use genderReadSignalError() instead")
     void genderReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void genderReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use genderListSignalErrorFull() instead")
     void genderListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void genderListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use genderReadSignalErrorFull() instead")
     void genderReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void genderReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

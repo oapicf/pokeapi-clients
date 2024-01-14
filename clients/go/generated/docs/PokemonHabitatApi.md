@@ -1,11 +1,11 @@
-# \PokemonHabitatApi
+# \PokemonHabitatAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PokemonHabitatList**](PokemonHabitatApi.md#PokemonHabitatList) | **Get** /api/v2/pokemon-habitat/ | 
-[**PokemonHabitatRead**](PokemonHabitatApi.md#PokemonHabitatRead) | **Get** /api/v2/pokemon-habitat/{id}/ | 
+[**PokemonHabitatList**](PokemonHabitatAPI.md#PokemonHabitatList) | **Get** /api/v2/pokemon-habitat/ | 
+[**PokemonHabitatRead**](PokemonHabitatAPI.md#PokemonHabitatRead) | **Get** /api/v2/pokemon-habitat/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PokemonHabitatApi.PokemonHabitatList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PokemonHabitatApi.PokemonHabitatList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PokemonHabitatList`: string
-    fmt.Fprintf(os.Stdout, "Response from `PokemonHabitatApi.PokemonHabitatList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PokemonHabitatAPI.PokemonHabitatList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PokemonHabitatAPI.PokemonHabitatList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PokemonHabitatList`: string
+	fmt.Fprintf(os.Stdout, "Response from `PokemonHabitatAPI.PokemonHabitatList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PokemonHabitatApi.PokemonHabitatRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PokemonHabitatApi.PokemonHabitatRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PokemonHabitatRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `PokemonHabitatApi.PokemonHabitatRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PokemonHabitatAPI.PokemonHabitatRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PokemonHabitatAPI.PokemonHabitatRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PokemonHabitatRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `PokemonHabitatAPI.PokemonHabitatRead`: %v\n", resp)
 }
 ```
 

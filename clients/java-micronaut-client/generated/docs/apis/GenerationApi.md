@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="generationList"></a>
+<a id="generationList"></a>
 # **generationList**
 ```java
 Mono<String> GenerationApi.generationList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> GenerationApi.generationList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="generationRead"></a>
+<a id="generationRead"></a>
 # **generationRead**
 ```java
 Mono<String> GenerationApi.generationRead(id)

@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// MoveLearnMethodList - 
-func MoveLearnMethodList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type MoveLearnMethodAPI struct {
 }
 
-// MoveLearnMethodRead - 
-func MoveLearnMethodRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/move-learn-method/
+func (api *MoveLearnMethodAPI) MoveLearnMethodList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/move-learn-method/:id/
+func (api *MoveLearnMethodAPI) MoveLearnMethodRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

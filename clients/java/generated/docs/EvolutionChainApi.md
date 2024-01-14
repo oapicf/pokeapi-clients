@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**evolutionChainRead**](EvolutionChainApi.md#evolutionChainRead) | **GET** /api/v2/evolution-chain/{id}/ |  |
 
 
-<a name="evolutionChainList"></a>
+<a id="evolutionChainList"></a>
 # **evolutionChainList**
 > String evolutionChainList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="evolutionChainRead"></a>
+<a id="evolutionChainRead"></a>
 # **evolutionChainRead**
 > String evolutionChainRead(id)
 

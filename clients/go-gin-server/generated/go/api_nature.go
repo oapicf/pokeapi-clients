@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// NatureList - 
-func NatureList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type NatureAPI struct {
 }
 
-// NatureRead - 
-func NatureRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/nature/
+func (api *NatureAPI) NatureList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/nature/:id/
+func (api *NatureAPI) NatureRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

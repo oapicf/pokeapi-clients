@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// StatList - 
-func StatList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type StatAPI struct {
 }
 
-// StatRead - 
-func StatRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/stat/
+func (api *StatAPI) StatList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/stat/:id/
+func (api *StatAPI) StatRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

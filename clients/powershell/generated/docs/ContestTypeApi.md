@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.ContestTypeApi
+# PSOpenAPITools.PSOpenAPITools\Api.ContestTypeApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-ContestTypeRead**](ContestTypeApi.md#Invoke-ContestTypeRead) | **GET** /api/v2/contest-type/{id}/ | 
 
 
-<a name="Invoke-ContestTypeList"></a>
+<a id="Invoke-ContestTypeList"></a>
 # **Invoke-ContestTypeList**
 > String Invoke-ContestTypeList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ContestTypeRead"></a>
+<a id="Invoke-ContestTypeRead"></a>
 # **Invoke-ContestTypeRead**
 > String Invoke-ContestTypeRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

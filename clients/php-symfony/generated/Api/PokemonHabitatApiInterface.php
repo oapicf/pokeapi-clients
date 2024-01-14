@@ -52,8 +52,12 @@ interface PokemonHabitatApiInterface
      *
      * @return array|object|null
      */
-    public function pokemonHabitatList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function pokemonHabitatList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation pokemonHabitatRead
@@ -64,6 +68,9 @@ interface PokemonHabitatApiInterface
      *
      * @return array|object|null
      */
-    public function pokemonHabitatRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function pokemonHabitatRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

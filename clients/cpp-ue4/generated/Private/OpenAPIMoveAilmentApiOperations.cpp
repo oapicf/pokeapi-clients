@@ -70,7 +70,7 @@ bool OpenAPIMoveAilmentApi::MoveAilmentListResponse::FromJson(const TSharedPtr<F
 FString OpenAPIMoveAilmentApi::MoveAilmentReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/move-ailment/{id}/"), PathParams);
 

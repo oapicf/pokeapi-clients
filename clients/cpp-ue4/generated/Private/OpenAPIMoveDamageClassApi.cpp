@@ -56,7 +56,7 @@ bool OpenAPIMoveDamageClassApi::IsValid() const
 
 void OpenAPIMoveDamageClassApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

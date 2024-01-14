@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.LanguageApi
+# PSOpenAPITools.PSOpenAPITools\Api.LanguageApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-LanguageRead**](LanguageApi.md#Invoke-LanguageRead) | **GET** /api/v2/language/{id}/ | 
 
 
-<a name="Invoke-LanguageList"></a>
+<a id="Invoke-LanguageList"></a>
 # **Invoke-LanguageList**
 > String Invoke-LanguageList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-LanguageRead"></a>
+<a id="Invoke-LanguageRead"></a>
 # **Invoke-LanguageRead**
 > String Invoke-LanguageRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

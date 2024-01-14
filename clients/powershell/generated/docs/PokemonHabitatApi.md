@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.PokemonHabitatApi
+# PSOpenAPITools.PSOpenAPITools\Api.PokemonHabitatApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-PokemonHabitatRead**](PokemonHabitatApi.md#Invoke-PokemonHabitatRead) | **GET** /api/v2/pokemon-habitat/{id}/ | 
 
 
-<a name="Invoke-PokemonHabitatList"></a>
+<a id="Invoke-PokemonHabitatList"></a>
 # **Invoke-PokemonHabitatList**
 > String Invoke-PokemonHabitatList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-PokemonHabitatRead"></a>
+<a id="Invoke-PokemonHabitatRead"></a>
 # **Invoke-PokemonHabitatRead**
 > String Invoke-PokemonHabitatRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// GenderApiController binds http requests to an api service and writes the service results to the http response
-type GenderApiController struct {
-	service GenderApiServicer
+// GenderAPIController binds http requests to an api service and writes the service results to the http response
+type GenderAPIController struct {
+	service GenderAPIServicer
 	errorHandler ErrorHandler
 }
 
-// GenderApiOption for how the controller is set up.
-type GenderApiOption func(*GenderApiController)
+// GenderAPIOption for how the controller is set up.
+type GenderAPIOption func(*GenderAPIController)
 
-// WithGenderApiErrorHandler inject ErrorHandler into controller
-func WithGenderApiErrorHandler(h ErrorHandler) GenderApiOption {
-	return func(c *GenderApiController) {
+// WithGenderAPIErrorHandler inject ErrorHandler into controller
+func WithGenderAPIErrorHandler(h ErrorHandler) GenderAPIOption {
+	return func(c *GenderAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewGenderApiController creates a default api controller
-func NewGenderApiController(s GenderApiServicer, opts ...GenderApiOption) Router {
-	controller := &GenderApiController{
+// NewGenderAPIController creates a default api controller
+func NewGenderAPIController(s GenderAPIServicer, opts ...GenderAPIOption) Router {
+	controller := &GenderAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewGenderApiController(s GenderApiServicer, opts ...GenderApiOption) Router
 	return controller
 }
 
-// Routes returns all the api routes for the GenderApiController
-func (c *GenderApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"GenderList",
+// Routes returns all the api routes for the GenderAPIController
+func (c *GenderAPIController) Routes() Routes {
+	return Routes{
+		"GenderList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/gender/",
 			c.GenderList,
 		},
-		{
-			"GenderRead",
+		"GenderRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/gender/{id}/",
 			c.GenderRead,
@@ -67,17 +65,35 @@ func (c *GenderApiController) Routes() Routes {
 }
 
 // GenderList - 
-func (c *GenderApiController) GenderList(w http.ResponseWriter, r *http.Request) {
+func (c *GenderAPIController) GenderList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.GenderList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *GenderApiController) GenderList(w http.ResponseWriter, r *http.Request)
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // GenderRead - 
-func (c *GenderApiController) GenderRead(w http.ResponseWriter, r *http.Request) {
+func (c *GenderAPIController) GenderRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.GenderRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *GenderApiController) GenderRead(w http.ResponseWriter, r *http.Request)
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

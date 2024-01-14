@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// MoveAilmentApiController binds http requests to an api service and writes the service results to the http response
-type MoveAilmentApiController struct {
-	service MoveAilmentApiServicer
+// MoveAilmentAPIController binds http requests to an api service and writes the service results to the http response
+type MoveAilmentAPIController struct {
+	service MoveAilmentAPIServicer
 	errorHandler ErrorHandler
 }
 
-// MoveAilmentApiOption for how the controller is set up.
-type MoveAilmentApiOption func(*MoveAilmentApiController)
+// MoveAilmentAPIOption for how the controller is set up.
+type MoveAilmentAPIOption func(*MoveAilmentAPIController)
 
-// WithMoveAilmentApiErrorHandler inject ErrorHandler into controller
-func WithMoveAilmentApiErrorHandler(h ErrorHandler) MoveAilmentApiOption {
-	return func(c *MoveAilmentApiController) {
+// WithMoveAilmentAPIErrorHandler inject ErrorHandler into controller
+func WithMoveAilmentAPIErrorHandler(h ErrorHandler) MoveAilmentAPIOption {
+	return func(c *MoveAilmentAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewMoveAilmentApiController creates a default api controller
-func NewMoveAilmentApiController(s MoveAilmentApiServicer, opts ...MoveAilmentApiOption) Router {
-	controller := &MoveAilmentApiController{
+// NewMoveAilmentAPIController creates a default api controller
+func NewMoveAilmentAPIController(s MoveAilmentAPIServicer, opts ...MoveAilmentAPIOption) Router {
+	controller := &MoveAilmentAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewMoveAilmentApiController(s MoveAilmentApiServicer, opts ...MoveAilmentAp
 	return controller
 }
 
-// Routes returns all the api routes for the MoveAilmentApiController
-func (c *MoveAilmentApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"MoveAilmentList",
+// Routes returns all the api routes for the MoveAilmentAPIController
+func (c *MoveAilmentAPIController) Routes() Routes {
+	return Routes{
+		"MoveAilmentList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/move-ailment/",
 			c.MoveAilmentList,
 		},
-		{
-			"MoveAilmentRead",
+		"MoveAilmentRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/move-ailment/{id}/",
 			c.MoveAilmentRead,
@@ -67,17 +65,35 @@ func (c *MoveAilmentApiController) Routes() Routes {
 }
 
 // MoveAilmentList - 
-func (c *MoveAilmentApiController) MoveAilmentList(w http.ResponseWriter, r *http.Request) {
+func (c *MoveAilmentAPIController) MoveAilmentList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.MoveAilmentList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *MoveAilmentApiController) MoveAilmentList(w http.ResponseWriter, r *htt
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // MoveAilmentRead - 
-func (c *MoveAilmentApiController) MoveAilmentRead(w http.ResponseWriter, r *http.Request) {
+func (c *MoveAilmentAPIController) MoveAilmentRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.MoveAilmentRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *MoveAilmentApiController) MoveAilmentRead(w http.ResponseWriter, r *htt
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

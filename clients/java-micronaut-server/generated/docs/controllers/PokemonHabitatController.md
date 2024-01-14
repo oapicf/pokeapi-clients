@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**pokemonHabitatList**](#pokemonHabitatList) | **GET** /api/v2/pokemon-habitat/ | 
 [**pokemonHabitatRead**](#pokemonHabitatRead) | **GET** /api/v2/pokemon-habitat/{id}/ | 
 
-<a name="pokemonHabitatList"></a>
+<a id="pokemonHabitatList"></a>
 # **pokemonHabitatList**
 ```java
 Mono<String> PokemonHabitatController.pokemonHabitatList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="pokemonHabitatRead"></a>
+<a id="pokemonHabitatRead"></a>
 # **pokemonHabitatRead**
 ```java
 Mono<String> PokemonHabitatController.pokemonHabitatRead(id)

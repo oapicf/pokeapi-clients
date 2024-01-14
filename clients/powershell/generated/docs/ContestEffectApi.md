@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.ContestEffectApi
+# PSOpenAPITools.PSOpenAPITools\Api.ContestEffectApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-ContestEffectRead**](ContestEffectApi.md#Invoke-ContestEffectRead) | **GET** /api/v2/contest-effect/{id}/ | 
 
 
-<a name="Invoke-ContestEffectList"></a>
+<a id="Invoke-ContestEffectList"></a>
 # **Invoke-ContestEffectList**
 > String Invoke-ContestEffectList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ContestEffectRead"></a>
+<a id="Invoke-ContestEffectRead"></a>
 # **Invoke-ContestEffectRead**
 > String Invoke-ContestEffectRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

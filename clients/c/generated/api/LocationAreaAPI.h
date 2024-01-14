@@ -8,10 +8,10 @@
 
 
 char*
-LocationAreaAPI_locationAreaList(apiClient_t *apiClient, int limit , int offset );
+LocationAreaAPI_locationAreaList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-LocationAreaAPI_locationAreaRead(apiClient_t *apiClient, int id );
+LocationAreaAPI_locationAreaRead(apiClient_t *apiClient, int *id);
 
 

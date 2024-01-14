@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**moveCategoryRead**](MoveCategoryApi.md#moveCategoryRead) | **GET** /api/v2/move-category/{id}/ | 
 
 
-<a name="moveCategoryList"></a>
+<a id="moveCategoryList"></a>
 # **moveCategoryList**
 > kotlin.String moveCategoryList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="moveCategoryRead"></a>
+<a id="moveCategoryRead"></a>
 # **moveCategoryRead**
 > kotlin.String moveCategoryRead(id)
 

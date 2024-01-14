@@ -101,18 +101,25 @@ signals:
     void regionListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void regionReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use regionListSignalError() instead")
     void regionListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void regionListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use regionReadSignalError() instead")
     void regionReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void regionReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use regionListSignalErrorFull() instead")
     void regionListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void regionListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use regionReadSignalErrorFull() instead")
     void regionReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void regionReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

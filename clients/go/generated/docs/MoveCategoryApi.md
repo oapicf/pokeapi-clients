@@ -1,11 +1,11 @@
-# \MoveCategoryApi
+# \MoveCategoryAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**MoveCategoryList**](MoveCategoryApi.md#MoveCategoryList) | **Get** /api/v2/move-category/ | 
-[**MoveCategoryRead**](MoveCategoryApi.md#MoveCategoryRead) | **Get** /api/v2/move-category/{id}/ | 
+[**MoveCategoryList**](MoveCategoryAPI.md#MoveCategoryList) | **Get** /api/v2/move-category/ | 
+[**MoveCategoryRead**](MoveCategoryAPI.md#MoveCategoryRead) | **Get** /api/v2/move-category/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoveCategoryApi.MoveCategoryList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoveCategoryApi.MoveCategoryList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `MoveCategoryList`: string
-    fmt.Fprintf(os.Stdout, "Response from `MoveCategoryApi.MoveCategoryList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MoveCategoryAPI.MoveCategoryList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MoveCategoryAPI.MoveCategoryList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MoveCategoryList`: string
+	fmt.Fprintf(os.Stdout, "Response from `MoveCategoryAPI.MoveCategoryList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoveCategoryApi.MoveCategoryRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoveCategoryApi.MoveCategoryRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `MoveCategoryRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `MoveCategoryApi.MoveCategoryRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MoveCategoryAPI.MoveCategoryRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MoveCategoryAPI.MoveCategoryRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MoveCategoryRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `MoveCategoryAPI.MoveCategoryRead`: %v\n", resp)
 }
 ```
 

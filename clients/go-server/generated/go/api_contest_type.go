@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// ContestTypeApiController binds http requests to an api service and writes the service results to the http response
-type ContestTypeApiController struct {
-	service ContestTypeApiServicer
+// ContestTypeAPIController binds http requests to an api service and writes the service results to the http response
+type ContestTypeAPIController struct {
+	service ContestTypeAPIServicer
 	errorHandler ErrorHandler
 }
 
-// ContestTypeApiOption for how the controller is set up.
-type ContestTypeApiOption func(*ContestTypeApiController)
+// ContestTypeAPIOption for how the controller is set up.
+type ContestTypeAPIOption func(*ContestTypeAPIController)
 
-// WithContestTypeApiErrorHandler inject ErrorHandler into controller
-func WithContestTypeApiErrorHandler(h ErrorHandler) ContestTypeApiOption {
-	return func(c *ContestTypeApiController) {
+// WithContestTypeAPIErrorHandler inject ErrorHandler into controller
+func WithContestTypeAPIErrorHandler(h ErrorHandler) ContestTypeAPIOption {
+	return func(c *ContestTypeAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewContestTypeApiController creates a default api controller
-func NewContestTypeApiController(s ContestTypeApiServicer, opts ...ContestTypeApiOption) Router {
-	controller := &ContestTypeApiController{
+// NewContestTypeAPIController creates a default api controller
+func NewContestTypeAPIController(s ContestTypeAPIServicer, opts ...ContestTypeAPIOption) Router {
+	controller := &ContestTypeAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewContestTypeApiController(s ContestTypeApiServicer, opts ...ContestTypeAp
 	return controller
 }
 
-// Routes returns all the api routes for the ContestTypeApiController
-func (c *ContestTypeApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"ContestTypeList",
+// Routes returns all the api routes for the ContestTypeAPIController
+func (c *ContestTypeAPIController) Routes() Routes {
+	return Routes{
+		"ContestTypeList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/contest-type/",
 			c.ContestTypeList,
 		},
-		{
-			"ContestTypeRead",
+		"ContestTypeRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/contest-type/{id}/",
 			c.ContestTypeRead,
@@ -67,17 +65,35 @@ func (c *ContestTypeApiController) Routes() Routes {
 }
 
 // ContestTypeList - 
-func (c *ContestTypeApiController) ContestTypeList(w http.ResponseWriter, r *http.Request) {
+func (c *ContestTypeAPIController) ContestTypeList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.ContestTypeList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *ContestTypeApiController) ContestTypeList(w http.ResponseWriter, r *htt
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // ContestTypeRead - 
-func (c *ContestTypeApiController) ContestTypeRead(w http.ResponseWriter, r *http.Request) {
+func (c *ContestTypeAPIController) ContestTypeRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.ContestTypeRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *ContestTypeApiController) ContestTypeRead(w http.ResponseWriter, r *htt
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

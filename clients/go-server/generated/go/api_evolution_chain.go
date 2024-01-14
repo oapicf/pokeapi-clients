@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// EvolutionChainApiController binds http requests to an api service and writes the service results to the http response
-type EvolutionChainApiController struct {
-	service EvolutionChainApiServicer
+// EvolutionChainAPIController binds http requests to an api service and writes the service results to the http response
+type EvolutionChainAPIController struct {
+	service EvolutionChainAPIServicer
 	errorHandler ErrorHandler
 }
 
-// EvolutionChainApiOption for how the controller is set up.
-type EvolutionChainApiOption func(*EvolutionChainApiController)
+// EvolutionChainAPIOption for how the controller is set up.
+type EvolutionChainAPIOption func(*EvolutionChainAPIController)
 
-// WithEvolutionChainApiErrorHandler inject ErrorHandler into controller
-func WithEvolutionChainApiErrorHandler(h ErrorHandler) EvolutionChainApiOption {
-	return func(c *EvolutionChainApiController) {
+// WithEvolutionChainAPIErrorHandler inject ErrorHandler into controller
+func WithEvolutionChainAPIErrorHandler(h ErrorHandler) EvolutionChainAPIOption {
+	return func(c *EvolutionChainAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewEvolutionChainApiController creates a default api controller
-func NewEvolutionChainApiController(s EvolutionChainApiServicer, opts ...EvolutionChainApiOption) Router {
-	controller := &EvolutionChainApiController{
+// NewEvolutionChainAPIController creates a default api controller
+func NewEvolutionChainAPIController(s EvolutionChainAPIServicer, opts ...EvolutionChainAPIOption) Router {
+	controller := &EvolutionChainAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewEvolutionChainApiController(s EvolutionChainApiServicer, opts ...Evoluti
 	return controller
 }
 
-// Routes returns all the api routes for the EvolutionChainApiController
-func (c *EvolutionChainApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"EvolutionChainList",
+// Routes returns all the api routes for the EvolutionChainAPIController
+func (c *EvolutionChainAPIController) Routes() Routes {
+	return Routes{
+		"EvolutionChainList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/evolution-chain/",
 			c.EvolutionChainList,
 		},
-		{
-			"EvolutionChainRead",
+		"EvolutionChainRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/evolution-chain/{id}/",
 			c.EvolutionChainRead,
@@ -67,17 +65,35 @@ func (c *EvolutionChainApiController) Routes() Routes {
 }
 
 // EvolutionChainList - 
-func (c *EvolutionChainApiController) EvolutionChainList(w http.ResponseWriter, r *http.Request) {
+func (c *EvolutionChainAPIController) EvolutionChainList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.EvolutionChainList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *EvolutionChainApiController) EvolutionChainList(w http.ResponseWriter, 
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // EvolutionChainRead - 
-func (c *EvolutionChainApiController) EvolutionChainRead(w http.ResponseWriter, r *http.Request) {
+func (c *EvolutionChainAPIController) EvolutionChainRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.EvolutionChainRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *EvolutionChainApiController) EvolutionChainRead(w http.ResponseWriter, 
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

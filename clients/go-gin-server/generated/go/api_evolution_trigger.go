@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// EvolutionTriggerList - 
-func EvolutionTriggerList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type EvolutionTriggerAPI struct {
 }
 
-// EvolutionTriggerRead - 
-func EvolutionTriggerRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/evolution-trigger/
+func (api *EvolutionTriggerAPI) EvolutionTriggerList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/evolution-trigger/:id/
+func (api *EvolutionTriggerAPI) EvolutionTriggerRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

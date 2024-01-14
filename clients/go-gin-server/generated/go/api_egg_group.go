@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// EggGroupList - 
-func EggGroupList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type EggGroupAPI struct {
 }
 
-// EggGroupRead - 
-func EggGroupRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/egg-group/
+func (api *EggGroupAPI) EggGroupList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/egg-group/:id/
+func (api *EggGroupAPI) EggGroupRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

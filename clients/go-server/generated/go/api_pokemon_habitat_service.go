@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// PokemonHabitatApiService is a service that implements the logic for the PokemonHabitatApiServicer
-// This service should implement the business logic for every endpoint for the PokemonHabitatApi API.
+// PokemonHabitatAPIService is a service that implements the logic for the PokemonHabitatAPIServicer
+// This service should implement the business logic for every endpoint for the PokemonHabitatAPI API.
 // Include any external packages or services that will be required by this service.
-type PokemonHabitatApiService struct {
+type PokemonHabitatAPIService struct {
 }
 
-// NewPokemonHabitatApiService creates a default api service
-func NewPokemonHabitatApiService() PokemonHabitatApiServicer {
-	return &PokemonHabitatApiService{}
+// NewPokemonHabitatAPIService creates a default api service
+func NewPokemonHabitatAPIService() PokemonHabitatAPIServicer {
+	return &PokemonHabitatAPIService{}
 }
 
 // PokemonHabitatList - 
-func (s *PokemonHabitatApiService) PokemonHabitatList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *PokemonHabitatAPIService) PokemonHabitatList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update PokemonHabitatList with the required logic for this service method.
 	// Add api_pokemon_habitat_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("PokemonHabitatList method not implemented")
 }
 
 // PokemonHabitatRead - 
-func (s *PokemonHabitatApiService) PokemonHabitatRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *PokemonHabitatAPIService) PokemonHabitatRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update PokemonHabitatRead with the required logic for this service method.
 	// Add api_pokemon_habitat_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("PokemonHabitatRead method not implemented")
 }

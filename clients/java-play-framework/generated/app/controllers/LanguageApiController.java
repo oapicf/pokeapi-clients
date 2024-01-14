@@ -18,11 +18,12 @@ import openapitools.OpenAPIUtils;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import javax.validation.constraints.*;
+import javax.validation.Valid;
 import com.typesafe.config.Config;
 
 import openapitools.OpenAPIUtils.ApiAction;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2022-11-19T09:47:31.826386Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-01-14T06:31:05.913444179Z[Etc/UTC]")
 public class LanguageApiController extends Controller {
     private final LanguageApiControllerImpInterface imp;
     private final ObjectMapper mapper;

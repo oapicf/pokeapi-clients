@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class RegionApiImpl : public org::openapitools::server::api::RegionApi {
+class  RegionApiImpl : public org::openapitools::server::api::RegionApi {
 public:
     explicit RegionApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~RegionApiImpl() override = default;

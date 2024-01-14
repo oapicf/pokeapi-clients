@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// LocationApiController binds http requests to an api service and writes the service results to the http response
-type LocationApiController struct {
-	service LocationApiServicer
+// LocationAPIController binds http requests to an api service and writes the service results to the http response
+type LocationAPIController struct {
+	service LocationAPIServicer
 	errorHandler ErrorHandler
 }
 
-// LocationApiOption for how the controller is set up.
-type LocationApiOption func(*LocationApiController)
+// LocationAPIOption for how the controller is set up.
+type LocationAPIOption func(*LocationAPIController)
 
-// WithLocationApiErrorHandler inject ErrorHandler into controller
-func WithLocationApiErrorHandler(h ErrorHandler) LocationApiOption {
-	return func(c *LocationApiController) {
+// WithLocationAPIErrorHandler inject ErrorHandler into controller
+func WithLocationAPIErrorHandler(h ErrorHandler) LocationAPIOption {
+	return func(c *LocationAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewLocationApiController creates a default api controller
-func NewLocationApiController(s LocationApiServicer, opts ...LocationApiOption) Router {
-	controller := &LocationApiController{
+// NewLocationAPIController creates a default api controller
+func NewLocationAPIController(s LocationAPIServicer, opts ...LocationAPIOption) Router {
+	controller := &LocationAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewLocationApiController(s LocationApiServicer, opts ...LocationApiOption) 
 	return controller
 }
 
-// Routes returns all the api routes for the LocationApiController
-func (c *LocationApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"LocationList",
+// Routes returns all the api routes for the LocationAPIController
+func (c *LocationAPIController) Routes() Routes {
+	return Routes{
+		"LocationList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/location/",
 			c.LocationList,
 		},
-		{
-			"LocationRead",
+		"LocationRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/location/{id}/",
 			c.LocationRead,
@@ -67,17 +65,35 @@ func (c *LocationApiController) Routes() Routes {
 }
 
 // LocationList - 
-func (c *LocationApiController) LocationList(w http.ResponseWriter, r *http.Request) {
+func (c *LocationAPIController) LocationList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.LocationList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *LocationApiController) LocationList(w http.ResponseWriter, r *http.Requ
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // LocationRead - 
-func (c *LocationApiController) LocationRead(w http.ResponseWriter, r *http.Request) {
+func (c *LocationAPIController) LocationRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.LocationRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *LocationApiController) LocationRead(w http.ResponseWriter, r *http.Requ
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

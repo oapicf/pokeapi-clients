@@ -52,15 +52,15 @@ export class PokemonFormService {
 
 
 
-        let queryParameters = {};
+        let queryParameters = new URLSearchParams();
         if (limit !== undefined && limit !== null) {
-            queryParameters['limit'] = <any>limit;
+            queryParameters.append('limit', <any>limit);
         }
         if (offset !== undefined && offset !== null) {
-            queryParameters['offset'] = <any>offset;
+            queryParameters.append('offset', <any>offset);
         }
 
-        let headers = this.defaultHeaders;
+        let headers = {...this.defaultHeaders};
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -96,7 +96,7 @@ export class PokemonFormService {
             throw new Error('Required parameter id was null or undefined when calling pokemonFormRead.');
         }
 
-        let headers = this.defaultHeaders;
+        let headers = {...this.defaultHeaders};
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [

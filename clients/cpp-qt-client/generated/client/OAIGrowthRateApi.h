@@ -101,18 +101,25 @@ signals:
     void growthRateListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void growthRateReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use growthRateListSignalError() instead")
     void growthRateListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void growthRateListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use growthRateReadSignalError() instead")
     void growthRateReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void growthRateReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use growthRateListSignalErrorFull() instead")
     void growthRateListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void growthRateListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use growthRateReadSignalErrorFull() instead")
     void growthRateReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void growthRateReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

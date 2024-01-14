@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**berryFirmnessList**](#berryFirmnessList) | **GET** /api/v2/berry-firmness/ | 
 [**berryFirmnessRead**](#berryFirmnessRead) | **GET** /api/v2/berry-firmness/{id}/ | 
 
-<a name="berryFirmnessList"></a>
+<a id="berryFirmnessList"></a>
 # **berryFirmnessList**
 ```java
 Mono<String> BerryFirmnessController.berryFirmnessList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="berryFirmnessRead"></a>
+<a id="berryFirmnessRead"></a>
 # **berryFirmnessRead**
 ```java
 Mono<String> BerryFirmnessController.berryFirmnessRead(id)

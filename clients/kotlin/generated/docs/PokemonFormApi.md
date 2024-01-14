@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**pokemonFormRead**](PokemonFormApi.md#pokemonFormRead) | **GET** /api/v2/pokemon-form/{id}/ | 
 
 
-<a name="pokemonFormList"></a>
+<a id="pokemonFormList"></a>
 # **pokemonFormList**
 > kotlin.String pokemonFormList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="pokemonFormRead"></a>
+<a id="pokemonFormRead"></a>
 # **pokemonFormRead**
 > kotlin.String pokemonFormRead(id)
 

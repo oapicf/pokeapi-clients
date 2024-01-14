@@ -8,10 +8,10 @@
 
 
 char*
-ItemAttributeAPI_itemAttributeList(apiClient_t *apiClient, int limit , int offset );
+ItemAttributeAPI_itemAttributeList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-ItemAttributeAPI_itemAttributeRead(apiClient_t *apiClient, int id );
+ItemAttributeAPI_itemAttributeRead(apiClient_t *apiClient, int *id);
 
 

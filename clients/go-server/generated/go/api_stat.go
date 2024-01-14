@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// StatApiController binds http requests to an api service and writes the service results to the http response
-type StatApiController struct {
-	service StatApiServicer
+// StatAPIController binds http requests to an api service and writes the service results to the http response
+type StatAPIController struct {
+	service StatAPIServicer
 	errorHandler ErrorHandler
 }
 
-// StatApiOption for how the controller is set up.
-type StatApiOption func(*StatApiController)
+// StatAPIOption for how the controller is set up.
+type StatAPIOption func(*StatAPIController)
 
-// WithStatApiErrorHandler inject ErrorHandler into controller
-func WithStatApiErrorHandler(h ErrorHandler) StatApiOption {
-	return func(c *StatApiController) {
+// WithStatAPIErrorHandler inject ErrorHandler into controller
+func WithStatAPIErrorHandler(h ErrorHandler) StatAPIOption {
+	return func(c *StatAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewStatApiController creates a default api controller
-func NewStatApiController(s StatApiServicer, opts ...StatApiOption) Router {
-	controller := &StatApiController{
+// NewStatAPIController creates a default api controller
+func NewStatAPIController(s StatAPIServicer, opts ...StatAPIOption) Router {
+	controller := &StatAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewStatApiController(s StatApiServicer, opts ...StatApiOption) Router {
 	return controller
 }
 
-// Routes returns all the api routes for the StatApiController
-func (c *StatApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"StatList",
+// Routes returns all the api routes for the StatAPIController
+func (c *StatAPIController) Routes() Routes {
+	return Routes{
+		"StatList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/stat/",
 			c.StatList,
 		},
-		{
-			"StatRead",
+		"StatRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/stat/{id}/",
 			c.StatRead,
@@ -67,17 +65,35 @@ func (c *StatApiController) Routes() Routes {
 }
 
 // StatList - 
-func (c *StatApiController) StatList(w http.ResponseWriter, r *http.Request) {
+func (c *StatAPIController) StatList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.StatList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *StatApiController) StatList(w http.ResponseWriter, r *http.Request) {
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // StatRead - 
-func (c *StatApiController) StatRead(w http.ResponseWriter, r *http.Request) {
+func (c *StatAPIController) StatRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.StatRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *StatApiController) StatRead(w http.ResponseWriter, r *http.Request) {
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

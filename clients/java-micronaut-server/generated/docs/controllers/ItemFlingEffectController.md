@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**itemFlingEffectList**](#itemFlingEffectList) | **GET** /api/v2/item-fling-effect/ | 
 [**itemFlingEffectRead**](#itemFlingEffectRead) | **GET** /api/v2/item-fling-effect/{id}/ | 
 
-<a name="itemFlingEffectList"></a>
+<a id="itemFlingEffectList"></a>
 # **itemFlingEffectList**
 ```java
 Mono<String> ItemFlingEffectController.itemFlingEffectList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="itemFlingEffectRead"></a>
+<a id="itemFlingEffectRead"></a>
 # **itemFlingEffectRead**
 ```java
 Mono<String> ItemFlingEffectController.itemFlingEffectRead(id)

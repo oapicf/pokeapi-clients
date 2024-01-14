@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.PokemonShapeApi
+# PSOpenAPITools.PSOpenAPITools\Api.PokemonShapeApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-PokemonShapeRead**](PokemonShapeApi.md#Invoke-PokemonShapeRead) | **GET** /api/v2/pokemon-shape/{id}/ | 
 
 
-<a name="Invoke-PokemonShapeList"></a>
+<a id="Invoke-PokemonShapeList"></a>
 # **Invoke-PokemonShapeList**
 > String Invoke-PokemonShapeList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-PokemonShapeRead"></a>
+<a id="Invoke-PokemonShapeRead"></a>
 # **Invoke-PokemonShapeRead**
 > String Invoke-PokemonShapeRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

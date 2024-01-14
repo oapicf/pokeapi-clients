@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// RegionApiController binds http requests to an api service and writes the service results to the http response
-type RegionApiController struct {
-	service RegionApiServicer
+// RegionAPIController binds http requests to an api service and writes the service results to the http response
+type RegionAPIController struct {
+	service RegionAPIServicer
 	errorHandler ErrorHandler
 }
 
-// RegionApiOption for how the controller is set up.
-type RegionApiOption func(*RegionApiController)
+// RegionAPIOption for how the controller is set up.
+type RegionAPIOption func(*RegionAPIController)
 
-// WithRegionApiErrorHandler inject ErrorHandler into controller
-func WithRegionApiErrorHandler(h ErrorHandler) RegionApiOption {
-	return func(c *RegionApiController) {
+// WithRegionAPIErrorHandler inject ErrorHandler into controller
+func WithRegionAPIErrorHandler(h ErrorHandler) RegionAPIOption {
+	return func(c *RegionAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewRegionApiController creates a default api controller
-func NewRegionApiController(s RegionApiServicer, opts ...RegionApiOption) Router {
-	controller := &RegionApiController{
+// NewRegionAPIController creates a default api controller
+func NewRegionAPIController(s RegionAPIServicer, opts ...RegionAPIOption) Router {
+	controller := &RegionAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewRegionApiController(s RegionApiServicer, opts ...RegionApiOption) Router
 	return controller
 }
 
-// Routes returns all the api routes for the RegionApiController
-func (c *RegionApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"RegionList",
+// Routes returns all the api routes for the RegionAPIController
+func (c *RegionAPIController) Routes() Routes {
+	return Routes{
+		"RegionList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/region/",
 			c.RegionList,
 		},
-		{
-			"RegionRead",
+		"RegionRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/region/{id}/",
 			c.RegionRead,
@@ -67,17 +65,35 @@ func (c *RegionApiController) Routes() Routes {
 }
 
 // RegionList - 
-func (c *RegionApiController) RegionList(w http.ResponseWriter, r *http.Request) {
+func (c *RegionAPIController) RegionList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.RegionList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *RegionApiController) RegionList(w http.ResponseWriter, r *http.Request)
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // RegionRead - 
-func (c *RegionApiController) RegionRead(w http.ResponseWriter, r *http.Request) {
+func (c *RegionAPIController) RegionRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.RegionRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *RegionApiController) RegionRead(w http.ResponseWriter, r *http.Request)
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

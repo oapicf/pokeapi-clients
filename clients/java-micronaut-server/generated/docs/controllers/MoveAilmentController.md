@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**moveAilmentList**](#moveAilmentList) | **GET** /api/v2/move-ailment/ | 
 [**moveAilmentRead**](#moveAilmentRead) | **GET** /api/v2/move-ailment/{id}/ | 
 
-<a name="moveAilmentList"></a>
+<a id="moveAilmentList"></a>
 # **moveAilmentList**
 ```java
 Mono<String> MoveAilmentController.moveAilmentList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="moveAilmentRead"></a>
+<a id="moveAilmentRead"></a>
 # **moveAilmentRead**
 ```java
 Mono<String> MoveAilmentController.moveAilmentRead(id)

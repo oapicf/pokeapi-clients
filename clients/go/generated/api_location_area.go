@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// LocationAreaApiService LocationAreaApi service
-type LocationAreaApiService service
+// LocationAreaAPIService LocationAreaAPI service
+type LocationAreaAPIService service
 
 type ApiLocationAreaListRequest struct {
 	ctx context.Context
-	ApiService *LocationAreaApiService
+	ApiService *LocationAreaAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ LocationAreaList Method for LocationAreaList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiLocationAreaListRequest
 */
-func (a *LocationAreaApiService) LocationAreaList(ctx context.Context) ApiLocationAreaListRequest {
+func (a *LocationAreaAPIService) LocationAreaList(ctx context.Context) ApiLocationAreaListRequest {
 	return ApiLocationAreaListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *LocationAreaApiService) LocationAreaList(ctx context.Context) ApiLocati
 
 // Execute executes the request
 //  @return string
-func (a *LocationAreaApiService) LocationAreaListExecute(r ApiLocationAreaListRequest) (string, *http.Response, error) {
+func (a *LocationAreaAPIService) LocationAreaListExecute(r ApiLocationAreaListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *LocationAreaApiService) LocationAreaListExecute(r ApiLocationAreaListRe
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LocationAreaApiService.LocationAreaList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LocationAreaAPIService.LocationAreaList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *LocationAreaApiService) LocationAreaListExecute(r ApiLocationAreaListRe
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *LocationAreaApiService) LocationAreaListExecute(r ApiLocationAreaListRe
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *LocationAreaApiService) LocationAreaListExecute(r ApiLocationAreaListRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *LocationAreaApiService) LocationAreaListExecute(r ApiLocationAreaListRe
 
 type ApiLocationAreaReadRequest struct {
 	ctx context.Context
-	ApiService *LocationAreaApiService
+	ApiService *LocationAreaAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ LocationAreaRead Method for LocationAreaRead
  @param id
  @return ApiLocationAreaReadRequest
 */
-func (a *LocationAreaApiService) LocationAreaRead(ctx context.Context, id int32) ApiLocationAreaReadRequest {
+func (a *LocationAreaAPIService) LocationAreaRead(ctx context.Context, id int32) ApiLocationAreaReadRequest {
 	return ApiLocationAreaReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *LocationAreaApiService) LocationAreaRead(ctx context.Context, id int32)
 
 // Execute executes the request
 //  @return string
-func (a *LocationAreaApiService) LocationAreaReadExecute(r ApiLocationAreaReadRequest) (string, *http.Response, error) {
+func (a *LocationAreaAPIService) LocationAreaReadExecute(r ApiLocationAreaReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *LocationAreaApiService) LocationAreaReadExecute(r ApiLocationAreaReadRe
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LocationAreaApiService.LocationAreaRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LocationAreaAPIService.LocationAreaRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/location-area/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *LocationAreaApiService) LocationAreaReadExecute(r ApiLocationAreaReadRe
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *LocationAreaApiService) LocationAreaReadExecute(r ApiLocationAreaReadRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

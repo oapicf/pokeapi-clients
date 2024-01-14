@@ -20,15 +20,13 @@ module Api.Request.Region exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-regionList : Maybe Int -> Maybe Int -> Api.Request 
+regionList : Maybe Int -> Maybe Int -> Api.Request ()
 regionList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ regionList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-regionRead : Int -> Api.Request 
+regionRead : Int -> Api.Request ()
 regionRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ regionRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

@@ -1,11 +1,11 @@
-# \ItemPocketApi
+# \ItemPocketAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ItemPocketList**](ItemPocketApi.md#ItemPocketList) | **Get** /api/v2/item-pocket/ | 
-[**ItemPocketRead**](ItemPocketApi.md#ItemPocketRead) | **Get** /api/v2/item-pocket/{id}/ | 
+[**ItemPocketList**](ItemPocketAPI.md#ItemPocketList) | **Get** /api/v2/item-pocket/ | 
+[**ItemPocketRead**](ItemPocketAPI.md#ItemPocketRead) | **Get** /api/v2/item-pocket/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ItemPocketApi.ItemPocketList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ItemPocketApi.ItemPocketList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ItemPocketList`: string
-    fmt.Fprintf(os.Stdout, "Response from `ItemPocketApi.ItemPocketList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ItemPocketAPI.ItemPocketList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemPocketAPI.ItemPocketList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ItemPocketList`: string
+	fmt.Fprintf(os.Stdout, "Response from `ItemPocketAPI.ItemPocketList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ItemPocketApi.ItemPocketRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ItemPocketApi.ItemPocketRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ItemPocketRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `ItemPocketApi.ItemPocketRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ItemPocketAPI.ItemPocketRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemPocketAPI.ItemPocketRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ItemPocketRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `ItemPocketAPI.ItemPocketRead`: %v\n", resp)
 }
 ```
 

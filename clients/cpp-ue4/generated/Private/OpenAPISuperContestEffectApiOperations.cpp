@@ -70,7 +70,7 @@ bool OpenAPISuperContestEffectApi::SuperContestEffectListResponse::FromJson(cons
 FString OpenAPISuperContestEffectApi::SuperContestEffectReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/super-contest-effect/{id}/"), PathParams);
 

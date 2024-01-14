@@ -52,8 +52,12 @@ interface LanguageApiInterface
      *
      * @return array|object|null
      */
-    public function languageList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function languageList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation languageRead
@@ -64,6 +68,9 @@ interface LanguageApiInterface
      *
      * @return array|object|null
      */
-    public function languageRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function languageRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

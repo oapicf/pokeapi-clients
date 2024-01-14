@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// BerryFirmnessApiController binds http requests to an api service and writes the service results to the http response
-type BerryFirmnessApiController struct {
-	service BerryFirmnessApiServicer
+// BerryFirmnessAPIController binds http requests to an api service and writes the service results to the http response
+type BerryFirmnessAPIController struct {
+	service BerryFirmnessAPIServicer
 	errorHandler ErrorHandler
 }
 
-// BerryFirmnessApiOption for how the controller is set up.
-type BerryFirmnessApiOption func(*BerryFirmnessApiController)
+// BerryFirmnessAPIOption for how the controller is set up.
+type BerryFirmnessAPIOption func(*BerryFirmnessAPIController)
 
-// WithBerryFirmnessApiErrorHandler inject ErrorHandler into controller
-func WithBerryFirmnessApiErrorHandler(h ErrorHandler) BerryFirmnessApiOption {
-	return func(c *BerryFirmnessApiController) {
+// WithBerryFirmnessAPIErrorHandler inject ErrorHandler into controller
+func WithBerryFirmnessAPIErrorHandler(h ErrorHandler) BerryFirmnessAPIOption {
+	return func(c *BerryFirmnessAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewBerryFirmnessApiController creates a default api controller
-func NewBerryFirmnessApiController(s BerryFirmnessApiServicer, opts ...BerryFirmnessApiOption) Router {
-	controller := &BerryFirmnessApiController{
+// NewBerryFirmnessAPIController creates a default api controller
+func NewBerryFirmnessAPIController(s BerryFirmnessAPIServicer, opts ...BerryFirmnessAPIOption) Router {
+	controller := &BerryFirmnessAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewBerryFirmnessApiController(s BerryFirmnessApiServicer, opts ...BerryFirm
 	return controller
 }
 
-// Routes returns all the api routes for the BerryFirmnessApiController
-func (c *BerryFirmnessApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"BerryFirmnessList",
+// Routes returns all the api routes for the BerryFirmnessAPIController
+func (c *BerryFirmnessAPIController) Routes() Routes {
+	return Routes{
+		"BerryFirmnessList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/berry-firmness/",
 			c.BerryFirmnessList,
 		},
-		{
-			"BerryFirmnessRead",
+		"BerryFirmnessRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/berry-firmness/{id}/",
 			c.BerryFirmnessRead,
@@ -67,17 +65,35 @@ func (c *BerryFirmnessApiController) Routes() Routes {
 }
 
 // BerryFirmnessList - 
-func (c *BerryFirmnessApiController) BerryFirmnessList(w http.ResponseWriter, r *http.Request) {
+func (c *BerryFirmnessAPIController) BerryFirmnessList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.BerryFirmnessList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *BerryFirmnessApiController) BerryFirmnessList(w http.ResponseWriter, r 
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // BerryFirmnessRead - 
-func (c *BerryFirmnessApiController) BerryFirmnessRead(w http.ResponseWriter, r *http.Request) {
+func (c *BerryFirmnessAPIController) BerryFirmnessRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.BerryFirmnessRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *BerryFirmnessApiController) BerryFirmnessRead(w http.ResponseWriter, r 
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

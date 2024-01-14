@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**berryFirmnessRead**](BerryFirmnessApi.md#berryFirmnessRead) | **GET** /api/v2/berry-firmness/{id}/ | 
 
 
-<a name="berryFirmnessList"></a>
+<a id="berryFirmnessList"></a>
 # **berryFirmnessList**
 > kotlin.String berryFirmnessList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="berryFirmnessRead"></a>
+<a id="berryFirmnessRead"></a>
 # **berryFirmnessRead**
 > kotlin.String berryFirmnessRead(id)
 

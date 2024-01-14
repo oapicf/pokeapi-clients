@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.PalParkAreaApi
+# PSOpenAPITools.PSOpenAPITools\Api.PalParkAreaApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-PalParkAreaRead**](PalParkAreaApi.md#Invoke-PalParkAreaRead) | **GET** /api/v2/pal-park-area/{id}/ | 
 
 
-<a name="Invoke-PalParkAreaList"></a>
+<a id="Invoke-PalParkAreaList"></a>
 # **Invoke-PalParkAreaList**
 > String Invoke-PalParkAreaList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-PalParkAreaRead"></a>
+<a id="Invoke-PalParkAreaRead"></a>
 # **Invoke-PalParkAreaRead**
 > String Invoke-PalParkAreaRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

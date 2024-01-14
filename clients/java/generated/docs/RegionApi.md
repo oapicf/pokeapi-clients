@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**regionRead**](RegionApi.md#regionRead) | **GET** /api/v2/region/{id}/ |  |
 
 
-<a name="regionList"></a>
+<a id="regionList"></a>
 # **regionList**
 > String regionList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="regionRead"></a>
+<a id="regionRead"></a>
 # **regionRead**
 > String regionRead(id)
 

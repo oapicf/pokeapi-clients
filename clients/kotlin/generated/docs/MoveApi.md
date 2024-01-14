@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**moveRead**](MoveApi.md#moveRead) | **GET** /api/v2/move/{id}/ | 
 
 
-<a name="moveList"></a>
+<a id="moveList"></a>
 # **moveList**
 > kotlin.String moveList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="moveRead"></a>
+<a id="moveRead"></a>
 # **moveRead**
 > kotlin.String moveRead(id)
 

@@ -8,10 +8,10 @@
 
 
 char*
-ContestTypeAPI_contestTypeList(apiClient_t *apiClient, int limit , int offset );
+ContestTypeAPI_contestTypeList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-ContestTypeAPI_contestTypeRead(apiClient_t *apiClient, int id );
+ContestTypeAPI_contestTypeRead(apiClient_t *apiClient, int *id);
 
 

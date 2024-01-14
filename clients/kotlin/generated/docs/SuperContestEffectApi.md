@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**superContestEffectRead**](SuperContestEffectApi.md#superContestEffectRead) | **GET** /api/v2/super-contest-effect/{id}/ | 
 
 
-<a name="superContestEffectList"></a>
+<a id="superContestEffectList"></a>
 # **superContestEffectList**
 > kotlin.String superContestEffectList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="superContestEffectRead"></a>
+<a id="superContestEffectRead"></a>
 # **superContestEffectRead**
 > kotlin.String superContestEffectRead(id)
 

@@ -56,7 +56,7 @@ bool OpenAPIPalParkAreaApi::IsValid() const
 
 void OpenAPIPalParkAreaApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

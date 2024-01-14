@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// ItemPocketApiService ItemPocketApi service
-type ItemPocketApiService service
+// ItemPocketAPIService ItemPocketAPI service
+type ItemPocketAPIService service
 
 type ApiItemPocketListRequest struct {
 	ctx context.Context
-	ApiService *ItemPocketApiService
+	ApiService *ItemPocketAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ ItemPocketList Method for ItemPocketList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiItemPocketListRequest
 */
-func (a *ItemPocketApiService) ItemPocketList(ctx context.Context) ApiItemPocketListRequest {
+func (a *ItemPocketAPIService) ItemPocketList(ctx context.Context) ApiItemPocketListRequest {
 	return ApiItemPocketListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *ItemPocketApiService) ItemPocketList(ctx context.Context) ApiItemPocket
 
 // Execute executes the request
 //  @return string
-func (a *ItemPocketApiService) ItemPocketListExecute(r ApiItemPocketListRequest) (string, *http.Response, error) {
+func (a *ItemPocketAPIService) ItemPocketListExecute(r ApiItemPocketListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *ItemPocketApiService) ItemPocketListExecute(r ApiItemPocketListRequest)
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemPocketApiService.ItemPocketList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemPocketAPIService.ItemPocketList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *ItemPocketApiService) ItemPocketListExecute(r ApiItemPocketListRequest)
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *ItemPocketApiService) ItemPocketListExecute(r ApiItemPocketListRequest)
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *ItemPocketApiService) ItemPocketListExecute(r ApiItemPocketListRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *ItemPocketApiService) ItemPocketListExecute(r ApiItemPocketListRequest)
 
 type ApiItemPocketReadRequest struct {
 	ctx context.Context
-	ApiService *ItemPocketApiService
+	ApiService *ItemPocketAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ ItemPocketRead Method for ItemPocketRead
  @param id
  @return ApiItemPocketReadRequest
 */
-func (a *ItemPocketApiService) ItemPocketRead(ctx context.Context, id int32) ApiItemPocketReadRequest {
+func (a *ItemPocketAPIService) ItemPocketRead(ctx context.Context, id int32) ApiItemPocketReadRequest {
 	return ApiItemPocketReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *ItemPocketApiService) ItemPocketRead(ctx context.Context, id int32) Api
 
 // Execute executes the request
 //  @return string
-func (a *ItemPocketApiService) ItemPocketReadExecute(r ApiItemPocketReadRequest) (string, *http.Response, error) {
+func (a *ItemPocketAPIService) ItemPocketReadExecute(r ApiItemPocketReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *ItemPocketApiService) ItemPocketReadExecute(r ApiItemPocketReadRequest)
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemPocketApiService.ItemPocketRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemPocketAPIService.ItemPocketRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/item-pocket/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *ItemPocketApiService) ItemPocketReadExecute(r ApiItemPocketReadRequest)
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *ItemPocketApiService) ItemPocketReadExecute(r ApiItemPocketReadRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

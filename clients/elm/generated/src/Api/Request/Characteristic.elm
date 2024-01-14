@@ -20,15 +20,13 @@ module Api.Request.Characteristic exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-characteristicList : Maybe Int -> Maybe Int -> Api.Request 
+characteristicList : Maybe Int -> Maybe Int -> Api.Request ()
 characteristicList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ characteristicList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-characteristicRead : Int -> Api.Request 
+characteristicRead : Int -> Api.Request ()
 characteristicRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ characteristicRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

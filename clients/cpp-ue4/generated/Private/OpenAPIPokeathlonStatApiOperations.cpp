@@ -70,7 +70,7 @@ bool OpenAPIPokeathlonStatApi::PokeathlonStatListResponse::FromJson(const TShare
 FString OpenAPIPokeathlonStatApi::PokeathlonStatReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/pokeathlon-stat/{id}/"), PathParams);
 

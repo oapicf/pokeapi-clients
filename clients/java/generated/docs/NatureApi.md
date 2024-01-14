@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**natureRead**](NatureApi.md#natureRead) | **GET** /api/v2/nature/{id}/ |  |
 
 
-<a name="natureList"></a>
+<a id="natureList"></a>
 # **natureList**
 > String natureList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="natureRead"></a>
+<a id="natureRead"></a>
 # **natureRead**
 > String natureRead(id)
 

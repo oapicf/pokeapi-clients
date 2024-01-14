@@ -5,7 +5,7 @@ import javax.inject.{Inject, Singleton}
 import play.api.libs.json._
 import play.api.mvc._
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2022-11-19T09:53:38.763724Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-01-14T06:35:11.305578675Z[Etc/UTC]")
 @Singleton
 class AbilityApiController @Inject()(cc: ControllerComponents, api: AbilityApi) extends AbstractController(cc) {
   /**
@@ -15,8 +15,10 @@ class AbilityApiController @Inject()(cc: ControllerComponents, api: AbilityApi) 
     def executeApi(): String = {
       val limit = request.getQueryString("limit")
         .map(value => value.toInt)
+        
       val offset = request.getQueryString("offset")
         .map(value => value.toInt)
+        
       api.abilityList(limit, offset)
     }
 

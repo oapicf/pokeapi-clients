@@ -8,10 +8,10 @@
 
 
 char*
-MachineAPI_machineList(apiClient_t *apiClient, int limit , int offset );
+MachineAPI_machineList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-MachineAPI_machineRead(apiClient_t *apiClient, int id );
+MachineAPI_machineRead(apiClient_t *apiClient, int *id);
 
 

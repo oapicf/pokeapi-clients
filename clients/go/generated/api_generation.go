@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// GenerationApiService GenerationApi service
-type GenerationApiService service
+// GenerationAPIService GenerationAPI service
+type GenerationAPIService service
 
 type ApiGenerationListRequest struct {
 	ctx context.Context
-	ApiService *GenerationApiService
+	ApiService *GenerationAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ GenerationList Method for GenerationList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGenerationListRequest
 */
-func (a *GenerationApiService) GenerationList(ctx context.Context) ApiGenerationListRequest {
+func (a *GenerationAPIService) GenerationList(ctx context.Context) ApiGenerationListRequest {
 	return ApiGenerationListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *GenerationApiService) GenerationList(ctx context.Context) ApiGeneration
 
 // Execute executes the request
 //  @return string
-func (a *GenerationApiService) GenerationListExecute(r ApiGenerationListRequest) (string, *http.Response, error) {
+func (a *GenerationAPIService) GenerationListExecute(r ApiGenerationListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *GenerationApiService) GenerationListExecute(r ApiGenerationListRequest)
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GenerationApiService.GenerationList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GenerationAPIService.GenerationList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *GenerationApiService) GenerationListExecute(r ApiGenerationListRequest)
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *GenerationApiService) GenerationListExecute(r ApiGenerationListRequest)
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *GenerationApiService) GenerationListExecute(r ApiGenerationListRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *GenerationApiService) GenerationListExecute(r ApiGenerationListRequest)
 
 type ApiGenerationReadRequest struct {
 	ctx context.Context
-	ApiService *GenerationApiService
+	ApiService *GenerationAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ GenerationRead Method for GenerationRead
  @param id
  @return ApiGenerationReadRequest
 */
-func (a *GenerationApiService) GenerationRead(ctx context.Context, id int32) ApiGenerationReadRequest {
+func (a *GenerationAPIService) GenerationRead(ctx context.Context, id int32) ApiGenerationReadRequest {
 	return ApiGenerationReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *GenerationApiService) GenerationRead(ctx context.Context, id int32) Api
 
 // Execute executes the request
 //  @return string
-func (a *GenerationApiService) GenerationReadExecute(r ApiGenerationReadRequest) (string, *http.Response, error) {
+func (a *GenerationAPIService) GenerationReadExecute(r ApiGenerationReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *GenerationApiService) GenerationReadExecute(r ApiGenerationReadRequest)
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GenerationApiService.GenerationRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GenerationAPIService.GenerationRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/generation/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *GenerationApiService) GenerationReadExecute(r ApiGenerationReadRequest)
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *GenerationApiService) GenerationReadExecute(r ApiGenerationReadRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

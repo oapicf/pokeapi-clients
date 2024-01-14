@@ -19,6 +19,8 @@
 #define PokemonShapeApi_H_
 
 
+#include "ApiBase.h"
+
 #include <pistache/http.h>
 #include <pistache/router.h>
 #include <pistache/http_headers.h>
@@ -31,11 +33,11 @@
 namespace org::openapitools::server::api
 {
 
-class  PokemonShapeApi {
+class  PokemonShapeApi : public ApiBase {
 public:
     explicit PokemonShapeApi(const std::shared_ptr<Pistache::Rest::Router>& rtr);
-    virtual ~PokemonShapeApi() = default;
-    void init();
+    ~PokemonShapeApi() override = default;
+    void init() override;
 
     static const std::string base;
 
@@ -45,8 +47,6 @@ private:
     void pokemon_shape_list_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
     void pokemon_shape_read_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
     void pokemon_shape_api_default_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
-
-    const std::shared_ptr<Pistache::Rest::Router> router;
 
     /// <summary>
     /// Helper function to handle unexpected Exceptions during Parameter parsing and validation.

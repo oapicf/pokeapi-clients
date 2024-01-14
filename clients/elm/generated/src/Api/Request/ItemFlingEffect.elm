@@ -20,15 +20,13 @@ module Api.Request.ItemFlingEffect exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-itemFlingEffectList : Maybe Int -> Maybe Int -> Api.Request 
+itemFlingEffectList : Maybe Int -> Maybe Int -> Api.Request ()
 itemFlingEffectList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ itemFlingEffectList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-itemFlingEffectRead : Int -> Api.Request 
+itemFlingEffectRead : Int -> Api.Request ()
 itemFlingEffectRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ itemFlingEffectRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

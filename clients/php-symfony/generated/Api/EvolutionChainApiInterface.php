@@ -52,8 +52,12 @@ interface EvolutionChainApiInterface
      *
      * @return array|object|null
      */
-    public function evolutionChainList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function evolutionChainList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation evolutionChainRead
@@ -64,6 +68,9 @@ interface EvolutionChainApiInterface
      *
      * @return array|object|null
      */
-    public function evolutionChainRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function evolutionChainRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

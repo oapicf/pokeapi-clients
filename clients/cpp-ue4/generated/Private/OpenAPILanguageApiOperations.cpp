@@ -70,7 +70,7 @@ bool OpenAPILanguageApi::LanguageListResponse::FromJson(const TSharedPtr<FJsonVa
 FString OpenAPILanguageApi::LanguageReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/language/{id}/"), PathParams);
 

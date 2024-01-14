@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.MachineApi
+# PSOpenAPITools.PSOpenAPITools\Api.MachineApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-MachineRead**](MachineApi.md#Invoke-MachineRead) | **GET** /api/v2/machine/{id}/ | 
 
 
-<a name="Invoke-MachineList"></a>
+<a id="Invoke-MachineList"></a>
 # **Invoke-MachineList**
 > String Invoke-MachineList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-MachineRead"></a>
+<a id="Invoke-MachineRead"></a>
 # **Invoke-MachineRead**
 > String Invoke-MachineRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

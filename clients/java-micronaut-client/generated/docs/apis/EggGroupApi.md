@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="eggGroupList"></a>
+<a id="eggGroupList"></a>
 # **eggGroupList**
 ```java
 Mono<String> EggGroupApi.eggGroupList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> EggGroupApi.eggGroupList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="eggGroupRead"></a>
+<a id="eggGroupRead"></a>
 # **eggGroupRead**
 ```java
 Mono<String> EggGroupApi.eggGroupRead(id)

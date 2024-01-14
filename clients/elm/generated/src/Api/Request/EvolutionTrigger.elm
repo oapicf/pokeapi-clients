@@ -20,15 +20,13 @@ module Api.Request.EvolutionTrigger exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-evolutionTriggerList : Maybe Int -> Maybe Int -> Api.Request 
+evolutionTriggerList : Maybe Int -> Maybe Int -> Api.Request ()
 evolutionTriggerList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ evolutionTriggerList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-evolutionTriggerRead : Int -> Api.Request 
+evolutionTriggerRead : Int -> Api.Request ()
 evolutionTriggerRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ evolutionTriggerRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

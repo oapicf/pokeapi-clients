@@ -52,8 +52,12 @@ interface PokedexApiInterface
      *
      * @return array|object|null
      */
-    public function pokedexList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function pokedexList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation pokedexRead
@@ -64,6 +68,9 @@ interface PokedexApiInterface
      *
      * @return array|object|null
      */
-    public function pokedexRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function pokedexRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

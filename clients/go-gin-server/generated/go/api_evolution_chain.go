@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// EvolutionChainList - 
-func EvolutionChainList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type EvolutionChainAPI struct {
 }
 
-// EvolutionChainRead - 
-func EvolutionChainRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/evolution-chain/
+func (api *EvolutionChainAPI) EvolutionChainList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/evolution-chain/:id/
+func (api *EvolutionChainAPI) EvolutionChainRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

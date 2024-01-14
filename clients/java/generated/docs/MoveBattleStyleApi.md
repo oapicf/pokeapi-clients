@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**moveBattleStyleRead**](MoveBattleStyleApi.md#moveBattleStyleRead) | **GET** /api/v2/move-battle-style/{id}/ |  |
 
 
-<a name="moveBattleStyleList"></a>
+<a id="moveBattleStyleList"></a>
 # **moveBattleStyleList**
 > String moveBattleStyleList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="moveBattleStyleRead"></a>
+<a id="moveBattleStyleRead"></a>
 # **moveBattleStyleRead**
 > String moveBattleStyleRead(id)
 

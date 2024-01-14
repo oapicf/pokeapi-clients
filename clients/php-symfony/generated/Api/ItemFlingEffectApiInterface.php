@@ -52,8 +52,12 @@ interface ItemFlingEffectApiInterface
      *
      * @return array|object|null
      */
-    public function itemFlingEffectList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function itemFlingEffectList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation itemFlingEffectRead
@@ -64,6 +68,9 @@ interface ItemFlingEffectApiInterface
      *
      * @return array|object|null
      */
-    public function itemFlingEffectRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function itemFlingEffectRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

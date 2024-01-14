@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class PokemonShapeApiImpl : public org::openapitools::server::api::PokemonShapeApi {
+class  PokemonShapeApiImpl : public org::openapitools::server::api::PokemonShapeApi {
 public:
     explicit PokemonShapeApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~PokemonShapeApiImpl() override = default;

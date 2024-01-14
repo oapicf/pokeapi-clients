@@ -1,11 +1,11 @@
-# \PokemonShapeApi
+# \PokemonShapeAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PokemonShapeList**](PokemonShapeApi.md#PokemonShapeList) | **Get** /api/v2/pokemon-shape/ | 
-[**PokemonShapeRead**](PokemonShapeApi.md#PokemonShapeRead) | **Get** /api/v2/pokemon-shape/{id}/ | 
+[**PokemonShapeList**](PokemonShapeAPI.md#PokemonShapeList) | **Get** /api/v2/pokemon-shape/ | 
+[**PokemonShapeRead**](PokemonShapeAPI.md#PokemonShapeRead) | **Get** /api/v2/pokemon-shape/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PokemonShapeApi.PokemonShapeList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PokemonShapeApi.PokemonShapeList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PokemonShapeList`: string
-    fmt.Fprintf(os.Stdout, "Response from `PokemonShapeApi.PokemonShapeList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PokemonShapeAPI.PokemonShapeList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PokemonShapeAPI.PokemonShapeList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PokemonShapeList`: string
+	fmt.Fprintf(os.Stdout, "Response from `PokemonShapeAPI.PokemonShapeList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PokemonShapeApi.PokemonShapeRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PokemonShapeApi.PokemonShapeRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PokemonShapeRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `PokemonShapeApi.PokemonShapeRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PokemonShapeAPI.PokemonShapeRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PokemonShapeAPI.PokemonShapeRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PokemonShapeRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `PokemonShapeAPI.PokemonShapeRead`: %v\n", resp)
 }
 ```
 

@@ -2,21 +2,18 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**MoveLearnMethodList**](MoveLearnMethodApi.md#movelearnmethodlist) | **GET** /api/v2/move-learn-method/ | 
-[**MoveLearnMethodRead**](MoveLearnMethodApi.md#movelearnmethodread) | **GET** /api/v2/move-learn-method/{id}/ | 
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**MoveLearnMethodList**](MoveLearnMethodApi.md#movelearnmethodlist) | **GET** /api/v2/move-learn-method/ |  |
+| [**MoveLearnMethodRead**](MoveLearnMethodApi.md#movelearnmethodread) | **GET** /api/v2/move-learn-method/{id}/ |  |
 
-
-
-## MoveLearnMethodList
-
+<a id="movelearnmethodlist"></a>
+# **MoveLearnMethodList**
 > string MoveLearnMethodList (int? limit = null, int? offset = null)
 
 
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -30,8 +27,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://pokeapi.co";
-            var apiInstance = new MoveLearnMethodApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://pokeapi.co";
+            var apiInstance = new MoveLearnMethodApi(config);
             var limit = 56;  // int? |  (optional) 
             var offset = 56;  // int? |  (optional) 
 
@@ -40,10 +38,10 @@ namespace Example
                 string result = apiInstance.MoveLearnMethodList(limit, offset);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MoveLearnMethodApi.MoveLearnMethodList: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling MoveLearnMethodApi.MoveLearnMethodList: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -51,13 +49,31 @@ namespace Example
 }
 ```
 
+#### Using the MoveLearnMethodListWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<string> response = apiInstance.MoveLearnMethodListWithHttpInfo(limit, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MoveLearnMethodApi.MoveLearnMethodListWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int?**|  | [optional] 
- **offset** | **int?**|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int?** |  | [optional]  |
+| **offset** | **int?** |  | [optional]  |
 
 ### Return type
 
@@ -69,8 +85,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain
 
 
 ### HTTP response details
@@ -78,20 +94,15 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## MoveLearnMethodRead
-
+<a id="movelearnmethodread"></a>
+# **MoveLearnMethodRead**
 > string MoveLearnMethodRead (int id)
 
 
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -105,8 +116,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://pokeapi.co";
-            var apiInstance = new MoveLearnMethodApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://pokeapi.co";
+            var apiInstance = new MoveLearnMethodApi(config);
             var id = 56;  // int | 
 
             try
@@ -114,10 +126,10 @@ namespace Example
                 string result = apiInstance.MoveLearnMethodRead(id);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MoveLearnMethodApi.MoveLearnMethodRead: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling MoveLearnMethodApi.MoveLearnMethodRead: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -125,12 +137,30 @@ namespace Example
 }
 ```
 
+#### Using the MoveLearnMethodReadWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<string> response = apiInstance.MoveLearnMethodReadWithHttpInfo(id);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MoveLearnMethodApi.MoveLearnMethodReadWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** |  |  |
 
 ### Return type
 
@@ -142,8 +172,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain
 
 
 ### HTTP response details
@@ -151,8 +181,5 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

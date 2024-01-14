@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// AbilityApiController binds http requests to an api service and writes the service results to the http response
-type AbilityApiController struct {
-	service AbilityApiServicer
+// AbilityAPIController binds http requests to an api service and writes the service results to the http response
+type AbilityAPIController struct {
+	service AbilityAPIServicer
 	errorHandler ErrorHandler
 }
 
-// AbilityApiOption for how the controller is set up.
-type AbilityApiOption func(*AbilityApiController)
+// AbilityAPIOption for how the controller is set up.
+type AbilityAPIOption func(*AbilityAPIController)
 
-// WithAbilityApiErrorHandler inject ErrorHandler into controller
-func WithAbilityApiErrorHandler(h ErrorHandler) AbilityApiOption {
-	return func(c *AbilityApiController) {
+// WithAbilityAPIErrorHandler inject ErrorHandler into controller
+func WithAbilityAPIErrorHandler(h ErrorHandler) AbilityAPIOption {
+	return func(c *AbilityAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewAbilityApiController creates a default api controller
-func NewAbilityApiController(s AbilityApiServicer, opts ...AbilityApiOption) Router {
-	controller := &AbilityApiController{
+// NewAbilityAPIController creates a default api controller
+func NewAbilityAPIController(s AbilityAPIServicer, opts ...AbilityAPIOption) Router {
+	controller := &AbilityAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewAbilityApiController(s AbilityApiServicer, opts ...AbilityApiOption) Rou
 	return controller
 }
 
-// Routes returns all the api routes for the AbilityApiController
-func (c *AbilityApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"AbilityList",
+// Routes returns all the api routes for the AbilityAPIController
+func (c *AbilityAPIController) Routes() Routes {
+	return Routes{
+		"AbilityList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/ability/",
 			c.AbilityList,
 		},
-		{
-			"AbilityRead",
+		"AbilityRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/ability/{id}/",
 			c.AbilityRead,
@@ -67,17 +65,35 @@ func (c *AbilityApiController) Routes() Routes {
 }
 
 // AbilityList - 
-func (c *AbilityApiController) AbilityList(w http.ResponseWriter, r *http.Request) {
+func (c *AbilityAPIController) AbilityList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.AbilityList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *AbilityApiController) AbilityList(w http.ResponseWriter, r *http.Reques
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // AbilityRead - 
-func (c *AbilityApiController) AbilityRead(w http.ResponseWriter, r *http.Request) {
+func (c *AbilityAPIController) AbilityRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.AbilityRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *AbilityApiController) AbilityRead(w http.ResponseWriter, r *http.Reques
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// StatApiService StatApi service
-type StatApiService service
+// StatAPIService StatAPI service
+type StatAPIService service
 
 type ApiStatListRequest struct {
 	ctx context.Context
-	ApiService *StatApiService
+	ApiService *StatAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ StatList Method for StatList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiStatListRequest
 */
-func (a *StatApiService) StatList(ctx context.Context) ApiStatListRequest {
+func (a *StatAPIService) StatList(ctx context.Context) ApiStatListRequest {
 	return ApiStatListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *StatApiService) StatList(ctx context.Context) ApiStatListRequest {
 
 // Execute executes the request
 //  @return string
-func (a *StatApiService) StatListExecute(r ApiStatListRequest) (string, *http.Response, error) {
+func (a *StatAPIService) StatListExecute(r ApiStatListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *StatApiService) StatListExecute(r ApiStatListRequest) (string, *http.Re
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatApiService.StatList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatAPIService.StatList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *StatApiService) StatListExecute(r ApiStatListRequest) (string, *http.Re
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *StatApiService) StatListExecute(r ApiStatListRequest) (string, *http.Re
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *StatApiService) StatListExecute(r ApiStatListRequest) (string, *http.Re
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *StatApiService) StatListExecute(r ApiStatListRequest) (string, *http.Re
 
 type ApiStatReadRequest struct {
 	ctx context.Context
-	ApiService *StatApiService
+	ApiService *StatAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ StatRead Method for StatRead
  @param id
  @return ApiStatReadRequest
 */
-func (a *StatApiService) StatRead(ctx context.Context, id int32) ApiStatReadRequest {
+func (a *StatAPIService) StatRead(ctx context.Context, id int32) ApiStatReadRequest {
 	return ApiStatReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *StatApiService) StatRead(ctx context.Context, id int32) ApiStatReadRequ
 
 // Execute executes the request
 //  @return string
-func (a *StatApiService) StatReadExecute(r ApiStatReadRequest) (string, *http.Response, error) {
+func (a *StatAPIService) StatReadExecute(r ApiStatReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *StatApiService) StatReadExecute(r ApiStatReadRequest) (string, *http.Re
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatApiService.StatRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatAPIService.StatRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/stat/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *StatApiService) StatReadExecute(r ApiStatReadRequest) (string, *http.Re
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *StatApiService) StatReadExecute(r ApiStatReadRequest) (string, *http.Re
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

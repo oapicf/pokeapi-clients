@@ -56,7 +56,7 @@ bool OpenAPIBerryFirmnessApi::IsValid() const
 
 void OpenAPIBerryFirmnessApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

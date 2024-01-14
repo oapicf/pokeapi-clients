@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**contestTypeRead**](ContestTypeApi.md#contestTypeRead) | **GET** /api/v2/contest-type/{id}/ | 
 
 
-<a name="contestTypeList"></a>
+<a id="contestTypeList"></a>
 # **contestTypeList**
 > kotlin.String contestTypeList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="contestTypeRead"></a>
+<a id="contestTypeRead"></a>
 # **contestTypeRead**
 > kotlin.String contestTypeRead(id)
 

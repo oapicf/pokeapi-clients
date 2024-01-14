@@ -72,8 +72,8 @@ class ItemFlingEffectApiSimulation extends Simulation {
         .feed(item-fling-effect_listQUERYFeeder)
         .exec(http("itemFlingEffectList")
         .httpRequest("GET","/api/v2/item-fling-effect/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnitemFlingEffectList with warm up and reach a constant rate for entire duration

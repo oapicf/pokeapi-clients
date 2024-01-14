@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.MoveCategoryApi
+# PSOpenAPITools.PSOpenAPITools\Api.MoveCategoryApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Move-CategoryRead**](MoveCategoryApi.md#Move-CategoryRead) | **GET** /api/v2/move-category/{id}/ | 
 
 
-<a name="Move-CategoryList"></a>
+<a id="Move-CategoryList"></a>
 # **Move-CategoryList**
 > String Move-CategoryList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Move-CategoryRead"></a>
+<a id="Move-CategoryRead"></a>
 # **Move-CategoryRead**
 > String Move-CategoryRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

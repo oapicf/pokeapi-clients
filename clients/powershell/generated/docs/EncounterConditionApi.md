@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.EncounterConditionApi
+# PSOpenAPITools.PSOpenAPITools\Api.EncounterConditionApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-EncounterConditionRead**](EncounterConditionApi.md#Invoke-EncounterConditionRead) | **GET** /api/v2/encounter-condition/{id}/ | 
 
 
-<a name="Invoke-EncounterConditionList"></a>
+<a id="Invoke-EncounterConditionList"></a>
 # **Invoke-EncounterConditionList**
 > String Invoke-EncounterConditionList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-EncounterConditionRead"></a>
+<a id="Invoke-EncounterConditionRead"></a>
 # **Invoke-EncounterConditionRead**
 > String Invoke-EncounterConditionRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

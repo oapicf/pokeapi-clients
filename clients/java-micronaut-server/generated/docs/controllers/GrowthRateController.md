@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**growthRateList**](#growthRateList) | **GET** /api/v2/growth-rate/ | 
 [**growthRateRead**](#growthRateRead) | **GET** /api/v2/growth-rate/{id}/ | 
 
-<a name="growthRateList"></a>
+<a id="growthRateList"></a>
 # **growthRateList**
 ```java
 Mono<String> GrowthRateController.growthRateList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="growthRateRead"></a>
+<a id="growthRateRead"></a>
 # **growthRateRead**
 ```java
 Mono<String> GrowthRateController.growthRateRead(id)

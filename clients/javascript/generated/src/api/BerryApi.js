@@ -43,8 +43,8 @@ export default class BerryApi {
 
     /**
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.limit 
-     * @param {Number} opts.offset 
+     * @param {Number} [limit] 
+     * @param {Number} [offset] 
      * @param {module:api/BerryApi~berryListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
      */

@@ -70,7 +70,7 @@ bool OpenAPIPalParkAreaApi::PalParkAreaListResponse::FromJson(const TSharedPtr<F
 FString OpenAPIPalParkAreaApi::PalParkAreaReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/pal-park-area/{id}/"), PathParams);
 

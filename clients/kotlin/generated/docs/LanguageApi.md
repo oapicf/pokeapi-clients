@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**languageRead**](LanguageApi.md#languageRead) | **GET** /api/v2/language/{id}/ | 
 
 
-<a name="languageList"></a>
+<a id="languageList"></a>
 # **languageList**
 > kotlin.String languageList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="languageRead"></a>
+<a id="languageRead"></a>
 # **languageRead**
 > kotlin.String languageRead(id)
 

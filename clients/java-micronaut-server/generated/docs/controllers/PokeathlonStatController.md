@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**pokeathlonStatList**](#pokeathlonStatList) | **GET** /api/v2/pokeathlon-stat/ | 
 [**pokeathlonStatRead**](#pokeathlonStatRead) | **GET** /api/v2/pokeathlon-stat/{id}/ | 
 
-<a name="pokeathlonStatList"></a>
+<a id="pokeathlonStatList"></a>
 # **pokeathlonStatList**
 ```java
 Mono<String> PokeathlonStatController.pokeathlonStatList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="pokeathlonStatRead"></a>
+<a id="pokeathlonStatRead"></a>
 # **pokeathlonStatRead**
 ```java
 Mono<String> PokeathlonStatController.pokeathlonStatRead(id)

@@ -19,22 +19,22 @@ import (
 // Route is the information for every URI.
 type Route struct {
 	// Name is the name of this Route.
-	Name        string
+	Name		string
 	// Method is the string for the HTTP method. ex) GET, POST etc..
-	Method      string
+	Method		string
 	// Pattern is the pattern of the URI.
-	Pattern     string
+	Pattern	 	string
 	// HandlerFunc is the handler function of this route.
-	HandlerFunc gin.HandlerFunc
+	HandlerFunc	gin.HandlerFunc
 }
 
-// Routes is the list of the generated Route.
-type Routes []Route
-
 // NewRouter returns a new router.
-func NewRouter() *gin.Engine {
+func NewRouter(handleFunctions ApiHandleFunctions) *gin.Engine {
 	router := gin.Default()
-	for _, route := range routes {
+	for _, route := range getRoutes(handleFunctions) {
+		if route.HandlerFunc == nil {
+			route.HandlerFunc = DefaultHandleFunc
+		}
 		switch route.Method {
 		case http.MethodGet:
 			router.GET(route.Pattern, route.HandlerFunc)
@@ -52,688 +52,688 @@ func NewRouter() *gin.Engine {
 	return router
 }
 
-// Index is the index handler.
-func Index(c *gin.Context) {
-	c.String(http.StatusOK, "Hello World!")
+// Default handler for not yet implemented routes
+func DefaultHandleFunc(c *gin.Context) {
+	c.String(http.StatusNotImplemented, "501 not implemented")
 }
 
-var routes = Routes{
-	{
-		"Index",
-		http.MethodGet,
-		"/",
-		Index,
-	},
-
-	{
-		"AbilityList",
-		http.MethodGet,
-		"/api/v2/ability/",
-		AbilityList,
-	},
-
-	{
-		"AbilityRead",
-		http.MethodGet,
-		"/api/v2/ability/:id/",
-		AbilityRead,
-	},
-
-	{
-		"BerryList",
-		http.MethodGet,
-		"/api/v2/berry/",
-		BerryList,
-	},
-
-	{
-		"BerryRead",
-		http.MethodGet,
-		"/api/v2/berry/:id/",
-		BerryRead,
-	},
-
-	{
-		"BerryFirmnessList",
-		http.MethodGet,
-		"/api/v2/berry-firmness/",
-		BerryFirmnessList,
-	},
-
-	{
-		"BerryFirmnessRead",
-		http.MethodGet,
-		"/api/v2/berry-firmness/:id/",
-		BerryFirmnessRead,
-	},
-
-	{
-		"BerryFlavorList",
-		http.MethodGet,
-		"/api/v2/berry-flavor/",
-		BerryFlavorList,
-	},
-
-	{
-		"BerryFlavorRead",
-		http.MethodGet,
-		"/api/v2/berry-flavor/:id/",
-		BerryFlavorRead,
-	},
-
-	{
-		"CharacteristicList",
-		http.MethodGet,
-		"/api/v2/characteristic/",
-		CharacteristicList,
-	},
-
-	{
-		"CharacteristicRead",
-		http.MethodGet,
-		"/api/v2/characteristic/:id/",
-		CharacteristicRead,
-	},
-
-	{
-		"ContestEffectList",
-		http.MethodGet,
-		"/api/v2/contest-effect/",
-		ContestEffectList,
-	},
-
-	{
-		"ContestEffectRead",
-		http.MethodGet,
-		"/api/v2/contest-effect/:id/",
-		ContestEffectRead,
-	},
-
-	{
-		"ContestTypeList",
-		http.MethodGet,
-		"/api/v2/contest-type/",
-		ContestTypeList,
-	},
-
-	{
-		"ContestTypeRead",
-		http.MethodGet,
-		"/api/v2/contest-type/:id/",
-		ContestTypeRead,
-	},
-
-	{
-		"EggGroupList",
-		http.MethodGet,
-		"/api/v2/egg-group/",
-		EggGroupList,
-	},
-
-	{
-		"EggGroupRead",
-		http.MethodGet,
-		"/api/v2/egg-group/:id/",
-		EggGroupRead,
-	},
-
-	{
-		"EncounterConditionList",
-		http.MethodGet,
-		"/api/v2/encounter-condition/",
-		EncounterConditionList,
-	},
-
-	{
-		"EncounterConditionRead",
-		http.MethodGet,
-		"/api/v2/encounter-condition/:id/",
-		EncounterConditionRead,
-	},
-
-	{
-		"EncounterConditionValueList",
-		http.MethodGet,
-		"/api/v2/encounter-condition-value/",
-		EncounterConditionValueList,
-	},
-
-	{
-		"EncounterConditionValueRead",
-		http.MethodGet,
-		"/api/v2/encounter-condition-value/:id/",
-		EncounterConditionValueRead,
-	},
-
-	{
-		"EncounterMethodList",
-		http.MethodGet,
-		"/api/v2/encounter-method/",
-		EncounterMethodList,
-	},
-
-	{
-		"EncounterMethodRead",
-		http.MethodGet,
-		"/api/v2/encounter-method/:id/",
-		EncounterMethodRead,
-	},
-
-	{
-		"EvolutionChainList",
-		http.MethodGet,
-		"/api/v2/evolution-chain/",
-		EvolutionChainList,
-	},
-
-	{
-		"EvolutionChainRead",
-		http.MethodGet,
-		"/api/v2/evolution-chain/:id/",
-		EvolutionChainRead,
-	},
-
-	{
-		"EvolutionTriggerList",
-		http.MethodGet,
-		"/api/v2/evolution-trigger/",
-		EvolutionTriggerList,
-	},
-
-	{
-		"EvolutionTriggerRead",
-		http.MethodGet,
-		"/api/v2/evolution-trigger/:id/",
-		EvolutionTriggerRead,
-	},
-
-	{
-		"GenderList",
-		http.MethodGet,
-		"/api/v2/gender/",
-		GenderList,
-	},
-
-	{
-		"GenderRead",
-		http.MethodGet,
-		"/api/v2/gender/:id/",
-		GenderRead,
-	},
-
-	{
-		"GenerationList",
-		http.MethodGet,
-		"/api/v2/generation/",
-		GenerationList,
-	},
-
-	{
-		"GenerationRead",
-		http.MethodGet,
-		"/api/v2/generation/:id/",
-		GenerationRead,
-	},
-
-	{
-		"GrowthRateList",
-		http.MethodGet,
-		"/api/v2/growth-rate/",
-		GrowthRateList,
-	},
-
-	{
-		"GrowthRateRead",
-		http.MethodGet,
-		"/api/v2/growth-rate/:id/",
-		GrowthRateRead,
-	},
-
-	{
-		"ItemList",
-		http.MethodGet,
-		"/api/v2/item/",
-		ItemList,
-	},
-
-	{
-		"ItemRead",
-		http.MethodGet,
-		"/api/v2/item/:id/",
-		ItemRead,
-	},
-
-	{
-		"ItemAttributeList",
-		http.MethodGet,
-		"/api/v2/item-attribute/",
-		ItemAttributeList,
-	},
-
-	{
-		"ItemAttributeRead",
-		http.MethodGet,
-		"/api/v2/item-attribute/:id/",
-		ItemAttributeRead,
-	},
-
-	{
-		"ItemCategoryList",
-		http.MethodGet,
-		"/api/v2/item-category/",
-		ItemCategoryList,
-	},
-
-	{
-		"ItemCategoryRead",
-		http.MethodGet,
-		"/api/v2/item-category/:id/",
-		ItemCategoryRead,
-	},
-
-	{
-		"ItemFlingEffectList",
-		http.MethodGet,
-		"/api/v2/item-fling-effect/",
-		ItemFlingEffectList,
-	},
-
-	{
-		"ItemFlingEffectRead",
-		http.MethodGet,
-		"/api/v2/item-fling-effect/:id/",
-		ItemFlingEffectRead,
-	},
-
-	{
-		"ItemPocketList",
-		http.MethodGet,
-		"/api/v2/item-pocket/",
-		ItemPocketList,
-	},
-
-	{
-		"ItemPocketRead",
-		http.MethodGet,
-		"/api/v2/item-pocket/:id/",
-		ItemPocketRead,
-	},
-
-	{
-		"LanguageList",
-		http.MethodGet,
-		"/api/v2/language/",
-		LanguageList,
-	},
-
-	{
-		"LanguageRead",
-		http.MethodGet,
-		"/api/v2/language/:id/",
-		LanguageRead,
-	},
-
-	{
-		"LocationList",
-		http.MethodGet,
-		"/api/v2/location/",
-		LocationList,
-	},
-
-	{
-		"LocationRead",
-		http.MethodGet,
-		"/api/v2/location/:id/",
-		LocationRead,
-	},
-
-	{
-		"LocationAreaList",
-		http.MethodGet,
-		"/api/v2/location-area/",
-		LocationAreaList,
-	},
-
-	{
-		"LocationAreaRead",
-		http.MethodGet,
-		"/api/v2/location-area/:id/",
-		LocationAreaRead,
-	},
-
-	{
-		"MachineList",
-		http.MethodGet,
-		"/api/v2/machine/",
-		MachineList,
-	},
-
-	{
-		"MachineRead",
-		http.MethodGet,
-		"/api/v2/machine/:id/",
-		MachineRead,
-	},
-
-	{
-		"MoveList",
-		http.MethodGet,
-		"/api/v2/move/",
-		MoveList,
-	},
-
-	{
-		"MoveRead",
-		http.MethodGet,
-		"/api/v2/move/:id/",
-		MoveRead,
-	},
-
-	{
-		"MoveAilmentList",
-		http.MethodGet,
-		"/api/v2/move-ailment/",
-		MoveAilmentList,
-	},
-
-	{
-		"MoveAilmentRead",
-		http.MethodGet,
-		"/api/v2/move-ailment/:id/",
-		MoveAilmentRead,
-	},
-
-	{
-		"MoveBattleStyleList",
-		http.MethodGet,
-		"/api/v2/move-battle-style/",
-		MoveBattleStyleList,
-	},
-
-	{
-		"MoveBattleStyleRead",
-		http.MethodGet,
-		"/api/v2/move-battle-style/:id/",
-		MoveBattleStyleRead,
-	},
-
-	{
-		"MoveCategoryList",
-		http.MethodGet,
-		"/api/v2/move-category/",
-		MoveCategoryList,
-	},
-
-	{
-		"MoveCategoryRead",
-		http.MethodGet,
-		"/api/v2/move-category/:id/",
-		MoveCategoryRead,
-	},
-
-	{
-		"MoveDamageClassList",
-		http.MethodGet,
-		"/api/v2/move-damage-class/",
-		MoveDamageClassList,
-	},
-
-	{
-		"MoveDamageClassRead",
-		http.MethodGet,
-		"/api/v2/move-damage-class/:id/",
-		MoveDamageClassRead,
-	},
-
-	{
-		"MoveLearnMethodList",
-		http.MethodGet,
-		"/api/v2/move-learn-method/",
-		MoveLearnMethodList,
-	},
-
-	{
-		"MoveLearnMethodRead",
-		http.MethodGet,
-		"/api/v2/move-learn-method/:id/",
-		MoveLearnMethodRead,
-	},
-
-	{
-		"MoveTargetList",
-		http.MethodGet,
-		"/api/v2/move-target/",
-		MoveTargetList,
-	},
-
-	{
-		"MoveTargetRead",
-		http.MethodGet,
-		"/api/v2/move-target/:id/",
-		MoveTargetRead,
-	},
-
-	{
-		"NatureList",
-		http.MethodGet,
-		"/api/v2/nature/",
-		NatureList,
-	},
-
-	{
-		"NatureRead",
-		http.MethodGet,
-		"/api/v2/nature/:id/",
-		NatureRead,
-	},
-
-	{
-		"PalParkAreaList",
-		http.MethodGet,
-		"/api/v2/pal-park-area/",
-		PalParkAreaList,
-	},
-
-	{
-		"PalParkAreaRead",
-		http.MethodGet,
-		"/api/v2/pal-park-area/:id/",
-		PalParkAreaRead,
-	},
-
-	{
-		"PokeathlonStatList",
-		http.MethodGet,
-		"/api/v2/pokeathlon-stat/",
-		PokeathlonStatList,
-	},
-
-	{
-		"PokeathlonStatRead",
-		http.MethodGet,
-		"/api/v2/pokeathlon-stat/:id/",
-		PokeathlonStatRead,
-	},
-
-	{
-		"PokedexList",
-		http.MethodGet,
-		"/api/v2/pokedex/",
-		PokedexList,
-	},
-
-	{
-		"PokedexRead",
-		http.MethodGet,
-		"/api/v2/pokedex/:id/",
-		PokedexRead,
-	},
-
-	{
-		"PokemonList",
-		http.MethodGet,
-		"/api/v2/pokemon/",
-		PokemonList,
-	},
-
-	{
-		"PokemonRead",
-		http.MethodGet,
-		"/api/v2/pokemon/:id/",
-		PokemonRead,
-	},
-
-	{
-		"PokemonColorList",
-		http.MethodGet,
-		"/api/v2/pokemon-color/",
-		PokemonColorList,
-	},
-
-	{
-		"PokemonColorRead",
-		http.MethodGet,
-		"/api/v2/pokemon-color/:id/",
-		PokemonColorRead,
-	},
-
-	{
-		"PokemonFormList",
-		http.MethodGet,
-		"/api/v2/pokemon-form/",
-		PokemonFormList,
-	},
-
-	{
-		"PokemonFormRead",
-		http.MethodGet,
-		"/api/v2/pokemon-form/:id/",
-		PokemonFormRead,
-	},
-
-	{
-		"PokemonHabitatList",
-		http.MethodGet,
-		"/api/v2/pokemon-habitat/",
-		PokemonHabitatList,
-	},
-
-	{
-		"PokemonHabitatRead",
-		http.MethodGet,
-		"/api/v2/pokemon-habitat/:id/",
-		PokemonHabitatRead,
-	},
-
-	{
-		"PokemonShapeList",
-		http.MethodGet,
-		"/api/v2/pokemon-shape/",
-		PokemonShapeList,
-	},
-
-	{
-		"PokemonShapeRead",
-		http.MethodGet,
-		"/api/v2/pokemon-shape/:id/",
-		PokemonShapeRead,
-	},
-
-	{
-		"PokemonSpeciesList",
-		http.MethodGet,
-		"/api/v2/pokemon-species/",
-		PokemonSpeciesList,
-	},
-
-	{
-		"PokemonSpeciesRead",
-		http.MethodGet,
-		"/api/v2/pokemon-species/:id/",
-		PokemonSpeciesRead,
-	},
-
-	{
-		"RegionList",
-		http.MethodGet,
-		"/api/v2/region/",
-		RegionList,
-	},
-
-	{
-		"RegionRead",
-		http.MethodGet,
-		"/api/v2/region/:id/",
-		RegionRead,
-	},
-
-	{
-		"StatList",
-		http.MethodGet,
-		"/api/v2/stat/",
-		StatList,
-	},
-
-	{
-		"StatRead",
-		http.MethodGet,
-		"/api/v2/stat/:id/",
-		StatRead,
-	},
-
-	{
-		"SuperContestEffectList",
-		http.MethodGet,
-		"/api/v2/super-contest-effect/",
-		SuperContestEffectList,
-	},
-
-	{
-		"SuperContestEffectRead",
-		http.MethodGet,
-		"/api/v2/super-contest-effect/:id/",
-		SuperContestEffectRead,
-	},
-
-	{
-		"TypeList",
-		http.MethodGet,
-		"/api/v2/type/",
-		TypeList,
-	},
-
-	{
-		"TypeRead",
-		http.MethodGet,
-		"/api/v2/type/:id/",
-		TypeRead,
-	},
-
-	{
-		"VersionList",
-		http.MethodGet,
-		"/api/v2/version/",
-		VersionList,
-	},
-
-	{
-		"VersionRead",
-		http.MethodGet,
-		"/api/v2/version/:id/",
-		VersionRead,
-	},
-
-	{
-		"VersionGroupList",
-		http.MethodGet,
-		"/api/v2/version-group/",
-		VersionGroupList,
-	},
-
-	{
-		"VersionGroupRead",
-		http.MethodGet,
-		"/api/v2/version-group/:id/",
-		VersionGroupRead,
-	},
+type ApiHandleFunctions struct {
+
+	// Routes for the AbilityAPI part of the API
+	AbilityAPI AbilityAPI
+	// Routes for the BerryAPI part of the API
+	BerryAPI BerryAPI
+	// Routes for the BerryFirmnessAPI part of the API
+	BerryFirmnessAPI BerryFirmnessAPI
+	// Routes for the BerryFlavorAPI part of the API
+	BerryFlavorAPI BerryFlavorAPI
+	// Routes for the CharacteristicAPI part of the API
+	CharacteristicAPI CharacteristicAPI
+	// Routes for the ContestEffectAPI part of the API
+	ContestEffectAPI ContestEffectAPI
+	// Routes for the ContestTypeAPI part of the API
+	ContestTypeAPI ContestTypeAPI
+	// Routes for the EggGroupAPI part of the API
+	EggGroupAPI EggGroupAPI
+	// Routes for the EncounterConditionAPI part of the API
+	EncounterConditionAPI EncounterConditionAPI
+	// Routes for the EncounterConditionValueAPI part of the API
+	EncounterConditionValueAPI EncounterConditionValueAPI
+	// Routes for the EncounterMethodAPI part of the API
+	EncounterMethodAPI EncounterMethodAPI
+	// Routes for the EvolutionChainAPI part of the API
+	EvolutionChainAPI EvolutionChainAPI
+	// Routes for the EvolutionTriggerAPI part of the API
+	EvolutionTriggerAPI EvolutionTriggerAPI
+	// Routes for the GenderAPI part of the API
+	GenderAPI GenderAPI
+	// Routes for the GenerationAPI part of the API
+	GenerationAPI GenerationAPI
+	// Routes for the GrowthRateAPI part of the API
+	GrowthRateAPI GrowthRateAPI
+	// Routes for the ItemAPI part of the API
+	ItemAPI ItemAPI
+	// Routes for the ItemAttributeAPI part of the API
+	ItemAttributeAPI ItemAttributeAPI
+	// Routes for the ItemCategoryAPI part of the API
+	ItemCategoryAPI ItemCategoryAPI
+	// Routes for the ItemFlingEffectAPI part of the API
+	ItemFlingEffectAPI ItemFlingEffectAPI
+	// Routes for the ItemPocketAPI part of the API
+	ItemPocketAPI ItemPocketAPI
+	// Routes for the LanguageAPI part of the API
+	LanguageAPI LanguageAPI
+	// Routes for the LocationAPI part of the API
+	LocationAPI LocationAPI
+	// Routes for the LocationAreaAPI part of the API
+	LocationAreaAPI LocationAreaAPI
+	// Routes for the MachineAPI part of the API
+	MachineAPI MachineAPI
+	// Routes for the MoveAPI part of the API
+	MoveAPI MoveAPI
+	// Routes for the MoveAilmentAPI part of the API
+	MoveAilmentAPI MoveAilmentAPI
+	// Routes for the MoveBattleStyleAPI part of the API
+	MoveBattleStyleAPI MoveBattleStyleAPI
+	// Routes for the MoveCategoryAPI part of the API
+	MoveCategoryAPI MoveCategoryAPI
+	// Routes for the MoveDamageClassAPI part of the API
+	MoveDamageClassAPI MoveDamageClassAPI
+	// Routes for the MoveLearnMethodAPI part of the API
+	MoveLearnMethodAPI MoveLearnMethodAPI
+	// Routes for the MoveTargetAPI part of the API
+	MoveTargetAPI MoveTargetAPI
+	// Routes for the NatureAPI part of the API
+	NatureAPI NatureAPI
+	// Routes for the PalParkAreaAPI part of the API
+	PalParkAreaAPI PalParkAreaAPI
+	// Routes for the PokeathlonStatAPI part of the API
+	PokeathlonStatAPI PokeathlonStatAPI
+	// Routes for the PokedexAPI part of the API
+	PokedexAPI PokedexAPI
+	// Routes for the PokemonAPI part of the API
+	PokemonAPI PokemonAPI
+	// Routes for the PokemonColorAPI part of the API
+	PokemonColorAPI PokemonColorAPI
+	// Routes for the PokemonFormAPI part of the API
+	PokemonFormAPI PokemonFormAPI
+	// Routes for the PokemonHabitatAPI part of the API
+	PokemonHabitatAPI PokemonHabitatAPI
+	// Routes for the PokemonShapeAPI part of the API
+	PokemonShapeAPI PokemonShapeAPI
+	// Routes for the PokemonSpeciesAPI part of the API
+	PokemonSpeciesAPI PokemonSpeciesAPI
+	// Routes for the RegionAPI part of the API
+	RegionAPI RegionAPI
+	// Routes for the StatAPI part of the API
+	StatAPI StatAPI
+	// Routes for the SuperContestEffectAPI part of the API
+	SuperContestEffectAPI SuperContestEffectAPI
+	// Routes for the TypeAPI part of the API
+	TypeAPI TypeAPI
+	// Routes for the VersionAPI part of the API
+	VersionAPI VersionAPI
+	// Routes for the VersionGroupAPI part of the API
+	VersionGroupAPI VersionGroupAPI
+}
+
+func getRoutes(handleFunctions ApiHandleFunctions) []Route {
+	return []Route{ 
+		{
+			"AbilityList",
+			http.MethodGet,
+			"/api/v2/ability/",
+			handleFunctions.AbilityAPI.AbilityList,
+		},
+		{
+			"AbilityRead",
+			http.MethodGet,
+			"/api/v2/ability/:id/",
+			handleFunctions.AbilityAPI.AbilityRead,
+		},
+		{
+			"BerryList",
+			http.MethodGet,
+			"/api/v2/berry/",
+			handleFunctions.BerryAPI.BerryList,
+		},
+		{
+			"BerryRead",
+			http.MethodGet,
+			"/api/v2/berry/:id/",
+			handleFunctions.BerryAPI.BerryRead,
+		},
+		{
+			"BerryFirmnessList",
+			http.MethodGet,
+			"/api/v2/berry-firmness/",
+			handleFunctions.BerryFirmnessAPI.BerryFirmnessList,
+		},
+		{
+			"BerryFirmnessRead",
+			http.MethodGet,
+			"/api/v2/berry-firmness/:id/",
+			handleFunctions.BerryFirmnessAPI.BerryFirmnessRead,
+		},
+		{
+			"BerryFlavorList",
+			http.MethodGet,
+			"/api/v2/berry-flavor/",
+			handleFunctions.BerryFlavorAPI.BerryFlavorList,
+		},
+		{
+			"BerryFlavorRead",
+			http.MethodGet,
+			"/api/v2/berry-flavor/:id/",
+			handleFunctions.BerryFlavorAPI.BerryFlavorRead,
+		},
+		{
+			"CharacteristicList",
+			http.MethodGet,
+			"/api/v2/characteristic/",
+			handleFunctions.CharacteristicAPI.CharacteristicList,
+		},
+		{
+			"CharacteristicRead",
+			http.MethodGet,
+			"/api/v2/characteristic/:id/",
+			handleFunctions.CharacteristicAPI.CharacteristicRead,
+		},
+		{
+			"ContestEffectList",
+			http.MethodGet,
+			"/api/v2/contest-effect/",
+			handleFunctions.ContestEffectAPI.ContestEffectList,
+		},
+		{
+			"ContestEffectRead",
+			http.MethodGet,
+			"/api/v2/contest-effect/:id/",
+			handleFunctions.ContestEffectAPI.ContestEffectRead,
+		},
+		{
+			"ContestTypeList",
+			http.MethodGet,
+			"/api/v2/contest-type/",
+			handleFunctions.ContestTypeAPI.ContestTypeList,
+		},
+		{
+			"ContestTypeRead",
+			http.MethodGet,
+			"/api/v2/contest-type/:id/",
+			handleFunctions.ContestTypeAPI.ContestTypeRead,
+		},
+		{
+			"EggGroupList",
+			http.MethodGet,
+			"/api/v2/egg-group/",
+			handleFunctions.EggGroupAPI.EggGroupList,
+		},
+		{
+			"EggGroupRead",
+			http.MethodGet,
+			"/api/v2/egg-group/:id/",
+			handleFunctions.EggGroupAPI.EggGroupRead,
+		},
+		{
+			"EncounterConditionList",
+			http.MethodGet,
+			"/api/v2/encounter-condition/",
+			handleFunctions.EncounterConditionAPI.EncounterConditionList,
+		},
+		{
+			"EncounterConditionRead",
+			http.MethodGet,
+			"/api/v2/encounter-condition/:id/",
+			handleFunctions.EncounterConditionAPI.EncounterConditionRead,
+		},
+		{
+			"EncounterConditionValueList",
+			http.MethodGet,
+			"/api/v2/encounter-condition-value/",
+			handleFunctions.EncounterConditionValueAPI.EncounterConditionValueList,
+		},
+		{
+			"EncounterConditionValueRead",
+			http.MethodGet,
+			"/api/v2/encounter-condition-value/:id/",
+			handleFunctions.EncounterConditionValueAPI.EncounterConditionValueRead,
+		},
+		{
+			"EncounterMethodList",
+			http.MethodGet,
+			"/api/v2/encounter-method/",
+			handleFunctions.EncounterMethodAPI.EncounterMethodList,
+		},
+		{
+			"EncounterMethodRead",
+			http.MethodGet,
+			"/api/v2/encounter-method/:id/",
+			handleFunctions.EncounterMethodAPI.EncounterMethodRead,
+		},
+		{
+			"EvolutionChainList",
+			http.MethodGet,
+			"/api/v2/evolution-chain/",
+			handleFunctions.EvolutionChainAPI.EvolutionChainList,
+		},
+		{
+			"EvolutionChainRead",
+			http.MethodGet,
+			"/api/v2/evolution-chain/:id/",
+			handleFunctions.EvolutionChainAPI.EvolutionChainRead,
+		},
+		{
+			"EvolutionTriggerList",
+			http.MethodGet,
+			"/api/v2/evolution-trigger/",
+			handleFunctions.EvolutionTriggerAPI.EvolutionTriggerList,
+		},
+		{
+			"EvolutionTriggerRead",
+			http.MethodGet,
+			"/api/v2/evolution-trigger/:id/",
+			handleFunctions.EvolutionTriggerAPI.EvolutionTriggerRead,
+		},
+		{
+			"GenderList",
+			http.MethodGet,
+			"/api/v2/gender/",
+			handleFunctions.GenderAPI.GenderList,
+		},
+		{
+			"GenderRead",
+			http.MethodGet,
+			"/api/v2/gender/:id/",
+			handleFunctions.GenderAPI.GenderRead,
+		},
+		{
+			"GenerationList",
+			http.MethodGet,
+			"/api/v2/generation/",
+			handleFunctions.GenerationAPI.GenerationList,
+		},
+		{
+			"GenerationRead",
+			http.MethodGet,
+			"/api/v2/generation/:id/",
+			handleFunctions.GenerationAPI.GenerationRead,
+		},
+		{
+			"GrowthRateList",
+			http.MethodGet,
+			"/api/v2/growth-rate/",
+			handleFunctions.GrowthRateAPI.GrowthRateList,
+		},
+		{
+			"GrowthRateRead",
+			http.MethodGet,
+			"/api/v2/growth-rate/:id/",
+			handleFunctions.GrowthRateAPI.GrowthRateRead,
+		},
+		{
+			"ItemList",
+			http.MethodGet,
+			"/api/v2/item/",
+			handleFunctions.ItemAPI.ItemList,
+		},
+		{
+			"ItemRead",
+			http.MethodGet,
+			"/api/v2/item/:id/",
+			handleFunctions.ItemAPI.ItemRead,
+		},
+		{
+			"ItemAttributeList",
+			http.MethodGet,
+			"/api/v2/item-attribute/",
+			handleFunctions.ItemAttributeAPI.ItemAttributeList,
+		},
+		{
+			"ItemAttributeRead",
+			http.MethodGet,
+			"/api/v2/item-attribute/:id/",
+			handleFunctions.ItemAttributeAPI.ItemAttributeRead,
+		},
+		{
+			"ItemCategoryList",
+			http.MethodGet,
+			"/api/v2/item-category/",
+			handleFunctions.ItemCategoryAPI.ItemCategoryList,
+		},
+		{
+			"ItemCategoryRead",
+			http.MethodGet,
+			"/api/v2/item-category/:id/",
+			handleFunctions.ItemCategoryAPI.ItemCategoryRead,
+		},
+		{
+			"ItemFlingEffectList",
+			http.MethodGet,
+			"/api/v2/item-fling-effect/",
+			handleFunctions.ItemFlingEffectAPI.ItemFlingEffectList,
+		},
+		{
+			"ItemFlingEffectRead",
+			http.MethodGet,
+			"/api/v2/item-fling-effect/:id/",
+			handleFunctions.ItemFlingEffectAPI.ItemFlingEffectRead,
+		},
+		{
+			"ItemPocketList",
+			http.MethodGet,
+			"/api/v2/item-pocket/",
+			handleFunctions.ItemPocketAPI.ItemPocketList,
+		},
+		{
+			"ItemPocketRead",
+			http.MethodGet,
+			"/api/v2/item-pocket/:id/",
+			handleFunctions.ItemPocketAPI.ItemPocketRead,
+		},
+		{
+			"LanguageList",
+			http.MethodGet,
+			"/api/v2/language/",
+			handleFunctions.LanguageAPI.LanguageList,
+		},
+		{
+			"LanguageRead",
+			http.MethodGet,
+			"/api/v2/language/:id/",
+			handleFunctions.LanguageAPI.LanguageRead,
+		},
+		{
+			"LocationList",
+			http.MethodGet,
+			"/api/v2/location/",
+			handleFunctions.LocationAPI.LocationList,
+		},
+		{
+			"LocationRead",
+			http.MethodGet,
+			"/api/v2/location/:id/",
+			handleFunctions.LocationAPI.LocationRead,
+		},
+		{
+			"LocationAreaList",
+			http.MethodGet,
+			"/api/v2/location-area/",
+			handleFunctions.LocationAreaAPI.LocationAreaList,
+		},
+		{
+			"LocationAreaRead",
+			http.MethodGet,
+			"/api/v2/location-area/:id/",
+			handleFunctions.LocationAreaAPI.LocationAreaRead,
+		},
+		{
+			"MachineList",
+			http.MethodGet,
+			"/api/v2/machine/",
+			handleFunctions.MachineAPI.MachineList,
+		},
+		{
+			"MachineRead",
+			http.MethodGet,
+			"/api/v2/machine/:id/",
+			handleFunctions.MachineAPI.MachineRead,
+		},
+		{
+			"MoveList",
+			http.MethodGet,
+			"/api/v2/move/",
+			handleFunctions.MoveAPI.MoveList,
+		},
+		{
+			"MoveRead",
+			http.MethodGet,
+			"/api/v2/move/:id/",
+			handleFunctions.MoveAPI.MoveRead,
+		},
+		{
+			"MoveAilmentList",
+			http.MethodGet,
+			"/api/v2/move-ailment/",
+			handleFunctions.MoveAilmentAPI.MoveAilmentList,
+		},
+		{
+			"MoveAilmentRead",
+			http.MethodGet,
+			"/api/v2/move-ailment/:id/",
+			handleFunctions.MoveAilmentAPI.MoveAilmentRead,
+		},
+		{
+			"MoveBattleStyleList",
+			http.MethodGet,
+			"/api/v2/move-battle-style/",
+			handleFunctions.MoveBattleStyleAPI.MoveBattleStyleList,
+		},
+		{
+			"MoveBattleStyleRead",
+			http.MethodGet,
+			"/api/v2/move-battle-style/:id/",
+			handleFunctions.MoveBattleStyleAPI.MoveBattleStyleRead,
+		},
+		{
+			"MoveCategoryList",
+			http.MethodGet,
+			"/api/v2/move-category/",
+			handleFunctions.MoveCategoryAPI.MoveCategoryList,
+		},
+		{
+			"MoveCategoryRead",
+			http.MethodGet,
+			"/api/v2/move-category/:id/",
+			handleFunctions.MoveCategoryAPI.MoveCategoryRead,
+		},
+		{
+			"MoveDamageClassList",
+			http.MethodGet,
+			"/api/v2/move-damage-class/",
+			handleFunctions.MoveDamageClassAPI.MoveDamageClassList,
+		},
+		{
+			"MoveDamageClassRead",
+			http.MethodGet,
+			"/api/v2/move-damage-class/:id/",
+			handleFunctions.MoveDamageClassAPI.MoveDamageClassRead,
+		},
+		{
+			"MoveLearnMethodList",
+			http.MethodGet,
+			"/api/v2/move-learn-method/",
+			handleFunctions.MoveLearnMethodAPI.MoveLearnMethodList,
+		},
+		{
+			"MoveLearnMethodRead",
+			http.MethodGet,
+			"/api/v2/move-learn-method/:id/",
+			handleFunctions.MoveLearnMethodAPI.MoveLearnMethodRead,
+		},
+		{
+			"MoveTargetList",
+			http.MethodGet,
+			"/api/v2/move-target/",
+			handleFunctions.MoveTargetAPI.MoveTargetList,
+		},
+		{
+			"MoveTargetRead",
+			http.MethodGet,
+			"/api/v2/move-target/:id/",
+			handleFunctions.MoveTargetAPI.MoveTargetRead,
+		},
+		{
+			"NatureList",
+			http.MethodGet,
+			"/api/v2/nature/",
+			handleFunctions.NatureAPI.NatureList,
+		},
+		{
+			"NatureRead",
+			http.MethodGet,
+			"/api/v2/nature/:id/",
+			handleFunctions.NatureAPI.NatureRead,
+		},
+		{
+			"PalParkAreaList",
+			http.MethodGet,
+			"/api/v2/pal-park-area/",
+			handleFunctions.PalParkAreaAPI.PalParkAreaList,
+		},
+		{
+			"PalParkAreaRead",
+			http.MethodGet,
+			"/api/v2/pal-park-area/:id/",
+			handleFunctions.PalParkAreaAPI.PalParkAreaRead,
+		},
+		{
+			"PokeathlonStatList",
+			http.MethodGet,
+			"/api/v2/pokeathlon-stat/",
+			handleFunctions.PokeathlonStatAPI.PokeathlonStatList,
+		},
+		{
+			"PokeathlonStatRead",
+			http.MethodGet,
+			"/api/v2/pokeathlon-stat/:id/",
+			handleFunctions.PokeathlonStatAPI.PokeathlonStatRead,
+		},
+		{
+			"PokedexList",
+			http.MethodGet,
+			"/api/v2/pokedex/",
+			handleFunctions.PokedexAPI.PokedexList,
+		},
+		{
+			"PokedexRead",
+			http.MethodGet,
+			"/api/v2/pokedex/:id/",
+			handleFunctions.PokedexAPI.PokedexRead,
+		},
+		{
+			"PokemonList",
+			http.MethodGet,
+			"/api/v2/pokemon/",
+			handleFunctions.PokemonAPI.PokemonList,
+		},
+		{
+			"PokemonRead",
+			http.MethodGet,
+			"/api/v2/pokemon/:id/",
+			handleFunctions.PokemonAPI.PokemonRead,
+		},
+		{
+			"PokemonColorList",
+			http.MethodGet,
+			"/api/v2/pokemon-color/",
+			handleFunctions.PokemonColorAPI.PokemonColorList,
+		},
+		{
+			"PokemonColorRead",
+			http.MethodGet,
+			"/api/v2/pokemon-color/:id/",
+			handleFunctions.PokemonColorAPI.PokemonColorRead,
+		},
+		{
+			"PokemonFormList",
+			http.MethodGet,
+			"/api/v2/pokemon-form/",
+			handleFunctions.PokemonFormAPI.PokemonFormList,
+		},
+		{
+			"PokemonFormRead",
+			http.MethodGet,
+			"/api/v2/pokemon-form/:id/",
+			handleFunctions.PokemonFormAPI.PokemonFormRead,
+		},
+		{
+			"PokemonHabitatList",
+			http.MethodGet,
+			"/api/v2/pokemon-habitat/",
+			handleFunctions.PokemonHabitatAPI.PokemonHabitatList,
+		},
+		{
+			"PokemonHabitatRead",
+			http.MethodGet,
+			"/api/v2/pokemon-habitat/:id/",
+			handleFunctions.PokemonHabitatAPI.PokemonHabitatRead,
+		},
+		{
+			"PokemonShapeList",
+			http.MethodGet,
+			"/api/v2/pokemon-shape/",
+			handleFunctions.PokemonShapeAPI.PokemonShapeList,
+		},
+		{
+			"PokemonShapeRead",
+			http.MethodGet,
+			"/api/v2/pokemon-shape/:id/",
+			handleFunctions.PokemonShapeAPI.PokemonShapeRead,
+		},
+		{
+			"PokemonSpeciesList",
+			http.MethodGet,
+			"/api/v2/pokemon-species/",
+			handleFunctions.PokemonSpeciesAPI.PokemonSpeciesList,
+		},
+		{
+			"PokemonSpeciesRead",
+			http.MethodGet,
+			"/api/v2/pokemon-species/:id/",
+			handleFunctions.PokemonSpeciesAPI.PokemonSpeciesRead,
+		},
+		{
+			"RegionList",
+			http.MethodGet,
+			"/api/v2/region/",
+			handleFunctions.RegionAPI.RegionList,
+		},
+		{
+			"RegionRead",
+			http.MethodGet,
+			"/api/v2/region/:id/",
+			handleFunctions.RegionAPI.RegionRead,
+		},
+		{
+			"StatList",
+			http.MethodGet,
+			"/api/v2/stat/",
+			handleFunctions.StatAPI.StatList,
+		},
+		{
+			"StatRead",
+			http.MethodGet,
+			"/api/v2/stat/:id/",
+			handleFunctions.StatAPI.StatRead,
+		},
+		{
+			"SuperContestEffectList",
+			http.MethodGet,
+			"/api/v2/super-contest-effect/",
+			handleFunctions.SuperContestEffectAPI.SuperContestEffectList,
+		},
+		{
+			"SuperContestEffectRead",
+			http.MethodGet,
+			"/api/v2/super-contest-effect/:id/",
+			handleFunctions.SuperContestEffectAPI.SuperContestEffectRead,
+		},
+		{
+			"TypeList",
+			http.MethodGet,
+			"/api/v2/type/",
+			handleFunctions.TypeAPI.TypeList,
+		},
+		{
+			"TypeRead",
+			http.MethodGet,
+			"/api/v2/type/:id/",
+			handleFunctions.TypeAPI.TypeRead,
+		},
+		{
+			"VersionList",
+			http.MethodGet,
+			"/api/v2/version/",
+			handleFunctions.VersionAPI.VersionList,
+		},
+		{
+			"VersionRead",
+			http.MethodGet,
+			"/api/v2/version/:id/",
+			handleFunctions.VersionAPI.VersionRead,
+		},
+		{
+			"VersionGroupList",
+			http.MethodGet,
+			"/api/v2/version-group/",
+			handleFunctions.VersionGroupAPI.VersionGroupList,
+		},
+		{
+			"VersionGroupRead",
+			http.MethodGet,
+			"/api/v2/version-group/:id/",
+			handleFunctions.VersionGroupAPI.VersionGroupRead,
+		},
+	}
 }

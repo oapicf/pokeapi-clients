@@ -56,7 +56,7 @@ bool OpenAPICharacteristicApi::IsValid() const
 
 void OpenAPICharacteristicApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

@@ -52,8 +52,12 @@ interface GenderApiInterface
      *
      * @return array|object|null
      */
-    public function genderList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function genderList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation genderRead
@@ -64,6 +68,9 @@ interface GenderApiInterface
      *
      * @return array|object|null
      */
-    public function genderRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function genderRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

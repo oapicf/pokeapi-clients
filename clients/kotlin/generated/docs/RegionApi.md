@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**regionRead**](RegionApi.md#regionRead) | **GET** /api/v2/region/{id}/ | 
 
 
-<a name="regionList"></a>
+<a id="regionList"></a>
 # **regionList**
 > kotlin.String regionList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="regionRead"></a>
+<a id="regionRead"></a>
 # **regionRead**
 > kotlin.String regionRead(id)
 

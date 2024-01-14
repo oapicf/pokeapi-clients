@@ -20,15 +20,13 @@ module Api.Request.EvolutionChain exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-evolutionChainList : Maybe Int -> Maybe Int -> Api.Request 
+evolutionChainList : Maybe Int -> Maybe Int -> Api.Request ()
 evolutionChainList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ evolutionChainList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-evolutionChainRead : Int -> Api.Request 
+evolutionChainRead : Int -> Api.Request ()
 evolutionChainRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ evolutionChainRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

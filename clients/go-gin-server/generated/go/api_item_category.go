@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// ItemCategoryList - 
-func ItemCategoryList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type ItemCategoryAPI struct {
 }
 
-// ItemCategoryRead - 
-func ItemCategoryRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/item-category/
+func (api *ItemCategoryAPI) ItemCategoryList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/item-category/:id/
+func (api *ItemCategoryAPI) ItemCategoryRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

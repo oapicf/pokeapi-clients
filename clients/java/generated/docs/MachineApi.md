@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**machineRead**](MachineApi.md#machineRead) | **GET** /api/v2/machine/{id}/ |  |
 
 
-<a name="machineList"></a>
+<a id="machineList"></a>
 # **machineList**
 > String machineList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="machineRead"></a>
+<a id="machineRead"></a>
 # **machineRead**
 > String machineRead(id)
 

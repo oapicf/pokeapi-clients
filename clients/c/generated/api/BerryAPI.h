@@ -8,10 +8,10 @@
 
 
 char*
-BerryAPI_berryList(apiClient_t *apiClient, int limit , int offset );
+BerryAPI_berryList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-BerryAPI_berryRead(apiClient_t *apiClient, int id );
+BerryAPI_berryRead(apiClient_t *apiClient, int *id);
 
 

@@ -52,8 +52,12 @@ interface PalParkAreaApiInterface
      *
      * @return array|object|null
      */
-    public function palParkAreaList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function palParkAreaList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation palParkAreaRead
@@ -64,6 +68,9 @@ interface PalParkAreaApiInterface
      *
      * @return array|object|null
      */
-    public function palParkAreaRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function palParkAreaRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

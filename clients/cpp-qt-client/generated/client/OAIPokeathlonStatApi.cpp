@@ -291,8 +291,34 @@ void OAIPokeathlonStatApi::pokeathlonStatListCallback(OAIHttpRequestWorker *work
         emit pokeathlonStatListSignal(output);
         emit pokeathlonStatListSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit pokeathlonStatListSignalE(output, error_type, error_str);
         emit pokeathlonStatListSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit pokeathlonStatListSignalError(output, error_type, error_str);
+        emit pokeathlonStatListSignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -355,8 +381,34 @@ void OAIPokeathlonStatApi::pokeathlonStatReadCallback(OAIHttpRequestWorker *work
         emit pokeathlonStatReadSignal(output);
         emit pokeathlonStatReadSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit pokeathlonStatReadSignalE(output, error_type, error_str);
         emit pokeathlonStatReadSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit pokeathlonStatReadSignalError(output, error_type, error_str);
+        emit pokeathlonStatReadSignalErrorFull(worker, error_type, error_str);
     }
 }
 

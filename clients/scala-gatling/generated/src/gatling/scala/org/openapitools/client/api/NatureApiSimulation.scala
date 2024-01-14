@@ -72,8 +72,8 @@ class NatureApiSimulation extends Simulation {
         .feed(nature_listQUERYFeeder)
         .exec(http("natureList")
         .httpRequest("GET","/api/v2/nature/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnnatureList with warm up and reach a constant rate for entire duration

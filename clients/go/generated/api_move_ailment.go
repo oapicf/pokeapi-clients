@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// MoveAilmentApiService MoveAilmentApi service
-type MoveAilmentApiService service
+// MoveAilmentAPIService MoveAilmentAPI service
+type MoveAilmentAPIService service
 
 type ApiMoveAilmentListRequest struct {
 	ctx context.Context
-	ApiService *MoveAilmentApiService
+	ApiService *MoveAilmentAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ MoveAilmentList Method for MoveAilmentList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiMoveAilmentListRequest
 */
-func (a *MoveAilmentApiService) MoveAilmentList(ctx context.Context) ApiMoveAilmentListRequest {
+func (a *MoveAilmentAPIService) MoveAilmentList(ctx context.Context) ApiMoveAilmentListRequest {
 	return ApiMoveAilmentListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *MoveAilmentApiService) MoveAilmentList(ctx context.Context) ApiMoveAilm
 
 // Execute executes the request
 //  @return string
-func (a *MoveAilmentApiService) MoveAilmentListExecute(r ApiMoveAilmentListRequest) (string, *http.Response, error) {
+func (a *MoveAilmentAPIService) MoveAilmentListExecute(r ApiMoveAilmentListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *MoveAilmentApiService) MoveAilmentListExecute(r ApiMoveAilmentListReque
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveAilmentApiService.MoveAilmentList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveAilmentAPIService.MoveAilmentList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *MoveAilmentApiService) MoveAilmentListExecute(r ApiMoveAilmentListReque
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *MoveAilmentApiService) MoveAilmentListExecute(r ApiMoveAilmentListReque
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *MoveAilmentApiService) MoveAilmentListExecute(r ApiMoveAilmentListReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *MoveAilmentApiService) MoveAilmentListExecute(r ApiMoveAilmentListReque
 
 type ApiMoveAilmentReadRequest struct {
 	ctx context.Context
-	ApiService *MoveAilmentApiService
+	ApiService *MoveAilmentAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ MoveAilmentRead Method for MoveAilmentRead
  @param id
  @return ApiMoveAilmentReadRequest
 */
-func (a *MoveAilmentApiService) MoveAilmentRead(ctx context.Context, id int32) ApiMoveAilmentReadRequest {
+func (a *MoveAilmentAPIService) MoveAilmentRead(ctx context.Context, id int32) ApiMoveAilmentReadRequest {
 	return ApiMoveAilmentReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *MoveAilmentApiService) MoveAilmentRead(ctx context.Context, id int32) A
 
 // Execute executes the request
 //  @return string
-func (a *MoveAilmentApiService) MoveAilmentReadExecute(r ApiMoveAilmentReadRequest) (string, *http.Response, error) {
+func (a *MoveAilmentAPIService) MoveAilmentReadExecute(r ApiMoveAilmentReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *MoveAilmentApiService) MoveAilmentReadExecute(r ApiMoveAilmentReadReque
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveAilmentApiService.MoveAilmentRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveAilmentAPIService.MoveAilmentRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/move-ailment/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *MoveAilmentApiService) MoveAilmentReadExecute(r ApiMoveAilmentReadReque
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *MoveAilmentApiService) MoveAilmentReadExecute(r ApiMoveAilmentReadReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

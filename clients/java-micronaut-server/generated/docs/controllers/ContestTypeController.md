@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**contestTypeList**](#contestTypeList) | **GET** /api/v2/contest-type/ | 
 [**contestTypeRead**](#contestTypeRead) | **GET** /api/v2/contest-type/{id}/ | 
 
-<a name="contestTypeList"></a>
+<a id="contestTypeList"></a>
 # **contestTypeList**
 ```java
 Mono<String> ContestTypeController.contestTypeList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="contestTypeRead"></a>
+<a id="contestTypeRead"></a>
 # **contestTypeRead**
 ```java
 Mono<String> ContestTypeController.contestTypeRead(id)

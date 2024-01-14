@@ -20,15 +20,13 @@ module Api.Request.PokemonShape exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-pokemonShapeList : Maybe Int -> Maybe Int -> Api.Request 
+pokemonShapeList : Maybe Int -> Maybe Int -> Api.Request ()
 pokemonShapeList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ pokemonShapeList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-pokemonShapeRead : Int -> Api.Request 
+pokemonShapeRead : Int -> Api.Request ()
 pokemonShapeRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ pokemonShapeRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class PokedexApiImpl : public org::openapitools::server::api::PokedexApi {
+class  PokedexApiImpl : public org::openapitools::server::api::PokedexApi {
 public:
     explicit PokedexApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~PokedexApiImpl() override = default;

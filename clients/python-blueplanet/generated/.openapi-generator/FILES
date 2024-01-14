@@ -69,8 +69,8 @@ app/openapi_server/encoder.py
 app/openapi_server/encoder.py
 app/openapi_server/models/__init__.py
 app/openapi_server/models/__init__.py
-app/openapi_server/models/base_model_.py
-app/openapi_server/models/base_model_.py
+app/openapi_server/models/base_model.py
+app/openapi_server/models/base_model.py
 app/openapi_server/swagger/swagger.yaml
 app/openapi_server/swagger/swagger.yaml
 app/openapi_server/test/__init__.py

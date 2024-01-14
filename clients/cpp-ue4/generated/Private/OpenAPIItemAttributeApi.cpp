@@ -56,7 +56,7 @@ bool OpenAPIItemAttributeApi::IsValid() const
 
 void OpenAPIItemAttributeApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

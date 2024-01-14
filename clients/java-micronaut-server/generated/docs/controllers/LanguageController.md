@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**languageList**](#languageList) | **GET** /api/v2/language/ | 
 [**languageRead**](#languageRead) | **GET** /api/v2/language/{id}/ | 
 
-<a name="languageList"></a>
+<a id="languageList"></a>
 # **languageList**
 ```java
 Mono<String> LanguageController.languageList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="languageRead"></a>
+<a id="languageRead"></a>
 # **languageRead**
 ```java
 Mono<String> LanguageController.languageRead(id)

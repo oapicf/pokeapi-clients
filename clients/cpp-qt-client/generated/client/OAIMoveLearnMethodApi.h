@@ -101,18 +101,25 @@ signals:
     void moveLearnMethodListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void moveLearnMethodReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use moveLearnMethodListSignalError() instead")
     void moveLearnMethodListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void moveLearnMethodListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use moveLearnMethodReadSignalError() instead")
     void moveLearnMethodReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void moveLearnMethodReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use moveLearnMethodListSignalErrorFull() instead")
     void moveLearnMethodListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void moveLearnMethodListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use moveLearnMethodReadSignalErrorFull() instead")
     void moveLearnMethodReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void moveLearnMethodReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

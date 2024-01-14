@@ -291,8 +291,34 @@ void OAIPalParkAreaApi::palParkAreaListCallback(OAIHttpRequestWorker *worker) {
         emit palParkAreaListSignal(output);
         emit palParkAreaListSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit palParkAreaListSignalE(output, error_type, error_str);
         emit palParkAreaListSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit palParkAreaListSignalError(output, error_type, error_str);
+        emit palParkAreaListSignalErrorFull(worker, error_type, error_str);
     }
 }
 
@@ -355,8 +381,34 @@ void OAIPalParkAreaApi::palParkAreaReadCallback(OAIHttpRequestWorker *worker) {
         emit palParkAreaReadSignal(output);
         emit palParkAreaReadSignalFull(worker, output);
     } else {
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
         emit palParkAreaReadSignalE(output, error_type, error_str);
         emit palParkAreaReadSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        emit palParkAreaReadSignalError(output, error_type, error_str);
+        emit palParkAreaReadSignalErrorFull(worker, error_type, error_str);
     }
 }
 

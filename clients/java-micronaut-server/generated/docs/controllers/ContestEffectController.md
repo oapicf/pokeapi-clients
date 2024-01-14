@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**contestEffectList**](#contestEffectList) | **GET** /api/v2/contest-effect/ | 
 [**contestEffectRead**](#contestEffectRead) | **GET** /api/v2/contest-effect/{id}/ | 
 
-<a name="contestEffectList"></a>
+<a id="contestEffectList"></a>
 # **contestEffectList**
 ```java
 Mono<String> ContestEffectController.contestEffectList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="contestEffectRead"></a>
+<a id="contestEffectRead"></a>
 # **contestEffectRead**
 ```java
 Mono<String> ContestEffectController.contestEffectRead(id)

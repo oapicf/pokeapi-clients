@@ -1,7 +1,7 @@
 /*
 
 
-Testing MoveDamageClassApiService
+Testing MoveDamageClassAPIService
 
 */
 
@@ -10,42 +10,42 @@ Testing MoveDamageClassApiService
 package openapi
 
 import (
-    "context"
-    "github.com/stretchr/testify/assert"
-    "github.com/stretchr/testify/require"
-    "testing"
-    openapiclient "./openapi"
+	"context"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
-func Test_openapi_MoveDamageClassApiService(t *testing.T) {
+func Test_openapi_MoveDamageClassAPIService(t *testing.T) {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
 
-    t.Run("Test MoveDamageClassApiService MoveDamageClassList", func(t *testing.T) {
+	t.Run("Test MoveDamageClassAPIService MoveDamageClassList", func(t *testing.T) {
 
-        t.Skip("skip test")  // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-        resp, httpRes, err := apiClient.MoveDamageClassApi.MoveDamageClassList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MoveDamageClassAPI.MoveDamageClassList(context.Background()).Execute()
 
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
 
-    })
+	})
 
-    t.Run("Test MoveDamageClassApiService MoveDamageClassRead", func(t *testing.T) {
+	t.Run("Test MoveDamageClassAPIService MoveDamageClassRead", func(t *testing.T) {
 
-        t.Skip("skip test")  // remove to run test
+		t.Skip("skip test")  // remove to run test
 
-        var id int32
+		var id int32
 
-        resp, httpRes, err := apiClient.MoveDamageClassApi.MoveDamageClassRead(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.MoveDamageClassAPI.MoveDamageClassRead(context.Background(), id).Execute()
 
-        require.Nil(t, err)
-        require.NotNil(t, resp)
-        assert.Equal(t, 200, httpRes.StatusCode)
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
 
-    })
+	})
 
 }

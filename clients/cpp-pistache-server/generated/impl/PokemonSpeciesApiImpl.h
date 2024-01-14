@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class PokemonSpeciesApiImpl : public org::openapitools::server::api::PokemonSpeciesApi {
+class  PokemonSpeciesApiImpl : public org::openapitools::server::api::PokemonSpeciesApi {
 public:
     explicit PokemonSpeciesApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~PokemonSpeciesApiImpl() override = default;

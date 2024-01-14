@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.BerryFlavorApi
+# PSOpenAPITools.PSOpenAPITools\Api.BerryFlavorApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-BerryFlavorRead**](BerryFlavorApi.md#Invoke-BerryFlavorRead) | **GET** /api/v2/berry-flavor/{id}/ | 
 
 
-<a name="Invoke-BerryFlavorList"></a>
+<a id="Invoke-BerryFlavorList"></a>
 # **Invoke-BerryFlavorList**
 > String Invoke-BerryFlavorList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-BerryFlavorRead"></a>
+<a id="Invoke-BerryFlavorRead"></a>
 # **Invoke-BerryFlavorRead**
 > String Invoke-BerryFlavorRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

@@ -1,11 +1,11 @@
-# \ItemAttributeApi
+# \ItemAttributeAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ItemAttributeList**](ItemAttributeApi.md#ItemAttributeList) | **Get** /api/v2/item-attribute/ | 
-[**ItemAttributeRead**](ItemAttributeApi.md#ItemAttributeRead) | **Get** /api/v2/item-attribute/{id}/ | 
+[**ItemAttributeList**](ItemAttributeAPI.md#ItemAttributeList) | **Get** /api/v2/item-attribute/ | 
+[**ItemAttributeRead**](ItemAttributeAPI.md#ItemAttributeRead) | **Get** /api/v2/item-attribute/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ItemAttributeApi.ItemAttributeList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ItemAttributeApi.ItemAttributeList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ItemAttributeList`: string
-    fmt.Fprintf(os.Stdout, "Response from `ItemAttributeApi.ItemAttributeList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ItemAttributeAPI.ItemAttributeList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemAttributeAPI.ItemAttributeList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ItemAttributeList`: string
+	fmt.Fprintf(os.Stdout, "Response from `ItemAttributeAPI.ItemAttributeList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ItemAttributeApi.ItemAttributeRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ItemAttributeApi.ItemAttributeRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ItemAttributeRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `ItemAttributeApi.ItemAttributeRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ItemAttributeAPI.ItemAttributeRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ItemAttributeAPI.ItemAttributeRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ItemAttributeRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `ItemAttributeAPI.ItemAttributeRead`: %v\n", resp)
 }
 ```
 

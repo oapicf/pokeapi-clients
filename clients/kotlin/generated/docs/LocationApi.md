@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**locationRead**](LocationApi.md#locationRead) | **GET** /api/v2/location/{id}/ | 
 
 
-<a name="locationList"></a>
+<a id="locationList"></a>
 # **locationList**
 > kotlin.String locationList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="locationRead"></a>
+<a id="locationRead"></a>
 # **locationRead**
 > kotlin.String locationRead(id)
 

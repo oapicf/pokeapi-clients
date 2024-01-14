@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// MoveDamageClassApiService MoveDamageClassApi service
-type MoveDamageClassApiService service
+// MoveDamageClassAPIService MoveDamageClassAPI service
+type MoveDamageClassAPIService service
 
 type ApiMoveDamageClassListRequest struct {
 	ctx context.Context
-	ApiService *MoveDamageClassApiService
+	ApiService *MoveDamageClassAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ MoveDamageClassList Method for MoveDamageClassList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiMoveDamageClassListRequest
 */
-func (a *MoveDamageClassApiService) MoveDamageClassList(ctx context.Context) ApiMoveDamageClassListRequest {
+func (a *MoveDamageClassAPIService) MoveDamageClassList(ctx context.Context) ApiMoveDamageClassListRequest {
 	return ApiMoveDamageClassListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *MoveDamageClassApiService) MoveDamageClassList(ctx context.Context) Api
 
 // Execute executes the request
 //  @return string
-func (a *MoveDamageClassApiService) MoveDamageClassListExecute(r ApiMoveDamageClassListRequest) (string, *http.Response, error) {
+func (a *MoveDamageClassAPIService) MoveDamageClassListExecute(r ApiMoveDamageClassListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *MoveDamageClassApiService) MoveDamageClassListExecute(r ApiMoveDamageCl
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveDamageClassApiService.MoveDamageClassList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveDamageClassAPIService.MoveDamageClassList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *MoveDamageClassApiService) MoveDamageClassListExecute(r ApiMoveDamageCl
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *MoveDamageClassApiService) MoveDamageClassListExecute(r ApiMoveDamageCl
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *MoveDamageClassApiService) MoveDamageClassListExecute(r ApiMoveDamageCl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *MoveDamageClassApiService) MoveDamageClassListExecute(r ApiMoveDamageCl
 
 type ApiMoveDamageClassReadRequest struct {
 	ctx context.Context
-	ApiService *MoveDamageClassApiService
+	ApiService *MoveDamageClassAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ MoveDamageClassRead Method for MoveDamageClassRead
  @param id
  @return ApiMoveDamageClassReadRequest
 */
-func (a *MoveDamageClassApiService) MoveDamageClassRead(ctx context.Context, id int32) ApiMoveDamageClassReadRequest {
+func (a *MoveDamageClassAPIService) MoveDamageClassRead(ctx context.Context, id int32) ApiMoveDamageClassReadRequest {
 	return ApiMoveDamageClassReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *MoveDamageClassApiService) MoveDamageClassRead(ctx context.Context, id 
 
 // Execute executes the request
 //  @return string
-func (a *MoveDamageClassApiService) MoveDamageClassReadExecute(r ApiMoveDamageClassReadRequest) (string, *http.Response, error) {
+func (a *MoveDamageClassAPIService) MoveDamageClassReadExecute(r ApiMoveDamageClassReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *MoveDamageClassApiService) MoveDamageClassReadExecute(r ApiMoveDamageCl
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveDamageClassApiService.MoveDamageClassRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveDamageClassAPIService.MoveDamageClassRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/move-damage-class/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *MoveDamageClassApiService) MoveDamageClassReadExecute(r ApiMoveDamageCl
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *MoveDamageClassApiService) MoveDamageClassReadExecute(r ApiMoveDamageCl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

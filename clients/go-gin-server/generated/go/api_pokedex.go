@@ -11,17 +11,21 @@
 package openapi
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
-// PokedexList - 
-func PokedexList(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+type PokedexAPI struct {
 }
 
-// PokedexRead - 
-func PokedexRead(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{})
+// Get /api/v2/pokedex/
+func (api *PokedexAPI) PokedexList(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
 }
+
+// Get /api/v2/pokedex/:id/
+func (api *PokedexAPI) PokedexRead(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

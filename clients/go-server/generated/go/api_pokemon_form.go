@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// PokemonFormApiController binds http requests to an api service and writes the service results to the http response
-type PokemonFormApiController struct {
-	service PokemonFormApiServicer
+// PokemonFormAPIController binds http requests to an api service and writes the service results to the http response
+type PokemonFormAPIController struct {
+	service PokemonFormAPIServicer
 	errorHandler ErrorHandler
 }
 
-// PokemonFormApiOption for how the controller is set up.
-type PokemonFormApiOption func(*PokemonFormApiController)
+// PokemonFormAPIOption for how the controller is set up.
+type PokemonFormAPIOption func(*PokemonFormAPIController)
 
-// WithPokemonFormApiErrorHandler inject ErrorHandler into controller
-func WithPokemonFormApiErrorHandler(h ErrorHandler) PokemonFormApiOption {
-	return func(c *PokemonFormApiController) {
+// WithPokemonFormAPIErrorHandler inject ErrorHandler into controller
+func WithPokemonFormAPIErrorHandler(h ErrorHandler) PokemonFormAPIOption {
+	return func(c *PokemonFormAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewPokemonFormApiController creates a default api controller
-func NewPokemonFormApiController(s PokemonFormApiServicer, opts ...PokemonFormApiOption) Router {
-	controller := &PokemonFormApiController{
+// NewPokemonFormAPIController creates a default api controller
+func NewPokemonFormAPIController(s PokemonFormAPIServicer, opts ...PokemonFormAPIOption) Router {
+	controller := &PokemonFormAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewPokemonFormApiController(s PokemonFormApiServicer, opts ...PokemonFormAp
 	return controller
 }
 
-// Routes returns all the api routes for the PokemonFormApiController
-func (c *PokemonFormApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"PokemonFormList",
+// Routes returns all the api routes for the PokemonFormAPIController
+func (c *PokemonFormAPIController) Routes() Routes {
+	return Routes{
+		"PokemonFormList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-form/",
 			c.PokemonFormList,
 		},
-		{
-			"PokemonFormRead",
+		"PokemonFormRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-form/{id}/",
 			c.PokemonFormRead,
@@ -67,17 +65,35 @@ func (c *PokemonFormApiController) Routes() Routes {
 }
 
 // PokemonFormList - 
-func (c *PokemonFormApiController) PokemonFormList(w http.ResponseWriter, r *http.Request) {
+func (c *PokemonFormAPIController) PokemonFormList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.PokemonFormList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *PokemonFormApiController) PokemonFormList(w http.ResponseWriter, r *htt
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // PokemonFormRead - 
-func (c *PokemonFormApiController) PokemonFormRead(w http.ResponseWriter, r *http.Request) {
+func (c *PokemonFormAPIController) PokemonFormRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.PokemonFormRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *PokemonFormApiController) PokemonFormRead(w http.ResponseWriter, r *htt
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

@@ -1,11 +1,11 @@
-# \EncounterConditionApi
+# \EncounterConditionAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**EncounterConditionList**](EncounterConditionApi.md#EncounterConditionList) | **Get** /api/v2/encounter-condition/ | 
-[**EncounterConditionRead**](EncounterConditionApi.md#EncounterConditionRead) | **Get** /api/v2/encounter-condition/{id}/ | 
+[**EncounterConditionList**](EncounterConditionAPI.md#EncounterConditionList) | **Get** /api/v2/encounter-condition/ | 
+[**EncounterConditionRead**](EncounterConditionAPI.md#EncounterConditionRead) | **Get** /api/v2/encounter-condition/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EncounterConditionApi.EncounterConditionList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EncounterConditionApi.EncounterConditionList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EncounterConditionList`: string
-    fmt.Fprintf(os.Stdout, "Response from `EncounterConditionApi.EncounterConditionList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.EncounterConditionAPI.EncounterConditionList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EncounterConditionAPI.EncounterConditionList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EncounterConditionList`: string
+	fmt.Fprintf(os.Stdout, "Response from `EncounterConditionAPI.EncounterConditionList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.EncounterConditionApi.EncounterConditionRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `EncounterConditionApi.EncounterConditionRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `EncounterConditionRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `EncounterConditionApi.EncounterConditionRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.EncounterConditionAPI.EncounterConditionRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `EncounterConditionAPI.EncounterConditionRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `EncounterConditionRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `EncounterConditionAPI.EncounterConditionRead`: %v\n", resp)
 }
 ```
 

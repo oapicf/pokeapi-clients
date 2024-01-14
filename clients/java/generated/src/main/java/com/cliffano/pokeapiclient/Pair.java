@@ -13,7 +13,7 @@
 
 package com.cliffano.pokeapiclient;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-19T09:46:50.737972Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-14T06:30:39.997066544Z[Etc/UTC]")
 public class Pair {
     private String name = "";
     private String value = "";

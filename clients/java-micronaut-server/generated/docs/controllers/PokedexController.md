@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**pokedexList**](#pokedexList) | **GET** /api/v2/pokedex/ | 
 [**pokedexRead**](#pokedexRead) | **GET** /api/v2/pokedex/{id}/ | 
 
-<a name="pokedexList"></a>
+<a id="pokedexList"></a>
 # **pokedexList**
 ```java
 Mono<String> PokedexController.pokedexList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="pokedexRead"></a>
+<a id="pokedexRead"></a>
 # **pokedexRead**
 ```java
 Mono<String> PokedexController.pokedexRead(id)

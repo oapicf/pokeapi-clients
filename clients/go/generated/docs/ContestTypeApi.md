@@ -1,11 +1,11 @@
-# \ContestTypeApi
+# \ContestTypeAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ContestTypeList**](ContestTypeApi.md#ContestTypeList) | **Get** /api/v2/contest-type/ | 
-[**ContestTypeRead**](ContestTypeApi.md#ContestTypeRead) | **Get** /api/v2/contest-type/{id}/ | 
+[**ContestTypeList**](ContestTypeAPI.md#ContestTypeList) | **Get** /api/v2/contest-type/ | 
+[**ContestTypeRead**](ContestTypeAPI.md#ContestTypeRead) | **Get** /api/v2/contest-type/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContestTypeApi.ContestTypeList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ContestTypeApi.ContestTypeList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ContestTypeList`: string
-    fmt.Fprintf(os.Stdout, "Response from `ContestTypeApi.ContestTypeList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ContestTypeAPI.ContestTypeList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ContestTypeAPI.ContestTypeList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ContestTypeList`: string
+	fmt.Fprintf(os.Stdout, "Response from `ContestTypeAPI.ContestTypeList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ContestTypeApi.ContestTypeRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ContestTypeApi.ContestTypeRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ContestTypeRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `ContestTypeApi.ContestTypeRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ContestTypeAPI.ContestTypeRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ContestTypeAPI.ContestTypeRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ContestTypeRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `ContestTypeAPI.ContestTypeRead`: %v\n", resp)
 }
 ```
 

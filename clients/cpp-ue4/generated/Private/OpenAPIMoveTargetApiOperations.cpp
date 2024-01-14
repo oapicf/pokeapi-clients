@@ -70,7 +70,7 @@ bool OpenAPIMoveTargetApi::MoveTargetListResponse::FromJson(const TSharedPtr<FJs
 FString OpenAPIMoveTargetApi::MoveTargetReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/move-target/{id}/"), PathParams);
 

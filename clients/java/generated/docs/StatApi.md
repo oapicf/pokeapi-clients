@@ -8,7 +8,7 @@ All URIs are relative to *https://pokeapi.co*
 | [**statRead**](StatApi.md#statRead) | **GET** /api/v2/stat/{id}/ |  |
 
 
-<a name="statList"></a>
+<a id="statList"></a>
 # **statList**
 > String statList(limit, offset)
 
@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **0** | Default response |  -  |
 
-<a name="statRead"></a>
+<a id="statRead"></a>
 # **statRead**
 > String statRead(id)
 

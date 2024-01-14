@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// GenerationApiController binds http requests to an api service and writes the service results to the http response
-type GenerationApiController struct {
-	service GenerationApiServicer
+// GenerationAPIController binds http requests to an api service and writes the service results to the http response
+type GenerationAPIController struct {
+	service GenerationAPIServicer
 	errorHandler ErrorHandler
 }
 
-// GenerationApiOption for how the controller is set up.
-type GenerationApiOption func(*GenerationApiController)
+// GenerationAPIOption for how the controller is set up.
+type GenerationAPIOption func(*GenerationAPIController)
 
-// WithGenerationApiErrorHandler inject ErrorHandler into controller
-func WithGenerationApiErrorHandler(h ErrorHandler) GenerationApiOption {
-	return func(c *GenerationApiController) {
+// WithGenerationAPIErrorHandler inject ErrorHandler into controller
+func WithGenerationAPIErrorHandler(h ErrorHandler) GenerationAPIOption {
+	return func(c *GenerationAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewGenerationApiController creates a default api controller
-func NewGenerationApiController(s GenerationApiServicer, opts ...GenerationApiOption) Router {
-	controller := &GenerationApiController{
+// NewGenerationAPIController creates a default api controller
+func NewGenerationAPIController(s GenerationAPIServicer, opts ...GenerationAPIOption) Router {
+	controller := &GenerationAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewGenerationApiController(s GenerationApiServicer, opts ...GenerationApiOp
 	return controller
 }
 
-// Routes returns all the api routes for the GenerationApiController
-func (c *GenerationApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"GenerationList",
+// Routes returns all the api routes for the GenerationAPIController
+func (c *GenerationAPIController) Routes() Routes {
+	return Routes{
+		"GenerationList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/generation/",
 			c.GenerationList,
 		},
-		{
-			"GenerationRead",
+		"GenerationRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/generation/{id}/",
 			c.GenerationRead,
@@ -67,17 +65,35 @@ func (c *GenerationApiController) Routes() Routes {
 }
 
 // GenerationList - 
-func (c *GenerationApiController) GenerationList(w http.ResponseWriter, r *http.Request) {
+func (c *GenerationAPIController) GenerationList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.GenerationList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *GenerationApiController) GenerationList(w http.ResponseWriter, r *http.
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // GenerationRead - 
-func (c *GenerationApiController) GenerationRead(w http.ResponseWriter, r *http.Request) {
+func (c *GenerationAPIController) GenerationRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.GenerationRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *GenerationApiController) GenerationRead(w http.ResponseWriter, r *http.
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

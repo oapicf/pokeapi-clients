@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// EncounterMethodApiController binds http requests to an api service and writes the service results to the http response
-type EncounterMethodApiController struct {
-	service EncounterMethodApiServicer
+// EncounterMethodAPIController binds http requests to an api service and writes the service results to the http response
+type EncounterMethodAPIController struct {
+	service EncounterMethodAPIServicer
 	errorHandler ErrorHandler
 }
 
-// EncounterMethodApiOption for how the controller is set up.
-type EncounterMethodApiOption func(*EncounterMethodApiController)
+// EncounterMethodAPIOption for how the controller is set up.
+type EncounterMethodAPIOption func(*EncounterMethodAPIController)
 
-// WithEncounterMethodApiErrorHandler inject ErrorHandler into controller
-func WithEncounterMethodApiErrorHandler(h ErrorHandler) EncounterMethodApiOption {
-	return func(c *EncounterMethodApiController) {
+// WithEncounterMethodAPIErrorHandler inject ErrorHandler into controller
+func WithEncounterMethodAPIErrorHandler(h ErrorHandler) EncounterMethodAPIOption {
+	return func(c *EncounterMethodAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewEncounterMethodApiController creates a default api controller
-func NewEncounterMethodApiController(s EncounterMethodApiServicer, opts ...EncounterMethodApiOption) Router {
-	controller := &EncounterMethodApiController{
+// NewEncounterMethodAPIController creates a default api controller
+func NewEncounterMethodAPIController(s EncounterMethodAPIServicer, opts ...EncounterMethodAPIOption) Router {
+	controller := &EncounterMethodAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewEncounterMethodApiController(s EncounterMethodApiServicer, opts ...Encou
 	return controller
 }
 
-// Routes returns all the api routes for the EncounterMethodApiController
-func (c *EncounterMethodApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"EncounterMethodList",
+// Routes returns all the api routes for the EncounterMethodAPIController
+func (c *EncounterMethodAPIController) Routes() Routes {
+	return Routes{
+		"EncounterMethodList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/encounter-method/",
 			c.EncounterMethodList,
 		},
-		{
-			"EncounterMethodRead",
+		"EncounterMethodRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/encounter-method/{id}/",
 			c.EncounterMethodRead,
@@ -67,17 +65,35 @@ func (c *EncounterMethodApiController) Routes() Routes {
 }
 
 // EncounterMethodList - 
-func (c *EncounterMethodApiController) EncounterMethodList(w http.ResponseWriter, r *http.Request) {
+func (c *EncounterMethodAPIController) EncounterMethodList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.EncounterMethodList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *EncounterMethodApiController) EncounterMethodList(w http.ResponseWriter
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // EncounterMethodRead - 
-func (c *EncounterMethodApiController) EncounterMethodRead(w http.ResponseWriter, r *http.Request) {
+func (c *EncounterMethodAPIController) EncounterMethodRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.EncounterMethodRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *EncounterMethodApiController) EncounterMethodRead(w http.ResponseWriter
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

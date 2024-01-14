@@ -20,15 +20,13 @@ module Api.Request.PokeathlonStat exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-pokeathlonStatList : Maybe Int -> Maybe Int -> Api.Request 
+pokeathlonStatList : Maybe Int -> Maybe Int -> Api.Request ()
 pokeathlonStatList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ pokeathlonStatList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-pokeathlonStatRead : Int -> Api.Request 
+pokeathlonStatRead : Int -> Api.Request ()
 pokeathlonStatRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ pokeathlonStatRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

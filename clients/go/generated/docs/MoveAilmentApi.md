@@ -1,11 +1,11 @@
-# \MoveAilmentApi
+# \MoveAilmentAPI
 
 All URIs are relative to *https://pokeapi.co*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**MoveAilmentList**](MoveAilmentApi.md#MoveAilmentList) | **Get** /api/v2/move-ailment/ | 
-[**MoveAilmentRead**](MoveAilmentApi.md#MoveAilmentRead) | **Get** /api/v2/move-ailment/{id}/ | 
+[**MoveAilmentList**](MoveAilmentAPI.md#MoveAilmentList) | **Get** /api/v2/move-ailment/ | 
+[**MoveAilmentRead**](MoveAilmentAPI.md#MoveAilmentRead) | **Get** /api/v2/move-ailment/{id}/ | 
 
 
 
@@ -21,25 +21,25 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    limit := int32(56) // int32 |  (optional)
-    offset := int32(56) // int32 |  (optional)
+	limit := int32(56) // int32 |  (optional)
+	offset := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoveAilmentApi.MoveAilmentList(context.Background()).Limit(limit).Offset(offset).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoveAilmentApi.MoveAilmentList``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `MoveAilmentList`: string
-    fmt.Fprintf(os.Stdout, "Response from `MoveAilmentApi.MoveAilmentList`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MoveAilmentAPI.MoveAilmentList(context.Background()).Limit(limit).Offset(offset).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MoveAilmentAPI.MoveAilmentList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MoveAilmentList`: string
+	fmt.Fprintf(os.Stdout, "Response from `MoveAilmentAPI.MoveAilmentList`: %v\n", resp)
 }
 ```
 
@@ -87,24 +87,24 @@ No authorization required
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := int32(56) // int32 | 
+	id := int32(56) // int32 | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MoveAilmentApi.MoveAilmentRead(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MoveAilmentApi.MoveAilmentRead``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `MoveAilmentRead`: string
-    fmt.Fprintf(os.Stdout, "Response from `MoveAilmentApi.MoveAilmentRead`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MoveAilmentAPI.MoveAilmentRead(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MoveAilmentAPI.MoveAilmentRead``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MoveAilmentRead`: string
+	fmt.Fprintf(os.Stdout, "Response from `MoveAilmentAPI.MoveAilmentRead`: %v\n", resp)
 }
 ```
 

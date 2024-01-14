@@ -43,8 +43,8 @@ export default class VersionApi {
 
     /**
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.limit 
-     * @param {Number} opts.offset 
+     * @param {Number} [limit] 
+     * @param {Number} [offset] 
      * @param {module:api/VersionApi~versionListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
      */

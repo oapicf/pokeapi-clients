@@ -52,8 +52,12 @@ interface EvolutionTriggerApiInterface
      *
      * @return array|object|null
      */
-    public function evolutionTriggerList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function evolutionTriggerList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation evolutionTriggerRead
@@ -64,6 +68,9 @@ interface EvolutionTriggerApiInterface
      *
      * @return array|object|null
      */
-    public function evolutionTriggerRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function evolutionTriggerRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

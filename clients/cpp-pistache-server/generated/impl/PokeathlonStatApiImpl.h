@@ -36,7 +36,7 @@ namespace org::openapitools::server::api
 
 
 
-class PokeathlonStatApiImpl : public org::openapitools::server::api::PokeathlonStatApi {
+class  PokeathlonStatApiImpl : public org::openapitools::server::api::PokeathlonStatApi {
 public:
     explicit PokeathlonStatApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~PokeathlonStatApiImpl() override = default;

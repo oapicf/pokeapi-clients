@@ -52,8 +52,12 @@ interface MoveBattleStyleApiInterface
      *
      * @return array|object|null
      */
-    public function moveBattleStyleList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function moveBattleStyleList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation moveBattleStyleRead
@@ -64,6 +68,9 @@ interface MoveBattleStyleApiInterface
      *
      * @return array|object|null
      */
-    public function moveBattleStyleRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function moveBattleStyleRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

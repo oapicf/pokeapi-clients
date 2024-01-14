@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.PokemonColorApi
+# PSOpenAPITools.PSOpenAPITools\Api.PokemonColorApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-PokemonColorRead**](PokemonColorApi.md#Invoke-PokemonColorRead) | **GET** /api/v2/pokemon-color/{id}/ | 
 
 
-<a name="Invoke-PokemonColorList"></a>
+<a id="Invoke-PokemonColorList"></a>
 # **Invoke-PokemonColorList**
 > String Invoke-PokemonColorList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-PokemonColorRead"></a>
+<a id="Invoke-PokemonColorRead"></a>
 # **Invoke-PokemonColorRead**
 > String Invoke-PokemonColorRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

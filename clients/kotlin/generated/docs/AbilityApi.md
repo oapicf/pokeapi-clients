@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**abilityRead**](AbilityApi.md#abilityRead) | **GET** /api/v2/ability/{id}/ | 
 
 
-<a name="abilityList"></a>
+<a id="abilityList"></a>
 # **abilityList**
 > kotlin.String abilityList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="abilityRead"></a>
+<a id="abilityRead"></a>
 # **abilityRead**
 > kotlin.String abilityRead(id)
 

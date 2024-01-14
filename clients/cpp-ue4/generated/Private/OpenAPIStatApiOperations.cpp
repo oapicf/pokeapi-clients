@@ -70,7 +70,7 @@ bool OpenAPIStatApi::StatListResponse::FromJson(const TSharedPtr<FJsonValue>& Js
 FString OpenAPIStatApi::StatReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/stat/{id}/"), PathParams);
 

@@ -70,7 +70,7 @@ bool OpenAPIItemFlingEffectApi::ItemFlingEffectListResponse::FromJson(const TSha
 FString OpenAPIItemFlingEffectApi::ItemFlingEffectReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/item-fling-effect/{id}/"), PathParams);
 

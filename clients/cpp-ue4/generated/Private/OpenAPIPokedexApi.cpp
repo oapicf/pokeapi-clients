@@ -56,7 +56,7 @@ bool OpenAPIPokedexApi::IsValid() const
 
 void OpenAPIPokedexApi::SetHttpRetryManager(FHttpRetrySystem::FManager& InRetryManager)
 {
-	if(RetryManager != &GetHttpRetryManager())
+	if (RetryManager != &InRetryManager)
 	{
 		DefaultRetryManager.Reset();
 		RetryManager = &InRetryManager;

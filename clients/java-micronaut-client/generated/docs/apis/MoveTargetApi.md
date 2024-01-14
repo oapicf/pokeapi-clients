@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="moveTargetList"></a>
+<a id="moveTargetList"></a>
 # **moveTargetList**
 ```java
 Mono<String> MoveTargetApi.moveTargetList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> MoveTargetApi.moveTargetList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="moveTargetRead"></a>
+<a id="moveTargetRead"></a>
 # **moveTargetRead**
 ```java
 Mono<String> MoveTargetApi.moveTargetRead(id)

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**moveLearnMethodRead**](MoveLearnMethodApi.md#moveLearnMethodRead) | **GET** /api/v2/move-learn-method/{id}/ | 
 
 
-<a name="moveLearnMethodList"></a>
+<a id="moveLearnMethodList"></a>
 # **moveLearnMethodList**
 > kotlin.String moveLearnMethodList(limit, offset)
 
@@ -55,7 +55,7 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-<a name="moveLearnMethodRead"></a>
+<a id="moveLearnMethodRead"></a>
 # **moveLearnMethodRead**
 > kotlin.String moveLearnMethodRead(id)
 

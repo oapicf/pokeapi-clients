@@ -20,15 +20,13 @@ module Api.Request.MoveAilment exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-moveAilmentList : Maybe Int -> Maybe Int -> Api.Request 
+moveAilmentList : Maybe Int -> Maybe Int -> Api.Request ()
 moveAilmentList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ moveAilmentList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-moveAilmentRead : Int -> Api.Request 
+moveAilmentRead : Int -> Api.Request ()
 moveAilmentRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ moveAilmentRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

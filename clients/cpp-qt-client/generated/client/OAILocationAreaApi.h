@@ -101,18 +101,25 @@ signals:
     void locationAreaListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void locationAreaReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use locationAreaListSignalError() instead")
     void locationAreaListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void locationAreaListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use locationAreaReadSignalError() instead")
     void locationAreaReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void locationAreaReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use locationAreaListSignalErrorFull() instead")
     void locationAreaListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void locationAreaListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use locationAreaReadSignalErrorFull() instead")
     void locationAreaReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void locationAreaReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

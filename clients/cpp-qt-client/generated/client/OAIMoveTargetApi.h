@@ -101,18 +101,25 @@ signals:
     void moveTargetListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void moveTargetReadSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
+    Q_DECL_DEPRECATED_X("Use moveTargetListSignalError() instead")
     void moveTargetListSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void moveTargetListSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use moveTargetReadSignalError() instead")
     void moveTargetReadSignalE(QString summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void moveTargetReadSignalError(QString summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use moveTargetListSignalErrorFull() instead")
     void moveTargetListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void moveTargetListSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use moveTargetReadSignalErrorFull() instead")
     void moveTargetReadSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void moveTargetReadSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
 public slots:
     void tokenAvailable();
-    
 };
 
 } // namespace OpenAPI

@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// MoveTargetApiService MoveTargetApi service
-type MoveTargetApiService service
+// MoveTargetAPIService MoveTargetAPI service
+type MoveTargetAPIService service
 
 type ApiMoveTargetListRequest struct {
 	ctx context.Context
-	ApiService *MoveTargetApiService
+	ApiService *MoveTargetAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ MoveTargetList Method for MoveTargetList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiMoveTargetListRequest
 */
-func (a *MoveTargetApiService) MoveTargetList(ctx context.Context) ApiMoveTargetListRequest {
+func (a *MoveTargetAPIService) MoveTargetList(ctx context.Context) ApiMoveTargetListRequest {
 	return ApiMoveTargetListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *MoveTargetApiService) MoveTargetList(ctx context.Context) ApiMoveTarget
 
 // Execute executes the request
 //  @return string
-func (a *MoveTargetApiService) MoveTargetListExecute(r ApiMoveTargetListRequest) (string, *http.Response, error) {
+func (a *MoveTargetAPIService) MoveTargetListExecute(r ApiMoveTargetListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *MoveTargetApiService) MoveTargetListExecute(r ApiMoveTargetListRequest)
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveTargetApiService.MoveTargetList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveTargetAPIService.MoveTargetList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *MoveTargetApiService) MoveTargetListExecute(r ApiMoveTargetListRequest)
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *MoveTargetApiService) MoveTargetListExecute(r ApiMoveTargetListRequest)
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *MoveTargetApiService) MoveTargetListExecute(r ApiMoveTargetListRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *MoveTargetApiService) MoveTargetListExecute(r ApiMoveTargetListRequest)
 
 type ApiMoveTargetReadRequest struct {
 	ctx context.Context
-	ApiService *MoveTargetApiService
+	ApiService *MoveTargetAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ MoveTargetRead Method for MoveTargetRead
  @param id
  @return ApiMoveTargetReadRequest
 */
-func (a *MoveTargetApiService) MoveTargetRead(ctx context.Context, id int32) ApiMoveTargetReadRequest {
+func (a *MoveTargetAPIService) MoveTargetRead(ctx context.Context, id int32) ApiMoveTargetReadRequest {
 	return ApiMoveTargetReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *MoveTargetApiService) MoveTargetRead(ctx context.Context, id int32) Api
 
 // Execute executes the request
 //  @return string
-func (a *MoveTargetApiService) MoveTargetReadExecute(r ApiMoveTargetReadRequest) (string, *http.Response, error) {
+func (a *MoveTargetAPIService) MoveTargetReadExecute(r ApiMoveTargetReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *MoveTargetApiService) MoveTargetReadExecute(r ApiMoveTargetReadRequest)
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveTargetApiService.MoveTargetRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MoveTargetAPIService.MoveTargetRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/move-target/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *MoveTargetApiService) MoveTargetReadExecute(r ApiMoveTargetReadRequest)
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *MoveTargetApiService) MoveTargetReadExecute(r ApiMoveTargetReadRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

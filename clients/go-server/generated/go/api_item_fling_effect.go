@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// ItemFlingEffectApiController binds http requests to an api service and writes the service results to the http response
-type ItemFlingEffectApiController struct {
-	service ItemFlingEffectApiServicer
+// ItemFlingEffectAPIController binds http requests to an api service and writes the service results to the http response
+type ItemFlingEffectAPIController struct {
+	service ItemFlingEffectAPIServicer
 	errorHandler ErrorHandler
 }
 
-// ItemFlingEffectApiOption for how the controller is set up.
-type ItemFlingEffectApiOption func(*ItemFlingEffectApiController)
+// ItemFlingEffectAPIOption for how the controller is set up.
+type ItemFlingEffectAPIOption func(*ItemFlingEffectAPIController)
 
-// WithItemFlingEffectApiErrorHandler inject ErrorHandler into controller
-func WithItemFlingEffectApiErrorHandler(h ErrorHandler) ItemFlingEffectApiOption {
-	return func(c *ItemFlingEffectApiController) {
+// WithItemFlingEffectAPIErrorHandler inject ErrorHandler into controller
+func WithItemFlingEffectAPIErrorHandler(h ErrorHandler) ItemFlingEffectAPIOption {
+	return func(c *ItemFlingEffectAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewItemFlingEffectApiController creates a default api controller
-func NewItemFlingEffectApiController(s ItemFlingEffectApiServicer, opts ...ItemFlingEffectApiOption) Router {
-	controller := &ItemFlingEffectApiController{
+// NewItemFlingEffectAPIController creates a default api controller
+func NewItemFlingEffectAPIController(s ItemFlingEffectAPIServicer, opts ...ItemFlingEffectAPIOption) Router {
+	controller := &ItemFlingEffectAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewItemFlingEffectApiController(s ItemFlingEffectApiServicer, opts ...ItemF
 	return controller
 }
 
-// Routes returns all the api routes for the ItemFlingEffectApiController
-func (c *ItemFlingEffectApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"ItemFlingEffectList",
+// Routes returns all the api routes for the ItemFlingEffectAPIController
+func (c *ItemFlingEffectAPIController) Routes() Routes {
+	return Routes{
+		"ItemFlingEffectList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/item-fling-effect/",
 			c.ItemFlingEffectList,
 		},
-		{
-			"ItemFlingEffectRead",
+		"ItemFlingEffectRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/item-fling-effect/{id}/",
 			c.ItemFlingEffectRead,
@@ -67,17 +65,35 @@ func (c *ItemFlingEffectApiController) Routes() Routes {
 }
 
 // ItemFlingEffectList - 
-func (c *ItemFlingEffectApiController) ItemFlingEffectList(w http.ResponseWriter, r *http.Request) {
+func (c *ItemFlingEffectAPIController) ItemFlingEffectList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.ItemFlingEffectList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *ItemFlingEffectApiController) ItemFlingEffectList(w http.ResponseWriter
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // ItemFlingEffectRead - 
-func (c *ItemFlingEffectApiController) ItemFlingEffectRead(w http.ResponseWriter, r *http.Request) {
+func (c *ItemFlingEffectAPIController) ItemFlingEffectRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.ItemFlingEffectRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *ItemFlingEffectApiController) ItemFlingEffectRead(w http.ResponseWriter
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

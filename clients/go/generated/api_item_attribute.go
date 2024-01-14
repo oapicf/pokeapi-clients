@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// ItemAttributeApiService ItemAttributeApi service
-type ItemAttributeApiService service
+// ItemAttributeAPIService ItemAttributeAPI service
+type ItemAttributeAPIService service
 
 type ApiItemAttributeListRequest struct {
 	ctx context.Context
-	ApiService *ItemAttributeApiService
+	ApiService *ItemAttributeAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ ItemAttributeList Method for ItemAttributeList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiItemAttributeListRequest
 */
-func (a *ItemAttributeApiService) ItemAttributeList(ctx context.Context) ApiItemAttributeListRequest {
+func (a *ItemAttributeAPIService) ItemAttributeList(ctx context.Context) ApiItemAttributeListRequest {
 	return ApiItemAttributeListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *ItemAttributeApiService) ItemAttributeList(ctx context.Context) ApiItem
 
 // Execute executes the request
 //  @return string
-func (a *ItemAttributeApiService) ItemAttributeListExecute(r ApiItemAttributeListRequest) (string, *http.Response, error) {
+func (a *ItemAttributeAPIService) ItemAttributeListExecute(r ApiItemAttributeListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *ItemAttributeApiService) ItemAttributeListExecute(r ApiItemAttributeLis
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemAttributeApiService.ItemAttributeList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemAttributeAPIService.ItemAttributeList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *ItemAttributeApiService) ItemAttributeListExecute(r ApiItemAttributeLis
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *ItemAttributeApiService) ItemAttributeListExecute(r ApiItemAttributeLis
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *ItemAttributeApiService) ItemAttributeListExecute(r ApiItemAttributeLis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *ItemAttributeApiService) ItemAttributeListExecute(r ApiItemAttributeLis
 
 type ApiItemAttributeReadRequest struct {
 	ctx context.Context
-	ApiService *ItemAttributeApiService
+	ApiService *ItemAttributeAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ ItemAttributeRead Method for ItemAttributeRead
  @param id
  @return ApiItemAttributeReadRequest
 */
-func (a *ItemAttributeApiService) ItemAttributeRead(ctx context.Context, id int32) ApiItemAttributeReadRequest {
+func (a *ItemAttributeAPIService) ItemAttributeRead(ctx context.Context, id int32) ApiItemAttributeReadRequest {
 	return ApiItemAttributeReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *ItemAttributeApiService) ItemAttributeRead(ctx context.Context, id int3
 
 // Execute executes the request
 //  @return string
-func (a *ItemAttributeApiService) ItemAttributeReadExecute(r ApiItemAttributeReadRequest) (string, *http.Response, error) {
+func (a *ItemAttributeAPIService) ItemAttributeReadExecute(r ApiItemAttributeReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *ItemAttributeApiService) ItemAttributeReadExecute(r ApiItemAttributeRea
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemAttributeApiService.ItemAttributeRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemAttributeAPIService.ItemAttributeRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/item-attribute/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *ItemAttributeApiService) ItemAttributeReadExecute(r ApiItemAttributeRea
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *ItemAttributeApiService) ItemAttributeReadExecute(r ApiItemAttributeRea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

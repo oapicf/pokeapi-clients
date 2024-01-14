@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="evolutionChainList"></a>
+<a id="evolutionChainList"></a>
 # **evolutionChainList**
 ```java
 Mono<String> EvolutionChainApi.evolutionChainList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> EvolutionChainApi.evolutionChainList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="evolutionChainRead"></a>
+<a id="evolutionChainRead"></a>
 # **evolutionChainRead**
 ```java
 Mono<String> EvolutionChainApi.evolutionChainRead(id)

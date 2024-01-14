@@ -52,8 +52,12 @@ interface GrowthRateApiInterface
      *
      * @return array|object|null
      */
-    public function growthRateList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function growthRateList(
+        ?int $limit,
+        ?int $offset,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation growthRateRead
@@ -64,6 +68,9 @@ interface GrowthRateApiInterface
      *
      * @return array|object|null
      */
-    public function growthRateRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function growthRateRead(
+        int $id,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

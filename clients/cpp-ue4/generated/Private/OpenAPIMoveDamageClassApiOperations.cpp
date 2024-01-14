@@ -70,7 +70,7 @@ bool OpenAPIMoveDamageClassApi::MoveDamageClassListResponse::FromJson(const TSha
 FString OpenAPIMoveDamageClassApi::MoveDamageClassReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/move-damage-class/{id}/"), PathParams);
 

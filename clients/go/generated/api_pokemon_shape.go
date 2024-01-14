@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// PokemonShapeApiService PokemonShapeApi service
-type PokemonShapeApiService service
+// PokemonShapeAPIService PokemonShapeAPI service
+type PokemonShapeAPIService service
 
 type ApiPokemonShapeListRequest struct {
 	ctx context.Context
-	ApiService *PokemonShapeApiService
+	ApiService *PokemonShapeAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ PokemonShapeList Method for PokemonShapeList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPokemonShapeListRequest
 */
-func (a *PokemonShapeApiService) PokemonShapeList(ctx context.Context) ApiPokemonShapeListRequest {
+func (a *PokemonShapeAPIService) PokemonShapeList(ctx context.Context) ApiPokemonShapeListRequest {
 	return ApiPokemonShapeListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *PokemonShapeApiService) PokemonShapeList(ctx context.Context) ApiPokemo
 
 // Execute executes the request
 //  @return string
-func (a *PokemonShapeApiService) PokemonShapeListExecute(r ApiPokemonShapeListRequest) (string, *http.Response, error) {
+func (a *PokemonShapeAPIService) PokemonShapeListExecute(r ApiPokemonShapeListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *PokemonShapeApiService) PokemonShapeListExecute(r ApiPokemonShapeListRe
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PokemonShapeApiService.PokemonShapeList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PokemonShapeAPIService.PokemonShapeList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *PokemonShapeApiService) PokemonShapeListExecute(r ApiPokemonShapeListRe
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *PokemonShapeApiService) PokemonShapeListExecute(r ApiPokemonShapeListRe
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *PokemonShapeApiService) PokemonShapeListExecute(r ApiPokemonShapeListRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *PokemonShapeApiService) PokemonShapeListExecute(r ApiPokemonShapeListRe
 
 type ApiPokemonShapeReadRequest struct {
 	ctx context.Context
-	ApiService *PokemonShapeApiService
+	ApiService *PokemonShapeAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ PokemonShapeRead Method for PokemonShapeRead
  @param id
  @return ApiPokemonShapeReadRequest
 */
-func (a *PokemonShapeApiService) PokemonShapeRead(ctx context.Context, id int32) ApiPokemonShapeReadRequest {
+func (a *PokemonShapeAPIService) PokemonShapeRead(ctx context.Context, id int32) ApiPokemonShapeReadRequest {
 	return ApiPokemonShapeReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *PokemonShapeApiService) PokemonShapeRead(ctx context.Context, id int32)
 
 // Execute executes the request
 //  @return string
-func (a *PokemonShapeApiService) PokemonShapeReadExecute(r ApiPokemonShapeReadRequest) (string, *http.Response, error) {
+func (a *PokemonShapeAPIService) PokemonShapeReadExecute(r ApiPokemonShapeReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *PokemonShapeApiService) PokemonShapeReadExecute(r ApiPokemonShapeReadRe
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PokemonShapeApiService.PokemonShapeRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PokemonShapeAPIService.PokemonShapeRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/pokemon-shape/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *PokemonShapeApiService) PokemonShapeReadExecute(r ApiPokemonShapeReadRe
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *PokemonShapeApiService) PokemonShapeReadExecute(r ApiPokemonShapeReadRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

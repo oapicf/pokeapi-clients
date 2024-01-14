@@ -70,7 +70,7 @@ bool OpenAPIPokemonShapeApi::PokemonShapeListResponse::FromJson(const TSharedPtr
 FString OpenAPIPokemonShapeApi::PokemonShapeReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/pokemon-shape/{id}/"), PathParams);
 

@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="superContestEffectList"></a>
+<a id="superContestEffectList"></a>
 # **superContestEffectList**
 ```java
 Mono<String> SuperContestEffectApi.superContestEffectList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> SuperContestEffectApi.superContestEffectList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="superContestEffectRead"></a>
+<a id="superContestEffectRead"></a>
 # **superContestEffectRead**
 ```java
 Mono<String> SuperContestEffectApi.superContestEffectRead(id)

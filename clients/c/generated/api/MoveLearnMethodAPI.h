@@ -8,10 +8,10 @@
 
 
 char*
-MoveLearnMethodAPI_moveLearnMethodList(apiClient_t *apiClient, int limit , int offset );
+MoveLearnMethodAPI_moveLearnMethodList(apiClient_t *apiClient, int *limit, int *offset);
 
 
 char*
-MoveLearnMethodAPI_moveLearnMethodRead(apiClient_t *apiClient, int id );
+MoveLearnMethodAPI_moveLearnMethodRead(apiClient_t *apiClient, int *id);
 
 

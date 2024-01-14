@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**superContestEffectList**](#superContestEffectList) | **GET** /api/v2/super-contest-effect/ | 
 [**superContestEffectRead**](#superContestEffectRead) | **GET** /api/v2/super-contest-effect/{id}/ | 
 
-<a name="superContestEffectList"></a>
+<a id="superContestEffectList"></a>
 # **superContestEffectList**
 ```java
 Mono<String> SuperContestEffectController.superContestEffectList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="superContestEffectRead"></a>
+<a id="superContestEffectRead"></a>
 # **superContestEffectRead**
 ```java
 Mono<String> SuperContestEffectController.superContestEffectRead(id)

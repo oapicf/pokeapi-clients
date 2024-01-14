@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.LocationAreaApi
+# PSOpenAPITools.PSOpenAPITools\Api.LocationAreaApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-LocationAreaRead**](LocationAreaApi.md#Invoke-LocationAreaRead) | **GET** /api/v2/location-area/{id}/ | 
 
 
-<a name="Invoke-LocationAreaList"></a>
+<a id="Invoke-LocationAreaList"></a>
 # **Invoke-LocationAreaList**
 > String Invoke-LocationAreaList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-LocationAreaRead"></a>
+<a id="Invoke-LocationAreaRead"></a>
 # **Invoke-LocationAreaRead**
 > String Invoke-LocationAreaRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

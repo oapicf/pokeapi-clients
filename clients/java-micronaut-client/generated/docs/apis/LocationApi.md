@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="locationList"></a>
+<a id="locationList"></a>
 # **locationList**
 ```java
 Mono<String> LocationApi.locationList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> LocationApi.locationList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="locationRead"></a>
+<a id="locationRead"></a>
 # **locationRead**
 ```java
 Mono<String> LocationApi.locationRead(id)

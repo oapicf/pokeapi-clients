@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// VersionApiController binds http requests to an api service and writes the service results to the http response
-type VersionApiController struct {
-	service VersionApiServicer
+// VersionAPIController binds http requests to an api service and writes the service results to the http response
+type VersionAPIController struct {
+	service VersionAPIServicer
 	errorHandler ErrorHandler
 }
 
-// VersionApiOption for how the controller is set up.
-type VersionApiOption func(*VersionApiController)
+// VersionAPIOption for how the controller is set up.
+type VersionAPIOption func(*VersionAPIController)
 
-// WithVersionApiErrorHandler inject ErrorHandler into controller
-func WithVersionApiErrorHandler(h ErrorHandler) VersionApiOption {
-	return func(c *VersionApiController) {
+// WithVersionAPIErrorHandler inject ErrorHandler into controller
+func WithVersionAPIErrorHandler(h ErrorHandler) VersionAPIOption {
+	return func(c *VersionAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewVersionApiController creates a default api controller
-func NewVersionApiController(s VersionApiServicer, opts ...VersionApiOption) Router {
-	controller := &VersionApiController{
+// NewVersionAPIController creates a default api controller
+func NewVersionAPIController(s VersionAPIServicer, opts ...VersionAPIOption) Router {
+	controller := &VersionAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewVersionApiController(s VersionApiServicer, opts ...VersionApiOption) Rou
 	return controller
 }
 
-// Routes returns all the api routes for the VersionApiController
-func (c *VersionApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"VersionList",
+// Routes returns all the api routes for the VersionAPIController
+func (c *VersionAPIController) Routes() Routes {
+	return Routes{
+		"VersionList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/version/",
 			c.VersionList,
 		},
-		{
-			"VersionRead",
+		"VersionRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/version/{id}/",
 			c.VersionRead,
@@ -67,17 +65,35 @@ func (c *VersionApiController) Routes() Routes {
 }
 
 // VersionList - 
-func (c *VersionApiController) VersionList(w http.ResponseWriter, r *http.Request) {
+func (c *VersionAPIController) VersionList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.VersionList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *VersionApiController) VersionList(w http.ResponseWriter, r *http.Reques
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // VersionRead - 
-func (c *VersionApiController) VersionRead(w http.ResponseWriter, r *http.Request) {
+func (c *VersionAPIController) VersionRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.VersionRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *VersionApiController) VersionRead(w http.ResponseWriter, r *http.Reques
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.ItemFlingEffectApi
+# PSOpenAPITools.PSOpenAPITools\Api.ItemFlingEffectApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Invoke-ItemFlingEffectRead**](ItemFlingEffectApi.md#Invoke-ItemFlingEffectRead) | **GET** /api/v2/item-fling-effect/{id}/ | 
 
 
-<a name="Invoke-ItemFlingEffectList"></a>
+<a id="Invoke-ItemFlingEffectList"></a>
 # **Invoke-ItemFlingEffectList**
 > String Invoke-ItemFlingEffectList<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Invoke-ItemFlingEffectRead"></a>
+<a id="Invoke-ItemFlingEffectRead"></a>
 # **Invoke-ItemFlingEffectRead**
 > String Invoke-ItemFlingEffectRead<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

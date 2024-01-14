@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.MoveApi
+# PSOpenAPITools.PSOpenAPITools\Api.MoveApi
 
 All URIs are relative to *https://pokeapi.co*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**Move-Read**](MoveApi.md#Move-Read) | **GET** /api/v2/move/{id}/ | 
 
 
-<a name="Move-List"></a>
+<a id="Move-List"></a>
 # **Move-List**
 > String Move-List<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Limit] <System.Nullable[Int32]><br>
@@ -51,7 +51,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="Move-Read"></a>
+<a id="Move-Read"></a>
 # **Move-Read**
 > String Move-Read<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Id] <Int32><br>

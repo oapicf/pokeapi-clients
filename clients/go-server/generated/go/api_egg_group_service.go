@@ -16,35 +16,35 @@ import (
 	"errors"
 )
 
-// EggGroupApiService is a service that implements the logic for the EggGroupApiServicer
-// This service should implement the business logic for every endpoint for the EggGroupApi API.
+// EggGroupAPIService is a service that implements the logic for the EggGroupAPIServicer
+// This service should implement the business logic for every endpoint for the EggGroupAPI API.
 // Include any external packages or services that will be required by this service.
-type EggGroupApiService struct {
+type EggGroupAPIService struct {
 }
 
-// NewEggGroupApiService creates a default api service
-func NewEggGroupApiService() EggGroupApiServicer {
-	return &EggGroupApiService{}
+// NewEggGroupAPIService creates a default api service
+func NewEggGroupAPIService() EggGroupAPIServicer {
+	return &EggGroupAPIService{}
 }
 
 // EggGroupList - 
-func (s *EggGroupApiService) EggGroupList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
+func (s *EggGroupAPIService) EggGroupList(ctx context.Context, limit int32, offset int32) (ImplResponse, error) {
 	// TODO - update EggGroupList with the required logic for this service method.
 	// Add api_egg_group_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("EggGroupList method not implemented")
 }
 
 // EggGroupRead - 
-func (s *EggGroupApiService) EggGroupRead(ctx context.Context, id int32) (ImplResponse, error) {
+func (s *EggGroupAPIService) EggGroupRead(ctx context.Context, id int32) (ImplResponse, error) {
 	// TODO - update EggGroupRead with the required logic for this service method.
 	// Add api_egg_group_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	//TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
-	//return Response(0, string{}), nil
+	// TODO: Uncomment the next line to return response Response(0, string{}) or use other options such as http.Ok ...
+	// return Response(0, string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("EggGroupRead method not implemented")
 }

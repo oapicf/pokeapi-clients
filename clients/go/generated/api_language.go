@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// LanguageApiService LanguageApi service
-type LanguageApiService service
+// LanguageAPIService LanguageAPI service
+type LanguageAPIService service
 
 type ApiLanguageListRequest struct {
 	ctx context.Context
-	ApiService *LanguageApiService
+	ApiService *LanguageAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ LanguageList Method for LanguageList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiLanguageListRequest
 */
-func (a *LanguageApiService) LanguageList(ctx context.Context) ApiLanguageListRequest {
+func (a *LanguageAPIService) LanguageList(ctx context.Context) ApiLanguageListRequest {
 	return ApiLanguageListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *LanguageApiService) LanguageList(ctx context.Context) ApiLanguageListRe
 
 // Execute executes the request
 //  @return string
-func (a *LanguageApiService) LanguageListExecute(r ApiLanguageListRequest) (string, *http.Response, error) {
+func (a *LanguageAPIService) LanguageListExecute(r ApiLanguageListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *LanguageApiService) LanguageListExecute(r ApiLanguageListRequest) (stri
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LanguageApiService.LanguageList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LanguageAPIService.LanguageList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *LanguageApiService) LanguageListExecute(r ApiLanguageListRequest) (stri
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *LanguageApiService) LanguageListExecute(r ApiLanguageListRequest) (stri
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *LanguageApiService) LanguageListExecute(r ApiLanguageListRequest) (stri
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *LanguageApiService) LanguageListExecute(r ApiLanguageListRequest) (stri
 
 type ApiLanguageReadRequest struct {
 	ctx context.Context
-	ApiService *LanguageApiService
+	ApiService *LanguageAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ LanguageRead Method for LanguageRead
  @param id
  @return ApiLanguageReadRequest
 */
-func (a *LanguageApiService) LanguageRead(ctx context.Context, id int32) ApiLanguageReadRequest {
+func (a *LanguageAPIService) LanguageRead(ctx context.Context, id int32) ApiLanguageReadRequest {
 	return ApiLanguageReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *LanguageApiService) LanguageRead(ctx context.Context, id int32) ApiLang
 
 // Execute executes the request
 //  @return string
-func (a *LanguageApiService) LanguageReadExecute(r ApiLanguageReadRequest) (string, *http.Response, error) {
+func (a *LanguageAPIService) LanguageReadExecute(r ApiLanguageReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *LanguageApiService) LanguageReadExecute(r ApiLanguageReadRequest) (stri
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LanguageApiService.LanguageRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LanguageAPIService.LanguageRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/language/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *LanguageApiService) LanguageReadExecute(r ApiLanguageReadRequest) (stri
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *LanguageApiService) LanguageReadExecute(r ApiLanguageReadRequest) (stri
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

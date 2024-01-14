@@ -70,7 +70,7 @@ bool OpenAPIBerryApi::BerryListResponse::FromJson(const TSharedPtr<FJsonValue>& 
 FString OpenAPIBerryApi::BerryReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/berry/{id}/"), PathParams);
 

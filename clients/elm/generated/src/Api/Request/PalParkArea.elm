@@ -20,15 +20,13 @@ module Api.Request.PalParkArea exposing
     )
 
 import Api
-import Api.Data
+import Api.Data exposing (..)
 import Dict
 import Http
 import Json.Decode
 import Json.Encode
 
-
-
-palParkAreaList : Maybe Int -> Maybe Int -> Api.Request 
+palParkAreaList : Maybe Int -> Maybe Int -> Api.Request ()
 palParkAreaList limit_query offset_query =
     Api.request
         "GET"
@@ -37,11 +35,10 @@ palParkAreaList limit_query offset_query =
         [ ( "limit", Maybe.map String.fromInt limit_query ), ( "offset", Maybe.map String.fromInt offset_query ) ]
         []
         Nothing
-        
+        (Json.Decode.succeed ())
 
 
-
-palParkAreaRead : Int -> Api.Request 
+palParkAreaRead : Int -> Api.Request ()
 palParkAreaRead id_path =
     Api.request
         "GET"
@@ -50,4 +47,5 @@ palParkAreaRead id_path =
         []
         []
         Nothing
-        
+        (Json.Decode.succeed ())
+

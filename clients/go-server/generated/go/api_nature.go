@@ -18,25 +18,25 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// NatureApiController binds http requests to an api service and writes the service results to the http response
-type NatureApiController struct {
-	service NatureApiServicer
+// NatureAPIController binds http requests to an api service and writes the service results to the http response
+type NatureAPIController struct {
+	service NatureAPIServicer
 	errorHandler ErrorHandler
 }
 
-// NatureApiOption for how the controller is set up.
-type NatureApiOption func(*NatureApiController)
+// NatureAPIOption for how the controller is set up.
+type NatureAPIOption func(*NatureAPIController)
 
-// WithNatureApiErrorHandler inject ErrorHandler into controller
-func WithNatureApiErrorHandler(h ErrorHandler) NatureApiOption {
-	return func(c *NatureApiController) {
+// WithNatureAPIErrorHandler inject ErrorHandler into controller
+func WithNatureAPIErrorHandler(h ErrorHandler) NatureAPIOption {
+	return func(c *NatureAPIController) {
 		c.errorHandler = h
 	}
 }
 
-// NewNatureApiController creates a default api controller
-func NewNatureApiController(s NatureApiServicer, opts ...NatureApiOption) Router {
-	controller := &NatureApiController{
+// NewNatureAPIController creates a default api controller
+func NewNatureAPIController(s NatureAPIServicer, opts ...NatureAPIOption) Router {
+	controller := &NatureAPIController{
 		service:      s,
 		errorHandler: DefaultErrorHandler,
 	}
@@ -48,17 +48,15 @@ func NewNatureApiController(s NatureApiServicer, opts ...NatureApiOption) Router
 	return controller
 }
 
-// Routes returns all the api routes for the NatureApiController
-func (c *NatureApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"NatureList",
+// Routes returns all the api routes for the NatureAPIController
+func (c *NatureAPIController) Routes() Routes {
+	return Routes{
+		"NatureList": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/nature/",
 			c.NatureList,
 		},
-		{
-			"NatureRead",
+		"NatureRead": Route{
 			strings.ToUpper("Get"),
 			"/api/v2/nature/{id}/",
 			c.NatureRead,
@@ -67,17 +65,35 @@ func (c *NatureApiController) Routes() Routes {
 }
 
 // NatureList - 
-func (c *NatureApiController) NatureList(w http.ResponseWriter, r *http.Request) {
+func (c *NatureAPIController) NatureList(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var limitParam int32
+	if query.Has("limit") {
+		param, err := parseNumericParameter[int32](
+			query.Get("limit"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		limitParam = param
+	} else {
 	}
-	offsetParam, err := parseInt32Parameter(query.Get("offset"), false)
-	if err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
+	var offsetParam int32
+	if query.Has("offset") {
+		param, err := parseNumericParameter[int32](
+			query.Get("offset"),
+			WithParse[int32](parseInt32),
+		)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+
+		offsetParam = param
+	} else {
 	}
 	result, err := c.service.NatureList(r.Context(), limitParam, offsetParam)
 	// If an error occurred, encode the error with the status code
@@ -87,18 +103,19 @@ func (c *NatureApiController) NatureList(w http.ResponseWriter, r *http.Request)
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }
 
 // NatureRead - 
-func (c *NatureApiController) NatureRead(w http.ResponseWriter, r *http.Request) {
+func (c *NatureAPIController) NatureRead(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
-	idParam, err := parseInt32Parameter(params["id"], true)
+	idParam, err := parseNumericParameter[int32](
+		params["id"],
+		WithRequire[int32](parseInt32),
+	)
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-
 	result, err := c.service.NatureRead(r.Context(), idParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -107,5 +124,4 @@ func (c *NatureApiController) NatureRead(w http.ResponseWriter, r *http.Request)
 	}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code, w)
-
 }

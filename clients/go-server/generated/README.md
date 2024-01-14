@@ -13,7 +13,7 @@ To see how to make this your own, look here:
 [README](https://openapi-generator.tech)
 
 - API version: 20220523
-- Build date: 2022-11-19T09:45:29.431978Z[Etc/UTC]
+- Build date: 2024-01-14T06:29:45.895820227Z[Etc/UTC]
 For more information, please visit [https://github.com/cliffano/pokeapi-clients](https://github.com/cliffano/pokeapi-clients)
 
 

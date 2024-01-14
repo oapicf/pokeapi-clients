@@ -70,7 +70,7 @@ bool OpenAPIGrowthRateApi::GrowthRateListResponse::FromJson(const TSharedPtr<FJs
 FString OpenAPIGrowthRateApi::GrowthRateReadRequest::ComputePath() const
 {
 	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("id"), ToStringFormatArg(Id) } };
+	{ TEXT("id"), FStringFormatArg(ToUrlString(Id)) } };
 
 	FString Path = FString::Format(TEXT("/api/v2/growth-rate/{id}/"), PathParams);
 

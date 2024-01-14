@@ -14,19 +14,19 @@ package openapi
 import (
 	"bytes"
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
 
-// CharacteristicApiService CharacteristicApi service
-type CharacteristicApiService service
+// CharacteristicAPIService CharacteristicAPI service
+type CharacteristicAPIService service
 
 type ApiCharacteristicListRequest struct {
 	ctx context.Context
-	ApiService *CharacteristicApiService
+	ApiService *CharacteristicAPIService
 	limit *int32
 	offset *int32
 }
@@ -51,7 +51,7 @@ CharacteristicList Method for CharacteristicList
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCharacteristicListRequest
 */
-func (a *CharacteristicApiService) CharacteristicList(ctx context.Context) ApiCharacteristicListRequest {
+func (a *CharacteristicAPIService) CharacteristicList(ctx context.Context) ApiCharacteristicListRequest {
 	return ApiCharacteristicListRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -60,7 +60,7 @@ func (a *CharacteristicApiService) CharacteristicList(ctx context.Context) ApiCh
 
 // Execute executes the request
 //  @return string
-func (a *CharacteristicApiService) CharacteristicListExecute(r ApiCharacteristicListRequest) (string, *http.Response, error) {
+func (a *CharacteristicAPIService) CharacteristicListExecute(r ApiCharacteristicListRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *CharacteristicApiService) CharacteristicListExecute(r ApiCharacteristic
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CharacteristicApiService.CharacteristicList")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CharacteristicAPIService.CharacteristicList")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -80,10 +80,10 @@ func (a *CharacteristicApiService) CharacteristicListExecute(r ApiCharacteristic
 	localVarFormParams := url.Values{}
 
 	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
 	}
 	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -112,9 +112,9 @@ func (a *CharacteristicApiService) CharacteristicListExecute(r ApiCharacteristic
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -130,8 +130,8 @@ func (a *CharacteristicApiService) CharacteristicListExecute(r ApiCharacteristic
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -149,7 +149,7 @@ func (a *CharacteristicApiService) CharacteristicListExecute(r ApiCharacteristic
 
 type ApiCharacteristicReadRequest struct {
 	ctx context.Context
-	ApiService *CharacteristicApiService
+	ApiService *CharacteristicAPIService
 	id int32
 }
 
@@ -164,7 +164,7 @@ CharacteristicRead Method for CharacteristicRead
  @param id
  @return ApiCharacteristicReadRequest
 */
-func (a *CharacteristicApiService) CharacteristicRead(ctx context.Context, id int32) ApiCharacteristicReadRequest {
+func (a *CharacteristicAPIService) CharacteristicRead(ctx context.Context, id int32) ApiCharacteristicReadRequest {
 	return ApiCharacteristicReadRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -174,7 +174,7 @@ func (a *CharacteristicApiService) CharacteristicRead(ctx context.Context, id in
 
 // Execute executes the request
 //  @return string
-func (a *CharacteristicApiService) CharacteristicReadExecute(r ApiCharacteristicReadRequest) (string, *http.Response, error) {
+func (a *CharacteristicAPIService) CharacteristicReadExecute(r ApiCharacteristicReadRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *CharacteristicApiService) CharacteristicReadExecute(r ApiCharacteristic
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CharacteristicApiService.CharacteristicRead")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CharacteristicAPIService.CharacteristicRead")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/characteristic/{id}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -221,9 +221,9 @@ func (a *CharacteristicApiService) CharacteristicReadExecute(r ApiCharacteristic
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
@@ -239,8 +239,8 @@ func (a *CharacteristicApiService) CharacteristicReadExecute(r ApiCharacteristic
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

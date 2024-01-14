@@ -36,7 +36,7 @@ Note that the class needs to be annotated with one of Micronaut's [scope annotat
 
 More information can be found inside [Inversion of Control guide section](https://docs.micronaut.io/latest/guide/#ioc).
 
-<a name="typeList"></a>
+<a id="typeList"></a>
 # **typeList**
 ```java
 Mono<String> TypeApi.typeList(limitoffset)
@@ -60,7 +60,7 @@ Mono<String> TypeApi.typeList(limitoffset)
  - **Content-Type**: Not defined
  - **Accept**: `text/plain`
 
-<a name="typeRead"></a>
+<a id="typeRead"></a>
 # **typeRead**
 ```java
 Mono<String> TypeApi.typeRead(id)

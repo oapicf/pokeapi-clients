@@ -22,7 +22,7 @@ using namespace org::openapitools::server::helpers;
 const std::string LocationApi::base = "";
 
 LocationApi::LocationApi(const std::shared_ptr<Pistache::Rest::Router>& rtr)
-    : router(rtr)
+    : ApiBase(rtr)
 {
 }
 

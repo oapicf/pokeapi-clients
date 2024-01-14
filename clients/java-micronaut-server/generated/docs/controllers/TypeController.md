@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**typeList**](#typeList) | **GET** /api/v2/type/ | 
 [**typeRead**](#typeRead) | **GET** /api/v2/type/{id}/ | 
 
-<a name="typeList"></a>
+<a id="typeList"></a>
 # **typeList**
 ```java
 Mono<String> TypeController.typeList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="typeRead"></a>
+<a id="typeRead"></a>
 # **typeRead**
 ```java
 Mono<String> TypeController.typeRead(id)

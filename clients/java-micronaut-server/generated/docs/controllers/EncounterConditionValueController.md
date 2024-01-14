@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**encounterConditionValueList**](#encounterConditionValueList) | **GET** /api/v2/encounter-condition-value/ | 
 [**encounterConditionValueRead**](#encounterConditionValueRead) | **GET** /api/v2/encounter-condition-value/{id}/ | 
 
-<a name="encounterConditionValueList"></a>
+<a id="encounterConditionValueList"></a>
 # **encounterConditionValueList**
 ```java
 Mono<String> EncounterConditionValueController.encounterConditionValueList(limitoffset)
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
  - **Accepts Content-Type**: Not defined
  - **Produces Content-Type**: `text/plain`
 
-<a name="encounterConditionValueRead"></a>
+<a id="encounterConditionValueRead"></a>
 # **encounterConditionValueRead**
 ```java
 Mono<String> EncounterConditionValueController.encounterConditionValueRead(id)
