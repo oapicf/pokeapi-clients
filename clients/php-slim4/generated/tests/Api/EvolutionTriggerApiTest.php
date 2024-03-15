@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class EvolutionTriggerApiTest extends TestCase
      */
     public function testEvolutionTriggerList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "evolutionTriggerList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class EvolutionTriggerApiTest extends TestCase
      */
     public function testEvolutionTriggerRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "evolutionTriggerRead" method has not been implemented yet.'
         );
     }

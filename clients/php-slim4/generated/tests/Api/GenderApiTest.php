@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class GenderApiTest extends TestCase
      */
     public function testGenderList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "genderList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class GenderApiTest extends TestCase
      */
     public function testGenderRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "genderRead" method has not been implemented yet.'
         );
     }

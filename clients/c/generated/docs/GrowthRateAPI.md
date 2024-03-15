@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **GrowthRateAPI_growthRateList**
 ```c
-char* GrowthRateAPI_growthRateList(apiClient_t *apiClient, int limit, int offset);
+char* GrowthRateAPI_growthRateList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **GrowthRateAPI_growthRateRead**
 ```c
-char* GrowthRateAPI_growthRateRead(apiClient_t *apiClient, int id);
+char* GrowthRateAPI_growthRateRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

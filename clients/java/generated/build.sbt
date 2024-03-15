@@ -1,6 +1,6 @@
 lazy val root = (project in file(".")).
   settings(
-    organization := "com.cliffano",
+    organization := "com.github.oapicf",
     name := "pokeapiclient",
     version := "0.9.0-pre.0",
     scalaVersion := "2.11.4",

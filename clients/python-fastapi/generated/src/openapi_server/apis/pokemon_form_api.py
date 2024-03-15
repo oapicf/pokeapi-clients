@@ -55,6 +55,6 @@ async def pokemon_form_list(
     response_model_by_alias=True,
 )
 async def pokemon_form_read(
-    id: int = Path(None, description=""),
+    id: int = Path(..., description=""),
 ) -> str:
     ...

@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class RegionApiTest extends TestCase
      */
     public function testRegionList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "regionList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class RegionApiTest extends TestCase
      */
     public function testRegionRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "regionRead" method has not been implemented yet.'
         );
     }

@@ -22,7 +22,7 @@ import java.io.IOException;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-01-14T06:31:00.685519388Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-03-15T11:05:42.910709659Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 @Controller
 public class LocationApiController implements LocationApi {
     private final ObjectMapper objectMapper;

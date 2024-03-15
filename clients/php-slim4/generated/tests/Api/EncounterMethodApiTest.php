@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class EncounterMethodApiTest extends TestCase
      */
     public function testEncounterMethodList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "encounterMethodList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class EncounterMethodApiTest extends TestCase
      */
     public function testEncounterMethodRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "encounterMethodRead" method has not been implemented yet.'
         );
     }

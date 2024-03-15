@@ -55,6 +55,6 @@ async def location_area_list(
     response_model_by_alias=True,
 )
 async def location_area_read(
-    id: int = Path(None, description=""),
+    id: int = Path(..., description=""),
 ) -> str:
     ...

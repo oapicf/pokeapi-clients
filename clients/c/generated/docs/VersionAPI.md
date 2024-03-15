@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **VersionAPI_versionList**
 ```c
-char* VersionAPI_versionList(apiClient_t *apiClient, int limit, int offset);
+char* VersionAPI_versionList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **VersionAPI_versionRead**
 ```c
-char* VersionAPI_versionRead(apiClient_t *apiClient, int id);
+char* VersionAPI_versionRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

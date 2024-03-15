@@ -20,11 +20,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+      "url": "https://github.com/oapicf/pokeapi-clients.git"
     }
   ],
   "require": {
-    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
+    "oapicf/pokeapi-clients": "*@dev"
   }
 }
 ```
@@ -74,102 +74,102 @@ All URIs are relative to *https://pokeapi.co*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AbilityApi* | [**abilityList**](docs/Api/AbilityApi.md#abilitylist) | **GET** /api/v2/ability/ |
-*AbilityApi* | [**abilityRead**](docs/Api/AbilityApi.md#abilityread) | **GET** /api/v2/ability/{id}/ |
-*BerryApi* | [**berryList**](docs/Api/BerryApi.md#berrylist) | **GET** /api/v2/berry/ |
-*BerryApi* | [**berryRead**](docs/Api/BerryApi.md#berryread) | **GET** /api/v2/berry/{id}/ |
-*BerryFirmnessApi* | [**berryFirmnessList**](docs/Api/BerryFirmnessApi.md#berryfirmnesslist) | **GET** /api/v2/berry-firmness/ |
-*BerryFirmnessApi* | [**berryFirmnessRead**](docs/Api/BerryFirmnessApi.md#berryfirmnessread) | **GET** /api/v2/berry-firmness/{id}/ |
-*BerryFlavorApi* | [**berryFlavorList**](docs/Api/BerryFlavorApi.md#berryflavorlist) | **GET** /api/v2/berry-flavor/ |
-*BerryFlavorApi* | [**berryFlavorRead**](docs/Api/BerryFlavorApi.md#berryflavorread) | **GET** /api/v2/berry-flavor/{id}/ |
-*CharacteristicApi* | [**characteristicList**](docs/Api/CharacteristicApi.md#characteristiclist) | **GET** /api/v2/characteristic/ |
-*CharacteristicApi* | [**characteristicRead**](docs/Api/CharacteristicApi.md#characteristicread) | **GET** /api/v2/characteristic/{id}/ |
-*ContestEffectApi* | [**contestEffectList**](docs/Api/ContestEffectApi.md#contesteffectlist) | **GET** /api/v2/contest-effect/ |
-*ContestEffectApi* | [**contestEffectRead**](docs/Api/ContestEffectApi.md#contesteffectread) | **GET** /api/v2/contest-effect/{id}/ |
-*ContestTypeApi* | [**contestTypeList**](docs/Api/ContestTypeApi.md#contesttypelist) | **GET** /api/v2/contest-type/ |
-*ContestTypeApi* | [**contestTypeRead**](docs/Api/ContestTypeApi.md#contesttyperead) | **GET** /api/v2/contest-type/{id}/ |
-*EggGroupApi* | [**eggGroupList**](docs/Api/EggGroupApi.md#egggrouplist) | **GET** /api/v2/egg-group/ |
-*EggGroupApi* | [**eggGroupRead**](docs/Api/EggGroupApi.md#egggroupread) | **GET** /api/v2/egg-group/{id}/ |
-*EncounterConditionApi* | [**encounterConditionList**](docs/Api/EncounterConditionApi.md#encounterconditionlist) | **GET** /api/v2/encounter-condition/ |
-*EncounterConditionApi* | [**encounterConditionRead**](docs/Api/EncounterConditionApi.md#encounterconditionread) | **GET** /api/v2/encounter-condition/{id}/ |
-*EncounterConditionValueApi* | [**encounterConditionValueList**](docs/Api/EncounterConditionValueApi.md#encounterconditionvaluelist) | **GET** /api/v2/encounter-condition-value/ |
-*EncounterConditionValueApi* | [**encounterConditionValueRead**](docs/Api/EncounterConditionValueApi.md#encounterconditionvalueread) | **GET** /api/v2/encounter-condition-value/{id}/ |
-*EncounterMethodApi* | [**encounterMethodList**](docs/Api/EncounterMethodApi.md#encountermethodlist) | **GET** /api/v2/encounter-method/ |
-*EncounterMethodApi* | [**encounterMethodRead**](docs/Api/EncounterMethodApi.md#encountermethodread) | **GET** /api/v2/encounter-method/{id}/ |
-*EvolutionChainApi* | [**evolutionChainList**](docs/Api/EvolutionChainApi.md#evolutionchainlist) | **GET** /api/v2/evolution-chain/ |
-*EvolutionChainApi* | [**evolutionChainRead**](docs/Api/EvolutionChainApi.md#evolutionchainread) | **GET** /api/v2/evolution-chain/{id}/ |
-*EvolutionTriggerApi* | [**evolutionTriggerList**](docs/Api/EvolutionTriggerApi.md#evolutiontriggerlist) | **GET** /api/v2/evolution-trigger/ |
-*EvolutionTriggerApi* | [**evolutionTriggerRead**](docs/Api/EvolutionTriggerApi.md#evolutiontriggerread) | **GET** /api/v2/evolution-trigger/{id}/ |
-*GenderApi* | [**genderList**](docs/Api/GenderApi.md#genderlist) | **GET** /api/v2/gender/ |
-*GenderApi* | [**genderRead**](docs/Api/GenderApi.md#genderread) | **GET** /api/v2/gender/{id}/ |
-*GenerationApi* | [**generationList**](docs/Api/GenerationApi.md#generationlist) | **GET** /api/v2/generation/ |
-*GenerationApi* | [**generationRead**](docs/Api/GenerationApi.md#generationread) | **GET** /api/v2/generation/{id}/ |
-*GrowthRateApi* | [**growthRateList**](docs/Api/GrowthRateApi.md#growthratelist) | **GET** /api/v2/growth-rate/ |
-*GrowthRateApi* | [**growthRateRead**](docs/Api/GrowthRateApi.md#growthrateread) | **GET** /api/v2/growth-rate/{id}/ |
-*ItemApi* | [**itemList**](docs/Api/ItemApi.md#itemlist) | **GET** /api/v2/item/ |
-*ItemApi* | [**itemRead**](docs/Api/ItemApi.md#itemread) | **GET** /api/v2/item/{id}/ |
-*ItemAttributeApi* | [**itemAttributeList**](docs/Api/ItemAttributeApi.md#itemattributelist) | **GET** /api/v2/item-attribute/ |
-*ItemAttributeApi* | [**itemAttributeRead**](docs/Api/ItemAttributeApi.md#itemattributeread) | **GET** /api/v2/item-attribute/{id}/ |
-*ItemCategoryApi* | [**itemCategoryList**](docs/Api/ItemCategoryApi.md#itemcategorylist) | **GET** /api/v2/item-category/ |
-*ItemCategoryApi* | [**itemCategoryRead**](docs/Api/ItemCategoryApi.md#itemcategoryread) | **GET** /api/v2/item-category/{id}/ |
-*ItemFlingEffectApi* | [**itemFlingEffectList**](docs/Api/ItemFlingEffectApi.md#itemflingeffectlist) | **GET** /api/v2/item-fling-effect/ |
-*ItemFlingEffectApi* | [**itemFlingEffectRead**](docs/Api/ItemFlingEffectApi.md#itemflingeffectread) | **GET** /api/v2/item-fling-effect/{id}/ |
-*ItemPocketApi* | [**itemPocketList**](docs/Api/ItemPocketApi.md#itempocketlist) | **GET** /api/v2/item-pocket/ |
-*ItemPocketApi* | [**itemPocketRead**](docs/Api/ItemPocketApi.md#itempocketread) | **GET** /api/v2/item-pocket/{id}/ |
-*LanguageApi* | [**languageList**](docs/Api/LanguageApi.md#languagelist) | **GET** /api/v2/language/ |
-*LanguageApi* | [**languageRead**](docs/Api/LanguageApi.md#languageread) | **GET** /api/v2/language/{id}/ |
-*LocationApi* | [**locationList**](docs/Api/LocationApi.md#locationlist) | **GET** /api/v2/location/ |
-*LocationApi* | [**locationRead**](docs/Api/LocationApi.md#locationread) | **GET** /api/v2/location/{id}/ |
-*LocationAreaApi* | [**locationAreaList**](docs/Api/LocationAreaApi.md#locationarealist) | **GET** /api/v2/location-area/ |
-*LocationAreaApi* | [**locationAreaRead**](docs/Api/LocationAreaApi.md#locationarearead) | **GET** /api/v2/location-area/{id}/ |
-*MachineApi* | [**machineList**](docs/Api/MachineApi.md#machinelist) | **GET** /api/v2/machine/ |
-*MachineApi* | [**machineRead**](docs/Api/MachineApi.md#machineread) | **GET** /api/v2/machine/{id}/ |
-*MoveApi* | [**moveList**](docs/Api/MoveApi.md#movelist) | **GET** /api/v2/move/ |
-*MoveApi* | [**moveRead**](docs/Api/MoveApi.md#moveread) | **GET** /api/v2/move/{id}/ |
-*MoveAilmentApi* | [**moveAilmentList**](docs/Api/MoveAilmentApi.md#moveailmentlist) | **GET** /api/v2/move-ailment/ |
-*MoveAilmentApi* | [**moveAilmentRead**](docs/Api/MoveAilmentApi.md#moveailmentread) | **GET** /api/v2/move-ailment/{id}/ |
-*MoveBattleStyleApi* | [**moveBattleStyleList**](docs/Api/MoveBattleStyleApi.md#movebattlestylelist) | **GET** /api/v2/move-battle-style/ |
-*MoveBattleStyleApi* | [**moveBattleStyleRead**](docs/Api/MoveBattleStyleApi.md#movebattlestyleread) | **GET** /api/v2/move-battle-style/{id}/ |
-*MoveCategoryApi* | [**moveCategoryList**](docs/Api/MoveCategoryApi.md#movecategorylist) | **GET** /api/v2/move-category/ |
-*MoveCategoryApi* | [**moveCategoryRead**](docs/Api/MoveCategoryApi.md#movecategoryread) | **GET** /api/v2/move-category/{id}/ |
-*MoveDamageClassApi* | [**moveDamageClassList**](docs/Api/MoveDamageClassApi.md#movedamageclasslist) | **GET** /api/v2/move-damage-class/ |
-*MoveDamageClassApi* | [**moveDamageClassRead**](docs/Api/MoveDamageClassApi.md#movedamageclassread) | **GET** /api/v2/move-damage-class/{id}/ |
-*MoveLearnMethodApi* | [**moveLearnMethodList**](docs/Api/MoveLearnMethodApi.md#movelearnmethodlist) | **GET** /api/v2/move-learn-method/ |
-*MoveLearnMethodApi* | [**moveLearnMethodRead**](docs/Api/MoveLearnMethodApi.md#movelearnmethodread) | **GET** /api/v2/move-learn-method/{id}/ |
-*MoveTargetApi* | [**moveTargetList**](docs/Api/MoveTargetApi.md#movetargetlist) | **GET** /api/v2/move-target/ |
-*MoveTargetApi* | [**moveTargetRead**](docs/Api/MoveTargetApi.md#movetargetread) | **GET** /api/v2/move-target/{id}/ |
-*NatureApi* | [**natureList**](docs/Api/NatureApi.md#naturelist) | **GET** /api/v2/nature/ |
-*NatureApi* | [**natureRead**](docs/Api/NatureApi.md#natureread) | **GET** /api/v2/nature/{id}/ |
-*PalParkAreaApi* | [**palParkAreaList**](docs/Api/PalParkAreaApi.md#palparkarealist) | **GET** /api/v2/pal-park-area/ |
-*PalParkAreaApi* | [**palParkAreaRead**](docs/Api/PalParkAreaApi.md#palparkarearead) | **GET** /api/v2/pal-park-area/{id}/ |
-*PokeathlonStatApi* | [**pokeathlonStatList**](docs/Api/PokeathlonStatApi.md#pokeathlonstatlist) | **GET** /api/v2/pokeathlon-stat/ |
-*PokeathlonStatApi* | [**pokeathlonStatRead**](docs/Api/PokeathlonStatApi.md#pokeathlonstatread) | **GET** /api/v2/pokeathlon-stat/{id}/ |
-*PokedexApi* | [**pokedexList**](docs/Api/PokedexApi.md#pokedexlist) | **GET** /api/v2/pokedex/ |
-*PokedexApi* | [**pokedexRead**](docs/Api/PokedexApi.md#pokedexread) | **GET** /api/v2/pokedex/{id}/ |
-*PokemonApi* | [**pokemonList**](docs/Api/PokemonApi.md#pokemonlist) | **GET** /api/v2/pokemon/ |
-*PokemonApi* | [**pokemonRead**](docs/Api/PokemonApi.md#pokemonread) | **GET** /api/v2/pokemon/{id}/ |
-*PokemonColorApi* | [**pokemonColorList**](docs/Api/PokemonColorApi.md#pokemoncolorlist) | **GET** /api/v2/pokemon-color/ |
-*PokemonColorApi* | [**pokemonColorRead**](docs/Api/PokemonColorApi.md#pokemoncolorread) | **GET** /api/v2/pokemon-color/{id}/ |
-*PokemonFormApi* | [**pokemonFormList**](docs/Api/PokemonFormApi.md#pokemonformlist) | **GET** /api/v2/pokemon-form/ |
-*PokemonFormApi* | [**pokemonFormRead**](docs/Api/PokemonFormApi.md#pokemonformread) | **GET** /api/v2/pokemon-form/{id}/ |
-*PokemonHabitatApi* | [**pokemonHabitatList**](docs/Api/PokemonHabitatApi.md#pokemonhabitatlist) | **GET** /api/v2/pokemon-habitat/ |
-*PokemonHabitatApi* | [**pokemonHabitatRead**](docs/Api/PokemonHabitatApi.md#pokemonhabitatread) | **GET** /api/v2/pokemon-habitat/{id}/ |
-*PokemonShapeApi* | [**pokemonShapeList**](docs/Api/PokemonShapeApi.md#pokemonshapelist) | **GET** /api/v2/pokemon-shape/ |
-*PokemonShapeApi* | [**pokemonShapeRead**](docs/Api/PokemonShapeApi.md#pokemonshaperead) | **GET** /api/v2/pokemon-shape/{id}/ |
-*PokemonSpeciesApi* | [**pokemonSpeciesList**](docs/Api/PokemonSpeciesApi.md#pokemonspecieslist) | **GET** /api/v2/pokemon-species/ |
-*PokemonSpeciesApi* | [**pokemonSpeciesRead**](docs/Api/PokemonSpeciesApi.md#pokemonspeciesread) | **GET** /api/v2/pokemon-species/{id}/ |
-*RegionApi* | [**regionList**](docs/Api/RegionApi.md#regionlist) | **GET** /api/v2/region/ |
-*RegionApi* | [**regionRead**](docs/Api/RegionApi.md#regionread) | **GET** /api/v2/region/{id}/ |
-*StatApi* | [**statList**](docs/Api/StatApi.md#statlist) | **GET** /api/v2/stat/ |
-*StatApi* | [**statRead**](docs/Api/StatApi.md#statread) | **GET** /api/v2/stat/{id}/ |
-*SuperContestEffectApi* | [**superContestEffectList**](docs/Api/SuperContestEffectApi.md#supercontesteffectlist) | **GET** /api/v2/super-contest-effect/ |
-*SuperContestEffectApi* | [**superContestEffectRead**](docs/Api/SuperContestEffectApi.md#supercontesteffectread) | **GET** /api/v2/super-contest-effect/{id}/ |
-*TypeApi* | [**typeList**](docs/Api/TypeApi.md#typelist) | **GET** /api/v2/type/ |
-*TypeApi* | [**typeRead**](docs/Api/TypeApi.md#typeread) | **GET** /api/v2/type/{id}/ |
-*VersionApi* | [**versionList**](docs/Api/VersionApi.md#versionlist) | **GET** /api/v2/version/ |
-*VersionApi* | [**versionRead**](docs/Api/VersionApi.md#versionread) | **GET** /api/v2/version/{id}/ |
-*VersionGroupApi* | [**versionGroupList**](docs/Api/VersionGroupApi.md#versiongrouplist) | **GET** /api/v2/version-group/ |
-*VersionGroupApi* | [**versionGroupRead**](docs/Api/VersionGroupApi.md#versiongroupread) | **GET** /api/v2/version-group/{id}/ |
+*AbilityApi* | [**abilityList**](docs/Api/AbilityApi.md#abilitylist) | **GET** /api/v2/ability/ | 
+*AbilityApi* | [**abilityRead**](docs/Api/AbilityApi.md#abilityread) | **GET** /api/v2/ability/{id}/ | 
+*BerryApi* | [**berryList**](docs/Api/BerryApi.md#berrylist) | **GET** /api/v2/berry/ | 
+*BerryApi* | [**berryRead**](docs/Api/BerryApi.md#berryread) | **GET** /api/v2/berry/{id}/ | 
+*BerryFirmnessApi* | [**berryFirmnessList**](docs/Api/BerryFirmnessApi.md#berryfirmnesslist) | **GET** /api/v2/berry-firmness/ | 
+*BerryFirmnessApi* | [**berryFirmnessRead**](docs/Api/BerryFirmnessApi.md#berryfirmnessread) | **GET** /api/v2/berry-firmness/{id}/ | 
+*BerryFlavorApi* | [**berryFlavorList**](docs/Api/BerryFlavorApi.md#berryflavorlist) | **GET** /api/v2/berry-flavor/ | 
+*BerryFlavorApi* | [**berryFlavorRead**](docs/Api/BerryFlavorApi.md#berryflavorread) | **GET** /api/v2/berry-flavor/{id}/ | 
+*CharacteristicApi* | [**characteristicList**](docs/Api/CharacteristicApi.md#characteristiclist) | **GET** /api/v2/characteristic/ | 
+*CharacteristicApi* | [**characteristicRead**](docs/Api/CharacteristicApi.md#characteristicread) | **GET** /api/v2/characteristic/{id}/ | 
+*ContestEffectApi* | [**contestEffectList**](docs/Api/ContestEffectApi.md#contesteffectlist) | **GET** /api/v2/contest-effect/ | 
+*ContestEffectApi* | [**contestEffectRead**](docs/Api/ContestEffectApi.md#contesteffectread) | **GET** /api/v2/contest-effect/{id}/ | 
+*ContestTypeApi* | [**contestTypeList**](docs/Api/ContestTypeApi.md#contesttypelist) | **GET** /api/v2/contest-type/ | 
+*ContestTypeApi* | [**contestTypeRead**](docs/Api/ContestTypeApi.md#contesttyperead) | **GET** /api/v2/contest-type/{id}/ | 
+*EggGroupApi* | [**eggGroupList**](docs/Api/EggGroupApi.md#egggrouplist) | **GET** /api/v2/egg-group/ | 
+*EggGroupApi* | [**eggGroupRead**](docs/Api/EggGroupApi.md#egggroupread) | **GET** /api/v2/egg-group/{id}/ | 
+*EncounterConditionApi* | [**encounterConditionList**](docs/Api/EncounterConditionApi.md#encounterconditionlist) | **GET** /api/v2/encounter-condition/ | 
+*EncounterConditionApi* | [**encounterConditionRead**](docs/Api/EncounterConditionApi.md#encounterconditionread) | **GET** /api/v2/encounter-condition/{id}/ | 
+*EncounterConditionValueApi* | [**encounterConditionValueList**](docs/Api/EncounterConditionValueApi.md#encounterconditionvaluelist) | **GET** /api/v2/encounter-condition-value/ | 
+*EncounterConditionValueApi* | [**encounterConditionValueRead**](docs/Api/EncounterConditionValueApi.md#encounterconditionvalueread) | **GET** /api/v2/encounter-condition-value/{id}/ | 
+*EncounterMethodApi* | [**encounterMethodList**](docs/Api/EncounterMethodApi.md#encountermethodlist) | **GET** /api/v2/encounter-method/ | 
+*EncounterMethodApi* | [**encounterMethodRead**](docs/Api/EncounterMethodApi.md#encountermethodread) | **GET** /api/v2/encounter-method/{id}/ | 
+*EvolutionChainApi* | [**evolutionChainList**](docs/Api/EvolutionChainApi.md#evolutionchainlist) | **GET** /api/v2/evolution-chain/ | 
+*EvolutionChainApi* | [**evolutionChainRead**](docs/Api/EvolutionChainApi.md#evolutionchainread) | **GET** /api/v2/evolution-chain/{id}/ | 
+*EvolutionTriggerApi* | [**evolutionTriggerList**](docs/Api/EvolutionTriggerApi.md#evolutiontriggerlist) | **GET** /api/v2/evolution-trigger/ | 
+*EvolutionTriggerApi* | [**evolutionTriggerRead**](docs/Api/EvolutionTriggerApi.md#evolutiontriggerread) | **GET** /api/v2/evolution-trigger/{id}/ | 
+*GenderApi* | [**genderList**](docs/Api/GenderApi.md#genderlist) | **GET** /api/v2/gender/ | 
+*GenderApi* | [**genderRead**](docs/Api/GenderApi.md#genderread) | **GET** /api/v2/gender/{id}/ | 
+*GenerationApi* | [**generationList**](docs/Api/GenerationApi.md#generationlist) | **GET** /api/v2/generation/ | 
+*GenerationApi* | [**generationRead**](docs/Api/GenerationApi.md#generationread) | **GET** /api/v2/generation/{id}/ | 
+*GrowthRateApi* | [**growthRateList**](docs/Api/GrowthRateApi.md#growthratelist) | **GET** /api/v2/growth-rate/ | 
+*GrowthRateApi* | [**growthRateRead**](docs/Api/GrowthRateApi.md#growthrateread) | **GET** /api/v2/growth-rate/{id}/ | 
+*ItemApi* | [**itemList**](docs/Api/ItemApi.md#itemlist) | **GET** /api/v2/item/ | 
+*ItemApi* | [**itemRead**](docs/Api/ItemApi.md#itemread) | **GET** /api/v2/item/{id}/ | 
+*ItemAttributeApi* | [**itemAttributeList**](docs/Api/ItemAttributeApi.md#itemattributelist) | **GET** /api/v2/item-attribute/ | 
+*ItemAttributeApi* | [**itemAttributeRead**](docs/Api/ItemAttributeApi.md#itemattributeread) | **GET** /api/v2/item-attribute/{id}/ | 
+*ItemCategoryApi* | [**itemCategoryList**](docs/Api/ItemCategoryApi.md#itemcategorylist) | **GET** /api/v2/item-category/ | 
+*ItemCategoryApi* | [**itemCategoryRead**](docs/Api/ItemCategoryApi.md#itemcategoryread) | **GET** /api/v2/item-category/{id}/ | 
+*ItemFlingEffectApi* | [**itemFlingEffectList**](docs/Api/ItemFlingEffectApi.md#itemflingeffectlist) | **GET** /api/v2/item-fling-effect/ | 
+*ItemFlingEffectApi* | [**itemFlingEffectRead**](docs/Api/ItemFlingEffectApi.md#itemflingeffectread) | **GET** /api/v2/item-fling-effect/{id}/ | 
+*ItemPocketApi* | [**itemPocketList**](docs/Api/ItemPocketApi.md#itempocketlist) | **GET** /api/v2/item-pocket/ | 
+*ItemPocketApi* | [**itemPocketRead**](docs/Api/ItemPocketApi.md#itempocketread) | **GET** /api/v2/item-pocket/{id}/ | 
+*LanguageApi* | [**languageList**](docs/Api/LanguageApi.md#languagelist) | **GET** /api/v2/language/ | 
+*LanguageApi* | [**languageRead**](docs/Api/LanguageApi.md#languageread) | **GET** /api/v2/language/{id}/ | 
+*LocationApi* | [**locationList**](docs/Api/LocationApi.md#locationlist) | **GET** /api/v2/location/ | 
+*LocationApi* | [**locationRead**](docs/Api/LocationApi.md#locationread) | **GET** /api/v2/location/{id}/ | 
+*LocationAreaApi* | [**locationAreaList**](docs/Api/LocationAreaApi.md#locationarealist) | **GET** /api/v2/location-area/ | 
+*LocationAreaApi* | [**locationAreaRead**](docs/Api/LocationAreaApi.md#locationarearead) | **GET** /api/v2/location-area/{id}/ | 
+*MachineApi* | [**machineList**](docs/Api/MachineApi.md#machinelist) | **GET** /api/v2/machine/ | 
+*MachineApi* | [**machineRead**](docs/Api/MachineApi.md#machineread) | **GET** /api/v2/machine/{id}/ | 
+*MoveApi* | [**moveList**](docs/Api/MoveApi.md#movelist) | **GET** /api/v2/move/ | 
+*MoveApi* | [**moveRead**](docs/Api/MoveApi.md#moveread) | **GET** /api/v2/move/{id}/ | 
+*MoveAilmentApi* | [**moveAilmentList**](docs/Api/MoveAilmentApi.md#moveailmentlist) | **GET** /api/v2/move-ailment/ | 
+*MoveAilmentApi* | [**moveAilmentRead**](docs/Api/MoveAilmentApi.md#moveailmentread) | **GET** /api/v2/move-ailment/{id}/ | 
+*MoveBattleStyleApi* | [**moveBattleStyleList**](docs/Api/MoveBattleStyleApi.md#movebattlestylelist) | **GET** /api/v2/move-battle-style/ | 
+*MoveBattleStyleApi* | [**moveBattleStyleRead**](docs/Api/MoveBattleStyleApi.md#movebattlestyleread) | **GET** /api/v2/move-battle-style/{id}/ | 
+*MoveCategoryApi* | [**moveCategoryList**](docs/Api/MoveCategoryApi.md#movecategorylist) | **GET** /api/v2/move-category/ | 
+*MoveCategoryApi* | [**moveCategoryRead**](docs/Api/MoveCategoryApi.md#movecategoryread) | **GET** /api/v2/move-category/{id}/ | 
+*MoveDamageClassApi* | [**moveDamageClassList**](docs/Api/MoveDamageClassApi.md#movedamageclasslist) | **GET** /api/v2/move-damage-class/ | 
+*MoveDamageClassApi* | [**moveDamageClassRead**](docs/Api/MoveDamageClassApi.md#movedamageclassread) | **GET** /api/v2/move-damage-class/{id}/ | 
+*MoveLearnMethodApi* | [**moveLearnMethodList**](docs/Api/MoveLearnMethodApi.md#movelearnmethodlist) | **GET** /api/v2/move-learn-method/ | 
+*MoveLearnMethodApi* | [**moveLearnMethodRead**](docs/Api/MoveLearnMethodApi.md#movelearnmethodread) | **GET** /api/v2/move-learn-method/{id}/ | 
+*MoveTargetApi* | [**moveTargetList**](docs/Api/MoveTargetApi.md#movetargetlist) | **GET** /api/v2/move-target/ | 
+*MoveTargetApi* | [**moveTargetRead**](docs/Api/MoveTargetApi.md#movetargetread) | **GET** /api/v2/move-target/{id}/ | 
+*NatureApi* | [**natureList**](docs/Api/NatureApi.md#naturelist) | **GET** /api/v2/nature/ | 
+*NatureApi* | [**natureRead**](docs/Api/NatureApi.md#natureread) | **GET** /api/v2/nature/{id}/ | 
+*PalParkAreaApi* | [**palParkAreaList**](docs/Api/PalParkAreaApi.md#palparkarealist) | **GET** /api/v2/pal-park-area/ | 
+*PalParkAreaApi* | [**palParkAreaRead**](docs/Api/PalParkAreaApi.md#palparkarearead) | **GET** /api/v2/pal-park-area/{id}/ | 
+*PokeathlonStatApi* | [**pokeathlonStatList**](docs/Api/PokeathlonStatApi.md#pokeathlonstatlist) | **GET** /api/v2/pokeathlon-stat/ | 
+*PokeathlonStatApi* | [**pokeathlonStatRead**](docs/Api/PokeathlonStatApi.md#pokeathlonstatread) | **GET** /api/v2/pokeathlon-stat/{id}/ | 
+*PokedexApi* | [**pokedexList**](docs/Api/PokedexApi.md#pokedexlist) | **GET** /api/v2/pokedex/ | 
+*PokedexApi* | [**pokedexRead**](docs/Api/PokedexApi.md#pokedexread) | **GET** /api/v2/pokedex/{id}/ | 
+*PokemonApi* | [**pokemonList**](docs/Api/PokemonApi.md#pokemonlist) | **GET** /api/v2/pokemon/ | 
+*PokemonApi* | [**pokemonRead**](docs/Api/PokemonApi.md#pokemonread) | **GET** /api/v2/pokemon/{id}/ | 
+*PokemonColorApi* | [**pokemonColorList**](docs/Api/PokemonColorApi.md#pokemoncolorlist) | **GET** /api/v2/pokemon-color/ | 
+*PokemonColorApi* | [**pokemonColorRead**](docs/Api/PokemonColorApi.md#pokemoncolorread) | **GET** /api/v2/pokemon-color/{id}/ | 
+*PokemonFormApi* | [**pokemonFormList**](docs/Api/PokemonFormApi.md#pokemonformlist) | **GET** /api/v2/pokemon-form/ | 
+*PokemonFormApi* | [**pokemonFormRead**](docs/Api/PokemonFormApi.md#pokemonformread) | **GET** /api/v2/pokemon-form/{id}/ | 
+*PokemonHabitatApi* | [**pokemonHabitatList**](docs/Api/PokemonHabitatApi.md#pokemonhabitatlist) | **GET** /api/v2/pokemon-habitat/ | 
+*PokemonHabitatApi* | [**pokemonHabitatRead**](docs/Api/PokemonHabitatApi.md#pokemonhabitatread) | **GET** /api/v2/pokemon-habitat/{id}/ | 
+*PokemonShapeApi* | [**pokemonShapeList**](docs/Api/PokemonShapeApi.md#pokemonshapelist) | **GET** /api/v2/pokemon-shape/ | 
+*PokemonShapeApi* | [**pokemonShapeRead**](docs/Api/PokemonShapeApi.md#pokemonshaperead) | **GET** /api/v2/pokemon-shape/{id}/ | 
+*PokemonSpeciesApi* | [**pokemonSpeciesList**](docs/Api/PokemonSpeciesApi.md#pokemonspecieslist) | **GET** /api/v2/pokemon-species/ | 
+*PokemonSpeciesApi* | [**pokemonSpeciesRead**](docs/Api/PokemonSpeciesApi.md#pokemonspeciesread) | **GET** /api/v2/pokemon-species/{id}/ | 
+*RegionApi* | [**regionList**](docs/Api/RegionApi.md#regionlist) | **GET** /api/v2/region/ | 
+*RegionApi* | [**regionRead**](docs/Api/RegionApi.md#regionread) | **GET** /api/v2/region/{id}/ | 
+*StatApi* | [**statList**](docs/Api/StatApi.md#statlist) | **GET** /api/v2/stat/ | 
+*StatApi* | [**statRead**](docs/Api/StatApi.md#statread) | **GET** /api/v2/stat/{id}/ | 
+*SuperContestEffectApi* | [**superContestEffectList**](docs/Api/SuperContestEffectApi.md#supercontesteffectlist) | **GET** /api/v2/super-contest-effect/ | 
+*SuperContestEffectApi* | [**superContestEffectRead**](docs/Api/SuperContestEffectApi.md#supercontesteffectread) | **GET** /api/v2/super-contest-effect/{id}/ | 
+*TypeApi* | [**typeList**](docs/Api/TypeApi.md#typelist) | **GET** /api/v2/type/ | 
+*TypeApi* | [**typeRead**](docs/Api/TypeApi.md#typeread) | **GET** /api/v2/type/{id}/ | 
+*VersionApi* | [**versionList**](docs/Api/VersionApi.md#versionlist) | **GET** /api/v2/version/ | 
+*VersionApi* | [**versionRead**](docs/Api/VersionApi.md#versionread) | **GET** /api/v2/version/{id}/ | 
+*VersionGroupApi* | [**versionGroupList**](docs/Api/VersionGroupApi.md#versiongrouplist) | **GET** /api/v2/version-group/ | 
+*VersionGroupApi* | [**versionGroupRead**](docs/Api/VersionGroupApi.md#versiongroupread) | **GET** /api/v2/version-group/{id}/ | 
 
 ## Models
 
@@ -195,4 +195,5 @@ blah+oapicf@cliffano.com
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `20220523`
+    - Generator version: `7.4.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

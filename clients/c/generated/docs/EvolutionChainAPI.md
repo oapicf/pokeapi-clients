@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **EvolutionChainAPI_evolutionChainList**
 ```c
-char* EvolutionChainAPI_evolutionChainList(apiClient_t *apiClient, int limit, int offset);
+char* EvolutionChainAPI_evolutionChainList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **EvolutionChainAPI_evolutionChainRead**
 ```c
-char* EvolutionChainAPI_evolutionChainRead(apiClient_t *apiClient, int id);
+char* EvolutionChainAPI_evolutionChainRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **LocationAreaAPI_locationAreaList**
 ```c
-char* LocationAreaAPI_locationAreaList(apiClient_t *apiClient, int limit, int offset);
+char* LocationAreaAPI_locationAreaList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **LocationAreaAPI_locationAreaRead**
 ```c
-char* LocationAreaAPI_locationAreaRead(apiClient_t *apiClient, int id);
+char* LocationAreaAPI_locationAreaRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

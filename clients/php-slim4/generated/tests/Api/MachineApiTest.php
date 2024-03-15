@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class MachineApiTest extends TestCase
      */
     public function testMachineList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "machineList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class MachineApiTest extends TestCase
      */
     public function testMachineRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "machineRead" method has not been implemented yet.'
         );
     }

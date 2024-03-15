@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class EvolutionChainApiTest extends TestCase
      */
     public function testEvolutionChainList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "evolutionChainList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class EvolutionChainApiTest extends TestCase
      */
     public function testEvolutionChainRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "evolutionChainRead" method has not been implemented yet.'
         );
     }

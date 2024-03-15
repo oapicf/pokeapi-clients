@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class MoveBattleStyleApiTest extends TestCase
      */
     public function testMoveBattleStyleList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "moveBattleStyleList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class MoveBattleStyleApiTest extends TestCase
      */
     public function testMoveBattleStyleRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "moveBattleStyleRead" method has not been implemented yet.'
         );
     }

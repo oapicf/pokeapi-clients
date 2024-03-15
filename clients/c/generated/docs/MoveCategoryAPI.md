@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **MoveCategoryAPI_moveCategoryList**
 ```c
-char* MoveCategoryAPI_moveCategoryList(apiClient_t *apiClient, int limit, int offset);
+char* MoveCategoryAPI_moveCategoryList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **MoveCategoryAPI_moveCategoryRead**
 ```c
-char* MoveCategoryAPI_moveCategoryRead(apiClient_t *apiClient, int id);
+char* MoveCategoryAPI_moveCategoryRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

@@ -13,13 +13,13 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Build 
     runs-on: ubuntu-latest
     strategy:
       matrix:
         java: [ '8' ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v2
     - name: Set up JDK
       uses: actions/setup-java@v2
       with:

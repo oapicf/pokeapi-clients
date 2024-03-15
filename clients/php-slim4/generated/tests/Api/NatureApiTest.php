@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class NatureApiTest extends TestCase
      */
     public function testNatureList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "natureList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class NatureApiTest extends TestCase
      */
     public function testNatureRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "natureRead" method has not been implemented yet.'
         );
     }

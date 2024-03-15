@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class SuperContestEffectApiTest extends TestCase
      */
     public function testSuperContestEffectList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "superContestEffectList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class SuperContestEffectApiTest extends TestCase
      */
     public function testSuperContestEffectRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "superContestEffectRead" method has not been implemented yet.'
         );
     }

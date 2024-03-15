@@ -55,6 +55,6 @@ async def pokeathlon_stat_list(
     response_model_by_alias=True,
 )
 async def pokeathlon_stat_read(
-    id: int = Path(None, description=""),
+    id: int = Path(..., description=""),
 ) -> str:
     ...

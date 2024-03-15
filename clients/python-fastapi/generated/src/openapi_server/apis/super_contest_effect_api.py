@@ -55,6 +55,6 @@ async def super_contest_effect_list(
     response_model_by_alias=True,
 )
 async def super_contest_effect_read(
-    id: int = Path(None, description=""),
+    id: int = Path(..., description=""),
 ) -> str:
     ...

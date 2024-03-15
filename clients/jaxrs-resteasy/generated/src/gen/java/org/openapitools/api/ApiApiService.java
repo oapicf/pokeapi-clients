@@ -10,10 +10,12 @@ import org.openapitools.api.NotFoundException;
 
 import java.io.InputStream;
 
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-01-14T06:31:45.762221160Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-03-15T11:06:27.637208124Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public interface ApiApiService {
       Response abilityList(Integer limit,Integer offset,SecurityContext securityContext)
       throws NotFoundException;

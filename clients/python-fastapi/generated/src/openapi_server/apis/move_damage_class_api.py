@@ -55,6 +55,6 @@ async def move_damage_class_list(
     response_model_by_alias=True,
 )
 async def move_damage_class_read(
-    id: int = Path(None, description=""),
+    id: int = Path(..., description=""),
 ) -> str:
     ...

@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class PalParkAreaApiTest extends TestCase
      */
     public function testPalParkAreaList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "palParkAreaList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class PalParkAreaApiTest extends TestCase
      */
     public function testPalParkAreaRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "palParkAreaRead" method has not been implemented yet.'
         );
     }

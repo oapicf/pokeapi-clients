@@ -55,6 +55,6 @@ async def evolution_trigger_list(
     response_model_by_alias=True,
 )
 async def evolution_trigger_read(
-    id: int = Path(None, description=""),
+    id: int = Path(..., description=""),
 ) -> str:
     ...

@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class VersionApiTest extends TestCase
      */
     public function testVersionList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "versionList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class VersionApiTest extends TestCase
      */
     public function testVersionRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "versionRead" method has not been implemented yet.'
         );
     }

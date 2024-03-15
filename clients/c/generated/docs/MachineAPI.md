@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **MachineAPI_machineList**
 ```c
-char* MachineAPI_machineList(apiClient_t *apiClient, int limit, int offset);
+char* MachineAPI_machineList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **MachineAPI_machineRead**
 ```c
-char* MachineAPI_machineRead(apiClient_t *apiClient, int id);
+char* MachineAPI_machineRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

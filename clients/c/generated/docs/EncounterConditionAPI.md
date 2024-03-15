@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **EncounterConditionAPI_encounterConditionList**
 ```c
-char* EncounterConditionAPI_encounterConditionList(apiClient_t *apiClient, int limit, int offset);
+char* EncounterConditionAPI_encounterConditionList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **EncounterConditionAPI_encounterConditionRead**
 ```c
-char* EncounterConditionAPI_encounterConditionRead(apiClient_t *apiClient, int id);
+char* EncounterConditionAPI_encounterConditionRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

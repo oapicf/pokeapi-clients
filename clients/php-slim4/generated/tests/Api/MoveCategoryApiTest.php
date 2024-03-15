@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class MoveCategoryApiTest extends TestCase
      */
     public function testMoveCategoryList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "moveCategoryList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class MoveCategoryApiTest extends TestCase
      */
     public function testMoveCategoryRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "moveCategoryRead" method has not been implemented yet.'
         );
     }

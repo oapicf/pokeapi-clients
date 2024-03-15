@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class LocationAreaApiTest extends TestCase
      */
     public function testLocationAreaList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "locationAreaList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class LocationAreaApiTest extends TestCase
      */
     public function testLocationAreaRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "locationAreaRead" method has not been implemented yet.'
         );
     }

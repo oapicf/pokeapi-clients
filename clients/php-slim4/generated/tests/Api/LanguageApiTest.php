@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class LanguageApiTest extends TestCase
      */
     public function testLanguageList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "languageList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class LanguageApiTest extends TestCase
      */
     public function testLanguageRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "languageRead" method has not been implemented yet.'
         );
     }

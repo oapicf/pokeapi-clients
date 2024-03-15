@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **EncounterMethodAPI_encounterMethodList**
 ```c
-char* EncounterMethodAPI_encounterMethodList(apiClient_t *apiClient, int limit, int offset);
+char* EncounterMethodAPI_encounterMethodList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **EncounterMethodAPI_encounterMethodRead**
 ```c
-char* EncounterMethodAPI_encounterMethodRead(apiClient_t *apiClient, int id);
+char* EncounterMethodAPI_encounterMethodRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

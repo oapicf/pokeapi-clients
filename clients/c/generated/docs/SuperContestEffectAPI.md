@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **SuperContestEffectAPI_superContestEffectList**
 ```c
-char* SuperContestEffectAPI_superContestEffectList(apiClient_t *apiClient, int limit, int offset);
+char* SuperContestEffectAPI_superContestEffectList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **SuperContestEffectAPI_superContestEffectRead**
 ```c
-char* SuperContestEffectAPI_superContestEffectRead(apiClient_t *apiClient, int id);
+char* SuperContestEffectAPI_superContestEffectRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

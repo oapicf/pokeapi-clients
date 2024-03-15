@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class PokemonApiTest extends TestCase
      */
     public function testPokemonList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "pokemonList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class PokemonApiTest extends TestCase
      */
     public function testPokemonRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "pokemonRead" method has not been implemented yet.'
         );
     }

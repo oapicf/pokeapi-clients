@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **MoveLearnMethodAPI_moveLearnMethodList**
 ```c
-char* MoveLearnMethodAPI_moveLearnMethodList(apiClient_t *apiClient, int limit, int offset);
+char* MoveLearnMethodAPI_moveLearnMethodList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **MoveLearnMethodAPI_moveLearnMethodRead**
 ```c
-char* MoveLearnMethodAPI_moveLearnMethodRead(apiClient_t *apiClient, int id);
+char* MoveLearnMethodAPI_moveLearnMethodRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **ItemFlingEffectAPI_itemFlingEffectList**
 ```c
-char* ItemFlingEffectAPI_itemFlingEffectList(apiClient_t *apiClient, int limit, int offset);
+char* ItemFlingEffectAPI_itemFlingEffectList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **ItemFlingEffectAPI_itemFlingEffectRead**
 ```c
-char* ItemFlingEffectAPI_itemFlingEffectRead(apiClient_t *apiClient, int id);
+char* ItemFlingEffectAPI_itemFlingEffectRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

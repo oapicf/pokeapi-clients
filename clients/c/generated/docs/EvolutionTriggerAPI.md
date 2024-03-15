@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **EvolutionTriggerAPI_evolutionTriggerList**
 ```c
-char* EvolutionTriggerAPI_evolutionTriggerList(apiClient_t *apiClient, int limit, int offset);
+char* EvolutionTriggerAPI_evolutionTriggerList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **EvolutionTriggerAPI_evolutionTriggerRead**
 ```c
-char* EvolutionTriggerAPI_evolutionTriggerRead(apiClient_t *apiClient, int id);
+char* EvolutionTriggerAPI_evolutionTriggerRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

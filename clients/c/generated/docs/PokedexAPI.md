@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **PokedexAPI_pokedexList**
 ```c
-char* PokedexAPI_pokedexList(apiClient_t *apiClient, int limit, int offset);
+char* PokedexAPI_pokedexList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **PokedexAPI_pokedexRead**
 ```c
-char* PokedexAPI_pokedexRead(apiClient_t *apiClient, int id);
+char* PokedexAPI_pokedexRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

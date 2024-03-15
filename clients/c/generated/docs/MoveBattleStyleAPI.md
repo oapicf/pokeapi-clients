@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **MoveBattleStyleAPI_moveBattleStyleList**
 ```c
-char* MoveBattleStyleAPI_moveBattleStyleList(apiClient_t *apiClient, int limit, int offset);
+char* MoveBattleStyleAPI_moveBattleStyleList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **MoveBattleStyleAPI_moveBattleStyleRead**
 ```c
-char* MoveBattleStyleAPI_moveBattleStyleRead(apiClient_t *apiClient, int id);
+char* MoveBattleStyleAPI_moveBattleStyleRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

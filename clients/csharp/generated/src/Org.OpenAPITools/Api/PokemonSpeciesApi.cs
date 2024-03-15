@@ -25,7 +25,7 @@ namespace Org.OpenAPITools.Api
     {
         #region Synchronous Operations
         /// <summary>
-        ///
+        /// 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit"> (optional)</param>
@@ -35,10 +35,10 @@ namespace Org.OpenAPITools.Api
         string PokemonSpeciesList(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
 
         /// <summary>
-        ///
+        /// 
         /// </summary>
         /// <remarks>
-        ///
+        /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit"> (optional)</param>
@@ -47,7 +47,7 @@ namespace Org.OpenAPITools.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> PokemonSpeciesListWithHttpInfo(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0);
         /// <summary>
-        ///
+        /// 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
@@ -56,10 +56,10 @@ namespace Org.OpenAPITools.Api
         string PokemonSpeciesRead(int id, int operationIndex = 0);
 
         /// <summary>
-        ///
+        /// 
         /// </summary>
         /// <remarks>
-        ///
+        /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
@@ -76,10 +76,10 @@ namespace Org.OpenAPITools.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        ///
+        /// 
         /// </summary>
         /// <remarks>
-        ///
+        /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit"> (optional)</param>
@@ -90,10 +90,10 @@ namespace Org.OpenAPITools.Api
         System.Threading.Tasks.Task<string> PokemonSpeciesListAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        ///
+        /// 
         /// </summary>
         /// <remarks>
-        ///
+        /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit"> (optional)</param>
@@ -103,10 +103,10 @@ namespace Org.OpenAPITools.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> PokemonSpeciesListWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        ///
+        /// 
         /// </summary>
         /// <remarks>
-        ///
+        /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
@@ -116,10 +116,10 @@ namespace Org.OpenAPITools.Api
         System.Threading.Tasks.Task<string> PokemonSpeciesReadAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        ///
+        /// 
         /// </summary>
         /// <remarks>
-        ///
+        /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
@@ -248,7 +248,7 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///
+        ///  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit"> (optional)</param>
@@ -262,7 +262,7 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///
+        ///  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit"> (optional)</param>
@@ -321,7 +321,7 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///
+        ///  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit"> (optional)</param>
@@ -336,7 +336,7 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///
+        ///  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit"> (optional)</param>
@@ -398,7 +398,7 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///
+        ///  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
@@ -411,7 +411,7 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///
+        ///  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
@@ -462,7 +462,7 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///
+        ///  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
@@ -476,7 +476,7 @@ namespace Org.OpenAPITools.Api
         }
 
         /// <summary>
-        ///
+        ///  
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>

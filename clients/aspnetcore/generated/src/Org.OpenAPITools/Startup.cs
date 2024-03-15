@@ -69,7 +69,7 @@ namespace Org.OpenAPITools
                 .AddSwaggerGen(c =>
                 {
                     c.EnableAnnotations(enableAnnotationsForInheritance: true, enableAnnotationsForPolymorphism: true);
-
+                    
                     c.SwaggerDoc("20220523", new OpenApiInfo
                     {
                         Title = "Org.OpenAPITools",
@@ -77,7 +77,7 @@ namespace Org.OpenAPITools
                         TermsOfService = new Uri("https://github.com/openapitools/openapi-generator"),
                         Contact = new OpenApiContact
                         {
-                            Name = "Cliffano Subagio",
+                            Name = "OpenAPI Clients Factory",
                             Url = new Uri("https://github.com/oapicf/pokeapi-clients"),
                             Email = "blah+oapicf@cliffano.com"
                         },

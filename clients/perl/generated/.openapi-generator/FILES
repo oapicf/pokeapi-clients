@@ -3,6 +3,7 @@
 .travis.yml
 README.md
 bin/autodoc
+cpanfile
 docs/AbilityApi.md
 docs/BerryApi.md
 docs/BerryFirmnessApi.md

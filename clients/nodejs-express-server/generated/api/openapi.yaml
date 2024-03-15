@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   contact:
     email: blah+oapicf@cliffano.com
-    name: Cliffano Subagio
+    name: OpenAPI Clients Factory
     url: https://github.com/oapicf/pokeapi-clients
   description: ""
   title: ""

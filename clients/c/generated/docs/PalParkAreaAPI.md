@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **PalParkAreaAPI_palParkAreaList**
 ```c
-char* PalParkAreaAPI_palParkAreaList(apiClient_t *apiClient, int limit, int offset);
+char* PalParkAreaAPI_palParkAreaList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **PalParkAreaAPI_palParkAreaRead**
 ```c
-char* PalParkAreaAPI_palParkAreaRead(apiClient_t *apiClient, int id);
+char* PalParkAreaAPI_palParkAreaRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

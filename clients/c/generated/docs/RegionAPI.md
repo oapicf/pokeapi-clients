@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **RegionAPI_regionList**
 ```c
-char* RegionAPI_regionList(apiClient_t *apiClient, int limit, int offset);
+char* RegionAPI_regionList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **RegionAPI_regionRead**
 ```c
-char* RegionAPI_regionRead(apiClient_t *apiClient, int id);
+char* RegionAPI_regionRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

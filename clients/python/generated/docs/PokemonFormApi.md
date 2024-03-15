@@ -17,8 +17,6 @@ Method | HTTP request | Description
 
 
 ```python
-import time
-import os
 import pokeapiclient
 from pokeapiclient.rest import ApiException
 from pprint import pprint
@@ -85,8 +83,6 @@ No authorization required
 
 
 ```python
-import time
-import os
 import pokeapiclient
 from pokeapiclient.rest import ApiException
 from pprint import pprint

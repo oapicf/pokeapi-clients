@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class ContestTypeApiTest extends TestCase
      */
     public function testContestTypeList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "contestTypeList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class ContestTypeApiTest extends TestCase
      */
     public function testContestTypeRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "contestTypeRead" method has not been implemented yet.'
         );
     }

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **AbilityAPI_abilityList**
 ```c
-char* AbilityAPI_abilityList(apiClient_t *apiClient, int limit, int offset);
+char* AbilityAPI_abilityList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **AbilityAPI_abilityRead**
 ```c
-char* AbilityAPI_abilityRead(apiClient_t *apiClient, int id);
+char* AbilityAPI_abilityRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

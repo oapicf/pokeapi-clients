@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **VersionGroupAPI_versionGroupList**
 ```c
-char* VersionGroupAPI_versionGroupList(apiClient_t *apiClient, int limit, int offset);
+char* VersionGroupAPI_versionGroupList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **VersionGroupAPI_versionGroupRead**
 ```c
-char* VersionGroupAPI_versionGroupRead(apiClient_t *apiClient, int id);
+char* VersionGroupAPI_versionGroupRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

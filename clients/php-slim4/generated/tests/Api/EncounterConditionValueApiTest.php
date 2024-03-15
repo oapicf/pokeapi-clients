@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class EncounterConditionValueApiTest extends TestCase
      */
     public function testEncounterConditionValueList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "encounterConditionValueList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class EncounterConditionValueApiTest extends TestCase
      */
     public function testEncounterConditionValueRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "encounterConditionValueRead" method has not been implemented yet.'
         );
     }

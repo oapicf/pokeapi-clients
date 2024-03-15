@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **EggGroupAPI_eggGroupList**
 ```c
-char* EggGroupAPI_eggGroupList(apiClient_t *apiClient, int limit, int offset);
+char* EggGroupAPI_eggGroupList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **EggGroupAPI_eggGroupRead**
 ```c
-char* EggGroupAPI_eggGroupRead(apiClient_t *apiClient, int id);
+char* EggGroupAPI_eggGroupRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

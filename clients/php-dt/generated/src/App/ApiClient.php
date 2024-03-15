@@ -48,13 +48,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->abilityListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -109,13 +111,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->abilityReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -170,13 +174,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->berryFirmnessListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -231,13 +237,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->berryFirmnessReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -292,13 +300,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->berryFlavorListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -353,13 +363,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->berryFlavorReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -414,13 +426,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->berryListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -475,13 +489,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->berryReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -536,13 +552,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->characteristicListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -597,13 +615,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->characteristicReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -658,13 +678,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->contestEffectListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -719,13 +741,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->contestEffectReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -780,13 +804,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->contestTypeListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -841,13 +867,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->contestTypeReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -902,13 +930,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->eggGroupListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -963,13 +993,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->eggGroupReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -1024,13 +1056,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->encounterConditionListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -1085,13 +1119,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->encounterConditionReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -1146,13 +1182,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->encounterConditionValueListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -1207,13 +1245,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->encounterConditionValueReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -1268,13 +1308,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->encounterMethodListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -1329,13 +1371,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->encounterMethodReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -1390,13 +1434,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->evolutionChainListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -1451,13 +1497,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->evolutionChainReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -1512,13 +1560,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->evolutionTriggerListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -1573,13 +1623,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->evolutionTriggerReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -1634,13 +1686,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->genderListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -1695,13 +1749,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->genderReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -1756,13 +1812,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->generationListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -1817,13 +1875,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->generationReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -1878,13 +1938,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->growthRateListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -1939,13 +2001,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->growthRateReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -2000,13 +2064,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->itemAttributeListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -2061,13 +2127,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->itemAttributeReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -2122,13 +2190,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->itemCategoryListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -2183,13 +2253,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->itemCategoryReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -2244,13 +2316,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->itemFlingEffectListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -2305,13 +2379,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->itemFlingEffectReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -2366,13 +2442,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->itemListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -2427,13 +2505,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->itemPocketListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -2488,13 +2568,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->itemPocketReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -2549,13 +2631,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->itemReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -2610,13 +2694,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->languageListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -2671,13 +2757,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->languageReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -2732,13 +2820,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->locationAreaListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -2793,13 +2883,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->locationAreaReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -2854,13 +2946,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->locationListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -2915,13 +3009,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->locationReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -2976,13 +3072,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->machineListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -3037,13 +3135,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->machineReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -3098,13 +3198,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->moveAilmentListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -3159,13 +3261,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->moveAilmentReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -3220,13 +3324,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->moveBattleStyleListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -3281,13 +3387,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->moveBattleStyleReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -3342,13 +3450,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->moveCategoryListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -3403,13 +3513,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->moveCategoryReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -3464,13 +3576,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->moveDamageClassListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -3525,13 +3639,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->moveDamageClassReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -3586,13 +3702,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->moveLearnMethodListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -3647,13 +3765,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->moveLearnMethodReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -3708,13 +3828,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->moveListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -3769,13 +3891,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->moveReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -3830,13 +3954,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->moveTargetListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -3891,13 +4017,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->moveTargetReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -3952,13 +4080,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->natureListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -4013,13 +4143,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->natureReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -4074,13 +4206,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->palParkAreaListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -4135,13 +4269,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->palParkAreaReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -4196,13 +4332,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->pokeathlonStatListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -4257,13 +4395,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->pokeathlonStatReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -4318,13 +4458,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->pokedexListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -4379,13 +4521,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->pokedexReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -4440,13 +4584,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->pokemonColorListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -4501,13 +4647,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->pokemonColorReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -4562,13 +4710,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->pokemonFormListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -4623,13 +4773,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->pokemonFormReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -4684,13 +4836,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->pokemonHabitatListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -4745,13 +4899,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->pokemonHabitatReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -4806,13 +4962,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->pokemonListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -4867,13 +5025,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->pokemonReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -4928,13 +5088,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->pokemonShapeListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -4989,13 +5151,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->pokemonShapeReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -5050,13 +5214,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->pokemonSpeciesListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -5111,13 +5277,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->pokemonSpeciesReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -5172,13 +5340,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->regionListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -5233,13 +5403,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->regionReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -5294,13 +5466,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->statListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -5355,13 +5529,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->statReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -5416,13 +5592,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->superContestEffectListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -5477,13 +5655,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->superContestEffectReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -5538,13 +5718,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->typeListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -5599,13 +5781,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->typeReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -5660,13 +5844,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->versionGroupListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -5721,13 +5907,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->versionGroupReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -5782,13 +5970,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->versionListRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 
@@ -5843,13 +6033,15 @@ class ApiClient extends OAGAC\AbstractApiClient
     {
         $response = $this->versionReadRaw($parameters, $responseMediaType);
         $responseContent = null;
+        $contentStrategy = null;
+        $contentValidator = null;
         switch ($response->getStatusCode())
         {
             default:
                 /* Default response */
                 break;
         }
-        $this->parseBody($response, $responseContent);
+        $this->parseBody($response, $responseContent, $contentStrategy, $contentValidator);
         return [$responseContent, $response->getHeaders(), $response->getStatusCode(), $response->getReasonPhrase()];
     }
 

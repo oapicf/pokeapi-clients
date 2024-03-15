@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class GrowthRateApiTest extends TestCase
      */
     public function testGrowthRateList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "growthRateList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class GrowthRateApiTest extends TestCase
      */
     public function testGrowthRateRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "growthRateRead" method has not been implemented yet.'
         );
     }

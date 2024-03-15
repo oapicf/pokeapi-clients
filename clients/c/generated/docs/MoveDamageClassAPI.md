@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **MoveDamageClassAPI_moveDamageClassList**
 ```c
-char* MoveDamageClassAPI_moveDamageClassList(apiClient_t *apiClient, int limit, int offset);
+char* MoveDamageClassAPI_moveDamageClassList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **MoveDamageClassAPI_moveDamageClassRead**
 ```c
-char* MoveDamageClassAPI_moveDamageClassRead(apiClient_t *apiClient, int id);
+char* MoveDamageClassAPI_moveDamageClassRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

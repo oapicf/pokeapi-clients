@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **ContestTypeAPI_contestTypeList**
 ```c
-char* ContestTypeAPI_contestTypeList(apiClient_t *apiClient, int limit, int offset);
+char* ContestTypeAPI_contestTypeList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **ContestTypeAPI_contestTypeRead**
 ```c
-char* ContestTypeAPI_contestTypeRead(apiClient_t *apiClient, int id);
+char* ContestTypeAPI_contestTypeRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

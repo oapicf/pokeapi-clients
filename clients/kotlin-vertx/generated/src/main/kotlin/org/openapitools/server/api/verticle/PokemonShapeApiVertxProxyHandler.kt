@@ -18,7 +18,7 @@ import com.google.gson.reflect.TypeToken
 import com.google.gson.Gson
 
 class PokemonShapeApiVertxProxyHandler(private val vertx: Vertx, private val service: PokemonShapeApi, topLevel: Boolean, private val timeoutSeconds: Long) : ProxyHandler() {
-    private val timerID: Long
+    private lateinit var timerID: Long
     private var lastAccessed: Long = 0
     init {
         try {

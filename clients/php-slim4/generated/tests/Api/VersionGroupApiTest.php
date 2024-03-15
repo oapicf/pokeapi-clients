@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class VersionGroupApiTest extends TestCase
      */
     public function testVersionGroupList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "versionGroupList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class VersionGroupApiTest extends TestCase
      */
     public function testVersionGroupRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "versionGroupRead" method has not been implemented yet.'
         );
     }

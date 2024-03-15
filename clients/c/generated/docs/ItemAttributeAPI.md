@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **ItemAttributeAPI_itemAttributeList**
 ```c
-char* ItemAttributeAPI_itemAttributeList(apiClient_t *apiClient, int limit, int offset);
+char* ItemAttributeAPI_itemAttributeList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **ItemAttributeAPI_itemAttributeRead**
 ```c
-char* ItemAttributeAPI_itemAttributeRead(apiClient_t *apiClient, int id);
+char* ItemAttributeAPI_itemAttributeRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

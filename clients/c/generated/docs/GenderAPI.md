@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **GenderAPI_genderList**
 ```c
-char* GenderAPI_genderList(apiClient_t *apiClient, int limit, int offset);
+char* GenderAPI_genderList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **GenderAPI_genderRead**
 ```c
-char* GenderAPI_genderRead(apiClient_t *apiClient, int id);
+char* GenderAPI_genderRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

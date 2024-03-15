@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **ItemCategoryAPI_itemCategoryList**
 ```c
-char* ItemCategoryAPI_itemCategoryList(apiClient_t *apiClient, int limit, int offset);
+char* ItemCategoryAPI_itemCategoryList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **ItemCategoryAPI_itemCategoryRead**
 ```c
-char* ItemCategoryAPI_itemCategoryRead(apiClient_t *apiClient, int id);
+char* ItemCategoryAPI_itemCategoryRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

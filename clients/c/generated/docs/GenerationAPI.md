@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **GenerationAPI_generationList**
 ```c
-char* GenerationAPI_generationList(apiClient_t *apiClient, int limit, int offset);
+char* GenerationAPI_generationList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **GenerationAPI_generationRead**
 ```c
-char* GenerationAPI_generationRead(apiClient_t *apiClient, int id);
+char* GenerationAPI_generationRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **LanguageAPI_languageList**
 ```c
-char* LanguageAPI_languageList(apiClient_t *apiClient, int limit, int offset);
+char* LanguageAPI_languageList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **LanguageAPI_languageRead**
 ```c
-char* LanguageAPI_languageRead(apiClient_t *apiClient, int id);
+char* LanguageAPI_languageRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

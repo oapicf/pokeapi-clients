@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class CharacteristicApiTest extends TestCase
      */
     public function testCharacteristicList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "characteristicList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class CharacteristicApiTest extends TestCase
      */
     public function testCharacteristicRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "characteristicRead" method has not been implemented yet.'
         );
     }

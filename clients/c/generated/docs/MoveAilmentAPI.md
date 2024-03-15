@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **MoveAilmentAPI_moveAilmentList**
 ```c
-char* MoveAilmentAPI_moveAilmentList(apiClient_t *apiClient, int limit, int offset);
+char* MoveAilmentAPI_moveAilmentList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **MoveAilmentAPI_moveAilmentRead**
 ```c
-char* MoveAilmentAPI_moveAilmentRead(apiClient_t *apiClient, int id);
+char* MoveAilmentAPI_moveAilmentRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

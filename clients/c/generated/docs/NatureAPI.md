@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **NatureAPI_natureList**
 ```c
-char* NatureAPI_natureList(apiClient_t *apiClient, int limit, int offset);
+char* NatureAPI_natureList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **NatureAPI_natureRead**
 ```c
-char* NatureAPI_natureRead(apiClient_t *apiClient, int id);
+char* NatureAPI_natureRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

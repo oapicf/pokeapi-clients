@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **PokeathlonStatAPI_pokeathlonStatList**
 ```c
-char* PokeathlonStatAPI_pokeathlonStatList(apiClient_t *apiClient, int limit, int offset);
+char* PokeathlonStatAPI_pokeathlonStatList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **PokeathlonStatAPI_pokeathlonStatRead**
 ```c
-char* PokeathlonStatAPI_pokeathlonStatRead(apiClient_t *apiClient, int id);
+char* PokeathlonStatAPI_pokeathlonStatRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

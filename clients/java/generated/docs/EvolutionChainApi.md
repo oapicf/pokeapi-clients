@@ -17,11 +17,11 @@ All URIs are relative to *https://pokeapi.co*
 ### Example
 ```java
 // Import classes:
-import com.cliffano.pokeapiclient.ApiClient;
-import com.cliffano.pokeapiclient.ApiException;
-import com.cliffano.pokeapiclient.Configuration;
-import com.cliffano.pokeapiclient.models.*;
-import com.cliffano.pokeapiclient.api.EvolutionChainApi;
+import com.github.oapicf.pokeapiclient.ApiClient;
+import com.github.oapicf.pokeapiclient.ApiException;
+import com.github.oapicf.pokeapiclient.Configuration;
+import com.github.oapicf.pokeapiclient.models.*;
+import com.github.oapicf.pokeapiclient.api.EvolutionChainApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -79,11 +79,11 @@ No authorization required
 ### Example
 ```java
 // Import classes:
-import com.cliffano.pokeapiclient.ApiClient;
-import com.cliffano.pokeapiclient.ApiException;
-import com.cliffano.pokeapiclient.Configuration;
-import com.cliffano.pokeapiclient.models.*;
-import com.cliffano.pokeapiclient.api.EvolutionChainApi;
+import com.github.oapicf.pokeapiclient.ApiClient;
+import com.github.oapicf.pokeapiclient.ApiException;
+import com.github.oapicf.pokeapiclient.Configuration;
+import com.github.oapicf.pokeapiclient.models.*;
+import com.github.oapicf.pokeapiclient.api.EvolutionChainApi;
 
 public class Example {
   public static void main(String[] args) {

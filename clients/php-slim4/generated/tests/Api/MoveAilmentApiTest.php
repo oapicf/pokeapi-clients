@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class MoveAilmentApiTest extends TestCase
      */
     public function testMoveAilmentList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "moveAilmentList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class MoveAilmentApiTest extends TestCase
      */
     public function testMoveAilmentRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "moveAilmentRead" method has not been implemented yet.'
         );
     }

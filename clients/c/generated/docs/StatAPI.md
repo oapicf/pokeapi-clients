@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **StatAPI_statList**
 ```c
-char* StatAPI_statList(apiClient_t *apiClient, int limit, int offset);
+char* StatAPI_statList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **StatAPI_statRead**
 ```c
-char* StatAPI_statRead(apiClient_t *apiClient, int id);
+char* StatAPI_statRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

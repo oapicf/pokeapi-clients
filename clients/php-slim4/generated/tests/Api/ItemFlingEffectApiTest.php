@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class ItemFlingEffectApiTest extends TestCase
      */
     public function testItemFlingEffectList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "itemFlingEffectList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class ItemFlingEffectApiTest extends TestCase
      */
     public function testItemFlingEffectRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "itemFlingEffectRead" method has not been implemented yet.'
         );
     }

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **MoveTargetAPI_moveTargetList**
 ```c
-char* MoveTargetAPI_moveTargetList(apiClient_t *apiClient, int limit, int offset);
+char* MoveTargetAPI_moveTargetList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **MoveTargetAPI_moveTargetRead**
 ```c
-char* MoveTargetAPI_moveTargetRead(apiClient_t *apiClient, int id);
+char* MoveTargetAPI_moveTargetRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

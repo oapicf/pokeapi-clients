@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class ItemAttributeApiTest extends TestCase
      */
     public function testItemAttributeList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "itemAttributeList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class ItemAttributeApiTest extends TestCase
      */
     public function testItemAttributeRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "itemAttributeRead" method has not been implemented yet.'
         );
     }

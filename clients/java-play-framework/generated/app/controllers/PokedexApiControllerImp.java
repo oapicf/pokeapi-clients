@@ -10,7 +10,7 @@ import java.io.FileInputStream;
 import play.libs.Files.TemporaryFile;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-01-14T06:31:05.913444179Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-03-15T11:05:47.799135583Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class PokedexApiControllerImp extends PokedexApiControllerImpInterface {
     @Override
     public String pokedexList(Http.Request request, Integer limit, Integer offset) throws Exception {

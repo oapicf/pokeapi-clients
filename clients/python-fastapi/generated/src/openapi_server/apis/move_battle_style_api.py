@@ -55,6 +55,6 @@ async def move_battle_style_list(
     response_model_by_alias=True,
 )
 async def move_battle_style_read(
-    id: int = Path(None, description=""),
+    id: int = Path(..., description=""),
 ) -> str:
     ...

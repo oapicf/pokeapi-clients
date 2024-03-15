@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class StatApiTest extends TestCase
      */
     public function testStatList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "statList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class StatApiTest extends TestCase
      */
     public function testStatRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "statRead" method has not been implemented yet.'
         );
     }

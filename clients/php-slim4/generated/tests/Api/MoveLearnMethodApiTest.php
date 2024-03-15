@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class MoveLearnMethodApiTest extends TestCase
      */
     public function testMoveLearnMethodList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "moveLearnMethodList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class MoveLearnMethodApiTest extends TestCase
      */
     public function testMoveLearnMethodRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "moveLearnMethodRead" method has not been implemented yet.'
         );
     }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class BerryFlavorApiTest extends TestCase
      */
     public function testBerryFlavorList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "berryFlavorList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class BerryFlavorApiTest extends TestCase
      */
     public function testBerryFlavorRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "berryFlavorRead" method has not been implemented yet.'
         );
     }

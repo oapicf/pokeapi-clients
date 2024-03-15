@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class EggGroupApiTest extends TestCase
      */
     public function testEggGroupList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "eggGroupList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class EggGroupApiTest extends TestCase
      */
     public function testEggGroupRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "eggGroupRead" method has not been implemented yet.'
         );
     }

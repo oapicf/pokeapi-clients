@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **BerryAPI_berryList**
 ```c
-char* BerryAPI_berryList(apiClient_t *apiClient, int limit, int offset);
+char* BerryAPI_berryList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **BerryAPI_berryRead**
 ```c
-char* BerryAPI_berryRead(apiClient_t *apiClient, int id);
+char* BerryAPI_berryRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

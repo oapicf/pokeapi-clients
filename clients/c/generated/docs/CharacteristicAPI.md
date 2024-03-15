@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **CharacteristicAPI_characteristicList**
 ```c
-char* CharacteristicAPI_characteristicList(apiClient_t *apiClient, int limit, int offset);
+char* CharacteristicAPI_characteristicList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **CharacteristicAPI_characteristicRead**
 ```c
-char* CharacteristicAPI_characteristicRead(apiClient_t *apiClient, int id);
+char* CharacteristicAPI_characteristicRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

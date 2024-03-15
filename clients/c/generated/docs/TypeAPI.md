@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **TypeAPI_typeList**
 ```c
-char* TypeAPI_typeList(apiClient_t *apiClient, int limit, int offset);
+char* TypeAPI_typeList(apiClient_t *apiClient, int *limit, int *offset);
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 
 # **TypeAPI_typeRead**
 ```c
-char* TypeAPI_typeRead(apiClient_t *apiClient, int id);
+char* TypeAPI_typeRead(apiClient_t *apiClient, int *id);
 ```
 
 ### Parameters

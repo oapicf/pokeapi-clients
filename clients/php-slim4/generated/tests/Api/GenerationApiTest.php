@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * 
  * PHP version 7.4
  *
  * @package OpenAPIServer
@@ -75,7 +75,7 @@ class GenerationApiTest extends TestCase
      */
     public function testGenerationList()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "generationList" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class GenerationApiTest extends TestCase
      */
     public function testGenerationRead()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "generationRead" method has not been implemented yet.'
         );
     }

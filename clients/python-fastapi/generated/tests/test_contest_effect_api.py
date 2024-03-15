@@ -13,12 +13,13 @@ def test_contest_effect_list(client: TestClient):
     params = [("limit", 56),     ("offset", 56)]
     headers = {
     }
-    response = client.request(
-        "GET",
-        "/api/v2/contest-effect/",
-        headers=headers,
-        params=params,
-    )
+    # uncomment below to make a request
+    #response = client.request(
+    #    "GET",
+    #    "/api/v2/contest-effect/",
+    #    headers=headers,
+    #    params=params,
+    #)
 
     # uncomment below to assert the status code of the HTTP response
     #assert response.status_code == 200
@@ -32,11 +33,12 @@ def test_contest_effect_read(client: TestClient):
 
     headers = {
     }
-    response = client.request(
-        "GET",
-        "/api/v2/contest-effect/{id}/".format(id=56),
-        headers=headers,
-    )
+    # uncomment below to make a request
+    #response = client.request(
+    #    "GET",
+    #    "/api/v2/contest-effect/{id}/".format(id=56),
+    #    headers=headers,
+    #)
 
     # uncomment below to assert the status code of the HTTP response
     #assert response.status_code == 200
