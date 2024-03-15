@@ -14,7 +14,7 @@ To see how to make this your own, look here:
 
 - API version: 20220523
 - Build date: 2024-01-14T06:29:45.895820227Z[Etc/UTC]
-For more information, please visit [https://github.com/cliffano/pokeapi-clients](https://github.com/cliffano/pokeapi-clients)
+For more information, please visit [https://github.com/oapicf/pokeapi-clients](https://github.com/oapicf/pokeapi-clients)
 
 
 ### Running the server

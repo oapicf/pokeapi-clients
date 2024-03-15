@@ -23,8 +23,8 @@ public class SpringDocConfiguration {
                                 .contact(
                                         new Contact()
                                                 .name("Cliffano Subagio")
-                                                .url("https://github.com/cliffano/pokeapi-clients")
-                                                .email("blah@cliffano.com")
+                                                .url("https://github.com/oapicf/pokeapi-clients")
+                                                .email("blah+oapicf@cliffano.com")
                                 )
                                 .version("20220523")
                 )

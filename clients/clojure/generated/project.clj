@@ -1,6 +1,6 @@
 (defproject  "20220523"
   :description ""
-  :url "https://github.com/cliffano/pokeapi-clients"
+  :url "https://github.com/oapicf/pokeapi-clients"
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [metosin/spec-tools "0.7.0"]
                  [clj-http "3.8.0"]

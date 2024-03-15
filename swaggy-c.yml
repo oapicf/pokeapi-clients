@@ -2,9 +2,9 @@
 spec_uri: specification/pokeapi.yml
 version: 0.10.1-pre.0
 contact:
-  name: Cliffano Subagio
-  url: https://github.com/cliffano/pokeapi-clients
-  email: blah@cliffano.com
+  name: OpenAPI Clients Factory
+  url: https://github.com/oapicf/pokeapi-clients
+  email: blah+oapicf@cliffano.com
 base_dir:
   github_actions: /home/runner/work/pokeapi-clients/pokeapi-clients
   local: /Users/cliffano/dev/workspace-studio/pokeapi-clients

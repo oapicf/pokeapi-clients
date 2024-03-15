@@ -2,9 +2,9 @@
   "gemName": "pokeapi_client",
   "moduleName": "PokeApiClient",
   "gemVersion": "0.10.1-pre.0",
-  "gemAuthor": "Cliffano Subagio",
-  "gemAuthorEmail": "blah@cliffano.com",
-  "gemHomepage": "https://github.com/cliffano/pokeapi-clients",
+  "gemAuthor": "OpenAPI Clients Factory",
+  "gemAuthorEmail": "blah+oapicf@cliffano.com",
+  "gemHomepage": "https://github.com/oapicf/pokeapi-clients",
   "gemLicense": "MIT",
   "gemRequiredRubyVersion": ">= 2.0"
 }

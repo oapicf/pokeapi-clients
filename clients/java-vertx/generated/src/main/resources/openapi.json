@@ -2,9 +2,9 @@
   "openapi" : "3.0.0",
   "info" : {
     "contact" : {
-      "email" : "blah@cliffano.com",
+      "email" : "blah+oapicf@cliffano.com",
       "name" : "Cliffano Subagio",
-      "url" : "https://github.com/cliffano/pokeapi-clients"
+      "url" : "https://github.com/oapicf/pokeapi-clients"
     },
     "description" : "",
     "title" : "",

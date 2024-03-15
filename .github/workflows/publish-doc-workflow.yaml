@@ -19,4 +19,4 @@ jobs:
           CACHE_DIR=/tmp gh-pages --dist doc/ --user "pakkunbot
           <blah+pakkun@cliffano.com>" --repo "https://cliffano:${{
           secrets.STUDIO_GITHUB_TOKEN
-          }}@github.com/cliffano/pokeapi-clients.git"
+          }}@github.com/oapicf/pokeapi-clients.git"

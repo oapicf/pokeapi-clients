@@ -17,5 +17,5 @@
   , {modules, []}
   , {maintainers, []}
   , {licenses, []}
-  , {links, ["https://github.com/cliffano/pokeapi-clients"]}
+  , {links, ["https://github.com/oapicf/pokeapi-clients"]}
 ]}.

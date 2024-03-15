@@ -2,10 +2,10 @@
 name = "pokeapiclient"
 version = "0.10.1-pre.0"
 description = ""
-authors = ["Cliffano Subagio <blah@cliffano.com>"]
+authors = ["Cliffano Subagio <blah+oapicf@cliffano.com>"]
 license = "NoLicense"
 readme = "README.md"
-repository = "https://github.com/cliffano/pokeapi-clients"
+repository = "https://github.com/oapicf/pokeapi-clients"
 keywords = ["OpenAPI", "OpenAPI-Generator", ""]
 include = ["pokeapiclient/py.typed"]
 
