@@ -13,11 +13,11 @@ The API clients are generated using [OpenAPI Generator](https://openapi-generato
 Published packages
 ------------------
 
-| Language | Package | Status |
-|----------|---------|--------|
-| JavaScript | [pokeapi-client]((http://www.npmjs.com/package/pokeapi-client)) | [![Published Version](https://img.shields.io/npm/v/pokeapi-client.svg)](http://www.npmjs.com/package/pokeapi-client) |
-| Python | [pokeapiclient]((https://pypi.python.org/pypi/pokeapiclient)) | [![Published Version](https://img.shields.io/pypi/v/pokeapiclient.svg)](https://pypi.python.org/pypi/pokeapiclient) |
-| Ruby | [pokeapi_client]((https://rubygems.org/gems/pokeapi_client)) | [![Published Version](https://img.shields.io/gem/v/pokeapi_client.svg)](https://rubygems.org/gems/pokeapi_client) |
+| Language | Package | Status | Documentation |
+|----------|---------|--------|---------------|
+| JavaScript | [pokeapi-client]((http://www.npmjs.com/package/pokeapi-client)) | [![Published Version](https://img.shields.io/npm/v/pokeapi-client.svg)](http://www.npmjs.com/package/pokeapi-client) | [README](https://github.com/oapicf/pokeapi-client/blob/main/clients/javascript/generated/README.md) |
+| Python | [pokeapiclient]((https://pypi.python.org/pypi/pokeapiclient)) | [![Published Version](https://img.shields.io/pypi/v/pokeapiclient.svg)](https://pypi.python.org/pypi/pokeapiclient) | [README](https://github.com/oapicf/pokeapi-client/blob/main/clients/python/generated/README.md) |
+| Ruby | [pokeapi_client]((https://rubygems.org/gems/pokeapi_client)) | [![Published Version](https://img.shields.io/gem/v/pokeapi_client.svg)](https://rubygems.org/gems/pokeapi_client) | [README](https://github.com/oapicf/pokeapi-client/blob/main/clients/ruby/generated/README.md) |
 
 Version matrix
 --------------
