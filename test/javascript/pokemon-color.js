@@ -3,7 +3,7 @@ const PokeapiClient = require('pokeapi-client');
 
 describe('pokemon-color', function() {
   describe('list', function() {
-    it('should respond with error 401 unauthorized when token is invalid', function(done) {
+    it('should respond colors list', function(done) {
       var callback = function(error, data, response) {
         assert.equal(error, null);
         console.dir(data);
