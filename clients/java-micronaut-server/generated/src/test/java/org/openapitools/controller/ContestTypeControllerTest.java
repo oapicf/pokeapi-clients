@@ -78,7 +78,7 @@ public class ContestTypeControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/contest-type/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("text/plain");
+            .accept("[Ljava.lang.String;@2703d91");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class ContestTypeControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("text/plain");
+            .accept("[Ljava.lang.String;@5be052ca");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

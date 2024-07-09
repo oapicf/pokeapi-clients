@@ -16,8 +16,7 @@ import sttp.client3._
 import sttp.model.Method
 
 object GenderApi {
-
-def apply(baseUrl: String = "https://pokeapi.co") = new GenderApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new GenderApi(baseUrl)
 }
 
 class GenderApi(baseUrl: String) {
@@ -30,11 +29,11 @@ class GenderApi(baseUrl: String) {
    * @param offset 
    */
   def genderList(limit: Option[Int] = None, offset: Option[Int] = None
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/gender/?limit=${ limit }&offset=${ offset }")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
   /**
    * Expected answers:
@@ -43,10 +42,10 @@ class GenderApi(baseUrl: String) {
    * @param id 
    */
   def genderRead(id: Int
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/gender/${id}/")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
 }

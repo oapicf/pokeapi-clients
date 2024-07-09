@@ -78,7 +78,7 @@ public class PokemonShapeControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/pokemon-shape/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("text/plain");
+            .accept("[Ljava.lang.String;@420a8042");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class PokemonShapeControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("text/plain");
+            .accept("[Ljava.lang.String;@3292d91a");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

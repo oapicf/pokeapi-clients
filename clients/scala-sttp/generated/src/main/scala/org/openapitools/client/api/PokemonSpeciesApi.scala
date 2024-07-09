@@ -16,8 +16,7 @@ import sttp.client3._
 import sttp.model.Method
 
 object PokemonSpeciesApi {
-
-def apply(baseUrl: String = "https://pokeapi.co") = new PokemonSpeciesApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new PokemonSpeciesApi(baseUrl)
 }
 
 class PokemonSpeciesApi(baseUrl: String) {
@@ -30,11 +29,11 @@ class PokemonSpeciesApi(baseUrl: String) {
    * @param offset 
    */
   def pokemonSpeciesList(limit: Option[Int] = None, offset: Option[Int] = None
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/pokemon-species/?limit=${ limit }&offset=${ offset }")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
   /**
    * Expected answers:
@@ -43,10 +42,10 @@ class PokemonSpeciesApi(baseUrl: String) {
    * @param id 
    */
   def pokemonSpeciesRead(id: Int
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/pokemon-species/${id}/")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
 }

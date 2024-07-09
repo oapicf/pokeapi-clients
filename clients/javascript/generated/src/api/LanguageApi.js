@@ -17,7 +17,7 @@ import ApiClient from "../ApiClient";
 /**
 * Language service.
 * @module api/LanguageApi
-* @version 0.10.1-pre.0
+* @version 1.0.1-pre.0
 */
 export default class LanguageApi {
 

@@ -14,8 +14,9 @@
 import { Inject, Injectable, Optional } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { AxiosResponse } from 'axios';
-import { Observable } from 'rxjs';
+import { Observable, from, of, switchMap } from 'rxjs';
 import { Configuration } from '../configuration';
+import { COLLECTION_FORMATS } from '../variables';
 
 
 @Injectable()
@@ -50,8 +51,6 @@ export class EncounterMethodService {
     public encounterMethodList(limit?: number, offset?: number, ): Observable<AxiosResponse<string>>;
     public encounterMethodList(limit?: number, offset?: number, ): Observable<any> {
 
-
-
         let queryParameters = new URLSearchParams();
         if (limit !== undefined && limit !== null) {
             queryParameters.append('limit', <any>limit);
@@ -61,6 +60,8 @@ export class EncounterMethodService {
         }
 
         let headers = {...this.defaultHeaders};
+
+        let accessTokenObservable: Observable<any> = of(null);
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
@@ -74,12 +75,20 @@ export class EncounterMethodService {
         // to determine the Content-Type header
         const consumes: string[] = [
         ];
-        return this.httpClient.get<string>(`${this.basePath}/api/v2/encounter-method/`,
-            {
-                params: queryParameters,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers
-            }
+        return accessTokenObservable.pipe(
+            switchMap((accessToken) => {
+                if (accessToken) {
+                    headers['Authorization'] = `Bearer ${accessToken}`;
+                }
+
+                return this.httpClient.get<string>(`${this.basePath}/api/v2/encounter-method/`,
+                    {
+                        params: queryParameters,
+                        withCredentials: this.configuration.withCredentials,
+                        headers: headers
+                    }
+                );
+            })
         );
     }
     /**
@@ -98,6 +107,8 @@ export class EncounterMethodService {
 
         let headers = {...this.defaultHeaders};
 
+        let accessTokenObservable: Observable<any> = of(null);
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'text/plain'
@@ -110,11 +121,19 @@ export class EncounterMethodService {
         // to determine the Content-Type header
         const consumes: string[] = [
         ];
-        return this.httpClient.get<string>(`${this.basePath}/api/v2/encounter-method/${encodeURIComponent(String(id))}/`,
-            {
-                withCredentials: this.configuration.withCredentials,
-                headers: headers
-            }
+        return accessTokenObservable.pipe(
+            switchMap((accessToken) => {
+                if (accessToken) {
+                    headers['Authorization'] = `Bearer ${accessToken}`;
+                }
+
+                return this.httpClient.get<string>(`${this.basePath}/api/v2/encounter-method/${encodeURIComponent(String(id))}/`,
+                    {
+                        withCredentials: this.configuration.withCredentials,
+                        headers: headers
+                    }
+                );
+            })
         );
     }
 }

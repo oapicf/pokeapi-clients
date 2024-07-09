@@ -16,8 +16,7 @@ import sttp.client3._
 import sttp.model.Method
 
 object EggGroupApi {
-
-def apply(baseUrl: String = "https://pokeapi.co") = new EggGroupApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new EggGroupApi(baseUrl)
 }
 
 class EggGroupApi(baseUrl: String) {
@@ -30,11 +29,11 @@ class EggGroupApi(baseUrl: String) {
    * @param offset 
    */
   def eggGroupList(limit: Option[Int] = None, offset: Option[Int] = None
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/egg-group/?limit=${ limit }&offset=${ offset }")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
   /**
    * Expected answers:
@@ -43,10 +42,10 @@ class EggGroupApi(baseUrl: String) {
    * @param id 
    */
   def eggGroupRead(id: Int
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/egg-group/${id}/")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
 }

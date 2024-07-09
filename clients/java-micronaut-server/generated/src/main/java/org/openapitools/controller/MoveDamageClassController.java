@@ -36,7 +36,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-03-15T11:05:33.896519152Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-09T12:13:30.171005723Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Controller
 @Tag(name = "MoveDamageClass", description = "The MoveDamageClass API")
 public class MoveDamageClassController {

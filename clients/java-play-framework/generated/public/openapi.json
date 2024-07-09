@@ -53,7 +53,7 @@
           }
         },
         "tags" : [ "ability" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/ability/{id}/" : {
@@ -84,7 +84,7 @@
           }
         },
         "tags" : [ "ability" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/berry-firmness/" : {
@@ -126,7 +126,7 @@
           }
         },
         "tags" : [ "berry-firmness" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/berry-firmness/{id}/" : {
@@ -157,7 +157,7 @@
           }
         },
         "tags" : [ "berry-firmness" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/berry-flavor/" : {
@@ -199,7 +199,7 @@
           }
         },
         "tags" : [ "berry-flavor" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/berry-flavor/{id}/" : {
@@ -230,7 +230,7 @@
           }
         },
         "tags" : [ "berry-flavor" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/berry/" : {
@@ -272,7 +272,7 @@
           }
         },
         "tags" : [ "berry" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/berry/{id}/" : {
@@ -303,7 +303,7 @@
           }
         },
         "tags" : [ "berry" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/characteristic/" : {
@@ -345,7 +345,7 @@
           }
         },
         "tags" : [ "characteristic" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/characteristic/{id}/" : {
@@ -376,7 +376,7 @@
           }
         },
         "tags" : [ "characteristic" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/contest-effect/" : {
@@ -418,7 +418,7 @@
           }
         },
         "tags" : [ "contest-effect" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/contest-effect/{id}/" : {
@@ -449,7 +449,7 @@
           }
         },
         "tags" : [ "contest-effect" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/contest-type/" : {
@@ -491,7 +491,7 @@
           }
         },
         "tags" : [ "contest-type" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/contest-type/{id}/" : {
@@ -522,7 +522,7 @@
           }
         },
         "tags" : [ "contest-type" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/egg-group/" : {
@@ -564,7 +564,7 @@
           }
         },
         "tags" : [ "egg-group" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/egg-group/{id}/" : {
@@ -595,7 +595,7 @@
           }
         },
         "tags" : [ "egg-group" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/encounter-condition-value/" : {
@@ -637,7 +637,7 @@
           }
         },
         "tags" : [ "encounter-condition-value" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/encounter-condition-value/{id}/" : {
@@ -668,7 +668,7 @@
           }
         },
         "tags" : [ "encounter-condition-value" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/encounter-condition/" : {
@@ -710,7 +710,7 @@
           }
         },
         "tags" : [ "encounter-condition" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/encounter-condition/{id}/" : {
@@ -741,7 +741,7 @@
           }
         },
         "tags" : [ "encounter-condition" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/encounter-method/" : {
@@ -783,7 +783,7 @@
           }
         },
         "tags" : [ "encounter-method" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/encounter-method/{id}/" : {
@@ -814,7 +814,7 @@
           }
         },
         "tags" : [ "encounter-method" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/evolution-chain/" : {
@@ -856,7 +856,7 @@
           }
         },
         "tags" : [ "evolution-chain" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/evolution-chain/{id}/" : {
@@ -887,7 +887,7 @@
           }
         },
         "tags" : [ "evolution-chain" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/evolution-trigger/" : {
@@ -929,7 +929,7 @@
           }
         },
         "tags" : [ "evolution-trigger" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/evolution-trigger/{id}/" : {
@@ -960,7 +960,7 @@
           }
         },
         "tags" : [ "evolution-trigger" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/gender/" : {
@@ -1002,7 +1002,7 @@
           }
         },
         "tags" : [ "gender" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/gender/{id}/" : {
@@ -1033,7 +1033,7 @@
           }
         },
         "tags" : [ "gender" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/generation/" : {
@@ -1075,7 +1075,7 @@
           }
         },
         "tags" : [ "generation" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/generation/{id}/" : {
@@ -1106,7 +1106,7 @@
           }
         },
         "tags" : [ "generation" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/growth-rate/" : {
@@ -1148,7 +1148,7 @@
           }
         },
         "tags" : [ "growth-rate" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/growth-rate/{id}/" : {
@@ -1179,7 +1179,7 @@
           }
         },
         "tags" : [ "growth-rate" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/item-attribute/" : {
@@ -1221,7 +1221,7 @@
           }
         },
         "tags" : [ "item-attribute" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/item-attribute/{id}/" : {
@@ -1252,7 +1252,7 @@
           }
         },
         "tags" : [ "item-attribute" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/item-category/" : {
@@ -1294,7 +1294,7 @@
           }
         },
         "tags" : [ "item-category" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/item-category/{id}/" : {
@@ -1325,7 +1325,7 @@
           }
         },
         "tags" : [ "item-category" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/item-fling-effect/" : {
@@ -1367,7 +1367,7 @@
           }
         },
         "tags" : [ "item-fling-effect" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/item-fling-effect/{id}/" : {
@@ -1398,7 +1398,7 @@
           }
         },
         "tags" : [ "item-fling-effect" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/item-pocket/" : {
@@ -1440,7 +1440,7 @@
           }
         },
         "tags" : [ "item-pocket" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/item-pocket/{id}/" : {
@@ -1471,7 +1471,7 @@
           }
         },
         "tags" : [ "item-pocket" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/item/" : {
@@ -1513,7 +1513,7 @@
           }
         },
         "tags" : [ "item" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/item/{id}/" : {
@@ -1544,7 +1544,7 @@
           }
         },
         "tags" : [ "item" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/language/" : {
@@ -1586,7 +1586,7 @@
           }
         },
         "tags" : [ "language" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/language/{id}/" : {
@@ -1617,7 +1617,7 @@
           }
         },
         "tags" : [ "language" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/location-area/" : {
@@ -1659,7 +1659,7 @@
           }
         },
         "tags" : [ "location-area" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/location-area/{id}/" : {
@@ -1690,7 +1690,7 @@
           }
         },
         "tags" : [ "location-area" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/location/" : {
@@ -1732,7 +1732,7 @@
           }
         },
         "tags" : [ "location" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/location/{id}/" : {
@@ -1763,7 +1763,7 @@
           }
         },
         "tags" : [ "location" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/machine/" : {
@@ -1805,7 +1805,7 @@
           }
         },
         "tags" : [ "machine" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/machine/{id}/" : {
@@ -1836,7 +1836,7 @@
           }
         },
         "tags" : [ "machine" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/move-ailment/" : {
@@ -1878,7 +1878,7 @@
           }
         },
         "tags" : [ "move-ailment" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/move-ailment/{id}/" : {
@@ -1909,7 +1909,7 @@
           }
         },
         "tags" : [ "move-ailment" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/move-battle-style/" : {
@@ -1951,7 +1951,7 @@
           }
         },
         "tags" : [ "move-battle-style" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/move-battle-style/{id}/" : {
@@ -1982,7 +1982,7 @@
           }
         },
         "tags" : [ "move-battle-style" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/move-category/" : {
@@ -2024,7 +2024,7 @@
           }
         },
         "tags" : [ "move-category" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/move-category/{id}/" : {
@@ -2055,7 +2055,7 @@
           }
         },
         "tags" : [ "move-category" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/move-damage-class/" : {
@@ -2097,7 +2097,7 @@
           }
         },
         "tags" : [ "move-damage-class" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/move-damage-class/{id}/" : {
@@ -2128,7 +2128,7 @@
           }
         },
         "tags" : [ "move-damage-class" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/move-learn-method/" : {
@@ -2170,7 +2170,7 @@
           }
         },
         "tags" : [ "move-learn-method" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/move-learn-method/{id}/" : {
@@ -2201,7 +2201,7 @@
           }
         },
         "tags" : [ "move-learn-method" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/move-target/" : {
@@ -2243,7 +2243,7 @@
           }
         },
         "tags" : [ "move-target" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/move-target/{id}/" : {
@@ -2274,7 +2274,7 @@
           }
         },
         "tags" : [ "move-target" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/move/" : {
@@ -2316,7 +2316,7 @@
           }
         },
         "tags" : [ "move" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/move/{id}/" : {
@@ -2347,7 +2347,7 @@
           }
         },
         "tags" : [ "move" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/nature/" : {
@@ -2389,7 +2389,7 @@
           }
         },
         "tags" : [ "nature" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/nature/{id}/" : {
@@ -2420,7 +2420,7 @@
           }
         },
         "tags" : [ "nature" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pal-park-area/" : {
@@ -2462,7 +2462,7 @@
           }
         },
         "tags" : [ "pal-park-area" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pal-park-area/{id}/" : {
@@ -2493,7 +2493,7 @@
           }
         },
         "tags" : [ "pal-park-area" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pokeathlon-stat/" : {
@@ -2535,7 +2535,7 @@
           }
         },
         "tags" : [ "pokeathlon-stat" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pokeathlon-stat/{id}/" : {
@@ -2566,7 +2566,7 @@
           }
         },
         "tags" : [ "pokeathlon-stat" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pokedex/" : {
@@ -2608,7 +2608,7 @@
           }
         },
         "tags" : [ "pokedex" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pokedex/{id}/" : {
@@ -2639,7 +2639,7 @@
           }
         },
         "tags" : [ "pokedex" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pokemon-color/" : {
@@ -2681,7 +2681,7 @@
           }
         },
         "tags" : [ "pokemon-color" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pokemon-color/{id}/" : {
@@ -2712,7 +2712,7 @@
           }
         },
         "tags" : [ "pokemon-color" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pokemon-form/" : {
@@ -2754,7 +2754,7 @@
           }
         },
         "tags" : [ "pokemon-form" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pokemon-form/{id}/" : {
@@ -2785,7 +2785,7 @@
           }
         },
         "tags" : [ "pokemon-form" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pokemon-habitat/" : {
@@ -2827,7 +2827,7 @@
           }
         },
         "tags" : [ "pokemon-habitat" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pokemon-habitat/{id}/" : {
@@ -2858,7 +2858,7 @@
           }
         },
         "tags" : [ "pokemon-habitat" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pokemon-shape/" : {
@@ -2900,7 +2900,7 @@
           }
         },
         "tags" : [ "pokemon-shape" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pokemon-shape/{id}/" : {
@@ -2931,7 +2931,7 @@
           }
         },
         "tags" : [ "pokemon-shape" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pokemon-species/" : {
@@ -2973,7 +2973,7 @@
           }
         },
         "tags" : [ "pokemon-species" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pokemon-species/{id}/" : {
@@ -3004,7 +3004,7 @@
           }
         },
         "tags" : [ "pokemon-species" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pokemon/" : {
@@ -3046,7 +3046,7 @@
           }
         },
         "tags" : [ "pokemon" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/pokemon/{id}/" : {
@@ -3077,7 +3077,7 @@
           }
         },
         "tags" : [ "pokemon" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/region/" : {
@@ -3119,7 +3119,7 @@
           }
         },
         "tags" : [ "region" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/region/{id}/" : {
@@ -3150,7 +3150,7 @@
           }
         },
         "tags" : [ "region" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/stat/" : {
@@ -3192,7 +3192,7 @@
           }
         },
         "tags" : [ "stat" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/stat/{id}/" : {
@@ -3223,7 +3223,7 @@
           }
         },
         "tags" : [ "stat" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/super-contest-effect/" : {
@@ -3265,7 +3265,7 @@
           }
         },
         "tags" : [ "super-contest-effect" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/super-contest-effect/{id}/" : {
@@ -3296,7 +3296,7 @@
           }
         },
         "tags" : [ "super-contest-effect" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/type/" : {
@@ -3338,7 +3338,7 @@
           }
         },
         "tags" : [ "type" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/type/{id}/" : {
@@ -3369,7 +3369,7 @@
           }
         },
         "tags" : [ "type" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/version-group/" : {
@@ -3411,7 +3411,7 @@
           }
         },
         "tags" : [ "version-group" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/version-group/{id}/" : {
@@ -3442,7 +3442,7 @@
           }
         },
         "tags" : [ "version-group" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/version/" : {
@@ -3484,7 +3484,7 @@
           }
         },
         "tags" : [ "version" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     },
     "/api/v2/version/{id}/" : {
@@ -3515,7 +3515,7 @@
           }
         },
         "tags" : [ "version" ],
-        "x-accepts" : "text/plain"
+        "x-accepts" : [ "text/plain" ]
       }
     }
   },

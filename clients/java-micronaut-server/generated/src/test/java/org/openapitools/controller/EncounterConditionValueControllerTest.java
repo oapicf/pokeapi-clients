@@ -78,7 +78,7 @@ public class EncounterConditionValueControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/encounter-condition-value/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("text/plain");
+            .accept("[Ljava.lang.String;@62f11ebb");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class EncounterConditionValueControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("text/plain");
+            .accept("[Ljava.lang.String;@a6c54c3");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

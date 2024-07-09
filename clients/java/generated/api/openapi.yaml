@@ -41,7 +41,8 @@ paths:
           description: Default response
       tags:
       - ability
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/ability/{id}/:
     get:
       operationId: ability_read
@@ -64,7 +65,8 @@ paths:
           description: Default response
       tags:
       - ability
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/berry-firmness/:
     get:
       operationId: berry-firmness_list
@@ -96,7 +98,8 @@ paths:
           description: Default response
       tags:
       - berry-firmness
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/berry-firmness/{id}/:
     get:
       operationId: berry-firmness_read
@@ -119,7 +122,8 @@ paths:
           description: Default response
       tags:
       - berry-firmness
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/berry-flavor/:
     get:
       operationId: berry-flavor_list
@@ -151,7 +155,8 @@ paths:
           description: Default response
       tags:
       - berry-flavor
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/berry-flavor/{id}/:
     get:
       operationId: berry-flavor_read
@@ -174,7 +179,8 @@ paths:
           description: Default response
       tags:
       - berry-flavor
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/berry/:
     get:
       operationId: berry_list
@@ -206,7 +212,8 @@ paths:
           description: Default response
       tags:
       - berry
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/berry/{id}/:
     get:
       operationId: berry_read
@@ -229,7 +236,8 @@ paths:
           description: Default response
       tags:
       - berry
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/characteristic/:
     get:
       operationId: characteristic_list
@@ -261,7 +269,8 @@ paths:
           description: Default response
       tags:
       - characteristic
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/characteristic/{id}/:
     get:
       operationId: characteristic_read
@@ -284,7 +293,8 @@ paths:
           description: Default response
       tags:
       - characteristic
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/contest-effect/:
     get:
       operationId: contest-effect_list
@@ -316,7 +326,8 @@ paths:
           description: Default response
       tags:
       - contest-effect
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/contest-effect/{id}/:
     get:
       operationId: contest-effect_read
@@ -339,7 +350,8 @@ paths:
           description: Default response
       tags:
       - contest-effect
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/contest-type/:
     get:
       operationId: contest-type_list
@@ -371,7 +383,8 @@ paths:
           description: Default response
       tags:
       - contest-type
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/contest-type/{id}/:
     get:
       operationId: contest-type_read
@@ -394,7 +407,8 @@ paths:
           description: Default response
       tags:
       - contest-type
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/egg-group/:
     get:
       operationId: egg-group_list
@@ -426,7 +440,8 @@ paths:
           description: Default response
       tags:
       - egg-group
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/egg-group/{id}/:
     get:
       operationId: egg-group_read
@@ -449,7 +464,8 @@ paths:
           description: Default response
       tags:
       - egg-group
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/encounter-condition-value/:
     get:
       operationId: encounter-condition-value_list
@@ -481,7 +497,8 @@ paths:
           description: Default response
       tags:
       - encounter-condition-value
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/encounter-condition-value/{id}/:
     get:
       operationId: encounter-condition-value_read
@@ -505,7 +522,8 @@ paths:
           description: Default response
       tags:
       - encounter-condition-value
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/encounter-condition/:
     get:
       operationId: encounter-condition_list
@@ -537,7 +555,8 @@ paths:
           description: Default response
       tags:
       - encounter-condition
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/encounter-condition/{id}/:
     get:
       operationId: encounter-condition_read
@@ -560,7 +579,8 @@ paths:
           description: Default response
       tags:
       - encounter-condition
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/encounter-method/:
     get:
       operationId: encounter-method_list
@@ -592,7 +612,8 @@ paths:
           description: Default response
       tags:
       - encounter-method
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/encounter-method/{id}/:
     get:
       operationId: encounter-method_read
@@ -615,7 +636,8 @@ paths:
           description: Default response
       tags:
       - encounter-method
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/evolution-chain/:
     get:
       operationId: evolution-chain_list
@@ -647,7 +669,8 @@ paths:
           description: Default response
       tags:
       - evolution-chain
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/evolution-chain/{id}/:
     get:
       operationId: evolution-chain_read
@@ -670,7 +693,8 @@ paths:
           description: Default response
       tags:
       - evolution-chain
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/evolution-trigger/:
     get:
       operationId: evolution-trigger_list
@@ -702,7 +726,8 @@ paths:
           description: Default response
       tags:
       - evolution-trigger
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/evolution-trigger/{id}/:
     get:
       operationId: evolution-trigger_read
@@ -725,7 +750,8 @@ paths:
           description: Default response
       tags:
       - evolution-trigger
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/gender/:
     get:
       operationId: gender_list
@@ -757,7 +783,8 @@ paths:
           description: Default response
       tags:
       - gender
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/gender/{id}/:
     get:
       operationId: gender_read
@@ -780,7 +807,8 @@ paths:
           description: Default response
       tags:
       - gender
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/generation/:
     get:
       operationId: generation_list
@@ -812,7 +840,8 @@ paths:
           description: Default response
       tags:
       - generation
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/generation/{id}/:
     get:
       operationId: generation_read
@@ -835,7 +864,8 @@ paths:
           description: Default response
       tags:
       - generation
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/growth-rate/:
     get:
       operationId: growth-rate_list
@@ -867,7 +897,8 @@ paths:
           description: Default response
       tags:
       - growth-rate
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/growth-rate/{id}/:
     get:
       operationId: growth-rate_read
@@ -890,7 +921,8 @@ paths:
           description: Default response
       tags:
       - growth-rate
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/item-attribute/:
     get:
       operationId: item-attribute_list
@@ -922,7 +954,8 @@ paths:
           description: Default response
       tags:
       - item-attribute
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/item-attribute/{id}/:
     get:
       operationId: item-attribute_read
@@ -945,7 +978,8 @@ paths:
           description: Default response
       tags:
       - item-attribute
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/item-category/:
     get:
       operationId: item-category_list
@@ -977,7 +1011,8 @@ paths:
           description: Default response
       tags:
       - item-category
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/item-category/{id}/:
     get:
       operationId: item-category_read
@@ -1000,7 +1035,8 @@ paths:
           description: Default response
       tags:
       - item-category
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/item-fling-effect/:
     get:
       operationId: item-fling-effect_list
@@ -1032,7 +1068,8 @@ paths:
           description: Default response
       tags:
       - item-fling-effect
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/item-fling-effect/{id}/:
     get:
       operationId: item-fling-effect_read
@@ -1055,7 +1092,8 @@ paths:
           description: Default response
       tags:
       - item-fling-effect
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/item-pocket/:
     get:
       operationId: item-pocket_list
@@ -1087,7 +1125,8 @@ paths:
           description: Default response
       tags:
       - item-pocket
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/item-pocket/{id}/:
     get:
       operationId: item-pocket_read
@@ -1110,7 +1149,8 @@ paths:
           description: Default response
       tags:
       - item-pocket
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/item/:
     get:
       operationId: item_list
@@ -1142,7 +1182,8 @@ paths:
           description: Default response
       tags:
       - item
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/item/{id}/:
     get:
       operationId: item_read
@@ -1165,7 +1206,8 @@ paths:
           description: Default response
       tags:
       - item
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/language/:
     get:
       operationId: language_list
@@ -1197,7 +1239,8 @@ paths:
           description: Default response
       tags:
       - language
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/language/{id}/:
     get:
       operationId: language_read
@@ -1220,7 +1263,8 @@ paths:
           description: Default response
       tags:
       - language
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/location-area/:
     get:
       operationId: location-area_list
@@ -1252,7 +1296,8 @@ paths:
           description: Default response
       tags:
       - location-area
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/location-area/{id}/:
     get:
       operationId: location-area_read
@@ -1275,7 +1320,8 @@ paths:
           description: Default response
       tags:
       - location-area
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/location/:
     get:
       operationId: location_list
@@ -1307,7 +1353,8 @@ paths:
           description: Default response
       tags:
       - location
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/location/{id}/:
     get:
       operationId: location_read
@@ -1330,7 +1377,8 @@ paths:
           description: Default response
       tags:
       - location
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/machine/:
     get:
       operationId: machine_list
@@ -1362,7 +1410,8 @@ paths:
           description: Default response
       tags:
       - machine
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/machine/{id}/:
     get:
       operationId: machine_read
@@ -1385,7 +1434,8 @@ paths:
           description: Default response
       tags:
       - machine
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/move-ailment/:
     get:
       operationId: move-ailment_list
@@ -1417,7 +1467,8 @@ paths:
           description: Default response
       tags:
       - move-ailment
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/move-ailment/{id}/:
     get:
       operationId: move-ailment_read
@@ -1440,7 +1491,8 @@ paths:
           description: Default response
       tags:
       - move-ailment
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/move-battle-style/:
     get:
       operationId: move-battle-style_list
@@ -1472,7 +1524,8 @@ paths:
           description: Default response
       tags:
       - move-battle-style
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/move-battle-style/{id}/:
     get:
       operationId: move-battle-style_read
@@ -1495,7 +1548,8 @@ paths:
           description: Default response
       tags:
       - move-battle-style
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/move-category/:
     get:
       operationId: move-category_list
@@ -1527,7 +1581,8 @@ paths:
           description: Default response
       tags:
       - move-category
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/move-category/{id}/:
     get:
       operationId: move-category_read
@@ -1550,7 +1605,8 @@ paths:
           description: Default response
       tags:
       - move-category
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/move-damage-class/:
     get:
       operationId: move-damage-class_list
@@ -1582,7 +1638,8 @@ paths:
           description: Default response
       tags:
       - move-damage-class
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/move-damage-class/{id}/:
     get:
       operationId: move-damage-class_read
@@ -1605,7 +1662,8 @@ paths:
           description: Default response
       tags:
       - move-damage-class
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/move-learn-method/:
     get:
       operationId: move-learn-method_list
@@ -1637,7 +1695,8 @@ paths:
           description: Default response
       tags:
       - move-learn-method
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/move-learn-method/{id}/:
     get:
       operationId: move-learn-method_read
@@ -1660,7 +1719,8 @@ paths:
           description: Default response
       tags:
       - move-learn-method
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/move-target/:
     get:
       operationId: move-target_list
@@ -1692,7 +1752,8 @@ paths:
           description: Default response
       tags:
       - move-target
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/move-target/{id}/:
     get:
       operationId: move-target_read
@@ -1715,7 +1776,8 @@ paths:
           description: Default response
       tags:
       - move-target
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/move/:
     get:
       operationId: move_list
@@ -1747,7 +1809,8 @@ paths:
           description: Default response
       tags:
       - move
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/move/{id}/:
     get:
       operationId: move_read
@@ -1770,7 +1833,8 @@ paths:
           description: Default response
       tags:
       - move
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/nature/:
     get:
       operationId: nature_list
@@ -1802,7 +1866,8 @@ paths:
           description: Default response
       tags:
       - nature
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/nature/{id}/:
     get:
       operationId: nature_read
@@ -1825,7 +1890,8 @@ paths:
           description: Default response
       tags:
       - nature
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pal-park-area/:
     get:
       operationId: pal-park-area_list
@@ -1857,7 +1923,8 @@ paths:
           description: Default response
       tags:
       - pal-park-area
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pal-park-area/{id}/:
     get:
       operationId: pal-park-area_read
@@ -1880,7 +1947,8 @@ paths:
           description: Default response
       tags:
       - pal-park-area
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pokeathlon-stat/:
     get:
       operationId: pokeathlon-stat_list
@@ -1912,7 +1980,8 @@ paths:
           description: Default response
       tags:
       - pokeathlon-stat
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pokeathlon-stat/{id}/:
     get:
       operationId: pokeathlon-stat_read
@@ -1935,7 +2004,8 @@ paths:
           description: Default response
       tags:
       - pokeathlon-stat
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pokedex/:
     get:
       operationId: pokedex_list
@@ -1967,7 +2037,8 @@ paths:
           description: Default response
       tags:
       - pokedex
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pokedex/{id}/:
     get:
       operationId: pokedex_read
@@ -1990,7 +2061,8 @@ paths:
           description: Default response
       tags:
       - pokedex
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pokemon-color/:
     get:
       operationId: pokemon-color_list
@@ -2022,7 +2094,8 @@ paths:
           description: Default response
       tags:
       - pokemon-color
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pokemon-color/{id}/:
     get:
       operationId: pokemon-color_read
@@ -2045,7 +2118,8 @@ paths:
           description: Default response
       tags:
       - pokemon-color
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pokemon-form/:
     get:
       operationId: pokemon-form_list
@@ -2077,7 +2151,8 @@ paths:
           description: Default response
       tags:
       - pokemon-form
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pokemon-form/{id}/:
     get:
       operationId: pokemon-form_read
@@ -2100,7 +2175,8 @@ paths:
           description: Default response
       tags:
       - pokemon-form
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pokemon-habitat/:
     get:
       operationId: pokemon-habitat_list
@@ -2132,7 +2208,8 @@ paths:
           description: Default response
       tags:
       - pokemon-habitat
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pokemon-habitat/{id}/:
     get:
       operationId: pokemon-habitat_read
@@ -2155,7 +2232,8 @@ paths:
           description: Default response
       tags:
       - pokemon-habitat
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pokemon-shape/:
     get:
       operationId: pokemon-shape_list
@@ -2187,7 +2265,8 @@ paths:
           description: Default response
       tags:
       - pokemon-shape
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pokemon-shape/{id}/:
     get:
       operationId: pokemon-shape_read
@@ -2210,7 +2289,8 @@ paths:
           description: Default response
       tags:
       - pokemon-shape
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pokemon-species/:
     get:
       operationId: pokemon-species_list
@@ -2242,7 +2322,8 @@ paths:
           description: Default response
       tags:
       - pokemon-species
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pokemon-species/{id}/:
     get:
       operationId: pokemon-species_read
@@ -2265,7 +2346,8 @@ paths:
           description: Default response
       tags:
       - pokemon-species
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pokemon/:
     get:
       operationId: pokemon_list
@@ -2297,7 +2379,8 @@ paths:
           description: Default response
       tags:
       - pokemon
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/pokemon/{id}/:
     get:
       operationId: pokemon_read
@@ -2320,7 +2403,8 @@ paths:
           description: Default response
       tags:
       - pokemon
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/region/:
     get:
       operationId: region_list
@@ -2352,7 +2436,8 @@ paths:
           description: Default response
       tags:
       - region
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/region/{id}/:
     get:
       operationId: region_read
@@ -2375,7 +2460,8 @@ paths:
           description: Default response
       tags:
       - region
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/stat/:
     get:
       operationId: stat_list
@@ -2407,7 +2493,8 @@ paths:
           description: Default response
       tags:
       - stat
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/stat/{id}/:
     get:
       operationId: stat_read
@@ -2430,7 +2517,8 @@ paths:
           description: Default response
       tags:
       - stat
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/super-contest-effect/:
     get:
       operationId: super-contest-effect_list
@@ -2462,7 +2550,8 @@ paths:
           description: Default response
       tags:
       - super-contest-effect
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/super-contest-effect/{id}/:
     get:
       operationId: super-contest-effect_read
@@ -2485,7 +2574,8 @@ paths:
           description: Default response
       tags:
       - super-contest-effect
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/type/:
     get:
       operationId: type_list
@@ -2517,7 +2607,8 @@ paths:
           description: Default response
       tags:
       - type
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/type/{id}/:
     get:
       operationId: type_read
@@ -2540,7 +2631,8 @@ paths:
           description: Default response
       tags:
       - type
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/version-group/:
     get:
       operationId: version-group_list
@@ -2572,7 +2664,8 @@ paths:
           description: Default response
       tags:
       - version-group
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/version-group/{id}/:
     get:
       operationId: version-group_read
@@ -2595,7 +2688,8 @@ paths:
           description: Default response
       tags:
       - version-group
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/version/:
     get:
       operationId: version_list
@@ -2627,7 +2721,8 @@ paths:
           description: Default response
       tags:
       - version
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
   /api/v2/version/{id}/:
     get:
       operationId: version_read
@@ -2650,7 +2745,8 @@ paths:
           description: Default response
       tags:
       - version
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
 components:
   schemas: {}
 

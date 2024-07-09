@@ -4,6 +4,7 @@ CMakeLists.txt
 Config.cmake.in
 README.md
 git_push.sh
+include/CppRestOpenAPIClient/AnyType.h
 include/CppRestOpenAPIClient/ApiClient.h
 include/CppRestOpenAPIClient/ApiConfiguration.h
 include/CppRestOpenAPIClient/ApiException.h
@@ -61,6 +62,7 @@ include/CppRestOpenAPIClient/api/SuperContestEffectApi.h
 include/CppRestOpenAPIClient/api/TypeApi.h
 include/CppRestOpenAPIClient/api/VersionApi.h
 include/CppRestOpenAPIClient/api/VersionGroupApi.h
+src/AnyType.cpp
 src/ApiClient.cpp
 src/ApiConfiguration.cpp
 src/ApiException.cpp

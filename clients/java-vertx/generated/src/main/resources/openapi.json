@@ -53,7 +53,7 @@
           }
         },
         "tags" : [ "ability" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "ability_list",
         "x-serviceid-varname" : "ABILITY_LIST_SERVICE_ID"
       }
@@ -86,7 +86,7 @@
           }
         },
         "tags" : [ "ability" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "ability_read",
         "x-serviceid-varname" : "ABILITY_READ_SERVICE_ID"
       }
@@ -130,7 +130,7 @@
           }
         },
         "tags" : [ "berry-firmness" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "berry-firmness_list",
         "x-serviceid-varname" : "BERRY-FIRMNESS_LIST_SERVICE_ID"
       }
@@ -163,7 +163,7 @@
           }
         },
         "tags" : [ "berry-firmness" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "berry-firmness_read",
         "x-serviceid-varname" : "BERRY-FIRMNESS_READ_SERVICE_ID"
       }
@@ -207,7 +207,7 @@
           }
         },
         "tags" : [ "berry-flavor" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "berry-flavor_list",
         "x-serviceid-varname" : "BERRY-FLAVOR_LIST_SERVICE_ID"
       }
@@ -240,7 +240,7 @@
           }
         },
         "tags" : [ "berry-flavor" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "berry-flavor_read",
         "x-serviceid-varname" : "BERRY-FLAVOR_READ_SERVICE_ID"
       }
@@ -284,7 +284,7 @@
           }
         },
         "tags" : [ "berry" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "berry_list",
         "x-serviceid-varname" : "BERRY_LIST_SERVICE_ID"
       }
@@ -317,7 +317,7 @@
           }
         },
         "tags" : [ "berry" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "berry_read",
         "x-serviceid-varname" : "BERRY_READ_SERVICE_ID"
       }
@@ -361,7 +361,7 @@
           }
         },
         "tags" : [ "characteristic" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "characteristic_list",
         "x-serviceid-varname" : "CHARACTERISTIC_LIST_SERVICE_ID"
       }
@@ -394,7 +394,7 @@
           }
         },
         "tags" : [ "characteristic" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "characteristic_read",
         "x-serviceid-varname" : "CHARACTERISTIC_READ_SERVICE_ID"
       }
@@ -438,7 +438,7 @@
           }
         },
         "tags" : [ "contest-effect" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "contest-effect_list",
         "x-serviceid-varname" : "CONTEST-EFFECT_LIST_SERVICE_ID"
       }
@@ -471,7 +471,7 @@
           }
         },
         "tags" : [ "contest-effect" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "contest-effect_read",
         "x-serviceid-varname" : "CONTEST-EFFECT_READ_SERVICE_ID"
       }
@@ -515,7 +515,7 @@
           }
         },
         "tags" : [ "contest-type" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "contest-type_list",
         "x-serviceid-varname" : "CONTEST-TYPE_LIST_SERVICE_ID"
       }
@@ -548,7 +548,7 @@
           }
         },
         "tags" : [ "contest-type" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "contest-type_read",
         "x-serviceid-varname" : "CONTEST-TYPE_READ_SERVICE_ID"
       }
@@ -592,7 +592,7 @@
           }
         },
         "tags" : [ "egg-group" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "egg-group_list",
         "x-serviceid-varname" : "EGG-GROUP_LIST_SERVICE_ID"
       }
@@ -625,7 +625,7 @@
           }
         },
         "tags" : [ "egg-group" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "egg-group_read",
         "x-serviceid-varname" : "EGG-GROUP_READ_SERVICE_ID"
       }
@@ -669,7 +669,7 @@
           }
         },
         "tags" : [ "encounter-condition-value" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "encounter-condition-value_list",
         "x-serviceid-varname" : "ENCOUNTER-CONDITION-VALUE_LIST_SERVICE_ID"
       }
@@ -702,7 +702,7 @@
           }
         },
         "tags" : [ "encounter-condition-value" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "encounter-condition-value_read",
         "x-serviceid-varname" : "ENCOUNTER-CONDITION-VALUE_READ_SERVICE_ID"
       }
@@ -746,7 +746,7 @@
           }
         },
         "tags" : [ "encounter-condition" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "encounter-condition_list",
         "x-serviceid-varname" : "ENCOUNTER-CONDITION_LIST_SERVICE_ID"
       }
@@ -779,7 +779,7 @@
           }
         },
         "tags" : [ "encounter-condition" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "encounter-condition_read",
         "x-serviceid-varname" : "ENCOUNTER-CONDITION_READ_SERVICE_ID"
       }
@@ -823,7 +823,7 @@
           }
         },
         "tags" : [ "encounter-method" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "encounter-method_list",
         "x-serviceid-varname" : "ENCOUNTER-METHOD_LIST_SERVICE_ID"
       }
@@ -856,7 +856,7 @@
           }
         },
         "tags" : [ "encounter-method" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "encounter-method_read",
         "x-serviceid-varname" : "ENCOUNTER-METHOD_READ_SERVICE_ID"
       }
@@ -900,7 +900,7 @@
           }
         },
         "tags" : [ "evolution-chain" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "evolution-chain_list",
         "x-serviceid-varname" : "EVOLUTION-CHAIN_LIST_SERVICE_ID"
       }
@@ -933,7 +933,7 @@
           }
         },
         "tags" : [ "evolution-chain" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "evolution-chain_read",
         "x-serviceid-varname" : "EVOLUTION-CHAIN_READ_SERVICE_ID"
       }
@@ -977,7 +977,7 @@
           }
         },
         "tags" : [ "evolution-trigger" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "evolution-trigger_list",
         "x-serviceid-varname" : "EVOLUTION-TRIGGER_LIST_SERVICE_ID"
       }
@@ -1010,7 +1010,7 @@
           }
         },
         "tags" : [ "evolution-trigger" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "evolution-trigger_read",
         "x-serviceid-varname" : "EVOLUTION-TRIGGER_READ_SERVICE_ID"
       }
@@ -1054,7 +1054,7 @@
           }
         },
         "tags" : [ "gender" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "gender_list",
         "x-serviceid-varname" : "GENDER_LIST_SERVICE_ID"
       }
@@ -1087,7 +1087,7 @@
           }
         },
         "tags" : [ "gender" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "gender_read",
         "x-serviceid-varname" : "GENDER_READ_SERVICE_ID"
       }
@@ -1131,7 +1131,7 @@
           }
         },
         "tags" : [ "generation" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "generation_list",
         "x-serviceid-varname" : "GENERATION_LIST_SERVICE_ID"
       }
@@ -1164,7 +1164,7 @@
           }
         },
         "tags" : [ "generation" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "generation_read",
         "x-serviceid-varname" : "GENERATION_READ_SERVICE_ID"
       }
@@ -1208,7 +1208,7 @@
           }
         },
         "tags" : [ "growth-rate" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "growth-rate_list",
         "x-serviceid-varname" : "GROWTH-RATE_LIST_SERVICE_ID"
       }
@@ -1241,7 +1241,7 @@
           }
         },
         "tags" : [ "growth-rate" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "growth-rate_read",
         "x-serviceid-varname" : "GROWTH-RATE_READ_SERVICE_ID"
       }
@@ -1285,7 +1285,7 @@
           }
         },
         "tags" : [ "item-attribute" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "item-attribute_list",
         "x-serviceid-varname" : "ITEM-ATTRIBUTE_LIST_SERVICE_ID"
       }
@@ -1318,7 +1318,7 @@
           }
         },
         "tags" : [ "item-attribute" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "item-attribute_read",
         "x-serviceid-varname" : "ITEM-ATTRIBUTE_READ_SERVICE_ID"
       }
@@ -1362,7 +1362,7 @@
           }
         },
         "tags" : [ "item-category" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "item-category_list",
         "x-serviceid-varname" : "ITEM-CATEGORY_LIST_SERVICE_ID"
       }
@@ -1395,7 +1395,7 @@
           }
         },
         "tags" : [ "item-category" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "item-category_read",
         "x-serviceid-varname" : "ITEM-CATEGORY_READ_SERVICE_ID"
       }
@@ -1439,7 +1439,7 @@
           }
         },
         "tags" : [ "item-fling-effect" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "item-fling-effect_list",
         "x-serviceid-varname" : "ITEM-FLING-EFFECT_LIST_SERVICE_ID"
       }
@@ -1472,7 +1472,7 @@
           }
         },
         "tags" : [ "item-fling-effect" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "item-fling-effect_read",
         "x-serviceid-varname" : "ITEM-FLING-EFFECT_READ_SERVICE_ID"
       }
@@ -1516,7 +1516,7 @@
           }
         },
         "tags" : [ "item-pocket" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "item-pocket_list",
         "x-serviceid-varname" : "ITEM-POCKET_LIST_SERVICE_ID"
       }
@@ -1549,7 +1549,7 @@
           }
         },
         "tags" : [ "item-pocket" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "item-pocket_read",
         "x-serviceid-varname" : "ITEM-POCKET_READ_SERVICE_ID"
       }
@@ -1593,7 +1593,7 @@
           }
         },
         "tags" : [ "item" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "item_list",
         "x-serviceid-varname" : "ITEM_LIST_SERVICE_ID"
       }
@@ -1626,7 +1626,7 @@
           }
         },
         "tags" : [ "item" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "item_read",
         "x-serviceid-varname" : "ITEM_READ_SERVICE_ID"
       }
@@ -1670,7 +1670,7 @@
           }
         },
         "tags" : [ "language" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "language_list",
         "x-serviceid-varname" : "LANGUAGE_LIST_SERVICE_ID"
       }
@@ -1703,7 +1703,7 @@
           }
         },
         "tags" : [ "language" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "language_read",
         "x-serviceid-varname" : "LANGUAGE_READ_SERVICE_ID"
       }
@@ -1747,7 +1747,7 @@
           }
         },
         "tags" : [ "location-area" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "location-area_list",
         "x-serviceid-varname" : "LOCATION-AREA_LIST_SERVICE_ID"
       }
@@ -1780,7 +1780,7 @@
           }
         },
         "tags" : [ "location-area" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "location-area_read",
         "x-serviceid-varname" : "LOCATION-AREA_READ_SERVICE_ID"
       }
@@ -1824,7 +1824,7 @@
           }
         },
         "tags" : [ "location" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "location_list",
         "x-serviceid-varname" : "LOCATION_LIST_SERVICE_ID"
       }
@@ -1857,7 +1857,7 @@
           }
         },
         "tags" : [ "location" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "location_read",
         "x-serviceid-varname" : "LOCATION_READ_SERVICE_ID"
       }
@@ -1901,7 +1901,7 @@
           }
         },
         "tags" : [ "machine" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "machine_list",
         "x-serviceid-varname" : "MACHINE_LIST_SERVICE_ID"
       }
@@ -1934,7 +1934,7 @@
           }
         },
         "tags" : [ "machine" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "machine_read",
         "x-serviceid-varname" : "MACHINE_READ_SERVICE_ID"
       }
@@ -1978,7 +1978,7 @@
           }
         },
         "tags" : [ "move-ailment" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "move-ailment_list",
         "x-serviceid-varname" : "MOVE-AILMENT_LIST_SERVICE_ID"
       }
@@ -2011,7 +2011,7 @@
           }
         },
         "tags" : [ "move-ailment" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "move-ailment_read",
         "x-serviceid-varname" : "MOVE-AILMENT_READ_SERVICE_ID"
       }
@@ -2055,7 +2055,7 @@
           }
         },
         "tags" : [ "move-battle-style" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "move-battle-style_list",
         "x-serviceid-varname" : "MOVE-BATTLE-STYLE_LIST_SERVICE_ID"
       }
@@ -2088,7 +2088,7 @@
           }
         },
         "tags" : [ "move-battle-style" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "move-battle-style_read",
         "x-serviceid-varname" : "MOVE-BATTLE-STYLE_READ_SERVICE_ID"
       }
@@ -2132,7 +2132,7 @@
           }
         },
         "tags" : [ "move-category" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "move-category_list",
         "x-serviceid-varname" : "MOVE-CATEGORY_LIST_SERVICE_ID"
       }
@@ -2165,7 +2165,7 @@
           }
         },
         "tags" : [ "move-category" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "move-category_read",
         "x-serviceid-varname" : "MOVE-CATEGORY_READ_SERVICE_ID"
       }
@@ -2209,7 +2209,7 @@
           }
         },
         "tags" : [ "move-damage-class" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "move-damage-class_list",
         "x-serviceid-varname" : "MOVE-DAMAGE-CLASS_LIST_SERVICE_ID"
       }
@@ -2242,7 +2242,7 @@
           }
         },
         "tags" : [ "move-damage-class" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "move-damage-class_read",
         "x-serviceid-varname" : "MOVE-DAMAGE-CLASS_READ_SERVICE_ID"
       }
@@ -2286,7 +2286,7 @@
           }
         },
         "tags" : [ "move-learn-method" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "move-learn-method_list",
         "x-serviceid-varname" : "MOVE-LEARN-METHOD_LIST_SERVICE_ID"
       }
@@ -2319,7 +2319,7 @@
           }
         },
         "tags" : [ "move-learn-method" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "move-learn-method_read",
         "x-serviceid-varname" : "MOVE-LEARN-METHOD_READ_SERVICE_ID"
       }
@@ -2363,7 +2363,7 @@
           }
         },
         "tags" : [ "move-target" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "move-target_list",
         "x-serviceid-varname" : "MOVE-TARGET_LIST_SERVICE_ID"
       }
@@ -2396,7 +2396,7 @@
           }
         },
         "tags" : [ "move-target" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "move-target_read",
         "x-serviceid-varname" : "MOVE-TARGET_READ_SERVICE_ID"
       }
@@ -2440,7 +2440,7 @@
           }
         },
         "tags" : [ "move" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "move_list",
         "x-serviceid-varname" : "MOVE_LIST_SERVICE_ID"
       }
@@ -2473,7 +2473,7 @@
           }
         },
         "tags" : [ "move" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "move_read",
         "x-serviceid-varname" : "MOVE_READ_SERVICE_ID"
       }
@@ -2517,7 +2517,7 @@
           }
         },
         "tags" : [ "nature" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "nature_list",
         "x-serviceid-varname" : "NATURE_LIST_SERVICE_ID"
       }
@@ -2550,7 +2550,7 @@
           }
         },
         "tags" : [ "nature" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "nature_read",
         "x-serviceid-varname" : "NATURE_READ_SERVICE_ID"
       }
@@ -2594,7 +2594,7 @@
           }
         },
         "tags" : [ "pal-park-area" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pal-park-area_list",
         "x-serviceid-varname" : "PAL-PARK-AREA_LIST_SERVICE_ID"
       }
@@ -2627,7 +2627,7 @@
           }
         },
         "tags" : [ "pal-park-area" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pal-park-area_read",
         "x-serviceid-varname" : "PAL-PARK-AREA_READ_SERVICE_ID"
       }
@@ -2671,7 +2671,7 @@
           }
         },
         "tags" : [ "pokeathlon-stat" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pokeathlon-stat_list",
         "x-serviceid-varname" : "POKEATHLON-STAT_LIST_SERVICE_ID"
       }
@@ -2704,7 +2704,7 @@
           }
         },
         "tags" : [ "pokeathlon-stat" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pokeathlon-stat_read",
         "x-serviceid-varname" : "POKEATHLON-STAT_READ_SERVICE_ID"
       }
@@ -2748,7 +2748,7 @@
           }
         },
         "tags" : [ "pokedex" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pokedex_list",
         "x-serviceid-varname" : "POKEDEX_LIST_SERVICE_ID"
       }
@@ -2781,7 +2781,7 @@
           }
         },
         "tags" : [ "pokedex" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pokedex_read",
         "x-serviceid-varname" : "POKEDEX_READ_SERVICE_ID"
       }
@@ -2825,7 +2825,7 @@
           }
         },
         "tags" : [ "pokemon-color" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pokemon-color_list",
         "x-serviceid-varname" : "POKEMON-COLOR_LIST_SERVICE_ID"
       }
@@ -2858,7 +2858,7 @@
           }
         },
         "tags" : [ "pokemon-color" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pokemon-color_read",
         "x-serviceid-varname" : "POKEMON-COLOR_READ_SERVICE_ID"
       }
@@ -2902,7 +2902,7 @@
           }
         },
         "tags" : [ "pokemon-form" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pokemon-form_list",
         "x-serviceid-varname" : "POKEMON-FORM_LIST_SERVICE_ID"
       }
@@ -2935,7 +2935,7 @@
           }
         },
         "tags" : [ "pokemon-form" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pokemon-form_read",
         "x-serviceid-varname" : "POKEMON-FORM_READ_SERVICE_ID"
       }
@@ -2979,7 +2979,7 @@
           }
         },
         "tags" : [ "pokemon-habitat" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pokemon-habitat_list",
         "x-serviceid-varname" : "POKEMON-HABITAT_LIST_SERVICE_ID"
       }
@@ -3012,7 +3012,7 @@
           }
         },
         "tags" : [ "pokemon-habitat" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pokemon-habitat_read",
         "x-serviceid-varname" : "POKEMON-HABITAT_READ_SERVICE_ID"
       }
@@ -3056,7 +3056,7 @@
           }
         },
         "tags" : [ "pokemon-shape" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pokemon-shape_list",
         "x-serviceid-varname" : "POKEMON-SHAPE_LIST_SERVICE_ID"
       }
@@ -3089,7 +3089,7 @@
           }
         },
         "tags" : [ "pokemon-shape" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pokemon-shape_read",
         "x-serviceid-varname" : "POKEMON-SHAPE_READ_SERVICE_ID"
       }
@@ -3133,7 +3133,7 @@
           }
         },
         "tags" : [ "pokemon-species" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pokemon-species_list",
         "x-serviceid-varname" : "POKEMON-SPECIES_LIST_SERVICE_ID"
       }
@@ -3166,7 +3166,7 @@
           }
         },
         "tags" : [ "pokemon-species" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pokemon-species_read",
         "x-serviceid-varname" : "POKEMON-SPECIES_READ_SERVICE_ID"
       }
@@ -3210,7 +3210,7 @@
           }
         },
         "tags" : [ "pokemon" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pokemon_list",
         "x-serviceid-varname" : "POKEMON_LIST_SERVICE_ID"
       }
@@ -3243,7 +3243,7 @@
           }
         },
         "tags" : [ "pokemon" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "pokemon_read",
         "x-serviceid-varname" : "POKEMON_READ_SERVICE_ID"
       }
@@ -3287,7 +3287,7 @@
           }
         },
         "tags" : [ "region" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "region_list",
         "x-serviceid-varname" : "REGION_LIST_SERVICE_ID"
       }
@@ -3320,7 +3320,7 @@
           }
         },
         "tags" : [ "region" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "region_read",
         "x-serviceid-varname" : "REGION_READ_SERVICE_ID"
       }
@@ -3364,7 +3364,7 @@
           }
         },
         "tags" : [ "stat" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "stat_list",
         "x-serviceid-varname" : "STAT_LIST_SERVICE_ID"
       }
@@ -3397,7 +3397,7 @@
           }
         },
         "tags" : [ "stat" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "stat_read",
         "x-serviceid-varname" : "STAT_READ_SERVICE_ID"
       }
@@ -3441,7 +3441,7 @@
           }
         },
         "tags" : [ "super-contest-effect" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "super-contest-effect_list",
         "x-serviceid-varname" : "SUPER-CONTEST-EFFECT_LIST_SERVICE_ID"
       }
@@ -3474,7 +3474,7 @@
           }
         },
         "tags" : [ "super-contest-effect" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "super-contest-effect_read",
         "x-serviceid-varname" : "SUPER-CONTEST-EFFECT_READ_SERVICE_ID"
       }
@@ -3518,7 +3518,7 @@
           }
         },
         "tags" : [ "type" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "type_list",
         "x-serviceid-varname" : "TYPE_LIST_SERVICE_ID"
       }
@@ -3551,7 +3551,7 @@
           }
         },
         "tags" : [ "type" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "type_read",
         "x-serviceid-varname" : "TYPE_READ_SERVICE_ID"
       }
@@ -3595,7 +3595,7 @@
           }
         },
         "tags" : [ "version-group" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "version-group_list",
         "x-serviceid-varname" : "VERSION-GROUP_LIST_SERVICE_ID"
       }
@@ -3628,7 +3628,7 @@
           }
         },
         "tags" : [ "version-group" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "version-group_read",
         "x-serviceid-varname" : "VERSION-GROUP_READ_SERVICE_ID"
       }
@@ -3672,7 +3672,7 @@
           }
         },
         "tags" : [ "version" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "version_list",
         "x-serviceid-varname" : "VERSION_LIST_SERVICE_ID"
       }
@@ -3705,7 +3705,7 @@
           }
         },
         "tags" : [ "version" ],
-        "x-accepts" : "text/plain",
+        "x-accepts" : [ "text/plain" ],
         "x-serviceid" : "version_read",
         "x-serviceid-varname" : "VERSION_READ_SERVICE_ID"
       }

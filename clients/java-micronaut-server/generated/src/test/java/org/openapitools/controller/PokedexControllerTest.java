@@ -78,7 +78,7 @@ public class PokedexControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/pokedex/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("text/plain");
+            .accept("[Ljava.lang.String;@1c240cf2");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class PokedexControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("text/plain");
+            .accept("[Ljava.lang.String;@78b7f805");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

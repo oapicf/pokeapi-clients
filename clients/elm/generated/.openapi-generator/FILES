@@ -3,7 +3,6 @@
 README.md
 elm.json
 src/Api.elm
-src/Api/Data.elm
 src/Api/Request/Ability.elm
 src/Api/Request/Berry.elm
 src/Api/Request/BerryFirmness.elm

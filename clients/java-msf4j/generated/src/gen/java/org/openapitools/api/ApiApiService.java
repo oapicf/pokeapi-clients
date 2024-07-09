@@ -15,7 +15,7 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-03-15T11:05:38.772812015Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-07-09T12:13:39.438245563Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public abstract class ApiApiService {
     public abstract Response abilityList(Integer limit
  ,Integer offset

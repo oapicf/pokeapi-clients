@@ -16,8 +16,7 @@ import sttp.client3._
 import sttp.model.Method
 
 object ContestTypeApi {
-
-def apply(baseUrl: String = "https://pokeapi.co") = new ContestTypeApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new ContestTypeApi(baseUrl)
 }
 
 class ContestTypeApi(baseUrl: String) {
@@ -30,11 +29,11 @@ class ContestTypeApi(baseUrl: String) {
    * @param offset 
    */
   def contestTypeList(limit: Option[Int] = None, offset: Option[Int] = None
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/contest-type/?limit=${ limit }&offset=${ offset }")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
   /**
    * Expected answers:
@@ -43,10 +42,10 @@ class ContestTypeApi(baseUrl: String) {
    * @param id 
    */
   def contestTypeRead(id: Int
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/contest-type/${id}/")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
 }

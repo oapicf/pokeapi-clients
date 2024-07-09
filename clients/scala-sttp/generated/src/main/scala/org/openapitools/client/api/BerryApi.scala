@@ -16,8 +16,7 @@ import sttp.client3._
 import sttp.model.Method
 
 object BerryApi {
-
-def apply(baseUrl: String = "https://pokeapi.co") = new BerryApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new BerryApi(baseUrl)
 }
 
 class BerryApi(baseUrl: String) {
@@ -30,11 +29,11 @@ class BerryApi(baseUrl: String) {
    * @param offset 
    */
   def berryList(limit: Option[Int] = None, offset: Option[Int] = None
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/berry/?limit=${ limit }&offset=${ offset }")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
   /**
    * Expected answers:
@@ -43,10 +42,10 @@ class BerryApi(baseUrl: String) {
    * @param id 
    */
   def berryRead(id: Int
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/berry/${id}/")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
 }

@@ -10,112 +10,14 @@ use validator::{Validate, ValidationErrors};
 use crate::{header, types::*};
 
 #[allow(unused_imports)]
-use crate::models;
+use crate::{apis, models};
 
-use crate::{Api,
-     AbilityListResponse,
-     AbilityReadResponse,
-     BerryListResponse,
-     BerryReadResponse,
-     BerryFirmnessListResponse,
-     BerryFirmnessReadResponse,
-     BerryFlavorListResponse,
-     BerryFlavorReadResponse,
-     CharacteristicListResponse,
-     CharacteristicReadResponse,
-     ContestEffectListResponse,
-     ContestEffectReadResponse,
-     ContestTypeListResponse,
-     ContestTypeReadResponse,
-     EggGroupListResponse,
-     EggGroupReadResponse,
-     EncounterConditionListResponse,
-     EncounterConditionReadResponse,
-     EncounterConditionValueListResponse,
-     EncounterConditionValueReadResponse,
-     EncounterMethodListResponse,
-     EncounterMethodReadResponse,
-     EvolutionChainListResponse,
-     EvolutionChainReadResponse,
-     EvolutionTriggerListResponse,
-     EvolutionTriggerReadResponse,
-     GenderListResponse,
-     GenderReadResponse,
-     GenerationListResponse,
-     GenerationReadResponse,
-     GrowthRateListResponse,
-     GrowthRateReadResponse,
-     ItemListResponse,
-     ItemReadResponse,
-     ItemAttributeListResponse,
-     ItemAttributeReadResponse,
-     ItemCategoryListResponse,
-     ItemCategoryReadResponse,
-     ItemFlingEffectListResponse,
-     ItemFlingEffectReadResponse,
-     ItemPocketListResponse,
-     ItemPocketReadResponse,
-     LanguageListResponse,
-     LanguageReadResponse,
-     LocationListResponse,
-     LocationReadResponse,
-     LocationAreaListResponse,
-     LocationAreaReadResponse,
-     MachineListResponse,
-     MachineReadResponse,
-     MoveListResponse,
-     MoveReadResponse,
-     MoveAilmentListResponse,
-     MoveAilmentReadResponse,
-     MoveBattleStyleListResponse,
-     MoveBattleStyleReadResponse,
-     MoveCategoryListResponse,
-     MoveCategoryReadResponse,
-     MoveDamageClassListResponse,
-     MoveDamageClassReadResponse,
-     MoveLearnMethodListResponse,
-     MoveLearnMethodReadResponse,
-     MoveTargetListResponse,
-     MoveTargetReadResponse,
-     NatureListResponse,
-     NatureReadResponse,
-     PalParkAreaListResponse,
-     PalParkAreaReadResponse,
-     PokeathlonStatListResponse,
-     PokeathlonStatReadResponse,
-     PokedexListResponse,
-     PokedexReadResponse,
-     PokemonListResponse,
-     PokemonReadResponse,
-     PokemonColorListResponse,
-     PokemonColorReadResponse,
-     PokemonFormListResponse,
-     PokemonFormReadResponse,
-     PokemonHabitatListResponse,
-     PokemonHabitatReadResponse,
-     PokemonShapeListResponse,
-     PokemonShapeReadResponse,
-     PokemonSpeciesListResponse,
-     PokemonSpeciesReadResponse,
-     RegionListResponse,
-     RegionReadResponse,
-     StatListResponse,
-     StatReadResponse,
-     SuperContestEffectListResponse,
-     SuperContestEffectReadResponse,
-     TypeListResponse,
-     TypeReadResponse,
-     VersionListResponse,
-     VersionReadResponse,
-     VersionGroupListResponse,
-     VersionGroupReadResponse
-};
 
 /// Setup API Server.
 pub fn new<I, A>(api_impl: I) -> Router
 where
     I: AsRef<A> + Clone + Send + Sync + 'static,
-    A: Api + 'static,
+    A: apis::ability::Ability + apis::berry::Berry + apis::berry_firmness::BerryFirmness + apis::berry_flavor::BerryFlavor + apis::characteristic::Characteristic + apis::contest_effect::ContestEffect + apis::contest_type::ContestType + apis::egg_group::EggGroup + apis::encounter_condition::EncounterCondition + apis::encounter_condition_value::EncounterConditionValue + apis::encounter_method::EncounterMethod + apis::evolution_chain::EvolutionChain + apis::evolution_trigger::EvolutionTrigger + apis::gender::Gender + apis::generation::Generation + apis::growth_rate::GrowthRate + apis::item::Item + apis::item_attribute::ItemAttribute + apis::item_category::ItemCategory + apis::item_fling_effect::ItemFlingEffect + apis::item_pocket::ItemPocket + apis::language::Language + apis::location::Location + apis::location_area::LocationArea + apis::machine::Machine + apis::r#move::R#move + apis::move_ailment::MoveAilment + apis::move_battle_style::MoveBattleStyle + apis::move_category::MoveCategory + apis::move_damage_class::MoveDamageClass + apis::move_learn_method::MoveLearnMethod + apis::move_target::MoveTarget + apis::nature::Nature + apis::pal_park_area::PalParkArea + apis::pokeathlon_stat::PokeathlonStat + apis::pokedex::Pokedex + apis::pokemon::Pokemon + apis::pokemon_color::PokemonColor + apis::pokemon_form::PokemonForm + apis::pokemon_habitat::PokemonHabitat + apis::pokemon_shape::PokemonShape + apis::pokemon_species::PokemonSpecies + apis::region::Region + apis::stat::Stat + apis::super_contest_effect::SuperContestEffect + apis::r#type::R#type + apis::version::Version + apis::version_group::VersionGroup + 'static,
 {
     // build our application with a route
     Router::new()
@@ -424,7 +326,6 @@ Ok((
   query_params,
 ))
 }
-
 /// AbilityList - GET /api/v2/ability/
 #[tracing::instrument(skip_all)]
 async fn ability_list<I, A>(
@@ -436,7 +337,7 @@ async fn ability_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::ability::Ability,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -466,7 +367,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                AbilityListResponse::Status0_DefaultResponse
+                                                apis::ability::AbilityListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -506,7 +407,6 @@ Ok((
   path_params,
 ))
 }
-
 /// AbilityRead - GET /api/v2/ability/{id}/
 #[tracing::instrument(skip_all)]
 async fn ability_read<I, A>(
@@ -518,7 +418,7 @@ async fn ability_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::ability::Ability,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -548,7 +448,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                AbilityReadResponse::Status0_DefaultResponse
+                                                apis::ability::AbilityReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -588,7 +488,6 @@ Ok((
   query_params,
 ))
 }
-
 /// BerryList - GET /api/v2/berry/
 #[tracing::instrument(skip_all)]
 async fn berry_list<I, A>(
@@ -600,7 +499,7 @@ async fn berry_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::berry::Berry,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -630,7 +529,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                BerryListResponse::Status0_DefaultResponse
+                                                apis::berry::BerryListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -670,7 +569,6 @@ Ok((
   path_params,
 ))
 }
-
 /// BerryRead - GET /api/v2/berry/{id}/
 #[tracing::instrument(skip_all)]
 async fn berry_read<I, A>(
@@ -682,7 +580,7 @@ async fn berry_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::berry::Berry,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -712,7 +610,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                BerryReadResponse::Status0_DefaultResponse
+                                                apis::berry::BerryReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -752,7 +650,6 @@ Ok((
   query_params,
 ))
 }
-
 /// BerryFirmnessList - GET /api/v2/berry-firmness/
 #[tracing::instrument(skip_all)]
 async fn berry_firmness_list<I, A>(
@@ -764,7 +661,7 @@ async fn berry_firmness_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::berry_firmness::BerryFirmness,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -794,7 +691,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                BerryFirmnessListResponse::Status0_DefaultResponse
+                                                apis::berry_firmness::BerryFirmnessListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -834,7 +731,6 @@ Ok((
   path_params,
 ))
 }
-
 /// BerryFirmnessRead - GET /api/v2/berry-firmness/{id}/
 #[tracing::instrument(skip_all)]
 async fn berry_firmness_read<I, A>(
@@ -846,7 +742,7 @@ async fn berry_firmness_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::berry_firmness::BerryFirmness,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -876,7 +772,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                BerryFirmnessReadResponse::Status0_DefaultResponse
+                                                apis::berry_firmness::BerryFirmnessReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -916,7 +812,6 @@ Ok((
   query_params,
 ))
 }
-
 /// BerryFlavorList - GET /api/v2/berry-flavor/
 #[tracing::instrument(skip_all)]
 async fn berry_flavor_list<I, A>(
@@ -928,7 +823,7 @@ async fn berry_flavor_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::berry_flavor::BerryFlavor,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -958,7 +853,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                BerryFlavorListResponse::Status0_DefaultResponse
+                                                apis::berry_flavor::BerryFlavorListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -998,7 +893,6 @@ Ok((
   path_params,
 ))
 }
-
 /// BerryFlavorRead - GET /api/v2/berry-flavor/{id}/
 #[tracing::instrument(skip_all)]
 async fn berry_flavor_read<I, A>(
@@ -1010,7 +904,7 @@ async fn berry_flavor_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::berry_flavor::BerryFlavor,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -1040,7 +934,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                BerryFlavorReadResponse::Status0_DefaultResponse
+                                                apis::berry_flavor::BerryFlavorReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -1080,7 +974,6 @@ Ok((
   query_params,
 ))
 }
-
 /// CharacteristicList - GET /api/v2/characteristic/
 #[tracing::instrument(skip_all)]
 async fn characteristic_list<I, A>(
@@ -1092,7 +985,7 @@ async fn characteristic_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::characteristic::Characteristic,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -1122,7 +1015,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                CharacteristicListResponse::Status0_DefaultResponse
+                                                apis::characteristic::CharacteristicListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -1162,7 +1055,6 @@ Ok((
   path_params,
 ))
 }
-
 /// CharacteristicRead - GET /api/v2/characteristic/{id}/
 #[tracing::instrument(skip_all)]
 async fn characteristic_read<I, A>(
@@ -1174,7 +1066,7 @@ async fn characteristic_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::characteristic::Characteristic,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -1204,7 +1096,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                CharacteristicReadResponse::Status0_DefaultResponse
+                                                apis::characteristic::CharacteristicReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -1244,7 +1136,6 @@ Ok((
   query_params,
 ))
 }
-
 /// ContestEffectList - GET /api/v2/contest-effect/
 #[tracing::instrument(skip_all)]
 async fn contest_effect_list<I, A>(
@@ -1256,7 +1147,7 @@ async fn contest_effect_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::contest_effect::ContestEffect,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -1286,7 +1177,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                ContestEffectListResponse::Status0_DefaultResponse
+                                                apis::contest_effect::ContestEffectListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -1326,7 +1217,6 @@ Ok((
   path_params,
 ))
 }
-
 /// ContestEffectRead - GET /api/v2/contest-effect/{id}/
 #[tracing::instrument(skip_all)]
 async fn contest_effect_read<I, A>(
@@ -1338,7 +1228,7 @@ async fn contest_effect_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::contest_effect::ContestEffect,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -1368,7 +1258,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                ContestEffectReadResponse::Status0_DefaultResponse
+                                                apis::contest_effect::ContestEffectReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -1408,7 +1298,6 @@ Ok((
   query_params,
 ))
 }
-
 /// ContestTypeList - GET /api/v2/contest-type/
 #[tracing::instrument(skip_all)]
 async fn contest_type_list<I, A>(
@@ -1420,7 +1309,7 @@ async fn contest_type_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::contest_type::ContestType,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -1450,7 +1339,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                ContestTypeListResponse::Status0_DefaultResponse
+                                                apis::contest_type::ContestTypeListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -1490,7 +1379,6 @@ Ok((
   path_params,
 ))
 }
-
 /// ContestTypeRead - GET /api/v2/contest-type/{id}/
 #[tracing::instrument(skip_all)]
 async fn contest_type_read<I, A>(
@@ -1502,7 +1390,7 @@ async fn contest_type_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::contest_type::ContestType,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -1532,7 +1420,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                ContestTypeReadResponse::Status0_DefaultResponse
+                                                apis::contest_type::ContestTypeReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -1572,7 +1460,6 @@ Ok((
   query_params,
 ))
 }
-
 /// EggGroupList - GET /api/v2/egg-group/
 #[tracing::instrument(skip_all)]
 async fn egg_group_list<I, A>(
@@ -1584,7 +1471,7 @@ async fn egg_group_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::egg_group::EggGroup,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -1614,7 +1501,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                EggGroupListResponse::Status0_DefaultResponse
+                                                apis::egg_group::EggGroupListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -1654,7 +1541,6 @@ Ok((
   path_params,
 ))
 }
-
 /// EggGroupRead - GET /api/v2/egg-group/{id}/
 #[tracing::instrument(skip_all)]
 async fn egg_group_read<I, A>(
@@ -1666,7 +1552,7 @@ async fn egg_group_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::egg_group::EggGroup,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -1696,7 +1582,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                EggGroupReadResponse::Status0_DefaultResponse
+                                                apis::egg_group::EggGroupReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -1736,7 +1622,6 @@ Ok((
   query_params,
 ))
 }
-
 /// EncounterConditionList - GET /api/v2/encounter-condition/
 #[tracing::instrument(skip_all)]
 async fn encounter_condition_list<I, A>(
@@ -1748,7 +1633,7 @@ async fn encounter_condition_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::encounter_condition::EncounterCondition,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -1778,7 +1663,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                EncounterConditionListResponse::Status0_DefaultResponse
+                                                apis::encounter_condition::EncounterConditionListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -1818,7 +1703,6 @@ Ok((
   path_params,
 ))
 }
-
 /// EncounterConditionRead - GET /api/v2/encounter-condition/{id}/
 #[tracing::instrument(skip_all)]
 async fn encounter_condition_read<I, A>(
@@ -1830,7 +1714,7 @@ async fn encounter_condition_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::encounter_condition::EncounterCondition,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -1860,7 +1744,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                EncounterConditionReadResponse::Status0_DefaultResponse
+                                                apis::encounter_condition::EncounterConditionReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -1900,7 +1784,6 @@ Ok((
   query_params,
 ))
 }
-
 /// EncounterConditionValueList - GET /api/v2/encounter-condition-value/
 #[tracing::instrument(skip_all)]
 async fn encounter_condition_value_list<I, A>(
@@ -1912,7 +1795,7 @@ async fn encounter_condition_value_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::encounter_condition_value::EncounterConditionValue,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -1942,7 +1825,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                EncounterConditionValueListResponse::Status0_DefaultResponse
+                                                apis::encounter_condition_value::EncounterConditionValueListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -1982,7 +1865,6 @@ Ok((
   path_params,
 ))
 }
-
 /// EncounterConditionValueRead - GET /api/v2/encounter-condition-value/{id}/
 #[tracing::instrument(skip_all)]
 async fn encounter_condition_value_read<I, A>(
@@ -1994,7 +1876,7 @@ async fn encounter_condition_value_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::encounter_condition_value::EncounterConditionValue,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -2024,7 +1906,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                EncounterConditionValueReadResponse::Status0_DefaultResponse
+                                                apis::encounter_condition_value::EncounterConditionValueReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -2064,7 +1946,6 @@ Ok((
   query_params,
 ))
 }
-
 /// EncounterMethodList - GET /api/v2/encounter-method/
 #[tracing::instrument(skip_all)]
 async fn encounter_method_list<I, A>(
@@ -2076,7 +1957,7 @@ async fn encounter_method_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::encounter_method::EncounterMethod,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -2106,7 +1987,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                EncounterMethodListResponse::Status0_DefaultResponse
+                                                apis::encounter_method::EncounterMethodListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -2146,7 +2027,6 @@ Ok((
   path_params,
 ))
 }
-
 /// EncounterMethodRead - GET /api/v2/encounter-method/{id}/
 #[tracing::instrument(skip_all)]
 async fn encounter_method_read<I, A>(
@@ -2158,7 +2038,7 @@ async fn encounter_method_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::encounter_method::EncounterMethod,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -2188,7 +2068,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                EncounterMethodReadResponse::Status0_DefaultResponse
+                                                apis::encounter_method::EncounterMethodReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -2228,7 +2108,6 @@ Ok((
   query_params,
 ))
 }
-
 /// EvolutionChainList - GET /api/v2/evolution-chain/
 #[tracing::instrument(skip_all)]
 async fn evolution_chain_list<I, A>(
@@ -2240,7 +2119,7 @@ async fn evolution_chain_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::evolution_chain::EvolutionChain,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -2270,7 +2149,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                EvolutionChainListResponse::Status0_DefaultResponse
+                                                apis::evolution_chain::EvolutionChainListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -2310,7 +2189,6 @@ Ok((
   path_params,
 ))
 }
-
 /// EvolutionChainRead - GET /api/v2/evolution-chain/{id}/
 #[tracing::instrument(skip_all)]
 async fn evolution_chain_read<I, A>(
@@ -2322,7 +2200,7 @@ async fn evolution_chain_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::evolution_chain::EvolutionChain,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -2352,7 +2230,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                EvolutionChainReadResponse::Status0_DefaultResponse
+                                                apis::evolution_chain::EvolutionChainReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -2392,7 +2270,6 @@ Ok((
   query_params,
 ))
 }
-
 /// EvolutionTriggerList - GET /api/v2/evolution-trigger/
 #[tracing::instrument(skip_all)]
 async fn evolution_trigger_list<I, A>(
@@ -2404,7 +2281,7 @@ async fn evolution_trigger_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::evolution_trigger::EvolutionTrigger,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -2434,7 +2311,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                EvolutionTriggerListResponse::Status0_DefaultResponse
+                                                apis::evolution_trigger::EvolutionTriggerListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -2474,7 +2351,6 @@ Ok((
   path_params,
 ))
 }
-
 /// EvolutionTriggerRead - GET /api/v2/evolution-trigger/{id}/
 #[tracing::instrument(skip_all)]
 async fn evolution_trigger_read<I, A>(
@@ -2486,7 +2362,7 @@ async fn evolution_trigger_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::evolution_trigger::EvolutionTrigger,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -2516,7 +2392,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                EvolutionTriggerReadResponse::Status0_DefaultResponse
+                                                apis::evolution_trigger::EvolutionTriggerReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -2556,7 +2432,6 @@ Ok((
   query_params,
 ))
 }
-
 /// GenderList - GET /api/v2/gender/
 #[tracing::instrument(skip_all)]
 async fn gender_list<I, A>(
@@ -2568,7 +2443,7 @@ async fn gender_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::gender::Gender,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -2598,7 +2473,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                GenderListResponse::Status0_DefaultResponse
+                                                apis::gender::GenderListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -2638,7 +2513,6 @@ Ok((
   path_params,
 ))
 }
-
 /// GenderRead - GET /api/v2/gender/{id}/
 #[tracing::instrument(skip_all)]
 async fn gender_read<I, A>(
@@ -2650,7 +2524,7 @@ async fn gender_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::gender::Gender,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -2680,7 +2554,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                GenderReadResponse::Status0_DefaultResponse
+                                                apis::gender::GenderReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -2720,7 +2594,6 @@ Ok((
   query_params,
 ))
 }
-
 /// GenerationList - GET /api/v2/generation/
 #[tracing::instrument(skip_all)]
 async fn generation_list<I, A>(
@@ -2732,7 +2605,7 @@ async fn generation_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::generation::Generation,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -2762,7 +2635,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                GenerationListResponse::Status0_DefaultResponse
+                                                apis::generation::GenerationListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -2802,7 +2675,6 @@ Ok((
   path_params,
 ))
 }
-
 /// GenerationRead - GET /api/v2/generation/{id}/
 #[tracing::instrument(skip_all)]
 async fn generation_read<I, A>(
@@ -2814,7 +2686,7 @@ async fn generation_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::generation::Generation,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -2844,7 +2716,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                GenerationReadResponse::Status0_DefaultResponse
+                                                apis::generation::GenerationReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -2884,7 +2756,6 @@ Ok((
   query_params,
 ))
 }
-
 /// GrowthRateList - GET /api/v2/growth-rate/
 #[tracing::instrument(skip_all)]
 async fn growth_rate_list<I, A>(
@@ -2896,7 +2767,7 @@ async fn growth_rate_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::growth_rate::GrowthRate,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -2926,7 +2797,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                GrowthRateListResponse::Status0_DefaultResponse
+                                                apis::growth_rate::GrowthRateListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -2966,7 +2837,6 @@ Ok((
   path_params,
 ))
 }
-
 /// GrowthRateRead - GET /api/v2/growth-rate/{id}/
 #[tracing::instrument(skip_all)]
 async fn growth_rate_read<I, A>(
@@ -2978,7 +2848,7 @@ async fn growth_rate_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::growth_rate::GrowthRate,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -3008,7 +2878,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                GrowthRateReadResponse::Status0_DefaultResponse
+                                                apis::growth_rate::GrowthRateReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -3048,7 +2918,6 @@ Ok((
   query_params,
 ))
 }
-
 /// ItemList - GET /api/v2/item/
 #[tracing::instrument(skip_all)]
 async fn item_list<I, A>(
@@ -3060,7 +2929,7 @@ async fn item_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::item::Item,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -3090,7 +2959,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                ItemListResponse::Status0_DefaultResponse
+                                                apis::item::ItemListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -3130,7 +2999,6 @@ Ok((
   path_params,
 ))
 }
-
 /// ItemRead - GET /api/v2/item/{id}/
 #[tracing::instrument(skip_all)]
 async fn item_read<I, A>(
@@ -3142,7 +3010,7 @@ async fn item_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::item::Item,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -3172,7 +3040,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                ItemReadResponse::Status0_DefaultResponse
+                                                apis::item::ItemReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -3212,7 +3080,6 @@ Ok((
   query_params,
 ))
 }
-
 /// ItemAttributeList - GET /api/v2/item-attribute/
 #[tracing::instrument(skip_all)]
 async fn item_attribute_list<I, A>(
@@ -3224,7 +3091,7 @@ async fn item_attribute_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::item_attribute::ItemAttribute,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -3254,7 +3121,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                ItemAttributeListResponse::Status0_DefaultResponse
+                                                apis::item_attribute::ItemAttributeListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -3294,7 +3161,6 @@ Ok((
   path_params,
 ))
 }
-
 /// ItemAttributeRead - GET /api/v2/item-attribute/{id}/
 #[tracing::instrument(skip_all)]
 async fn item_attribute_read<I, A>(
@@ -3306,7 +3172,7 @@ async fn item_attribute_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::item_attribute::ItemAttribute,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -3336,7 +3202,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                ItemAttributeReadResponse::Status0_DefaultResponse
+                                                apis::item_attribute::ItemAttributeReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -3376,7 +3242,6 @@ Ok((
   query_params,
 ))
 }
-
 /// ItemCategoryList - GET /api/v2/item-category/
 #[tracing::instrument(skip_all)]
 async fn item_category_list<I, A>(
@@ -3388,7 +3253,7 @@ async fn item_category_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::item_category::ItemCategory,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -3418,7 +3283,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                ItemCategoryListResponse::Status0_DefaultResponse
+                                                apis::item_category::ItemCategoryListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -3458,7 +3323,6 @@ Ok((
   path_params,
 ))
 }
-
 /// ItemCategoryRead - GET /api/v2/item-category/{id}/
 #[tracing::instrument(skip_all)]
 async fn item_category_read<I, A>(
@@ -3470,7 +3334,7 @@ async fn item_category_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::item_category::ItemCategory,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -3500,7 +3364,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                ItemCategoryReadResponse::Status0_DefaultResponse
+                                                apis::item_category::ItemCategoryReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -3540,7 +3404,6 @@ Ok((
   query_params,
 ))
 }
-
 /// ItemFlingEffectList - GET /api/v2/item-fling-effect/
 #[tracing::instrument(skip_all)]
 async fn item_fling_effect_list<I, A>(
@@ -3552,7 +3415,7 @@ async fn item_fling_effect_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::item_fling_effect::ItemFlingEffect,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -3582,7 +3445,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                ItemFlingEffectListResponse::Status0_DefaultResponse
+                                                apis::item_fling_effect::ItemFlingEffectListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -3622,7 +3485,6 @@ Ok((
   path_params,
 ))
 }
-
 /// ItemFlingEffectRead - GET /api/v2/item-fling-effect/{id}/
 #[tracing::instrument(skip_all)]
 async fn item_fling_effect_read<I, A>(
@@ -3634,7 +3496,7 @@ async fn item_fling_effect_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::item_fling_effect::ItemFlingEffect,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -3664,7 +3526,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                ItemFlingEffectReadResponse::Status0_DefaultResponse
+                                                apis::item_fling_effect::ItemFlingEffectReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -3704,7 +3566,6 @@ Ok((
   query_params,
 ))
 }
-
 /// ItemPocketList - GET /api/v2/item-pocket/
 #[tracing::instrument(skip_all)]
 async fn item_pocket_list<I, A>(
@@ -3716,7 +3577,7 @@ async fn item_pocket_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::item_pocket::ItemPocket,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -3746,7 +3607,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                ItemPocketListResponse::Status0_DefaultResponse
+                                                apis::item_pocket::ItemPocketListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -3786,7 +3647,6 @@ Ok((
   path_params,
 ))
 }
-
 /// ItemPocketRead - GET /api/v2/item-pocket/{id}/
 #[tracing::instrument(skip_all)]
 async fn item_pocket_read<I, A>(
@@ -3798,7 +3658,7 @@ async fn item_pocket_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::item_pocket::ItemPocket,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -3828,7 +3688,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                ItemPocketReadResponse::Status0_DefaultResponse
+                                                apis::item_pocket::ItemPocketReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -3868,7 +3728,6 @@ Ok((
   query_params,
 ))
 }
-
 /// LanguageList - GET /api/v2/language/
 #[tracing::instrument(skip_all)]
 async fn language_list<I, A>(
@@ -3880,7 +3739,7 @@ async fn language_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::language::Language,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -3910,7 +3769,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                LanguageListResponse::Status0_DefaultResponse
+                                                apis::language::LanguageListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -3950,7 +3809,6 @@ Ok((
   path_params,
 ))
 }
-
 /// LanguageRead - GET /api/v2/language/{id}/
 #[tracing::instrument(skip_all)]
 async fn language_read<I, A>(
@@ -3962,7 +3820,7 @@ async fn language_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::language::Language,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -3992,7 +3850,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                LanguageReadResponse::Status0_DefaultResponse
+                                                apis::language::LanguageReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -4032,7 +3890,6 @@ Ok((
   query_params,
 ))
 }
-
 /// LocationList - GET /api/v2/location/
 #[tracing::instrument(skip_all)]
 async fn location_list<I, A>(
@@ -4044,7 +3901,7 @@ async fn location_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::location::Location,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -4074,7 +3931,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                LocationListResponse::Status0_DefaultResponse
+                                                apis::location::LocationListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -4114,7 +3971,6 @@ Ok((
   path_params,
 ))
 }
-
 /// LocationRead - GET /api/v2/location/{id}/
 #[tracing::instrument(skip_all)]
 async fn location_read<I, A>(
@@ -4126,7 +3982,7 @@ async fn location_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::location::Location,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -4156,7 +4012,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                LocationReadResponse::Status0_DefaultResponse
+                                                apis::location::LocationReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -4196,7 +4052,6 @@ Ok((
   query_params,
 ))
 }
-
 /// LocationAreaList - GET /api/v2/location-area/
 #[tracing::instrument(skip_all)]
 async fn location_area_list<I, A>(
@@ -4208,7 +4063,7 @@ async fn location_area_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::location_area::LocationArea,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -4238,7 +4093,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                LocationAreaListResponse::Status0_DefaultResponse
+                                                apis::location_area::LocationAreaListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -4278,7 +4133,6 @@ Ok((
   path_params,
 ))
 }
-
 /// LocationAreaRead - GET /api/v2/location-area/{id}/
 #[tracing::instrument(skip_all)]
 async fn location_area_read<I, A>(
@@ -4290,7 +4144,7 @@ async fn location_area_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::location_area::LocationArea,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -4320,7 +4174,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                LocationAreaReadResponse::Status0_DefaultResponse
+                                                apis::location_area::LocationAreaReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -4360,7 +4214,6 @@ Ok((
   query_params,
 ))
 }
-
 /// MachineList - GET /api/v2/machine/
 #[tracing::instrument(skip_all)]
 async fn machine_list<I, A>(
@@ -4372,7 +4225,7 @@ async fn machine_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::machine::Machine,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -4402,7 +4255,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                MachineListResponse::Status0_DefaultResponse
+                                                apis::machine::MachineListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -4442,7 +4295,6 @@ Ok((
   path_params,
 ))
 }
-
 /// MachineRead - GET /api/v2/machine/{id}/
 #[tracing::instrument(skip_all)]
 async fn machine_read<I, A>(
@@ -4454,7 +4306,7 @@ async fn machine_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::machine::Machine,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -4484,7 +4336,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                MachineReadResponse::Status0_DefaultResponse
+                                                apis::machine::MachineReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -4524,7 +4376,6 @@ Ok((
   query_params,
 ))
 }
-
 /// MoveList - GET /api/v2/move/
 #[tracing::instrument(skip_all)]
 async fn move_list<I, A>(
@@ -4536,7 +4387,7 @@ async fn move_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::r#move::R#move,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -4566,7 +4417,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                MoveListResponse::Status0_DefaultResponse
+                                                apis::r#move::MoveListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -4606,7 +4457,6 @@ Ok((
   path_params,
 ))
 }
-
 /// MoveRead - GET /api/v2/move/{id}/
 #[tracing::instrument(skip_all)]
 async fn move_read<I, A>(
@@ -4618,7 +4468,7 @@ async fn move_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::r#move::R#move,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -4648,7 +4498,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                MoveReadResponse::Status0_DefaultResponse
+                                                apis::r#move::MoveReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -4688,7 +4538,6 @@ Ok((
   query_params,
 ))
 }
-
 /// MoveAilmentList - GET /api/v2/move-ailment/
 #[tracing::instrument(skip_all)]
 async fn move_ailment_list<I, A>(
@@ -4700,7 +4549,7 @@ async fn move_ailment_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::move_ailment::MoveAilment,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -4730,7 +4579,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                MoveAilmentListResponse::Status0_DefaultResponse
+                                                apis::move_ailment::MoveAilmentListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -4770,7 +4619,6 @@ Ok((
   path_params,
 ))
 }
-
 /// MoveAilmentRead - GET /api/v2/move-ailment/{id}/
 #[tracing::instrument(skip_all)]
 async fn move_ailment_read<I, A>(
@@ -4782,7 +4630,7 @@ async fn move_ailment_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::move_ailment::MoveAilment,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -4812,7 +4660,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                MoveAilmentReadResponse::Status0_DefaultResponse
+                                                apis::move_ailment::MoveAilmentReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -4852,7 +4700,6 @@ Ok((
   query_params,
 ))
 }
-
 /// MoveBattleStyleList - GET /api/v2/move-battle-style/
 #[tracing::instrument(skip_all)]
 async fn move_battle_style_list<I, A>(
@@ -4864,7 +4711,7 @@ async fn move_battle_style_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::move_battle_style::MoveBattleStyle,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -4894,7 +4741,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                MoveBattleStyleListResponse::Status0_DefaultResponse
+                                                apis::move_battle_style::MoveBattleStyleListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -4934,7 +4781,6 @@ Ok((
   path_params,
 ))
 }
-
 /// MoveBattleStyleRead - GET /api/v2/move-battle-style/{id}/
 #[tracing::instrument(skip_all)]
 async fn move_battle_style_read<I, A>(
@@ -4946,7 +4792,7 @@ async fn move_battle_style_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::move_battle_style::MoveBattleStyle,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -4976,7 +4822,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                MoveBattleStyleReadResponse::Status0_DefaultResponse
+                                                apis::move_battle_style::MoveBattleStyleReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -5016,7 +4862,6 @@ Ok((
   query_params,
 ))
 }
-
 /// MoveCategoryList - GET /api/v2/move-category/
 #[tracing::instrument(skip_all)]
 async fn move_category_list<I, A>(
@@ -5028,7 +4873,7 @@ async fn move_category_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::move_category::MoveCategory,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -5058,7 +4903,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                MoveCategoryListResponse::Status0_DefaultResponse
+                                                apis::move_category::MoveCategoryListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -5098,7 +4943,6 @@ Ok((
   path_params,
 ))
 }
-
 /// MoveCategoryRead - GET /api/v2/move-category/{id}/
 #[tracing::instrument(skip_all)]
 async fn move_category_read<I, A>(
@@ -5110,7 +4954,7 @@ async fn move_category_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::move_category::MoveCategory,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -5140,7 +4984,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                MoveCategoryReadResponse::Status0_DefaultResponse
+                                                apis::move_category::MoveCategoryReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -5180,7 +5024,6 @@ Ok((
   query_params,
 ))
 }
-
 /// MoveDamageClassList - GET /api/v2/move-damage-class/
 #[tracing::instrument(skip_all)]
 async fn move_damage_class_list<I, A>(
@@ -5192,7 +5035,7 @@ async fn move_damage_class_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::move_damage_class::MoveDamageClass,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -5222,7 +5065,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                MoveDamageClassListResponse::Status0_DefaultResponse
+                                                apis::move_damage_class::MoveDamageClassListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -5262,7 +5105,6 @@ Ok((
   path_params,
 ))
 }
-
 /// MoveDamageClassRead - GET /api/v2/move-damage-class/{id}/
 #[tracing::instrument(skip_all)]
 async fn move_damage_class_read<I, A>(
@@ -5274,7 +5116,7 @@ async fn move_damage_class_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::move_damage_class::MoveDamageClass,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -5304,7 +5146,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                MoveDamageClassReadResponse::Status0_DefaultResponse
+                                                apis::move_damage_class::MoveDamageClassReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -5344,7 +5186,6 @@ Ok((
   query_params,
 ))
 }
-
 /// MoveLearnMethodList - GET /api/v2/move-learn-method/
 #[tracing::instrument(skip_all)]
 async fn move_learn_method_list<I, A>(
@@ -5356,7 +5197,7 @@ async fn move_learn_method_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::move_learn_method::MoveLearnMethod,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -5386,7 +5227,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                MoveLearnMethodListResponse::Status0_DefaultResponse
+                                                apis::move_learn_method::MoveLearnMethodListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -5426,7 +5267,6 @@ Ok((
   path_params,
 ))
 }
-
 /// MoveLearnMethodRead - GET /api/v2/move-learn-method/{id}/
 #[tracing::instrument(skip_all)]
 async fn move_learn_method_read<I, A>(
@@ -5438,7 +5278,7 @@ async fn move_learn_method_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::move_learn_method::MoveLearnMethod,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -5468,7 +5308,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                MoveLearnMethodReadResponse::Status0_DefaultResponse
+                                                apis::move_learn_method::MoveLearnMethodReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -5508,7 +5348,6 @@ Ok((
   query_params,
 ))
 }
-
 /// MoveTargetList - GET /api/v2/move-target/
 #[tracing::instrument(skip_all)]
 async fn move_target_list<I, A>(
@@ -5520,7 +5359,7 @@ async fn move_target_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::move_target::MoveTarget,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -5550,7 +5389,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                MoveTargetListResponse::Status0_DefaultResponse
+                                                apis::move_target::MoveTargetListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -5590,7 +5429,6 @@ Ok((
   path_params,
 ))
 }
-
 /// MoveTargetRead - GET /api/v2/move-target/{id}/
 #[tracing::instrument(skip_all)]
 async fn move_target_read<I, A>(
@@ -5602,7 +5440,7 @@ async fn move_target_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::move_target::MoveTarget,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -5632,7 +5470,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                MoveTargetReadResponse::Status0_DefaultResponse
+                                                apis::move_target::MoveTargetReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -5672,7 +5510,6 @@ Ok((
   query_params,
 ))
 }
-
 /// NatureList - GET /api/v2/nature/
 #[tracing::instrument(skip_all)]
 async fn nature_list<I, A>(
@@ -5684,7 +5521,7 @@ async fn nature_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::nature::Nature,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -5714,7 +5551,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                NatureListResponse::Status0_DefaultResponse
+                                                apis::nature::NatureListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -5754,7 +5591,6 @@ Ok((
   path_params,
 ))
 }
-
 /// NatureRead - GET /api/v2/nature/{id}/
 #[tracing::instrument(skip_all)]
 async fn nature_read<I, A>(
@@ -5766,7 +5602,7 @@ async fn nature_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::nature::Nature,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -5796,7 +5632,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                NatureReadResponse::Status0_DefaultResponse
+                                                apis::nature::NatureReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -5836,7 +5672,6 @@ Ok((
   query_params,
 ))
 }
-
 /// PalParkAreaList - GET /api/v2/pal-park-area/
 #[tracing::instrument(skip_all)]
 async fn pal_park_area_list<I, A>(
@@ -5848,7 +5683,7 @@ async fn pal_park_area_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pal_park_area::PalParkArea,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -5878,7 +5713,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PalParkAreaListResponse::Status0_DefaultResponse
+                                                apis::pal_park_area::PalParkAreaListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -5918,7 +5753,6 @@ Ok((
   path_params,
 ))
 }
-
 /// PalParkAreaRead - GET /api/v2/pal-park-area/{id}/
 #[tracing::instrument(skip_all)]
 async fn pal_park_area_read<I, A>(
@@ -5930,7 +5764,7 @@ async fn pal_park_area_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pal_park_area::PalParkArea,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -5960,7 +5794,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PalParkAreaReadResponse::Status0_DefaultResponse
+                                                apis::pal_park_area::PalParkAreaReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -6000,7 +5834,6 @@ Ok((
   query_params,
 ))
 }
-
 /// PokeathlonStatList - GET /api/v2/pokeathlon-stat/
 #[tracing::instrument(skip_all)]
 async fn pokeathlon_stat_list<I, A>(
@@ -6012,7 +5845,7 @@ async fn pokeathlon_stat_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pokeathlon_stat::PokeathlonStat,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -6042,7 +5875,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PokeathlonStatListResponse::Status0_DefaultResponse
+                                                apis::pokeathlon_stat::PokeathlonStatListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -6082,7 +5915,6 @@ Ok((
   path_params,
 ))
 }
-
 /// PokeathlonStatRead - GET /api/v2/pokeathlon-stat/{id}/
 #[tracing::instrument(skip_all)]
 async fn pokeathlon_stat_read<I, A>(
@@ -6094,7 +5926,7 @@ async fn pokeathlon_stat_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pokeathlon_stat::PokeathlonStat,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -6124,7 +5956,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PokeathlonStatReadResponse::Status0_DefaultResponse
+                                                apis::pokeathlon_stat::PokeathlonStatReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -6164,7 +5996,6 @@ Ok((
   query_params,
 ))
 }
-
 /// PokedexList - GET /api/v2/pokedex/
 #[tracing::instrument(skip_all)]
 async fn pokedex_list<I, A>(
@@ -6176,7 +6007,7 @@ async fn pokedex_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pokedex::Pokedex,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -6206,7 +6037,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PokedexListResponse::Status0_DefaultResponse
+                                                apis::pokedex::PokedexListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -6246,7 +6077,6 @@ Ok((
   path_params,
 ))
 }
-
 /// PokedexRead - GET /api/v2/pokedex/{id}/
 #[tracing::instrument(skip_all)]
 async fn pokedex_read<I, A>(
@@ -6258,7 +6088,7 @@ async fn pokedex_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pokedex::Pokedex,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -6288,7 +6118,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PokedexReadResponse::Status0_DefaultResponse
+                                                apis::pokedex::PokedexReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -6328,7 +6158,6 @@ Ok((
   query_params,
 ))
 }
-
 /// PokemonList - GET /api/v2/pokemon/
 #[tracing::instrument(skip_all)]
 async fn pokemon_list<I, A>(
@@ -6340,7 +6169,7 @@ async fn pokemon_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pokemon::Pokemon,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -6370,7 +6199,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonListResponse::Status0_DefaultResponse
+                                                apis::pokemon::PokemonListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -6410,7 +6239,6 @@ Ok((
   path_params,
 ))
 }
-
 /// PokemonRead - GET /api/v2/pokemon/{id}/
 #[tracing::instrument(skip_all)]
 async fn pokemon_read<I, A>(
@@ -6422,7 +6250,7 @@ async fn pokemon_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pokemon::Pokemon,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -6452,7 +6280,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonReadResponse::Status0_DefaultResponse
+                                                apis::pokemon::PokemonReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -6492,7 +6320,6 @@ Ok((
   query_params,
 ))
 }
-
 /// PokemonColorList - GET /api/v2/pokemon-color/
 #[tracing::instrument(skip_all)]
 async fn pokemon_color_list<I, A>(
@@ -6504,7 +6331,7 @@ async fn pokemon_color_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pokemon_color::PokemonColor,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -6534,7 +6361,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonColorListResponse::Status0_DefaultResponse
+                                                apis::pokemon_color::PokemonColorListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -6574,7 +6401,6 @@ Ok((
   path_params,
 ))
 }
-
 /// PokemonColorRead - GET /api/v2/pokemon-color/{id}/
 #[tracing::instrument(skip_all)]
 async fn pokemon_color_read<I, A>(
@@ -6586,7 +6412,7 @@ async fn pokemon_color_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pokemon_color::PokemonColor,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -6616,7 +6442,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonColorReadResponse::Status0_DefaultResponse
+                                                apis::pokemon_color::PokemonColorReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -6656,7 +6482,6 @@ Ok((
   query_params,
 ))
 }
-
 /// PokemonFormList - GET /api/v2/pokemon-form/
 #[tracing::instrument(skip_all)]
 async fn pokemon_form_list<I, A>(
@@ -6668,7 +6493,7 @@ async fn pokemon_form_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pokemon_form::PokemonForm,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -6698,7 +6523,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonFormListResponse::Status0_DefaultResponse
+                                                apis::pokemon_form::PokemonFormListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -6738,7 +6563,6 @@ Ok((
   path_params,
 ))
 }
-
 /// PokemonFormRead - GET /api/v2/pokemon-form/{id}/
 #[tracing::instrument(skip_all)]
 async fn pokemon_form_read<I, A>(
@@ -6750,7 +6574,7 @@ async fn pokemon_form_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pokemon_form::PokemonForm,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -6780,7 +6604,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonFormReadResponse::Status0_DefaultResponse
+                                                apis::pokemon_form::PokemonFormReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -6820,7 +6644,6 @@ Ok((
   query_params,
 ))
 }
-
 /// PokemonHabitatList - GET /api/v2/pokemon-habitat/
 #[tracing::instrument(skip_all)]
 async fn pokemon_habitat_list<I, A>(
@@ -6832,7 +6655,7 @@ async fn pokemon_habitat_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pokemon_habitat::PokemonHabitat,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -6862,7 +6685,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonHabitatListResponse::Status0_DefaultResponse
+                                                apis::pokemon_habitat::PokemonHabitatListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -6902,7 +6725,6 @@ Ok((
   path_params,
 ))
 }
-
 /// PokemonHabitatRead - GET /api/v2/pokemon-habitat/{id}/
 #[tracing::instrument(skip_all)]
 async fn pokemon_habitat_read<I, A>(
@@ -6914,7 +6736,7 @@ async fn pokemon_habitat_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pokemon_habitat::PokemonHabitat,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -6944,7 +6766,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonHabitatReadResponse::Status0_DefaultResponse
+                                                apis::pokemon_habitat::PokemonHabitatReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -6984,7 +6806,6 @@ Ok((
   query_params,
 ))
 }
-
 /// PokemonShapeList - GET /api/v2/pokemon-shape/
 #[tracing::instrument(skip_all)]
 async fn pokemon_shape_list<I, A>(
@@ -6996,7 +6817,7 @@ async fn pokemon_shape_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pokemon_shape::PokemonShape,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -7026,7 +6847,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonShapeListResponse::Status0_DefaultResponse
+                                                apis::pokemon_shape::PokemonShapeListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -7066,7 +6887,6 @@ Ok((
   path_params,
 ))
 }
-
 /// PokemonShapeRead - GET /api/v2/pokemon-shape/{id}/
 #[tracing::instrument(skip_all)]
 async fn pokemon_shape_read<I, A>(
@@ -7078,7 +6898,7 @@ async fn pokemon_shape_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pokemon_shape::PokemonShape,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -7108,7 +6928,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonShapeReadResponse::Status0_DefaultResponse
+                                                apis::pokemon_shape::PokemonShapeReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -7148,7 +6968,6 @@ Ok((
   query_params,
 ))
 }
-
 /// PokemonSpeciesList - GET /api/v2/pokemon-species/
 #[tracing::instrument(skip_all)]
 async fn pokemon_species_list<I, A>(
@@ -7160,7 +6979,7 @@ async fn pokemon_species_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pokemon_species::PokemonSpecies,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -7190,7 +7009,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonSpeciesListResponse::Status0_DefaultResponse
+                                                apis::pokemon_species::PokemonSpeciesListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -7230,7 +7049,6 @@ Ok((
   path_params,
 ))
 }
-
 /// PokemonSpeciesRead - GET /api/v2/pokemon-species/{id}/
 #[tracing::instrument(skip_all)]
 async fn pokemon_species_read<I, A>(
@@ -7242,7 +7060,7 @@ async fn pokemon_species_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::pokemon_species::PokemonSpecies,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -7272,7 +7090,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonSpeciesReadResponse::Status0_DefaultResponse
+                                                apis::pokemon_species::PokemonSpeciesReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -7312,7 +7130,6 @@ Ok((
   query_params,
 ))
 }
-
 /// RegionList - GET /api/v2/region/
 #[tracing::instrument(skip_all)]
 async fn region_list<I, A>(
@@ -7324,7 +7141,7 @@ async fn region_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::region::Region,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -7354,7 +7171,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                RegionListResponse::Status0_DefaultResponse
+                                                apis::region::RegionListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -7394,7 +7211,6 @@ Ok((
   path_params,
 ))
 }
-
 /// RegionRead - GET /api/v2/region/{id}/
 #[tracing::instrument(skip_all)]
 async fn region_read<I, A>(
@@ -7406,7 +7222,7 @@ async fn region_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::region::Region,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -7436,7 +7252,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                RegionReadResponse::Status0_DefaultResponse
+                                                apis::region::RegionReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -7476,7 +7292,6 @@ Ok((
   query_params,
 ))
 }
-
 /// StatList - GET /api/v2/stat/
 #[tracing::instrument(skip_all)]
 async fn stat_list<I, A>(
@@ -7488,7 +7303,7 @@ async fn stat_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::stat::Stat,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -7518,7 +7333,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                StatListResponse::Status0_DefaultResponse
+                                                apis::stat::StatListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -7558,7 +7373,6 @@ Ok((
   path_params,
 ))
 }
-
 /// StatRead - GET /api/v2/stat/{id}/
 #[tracing::instrument(skip_all)]
 async fn stat_read<I, A>(
@@ -7570,7 +7384,7 @@ async fn stat_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::stat::Stat,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -7600,7 +7414,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                StatReadResponse::Status0_DefaultResponse
+                                                apis::stat::StatReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -7640,7 +7454,6 @@ Ok((
   query_params,
 ))
 }
-
 /// SuperContestEffectList - GET /api/v2/super-contest-effect/
 #[tracing::instrument(skip_all)]
 async fn super_contest_effect_list<I, A>(
@@ -7652,7 +7465,7 @@ async fn super_contest_effect_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::super_contest_effect::SuperContestEffect,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -7682,7 +7495,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                SuperContestEffectListResponse::Status0_DefaultResponse
+                                                apis::super_contest_effect::SuperContestEffectListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -7722,7 +7535,6 @@ Ok((
   path_params,
 ))
 }
-
 /// SuperContestEffectRead - GET /api/v2/super-contest-effect/{id}/
 #[tracing::instrument(skip_all)]
 async fn super_contest_effect_read<I, A>(
@@ -7734,7 +7546,7 @@ async fn super_contest_effect_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::super_contest_effect::SuperContestEffect,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -7764,7 +7576,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                SuperContestEffectReadResponse::Status0_DefaultResponse
+                                                apis::super_contest_effect::SuperContestEffectReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -7804,7 +7616,6 @@ Ok((
   query_params,
 ))
 }
-
 /// TypeList - GET /api/v2/type/
 #[tracing::instrument(skip_all)]
 async fn type_list<I, A>(
@@ -7816,7 +7627,7 @@ async fn type_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::r#type::R#type,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -7846,7 +7657,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                TypeListResponse::Status0_DefaultResponse
+                                                apis::r#type::TypeListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -7886,7 +7697,6 @@ Ok((
   path_params,
 ))
 }
-
 /// TypeRead - GET /api/v2/type/{id}/
 #[tracing::instrument(skip_all)]
 async fn type_read<I, A>(
@@ -7898,7 +7708,7 @@ async fn type_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::r#type::R#type,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -7928,7 +7738,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                TypeReadResponse::Status0_DefaultResponse
+                                                apis::r#type::TypeReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -7968,7 +7778,6 @@ Ok((
   query_params,
 ))
 }
-
 /// VersionList - GET /api/v2/version/
 #[tracing::instrument(skip_all)]
 async fn version_list<I, A>(
@@ -7980,7 +7789,7 @@ async fn version_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::version::Version,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -8010,7 +7819,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                VersionListResponse::Status0_DefaultResponse
+                                                apis::version::VersionListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -8050,7 +7859,6 @@ Ok((
   path_params,
 ))
 }
-
 /// VersionRead - GET /api/v2/version/{id}/
 #[tracing::instrument(skip_all)]
 async fn version_read<I, A>(
@@ -8062,7 +7870,7 @@ async fn version_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::version::Version,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -8092,7 +7900,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                VersionReadResponse::Status0_DefaultResponse
+                                                apis::version::VersionReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -8132,7 +7940,6 @@ Ok((
   query_params,
 ))
 }
-
 /// VersionGroupList - GET /api/v2/version-group/
 #[tracing::instrument(skip_all)]
 async fn version_group_list<I, A>(
@@ -8144,7 +7951,7 @@ async fn version_group_list<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::version_group::VersionGroup,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -8174,7 +7981,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                VersionGroupListResponse::Status0_DefaultResponse
+                                                apis::version_group::VersionGroupListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 
@@ -8214,7 +8021,6 @@ Ok((
   path_params,
 ))
 }
-
 /// VersionGroupRead - GET /api/v2/version-group/{id}/
 #[tracing::instrument(skip_all)]
 async fn version_group_read<I, A>(
@@ -8226,7 +8032,7 @@ async fn version_group_read<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::version_group::VersionGroup,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -8256,7 +8062,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                VersionGroupReadResponse::Status0_DefaultResponse
+                                                apis::version_group::VersionGroupReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
 

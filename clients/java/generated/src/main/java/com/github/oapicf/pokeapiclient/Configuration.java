@@ -13,7 +13,7 @@
 
 package com.github.oapicf.pokeapiclient;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-15T11:05:13.026400937Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-09T12:12:58.839486168Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class Configuration {
     public static final String VERSION = "0.9.0-pre.0";
 

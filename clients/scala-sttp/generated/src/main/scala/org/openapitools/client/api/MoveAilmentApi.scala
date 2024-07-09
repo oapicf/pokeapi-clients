@@ -16,8 +16,7 @@ import sttp.client3._
 import sttp.model.Method
 
 object MoveAilmentApi {
-
-def apply(baseUrl: String = "https://pokeapi.co") = new MoveAilmentApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new MoveAilmentApi(baseUrl)
 }
 
 class MoveAilmentApi(baseUrl: String) {
@@ -30,11 +29,11 @@ class MoveAilmentApi(baseUrl: String) {
    * @param offset 
    */
   def moveAilmentList(limit: Option[Int] = None, offset: Option[Int] = None
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-ailment/?limit=${ limit }&offset=${ offset }")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
   /**
    * Expected answers:
@@ -43,10 +42,10 @@ class MoveAilmentApi(baseUrl: String) {
    * @param id 
    */
   def moveAilmentRead(id: Int
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-ailment/${id}/")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
 }

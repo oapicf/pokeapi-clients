@@ -106,15 +106,10 @@ class MoveLearnMethodController extends Controller
 
             $result = $handler->moveLearnMethodList($limit, $offset, $responseCode, $responseHeaders);
 
-            // Find default response message
-            $message = 'Default response';
-
-            // Find a more specific message, if available
-            switch ($responseCode) {
-                case 0:
-                    $message = 'Default response';
-                    break;
-            }
+            $message = match($responseCode) {
+                0 => 'Default response',
+                default => 'Default response',
+            };
 
             return new Response(
                 $result !== null ?$this->serialize($result, $responseFormat):'',
@@ -182,15 +177,10 @@ class MoveLearnMethodController extends Controller
 
             $result = $handler->moveLearnMethodRead($id, $responseCode, $responseHeaders);
 
-            // Find default response message
-            $message = 'Default response';
-
-            // Find a more specific message, if available
-            switch ($responseCode) {
-                case 0:
-                    $message = 'Default response';
-                    break;
-            }
+            $message = match($responseCode) {
+                0 => 'Default response',
+                default => 'Default response',
+            };
 
             return new Response(
                 $result !== null ?$this->serialize($result, $responseFormat):'',

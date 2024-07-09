@@ -16,8 +16,7 @@ import sttp.client3._
 import sttp.model.Method
 
 object MoveLearnMethodApi {
-
-def apply(baseUrl: String = "https://pokeapi.co") = new MoveLearnMethodApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new MoveLearnMethodApi(baseUrl)
 }
 
 class MoveLearnMethodApi(baseUrl: String) {
@@ -30,11 +29,11 @@ class MoveLearnMethodApi(baseUrl: String) {
    * @param offset 
    */
   def moveLearnMethodList(limit: Option[Int] = None, offset: Option[Int] = None
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-learn-method/?limit=${ limit }&offset=${ offset }")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
   /**
    * Expected answers:
@@ -43,10 +42,10 @@ class MoveLearnMethodApi(baseUrl: String) {
    * @param id 
    */
   def moveLearnMethodRead(id: Int
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-learn-method/${id}/")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
 }

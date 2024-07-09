@@ -16,8 +16,7 @@ import sttp.client3._
 import sttp.model.Method
 
 object ItemFlingEffectApi {
-
-def apply(baseUrl: String = "https://pokeapi.co") = new ItemFlingEffectApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new ItemFlingEffectApi(baseUrl)
 }
 
 class ItemFlingEffectApi(baseUrl: String) {
@@ -30,11 +29,11 @@ class ItemFlingEffectApi(baseUrl: String) {
    * @param offset 
    */
   def itemFlingEffectList(limit: Option[Int] = None, offset: Option[Int] = None
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/item-fling-effect/?limit=${ limit }&offset=${ offset }")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
   /**
    * Expected answers:
@@ -43,10 +42,10 @@ class ItemFlingEffectApi(baseUrl: String) {
    * @param id 
    */
   def itemFlingEffectRead(id: Int
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/item-fling-effect/${id}/")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
 }

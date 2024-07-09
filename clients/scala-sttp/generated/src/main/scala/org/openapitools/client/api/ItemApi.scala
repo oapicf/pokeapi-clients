@@ -16,8 +16,7 @@ import sttp.client3._
 import sttp.model.Method
 
 object ItemApi {
-
-def apply(baseUrl: String = "https://pokeapi.co") = new ItemApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new ItemApi(baseUrl)
 }
 
 class ItemApi(baseUrl: String) {
@@ -30,11 +29,11 @@ class ItemApi(baseUrl: String) {
    * @param offset 
    */
   def itemList(limit: Option[Int] = None, offset: Option[Int] = None
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/item/?limit=${ limit }&offset=${ offset }")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
   /**
    * Expected answers:
@@ -43,10 +42,10 @@ class ItemApi(baseUrl: String) {
    * @param id 
    */
   def itemRead(id: Int
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/item/${id}/")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
 }

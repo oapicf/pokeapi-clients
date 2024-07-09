@@ -78,7 +78,7 @@ public class NatureControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/nature/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("text/plain");
+            .accept("[Ljava.lang.String;@157d3a45");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class NatureControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("text/plain");
+            .accept("[Ljava.lang.String;@750ed637");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

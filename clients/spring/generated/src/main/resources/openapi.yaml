@@ -41,7 +41,8 @@ paths:
           description: Default response
       tags:
       - ability
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: ability
   /api/v2/ability/{id}/:
@@ -66,7 +67,8 @@ paths:
           description: Default response
       tags:
       - ability
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: ability
   /api/v2/berry-firmness/:
@@ -100,7 +102,8 @@ paths:
           description: Default response
       tags:
       - berry-firmness
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: berry-firmness
   /api/v2/berry-firmness/{id}/:
@@ -125,7 +128,8 @@ paths:
           description: Default response
       tags:
       - berry-firmness
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: berry-firmness
   /api/v2/berry-flavor/:
@@ -159,7 +163,8 @@ paths:
           description: Default response
       tags:
       - berry-flavor
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: berry-flavor
   /api/v2/berry-flavor/{id}/:
@@ -184,7 +189,8 @@ paths:
           description: Default response
       tags:
       - berry-flavor
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: berry-flavor
   /api/v2/berry/:
@@ -218,7 +224,8 @@ paths:
           description: Default response
       tags:
       - berry
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: berry
   /api/v2/berry/{id}/:
@@ -243,7 +250,8 @@ paths:
           description: Default response
       tags:
       - berry
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: berry
   /api/v2/characteristic/:
@@ -277,7 +285,8 @@ paths:
           description: Default response
       tags:
       - characteristic
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: characteristic
   /api/v2/characteristic/{id}/:
@@ -302,7 +311,8 @@ paths:
           description: Default response
       tags:
       - characteristic
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: characteristic
   /api/v2/contest-effect/:
@@ -336,7 +346,8 @@ paths:
           description: Default response
       tags:
       - contest-effect
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: contest-effect
   /api/v2/contest-effect/{id}/:
@@ -361,7 +372,8 @@ paths:
           description: Default response
       tags:
       - contest-effect
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: contest-effect
   /api/v2/contest-type/:
@@ -395,7 +407,8 @@ paths:
           description: Default response
       tags:
       - contest-type
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: contest-type
   /api/v2/contest-type/{id}/:
@@ -420,7 +433,8 @@ paths:
           description: Default response
       tags:
       - contest-type
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: contest-type
   /api/v2/egg-group/:
@@ -454,7 +468,8 @@ paths:
           description: Default response
       tags:
       - egg-group
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: egg-group
   /api/v2/egg-group/{id}/:
@@ -479,7 +494,8 @@ paths:
           description: Default response
       tags:
       - egg-group
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: egg-group
   /api/v2/encounter-condition-value/:
@@ -513,7 +529,8 @@ paths:
           description: Default response
       tags:
       - encounter-condition-value
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: encounter-condition-value
   /api/v2/encounter-condition-value/{id}/:
@@ -539,7 +556,8 @@ paths:
           description: Default response
       tags:
       - encounter-condition-value
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: encounter-condition-value
   /api/v2/encounter-condition/:
@@ -573,7 +591,8 @@ paths:
           description: Default response
       tags:
       - encounter-condition
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: encounter-condition
   /api/v2/encounter-condition/{id}/:
@@ -598,7 +617,8 @@ paths:
           description: Default response
       tags:
       - encounter-condition
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: encounter-condition
   /api/v2/encounter-method/:
@@ -632,7 +652,8 @@ paths:
           description: Default response
       tags:
       - encounter-method
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: encounter-method
   /api/v2/encounter-method/{id}/:
@@ -657,7 +678,8 @@ paths:
           description: Default response
       tags:
       - encounter-method
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: encounter-method
   /api/v2/evolution-chain/:
@@ -691,7 +713,8 @@ paths:
           description: Default response
       tags:
       - evolution-chain
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: evolution-chain
   /api/v2/evolution-chain/{id}/:
@@ -716,7 +739,8 @@ paths:
           description: Default response
       tags:
       - evolution-chain
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: evolution-chain
   /api/v2/evolution-trigger/:
@@ -750,7 +774,8 @@ paths:
           description: Default response
       tags:
       - evolution-trigger
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: evolution-trigger
   /api/v2/evolution-trigger/{id}/:
@@ -775,7 +800,8 @@ paths:
           description: Default response
       tags:
       - evolution-trigger
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: evolution-trigger
   /api/v2/gender/:
@@ -809,7 +835,8 @@ paths:
           description: Default response
       tags:
       - gender
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: gender
   /api/v2/gender/{id}/:
@@ -834,7 +861,8 @@ paths:
           description: Default response
       tags:
       - gender
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: gender
   /api/v2/generation/:
@@ -868,7 +896,8 @@ paths:
           description: Default response
       tags:
       - generation
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: generation
   /api/v2/generation/{id}/:
@@ -893,7 +922,8 @@ paths:
           description: Default response
       tags:
       - generation
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: generation
   /api/v2/growth-rate/:
@@ -927,7 +957,8 @@ paths:
           description: Default response
       tags:
       - growth-rate
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: growth-rate
   /api/v2/growth-rate/{id}/:
@@ -952,7 +983,8 @@ paths:
           description: Default response
       tags:
       - growth-rate
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: growth-rate
   /api/v2/item-attribute/:
@@ -986,7 +1018,8 @@ paths:
           description: Default response
       tags:
       - item-attribute
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: item-attribute
   /api/v2/item-attribute/{id}/:
@@ -1011,7 +1044,8 @@ paths:
           description: Default response
       tags:
       - item-attribute
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: item-attribute
   /api/v2/item-category/:
@@ -1045,7 +1079,8 @@ paths:
           description: Default response
       tags:
       - item-category
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: item-category
   /api/v2/item-category/{id}/:
@@ -1070,7 +1105,8 @@ paths:
           description: Default response
       tags:
       - item-category
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: item-category
   /api/v2/item-fling-effect/:
@@ -1104,7 +1140,8 @@ paths:
           description: Default response
       tags:
       - item-fling-effect
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: item-fling-effect
   /api/v2/item-fling-effect/{id}/:
@@ -1129,7 +1166,8 @@ paths:
           description: Default response
       tags:
       - item-fling-effect
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: item-fling-effect
   /api/v2/item-pocket/:
@@ -1163,7 +1201,8 @@ paths:
           description: Default response
       tags:
       - item-pocket
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: item-pocket
   /api/v2/item-pocket/{id}/:
@@ -1188,7 +1227,8 @@ paths:
           description: Default response
       tags:
       - item-pocket
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: item-pocket
   /api/v2/item/:
@@ -1222,7 +1262,8 @@ paths:
           description: Default response
       tags:
       - item
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: item
   /api/v2/item/{id}/:
@@ -1247,7 +1288,8 @@ paths:
           description: Default response
       tags:
       - item
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: item
   /api/v2/language/:
@@ -1281,7 +1323,8 @@ paths:
           description: Default response
       tags:
       - language
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: language
   /api/v2/language/{id}/:
@@ -1306,7 +1349,8 @@ paths:
           description: Default response
       tags:
       - language
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: language
   /api/v2/location-area/:
@@ -1340,7 +1384,8 @@ paths:
           description: Default response
       tags:
       - location-area
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: location-area
   /api/v2/location-area/{id}/:
@@ -1365,7 +1410,8 @@ paths:
           description: Default response
       tags:
       - location-area
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: location-area
   /api/v2/location/:
@@ -1399,7 +1445,8 @@ paths:
           description: Default response
       tags:
       - location
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: location
   /api/v2/location/{id}/:
@@ -1424,7 +1471,8 @@ paths:
           description: Default response
       tags:
       - location
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: location
   /api/v2/machine/:
@@ -1458,7 +1506,8 @@ paths:
           description: Default response
       tags:
       - machine
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: machine
   /api/v2/machine/{id}/:
@@ -1483,7 +1532,8 @@ paths:
           description: Default response
       tags:
       - machine
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: machine
   /api/v2/move-ailment/:
@@ -1517,7 +1567,8 @@ paths:
           description: Default response
       tags:
       - move-ailment
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: move-ailment
   /api/v2/move-ailment/{id}/:
@@ -1542,7 +1593,8 @@ paths:
           description: Default response
       tags:
       - move-ailment
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: move-ailment
   /api/v2/move-battle-style/:
@@ -1576,7 +1628,8 @@ paths:
           description: Default response
       tags:
       - move-battle-style
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: move-battle-style
   /api/v2/move-battle-style/{id}/:
@@ -1601,7 +1654,8 @@ paths:
           description: Default response
       tags:
       - move-battle-style
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: move-battle-style
   /api/v2/move-category/:
@@ -1635,7 +1689,8 @@ paths:
           description: Default response
       tags:
       - move-category
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: move-category
   /api/v2/move-category/{id}/:
@@ -1660,7 +1715,8 @@ paths:
           description: Default response
       tags:
       - move-category
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: move-category
   /api/v2/move-damage-class/:
@@ -1694,7 +1750,8 @@ paths:
           description: Default response
       tags:
       - move-damage-class
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: move-damage-class
   /api/v2/move-damage-class/{id}/:
@@ -1719,7 +1776,8 @@ paths:
           description: Default response
       tags:
       - move-damage-class
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: move-damage-class
   /api/v2/move-learn-method/:
@@ -1753,7 +1811,8 @@ paths:
           description: Default response
       tags:
       - move-learn-method
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: move-learn-method
   /api/v2/move-learn-method/{id}/:
@@ -1778,7 +1837,8 @@ paths:
           description: Default response
       tags:
       - move-learn-method
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: move-learn-method
   /api/v2/move-target/:
@@ -1812,7 +1872,8 @@ paths:
           description: Default response
       tags:
       - move-target
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: move-target
   /api/v2/move-target/{id}/:
@@ -1837,7 +1898,8 @@ paths:
           description: Default response
       tags:
       - move-target
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: move-target
   /api/v2/move/:
@@ -1871,7 +1933,8 @@ paths:
           description: Default response
       tags:
       - move
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: move
   /api/v2/move/{id}/:
@@ -1896,7 +1959,8 @@ paths:
           description: Default response
       tags:
       - move
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: move
   /api/v2/nature/:
@@ -1930,7 +1994,8 @@ paths:
           description: Default response
       tags:
       - nature
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: nature
   /api/v2/nature/{id}/:
@@ -1955,7 +2020,8 @@ paths:
           description: Default response
       tags:
       - nature
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: nature
   /api/v2/pal-park-area/:
@@ -1989,7 +2055,8 @@ paths:
           description: Default response
       tags:
       - pal-park-area
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pal-park-area
   /api/v2/pal-park-area/{id}/:
@@ -2014,7 +2081,8 @@ paths:
           description: Default response
       tags:
       - pal-park-area
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pal-park-area
   /api/v2/pokeathlon-stat/:
@@ -2048,7 +2116,8 @@ paths:
           description: Default response
       tags:
       - pokeathlon-stat
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pokeathlon-stat
   /api/v2/pokeathlon-stat/{id}/:
@@ -2073,7 +2142,8 @@ paths:
           description: Default response
       tags:
       - pokeathlon-stat
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pokeathlon-stat
   /api/v2/pokedex/:
@@ -2107,7 +2177,8 @@ paths:
           description: Default response
       tags:
       - pokedex
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pokedex
   /api/v2/pokedex/{id}/:
@@ -2132,7 +2203,8 @@ paths:
           description: Default response
       tags:
       - pokedex
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pokedex
   /api/v2/pokemon-color/:
@@ -2166,7 +2238,8 @@ paths:
           description: Default response
       tags:
       - pokemon-color
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pokemon-color
   /api/v2/pokemon-color/{id}/:
@@ -2191,7 +2264,8 @@ paths:
           description: Default response
       tags:
       - pokemon-color
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pokemon-color
   /api/v2/pokemon-form/:
@@ -2225,7 +2299,8 @@ paths:
           description: Default response
       tags:
       - pokemon-form
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pokemon-form
   /api/v2/pokemon-form/{id}/:
@@ -2250,7 +2325,8 @@ paths:
           description: Default response
       tags:
       - pokemon-form
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pokemon-form
   /api/v2/pokemon-habitat/:
@@ -2284,7 +2360,8 @@ paths:
           description: Default response
       tags:
       - pokemon-habitat
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pokemon-habitat
   /api/v2/pokemon-habitat/{id}/:
@@ -2309,7 +2386,8 @@ paths:
           description: Default response
       tags:
       - pokemon-habitat
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pokemon-habitat
   /api/v2/pokemon-shape/:
@@ -2343,7 +2421,8 @@ paths:
           description: Default response
       tags:
       - pokemon-shape
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pokemon-shape
   /api/v2/pokemon-shape/{id}/:
@@ -2368,7 +2447,8 @@ paths:
           description: Default response
       tags:
       - pokemon-shape
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pokemon-shape
   /api/v2/pokemon-species/:
@@ -2402,7 +2482,8 @@ paths:
           description: Default response
       tags:
       - pokemon-species
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pokemon-species
   /api/v2/pokemon-species/{id}/:
@@ -2427,7 +2508,8 @@ paths:
           description: Default response
       tags:
       - pokemon-species
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pokemon-species
   /api/v2/pokemon/:
@@ -2461,7 +2543,8 @@ paths:
           description: Default response
       tags:
       - pokemon
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pokemon
   /api/v2/pokemon/{id}/:
@@ -2486,7 +2569,8 @@ paths:
           description: Default response
       tags:
       - pokemon
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: pokemon
   /api/v2/region/:
@@ -2520,7 +2604,8 @@ paths:
           description: Default response
       tags:
       - region
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: region
   /api/v2/region/{id}/:
@@ -2545,7 +2630,8 @@ paths:
           description: Default response
       tags:
       - region
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: region
   /api/v2/stat/:
@@ -2579,7 +2665,8 @@ paths:
           description: Default response
       tags:
       - stat
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: stat
   /api/v2/stat/{id}/:
@@ -2604,7 +2691,8 @@ paths:
           description: Default response
       tags:
       - stat
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: stat
   /api/v2/super-contest-effect/:
@@ -2638,7 +2726,8 @@ paths:
           description: Default response
       tags:
       - super-contest-effect
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: super-contest-effect
   /api/v2/super-contest-effect/{id}/:
@@ -2663,7 +2752,8 @@ paths:
           description: Default response
       tags:
       - super-contest-effect
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: super-contest-effect
   /api/v2/type/:
@@ -2697,7 +2787,8 @@ paths:
           description: Default response
       tags:
       - type
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: type
   /api/v2/type/{id}/:
@@ -2722,7 +2813,8 @@ paths:
           description: Default response
       tags:
       - type
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: type
   /api/v2/version-group/:
@@ -2756,7 +2848,8 @@ paths:
           description: Default response
       tags:
       - version-group
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: version-group
   /api/v2/version-group/{id}/:
@@ -2781,7 +2874,8 @@ paths:
           description: Default response
       tags:
       - version-group
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: version-group
   /api/v2/version/:
@@ -2815,7 +2909,8 @@ paths:
           description: Default response
       tags:
       - version
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: version
   /api/v2/version/{id}/:
@@ -2840,7 +2935,8 @@ paths:
           description: Default response
       tags:
       - version
-      x-accepts: text/plain
+      x-accepts:
+      - text/plain
       x-tags:
       - tag: version
 components:

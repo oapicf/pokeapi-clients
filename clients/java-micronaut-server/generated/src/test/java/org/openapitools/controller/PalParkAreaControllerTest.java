@@ -78,7 +78,7 @@ public class PalParkAreaControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/pal-park-area/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("text/plain");
+            .accept("[Ljava.lang.String;@2f20f7ad");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class PalParkAreaControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("text/plain");
+            .accept("[Ljava.lang.String;@45e617c4");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

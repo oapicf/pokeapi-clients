@@ -16,8 +16,7 @@ import sttp.client3._
 import sttp.model.Method
 
 object MoveDamageClassApi {
-
-def apply(baseUrl: String = "https://pokeapi.co") = new MoveDamageClassApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new MoveDamageClassApi(baseUrl)
 }
 
 class MoveDamageClassApi(baseUrl: String) {
@@ -30,11 +29,11 @@ class MoveDamageClassApi(baseUrl: String) {
    * @param offset 
    */
   def moveDamageClassList(limit: Option[Int] = None, offset: Option[Int] = None
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-damage-class/?limit=${ limit }&offset=${ offset }")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
   /**
    * Expected answers:
@@ -43,10 +42,10 @@ class MoveDamageClassApi(baseUrl: String) {
    * @param id 
    */
   def moveDamageClassRead(id: Int
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/move-damage-class/${id}/")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
 }

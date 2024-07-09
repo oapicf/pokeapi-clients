@@ -16,8 +16,7 @@ import sttp.client3._
 import sttp.model.Method
 
 object MachineApi {
-
-def apply(baseUrl: String = "https://pokeapi.co") = new MachineApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new MachineApi(baseUrl)
 }
 
 class MachineApi(baseUrl: String) {
@@ -30,11 +29,11 @@ class MachineApi(baseUrl: String) {
    * @param offset 
    */
   def machineList(limit: Option[Int] = None, offset: Option[Int] = None
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/machine/?limit=${ limit }&offset=${ offset }")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
   /**
    * Expected answers:
@@ -43,10 +42,10 @@ class MachineApi(baseUrl: String) {
    * @param id 
    */
   def machineRead(id: Int
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/machine/${id}/")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
 }

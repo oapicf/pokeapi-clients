@@ -78,7 +78,7 @@ public class PokemonHabitatControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/pokemon-habitat/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("text/plain");
+            .accept("[Ljava.lang.String;@445821a6");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class PokemonHabitatControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("text/plain");
+            .accept("[Ljava.lang.String;@2c0c4c0a");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

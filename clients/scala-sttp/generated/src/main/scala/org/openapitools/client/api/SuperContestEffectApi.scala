@@ -16,8 +16,7 @@ import sttp.client3._
 import sttp.model.Method
 
 object SuperContestEffectApi {
-
-def apply(baseUrl: String = "https://pokeapi.co") = new SuperContestEffectApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new SuperContestEffectApi(baseUrl)
 }
 
 class SuperContestEffectApi(baseUrl: String) {
@@ -30,11 +29,11 @@ class SuperContestEffectApi(baseUrl: String) {
    * @param offset 
    */
   def superContestEffectList(limit: Option[Int] = None, offset: Option[Int] = None
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/super-contest-effect/?limit=${ limit }&offset=${ offset }")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
   /**
    * Expected answers:
@@ -43,10 +42,10 @@ class SuperContestEffectApi(baseUrl: String) {
    * @param id 
    */
   def superContestEffectRead(id: Int
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/super-contest-effect/${id}/")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
 }

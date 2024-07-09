@@ -22,7 +22,7 @@ import java.io.IOException;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-03-15T11:05:42.910709659Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-09T12:13:44.344977646Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Controller
 public class ItemPocketApiController implements ItemPocketApi {
     private final ObjectMapper objectMapper;

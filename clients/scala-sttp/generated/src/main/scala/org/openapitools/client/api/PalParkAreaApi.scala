@@ -16,8 +16,7 @@ import sttp.client3._
 import sttp.model.Method
 
 object PalParkAreaApi {
-
-def apply(baseUrl: String = "https://pokeapi.co") = new PalParkAreaApi(baseUrl)
+  def apply(baseUrl: String = "https://pokeapi.co") = new PalParkAreaApi(baseUrl)
 }
 
 class PalParkAreaApi(baseUrl: String) {
@@ -30,11 +29,11 @@ class PalParkAreaApi(baseUrl: String) {
    * @param offset 
    */
   def palParkAreaList(limit: Option[Int] = None, offset: Option[Int] = None
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/pal-park-area/?limit=${ limit }&offset=${ offset }")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
   /**
    * Expected answers:
@@ -43,10 +42,10 @@ class PalParkAreaApi(baseUrl: String) {
    * @param id 
    */
   def palParkAreaRead(id: Int
-): Request[Either[Either[String, String], Unit], Any] =
+): Request[Either[ResponseException[String, Exception], String], Any] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/v2/pal-park-area/${id}/")
       .contentType("application/json")
-      .response(asEither(asString, ignore))
+      .response(asJson[String])
 
 }
