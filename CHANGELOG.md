@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+- Switch release GH Actions to use cliffano/release-action
+
 ## 1.1.0 - 2024-07-09
 ### Changed
 - Upgrade Swaggy C to 4.5.0
