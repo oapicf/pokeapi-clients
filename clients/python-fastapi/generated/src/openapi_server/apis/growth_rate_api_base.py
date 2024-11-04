@@ -10,7 +10,7 @@ class BaseGrowthRateApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseGrowthRateApi.subclasses = BaseGrowthRateApi.subclasses + (cls,)
-    def growth_rate_list(
+    async def growth_rate_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseGrowthRateApi:
         ...
 
 
-    def growth_rate_read(
+    async def growth_rate_read(
         self,
         id: int,
     ) -> str:

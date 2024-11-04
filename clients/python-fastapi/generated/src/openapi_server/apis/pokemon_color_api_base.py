@@ -10,7 +10,7 @@ class BasePokemonColorApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BasePokemonColorApi.subclasses = BasePokemonColorApi.subclasses + (cls,)
-    def pokemon_color_list(
+    async def pokemon_color_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BasePokemonColorApi:
         ...
 
 
-    def pokemon_color_read(
+    async def pokemon_color_read(
         self,
         id: int,
     ) -> str:

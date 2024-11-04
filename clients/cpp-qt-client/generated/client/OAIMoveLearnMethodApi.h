@@ -60,12 +60,12 @@ public:
     * @param[in]  limit qint32 [optional]
     * @param[in]  offset qint32 [optional]
     */
-    void moveLearnMethodList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
+    virtual void moveLearnMethodList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
     */
-    void moveLearnMethodRead(const qint32 &id);
+    virtual void moveLearnMethodRead(const qint32 &id);
 
 
 private:
@@ -97,6 +97,7 @@ Q_SIGNALS:
 
     void moveLearnMethodListSignal(QString summary);
     void moveLearnMethodReadSignal(QString summary);
+
 
     void moveLearnMethodListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void moveLearnMethodReadSignalFull(OAIHttpRequestWorker *worker, QString summary);

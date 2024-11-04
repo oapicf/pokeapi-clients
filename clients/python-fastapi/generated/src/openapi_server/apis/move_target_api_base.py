@@ -10,7 +10,7 @@ class BaseMoveTargetApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseMoveTargetApi.subclasses = BaseMoveTargetApi.subclasses + (cls,)
-    def move_target_list(
+    async def move_target_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseMoveTargetApi:
         ...
 
 
-    def move_target_read(
+    async def move_target_read(
         self,
         id: int,
     ) -> str:

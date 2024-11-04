@@ -78,7 +78,7 @@ public class EvolutionTriggerControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/evolution-trigger/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@66223d94");
+            .accept("[Ljava.lang.String;@4816ee24");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class EvolutionTriggerControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@2bc7db89");
+            .accept("[Ljava.lang.String;@20d33ea");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

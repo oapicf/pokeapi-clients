@@ -14,6 +14,7 @@ from fastapi import (  # noqa: F401
     Depends,
     Form,
     Header,
+    HTTPException,
     Path,
     Query,
     Response,
@@ -43,7 +44,9 @@ async def machine_list(
     limit: int = Query(None, description="", alias="limit"),
     offset: int = Query(None, description="", alias="offset"),
 ) -> str:
-    ...
+    if not BaseMachineApi.subclasses:
+        raise HTTPException(status_code=500, detail="Not implemented")
+    return await BaseMachineApi.subclasses[0]().machine_list(limit, offset)
 
 
 @router.get(
@@ -57,4 +60,6 @@ async def machine_list(
 async def machine_read(
     id: int = Path(..., description=""),
 ) -> str:
-    ...
+    if not BaseMachineApi.subclasses:
+        raise HTTPException(status_code=500, detail="Not implemented")
+    return await BaseMachineApi.subclasses[0]().machine_read(id)

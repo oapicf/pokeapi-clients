@@ -10,7 +10,7 @@ class BaseBerryFirmnessApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseBerryFirmnessApi.subclasses = BaseBerryFirmnessApi.subclasses + (cls,)
-    def berry_firmness_list(
+    async def berry_firmness_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseBerryFirmnessApi:
         ...
 
 
-    def berry_firmness_read(
+    async def berry_firmness_read(
         self,
         id: int,
     ) -> str:

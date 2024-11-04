@@ -60,12 +60,12 @@ public:
     * @param[in]  limit qint32 [optional]
     * @param[in]  offset qint32 [optional]
     */
-    void characteristicList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
+    virtual void characteristicList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
     */
-    void characteristicRead(const qint32 &id);
+    virtual void characteristicRead(const qint32 &id);
 
 
 private:
@@ -97,6 +97,7 @@ Q_SIGNALS:
 
     void characteristicListSignal(QString summary);
     void characteristicReadSignal(QString summary);
+
 
     void characteristicListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void characteristicReadSignalFull(OAIHttpRequestWorker *worker, QString summary);

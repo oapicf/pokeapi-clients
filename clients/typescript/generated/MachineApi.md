@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, MachineApi } from '';
+import type { MachineApiMachineListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MachineApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new MachineApi(configuration);
 
-let body:.MachineApiMachineListRequest = {
-  // number (optional)
+const request: MachineApiMachineListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.machineList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.machineList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, MachineApi } from '';
+import type { MachineApiMachineReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MachineApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new MachineApi(configuration);
 
-let body:.MachineApiMachineReadRequest = {
-  // number
+const request: MachineApiMachineReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.machineRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.machineRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

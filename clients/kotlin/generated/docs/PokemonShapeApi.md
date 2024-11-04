@@ -2,10 +2,10 @@
 
 All URIs are relative to *https://pokeapi.co*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**pokemonShapeList**](PokemonShapeApi.md#pokemonShapeList) | **GET** /api/v2/pokemon-shape/ | 
-[**pokemonShapeRead**](PokemonShapeApi.md#pokemonShapeRead) | **GET** /api/v2/pokemon-shape/{id}/ | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**pokemonShapeList**](PokemonShapeApi.md#pokemonShapeList) | **GET** /api/v2/pokemon-shape/ |  |
+| [**pokemonShapeRead**](PokemonShapeApi.md#pokemonShapeRead) | **GET** /api/v2/pokemon-shape/{id}/ |  |
 
 
 <a id="pokemonShapeList"></a>
@@ -36,11 +36,10 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **kotlin.Int**|  | [optional]
- **offset** | **kotlin.Int**|  | [optional]
+| **limit** | **kotlin.Int**|  | [optional] |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **offset** | **kotlin.Int**|  | [optional] |
 
 ### Return type
 
@@ -82,10 +81,9 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **kotlin.Int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **kotlin.Int**|  | |
 
 ### Return type
 

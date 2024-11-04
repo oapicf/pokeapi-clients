@@ -60,12 +60,12 @@ public:
     * @param[in]  limit qint32 [optional]
     * @param[in]  offset qint32 [optional]
     */
-    void pokedexList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
+    virtual void pokedexList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
     */
-    void pokedexRead(const qint32 &id);
+    virtual void pokedexRead(const qint32 &id);
 
 
 private:
@@ -97,6 +97,7 @@ Q_SIGNALS:
 
     void pokedexListSignal(QString summary);
     void pokedexReadSignal(QString summary);
+
 
     void pokedexListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void pokedexReadSignalFull(OAIHttpRequestWorker *worker, QString summary);

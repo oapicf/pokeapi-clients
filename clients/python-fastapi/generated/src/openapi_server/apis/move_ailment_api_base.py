@@ -10,7 +10,7 @@ class BaseMoveAilmentApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseMoveAilmentApi.subclasses = BaseMoveAilmentApi.subclasses + (cls,)
-    def move_ailment_list(
+    async def move_ailment_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseMoveAilmentApi:
         ...
 
 
-    def move_ailment_read(
+    async def move_ailment_read(
         self,
         id: int,
     ) -> str:

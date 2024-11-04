@@ -10,7 +10,7 @@ class BaseBerryApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseBerryApi.subclasses = BaseBerryApi.subclasses + (cls,)
-    def berry_list(
+    async def berry_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseBerryApi:
         ...
 
 
-    def berry_read(
+    async def berry_read(
         self,
         id: int,
     ) -> str:

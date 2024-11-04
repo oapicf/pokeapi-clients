@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for item-pocket_list
+ * Parameters for itemPocketList
  */
 class ItemPocketListParameterData
 {

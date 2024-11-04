@@ -78,7 +78,7 @@ public class GenderControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/gender/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@49ca94a9");
+            .accept("[Ljava.lang.String;@4dad0eed");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class GenderControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@9ab310b");
+            .accept("[Ljava.lang.String;@7fad214a");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

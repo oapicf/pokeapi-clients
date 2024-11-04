@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Query parameters for location_list
+ * Query parameters for locationList
  */
 class LocationListQueryData
 {

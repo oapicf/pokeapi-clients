@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for pokemon-color_read
+ * Parameters for pokemonColorRead
  */
 class PokemonColorReadParameterData
 {

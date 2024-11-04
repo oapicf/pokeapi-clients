@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, PokemonHabitatApi } from '';
+import type { PokemonHabitatApiPokemonHabitatListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PokemonHabitatApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new PokemonHabitatApi(configuration);
 
-let body:.PokemonHabitatApiPokemonHabitatListRequest = {
-  // number (optional)
+const request: PokemonHabitatApiPokemonHabitatListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.pokemonHabitatList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.pokemonHabitatList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, PokemonHabitatApi } from '';
+import type { PokemonHabitatApiPokemonHabitatReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PokemonHabitatApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new PokemonHabitatApi(configuration);
 
-let body:.PokemonHabitatApiPokemonHabitatReadRequest = {
-  // number
+const request: PokemonHabitatApiPokemonHabitatReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.pokemonHabitatRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.pokemonHabitatRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

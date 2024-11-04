@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, SuperContestEffectApi } from '';
+import type { SuperContestEffectApiSuperContestEffectListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .SuperContestEffectApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new SuperContestEffectApi(configuration);
 
-let body:.SuperContestEffectApiSuperContestEffectListRequest = {
-  // number (optional)
+const request: SuperContestEffectApiSuperContestEffectListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.superContestEffectList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.superContestEffectList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, SuperContestEffectApi } from '';
+import type { SuperContestEffectApiSuperContestEffectReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .SuperContestEffectApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new SuperContestEffectApi(configuration);
 
-let body:.SuperContestEffectApiSuperContestEffectReadRequest = {
-  // number
+const request: SuperContestEffectApiSuperContestEffectReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.superContestEffectRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.superContestEffectRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

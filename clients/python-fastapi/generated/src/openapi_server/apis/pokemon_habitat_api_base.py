@@ -10,7 +10,7 @@ class BasePokemonHabitatApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BasePokemonHabitatApi.subclasses = BasePokemonHabitatApi.subclasses + (cls,)
-    def pokemon_habitat_list(
+    async def pokemon_habitat_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BasePokemonHabitatApi:
         ...
 
 
-    def pokemon_habitat_read(
+    async def pokemon_habitat_read(
         self,
         id: int,
     ) -> str:

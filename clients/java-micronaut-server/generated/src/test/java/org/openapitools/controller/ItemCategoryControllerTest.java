@@ -78,7 +78,7 @@ public class ItemCategoryControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/item-category/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@6411504a");
+            .accept("[Ljava.lang.String;@7e3d7dd");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class ItemCategoryControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@554188ac");
+            .accept("[Ljava.lang.String;@3f63a513");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

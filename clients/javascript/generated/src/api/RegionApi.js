@@ -17,7 +17,7 @@ import ApiClient from "../ApiClient";
 /**
 * Region service.
 * @module api/RegionApi
-* @version 1.0.1-pre.0
+* @version 1.1.1-pre.0
 */
 export default class RegionApi {
 

@@ -78,7 +78,7 @@ public class MoveControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/move/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@13bdf540");
+            .accept("[Ljava.lang.String;@5c134052");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class MoveControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@526e8108");
+            .accept("[Ljava.lang.String;@69de5bed");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

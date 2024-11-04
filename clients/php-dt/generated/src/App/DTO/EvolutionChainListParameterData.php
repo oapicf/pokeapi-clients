@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for evolution-chain_list
+ * Parameters for evolutionChainList
  */
 class EvolutionChainListParameterData
 {

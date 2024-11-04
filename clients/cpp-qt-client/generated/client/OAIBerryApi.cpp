@@ -115,15 +115,9 @@ int OAIBerryApi::addServerConfiguration(const QString &operation, const QUrl &ur
     * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
     */
 void OAIBerryApi::setNewServerForAllOperations(const QUrl &url, const QString &description, const QMap<QString, OAIServerVariable> &variables) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
     for (auto keyIt = _serverIndices.keyBegin(); keyIt != _serverIndices.keyEnd(); keyIt++) {
         setServerIndex(*keyIt, addServerConfiguration(*keyIt, url, description, variables));
     }
-#else
-    for (auto &e : _serverIndices.keys()) {
-        setServerIndex(e, addServerConfiguration(e, url, description, variables));
-    }
-#endif
 }
 
 /**
@@ -255,15 +249,10 @@ void OAIBerryApi::berryList(const ::OpenAPI::OptionalParam<qint32> &limit, const
     OAIHttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIBerryApi::berryListCallback);
     connect(this, &OAIBerryApi::abortRequestsSignal, worker, &QObject::deleteLater);
@@ -345,15 +334,10 @@ void OAIBerryApi::berryRead(const qint32 &id) {
     OAIHttpRequestInput input(fullPath, "GET");
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
         input.headers.insert(keyValueIt->first, keyValueIt->second);
     }
-#else
-    for (auto key : _defaultHeaders.keys()) {
-        input.headers.insert(key, _defaultHeaders[key]);
-    }
-#endif
+
 
     connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIBerryApi::berryReadCallback);
     connect(this, &OAIBerryApi::abortRequestsSignal, worker, &QObject::deleteLater);

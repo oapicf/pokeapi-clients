@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for pokeathlon-stat_read
+ * Parameters for pokeathlonStatRead
  */
 class PokeathlonStatReadParameterData
 {

@@ -72,8 +72,8 @@ class ContestTypeApiSimulation extends Simulation {
         .feed(contest-type_listQUERYFeeder)
         .exec(http("contestTypeList")
         .httpRequest("GET","/api/v2/contest-type/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scncontestTypeList with warm up and reach a constant rate for entire duration

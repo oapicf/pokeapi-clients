@@ -60,12 +60,12 @@ public:
     * @param[in]  limit qint32 [optional]
     * @param[in]  offset qint32 [optional]
     */
-    void palParkAreaList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
+    virtual void palParkAreaList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
     */
-    void palParkAreaRead(const qint32 &id);
+    virtual void palParkAreaRead(const qint32 &id);
 
 
 private:
@@ -97,6 +97,7 @@ Q_SIGNALS:
 
     void palParkAreaListSignal(QString summary);
     void palParkAreaReadSignal(QString summary);
+
 
     void palParkAreaListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void palParkAreaReadSignalFull(OAIHttpRequestWorker *worker, QString summary);

@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, MoveBattleStyleApi } from '';
+import type { MoveBattleStyleApiMoveBattleStyleListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MoveBattleStyleApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new MoveBattleStyleApi(configuration);
 
-let body:.MoveBattleStyleApiMoveBattleStyleListRequest = {
-  // number (optional)
+const request: MoveBattleStyleApiMoveBattleStyleListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.moveBattleStyleList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.moveBattleStyleList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, MoveBattleStyleApi } from '';
+import type { MoveBattleStyleApiMoveBattleStyleReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MoveBattleStyleApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new MoveBattleStyleApi(configuration);
 
-let body:.MoveBattleStyleApiMoveBattleStyleReadRequest = {
-  // number
+const request: MoveBattleStyleApiMoveBattleStyleReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.moveBattleStyleRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.moveBattleStyleRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

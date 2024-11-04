@@ -10,7 +10,7 @@ class BaseTypeApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseTypeApi.subclasses = BaseTypeApi.subclasses + (cls,)
-    def type_list(
+    async def type_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseTypeApi:
         ...
 
 
-    def type_read(
+    async def type_read(
         self,
         id: int,
     ) -> str:

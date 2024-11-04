@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, GenderApi } from '';
+import type { GenderApiGenderListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GenderApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new GenderApi(configuration);
 
-let body:.GenderApiGenderListRequest = {
-  // number (optional)
+const request: GenderApiGenderListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.genderList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.genderList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, GenderApi } from '';
+import type { GenderApiGenderReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GenderApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new GenderApi(configuration);
 
-let body:.GenderApiGenderReadRequest = {
-  // number
+const request: GenderApiGenderReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.genderRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.genderRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

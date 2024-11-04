@@ -72,8 +72,8 @@ class PokemonShapeApiSimulation extends Simulation {
         .feed(pokemon-shape_listQUERYFeeder)
         .exec(http("pokemonShapeList")
         .httpRequest("GET","/api/v2/pokemon-shape/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scnpokemonShapeList with warm up and reach a constant rate for entire duration

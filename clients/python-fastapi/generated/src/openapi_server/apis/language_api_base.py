@@ -10,7 +10,7 @@ class BaseLanguageApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseLanguageApi.subclasses = BaseLanguageApi.subclasses + (cls,)
-    def language_list(
+    async def language_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseLanguageApi:
         ...
 
 
-    def language_read(
+    async def language_read(
         self,
         id: int,
     ) -> str:

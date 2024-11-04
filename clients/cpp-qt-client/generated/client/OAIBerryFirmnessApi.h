@@ -60,12 +60,12 @@ public:
     * @param[in]  limit qint32 [optional]
     * @param[in]  offset qint32 [optional]
     */
-    void berryFirmnessList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
+    virtual void berryFirmnessList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
     */
-    void berryFirmnessRead(const qint32 &id);
+    virtual void berryFirmnessRead(const qint32 &id);
 
 
 private:
@@ -97,6 +97,7 @@ Q_SIGNALS:
 
     void berryFirmnessListSignal(QString summary);
     void berryFirmnessReadSignal(QString summary);
+
 
     void berryFirmnessListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void berryFirmnessReadSignalFull(OAIHttpRequestWorker *worker, QString summary);

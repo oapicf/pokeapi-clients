@@ -40,6 +40,12 @@ void MoveLearnMethodApi::setupRoutes() {
     router->addCustomHandler(Routes::bind(&MoveLearnMethodApi::move_learn_method_api_default_handler, this));
 }
 
+void MoveLearnMethodApi::handleParsingException(const std::exception& ex, Pistache::Http::ResponseWriter &response) const noexcept
+{
+    std::pair<Pistache::Http::Code, std::string> codeAndError = handleParsingException(ex);
+    response.send(codeAndError.first, codeAndError.second);
+}
+
 std::pair<Pistache::Http::Code, std::string> MoveLearnMethodApi::handleParsingException(const std::exception& ex) const noexcept
 {
     try {
@@ -51,6 +57,12 @@ std::pair<Pistache::Http::Code, std::string> MoveLearnMethodApi::handleParsingEx
     } catch (std::exception &e) {
         return std::make_pair(Pistache::Http::Code::Internal_Server_Error, e.what());
     }
+}
+
+void MoveLearnMethodApi::handleOperationException(const std::exception& ex, Pistache::Http::ResponseWriter &response) const noexcept
+{
+    std::pair<Pistache::Http::Code, std::string> codeAndError = handleOperationException(ex);
+    response.send(codeAndError.first, codeAndError.second);
 }
 
 std::pair<Pistache::Http::Code, std::string> MoveLearnMethodApi::handleOperationException(const std::exception& ex) const noexcept
@@ -86,8 +98,7 @@ void MoveLearnMethodApi::move_learn_method_list_handler(const Pistache::Rest::Re
         response.send(static_cast<Pistache::Http::Code>(e.code()), e.what());
         return;
     } catch (std::exception &e) {
-        const std::pair<Pistache::Http::Code, std::string> errorInfo = this->handleOperationException(e);
-        response.send(errorInfo.first, errorInfo.second);
+        this->handleOperationException(e, response);
         return;
     }
 
@@ -108,8 +119,7 @@ void MoveLearnMethodApi::move_learn_method_read_handler(const Pistache::Rest::Re
         response.send(static_cast<Pistache::Http::Code>(e.code()), e.what());
         return;
     } catch (std::exception &e) {
-        const std::pair<Pistache::Http::Code, std::string> errorInfo = this->handleOperationException(e);
-        response.send(errorInfo.first, errorInfo.second);
+        this->handleOperationException(e, response);
         return;
     }
 

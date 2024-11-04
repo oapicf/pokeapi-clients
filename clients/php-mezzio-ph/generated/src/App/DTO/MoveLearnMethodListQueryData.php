@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Query parameters for move-learn-method_list
+ * Query parameters for moveLearnMethodList
  */
 class MoveLearnMethodListQueryData
 {

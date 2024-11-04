@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, MoveTargetApi } from '';
+import type { MoveTargetApiMoveTargetListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MoveTargetApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new MoveTargetApi(configuration);
 
-let body:.MoveTargetApiMoveTargetListRequest = {
-  // number (optional)
+const request: MoveTargetApiMoveTargetListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.moveTargetList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.moveTargetList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, MoveTargetApi } from '';
+import type { MoveTargetApiMoveTargetReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MoveTargetApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new MoveTargetApi(configuration);
 
-let body:.MoveTargetApiMoveTargetReadRequest = {
-  // number
+const request: MoveTargetApiMoveTargetReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.moveTargetRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.moveTargetRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

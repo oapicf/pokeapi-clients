@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, LanguageApi } from '';
+import type { LanguageApiLanguageListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .LanguageApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new LanguageApi(configuration);
 
-let body:.LanguageApiLanguageListRequest = {
-  // number (optional)
+const request: LanguageApiLanguageListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.languageList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.languageList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, LanguageApi } from '';
+import type { LanguageApiLanguageReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .LanguageApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new LanguageApi(configuration);
 
-let body:.LanguageApiLanguageReadRequest = {
-  // number
+const request: LanguageApiLanguageReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.languageRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.languageRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

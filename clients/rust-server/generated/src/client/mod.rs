@@ -533,9 +533,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(AbilityListResponse::DefaultResponse
                     (body)
                 )
@@ -610,9 +613,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(AbilityReadResponse::DefaultResponse
                     (body)
                 )
@@ -695,9 +701,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(BerryListResponse::DefaultResponse
                     (body)
                 )
@@ -772,9 +781,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(BerryReadResponse::DefaultResponse
                     (body)
                 )
@@ -857,9 +869,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(BerryFirmnessListResponse::DefaultResponse
                     (body)
                 )
@@ -934,9 +949,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(BerryFirmnessReadResponse::DefaultResponse
                     (body)
                 )
@@ -1019,9 +1037,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(BerryFlavorListResponse::DefaultResponse
                     (body)
                 )
@@ -1096,9 +1117,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(BerryFlavorReadResponse::DefaultResponse
                     (body)
                 )
@@ -1181,9 +1205,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(CharacteristicListResponse::DefaultResponse
                     (body)
                 )
@@ -1258,9 +1285,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(CharacteristicReadResponse::DefaultResponse
                     (body)
                 )
@@ -1343,9 +1373,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(ContestEffectListResponse::DefaultResponse
                     (body)
                 )
@@ -1420,9 +1453,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(ContestEffectReadResponse::DefaultResponse
                     (body)
                 )
@@ -1505,9 +1541,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(ContestTypeListResponse::DefaultResponse
                     (body)
                 )
@@ -1582,9 +1621,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(ContestTypeReadResponse::DefaultResponse
                     (body)
                 )
@@ -1667,9 +1709,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(EggGroupListResponse::DefaultResponse
                     (body)
                 )
@@ -1744,9 +1789,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(EggGroupReadResponse::DefaultResponse
                     (body)
                 )
@@ -1829,9 +1877,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(EncounterConditionListResponse::DefaultResponse
                     (body)
                 )
@@ -1906,9 +1957,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(EncounterConditionReadResponse::DefaultResponse
                     (body)
                 )
@@ -1991,9 +2045,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(EncounterConditionValueListResponse::DefaultResponse
                     (body)
                 )
@@ -2068,9 +2125,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(EncounterConditionValueReadResponse::DefaultResponse
                     (body)
                 )
@@ -2153,9 +2213,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(EncounterMethodListResponse::DefaultResponse
                     (body)
                 )
@@ -2230,9 +2293,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(EncounterMethodReadResponse::DefaultResponse
                     (body)
                 )
@@ -2315,9 +2381,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(EvolutionChainListResponse::DefaultResponse
                     (body)
                 )
@@ -2392,9 +2461,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(EvolutionChainReadResponse::DefaultResponse
                     (body)
                 )
@@ -2477,9 +2549,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(EvolutionTriggerListResponse::DefaultResponse
                     (body)
                 )
@@ -2554,9 +2629,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(EvolutionTriggerReadResponse::DefaultResponse
                     (body)
                 )
@@ -2639,9 +2717,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(GenderListResponse::DefaultResponse
                     (body)
                 )
@@ -2716,9 +2797,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(GenderReadResponse::DefaultResponse
                     (body)
                 )
@@ -2801,9 +2885,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(GenerationListResponse::DefaultResponse
                     (body)
                 )
@@ -2878,9 +2965,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(GenerationReadResponse::DefaultResponse
                     (body)
                 )
@@ -2963,9 +3053,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(GrowthRateListResponse::DefaultResponse
                     (body)
                 )
@@ -3040,9 +3133,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(GrowthRateReadResponse::DefaultResponse
                     (body)
                 )
@@ -3125,9 +3221,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(ItemListResponse::DefaultResponse
                     (body)
                 )
@@ -3202,9 +3301,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(ItemReadResponse::DefaultResponse
                     (body)
                 )
@@ -3287,9 +3389,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(ItemAttributeListResponse::DefaultResponse
                     (body)
                 )
@@ -3364,9 +3469,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(ItemAttributeReadResponse::DefaultResponse
                     (body)
                 )
@@ -3449,9 +3557,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(ItemCategoryListResponse::DefaultResponse
                     (body)
                 )
@@ -3526,9 +3637,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(ItemCategoryReadResponse::DefaultResponse
                     (body)
                 )
@@ -3611,9 +3725,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(ItemFlingEffectListResponse::DefaultResponse
                     (body)
                 )
@@ -3688,9 +3805,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(ItemFlingEffectReadResponse::DefaultResponse
                     (body)
                 )
@@ -3773,9 +3893,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(ItemPocketListResponse::DefaultResponse
                     (body)
                 )
@@ -3850,9 +3973,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(ItemPocketReadResponse::DefaultResponse
                     (body)
                 )
@@ -3935,9 +4061,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(LanguageListResponse::DefaultResponse
                     (body)
                 )
@@ -4012,9 +4141,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(LanguageReadResponse::DefaultResponse
                     (body)
                 )
@@ -4097,9 +4229,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(LocationListResponse::DefaultResponse
                     (body)
                 )
@@ -4174,9 +4309,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(LocationReadResponse::DefaultResponse
                     (body)
                 )
@@ -4259,9 +4397,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(LocationAreaListResponse::DefaultResponse
                     (body)
                 )
@@ -4336,9 +4477,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(LocationAreaReadResponse::DefaultResponse
                     (body)
                 )
@@ -4421,9 +4565,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(MachineListResponse::DefaultResponse
                     (body)
                 )
@@ -4498,9 +4645,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(MachineReadResponse::DefaultResponse
                     (body)
                 )
@@ -4583,9 +4733,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(MoveListResponse::DefaultResponse
                     (body)
                 )
@@ -4660,9 +4813,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(MoveReadResponse::DefaultResponse
                     (body)
                 )
@@ -4745,9 +4901,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(MoveAilmentListResponse::DefaultResponse
                     (body)
                 )
@@ -4822,9 +4981,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(MoveAilmentReadResponse::DefaultResponse
                     (body)
                 )
@@ -4907,9 +5069,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(MoveBattleStyleListResponse::DefaultResponse
                     (body)
                 )
@@ -4984,9 +5149,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(MoveBattleStyleReadResponse::DefaultResponse
                     (body)
                 )
@@ -5069,9 +5237,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(MoveCategoryListResponse::DefaultResponse
                     (body)
                 )
@@ -5146,9 +5317,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(MoveCategoryReadResponse::DefaultResponse
                     (body)
                 )
@@ -5231,9 +5405,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(MoveDamageClassListResponse::DefaultResponse
                     (body)
                 )
@@ -5308,9 +5485,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(MoveDamageClassReadResponse::DefaultResponse
                     (body)
                 )
@@ -5393,9 +5573,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(MoveLearnMethodListResponse::DefaultResponse
                     (body)
                 )
@@ -5470,9 +5653,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(MoveLearnMethodReadResponse::DefaultResponse
                     (body)
                 )
@@ -5555,9 +5741,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(MoveTargetListResponse::DefaultResponse
                     (body)
                 )
@@ -5632,9 +5821,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(MoveTargetReadResponse::DefaultResponse
                     (body)
                 )
@@ -5717,9 +5909,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(NatureListResponse::DefaultResponse
                     (body)
                 )
@@ -5794,9 +5989,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(NatureReadResponse::DefaultResponse
                     (body)
                 )
@@ -5879,9 +6077,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PalParkAreaListResponse::DefaultResponse
                     (body)
                 )
@@ -5956,9 +6157,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PalParkAreaReadResponse::DefaultResponse
                     (body)
                 )
@@ -6041,9 +6245,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PokeathlonStatListResponse::DefaultResponse
                     (body)
                 )
@@ -6118,9 +6325,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PokeathlonStatReadResponse::DefaultResponse
                     (body)
                 )
@@ -6203,9 +6413,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PokedexListResponse::DefaultResponse
                     (body)
                 )
@@ -6280,9 +6493,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PokedexReadResponse::DefaultResponse
                     (body)
                 )
@@ -6365,9 +6581,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PokemonListResponse::DefaultResponse
                     (body)
                 )
@@ -6442,9 +6661,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PokemonReadResponse::DefaultResponse
                     (body)
                 )
@@ -6527,9 +6749,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PokemonColorListResponse::DefaultResponse
                     (body)
                 )
@@ -6604,9 +6829,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PokemonColorReadResponse::DefaultResponse
                     (body)
                 )
@@ -6689,9 +6917,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PokemonFormListResponse::DefaultResponse
                     (body)
                 )
@@ -6766,9 +6997,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PokemonFormReadResponse::DefaultResponse
                     (body)
                 )
@@ -6851,9 +7085,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PokemonHabitatListResponse::DefaultResponse
                     (body)
                 )
@@ -6928,9 +7165,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PokemonHabitatReadResponse::DefaultResponse
                     (body)
                 )
@@ -7013,9 +7253,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PokemonShapeListResponse::DefaultResponse
                     (body)
                 )
@@ -7090,9 +7333,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PokemonShapeReadResponse::DefaultResponse
                     (body)
                 )
@@ -7175,9 +7421,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PokemonSpeciesListResponse::DefaultResponse
                     (body)
                 )
@@ -7252,9 +7501,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(PokemonSpeciesReadResponse::DefaultResponse
                     (body)
                 )
@@ -7337,9 +7589,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(RegionListResponse::DefaultResponse
                     (body)
                 )
@@ -7414,9 +7669,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(RegionReadResponse::DefaultResponse
                     (body)
                 )
@@ -7499,9 +7757,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(StatListResponse::DefaultResponse
                     (body)
                 )
@@ -7576,9 +7837,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(StatReadResponse::DefaultResponse
                     (body)
                 )
@@ -7661,9 +7925,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(SuperContestEffectListResponse::DefaultResponse
                     (body)
                 )
@@ -7738,9 +8005,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(SuperContestEffectReadResponse::DefaultResponse
                     (body)
                 )
@@ -7823,9 +8093,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(TypeListResponse::DefaultResponse
                     (body)
                 )
@@ -7900,9 +8173,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(TypeReadResponse::DefaultResponse
                     (body)
                 )
@@ -7985,9 +8261,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(VersionListResponse::DefaultResponse
                     (body)
                 )
@@ -8062,9 +8341,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(VersionReadResponse::DefaultResponse
                     (body)
                 )
@@ -8147,9 +8429,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(VersionGroupListResponse::DefaultResponse
                     (body)
                 )
@@ -8224,9 +8509,12 @@ impl<S, C> Api<C> for Client<S, C> where
                 let body = body
                         .into_raw()
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
                 let body = body.to_string();
+
+
                 Ok(VersionGroupReadResponse::DefaultResponse
                     (body)
                 )

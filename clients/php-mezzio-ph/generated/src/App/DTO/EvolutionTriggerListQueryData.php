@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Query parameters for evolution-trigger_list
+ * Query parameters for evolutionTriggerList
  */
 class EvolutionTriggerListQueryData
 {

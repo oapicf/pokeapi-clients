@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, AbilityApi } from '';
+import type { AbilityApiAbilityListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .AbilityApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new AbilityApi(configuration);
 
-let body:.AbilityApiAbilityListRequest = {
-  // number (optional)
+const request: AbilityApiAbilityListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.abilityList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.abilityList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, AbilityApi } from '';
+import type { AbilityApiAbilityReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .AbilityApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new AbilityApi(configuration);
 
-let body:.AbilityApiAbilityReadRequest = {
-  // number
+const request: AbilityApiAbilityReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.abilityRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.abilityRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

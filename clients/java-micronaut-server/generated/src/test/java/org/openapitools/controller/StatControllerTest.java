@@ -78,7 +78,7 @@ public class StatControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/stat/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@9b47400");
+            .accept("[Ljava.lang.String;@51c65a43");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class StatControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@747835f5");
+            .accept("[Ljava.lang.String;@740dcae3");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

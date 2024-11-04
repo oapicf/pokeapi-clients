@@ -72,8 +72,8 @@ class EncounterConditionApiSimulation extends Simulation {
         .feed(encounter-condition_listQUERYFeeder)
         .exec(http("encounterConditionList")
         .httpRequest("GET","/api/v2/encounter-condition/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scnencounterConditionList with warm up and reach a constant rate for entire duration

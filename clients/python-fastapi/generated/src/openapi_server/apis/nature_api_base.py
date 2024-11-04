@@ -10,7 +10,7 @@ class BaseNatureApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseNatureApi.subclasses = BaseNatureApi.subclasses + (cls,)
-    def nature_list(
+    async def nature_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseNatureApi:
         ...
 
 
-    def nature_read(
+    async def nature_read(
         self,
         id: int,
     ) -> str:

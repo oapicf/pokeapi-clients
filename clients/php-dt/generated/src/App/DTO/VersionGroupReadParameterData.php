@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for version-group_read
+ * Parameters for versionGroupRead
  */
 class VersionGroupReadParameterData
 {

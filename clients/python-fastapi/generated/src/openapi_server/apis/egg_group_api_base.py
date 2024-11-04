@@ -10,7 +10,7 @@ class BaseEggGroupApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseEggGroupApi.subclasses = BaseEggGroupApi.subclasses + (cls,)
-    def egg_group_list(
+    async def egg_group_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseEggGroupApi:
         ...
 
 
-    def egg_group_read(
+    async def egg_group_read(
         self,
         id: int,
     ) -> str:

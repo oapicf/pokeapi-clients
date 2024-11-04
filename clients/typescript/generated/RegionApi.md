@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, RegionApi } from '';
+import type { RegionApiRegionListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .RegionApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new RegionApi(configuration);
 
-let body:.RegionApiRegionListRequest = {
-  // number (optional)
+const request: RegionApiRegionListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.regionList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.regionList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, RegionApi } from '';
+import type { RegionApiRegionReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .RegionApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new RegionApi(configuration);
 
-let body:.RegionApiRegionReadRequest = {
-  // number
+const request: RegionApiRegionReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.regionRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.regionRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

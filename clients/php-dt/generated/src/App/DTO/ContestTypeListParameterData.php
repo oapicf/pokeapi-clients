@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for contest-type_list
+ * Parameters for contestTypeList
  */
 class ContestTypeListParameterData
 {

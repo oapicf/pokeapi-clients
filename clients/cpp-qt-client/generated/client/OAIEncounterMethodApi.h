@@ -60,12 +60,12 @@ public:
     * @param[in]  limit qint32 [optional]
     * @param[in]  offset qint32 [optional]
     */
-    void encounterMethodList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
+    virtual void encounterMethodList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
     */
-    void encounterMethodRead(const qint32 &id);
+    virtual void encounterMethodRead(const qint32 &id);
 
 
 private:
@@ -97,6 +97,7 @@ Q_SIGNALS:
 
     void encounterMethodListSignal(QString summary);
     void encounterMethodReadSignal(QString summary);
+
 
     void encounterMethodListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void encounterMethodReadSignalFull(OAIHttpRequestWorker *worker, QString summary);

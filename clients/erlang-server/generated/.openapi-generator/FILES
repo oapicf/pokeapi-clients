@@ -12,7 +12,6 @@ src/openapi_berry_handler.erl
 src/openapi_characteristic_handler.erl
 src/openapi_contest_effect_handler.erl
 src/openapi_contest_type_handler.erl
-src/openapi_default_logic_handler.erl
 src/openapi_egg_group_handler.erl
 src/openapi_encounter_condition_handler.erl
 src/openapi_encounter_condition_value_handler.erl
@@ -55,6 +54,5 @@ src/openapi_server.erl
 src/openapi_stat_handler.erl
 src/openapi_super_contest_effect_handler.erl
 src/openapi_type_handler.erl
-src/openapi_utils.erl
 src/openapi_version_group_handler.erl
 src/openapi_version_handler.erl

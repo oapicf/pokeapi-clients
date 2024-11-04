@@ -60,12 +60,12 @@ public:
     * @param[in]  limit qint32 [optional]
     * @param[in]  offset qint32 [optional]
     */
-    void versionGroupList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
+    virtual void versionGroupList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
     */
-    void versionGroupRead(const qint32 &id);
+    virtual void versionGroupRead(const qint32 &id);
 
 
 private:
@@ -97,6 +97,7 @@ Q_SIGNALS:
 
     void versionGroupListSignal(QString summary);
     void versionGroupReadSignal(QString summary);
+
 
     void versionGroupListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void versionGroupReadSignalFull(OAIHttpRequestWorker *worker, QString summary);

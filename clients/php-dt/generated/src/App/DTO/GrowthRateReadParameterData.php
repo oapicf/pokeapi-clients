@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for growth-rate_read
+ * Parameters for growthRateRead
  */
 class GrowthRateReadParameterData
 {

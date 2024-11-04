@@ -72,8 +72,8 @@ class MoveLearnMethodApiSimulation extends Simulation {
         .feed(move-learn-method_listQUERYFeeder)
         .exec(http("moveLearnMethodList")
         .httpRequest("GET","/api/v2/move-learn-method/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scnmoveLearnMethodList with warm up and reach a constant rate for entire duration

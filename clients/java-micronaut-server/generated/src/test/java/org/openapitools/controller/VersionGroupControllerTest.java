@@ -78,7 +78,7 @@ public class VersionGroupControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/version-group/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@66ec4409");
+            .accept("[Ljava.lang.String;@3e1f1046");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class VersionGroupControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@2506e949");
+            .accept("[Ljava.lang.String;@23e3f5cd");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

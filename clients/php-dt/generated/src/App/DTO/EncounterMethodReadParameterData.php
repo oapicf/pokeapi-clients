@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for encounter-method_read
+ * Parameters for encounterMethodRead
  */
 class EncounterMethodReadParameterData
 {

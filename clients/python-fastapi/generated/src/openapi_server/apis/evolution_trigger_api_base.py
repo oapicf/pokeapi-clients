@@ -10,7 +10,7 @@ class BaseEvolutionTriggerApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseEvolutionTriggerApi.subclasses = BaseEvolutionTriggerApi.subclasses + (cls,)
-    def evolution_trigger_list(
+    async def evolution_trigger_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseEvolutionTriggerApi:
         ...
 
 
-    def evolution_trigger_read(
+    async def evolution_trigger_read(
         self,
         id: int,
     ) -> str:

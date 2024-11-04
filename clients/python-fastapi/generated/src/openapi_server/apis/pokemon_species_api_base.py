@@ -10,7 +10,7 @@ class BasePokemonSpeciesApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BasePokemonSpeciesApi.subclasses = BasePokemonSpeciesApi.subclasses + (cls,)
-    def pokemon_species_list(
+    async def pokemon_species_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BasePokemonSpeciesApi:
         ...
 
 
-    def pokemon_species_read(
+    async def pokemon_species_read(
         self,
         id: int,
     ) -> str:

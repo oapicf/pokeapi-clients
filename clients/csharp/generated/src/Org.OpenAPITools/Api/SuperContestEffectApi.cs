@@ -87,7 +87,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> SuperContestEffectListAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> SuperContestEffectListAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -101,7 +101,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> SuperContestEffectListWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> SuperContestEffectListWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -113,7 +113,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> SuperContestEffectReadAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> SuperContestEffectReadAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -126,7 +126,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> SuperContestEffectReadWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> SuperContestEffectReadWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -329,7 +329,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> SuperContestEffectListAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> SuperContestEffectListAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Org.OpenAPITools.Client.ApiResponse<string> localVarResponse = await SuperContestEffectListWithHttpInfoAsync(limit, offset, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -344,7 +344,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<string>> SuperContestEffectListWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<string>> SuperContestEffectListWithHttpInfoAsync(int? limit = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Org.OpenAPITools.Client.RequestOptions localVarRequestOptions = new Org.OpenAPITools.Client.RequestOptions();
@@ -469,7 +469,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> SuperContestEffectReadAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> SuperContestEffectReadAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Org.OpenAPITools.Client.ApiResponse<string> localVarResponse = await SuperContestEffectReadWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -483,7 +483,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<string>> SuperContestEffectReadWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<string>> SuperContestEffectReadWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Org.OpenAPITools.Client.RequestOptions localVarRequestOptions = new Org.OpenAPITools.Client.RequestOptions();

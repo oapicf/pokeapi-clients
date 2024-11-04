@@ -60,12 +60,12 @@ public:
     * @param[in]  limit qint32 [optional]
     * @param[in]  offset qint32 [optional]
     */
-    void locationAreaList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
+    virtual void locationAreaList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
     */
-    void locationAreaRead(const qint32 &id);
+    virtual void locationAreaRead(const qint32 &id);
 
 
 private:
@@ -97,6 +97,7 @@ Q_SIGNALS:
 
     void locationAreaListSignal(QString summary);
     void locationAreaReadSignal(QString summary);
+
 
     void locationAreaListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void locationAreaReadSignalFull(OAIHttpRequestWorker *worker, QString summary);

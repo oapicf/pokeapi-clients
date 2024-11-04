@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, ItemFlingEffectApi } from '';
+import type { ItemFlingEffectApiItemFlingEffectListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ItemFlingEffectApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new ItemFlingEffectApi(configuration);
 
-let body:.ItemFlingEffectApiItemFlingEffectListRequest = {
-  // number (optional)
+const request: ItemFlingEffectApiItemFlingEffectListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.itemFlingEffectList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.itemFlingEffectList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, ItemFlingEffectApi } from '';
+import type { ItemFlingEffectApiItemFlingEffectReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ItemFlingEffectApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new ItemFlingEffectApi(configuration);
 
-let body:.ItemFlingEffectApiItemFlingEffectReadRequest = {
-  // number
+const request: ItemFlingEffectApiItemFlingEffectReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.itemFlingEffectRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.itemFlingEffectRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

@@ -72,8 +72,8 @@ class GenerationApiSimulation extends Simulation {
         .feed(generation_listQUERYFeeder)
         .exec(http("generationList")
         .httpRequest("GET","/api/v2/generation/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scngenerationList with warm up and reach a constant rate for entire duration

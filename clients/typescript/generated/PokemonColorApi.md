@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, PokemonColorApi } from '';
+import type { PokemonColorApiPokemonColorListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PokemonColorApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new PokemonColorApi(configuration);
 
-let body:.PokemonColorApiPokemonColorListRequest = {
-  // number (optional)
+const request: PokemonColorApiPokemonColorListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.pokemonColorList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.pokemonColorList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, PokemonColorApi } from '';
+import type { PokemonColorApiPokemonColorReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PokemonColorApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new PokemonColorApi(configuration);
 
-let body:.PokemonColorApiPokemonColorReadRequest = {
-  // number
+const request: PokemonColorApiPokemonColorReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.pokemonColorRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.pokemonColorRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

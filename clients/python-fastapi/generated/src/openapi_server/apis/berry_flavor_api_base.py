@@ -10,7 +10,7 @@ class BaseBerryFlavorApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseBerryFlavorApi.subclasses = BaseBerryFlavorApi.subclasses + (cls,)
-    def berry_flavor_list(
+    async def berry_flavor_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseBerryFlavorApi:
         ...
 
 
-    def berry_flavor_read(
+    async def berry_flavor_read(
         self,
         id: int,
     ) -> str:

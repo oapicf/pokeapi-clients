@@ -60,12 +60,12 @@ public:
     * @param[in]  limit qint32 [optional]
     * @param[in]  offset qint32 [optional]
     */
-    void moveAilmentList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
+    virtual void moveAilmentList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
     */
-    void moveAilmentRead(const qint32 &id);
+    virtual void moveAilmentRead(const qint32 &id);
 
 
 private:
@@ -97,6 +97,7 @@ Q_SIGNALS:
 
     void moveAilmentListSignal(QString summary);
     void moveAilmentReadSignal(QString summary);
+
 
     void moveAilmentListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void moveAilmentReadSignalFull(OAIHttpRequestWorker *worker, QString summary);

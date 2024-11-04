@@ -10,7 +10,7 @@ class BaseEncounterMethodApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseEncounterMethodApi.subclasses = BaseEncounterMethodApi.subclasses + (cls,)
-    def encounter_method_list(
+    async def encounter_method_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseEncounterMethodApi:
         ...
 
 
-    def encounter_method_read(
+    async def encounter_method_read(
         self,
         id: int,
     ) -> str:

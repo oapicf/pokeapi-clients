@@ -10,7 +10,7 @@ class BaseEvolutionChainApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseEvolutionChainApi.subclasses = BaseEvolutionChainApi.subclasses + (cls,)
-    def evolution_chain_list(
+    async def evolution_chain_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseEvolutionChainApi:
         ...
 
 
-    def evolution_chain_read(
+    async def evolution_chain_read(
         self,
         id: int,
     ) -> str:

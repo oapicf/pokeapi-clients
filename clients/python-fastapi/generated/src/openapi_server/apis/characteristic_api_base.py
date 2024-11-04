@@ -10,7 +10,7 @@ class BaseCharacteristicApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseCharacteristicApi.subclasses = BaseCharacteristicApi.subclasses + (cls,)
-    def characteristic_list(
+    async def characteristic_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseCharacteristicApi:
         ...
 
 
-    def characteristic_read(
+    async def characteristic_read(
         self,
         id: int,
     ) -> str:

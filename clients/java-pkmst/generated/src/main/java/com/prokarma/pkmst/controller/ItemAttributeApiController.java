@@ -22,7 +22,7 @@ import java.io.IOException;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-09T12:13:44.344977646Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-11-03T13:18:35.669597013Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 @Controller
 public class ItemAttributeApiController implements ItemAttributeApi {
     private final ObjectMapper objectMapper;

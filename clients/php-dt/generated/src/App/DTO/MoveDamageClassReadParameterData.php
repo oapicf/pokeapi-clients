@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for move-damage-class_read
+ * Parameters for moveDamageClassRead
  */
 class MoveDamageClassReadParameterData
 {

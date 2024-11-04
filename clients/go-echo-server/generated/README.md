@@ -13,8 +13,8 @@ To see how to make this your own, look here:
 [README](https://openapi-generator.tech)
 
 - API version: 20220523
-- Build date: 2024-07-09T12:11:29.981899344Z[Etc/UTC]
-- Generator version: 7.6.0
+- Build date: 2024-11-03T13:17:01.099228258Z[Etc/UTC]
+- Generator version: 7.9.0
 For more information, please visit [https://github.com/oapicf/pokeapi-clients](https://github.com/oapicf/pokeapi-clients)
 
 ### Running the server

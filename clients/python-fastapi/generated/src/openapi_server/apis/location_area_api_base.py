@@ -10,7 +10,7 @@ class BaseLocationAreaApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseLocationAreaApi.subclasses = BaseLocationAreaApi.subclasses + (cls,)
-    def location_area_list(
+    async def location_area_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseLocationAreaApi:
         ...
 
 
-    def location_area_read(
+    async def location_area_read(
         self,
         id: int,
     ) -> str:

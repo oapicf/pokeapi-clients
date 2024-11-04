@@ -56,6 +56,7 @@ pub async fn create(addr: &str, https: bool) {
             let tls_acceptor = ssl.build();
             let tcp_listener = TcpListener::bind(&addr).await.unwrap();
 
+            info!("Starting a server (with https)");
             loop {
                 if let Ok((tcp, _)) = tcp_listener.accept().await {
                     let ssl = Ssl::new(tls_acceptor.context()).unwrap();
@@ -75,6 +76,7 @@ pub async fn create(addr: &str, https: bool) {
             }
         }
     } else {
+        info!("Starting a server (over http, so no TLS)");
         // Using HTTP
         hyper::server::Server::bind(&addr).serve(service).await.unwrap()
     }
@@ -90,6 +92,12 @@ impl<C> Server<C> {
         Server{marker: PhantomData}
     }
 }
+
+
+use jsonwebtoken::{decode, encode, errors::Error as JwtError, Algorithm, DecodingKey, EncodingKey, Header, TokenData, Validation};
+use serde::{Deserialize, Serialize};
+use swagger::auth::Authorization;
+use crate::server_auth;
 
 
 use openapi_client::{
@@ -205,7 +213,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<AbilityListResponse, ApiError>
     {
         info!("ability_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn ability_read(
@@ -214,7 +222,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<AbilityReadResponse, ApiError>
     {
         info!("ability_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn berry_list(
@@ -224,7 +232,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<BerryListResponse, ApiError>
     {
         info!("berry_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn berry_read(
@@ -233,7 +241,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<BerryReadResponse, ApiError>
     {
         info!("berry_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn berry_firmness_list(
@@ -243,7 +251,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<BerryFirmnessListResponse, ApiError>
     {
         info!("berry_firmness_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn berry_firmness_read(
@@ -252,7 +260,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<BerryFirmnessReadResponse, ApiError>
     {
         info!("berry_firmness_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn berry_flavor_list(
@@ -262,7 +270,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<BerryFlavorListResponse, ApiError>
     {
         info!("berry_flavor_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn berry_flavor_read(
@@ -271,7 +279,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<BerryFlavorReadResponse, ApiError>
     {
         info!("berry_flavor_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn characteristic_list(
@@ -281,7 +289,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<CharacteristicListResponse, ApiError>
     {
         info!("characteristic_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn characteristic_read(
@@ -290,7 +298,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<CharacteristicReadResponse, ApiError>
     {
         info!("characteristic_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn contest_effect_list(
@@ -300,7 +308,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<ContestEffectListResponse, ApiError>
     {
         info!("contest_effect_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn contest_effect_read(
@@ -309,7 +317,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<ContestEffectReadResponse, ApiError>
     {
         info!("contest_effect_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn contest_type_list(
@@ -319,7 +327,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<ContestTypeListResponse, ApiError>
     {
         info!("contest_type_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn contest_type_read(
@@ -328,7 +336,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<ContestTypeReadResponse, ApiError>
     {
         info!("contest_type_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn egg_group_list(
@@ -338,7 +346,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<EggGroupListResponse, ApiError>
     {
         info!("egg_group_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn egg_group_read(
@@ -347,7 +355,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<EggGroupReadResponse, ApiError>
     {
         info!("egg_group_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn encounter_condition_list(
@@ -357,7 +365,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<EncounterConditionListResponse, ApiError>
     {
         info!("encounter_condition_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn encounter_condition_read(
@@ -366,7 +374,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<EncounterConditionReadResponse, ApiError>
     {
         info!("encounter_condition_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn encounter_condition_value_list(
@@ -376,7 +384,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<EncounterConditionValueListResponse, ApiError>
     {
         info!("encounter_condition_value_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn encounter_condition_value_read(
@@ -385,7 +393,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<EncounterConditionValueReadResponse, ApiError>
     {
         info!("encounter_condition_value_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn encounter_method_list(
@@ -395,7 +403,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<EncounterMethodListResponse, ApiError>
     {
         info!("encounter_method_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn encounter_method_read(
@@ -404,7 +412,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<EncounterMethodReadResponse, ApiError>
     {
         info!("encounter_method_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn evolution_chain_list(
@@ -414,7 +422,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<EvolutionChainListResponse, ApiError>
     {
         info!("evolution_chain_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn evolution_chain_read(
@@ -423,7 +431,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<EvolutionChainReadResponse, ApiError>
     {
         info!("evolution_chain_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn evolution_trigger_list(
@@ -433,7 +441,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<EvolutionTriggerListResponse, ApiError>
     {
         info!("evolution_trigger_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn evolution_trigger_read(
@@ -442,7 +450,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<EvolutionTriggerReadResponse, ApiError>
     {
         info!("evolution_trigger_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn gender_list(
@@ -452,7 +460,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<GenderListResponse, ApiError>
     {
         info!("gender_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn gender_read(
@@ -461,7 +469,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<GenderReadResponse, ApiError>
     {
         info!("gender_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn generation_list(
@@ -471,7 +479,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<GenerationListResponse, ApiError>
     {
         info!("generation_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn generation_read(
@@ -480,7 +488,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<GenerationReadResponse, ApiError>
     {
         info!("generation_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn growth_rate_list(
@@ -490,7 +498,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<GrowthRateListResponse, ApiError>
     {
         info!("growth_rate_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn growth_rate_read(
@@ -499,7 +507,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<GrowthRateReadResponse, ApiError>
     {
         info!("growth_rate_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn item_list(
@@ -509,7 +517,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<ItemListResponse, ApiError>
     {
         info!("item_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn item_read(
@@ -518,7 +526,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<ItemReadResponse, ApiError>
     {
         info!("item_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn item_attribute_list(
@@ -528,7 +536,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<ItemAttributeListResponse, ApiError>
     {
         info!("item_attribute_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn item_attribute_read(
@@ -537,7 +545,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<ItemAttributeReadResponse, ApiError>
     {
         info!("item_attribute_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn item_category_list(
@@ -547,7 +555,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<ItemCategoryListResponse, ApiError>
     {
         info!("item_category_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn item_category_read(
@@ -556,7 +564,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<ItemCategoryReadResponse, ApiError>
     {
         info!("item_category_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn item_fling_effect_list(
@@ -566,7 +574,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<ItemFlingEffectListResponse, ApiError>
     {
         info!("item_fling_effect_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn item_fling_effect_read(
@@ -575,7 +583,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<ItemFlingEffectReadResponse, ApiError>
     {
         info!("item_fling_effect_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn item_pocket_list(
@@ -585,7 +593,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<ItemPocketListResponse, ApiError>
     {
         info!("item_pocket_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn item_pocket_read(
@@ -594,7 +602,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<ItemPocketReadResponse, ApiError>
     {
         info!("item_pocket_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn language_list(
@@ -604,7 +612,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<LanguageListResponse, ApiError>
     {
         info!("language_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn language_read(
@@ -613,7 +621,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<LanguageReadResponse, ApiError>
     {
         info!("language_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn location_list(
@@ -623,7 +631,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<LocationListResponse, ApiError>
     {
         info!("location_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn location_read(
@@ -632,7 +640,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<LocationReadResponse, ApiError>
     {
         info!("location_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn location_area_list(
@@ -642,7 +650,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<LocationAreaListResponse, ApiError>
     {
         info!("location_area_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn location_area_read(
@@ -651,7 +659,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<LocationAreaReadResponse, ApiError>
     {
         info!("location_area_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn machine_list(
@@ -661,7 +669,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<MachineListResponse, ApiError>
     {
         info!("machine_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn machine_read(
@@ -670,7 +678,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<MachineReadResponse, ApiError>
     {
         info!("machine_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn move_list(
@@ -680,7 +688,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<MoveListResponse, ApiError>
     {
         info!("move_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn move_read(
@@ -689,7 +697,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<MoveReadResponse, ApiError>
     {
         info!("move_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn move_ailment_list(
@@ -699,7 +707,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<MoveAilmentListResponse, ApiError>
     {
         info!("move_ailment_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn move_ailment_read(
@@ -708,7 +716,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<MoveAilmentReadResponse, ApiError>
     {
         info!("move_ailment_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn move_battle_style_list(
@@ -718,7 +726,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<MoveBattleStyleListResponse, ApiError>
     {
         info!("move_battle_style_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn move_battle_style_read(
@@ -727,7 +735,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<MoveBattleStyleReadResponse, ApiError>
     {
         info!("move_battle_style_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn move_category_list(
@@ -737,7 +745,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<MoveCategoryListResponse, ApiError>
     {
         info!("move_category_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn move_category_read(
@@ -746,7 +754,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<MoveCategoryReadResponse, ApiError>
     {
         info!("move_category_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn move_damage_class_list(
@@ -756,7 +764,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<MoveDamageClassListResponse, ApiError>
     {
         info!("move_damage_class_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn move_damage_class_read(
@@ -765,7 +773,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<MoveDamageClassReadResponse, ApiError>
     {
         info!("move_damage_class_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn move_learn_method_list(
@@ -775,7 +783,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<MoveLearnMethodListResponse, ApiError>
     {
         info!("move_learn_method_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn move_learn_method_read(
@@ -784,7 +792,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<MoveLearnMethodReadResponse, ApiError>
     {
         info!("move_learn_method_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn move_target_list(
@@ -794,7 +802,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<MoveTargetListResponse, ApiError>
     {
         info!("move_target_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn move_target_read(
@@ -803,7 +811,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<MoveTargetReadResponse, ApiError>
     {
         info!("move_target_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn nature_list(
@@ -813,7 +821,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<NatureListResponse, ApiError>
     {
         info!("nature_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn nature_read(
@@ -822,7 +830,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<NatureReadResponse, ApiError>
     {
         info!("nature_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pal_park_area_list(
@@ -832,7 +840,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PalParkAreaListResponse, ApiError>
     {
         info!("pal_park_area_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pal_park_area_read(
@@ -841,7 +849,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PalParkAreaReadResponse, ApiError>
     {
         info!("pal_park_area_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pokeathlon_stat_list(
@@ -851,7 +859,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PokeathlonStatListResponse, ApiError>
     {
         info!("pokeathlon_stat_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pokeathlon_stat_read(
@@ -860,7 +868,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PokeathlonStatReadResponse, ApiError>
     {
         info!("pokeathlon_stat_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pokedex_list(
@@ -870,7 +878,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PokedexListResponse, ApiError>
     {
         info!("pokedex_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pokedex_read(
@@ -879,7 +887,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PokedexReadResponse, ApiError>
     {
         info!("pokedex_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pokemon_list(
@@ -889,7 +897,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PokemonListResponse, ApiError>
     {
         info!("pokemon_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pokemon_read(
@@ -898,7 +906,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PokemonReadResponse, ApiError>
     {
         info!("pokemon_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pokemon_color_list(
@@ -908,7 +916,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PokemonColorListResponse, ApiError>
     {
         info!("pokemon_color_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pokemon_color_read(
@@ -917,7 +925,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PokemonColorReadResponse, ApiError>
     {
         info!("pokemon_color_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pokemon_form_list(
@@ -927,7 +935,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PokemonFormListResponse, ApiError>
     {
         info!("pokemon_form_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pokemon_form_read(
@@ -936,7 +944,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PokemonFormReadResponse, ApiError>
     {
         info!("pokemon_form_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pokemon_habitat_list(
@@ -946,7 +954,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PokemonHabitatListResponse, ApiError>
     {
         info!("pokemon_habitat_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pokemon_habitat_read(
@@ -955,7 +963,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PokemonHabitatReadResponse, ApiError>
     {
         info!("pokemon_habitat_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pokemon_shape_list(
@@ -965,7 +973,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PokemonShapeListResponse, ApiError>
     {
         info!("pokemon_shape_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pokemon_shape_read(
@@ -974,7 +982,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PokemonShapeReadResponse, ApiError>
     {
         info!("pokemon_shape_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pokemon_species_list(
@@ -984,7 +992,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PokemonSpeciesListResponse, ApiError>
     {
         info!("pokemon_species_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn pokemon_species_read(
@@ -993,7 +1001,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<PokemonSpeciesReadResponse, ApiError>
     {
         info!("pokemon_species_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn region_list(
@@ -1003,7 +1011,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<RegionListResponse, ApiError>
     {
         info!("region_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn region_read(
@@ -1012,7 +1020,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<RegionReadResponse, ApiError>
     {
         info!("region_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn stat_list(
@@ -1022,7 +1030,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<StatListResponse, ApiError>
     {
         info!("stat_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn stat_read(
@@ -1031,7 +1039,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<StatReadResponse, ApiError>
     {
         info!("stat_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn super_contest_effect_list(
@@ -1041,7 +1049,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<SuperContestEffectListResponse, ApiError>
     {
         info!("super_contest_effect_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn super_contest_effect_read(
@@ -1050,7 +1058,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<SuperContestEffectReadResponse, ApiError>
     {
         info!("super_contest_effect_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn type_list(
@@ -1060,7 +1068,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<TypeListResponse, ApiError>
     {
         info!("type_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn type_read(
@@ -1069,7 +1077,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<TypeReadResponse, ApiError>
     {
         info!("type_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn version_list(
@@ -1079,7 +1087,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<VersionListResponse, ApiError>
     {
         info!("version_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn version_read(
@@ -1088,7 +1096,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<VersionReadResponse, ApiError>
     {
         info!("version_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn version_group_list(
@@ -1098,7 +1106,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<VersionGroupListResponse, ApiError>
     {
         info!("version_group_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
     async fn version_group_read(
@@ -1107,7 +1115,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<VersionGroupReadResponse, ApiError>
     {
         info!("version_group_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Generic failure".into()))
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
 }

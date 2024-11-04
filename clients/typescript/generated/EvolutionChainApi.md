@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EvolutionChainApi } from '';
+import type { EvolutionChainApiEvolutionChainListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EvolutionChainApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EvolutionChainApi(configuration);
 
-let body:.EvolutionChainApiEvolutionChainListRequest = {
-  // number (optional)
+const request: EvolutionChainApiEvolutionChainListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.evolutionChainList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.evolutionChainList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EvolutionChainApi } from '';
+import type { EvolutionChainApiEvolutionChainReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EvolutionChainApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EvolutionChainApi(configuration);
 
-let body:.EvolutionChainApiEvolutionChainReadRequest = {
-  // number
+const request: EvolutionChainApiEvolutionChainReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.evolutionChainRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.evolutionChainRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

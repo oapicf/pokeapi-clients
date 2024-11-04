@@ -78,7 +78,7 @@ public class MoveBattleStyleControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/move-battle-style/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@c1050f2");
+            .accept("[Ljava.lang.String;@7bbfc5ff");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class MoveBattleStyleControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@67bb4dcd");
+            .accept("[Ljava.lang.String;@7a682d35");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

@@ -10,7 +10,7 @@ class BaseItemFlingEffectApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseItemFlingEffectApi.subclasses = BaseItemFlingEffectApi.subclasses + (cls,)
-    def item_fling_effect_list(
+    async def item_fling_effect_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseItemFlingEffectApi:
         ...
 
 
-    def item_fling_effect_read(
+    async def item_fling_effect_read(
         self,
         id: int,
     ) -> str:

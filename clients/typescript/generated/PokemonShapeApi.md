@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, PokemonShapeApi } from '';
+import type { PokemonShapeApiPokemonShapeListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PokemonShapeApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new PokemonShapeApi(configuration);
 
-let body:.PokemonShapeApiPokemonShapeListRequest = {
-  // number (optional)
+const request: PokemonShapeApiPokemonShapeListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.pokemonShapeList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.pokemonShapeList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, PokemonShapeApi } from '';
+import type { PokemonShapeApiPokemonShapeReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PokemonShapeApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new PokemonShapeApi(configuration);
 
-let body:.PokemonShapeApiPokemonShapeReadRequest = {
-  // number
+const request: PokemonShapeApiPokemonShapeReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.pokemonShapeRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.pokemonShapeRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

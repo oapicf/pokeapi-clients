@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, PokemonApi } from '';
+import type { PokemonApiPokemonListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PokemonApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new PokemonApi(configuration);
 
-let body:.PokemonApiPokemonListRequest = {
-  // number (optional)
+const request: PokemonApiPokemonListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.pokemonList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.pokemonList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, PokemonApi } from '';
+import type { PokemonApiPokemonReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PokemonApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new PokemonApi(configuration);
 
-let body:.PokemonApiPokemonReadRequest = {
-  // number
+const request: PokemonApiPokemonReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.pokemonRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.pokemonRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

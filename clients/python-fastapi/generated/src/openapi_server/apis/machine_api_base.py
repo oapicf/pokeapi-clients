@@ -10,7 +10,7 @@ class BaseMachineApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseMachineApi.subclasses = BaseMachineApi.subclasses + (cls,)
-    def machine_list(
+    async def machine_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseMachineApi:
         ...
 
 
-    def machine_read(
+    async def machine_read(
         self,
         id: int,
     ) -> str:

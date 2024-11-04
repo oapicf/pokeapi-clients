@@ -10,7 +10,7 @@ class BaseGenerationApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseGenerationApi.subclasses = BaseGenerationApi.subclasses + (cls,)
-    def generation_list(
+    async def generation_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseGenerationApi:
         ...
 
 
-    def generation_read(
+    async def generation_read(
         self,
         id: int,
     ) -> str:

@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for pokemon-shape_read
+ * Parameters for pokemonShapeRead
  */
 class PokemonShapeReadParameterData
 {

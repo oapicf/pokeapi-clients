@@ -78,7 +78,7 @@ public class EvolutionChainControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/evolution-chain/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@3b42121d");
+            .accept("[Ljava.lang.String;@10e5bf9c");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class EvolutionChainControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@7a2ab862");
+            .accept("[Ljava.lang.String;@68c9e023");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

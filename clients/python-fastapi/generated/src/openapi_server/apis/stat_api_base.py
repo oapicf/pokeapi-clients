@@ -10,7 +10,7 @@ class BaseStatApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseStatApi.subclasses = BaseStatApi.subclasses + (cls,)
-    def stat_list(
+    async def stat_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseStatApi:
         ...
 
 
-    def stat_read(
+    async def stat_read(
         self,
         id: int,
     ) -> str:

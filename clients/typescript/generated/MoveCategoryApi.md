@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, MoveCategoryApi } from '';
+import type { MoveCategoryApiMoveCategoryListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MoveCategoryApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new MoveCategoryApi(configuration);
 
-let body:.MoveCategoryApiMoveCategoryListRequest = {
-  // number (optional)
+const request: MoveCategoryApiMoveCategoryListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.moveCategoryList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.moveCategoryList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, MoveCategoryApi } from '';
+import type { MoveCategoryApiMoveCategoryReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MoveCategoryApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new MoveCategoryApi(configuration);
 
-let body:.MoveCategoryApiMoveCategoryReadRequest = {
-  // number
+const request: MoveCategoryApiMoveCategoryReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.moveCategoryRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.moveCategoryRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

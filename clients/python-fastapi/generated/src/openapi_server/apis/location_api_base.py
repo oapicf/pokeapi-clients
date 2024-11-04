@@ -10,7 +10,7 @@ class BaseLocationApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseLocationApi.subclasses = BaseLocationApi.subclasses + (cls,)
-    def location_list(
+    async def location_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseLocationApi:
         ...
 
 
-    def location_read(
+    async def location_read(
         self,
         id: int,
     ) -> str:

@@ -78,7 +78,7 @@ public class BerryFlavorControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/berry-flavor/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@771a7d53");
+            .accept("[Ljava.lang.String;@4c0e426a");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class BerryFlavorControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@5a917723");
+            .accept("[Ljava.lang.String;@36aab105");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

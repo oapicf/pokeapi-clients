@@ -10,7 +10,7 @@ class BaseSuperContestEffectApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseSuperContestEffectApi.subclasses = BaseSuperContestEffectApi.subclasses + (cls,)
-    def super_contest_effect_list(
+    async def super_contest_effect_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseSuperContestEffectApi:
         ...
 
 
-    def super_contest_effect_read(
+    async def super_contest_effect_read(
         self,
         id: int,
     ) -> str:

@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for super-contest-effect_read
+ * Parameters for superContestEffectRead
  */
 class SuperContestEffectReadParameterData
 {

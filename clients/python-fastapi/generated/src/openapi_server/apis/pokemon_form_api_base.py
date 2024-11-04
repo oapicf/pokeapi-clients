@@ -10,7 +10,7 @@ class BasePokemonFormApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BasePokemonFormApi.subclasses = BasePokemonFormApi.subclasses + (cls,)
-    def pokemon_form_list(
+    async def pokemon_form_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BasePokemonFormApi:
         ...
 
 
-    def pokemon_form_read(
+    async def pokemon_form_read(
         self,
         id: int,
     ) -> str:

@@ -72,8 +72,8 @@ class PalParkAreaApiSimulation extends Simulation {
         .feed(pal-park-area_listQUERYFeeder)
         .exec(http("palParkAreaList")
         .httpRequest("GET","/api/v2/pal-park-area/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scnpalParkAreaList with warm up and reach a constant rate for entire duration

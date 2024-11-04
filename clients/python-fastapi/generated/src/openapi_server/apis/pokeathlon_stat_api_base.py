@@ -10,7 +10,7 @@ class BasePokeathlonStatApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BasePokeathlonStatApi.subclasses = BasePokeathlonStatApi.subclasses + (cls,)
-    def pokeathlon_stat_list(
+    async def pokeathlon_stat_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BasePokeathlonStatApi:
         ...
 
 
-    def pokeathlon_stat_read(
+    async def pokeathlon_stat_read(
         self,
         id: int,
     ) -> str:

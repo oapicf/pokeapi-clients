@@ -10,7 +10,7 @@ class BaseMoveBattleStyleApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseMoveBattleStyleApi.subclasses = BaseMoveBattleStyleApi.subclasses + (cls,)
-    def move_battle_style_list(
+    async def move_battle_style_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseMoveBattleStyleApi:
         ...
 
 
-    def move_battle_style_read(
+    async def move_battle_style_read(
         self,
         id: int,
     ) -> str:

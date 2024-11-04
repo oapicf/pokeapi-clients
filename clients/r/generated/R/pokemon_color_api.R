@@ -12,42 +12,6 @@
 #' @format An \code{R6Class} generator object
 #' @field api_client Handles the client-server communication.
 #'
-#' @section Methods:
-#' \describe{
-#' \strong{ PokemonColorList } \emph{  }
-#'
-#' \itemize{
-#' \item \emph{ @param } limit integer
-#' \item \emph{ @param } offset integer
-#'
-#'
-#' \item status code : 0 | Default response
-#'
-#' \item return type : character
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ PokemonColorRead } \emph{  }
-#'
-#' \itemize{
-#' \item \emph{ @param } id integer
-#'
-#'
-#' \item status code : 0 | Default response
-#'
-#' \item return type : character
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' }
-#'
-#'
 #' @examples
 #' \dontrun{
 #' ####################  PokemonColorList  ####################
@@ -85,13 +49,11 @@ PokemonColorApi <- R6::R6Class(
   "PokemonColorApi",
   public = list(
     api_client = NULL,
-    #' Initialize a new PokemonColorApi.
-    #'
+
     #' @description
     #' Initialize a new PokemonColorApi.
     #'
     #' @param api_client An instance of API client.
-    #' @export
     initialize = function(api_client) {
       if (!missing(api_client)) {
         self$api_client <- api_client
@@ -99,8 +61,7 @@ PokemonColorApi <- R6::R6Class(
         self$api_client <- ApiClient$new()
       }
     },
-    #' 
-    #'
+
     #' @description
     #' 
     #'
@@ -108,8 +69,8 @@ PokemonColorApi <- R6::R6Class(
     #' @param offset (optional) No description
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #'
     #' @return character
-    #' @export
     PokemonColorList = function(limit = NULL, offset = NULL, data_file = NULL, ...) {
       local_var_response <- self$PokemonColorListWithHttpInfo(limit, offset, data_file = data_file, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
@@ -122,8 +83,7 @@ PokemonColorApi <- R6::R6Class(
         local_var_response
       }
     },
-    #' 
-    #'
+
     #' @description
     #' 
     #'
@@ -131,8 +91,8 @@ PokemonColorApi <- R6::R6Class(
     #' @param offset (optional) No description
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #'
     #' @return API response (character) with additional information such as HTTP status code, headers
-    #' @export
     PokemonColorListWithHttpInfo = function(limit = NULL, offset = NULL, data_file = NULL, ...) {
       args <- list(...)
       query_params <- list()
@@ -195,16 +155,15 @@ PokemonColorApi <- R6::R6Class(
         local_var_resp
       }
     },
-    #' 
-    #'
+
     #' @description
     #' 
     #'
     #' @param id 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #'
     #' @return character
-    #' @export
     PokemonColorRead = function(id, data_file = NULL, ...) {
       local_var_response <- self$PokemonColorReadWithHttpInfo(id, data_file = data_file, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
@@ -217,16 +176,15 @@ PokemonColorApi <- R6::R6Class(
         local_var_response
       }
     },
-    #' 
-    #'
+
     #' @description
     #' 
     #'
     #' @param id 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #'
     #' @return API response (character) with additional information such as HTTP status code, headers
-    #' @export
     PokemonColorReadWithHttpInfo = function(id, data_file = NULL, ...) {
       args <- list(...)
       query_params <- list()

@@ -10,7 +10,7 @@ class BaseMoveDamageClassApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseMoveDamageClassApi.subclasses = BaseMoveDamageClassApi.subclasses + (cls,)
-    def move_damage_class_list(
+    async def move_damage_class_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseMoveDamageClassApi:
         ...
 
 
-    def move_damage_class_read(
+    async def move_damage_class_read(
         self,
         id: int,
     ) -> str:

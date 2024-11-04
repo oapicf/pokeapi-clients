@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, ItemAttributeApi } from '';
+import type { ItemAttributeApiItemAttributeListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ItemAttributeApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new ItemAttributeApi(configuration);
 
-let body:.ItemAttributeApiItemAttributeListRequest = {
-  // number (optional)
+const request: ItemAttributeApiItemAttributeListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.itemAttributeList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.itemAttributeList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, ItemAttributeApi } from '';
+import type { ItemAttributeApiItemAttributeReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ItemAttributeApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new ItemAttributeApi(configuration);
 
-let body:.ItemAttributeApiItemAttributeReadRequest = {
-  // number
+const request: ItemAttributeApiItemAttributeReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.itemAttributeRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.itemAttributeRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

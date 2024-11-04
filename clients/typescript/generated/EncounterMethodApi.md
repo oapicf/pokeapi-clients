@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EncounterMethodApi } from '';
+import type { EncounterMethodApiEncounterMethodListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EncounterMethodApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EncounterMethodApi(configuration);
 
-let body:.EncounterMethodApiEncounterMethodListRequest = {
-  // number (optional)
+const request: EncounterMethodApiEncounterMethodListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.encounterMethodList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.encounterMethodList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EncounterMethodApi } from '';
+import type { EncounterMethodApiEncounterMethodReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EncounterMethodApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EncounterMethodApi(configuration);
 
-let body:.EncounterMethodApiEncounterMethodReadRequest = {
-  // number
+const request: EncounterMethodApiEncounterMethodReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.encounterMethodRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.encounterMethodRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

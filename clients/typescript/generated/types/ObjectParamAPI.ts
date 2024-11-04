@@ -8,12 +8,14 @@ import { AbilityApiRequestFactory, AbilityApiResponseProcessor} from "../apis/Ab
 export interface AbilityApiAbilityListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof AbilityApiabilityList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof AbilityApiabilityList
      */
@@ -23,6 +25,7 @@ export interface AbilityApiAbilityListRequest {
 export interface AbilityApiAbilityReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof AbilityApiabilityRead
      */
@@ -72,12 +75,14 @@ import { BerryApiRequestFactory, BerryApiResponseProcessor} from "../apis/BerryA
 export interface BerryApiBerryListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BerryApiberryList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BerryApiberryList
      */
@@ -87,6 +92,7 @@ export interface BerryApiBerryListRequest {
 export interface BerryApiBerryReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BerryApiberryRead
      */
@@ -136,12 +142,14 @@ import { BerryFirmnessApiRequestFactory, BerryFirmnessApiResponseProcessor} from
 export interface BerryFirmnessApiBerryFirmnessListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BerryFirmnessApiberryFirmnessList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BerryFirmnessApiberryFirmnessList
      */
@@ -151,6 +159,7 @@ export interface BerryFirmnessApiBerryFirmnessListRequest {
 export interface BerryFirmnessApiBerryFirmnessReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BerryFirmnessApiberryFirmnessRead
      */
@@ -200,12 +209,14 @@ import { BerryFlavorApiRequestFactory, BerryFlavorApiResponseProcessor} from "..
 export interface BerryFlavorApiBerryFlavorListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BerryFlavorApiberryFlavorList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BerryFlavorApiberryFlavorList
      */
@@ -215,6 +226,7 @@ export interface BerryFlavorApiBerryFlavorListRequest {
 export interface BerryFlavorApiBerryFlavorReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BerryFlavorApiberryFlavorRead
      */
@@ -264,12 +276,14 @@ import { CharacteristicApiRequestFactory, CharacteristicApiResponseProcessor} fr
 export interface CharacteristicApiCharacteristicListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof CharacteristicApicharacteristicList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof CharacteristicApicharacteristicList
      */
@@ -279,6 +293,7 @@ export interface CharacteristicApiCharacteristicListRequest {
 export interface CharacteristicApiCharacteristicReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof CharacteristicApicharacteristicRead
      */
@@ -328,12 +343,14 @@ import { ContestEffectApiRequestFactory, ContestEffectApiResponseProcessor} from
 export interface ContestEffectApiContestEffectListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ContestEffectApicontestEffectList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ContestEffectApicontestEffectList
      */
@@ -343,6 +360,7 @@ export interface ContestEffectApiContestEffectListRequest {
 export interface ContestEffectApiContestEffectReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ContestEffectApicontestEffectRead
      */
@@ -392,12 +410,14 @@ import { ContestTypeApiRequestFactory, ContestTypeApiResponseProcessor} from "..
 export interface ContestTypeApiContestTypeListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ContestTypeApicontestTypeList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ContestTypeApicontestTypeList
      */
@@ -407,6 +427,7 @@ export interface ContestTypeApiContestTypeListRequest {
 export interface ContestTypeApiContestTypeReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ContestTypeApicontestTypeRead
      */
@@ -456,12 +477,14 @@ import { EggGroupApiRequestFactory, EggGroupApiResponseProcessor} from "../apis/
 export interface EggGroupApiEggGroupListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EggGroupApieggGroupList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EggGroupApieggGroupList
      */
@@ -471,6 +494,7 @@ export interface EggGroupApiEggGroupListRequest {
 export interface EggGroupApiEggGroupReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EggGroupApieggGroupRead
      */
@@ -520,12 +544,14 @@ import { EncounterConditionApiRequestFactory, EncounterConditionApiResponseProce
 export interface EncounterConditionApiEncounterConditionListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EncounterConditionApiencounterConditionList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EncounterConditionApiencounterConditionList
      */
@@ -535,6 +561,7 @@ export interface EncounterConditionApiEncounterConditionListRequest {
 export interface EncounterConditionApiEncounterConditionReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EncounterConditionApiencounterConditionRead
      */
@@ -584,12 +611,14 @@ import { EncounterConditionValueApiRequestFactory, EncounterConditionValueApiRes
 export interface EncounterConditionValueApiEncounterConditionValueListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EncounterConditionValueApiencounterConditionValueList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EncounterConditionValueApiencounterConditionValueList
      */
@@ -599,6 +628,7 @@ export interface EncounterConditionValueApiEncounterConditionValueListRequest {
 export interface EncounterConditionValueApiEncounterConditionValueReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EncounterConditionValueApiencounterConditionValueRead
      */
@@ -648,12 +678,14 @@ import { EncounterMethodApiRequestFactory, EncounterMethodApiResponseProcessor} 
 export interface EncounterMethodApiEncounterMethodListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EncounterMethodApiencounterMethodList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EncounterMethodApiencounterMethodList
      */
@@ -663,6 +695,7 @@ export interface EncounterMethodApiEncounterMethodListRequest {
 export interface EncounterMethodApiEncounterMethodReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EncounterMethodApiencounterMethodRead
      */
@@ -712,12 +745,14 @@ import { EvolutionChainApiRequestFactory, EvolutionChainApiResponseProcessor} fr
 export interface EvolutionChainApiEvolutionChainListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EvolutionChainApievolutionChainList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EvolutionChainApievolutionChainList
      */
@@ -727,6 +762,7 @@ export interface EvolutionChainApiEvolutionChainListRequest {
 export interface EvolutionChainApiEvolutionChainReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EvolutionChainApievolutionChainRead
      */
@@ -776,12 +812,14 @@ import { EvolutionTriggerApiRequestFactory, EvolutionTriggerApiResponseProcessor
 export interface EvolutionTriggerApiEvolutionTriggerListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EvolutionTriggerApievolutionTriggerList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EvolutionTriggerApievolutionTriggerList
      */
@@ -791,6 +829,7 @@ export interface EvolutionTriggerApiEvolutionTriggerListRequest {
 export interface EvolutionTriggerApiEvolutionTriggerReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EvolutionTriggerApievolutionTriggerRead
      */
@@ -840,12 +879,14 @@ import { GenderApiRequestFactory, GenderApiResponseProcessor} from "../apis/Gend
 export interface GenderApiGenderListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof GenderApigenderList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof GenderApigenderList
      */
@@ -855,6 +896,7 @@ export interface GenderApiGenderListRequest {
 export interface GenderApiGenderReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof GenderApigenderRead
      */
@@ -904,12 +946,14 @@ import { GenerationApiRequestFactory, GenerationApiResponseProcessor} from "../a
 export interface GenerationApiGenerationListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof GenerationApigenerationList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof GenerationApigenerationList
      */
@@ -919,6 +963,7 @@ export interface GenerationApiGenerationListRequest {
 export interface GenerationApiGenerationReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof GenerationApigenerationRead
      */
@@ -968,12 +1013,14 @@ import { GrowthRateApiRequestFactory, GrowthRateApiResponseProcessor} from "../a
 export interface GrowthRateApiGrowthRateListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof GrowthRateApigrowthRateList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof GrowthRateApigrowthRateList
      */
@@ -983,6 +1030,7 @@ export interface GrowthRateApiGrowthRateListRequest {
 export interface GrowthRateApiGrowthRateReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof GrowthRateApigrowthRateRead
      */
@@ -1032,12 +1080,14 @@ import { ItemApiRequestFactory, ItemApiResponseProcessor} from "../apis/ItemApi"
 export interface ItemApiItemListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ItemApiitemList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ItemApiitemList
      */
@@ -1047,6 +1097,7 @@ export interface ItemApiItemListRequest {
 export interface ItemApiItemReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ItemApiitemRead
      */
@@ -1096,12 +1147,14 @@ import { ItemAttributeApiRequestFactory, ItemAttributeApiResponseProcessor} from
 export interface ItemAttributeApiItemAttributeListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ItemAttributeApiitemAttributeList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ItemAttributeApiitemAttributeList
      */
@@ -1111,6 +1164,7 @@ export interface ItemAttributeApiItemAttributeListRequest {
 export interface ItemAttributeApiItemAttributeReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ItemAttributeApiitemAttributeRead
      */
@@ -1160,12 +1214,14 @@ import { ItemCategoryApiRequestFactory, ItemCategoryApiResponseProcessor} from "
 export interface ItemCategoryApiItemCategoryListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ItemCategoryApiitemCategoryList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ItemCategoryApiitemCategoryList
      */
@@ -1175,6 +1231,7 @@ export interface ItemCategoryApiItemCategoryListRequest {
 export interface ItemCategoryApiItemCategoryReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ItemCategoryApiitemCategoryRead
      */
@@ -1224,12 +1281,14 @@ import { ItemFlingEffectApiRequestFactory, ItemFlingEffectApiResponseProcessor} 
 export interface ItemFlingEffectApiItemFlingEffectListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ItemFlingEffectApiitemFlingEffectList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ItemFlingEffectApiitemFlingEffectList
      */
@@ -1239,6 +1298,7 @@ export interface ItemFlingEffectApiItemFlingEffectListRequest {
 export interface ItemFlingEffectApiItemFlingEffectReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ItemFlingEffectApiitemFlingEffectRead
      */
@@ -1288,12 +1348,14 @@ import { ItemPocketApiRequestFactory, ItemPocketApiResponseProcessor} from "../a
 export interface ItemPocketApiItemPocketListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ItemPocketApiitemPocketList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ItemPocketApiitemPocketList
      */
@@ -1303,6 +1365,7 @@ export interface ItemPocketApiItemPocketListRequest {
 export interface ItemPocketApiItemPocketReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof ItemPocketApiitemPocketRead
      */
@@ -1352,12 +1415,14 @@ import { LanguageApiRequestFactory, LanguageApiResponseProcessor} from "../apis/
 export interface LanguageApiLanguageListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof LanguageApilanguageList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof LanguageApilanguageList
      */
@@ -1367,6 +1432,7 @@ export interface LanguageApiLanguageListRequest {
 export interface LanguageApiLanguageReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof LanguageApilanguageRead
      */
@@ -1416,12 +1482,14 @@ import { LocationApiRequestFactory, LocationApiResponseProcessor} from "../apis/
 export interface LocationApiLocationListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof LocationApilocationList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof LocationApilocationList
      */
@@ -1431,6 +1499,7 @@ export interface LocationApiLocationListRequest {
 export interface LocationApiLocationReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof LocationApilocationRead
      */
@@ -1480,12 +1549,14 @@ import { LocationAreaApiRequestFactory, LocationAreaApiResponseProcessor} from "
 export interface LocationAreaApiLocationAreaListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof LocationAreaApilocationAreaList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof LocationAreaApilocationAreaList
      */
@@ -1495,6 +1566,7 @@ export interface LocationAreaApiLocationAreaListRequest {
 export interface LocationAreaApiLocationAreaReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof LocationAreaApilocationAreaRead
      */
@@ -1544,12 +1616,14 @@ import { MachineApiRequestFactory, MachineApiResponseProcessor} from "../apis/Ma
 export interface MachineApiMachineListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MachineApimachineList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MachineApimachineList
      */
@@ -1559,6 +1633,7 @@ export interface MachineApiMachineListRequest {
 export interface MachineApiMachineReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MachineApimachineRead
      */
@@ -1608,12 +1683,14 @@ import { MoveApiRequestFactory, MoveApiResponseProcessor} from "../apis/MoveApi"
 export interface MoveApiMoveListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveApimoveList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveApimoveList
      */
@@ -1623,6 +1700,7 @@ export interface MoveApiMoveListRequest {
 export interface MoveApiMoveReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveApimoveRead
      */
@@ -1672,12 +1750,14 @@ import { MoveAilmentApiRequestFactory, MoveAilmentApiResponseProcessor} from "..
 export interface MoveAilmentApiMoveAilmentListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveAilmentApimoveAilmentList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveAilmentApimoveAilmentList
      */
@@ -1687,6 +1767,7 @@ export interface MoveAilmentApiMoveAilmentListRequest {
 export interface MoveAilmentApiMoveAilmentReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveAilmentApimoveAilmentRead
      */
@@ -1736,12 +1817,14 @@ import { MoveBattleStyleApiRequestFactory, MoveBattleStyleApiResponseProcessor} 
 export interface MoveBattleStyleApiMoveBattleStyleListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveBattleStyleApimoveBattleStyleList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveBattleStyleApimoveBattleStyleList
      */
@@ -1751,6 +1834,7 @@ export interface MoveBattleStyleApiMoveBattleStyleListRequest {
 export interface MoveBattleStyleApiMoveBattleStyleReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveBattleStyleApimoveBattleStyleRead
      */
@@ -1800,12 +1884,14 @@ import { MoveCategoryApiRequestFactory, MoveCategoryApiResponseProcessor} from "
 export interface MoveCategoryApiMoveCategoryListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveCategoryApimoveCategoryList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveCategoryApimoveCategoryList
      */
@@ -1815,6 +1901,7 @@ export interface MoveCategoryApiMoveCategoryListRequest {
 export interface MoveCategoryApiMoveCategoryReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveCategoryApimoveCategoryRead
      */
@@ -1864,12 +1951,14 @@ import { MoveDamageClassApiRequestFactory, MoveDamageClassApiResponseProcessor} 
 export interface MoveDamageClassApiMoveDamageClassListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveDamageClassApimoveDamageClassList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveDamageClassApimoveDamageClassList
      */
@@ -1879,6 +1968,7 @@ export interface MoveDamageClassApiMoveDamageClassListRequest {
 export interface MoveDamageClassApiMoveDamageClassReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveDamageClassApimoveDamageClassRead
      */
@@ -1928,12 +2018,14 @@ import { MoveLearnMethodApiRequestFactory, MoveLearnMethodApiResponseProcessor} 
 export interface MoveLearnMethodApiMoveLearnMethodListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveLearnMethodApimoveLearnMethodList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveLearnMethodApimoveLearnMethodList
      */
@@ -1943,6 +2035,7 @@ export interface MoveLearnMethodApiMoveLearnMethodListRequest {
 export interface MoveLearnMethodApiMoveLearnMethodReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveLearnMethodApimoveLearnMethodRead
      */
@@ -1992,12 +2085,14 @@ import { MoveTargetApiRequestFactory, MoveTargetApiResponseProcessor} from "../a
 export interface MoveTargetApiMoveTargetListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveTargetApimoveTargetList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveTargetApimoveTargetList
      */
@@ -2007,6 +2102,7 @@ export interface MoveTargetApiMoveTargetListRequest {
 export interface MoveTargetApiMoveTargetReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof MoveTargetApimoveTargetRead
      */
@@ -2056,12 +2152,14 @@ import { NatureApiRequestFactory, NatureApiResponseProcessor} from "../apis/Natu
 export interface NatureApiNatureListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof NatureApinatureList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof NatureApinatureList
      */
@@ -2071,6 +2169,7 @@ export interface NatureApiNatureListRequest {
 export interface NatureApiNatureReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof NatureApinatureRead
      */
@@ -2120,12 +2219,14 @@ import { PalParkAreaApiRequestFactory, PalParkAreaApiResponseProcessor} from "..
 export interface PalParkAreaApiPalParkAreaListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PalParkAreaApipalParkAreaList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PalParkAreaApipalParkAreaList
      */
@@ -2135,6 +2236,7 @@ export interface PalParkAreaApiPalParkAreaListRequest {
 export interface PalParkAreaApiPalParkAreaReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PalParkAreaApipalParkAreaRead
      */
@@ -2184,12 +2286,14 @@ import { PokeathlonStatApiRequestFactory, PokeathlonStatApiResponseProcessor} fr
 export interface PokeathlonStatApiPokeathlonStatListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokeathlonStatApipokeathlonStatList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokeathlonStatApipokeathlonStatList
      */
@@ -2199,6 +2303,7 @@ export interface PokeathlonStatApiPokeathlonStatListRequest {
 export interface PokeathlonStatApiPokeathlonStatReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokeathlonStatApipokeathlonStatRead
      */
@@ -2248,12 +2353,14 @@ import { PokedexApiRequestFactory, PokedexApiResponseProcessor} from "../apis/Po
 export interface PokedexApiPokedexListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokedexApipokedexList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokedexApipokedexList
      */
@@ -2263,6 +2370,7 @@ export interface PokedexApiPokedexListRequest {
 export interface PokedexApiPokedexReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokedexApipokedexRead
      */
@@ -2312,12 +2420,14 @@ import { PokemonApiRequestFactory, PokemonApiResponseProcessor} from "../apis/Po
 export interface PokemonApiPokemonListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonApipokemonList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonApipokemonList
      */
@@ -2327,6 +2437,7 @@ export interface PokemonApiPokemonListRequest {
 export interface PokemonApiPokemonReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonApipokemonRead
      */
@@ -2376,12 +2487,14 @@ import { PokemonColorApiRequestFactory, PokemonColorApiResponseProcessor} from "
 export interface PokemonColorApiPokemonColorListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonColorApipokemonColorList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonColorApipokemonColorList
      */
@@ -2391,6 +2504,7 @@ export interface PokemonColorApiPokemonColorListRequest {
 export interface PokemonColorApiPokemonColorReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonColorApipokemonColorRead
      */
@@ -2440,12 +2554,14 @@ import { PokemonFormApiRequestFactory, PokemonFormApiResponseProcessor} from "..
 export interface PokemonFormApiPokemonFormListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonFormApipokemonFormList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonFormApipokemonFormList
      */
@@ -2455,6 +2571,7 @@ export interface PokemonFormApiPokemonFormListRequest {
 export interface PokemonFormApiPokemonFormReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonFormApipokemonFormRead
      */
@@ -2504,12 +2621,14 @@ import { PokemonHabitatApiRequestFactory, PokemonHabitatApiResponseProcessor} fr
 export interface PokemonHabitatApiPokemonHabitatListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonHabitatApipokemonHabitatList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonHabitatApipokemonHabitatList
      */
@@ -2519,6 +2638,7 @@ export interface PokemonHabitatApiPokemonHabitatListRequest {
 export interface PokemonHabitatApiPokemonHabitatReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonHabitatApipokemonHabitatRead
      */
@@ -2568,12 +2688,14 @@ import { PokemonShapeApiRequestFactory, PokemonShapeApiResponseProcessor} from "
 export interface PokemonShapeApiPokemonShapeListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonShapeApipokemonShapeList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonShapeApipokemonShapeList
      */
@@ -2583,6 +2705,7 @@ export interface PokemonShapeApiPokemonShapeListRequest {
 export interface PokemonShapeApiPokemonShapeReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonShapeApipokemonShapeRead
      */
@@ -2632,12 +2755,14 @@ import { PokemonSpeciesApiRequestFactory, PokemonSpeciesApiResponseProcessor} fr
 export interface PokemonSpeciesApiPokemonSpeciesListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonSpeciesApipokemonSpeciesList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonSpeciesApipokemonSpeciesList
      */
@@ -2647,6 +2772,7 @@ export interface PokemonSpeciesApiPokemonSpeciesListRequest {
 export interface PokemonSpeciesApiPokemonSpeciesReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof PokemonSpeciesApipokemonSpeciesRead
      */
@@ -2696,12 +2822,14 @@ import { RegionApiRequestFactory, RegionApiResponseProcessor} from "../apis/Regi
 export interface RegionApiRegionListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof RegionApiregionList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof RegionApiregionList
      */
@@ -2711,6 +2839,7 @@ export interface RegionApiRegionListRequest {
 export interface RegionApiRegionReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof RegionApiregionRead
      */
@@ -2760,12 +2889,14 @@ import { StatApiRequestFactory, StatApiResponseProcessor} from "../apis/StatApi"
 export interface StatApiStatListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof StatApistatList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof StatApistatList
      */
@@ -2775,6 +2906,7 @@ export interface StatApiStatListRequest {
 export interface StatApiStatReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof StatApistatRead
      */
@@ -2824,12 +2956,14 @@ import { SuperContestEffectApiRequestFactory, SuperContestEffectApiResponseProce
 export interface SuperContestEffectApiSuperContestEffectListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof SuperContestEffectApisuperContestEffectList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof SuperContestEffectApisuperContestEffectList
      */
@@ -2839,6 +2973,7 @@ export interface SuperContestEffectApiSuperContestEffectListRequest {
 export interface SuperContestEffectApiSuperContestEffectReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof SuperContestEffectApisuperContestEffectRead
      */
@@ -2888,12 +3023,14 @@ import { TypeApiRequestFactory, TypeApiResponseProcessor} from "../apis/TypeApi"
 export interface TypeApiTypeListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof TypeApitypeList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof TypeApitypeList
      */
@@ -2903,6 +3040,7 @@ export interface TypeApiTypeListRequest {
 export interface TypeApiTypeReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof TypeApitypeRead
      */
@@ -2952,12 +3090,14 @@ import { VersionApiRequestFactory, VersionApiResponseProcessor} from "../apis/Ve
 export interface VersionApiVersionListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof VersionApiversionList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof VersionApiversionList
      */
@@ -2967,6 +3107,7 @@ export interface VersionApiVersionListRequest {
 export interface VersionApiVersionReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof VersionApiversionRead
      */
@@ -3016,12 +3157,14 @@ import { VersionGroupApiRequestFactory, VersionGroupApiResponseProcessor} from "
 export interface VersionGroupApiVersionGroupListRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof VersionGroupApiversionGroupList
      */
     limit?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof VersionGroupApiversionGroupList
      */
@@ -3031,6 +3174,7 @@ export interface VersionGroupApiVersionGroupListRequest {
 export interface VersionGroupApiVersionGroupReadRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof VersionGroupApiversionGroupRead
      */

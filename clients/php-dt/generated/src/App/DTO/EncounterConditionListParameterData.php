@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for encounter-condition_list
+ * Parameters for encounterConditionList
  */
 class EncounterConditionListParameterData
 {

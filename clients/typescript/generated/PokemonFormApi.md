@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, PokemonFormApi } from '';
+import type { PokemonFormApiPokemonFormListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PokemonFormApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new PokemonFormApi(configuration);
 
-let body:.PokemonFormApiPokemonFormListRequest = {
-  // number (optional)
+const request: PokemonFormApiPokemonFormListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.pokemonFormList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.pokemonFormList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, PokemonFormApi } from '';
+import type { PokemonFormApiPokemonFormReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PokemonFormApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new PokemonFormApi(configuration);
 
-let body:.PokemonFormApiPokemonFormReadRequest = {
-  // number
+const request: PokemonFormApiPokemonFormReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.pokemonFormRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.pokemonFormRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

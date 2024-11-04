@@ -11,7 +11,7 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Inject, Injectable, Optional } from '@nestjs/common';
+import { Injectable, Optional } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { AxiosResponse } from 'axios';
 import { Observable, from, of, switchMap } from 'rxjs';
@@ -50,7 +50,6 @@ export class BerryService {
      */
     public berryList(limit?: number, offset?: number, ): Observable<AxiosResponse<string>>;
     public berryList(limit?: number, offset?: number, ): Observable<any> {
-
         let queryParameters = new URLSearchParams();
         if (limit !== undefined && limit !== null) {
             queryParameters.append('limit', <any>limit);
@@ -100,7 +99,6 @@ export class BerryService {
      */
     public berryRead(id: number, ): Observable<AxiosResponse<string>>;
     public berryRead(id: number, ): Observable<any> {
-
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling berryRead.');
         }

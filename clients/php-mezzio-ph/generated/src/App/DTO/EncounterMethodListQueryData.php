@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Query parameters for encounter-method_list
+ * Query parameters for encounterMethodList
  */
 class EncounterMethodListQueryData
 {

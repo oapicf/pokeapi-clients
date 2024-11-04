@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, StatApi } from '';
+import type { StatApiStatListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .StatApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new StatApi(configuration);
 
-let body:.StatApiStatListRequest = {
-  // number (optional)
+const request: StatApiStatListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.statList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.statList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, StatApi } from '';
+import type { StatApiStatReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .StatApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new StatApi(configuration);
 
-let body:.StatApiStatReadRequest = {
-  // number
+const request: StatApiStatReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.statRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.statRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

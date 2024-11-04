@@ -10,7 +10,7 @@ class BaseRegionApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseRegionApi.subclasses = BaseRegionApi.subclasses + (cls,)
-    def region_list(
+    async def region_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseRegionApi:
         ...
 
 
-    def region_read(
+    async def region_read(
         self,
         id: int,
     ) -> str:

@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, MoveLearnMethodApi } from '';
+import type { MoveLearnMethodApiMoveLearnMethodListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MoveLearnMethodApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new MoveLearnMethodApi(configuration);
 
-let body:.MoveLearnMethodApiMoveLearnMethodListRequest = {
-  // number (optional)
+const request: MoveLearnMethodApiMoveLearnMethodListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.moveLearnMethodList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.moveLearnMethodList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, MoveLearnMethodApi } from '';
+import type { MoveLearnMethodApiMoveLearnMethodReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MoveLearnMethodApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new MoveLearnMethodApi(configuration);
 
-let body:.MoveLearnMethodApiMoveLearnMethodReadRequest = {
-  // number
+const request: MoveLearnMethodApiMoveLearnMethodReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.moveLearnMethodRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.moveLearnMethodRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

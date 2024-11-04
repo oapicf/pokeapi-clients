@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for move-target_list
+ * Parameters for moveTargetList
  */
 class MoveTargetListParameterData
 {

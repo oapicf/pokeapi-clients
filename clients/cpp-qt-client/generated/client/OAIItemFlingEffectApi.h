@@ -60,12 +60,12 @@ public:
     * @param[in]  limit qint32 [optional]
     * @param[in]  offset qint32 [optional]
     */
-    void itemFlingEffectList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
+    virtual void itemFlingEffectList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
     */
-    void itemFlingEffectRead(const qint32 &id);
+    virtual void itemFlingEffectRead(const qint32 &id);
 
 
 private:
@@ -97,6 +97,7 @@ Q_SIGNALS:
 
     void itemFlingEffectListSignal(QString summary);
     void itemFlingEffectReadSignal(QString summary);
+
 
     void itemFlingEffectListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void itemFlingEffectReadSignalFull(OAIHttpRequestWorker *worker, QString summary);

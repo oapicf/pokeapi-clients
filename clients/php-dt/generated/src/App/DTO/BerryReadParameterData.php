@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for berry_read
+ * Parameters for berryRead
  */
 class BerryReadParameterData
 {

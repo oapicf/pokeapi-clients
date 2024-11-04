@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for move-learn-method_read
+ * Parameters for moveLearnMethodRead
  */
 class MoveLearnMethodReadParameterData
 {

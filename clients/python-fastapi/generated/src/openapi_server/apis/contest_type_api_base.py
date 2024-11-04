@@ -10,7 +10,7 @@ class BaseContestTypeApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseContestTypeApi.subclasses = BaseContestTypeApi.subclasses + (cls,)
-    def contest_type_list(
+    async def contest_type_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseContestTypeApi:
         ...
 
 
-    def contest_type_read(
+    async def contest_type_read(
         self,
         id: int,
     ) -> str:

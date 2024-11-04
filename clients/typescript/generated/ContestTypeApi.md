@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, ContestTypeApi } from '';
+import type { ContestTypeApiContestTypeListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ContestTypeApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new ContestTypeApi(configuration);
 
-let body:.ContestTypeApiContestTypeListRequest = {
-  // number (optional)
+const request: ContestTypeApiContestTypeListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.contestTypeList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.contestTypeList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, ContestTypeApi } from '';
+import type { ContestTypeApiContestTypeReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ContestTypeApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new ContestTypeApi(configuration);
 
-let body:.ContestTypeApiContestTypeReadRequest = {
-  // number
+const request: ContestTypeApiContestTypeReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.contestTypeRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.contestTypeRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

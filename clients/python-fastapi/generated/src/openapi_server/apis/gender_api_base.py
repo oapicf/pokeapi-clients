@@ -10,7 +10,7 @@ class BaseGenderApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseGenderApi.subclasses = BaseGenderApi.subclasses + (cls,)
-    def gender_list(
+    async def gender_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseGenderApi:
         ...
 
 
-    def gender_read(
+    async def gender_read(
         self,
         id: int,
     ) -> str:

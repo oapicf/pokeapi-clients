@@ -12,42 +12,6 @@
 #' @format An \code{R6Class} generator object
 #' @field api_client Handles the client-server communication.
 #'
-#' @section Methods:
-#' \describe{
-#' \strong{ EvolutionChainList } \emph{  }
-#'
-#' \itemize{
-#' \item \emph{ @param } limit integer
-#' \item \emph{ @param } offset integer
-#'
-#'
-#' \item status code : 0 | Default response
-#'
-#' \item return type : character
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ EvolutionChainRead } \emph{  }
-#'
-#' \itemize{
-#' \item \emph{ @param } id integer
-#'
-#'
-#' \item status code : 0 | Default response
-#'
-#' \item return type : character
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' }
-#'
-#'
 #' @examples
 #' \dontrun{
 #' ####################  EvolutionChainList  ####################
@@ -85,13 +49,11 @@ EvolutionChainApi <- R6::R6Class(
   "EvolutionChainApi",
   public = list(
     api_client = NULL,
-    #' Initialize a new EvolutionChainApi.
-    #'
+
     #' @description
     #' Initialize a new EvolutionChainApi.
     #'
     #' @param api_client An instance of API client.
-    #' @export
     initialize = function(api_client) {
       if (!missing(api_client)) {
         self$api_client <- api_client
@@ -99,8 +61,7 @@ EvolutionChainApi <- R6::R6Class(
         self$api_client <- ApiClient$new()
       }
     },
-    #' 
-    #'
+
     #' @description
     #' 
     #'
@@ -108,8 +69,8 @@ EvolutionChainApi <- R6::R6Class(
     #' @param offset (optional) No description
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #'
     #' @return character
-    #' @export
     EvolutionChainList = function(limit = NULL, offset = NULL, data_file = NULL, ...) {
       local_var_response <- self$EvolutionChainListWithHttpInfo(limit, offset, data_file = data_file, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
@@ -122,8 +83,7 @@ EvolutionChainApi <- R6::R6Class(
         local_var_response
       }
     },
-    #' 
-    #'
+
     #' @description
     #' 
     #'
@@ -131,8 +91,8 @@ EvolutionChainApi <- R6::R6Class(
     #' @param offset (optional) No description
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #'
     #' @return API response (character) with additional information such as HTTP status code, headers
-    #' @export
     EvolutionChainListWithHttpInfo = function(limit = NULL, offset = NULL, data_file = NULL, ...) {
       args <- list(...)
       query_params <- list()
@@ -195,16 +155,15 @@ EvolutionChainApi <- R6::R6Class(
         local_var_resp
       }
     },
-    #' 
-    #'
+
     #' @description
     #' 
     #'
     #' @param id 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #'
     #' @return character
-    #' @export
     EvolutionChainRead = function(id, data_file = NULL, ...) {
       local_var_response <- self$EvolutionChainReadWithHttpInfo(id, data_file = data_file, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
@@ -217,16 +176,15 @@ EvolutionChainApi <- R6::R6Class(
         local_var_response
       }
     },
-    #' 
-    #'
+
     #' @description
     #' 
     #'
     #' @param id 
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #'
     #' @return API response (character) with additional information such as HTTP status code, headers
-    #' @export
     EvolutionChainReadWithHttpInfo = function(id, data_file = NULL, ...) {
       args <- list(...)
       query_params <- list()

@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, VersionApi } from '';
+import type { VersionApiVersionListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .VersionApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new VersionApi(configuration);
 
-let body:.VersionApiVersionListRequest = {
-  // number (optional)
+const request: VersionApiVersionListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.versionList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.versionList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, VersionApi } from '';
+import type { VersionApiVersionReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .VersionApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new VersionApi(configuration);
 
-let body:.VersionApiVersionReadRequest = {
-  // number
+const request: VersionApiVersionReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.versionRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.versionRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

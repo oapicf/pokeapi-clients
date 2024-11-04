@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, BerryFlavorApi } from '';
+import type { BerryFlavorApiBerryFlavorListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .BerryFlavorApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new BerryFlavorApi(configuration);
 
-let body:.BerryFlavorApiBerryFlavorListRequest = {
-  // number (optional)
+const request: BerryFlavorApiBerryFlavorListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.berryFlavorList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.berryFlavorList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, BerryFlavorApi } from '';
+import type { BerryFlavorApiBerryFlavorReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .BerryFlavorApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new BerryFlavorApi(configuration);
 
-let body:.BerryFlavorApiBerryFlavorReadRequest = {
-  // number
+const request: BerryFlavorApiBerryFlavorReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.berryFlavorRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.berryFlavorRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

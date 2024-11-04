@@ -10,7 +10,7 @@ class BaseAbilityApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseAbilityApi.subclasses = BaseAbilityApi.subclasses + (cls,)
-    def ability_list(
+    async def ability_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseAbilityApi:
         ...
 
 
-    def ability_read(
+    async def ability_read(
         self,
         id: int,
     ) -> str:

@@ -72,8 +72,8 @@ class CharacteristicApiSimulation extends Simulation {
         .feed(characteristic_listQUERYFeeder)
         .exec(http("characteristicList")
         .httpRequest("GET","/api/v2/characteristic/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scncharacteristicList with warm up and reach a constant rate for entire duration

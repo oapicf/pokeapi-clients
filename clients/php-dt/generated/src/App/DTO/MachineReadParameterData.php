@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for machine_read
+ * Parameters for machineRead
  */
 class MachineReadParameterData
 {

@@ -14,6 +14,7 @@ from fastapi import (  # noqa: F401
     Depends,
     Form,
     Header,
+    HTTPException,
     Path,
     Query,
     Response,
@@ -43,7 +44,9 @@ async def move_damage_class_list(
     limit: int = Query(None, description="", alias="limit"),
     offset: int = Query(None, description="", alias="offset"),
 ) -> str:
-    ...
+    if not BaseMoveDamageClassApi.subclasses:
+        raise HTTPException(status_code=500, detail="Not implemented")
+    return await BaseMoveDamageClassApi.subclasses[0]().move_damage_class_list(limit, offset)
 
 
 @router.get(
@@ -57,4 +60,6 @@ async def move_damage_class_list(
 async def move_damage_class_read(
     id: int = Path(..., description=""),
 ) -> str:
-    ...
+    if not BaseMoveDamageClassApi.subclasses:
+        raise HTTPException(status_code=500, detail="Not implemented")
+    return await BaseMoveDamageClassApi.subclasses[0]().move_damage_class_read(id)

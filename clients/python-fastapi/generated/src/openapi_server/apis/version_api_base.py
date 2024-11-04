@@ -10,7 +10,7 @@ class BaseVersionApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseVersionApi.subclasses = BaseVersionApi.subclasses + (cls,)
-    def version_list(
+    async def version_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseVersionApi:
         ...
 
 
-    def version_read(
+    async def version_read(
         self,
         id: int,
     ) -> str:

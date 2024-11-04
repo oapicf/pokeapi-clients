@@ -14,8 +14,7 @@ use swagger::auth::Scopes;
 use url::form_urlencoded;
 
 #[allow(unused_imports)]
-use crate::models;
-use crate::header;
+use crate::{models, header, AuthenticationApi};
 
 pub use crate::context;
 
@@ -119,6 +118,8 @@ use crate::{Api,
      VersionGroupListResponse,
      VersionGroupReadResponse
 };
+
+mod server_auth;
 
 mod paths {
     use lazy_static::lazy_static;
@@ -610,6 +611,7 @@ mod paths {
     }
 }
 
+
 pub struct MakeService<T, C> where
     T: Api<C> + Clone + Send + 'static,
     C: Has<XSpanIdString>  + Send + Sync + 'static
@@ -643,9 +645,9 @@ impl<T, C, Target> hyper::service::Service<Target> for MakeService<T, C> where
     }
 
     fn call(&mut self, target: Target) -> Self::Future {
-        future::ok(Service::new(
-            self.api_impl.clone(),
-        ))
+        let service = Service::new(self.api_impl.clone());
+
+        future::ok(service)
     }
 }
 
@@ -701,16 +703,20 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
         self.api_impl.poll_ready(cx)
     }
 
-    fn call(&mut self, req: (Request<Body>, C)) -> Self::Future { async fn run<T, C>(mut api_impl: T, req: (Request<Body>, C)) -> Result<Response<Body>, crate::ServiceError> where
-        T: Api<C> + Clone + Send + 'static,
-        C: Has<XSpanIdString>  + Send + Sync + 'static
-    {
-        let (request, context) = req;
-        let (parts, body) = request.into_parts();
-        let (method, uri, headers) = (parts.method, parts.uri, parts.headers);
-        let path = paths::GLOBAL_REGEX_SET.matches(uri.path());
+    fn call(&mut self, req: (Request<Body>, C)) -> Self::Future {
+        async fn run<T, C>(
+            mut api_impl: T,
+            req: (Request<Body>, C),
+        ) -> Result<Response<Body>, crate::ServiceError> where
+            T: Api<C> + Clone + Send + 'static,
+            C: Has<XSpanIdString>  + Send + Sync + 'static
+        {
+            let (request, context) = req;
+            let (parts, body) = request.into_parts();
+            let (method, uri, headers) = (parts.method, parts.uri, parts.headers);
+            let path = paths::GLOBAL_REGEX_SET.matches(uri.path());
 
-        match method {
+            match method {
 
             // AbilityList - GET /api/v2/ability/
             hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_) => {
@@ -771,9 +777,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ABILITY_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -831,9 +839,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ABILITY_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -906,9 +916,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for BERRY_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -966,9 +978,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for BERRY_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -1041,9 +1055,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for BERRY_FIRMNESS_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -1101,9 +1117,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for BERRY_FIRMNESS_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -1176,9 +1194,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for BERRY_FLAVOR_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -1236,9 +1256,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for BERRY_FLAVOR_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -1311,9 +1333,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for CHARACTERISTIC_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -1371,9 +1395,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for CHARACTERISTIC_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -1446,9 +1472,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for CONTEST_EFFECT_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -1506,9 +1534,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for CONTEST_EFFECT_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -1581,9 +1611,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for CONTEST_TYPE_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -1641,9 +1673,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for CONTEST_TYPE_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -1716,9 +1750,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for EGG_GROUP_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -1776,9 +1812,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for EGG_GROUP_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -1851,9 +1889,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ENCOUNTER_CONDITION_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -1911,9 +1951,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ENCOUNTER_CONDITION_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -1986,9 +2028,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ENCOUNTER_CONDITION_VALUE_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -2046,9 +2090,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ENCOUNTER_CONDITION_VALUE_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -2121,9 +2167,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ENCOUNTER_METHOD_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -2181,9 +2229,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ENCOUNTER_METHOD_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -2256,9 +2306,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for EVOLUTION_CHAIN_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -2316,9 +2368,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for EVOLUTION_CHAIN_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -2391,9 +2445,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for EVOLUTION_TRIGGER_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -2451,9 +2507,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for EVOLUTION_TRIGGER_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -2526,9 +2584,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for GENDER_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -2586,9 +2646,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for GENDER_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -2661,9 +2723,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for GENERATION_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -2721,9 +2785,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for GENERATION_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -2796,9 +2862,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for GROWTH_RATE_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -2856,9 +2924,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for GROWTH_RATE_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -2931,9 +3001,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ITEM_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -2991,9 +3063,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ITEM_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -3066,9 +3140,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ITEM_ATTRIBUTE_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -3126,9 +3202,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ITEM_ATTRIBUTE_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -3201,9 +3279,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ITEM_CATEGORY_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -3261,9 +3341,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ITEM_CATEGORY_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -3336,9 +3418,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ITEM_FLING_EFFECT_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -3396,9 +3480,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ITEM_FLING_EFFECT_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -3471,9 +3557,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ITEM_POCKET_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -3531,9 +3619,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for ITEM_POCKET_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -3606,9 +3696,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for LANGUAGE_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -3666,9 +3758,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for LANGUAGE_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -3741,9 +3835,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for LOCATION_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -3801,9 +3897,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for LOCATION_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -3876,9 +3974,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for LOCATION_AREA_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -3936,9 +4036,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for LOCATION_AREA_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -4011,9 +4113,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for MACHINE_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -4071,9 +4175,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for MACHINE_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -4146,9 +4252,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for MOVE_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -4206,9 +4314,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for MOVE_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -4281,9 +4391,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for MOVE_AILMENT_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -4341,9 +4453,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for MOVE_AILMENT_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -4416,9 +4530,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for MOVE_BATTLE_STYLE_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -4476,9 +4592,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for MOVE_BATTLE_STYLE_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -4551,9 +4669,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for MOVE_CATEGORY_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -4611,9 +4731,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for MOVE_CATEGORY_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -4686,9 +4808,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for MOVE_DAMAGE_CLASS_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -4746,9 +4870,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for MOVE_DAMAGE_CLASS_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -4821,9 +4947,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for MOVE_LEARN_METHOD_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -4881,9 +5009,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for MOVE_LEARN_METHOD_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -4956,9 +5086,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for MOVE_TARGET_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -5016,9 +5148,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for MOVE_TARGET_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -5091,9 +5225,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for NATURE_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -5151,9 +5287,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for NATURE_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -5226,9 +5364,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for PAL_PARK_AREA_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -5286,9 +5426,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for PAL_PARK_AREA_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -5361,9 +5503,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for POKEATHLON_STAT_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -5421,9 +5565,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for POKEATHLON_STAT_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -5496,9 +5642,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for POKEDEX_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -5556,9 +5704,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for POKEDEX_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -5631,9 +5781,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for POKEMON_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -5691,9 +5843,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for POKEMON_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -5766,9 +5920,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for POKEMON_COLOR_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -5826,9 +5982,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for POKEMON_COLOR_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -5901,9 +6059,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for POKEMON_FORM_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -5961,9 +6121,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for POKEMON_FORM_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -6036,9 +6198,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for POKEMON_HABITAT_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -6096,9 +6260,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for POKEMON_HABITAT_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -6171,9 +6337,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for POKEMON_SHAPE_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -6231,9 +6399,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for POKEMON_SHAPE_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -6306,9 +6476,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for POKEMON_SPECIES_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -6366,9 +6538,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for POKEMON_SPECIES_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -6441,9 +6615,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for REGION_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -6501,9 +6677,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for REGION_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -6576,9 +6754,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for STAT_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -6636,9 +6816,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for STAT_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -6711,9 +6893,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for SUPER_CONTEST_EFFECT_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -6771,9 +6955,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for SUPER_CONTEST_EFFECT_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -6846,9 +7032,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for TYPE_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -6906,9 +7094,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for TYPE_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -6981,9 +7171,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for VERSION_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -7041,9 +7233,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for VERSION_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -7116,9 +7310,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for VERSION_GROUP_LIST_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -7176,9 +7372,11 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("text/plain")
-                                                            .expect("Unable to create Content-Type header for VERSION_GROUP_READ_DEFAULT_RESPONSE"));
-                                                    let body_content = body;
-                                                    *response.body_mut() = Body::from(body_content);
+                                                            .expect("Unable to create Content-Type header for text/plain"));
+                                                    // Plain text Body
+                                                    let body = body;
+                                                    *response.body_mut() = Body::from(body);
+
                                                 },
                                             },
                                             Err(_) => {
@@ -7288,11 +7486,16 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
             _ if path.matched(paths::ID_API_V2_VERSION_GROUP_ID_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_VERSION_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_VERSION_ID_) => method_not_allowed(),
-            _ => Ok(Response::builder().status(StatusCode::NOT_FOUND)
-                    .body(Body::empty())
-                    .expect("Unable to create Not Found response"))
+                _ => Ok(Response::builder().status(StatusCode::NOT_FOUND)
+                        .body(Body::empty())
+                        .expect("Unable to create Not Found response"))
+            }
         }
-    } Box::pin(run(self.api_impl.clone(), req)) }
+        Box::pin(run(
+            self.api_impl.clone(),
+            req,
+        ))
+    }
 }
 
 /// Request parser for `Api`.

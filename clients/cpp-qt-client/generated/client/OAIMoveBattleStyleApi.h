@@ -60,12 +60,12 @@ public:
     * @param[in]  limit qint32 [optional]
     * @param[in]  offset qint32 [optional]
     */
-    void moveBattleStyleList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
+    virtual void moveBattleStyleList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
     */
-    void moveBattleStyleRead(const qint32 &id);
+    virtual void moveBattleStyleRead(const qint32 &id);
 
 
 private:
@@ -97,6 +97,7 @@ Q_SIGNALS:
 
     void moveBattleStyleListSignal(QString summary);
     void moveBattleStyleReadSignal(QString summary);
+
 
     void moveBattleStyleListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void moveBattleStyleReadSignalFull(OAIHttpRequestWorker *worker, QString summary);

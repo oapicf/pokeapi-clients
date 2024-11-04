@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, BerryFirmnessApi } from '';
+import type { BerryFirmnessApiBerryFirmnessListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .BerryFirmnessApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new BerryFirmnessApi(configuration);
 
-let body:.BerryFirmnessApiBerryFirmnessListRequest = {
-  // number (optional)
+const request: BerryFirmnessApiBerryFirmnessListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.berryFirmnessList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.berryFirmnessList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, BerryFirmnessApi } from '';
+import type { BerryFirmnessApiBerryFirmnessReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .BerryFirmnessApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new BerryFirmnessApi(configuration);
 
-let body:.BerryFirmnessApiBerryFirmnessReadRequest = {
-  // number
+const request: BerryFirmnessApiBerryFirmnessReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.berryFirmnessRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.berryFirmnessRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

@@ -60,12 +60,12 @@ public:
     * @param[in]  limit qint32 [optional]
     * @param[in]  offset qint32 [optional]
     */
-    void pokemonShapeList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
+    virtual void pokemonShapeList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
     */
-    void pokemonShapeRead(const qint32 &id);
+    virtual void pokemonShapeRead(const qint32 &id);
 
 
 private:
@@ -97,6 +97,7 @@ Q_SIGNALS:
 
     void pokemonShapeListSignal(QString summary);
     void pokemonShapeReadSignal(QString summary);
+
 
     void pokemonShapeListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void pokemonShapeReadSignalFull(OAIHttpRequestWorker *worker, QString summary);

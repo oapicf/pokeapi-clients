@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, MoveAilmentApi } from '';
+import type { MoveAilmentApiMoveAilmentListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MoveAilmentApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new MoveAilmentApi(configuration);
 
-let body:.MoveAilmentApiMoveAilmentListRequest = {
-  // number (optional)
+const request: MoveAilmentApiMoveAilmentListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.moveAilmentList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.moveAilmentList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, MoveAilmentApi } from '';
+import type { MoveAilmentApiMoveAilmentReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MoveAilmentApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new MoveAilmentApi(configuration);
 
-let body:.MoveAilmentApiMoveAilmentReadRequest = {
-  // number
+const request: MoveAilmentApiMoveAilmentReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.moveAilmentRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.moveAilmentRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

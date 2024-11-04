@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Query parameters for super-contest-effect_list
+ * Query parameters for superContestEffectList
  */
 class SuperContestEffectListQueryData
 {

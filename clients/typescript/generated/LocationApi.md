@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, LocationApi } from '';
+import type { LocationApiLocationListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .LocationApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new LocationApi(configuration);
 
-let body:.LocationApiLocationListRequest = {
-  // number (optional)
+const request: LocationApiLocationListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.locationList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.locationList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, LocationApi } from '';
+import type { LocationApiLocationReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .LocationApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new LocationApi(configuration);
 
-let body:.LocationApiLocationReadRequest = {
-  // number
+const request: LocationApiLocationReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.locationRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.locationRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

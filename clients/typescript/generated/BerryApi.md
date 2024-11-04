@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, BerryApi } from '';
+import type { BerryApiBerryListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .BerryApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new BerryApi(configuration);
 
-let body:.BerryApiBerryListRequest = {
-  // number (optional)
+const request: BerryApiBerryListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.berryList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.berryList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, BerryApi } from '';
+import type { BerryApiBerryReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .BerryApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new BerryApi(configuration);
 
-let body:.BerryApiBerryReadRequest = {
-  // number
+const request: BerryApiBerryReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.berryRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.berryRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

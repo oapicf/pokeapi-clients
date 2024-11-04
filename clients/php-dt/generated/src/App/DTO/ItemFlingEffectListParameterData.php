@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for item-fling-effect_list
+ * Parameters for itemFlingEffectList
  */
 class ItemFlingEffectListParameterData
 {

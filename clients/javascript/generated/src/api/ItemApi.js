@@ -17,7 +17,7 @@ import ApiClient from "../ApiClient";
 /**
 * Item service.
 * @module api/ItemApi
-* @version 1.0.1-pre.0
+* @version 1.1.1-pre.0
 */
 export default class ItemApi {
 

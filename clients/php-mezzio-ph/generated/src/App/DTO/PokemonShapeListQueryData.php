@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Query parameters for pokemon-shape_list
+ * Query parameters for pokemonShapeList
  */
 class PokemonShapeListQueryData
 {

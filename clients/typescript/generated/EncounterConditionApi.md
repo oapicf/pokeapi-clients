@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EncounterConditionApi } from '';
+import type { EncounterConditionApiEncounterConditionListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EncounterConditionApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EncounterConditionApi(configuration);
 
-let body:.EncounterConditionApiEncounterConditionListRequest = {
-  // number (optional)
+const request: EncounterConditionApiEncounterConditionListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.encounterConditionList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.encounterConditionList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EncounterConditionApi } from '';
+import type { EncounterConditionApiEncounterConditionReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EncounterConditionApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EncounterConditionApi(configuration);
 
-let body:.EncounterConditionApiEncounterConditionReadRequest = {
-  // number
+const request: EncounterConditionApiEncounterConditionReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.encounterConditionRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.encounterConditionRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

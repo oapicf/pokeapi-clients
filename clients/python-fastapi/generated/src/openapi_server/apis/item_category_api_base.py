@@ -10,7 +10,7 @@ class BaseItemCategoryApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseItemCategoryApi.subclasses = BaseItemCategoryApi.subclasses + (cls,)
-    def item_category_list(
+    async def item_category_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseItemCategoryApi:
         ...
 
 
-    def item_category_read(
+    async def item_category_read(
         self,
         id: int,
     ) -> str:

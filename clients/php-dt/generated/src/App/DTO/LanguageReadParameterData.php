@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for language_read
+ * Parameters for languageRead
  */
 class LanguageReadParameterData
 {

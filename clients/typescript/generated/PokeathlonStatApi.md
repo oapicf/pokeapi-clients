@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, PokeathlonStatApi } from '';
+import type { PokeathlonStatApiPokeathlonStatListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PokeathlonStatApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new PokeathlonStatApi(configuration);
 
-let body:.PokeathlonStatApiPokeathlonStatListRequest = {
-  // number (optional)
+const request: PokeathlonStatApiPokeathlonStatListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.pokeathlonStatList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.pokeathlonStatList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, PokeathlonStatApi } from '';
+import type { PokeathlonStatApiPokeathlonStatReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PokeathlonStatApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new PokeathlonStatApi(configuration);
 
-let body:.PokeathlonStatApiPokeathlonStatReadRequest = {
-  // number
+const request: PokeathlonStatApiPokeathlonStatReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.pokeathlonStatRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.pokeathlonStatRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

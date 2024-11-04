@@ -14,6 +14,7 @@ from fastapi import (  # noqa: F401
     Depends,
     Form,
     Header,
+    HTTPException,
     Path,
     Query,
     Response,
@@ -43,7 +44,9 @@ async def location_area_list(
     limit: int = Query(None, description="", alias="limit"),
     offset: int = Query(None, description="", alias="offset"),
 ) -> str:
-    ...
+    if not BaseLocationAreaApi.subclasses:
+        raise HTTPException(status_code=500, detail="Not implemented")
+    return await BaseLocationAreaApi.subclasses[0]().location_area_list(limit, offset)
 
 
 @router.get(
@@ -57,4 +60,6 @@ async def location_area_list(
 async def location_area_read(
     id: int = Path(..., description=""),
 ) -> str:
-    ...
+    if not BaseLocationAreaApi.subclasses:
+        raise HTTPException(status_code=500, detail="Not implemented")
+    return await BaseLocationAreaApi.subclasses[0]().location_area_read(id)

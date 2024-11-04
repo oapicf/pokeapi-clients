@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Query parameters for move-damage-class_list
+ * Query parameters for moveDamageClassList
  */
 class MoveDamageClassListQueryData
 {

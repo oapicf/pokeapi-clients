@@ -60,12 +60,12 @@ public:
     * @param[in]  limit qint32 [optional]
     * @param[in]  offset qint32 [optional]
     */
-    void pokemonHabitatList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
+    virtual void pokemonHabitatList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
     */
-    void pokemonHabitatRead(const qint32 &id);
+    virtual void pokemonHabitatRead(const qint32 &id);
 
 
 private:
@@ -97,6 +97,7 @@ Q_SIGNALS:
 
     void pokemonHabitatListSignal(QString summary);
     void pokemonHabitatReadSignal(QString summary);
+
 
     void pokemonHabitatListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void pokemonHabitatReadSignalFull(OAIHttpRequestWorker *worker, QString summary);

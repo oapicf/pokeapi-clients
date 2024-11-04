@@ -60,12 +60,12 @@ public:
     * @param[in]  limit qint32 [optional]
     * @param[in]  offset qint32 [optional]
     */
-    void contestTypeList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
+    virtual void contestTypeList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
     */
-    void contestTypeRead(const qint32 &id);
+    virtual void contestTypeRead(const qint32 &id);
 
 
 private:
@@ -97,6 +97,7 @@ Q_SIGNALS:
 
     void contestTypeListSignal(QString summary);
     void contestTypeReadSignal(QString summary);
+
 
     void contestTypeListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void contestTypeReadSignalFull(OAIHttpRequestWorker *worker, QString summary);

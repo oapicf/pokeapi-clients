@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for pokemon-habitat_read
+ * Parameters for pokemonHabitatRead
  */
 class PokemonHabitatReadParameterData
 {

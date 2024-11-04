@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, ItemApi } from '';
+import type { ItemApiItemListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ItemApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new ItemApi(configuration);
 
-let body:.ItemApiItemListRequest = {
-  // number (optional)
+const request: ItemApiItemListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.itemList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.itemList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, ItemApi } from '';
+import type { ItemApiItemReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ItemApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new ItemApi(configuration);
 
-let body:.ItemApiItemReadRequest = {
-  // number
+const request: ItemApiItemReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.itemRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.itemRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

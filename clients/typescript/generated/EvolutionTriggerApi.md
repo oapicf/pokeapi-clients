@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EvolutionTriggerApi } from '';
+import type { EvolutionTriggerApiEvolutionTriggerListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EvolutionTriggerApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EvolutionTriggerApi(configuration);
 
-let body:.EvolutionTriggerApiEvolutionTriggerListRequest = {
-  // number (optional)
+const request: EvolutionTriggerApiEvolutionTriggerListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.evolutionTriggerList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.evolutionTriggerList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EvolutionTriggerApi } from '';
+import type { EvolutionTriggerApiEvolutionTriggerReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EvolutionTriggerApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EvolutionTriggerApi(configuration);
 
-let body:.EvolutionTriggerApiEvolutionTriggerReadRequest = {
-  // number
+const request: EvolutionTriggerApiEvolutionTriggerReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.evolutionTriggerRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.evolutionTriggerRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

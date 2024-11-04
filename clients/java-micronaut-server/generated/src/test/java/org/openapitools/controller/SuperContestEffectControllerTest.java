@@ -78,7 +78,7 @@ public class SuperContestEffectControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/super-contest-effect/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@22825e1e");
+            .accept("[Ljava.lang.String;@739e8b96");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class SuperContestEffectControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@335f5c69");
+            .accept("[Ljava.lang.String;@19b07407");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

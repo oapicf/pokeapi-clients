@@ -5,7 +5,7 @@ import javax.inject.{Inject, Singleton}
 import play.api.libs.json._
 import play.api.mvc._
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-09T12:20:07.604437677Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-11-03T13:23:19.534127305Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 @Singleton
 class AbilityApiController @Inject()(cc: ControllerComponents, api: AbilityApi) extends AbstractController(cc) {
   /**

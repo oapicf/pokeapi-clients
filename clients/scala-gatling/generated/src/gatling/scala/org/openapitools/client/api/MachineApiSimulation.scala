@@ -72,8 +72,8 @@ class MachineApiSimulation extends Simulation {
         .feed(machine_listQUERYFeeder)
         .exec(http("machineList")
         .httpRequest("GET","/api/v2/machine/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scnmachineList with warm up and reach a constant rate for entire duration

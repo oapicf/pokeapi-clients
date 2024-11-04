@@ -60,12 +60,12 @@ public:
     * @param[in]  limit qint32 [optional]
     * @param[in]  offset qint32 [optional]
     */
-    void moveDamageClassList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
+    virtual void moveDamageClassList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
     */
-    void moveDamageClassRead(const qint32 &id);
+    virtual void moveDamageClassRead(const qint32 &id);
 
 
 private:
@@ -97,6 +97,7 @@ Q_SIGNALS:
 
     void moveDamageClassListSignal(QString summary);
     void moveDamageClassReadSignal(QString summary);
+
 
     void moveDamageClassListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void moveDamageClassReadSignalFull(OAIHttpRequestWorker *worker, QString summary);

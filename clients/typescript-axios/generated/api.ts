@@ -154,7 +154,7 @@ export const AbilityApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        abilityList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        abilityList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.abilityList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -163,7 +163,7 @@ export const AbilityApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        abilityRead(id: number, options?: any): AxiosPromise<string> {
+        abilityRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.abilityRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -332,7 +332,7 @@ export const BerryApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        berryList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        berryList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.berryList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -341,7 +341,7 @@ export const BerryApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        berryRead(id: number, options?: any): AxiosPromise<string> {
+        berryRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.berryRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -510,7 +510,7 @@ export const BerryFirmnessApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        berryFirmnessList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        berryFirmnessList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.berryFirmnessList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -519,7 +519,7 @@ export const BerryFirmnessApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        berryFirmnessRead(id: number, options?: any): AxiosPromise<string> {
+        berryFirmnessRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.berryFirmnessRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -688,7 +688,7 @@ export const BerryFlavorApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        berryFlavorList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        berryFlavorList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.berryFlavorList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -697,7 +697,7 @@ export const BerryFlavorApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        berryFlavorRead(id: number, options?: any): AxiosPromise<string> {
+        berryFlavorRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.berryFlavorRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -866,7 +866,7 @@ export const CharacteristicApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        characteristicList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        characteristicList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.characteristicList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -875,7 +875,7 @@ export const CharacteristicApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        characteristicRead(id: number, options?: any): AxiosPromise<string> {
+        characteristicRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.characteristicRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -1044,7 +1044,7 @@ export const ContestEffectApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contestEffectList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        contestEffectList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.contestEffectList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1053,7 +1053,7 @@ export const ContestEffectApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contestEffectRead(id: number, options?: any): AxiosPromise<string> {
+        contestEffectRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.contestEffectRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -1222,7 +1222,7 @@ export const ContestTypeApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contestTypeList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        contestTypeList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.contestTypeList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1231,7 +1231,7 @@ export const ContestTypeApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        contestTypeRead(id: number, options?: any): AxiosPromise<string> {
+        contestTypeRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.contestTypeRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -1400,7 +1400,7 @@ export const EggGroupApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        eggGroupList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        eggGroupList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.eggGroupList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1409,7 +1409,7 @@ export const EggGroupApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        eggGroupRead(id: number, options?: any): AxiosPromise<string> {
+        eggGroupRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.eggGroupRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -1578,7 +1578,7 @@ export const EncounterConditionApiFactory = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        encounterConditionList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        encounterConditionList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.encounterConditionList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1587,7 +1587,7 @@ export const EncounterConditionApiFactory = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        encounterConditionRead(id: number, options?: any): AxiosPromise<string> {
+        encounterConditionRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.encounterConditionRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -1756,7 +1756,7 @@ export const EncounterConditionValueApiFactory = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        encounterConditionValueList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        encounterConditionValueList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.encounterConditionValueList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1765,7 +1765,7 @@ export const EncounterConditionValueApiFactory = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        encounterConditionValueRead(id: number, options?: any): AxiosPromise<string> {
+        encounterConditionValueRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.encounterConditionValueRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -1934,7 +1934,7 @@ export const EncounterMethodApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        encounterMethodList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        encounterMethodList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.encounterMethodList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1943,7 +1943,7 @@ export const EncounterMethodApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        encounterMethodRead(id: number, options?: any): AxiosPromise<string> {
+        encounterMethodRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.encounterMethodRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -2112,7 +2112,7 @@ export const EvolutionChainApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        evolutionChainList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        evolutionChainList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.evolutionChainList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -2121,7 +2121,7 @@ export const EvolutionChainApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        evolutionChainRead(id: number, options?: any): AxiosPromise<string> {
+        evolutionChainRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.evolutionChainRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -2290,7 +2290,7 @@ export const EvolutionTriggerApiFactory = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        evolutionTriggerList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        evolutionTriggerList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.evolutionTriggerList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -2299,7 +2299,7 @@ export const EvolutionTriggerApiFactory = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        evolutionTriggerRead(id: number, options?: any): AxiosPromise<string> {
+        evolutionTriggerRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.evolutionTriggerRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -2468,7 +2468,7 @@ export const GenderApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        genderList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        genderList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.genderList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -2477,7 +2477,7 @@ export const GenderApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        genderRead(id: number, options?: any): AxiosPromise<string> {
+        genderRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.genderRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -2646,7 +2646,7 @@ export const GenerationApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        generationList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        generationList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.generationList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -2655,7 +2655,7 @@ export const GenerationApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        generationRead(id: number, options?: any): AxiosPromise<string> {
+        generationRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.generationRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -2824,7 +2824,7 @@ export const GrowthRateApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        growthRateList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        growthRateList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.growthRateList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -2833,7 +2833,7 @@ export const GrowthRateApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        growthRateRead(id: number, options?: any): AxiosPromise<string> {
+        growthRateRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.growthRateRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -3002,7 +3002,7 @@ export const ItemApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        itemList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.itemList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -3011,7 +3011,7 @@ export const ItemApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemRead(id: number, options?: any): AxiosPromise<string> {
+        itemRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.itemRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -3180,7 +3180,7 @@ export const ItemAttributeApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemAttributeList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        itemAttributeList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.itemAttributeList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -3189,7 +3189,7 @@ export const ItemAttributeApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemAttributeRead(id: number, options?: any): AxiosPromise<string> {
+        itemAttributeRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.itemAttributeRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -3358,7 +3358,7 @@ export const ItemCategoryApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemCategoryList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        itemCategoryList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.itemCategoryList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -3367,7 +3367,7 @@ export const ItemCategoryApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemCategoryRead(id: number, options?: any): AxiosPromise<string> {
+        itemCategoryRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.itemCategoryRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -3536,7 +3536,7 @@ export const ItemFlingEffectApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemFlingEffectList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        itemFlingEffectList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.itemFlingEffectList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -3545,7 +3545,7 @@ export const ItemFlingEffectApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemFlingEffectRead(id: number, options?: any): AxiosPromise<string> {
+        itemFlingEffectRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.itemFlingEffectRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -3714,7 +3714,7 @@ export const ItemPocketApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemPocketList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        itemPocketList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.itemPocketList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -3723,7 +3723,7 @@ export const ItemPocketApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemPocketRead(id: number, options?: any): AxiosPromise<string> {
+        itemPocketRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.itemPocketRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -3892,7 +3892,7 @@ export const LanguageApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        languageList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        languageList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.languageList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -3901,7 +3901,7 @@ export const LanguageApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        languageRead(id: number, options?: any): AxiosPromise<string> {
+        languageRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.languageRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -4070,7 +4070,7 @@ export const LocationApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        locationList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.locationList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4079,7 +4079,7 @@ export const LocationApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationRead(id: number, options?: any): AxiosPromise<string> {
+        locationRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.locationRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -4248,7 +4248,7 @@ export const LocationAreaApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationAreaList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        locationAreaList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.locationAreaList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4257,7 +4257,7 @@ export const LocationAreaApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        locationAreaRead(id: number, options?: any): AxiosPromise<string> {
+        locationAreaRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.locationAreaRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -4426,7 +4426,7 @@ export const MachineApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        machineList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        machineList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.machineList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4435,7 +4435,7 @@ export const MachineApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        machineRead(id: number, options?: any): AxiosPromise<string> {
+        machineRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.machineRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -4604,7 +4604,7 @@ export const MoveApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        moveList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.moveList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4613,7 +4613,7 @@ export const MoveApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveRead(id: number, options?: any): AxiosPromise<string> {
+        moveRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.moveRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -4782,7 +4782,7 @@ export const MoveAilmentApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveAilmentList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        moveAilmentList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.moveAilmentList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4791,7 +4791,7 @@ export const MoveAilmentApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveAilmentRead(id: number, options?: any): AxiosPromise<string> {
+        moveAilmentRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.moveAilmentRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -4960,7 +4960,7 @@ export const MoveBattleStyleApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveBattleStyleList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        moveBattleStyleList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.moveBattleStyleList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4969,7 +4969,7 @@ export const MoveBattleStyleApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveBattleStyleRead(id: number, options?: any): AxiosPromise<string> {
+        moveBattleStyleRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.moveBattleStyleRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -5138,7 +5138,7 @@ export const MoveCategoryApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveCategoryList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        moveCategoryList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.moveCategoryList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -5147,7 +5147,7 @@ export const MoveCategoryApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveCategoryRead(id: number, options?: any): AxiosPromise<string> {
+        moveCategoryRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.moveCategoryRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -5316,7 +5316,7 @@ export const MoveDamageClassApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveDamageClassList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        moveDamageClassList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.moveDamageClassList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -5325,7 +5325,7 @@ export const MoveDamageClassApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveDamageClassRead(id: number, options?: any): AxiosPromise<string> {
+        moveDamageClassRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.moveDamageClassRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -5494,7 +5494,7 @@ export const MoveLearnMethodApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveLearnMethodList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        moveLearnMethodList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.moveLearnMethodList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -5503,7 +5503,7 @@ export const MoveLearnMethodApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveLearnMethodRead(id: number, options?: any): AxiosPromise<string> {
+        moveLearnMethodRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.moveLearnMethodRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -5672,7 +5672,7 @@ export const MoveTargetApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveTargetList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        moveTargetList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.moveTargetList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -5681,7 +5681,7 @@ export const MoveTargetApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        moveTargetRead(id: number, options?: any): AxiosPromise<string> {
+        moveTargetRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.moveTargetRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -5850,7 +5850,7 @@ export const NatureApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        natureList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        natureList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.natureList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -5859,7 +5859,7 @@ export const NatureApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        natureRead(id: number, options?: any): AxiosPromise<string> {
+        natureRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.natureRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -6028,7 +6028,7 @@ export const PalParkAreaApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        palParkAreaList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        palParkAreaList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.palParkAreaList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -6037,7 +6037,7 @@ export const PalParkAreaApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        palParkAreaRead(id: number, options?: any): AxiosPromise<string> {
+        palParkAreaRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.palParkAreaRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -6206,7 +6206,7 @@ export const PokeathlonStatApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokeathlonStatList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        pokeathlonStatList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.pokeathlonStatList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -6215,7 +6215,7 @@ export const PokeathlonStatApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokeathlonStatRead(id: number, options?: any): AxiosPromise<string> {
+        pokeathlonStatRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.pokeathlonStatRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -6384,7 +6384,7 @@ export const PokedexApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokedexList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        pokedexList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.pokedexList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -6393,7 +6393,7 @@ export const PokedexApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokedexRead(id: number, options?: any): AxiosPromise<string> {
+        pokedexRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.pokedexRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -6562,7 +6562,7 @@ export const PokemonApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        pokemonList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.pokemonList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -6571,7 +6571,7 @@ export const PokemonApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonRead(id: number, options?: any): AxiosPromise<string> {
+        pokemonRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.pokemonRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -6740,7 +6740,7 @@ export const PokemonColorApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonColorList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        pokemonColorList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.pokemonColorList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -6749,7 +6749,7 @@ export const PokemonColorApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonColorRead(id: number, options?: any): AxiosPromise<string> {
+        pokemonColorRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.pokemonColorRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -6918,7 +6918,7 @@ export const PokemonFormApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonFormList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        pokemonFormList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.pokemonFormList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -6927,7 +6927,7 @@ export const PokemonFormApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonFormRead(id: number, options?: any): AxiosPromise<string> {
+        pokemonFormRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.pokemonFormRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -7096,7 +7096,7 @@ export const PokemonHabitatApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonHabitatList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        pokemonHabitatList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.pokemonHabitatList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -7105,7 +7105,7 @@ export const PokemonHabitatApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonHabitatRead(id: number, options?: any): AxiosPromise<string> {
+        pokemonHabitatRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.pokemonHabitatRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -7274,7 +7274,7 @@ export const PokemonShapeApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonShapeList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        pokemonShapeList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.pokemonShapeList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -7283,7 +7283,7 @@ export const PokemonShapeApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonShapeRead(id: number, options?: any): AxiosPromise<string> {
+        pokemonShapeRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.pokemonShapeRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -7452,7 +7452,7 @@ export const PokemonSpeciesApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonSpeciesList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        pokemonSpeciesList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.pokemonSpeciesList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -7461,7 +7461,7 @@ export const PokemonSpeciesApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        pokemonSpeciesRead(id: number, options?: any): AxiosPromise<string> {
+        pokemonSpeciesRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.pokemonSpeciesRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -7630,7 +7630,7 @@ export const RegionApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        regionList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        regionList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.regionList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -7639,7 +7639,7 @@ export const RegionApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        regionRead(id: number, options?: any): AxiosPromise<string> {
+        regionRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.regionRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -7808,7 +7808,7 @@ export const StatApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        statList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.statList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -7817,7 +7817,7 @@ export const StatApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statRead(id: number, options?: any): AxiosPromise<string> {
+        statRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.statRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -7986,7 +7986,7 @@ export const SuperContestEffectApiFactory = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        superContestEffectList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        superContestEffectList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.superContestEffectList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -7995,7 +7995,7 @@ export const SuperContestEffectApiFactory = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        superContestEffectRead(id: number, options?: any): AxiosPromise<string> {
+        superContestEffectRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.superContestEffectRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -8164,7 +8164,7 @@ export const TypeApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        typeList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        typeList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.typeList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -8173,7 +8173,7 @@ export const TypeApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        typeRead(id: number, options?: any): AxiosPromise<string> {
+        typeRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.typeRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -8342,7 +8342,7 @@ export const VersionApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        versionList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        versionList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.versionList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -8351,7 +8351,7 @@ export const VersionApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        versionRead(id: number, options?: any): AxiosPromise<string> {
+        versionRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.versionRead(id, options).then((request) => request(axios, basePath));
         },
     };
@@ -8520,7 +8520,7 @@ export const VersionGroupApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        versionGroupList(limit?: number, offset?: number, options?: any): AxiosPromise<string> {
+        versionGroupList(limit?: number, offset?: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.versionGroupList(limit, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -8529,7 +8529,7 @@ export const VersionGroupApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        versionGroupRead(id: number, options?: any): AxiosPromise<string> {
+        versionGroupRead(id: number, options?: RawAxiosRequestConfig): AxiosPromise<string> {
             return localVarFp.versionGroupRead(id, options).then((request) => request(axios, basePath));
         },
     };

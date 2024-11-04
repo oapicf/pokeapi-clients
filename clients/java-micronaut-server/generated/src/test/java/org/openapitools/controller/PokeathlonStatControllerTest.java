@@ -78,7 +78,7 @@ public class PokeathlonStatControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/pokeathlon-stat/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@6b4125ed");
+            .accept("[Ljava.lang.String;@422ad5e2");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class PokeathlonStatControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@78da899f");
+            .accept("[Ljava.lang.String;@62a54948");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for move-category_read
+ * Parameters for moveCategoryRead
  */
 class MoveCategoryReadParameterData
 {

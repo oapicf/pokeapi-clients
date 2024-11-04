@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, TypeApi } from '';
+import type { TypeApiTypeListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .TypeApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new TypeApi(configuration);
 
-let body:.TypeApiTypeListRequest = {
-  // number (optional)
+const request: TypeApiTypeListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.typeList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.typeList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, TypeApi } from '';
+import type { TypeApiTypeReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .TypeApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new TypeApi(configuration);
 
-let body:.TypeApiTypeReadRequest = {
-  // number
+const request: TypeApiTypeReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.typeRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.typeRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

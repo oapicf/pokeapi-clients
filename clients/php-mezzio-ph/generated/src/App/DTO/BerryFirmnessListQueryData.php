@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Query parameters for berry-firmness_list
+ * Query parameters for berryFirmnessList
  */
 class BerryFirmnessListQueryData
 {

@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, PalParkAreaApi } from '';
+import type { PalParkAreaApiPalParkAreaListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PalParkAreaApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new PalParkAreaApi(configuration);
 
-let body:.PalParkAreaApiPalParkAreaListRequest = {
-  // number (optional)
+const request: PalParkAreaApiPalParkAreaListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.palParkAreaList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.palParkAreaList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, PalParkAreaApi } from '';
+import type { PalParkAreaApiPalParkAreaReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PalParkAreaApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new PalParkAreaApi(configuration);
 
-let body:.PalParkAreaApiPalParkAreaReadRequest = {
-  // number
+const request: PalParkAreaApiPalParkAreaReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.palParkAreaRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.palParkAreaRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

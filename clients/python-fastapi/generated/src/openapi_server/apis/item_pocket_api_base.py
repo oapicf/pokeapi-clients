@@ -10,7 +10,7 @@ class BaseItemPocketApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseItemPocketApi.subclasses = BaseItemPocketApi.subclasses + (cls,)
-    def item_pocket_list(
+    async def item_pocket_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseItemPocketApi:
         ...
 
 
-    def item_pocket_read(
+    async def item_pocket_read(
         self,
         id: int,
     ) -> str:

@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, GrowthRateApi } from '';
+import type { GrowthRateApiGrowthRateListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GrowthRateApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new GrowthRateApi(configuration);
 
-let body:.GrowthRateApiGrowthRateListRequest = {
-  // number (optional)
+const request: GrowthRateApiGrowthRateListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.growthRateList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.growthRateList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, GrowthRateApi } from '';
+import type { GrowthRateApiGrowthRateReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GrowthRateApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new GrowthRateApi(configuration);
 
-let body:.GrowthRateApiGrowthRateReadRequest = {
-  // number
+const request: GrowthRateApiGrowthRateReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.growthRateRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.growthRateRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

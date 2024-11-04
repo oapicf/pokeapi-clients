@@ -10,7 +10,7 @@ class BaseEncounterConditionApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseEncounterConditionApi.subclasses = BaseEncounterConditionApi.subclasses + (cls,)
-    def encounter_condition_list(
+    async def encounter_condition_list(
         self,
         limit: int,
         offset: int,
@@ -18,7 +18,7 @@ class BaseEncounterConditionApi:
         ...
 
 
-    def encounter_condition_read(
+    async def encounter_condition_read(
         self,
         id: int,
     ) -> str:

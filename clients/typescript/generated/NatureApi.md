@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, NatureApi } from '';
+import type { NatureApiNatureListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .NatureApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new NatureApi(configuration);
 
-let body:.NatureApiNatureListRequest = {
-  // number (optional)
+const request: NatureApiNatureListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.natureList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.natureList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, NatureApi } from '';
+import type { NatureApiNatureReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .NatureApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new NatureApi(configuration);
 
-let body:.NatureApiNatureReadRequest = {
-  // number
+const request: NatureApiNatureReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.natureRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.natureRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

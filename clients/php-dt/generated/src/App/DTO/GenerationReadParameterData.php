@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for generation_read
+ * Parameters for generationRead
  */
 class GenerationReadParameterData
 {

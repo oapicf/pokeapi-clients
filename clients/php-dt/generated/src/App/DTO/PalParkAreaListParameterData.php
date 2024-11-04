@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for pal-park-area_list
+ * Parameters for palParkAreaList
  */
 class PalParkAreaListParameterData
 {

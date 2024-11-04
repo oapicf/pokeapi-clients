@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EggGroupApi } from '';
+import type { EggGroupApiEggGroupListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EggGroupApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EggGroupApi(configuration);
 
-let body:.EggGroupApiEggGroupListRequest = {
-  // number (optional)
+const request: EggGroupApiEggGroupListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.eggGroupList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.eggGroupList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EggGroupApi } from '';
+import type { EggGroupApiEggGroupReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EggGroupApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EggGroupApi(configuration);
 
-let body:.EggGroupApiEggGroupReadRequest = {
-  // number
+const request: EggGroupApiEggGroupReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.eggGroupRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.eggGroupRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

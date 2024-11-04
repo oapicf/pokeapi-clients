@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, MoveDamageClassApi } from '';
+import type { MoveDamageClassApiMoveDamageClassListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MoveDamageClassApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new MoveDamageClassApi(configuration);
 
-let body:.MoveDamageClassApiMoveDamageClassListRequest = {
-  // number (optional)
+const request: MoveDamageClassApiMoveDamageClassListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.moveDamageClassList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.moveDamageClassList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, MoveDamageClassApi } from '';
+import type { MoveDamageClassApiMoveDamageClassReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .MoveDamageClassApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new MoveDamageClassApi(configuration);
 
-let body:.MoveDamageClassApiMoveDamageClassReadRequest = {
-  // number
+const request: MoveDamageClassApiMoveDamageClassReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.moveDamageClassRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.moveDamageClassRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

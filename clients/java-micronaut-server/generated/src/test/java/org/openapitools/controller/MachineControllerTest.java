@@ -78,7 +78,7 @@ public class MachineControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/machine/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@6e829e50");
+            .accept("[Ljava.lang.String;@15fb4566");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class MachineControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@4aa2877c");
+            .accept("[Ljava.lang.String;@25ffd826");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

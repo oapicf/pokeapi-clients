@@ -72,8 +72,8 @@ class MoveCategoryApiSimulation extends Simulation {
         .feed(move-category_listQUERYFeeder)
         .exec(http("moveCategoryList")
         .httpRequest("GET","/api/v2/move-category/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scnmoveCategoryList with warm up and reach a constant rate for entire duration

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pokeapi_client (1.0.1.pre.pre.0)
+    pokeapi_client (1.1.1.pre.pre.0)
       typhoeus (~> 1.0, >= 1.0.1)
 
 GEM
@@ -16,8 +16,8 @@ GEM
     ffi (1.17.0)
     jaro_winkler (1.5.6)
     method_source (1.1.0)
-    parallel (1.25.1)
-    parser (3.3.3.0)
+    parallel (1.26.3)
+    parser (3.3.5.1)
       ast (~> 2.4.1)
       racc
     pry (0.14.2)
@@ -28,19 +28,19 @@ GEM
       pry (>= 0.13, < 0.15)
     psych (5.1.2)
       stringio
-    racc (1.8.0)
+    racc (1.8.1)
     rainbow (3.1.1)
     rake (13.0.6)
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
       rspec-mocks (~> 3.13.0)
-    rspec-core (3.13.0)
+    rspec-core (3.13.2)
       rspec-support (~> 3.13.0)
-    rspec-expectations (3.13.1)
+    rspec-expectations (3.13.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-mocks (3.13.1)
+    rspec-mocks (3.13.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-support (3.13.1)
@@ -69,4 +69,4 @@ DEPENDENCIES
   rubocop (~> 0.66.0)
 
 BUNDLED WITH
-   2.4.22
+   2.2.22

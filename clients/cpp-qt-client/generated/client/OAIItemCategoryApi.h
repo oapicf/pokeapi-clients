@@ -60,12 +60,12 @@ public:
     * @param[in]  limit qint32 [optional]
     * @param[in]  offset qint32 [optional]
     */
-    void itemCategoryList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
+    virtual void itemCategoryList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
     */
-    void itemCategoryRead(const qint32 &id);
+    virtual void itemCategoryRead(const qint32 &id);
 
 
 private:
@@ -97,6 +97,7 @@ Q_SIGNALS:
 
     void itemCategoryListSignal(QString summary);
     void itemCategoryReadSignal(QString summary);
+
 
     void itemCategoryListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void itemCategoryReadSignalFull(OAIHttpRequestWorker *worker, QString summary);

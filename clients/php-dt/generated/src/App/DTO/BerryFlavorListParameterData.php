@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for berry-flavor_list
+ * Parameters for berryFlavorList
  */
 class BerryFlavorListParameterData
 {

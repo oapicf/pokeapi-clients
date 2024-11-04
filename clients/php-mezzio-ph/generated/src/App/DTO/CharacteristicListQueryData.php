@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Query parameters for characteristic_list
+ * Query parameters for characteristicList
  */
 class CharacteristicListQueryData
 {

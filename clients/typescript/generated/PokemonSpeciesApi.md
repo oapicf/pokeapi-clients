@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, PokemonSpeciesApi } from '';
+import type { PokemonSpeciesApiPokemonSpeciesListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PokemonSpeciesApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new PokemonSpeciesApi(configuration);
 
-let body:.PokemonSpeciesApiPokemonSpeciesListRequest = {
-  // number (optional)
+const request: PokemonSpeciesApiPokemonSpeciesListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.pokemonSpeciesList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.pokemonSpeciesList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, PokemonSpeciesApi } from '';
+import type { PokemonSpeciesApiPokemonSpeciesReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .PokemonSpeciesApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new PokemonSpeciesApi(configuration);
 
-let body:.PokemonSpeciesApiPokemonSpeciesReadRequest = {
-  // number
+const request: PokemonSpeciesApiPokemonSpeciesReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.pokemonSpeciesRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.pokemonSpeciesRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

@@ -60,12 +60,12 @@ public:
     * @param[in]  limit qint32 [optional]
     * @param[in]  offset qint32 [optional]
     */
-    void berryFlavorList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
+    virtual void berryFlavorList(const ::OpenAPI::OptionalParam<qint32> &limit = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
     */
-    void berryFlavorRead(const qint32 &id);
+    virtual void berryFlavorRead(const qint32 &id);
 
 
 private:
@@ -97,6 +97,7 @@ Q_SIGNALS:
 
     void berryFlavorListSignal(QString summary);
     void berryFlavorReadSignal(QString summary);
+
 
     void berryFlavorListSignalFull(OAIHttpRequestWorker *worker, QString summary);
     void berryFlavorReadSignalFull(OAIHttpRequestWorker *worker, QString summary);

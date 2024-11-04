@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for egg-group_read
+ * Parameters for eggGroupRead
  */
 class EggGroupReadParameterData
 {

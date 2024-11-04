@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, ItemPocketApi } from '';
+import type { ItemPocketApiItemPocketListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ItemPocketApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new ItemPocketApi(configuration);
 
-let body:.ItemPocketApiItemPocketListRequest = {
-  // number (optional)
+const request: ItemPocketApiItemPocketListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.itemPocketList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.itemPocketList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, ItemPocketApi } from '';
+import type { ItemPocketApiItemPocketReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ItemPocketApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new ItemPocketApi(configuration);
 
-let body:.ItemPocketApiItemPocketReadRequest = {
-  // number
+const request: ItemPocketApiItemPocketReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.itemPocketRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.itemPocketRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, VersionGroupApi } from '';
+import type { VersionGroupApiVersionGroupListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .VersionGroupApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new VersionGroupApi(configuration);
 
-let body:.VersionGroupApiVersionGroupListRequest = {
-  // number (optional)
+const request: VersionGroupApiVersionGroupListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.versionGroupList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.versionGroupList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, VersionGroupApi } from '';
+import type { VersionGroupApiVersionGroupReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .VersionGroupApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new VersionGroupApi(configuration);
 
-let body:.VersionGroupApiVersionGroupReadRequest = {
-  // number
+const request: VersionGroupApiVersionGroupReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.versionGroupRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.versionGroupRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

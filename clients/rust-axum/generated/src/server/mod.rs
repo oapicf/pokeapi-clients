@@ -335,13 +335,13 @@ async fn ability_list<I, A>(
   Query(query_params): Query<models::AbilityListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::ability::Ability,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     ability_list_validation(
         query_params,
     )
@@ -353,7 +353,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().ability_list(
@@ -370,7 +370,6 @@ where
                                                 apis::ability::AbilityListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -416,13 +415,13 @@ async fn ability_read<I, A>(
   Path(path_params): Path<models::AbilityReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::ability::Ability,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     ability_read_validation(
         path_params,
     )
@@ -434,7 +433,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().ability_read(
@@ -451,7 +450,6 @@ where
                                                 apis::ability::AbilityReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -497,13 +495,13 @@ async fn berry_list<I, A>(
   Query(query_params): Query<models::BerryListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::berry::Berry,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     berry_list_validation(
         query_params,
     )
@@ -515,7 +513,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().berry_list(
@@ -532,7 +530,6 @@ where
                                                 apis::berry::BerryListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -578,13 +575,13 @@ async fn berry_read<I, A>(
   Path(path_params): Path<models::BerryReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::berry::Berry,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     berry_read_validation(
         path_params,
     )
@@ -596,7 +593,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().berry_read(
@@ -613,7 +610,6 @@ where
                                                 apis::berry::BerryReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -659,13 +655,13 @@ async fn berry_firmness_list<I, A>(
   Query(query_params): Query<models::BerryFirmnessListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::berry_firmness::BerryFirmness,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     berry_firmness_list_validation(
         query_params,
     )
@@ -677,7 +673,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().berry_firmness_list(
@@ -694,7 +690,6 @@ where
                                                 apis::berry_firmness::BerryFirmnessListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -740,13 +735,13 @@ async fn berry_firmness_read<I, A>(
   Path(path_params): Path<models::BerryFirmnessReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::berry_firmness::BerryFirmness,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     berry_firmness_read_validation(
         path_params,
     )
@@ -758,7 +753,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().berry_firmness_read(
@@ -775,7 +770,6 @@ where
                                                 apis::berry_firmness::BerryFirmnessReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -821,13 +815,13 @@ async fn berry_flavor_list<I, A>(
   Query(query_params): Query<models::BerryFlavorListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::berry_flavor::BerryFlavor,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     berry_flavor_list_validation(
         query_params,
     )
@@ -839,7 +833,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().berry_flavor_list(
@@ -856,7 +850,6 @@ where
                                                 apis::berry_flavor::BerryFlavorListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -902,13 +895,13 @@ async fn berry_flavor_read<I, A>(
   Path(path_params): Path<models::BerryFlavorReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::berry_flavor::BerryFlavor,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     berry_flavor_read_validation(
         path_params,
     )
@@ -920,7 +913,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().berry_flavor_read(
@@ -937,7 +930,6 @@ where
                                                 apis::berry_flavor::BerryFlavorReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -983,13 +975,13 @@ async fn characteristic_list<I, A>(
   Query(query_params): Query<models::CharacteristicListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::characteristic::Characteristic,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     characteristic_list_validation(
         query_params,
     )
@@ -1001,7 +993,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().characteristic_list(
@@ -1018,7 +1010,6 @@ where
                                                 apis::characteristic::CharacteristicListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1064,13 +1055,13 @@ async fn characteristic_read<I, A>(
   Path(path_params): Path<models::CharacteristicReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::characteristic::Characteristic,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     characteristic_read_validation(
         path_params,
     )
@@ -1082,7 +1073,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().characteristic_read(
@@ -1099,7 +1090,6 @@ where
                                                 apis::characteristic::CharacteristicReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1145,13 +1135,13 @@ async fn contest_effect_list<I, A>(
   Query(query_params): Query<models::ContestEffectListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::contest_effect::ContestEffect,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     contest_effect_list_validation(
         query_params,
     )
@@ -1163,7 +1153,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().contest_effect_list(
@@ -1180,7 +1170,6 @@ where
                                                 apis::contest_effect::ContestEffectListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1226,13 +1215,13 @@ async fn contest_effect_read<I, A>(
   Path(path_params): Path<models::ContestEffectReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::contest_effect::ContestEffect,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     contest_effect_read_validation(
         path_params,
     )
@@ -1244,7 +1233,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().contest_effect_read(
@@ -1261,7 +1250,6 @@ where
                                                 apis::contest_effect::ContestEffectReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1307,13 +1295,13 @@ async fn contest_type_list<I, A>(
   Query(query_params): Query<models::ContestTypeListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::contest_type::ContestType,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     contest_type_list_validation(
         query_params,
     )
@@ -1325,7 +1313,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().contest_type_list(
@@ -1342,7 +1330,6 @@ where
                                                 apis::contest_type::ContestTypeListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1388,13 +1375,13 @@ async fn contest_type_read<I, A>(
   Path(path_params): Path<models::ContestTypeReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::contest_type::ContestType,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     contest_type_read_validation(
         path_params,
     )
@@ -1406,7 +1393,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().contest_type_read(
@@ -1423,7 +1410,6 @@ where
                                                 apis::contest_type::ContestTypeReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1469,13 +1455,13 @@ async fn egg_group_list<I, A>(
   Query(query_params): Query<models::EggGroupListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::egg_group::EggGroup,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     egg_group_list_validation(
         query_params,
     )
@@ -1487,7 +1473,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().egg_group_list(
@@ -1504,7 +1490,6 @@ where
                                                 apis::egg_group::EggGroupListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1550,13 +1535,13 @@ async fn egg_group_read<I, A>(
   Path(path_params): Path<models::EggGroupReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::egg_group::EggGroup,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     egg_group_read_validation(
         path_params,
     )
@@ -1568,7 +1553,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().egg_group_read(
@@ -1585,7 +1570,6 @@ where
                                                 apis::egg_group::EggGroupReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1631,13 +1615,13 @@ async fn encounter_condition_list<I, A>(
   Query(query_params): Query<models::EncounterConditionListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::encounter_condition::EncounterCondition,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     encounter_condition_list_validation(
         query_params,
     )
@@ -1649,7 +1633,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().encounter_condition_list(
@@ -1666,7 +1650,6 @@ where
                                                 apis::encounter_condition::EncounterConditionListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1712,13 +1695,13 @@ async fn encounter_condition_read<I, A>(
   Path(path_params): Path<models::EncounterConditionReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::encounter_condition::EncounterCondition,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     encounter_condition_read_validation(
         path_params,
     )
@@ -1730,7 +1713,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().encounter_condition_read(
@@ -1747,7 +1730,6 @@ where
                                                 apis::encounter_condition::EncounterConditionReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1793,13 +1775,13 @@ async fn encounter_condition_value_list<I, A>(
   Query(query_params): Query<models::EncounterConditionValueListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::encounter_condition_value::EncounterConditionValue,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     encounter_condition_value_list_validation(
         query_params,
     )
@@ -1811,7 +1793,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().encounter_condition_value_list(
@@ -1828,7 +1810,6 @@ where
                                                 apis::encounter_condition_value::EncounterConditionValueListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1874,13 +1855,13 @@ async fn encounter_condition_value_read<I, A>(
   Path(path_params): Path<models::EncounterConditionValueReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::encounter_condition_value::EncounterConditionValue,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     encounter_condition_value_read_validation(
         path_params,
     )
@@ -1892,7 +1873,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().encounter_condition_value_read(
@@ -1909,7 +1890,6 @@ where
                                                 apis::encounter_condition_value::EncounterConditionValueReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -1955,13 +1935,13 @@ async fn encounter_method_list<I, A>(
   Query(query_params): Query<models::EncounterMethodListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::encounter_method::EncounterMethod,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     encounter_method_list_validation(
         query_params,
     )
@@ -1973,7 +1953,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().encounter_method_list(
@@ -1990,7 +1970,6 @@ where
                                                 apis::encounter_method::EncounterMethodListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2036,13 +2015,13 @@ async fn encounter_method_read<I, A>(
   Path(path_params): Path<models::EncounterMethodReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::encounter_method::EncounterMethod,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     encounter_method_read_validation(
         path_params,
     )
@@ -2054,7 +2033,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().encounter_method_read(
@@ -2071,7 +2050,6 @@ where
                                                 apis::encounter_method::EncounterMethodReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2117,13 +2095,13 @@ async fn evolution_chain_list<I, A>(
   Query(query_params): Query<models::EvolutionChainListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::evolution_chain::EvolutionChain,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     evolution_chain_list_validation(
         query_params,
     )
@@ -2135,7 +2113,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().evolution_chain_list(
@@ -2152,7 +2130,6 @@ where
                                                 apis::evolution_chain::EvolutionChainListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2198,13 +2175,13 @@ async fn evolution_chain_read<I, A>(
   Path(path_params): Path<models::EvolutionChainReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::evolution_chain::EvolutionChain,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     evolution_chain_read_validation(
         path_params,
     )
@@ -2216,7 +2193,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().evolution_chain_read(
@@ -2233,7 +2210,6 @@ where
                                                 apis::evolution_chain::EvolutionChainReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2279,13 +2255,13 @@ async fn evolution_trigger_list<I, A>(
   Query(query_params): Query<models::EvolutionTriggerListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::evolution_trigger::EvolutionTrigger,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     evolution_trigger_list_validation(
         query_params,
     )
@@ -2297,7 +2273,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().evolution_trigger_list(
@@ -2314,7 +2290,6 @@ where
                                                 apis::evolution_trigger::EvolutionTriggerListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2360,13 +2335,13 @@ async fn evolution_trigger_read<I, A>(
   Path(path_params): Path<models::EvolutionTriggerReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::evolution_trigger::EvolutionTrigger,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     evolution_trigger_read_validation(
         path_params,
     )
@@ -2378,7 +2353,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().evolution_trigger_read(
@@ -2395,7 +2370,6 @@ where
                                                 apis::evolution_trigger::EvolutionTriggerReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2441,13 +2415,13 @@ async fn gender_list<I, A>(
   Query(query_params): Query<models::GenderListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::gender::Gender,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     gender_list_validation(
         query_params,
     )
@@ -2459,7 +2433,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().gender_list(
@@ -2476,7 +2450,6 @@ where
                                                 apis::gender::GenderListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2522,13 +2495,13 @@ async fn gender_read<I, A>(
   Path(path_params): Path<models::GenderReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::gender::Gender,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     gender_read_validation(
         path_params,
     )
@@ -2540,7 +2513,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().gender_read(
@@ -2557,7 +2530,6 @@ where
                                                 apis::gender::GenderReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2603,13 +2575,13 @@ async fn generation_list<I, A>(
   Query(query_params): Query<models::GenerationListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::generation::Generation,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     generation_list_validation(
         query_params,
     )
@@ -2621,7 +2593,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().generation_list(
@@ -2638,7 +2610,6 @@ where
                                                 apis::generation::GenerationListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2684,13 +2655,13 @@ async fn generation_read<I, A>(
   Path(path_params): Path<models::GenerationReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::generation::Generation,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     generation_read_validation(
         path_params,
     )
@@ -2702,7 +2673,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().generation_read(
@@ -2719,7 +2690,6 @@ where
                                                 apis::generation::GenerationReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2765,13 +2735,13 @@ async fn growth_rate_list<I, A>(
   Query(query_params): Query<models::GrowthRateListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::growth_rate::GrowthRate,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     growth_rate_list_validation(
         query_params,
     )
@@ -2783,7 +2753,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().growth_rate_list(
@@ -2800,7 +2770,6 @@ where
                                                 apis::growth_rate::GrowthRateListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2846,13 +2815,13 @@ async fn growth_rate_read<I, A>(
   Path(path_params): Path<models::GrowthRateReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::growth_rate::GrowthRate,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     growth_rate_read_validation(
         path_params,
     )
@@ -2864,7 +2833,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().growth_rate_read(
@@ -2881,7 +2850,6 @@ where
                                                 apis::growth_rate::GrowthRateReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -2927,13 +2895,13 @@ async fn item_list<I, A>(
   Query(query_params): Query<models::ItemListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::item::Item,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     item_list_validation(
         query_params,
     )
@@ -2945,7 +2913,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().item_list(
@@ -2962,7 +2930,6 @@ where
                                                 apis::item::ItemListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3008,13 +2975,13 @@ async fn item_read<I, A>(
   Path(path_params): Path<models::ItemReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::item::Item,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     item_read_validation(
         path_params,
     )
@@ -3026,7 +2993,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().item_read(
@@ -3043,7 +3010,6 @@ where
                                                 apis::item::ItemReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3089,13 +3055,13 @@ async fn item_attribute_list<I, A>(
   Query(query_params): Query<models::ItemAttributeListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::item_attribute::ItemAttribute,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     item_attribute_list_validation(
         query_params,
     )
@@ -3107,7 +3073,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().item_attribute_list(
@@ -3124,7 +3090,6 @@ where
                                                 apis::item_attribute::ItemAttributeListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3170,13 +3135,13 @@ async fn item_attribute_read<I, A>(
   Path(path_params): Path<models::ItemAttributeReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::item_attribute::ItemAttribute,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     item_attribute_read_validation(
         path_params,
     )
@@ -3188,7 +3153,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().item_attribute_read(
@@ -3205,7 +3170,6 @@ where
                                                 apis::item_attribute::ItemAttributeReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3251,13 +3215,13 @@ async fn item_category_list<I, A>(
   Query(query_params): Query<models::ItemCategoryListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::item_category::ItemCategory,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     item_category_list_validation(
         query_params,
     )
@@ -3269,7 +3233,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().item_category_list(
@@ -3286,7 +3250,6 @@ where
                                                 apis::item_category::ItemCategoryListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3332,13 +3295,13 @@ async fn item_category_read<I, A>(
   Path(path_params): Path<models::ItemCategoryReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::item_category::ItemCategory,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     item_category_read_validation(
         path_params,
     )
@@ -3350,7 +3313,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().item_category_read(
@@ -3367,7 +3330,6 @@ where
                                                 apis::item_category::ItemCategoryReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3413,13 +3375,13 @@ async fn item_fling_effect_list<I, A>(
   Query(query_params): Query<models::ItemFlingEffectListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::item_fling_effect::ItemFlingEffect,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     item_fling_effect_list_validation(
         query_params,
     )
@@ -3431,7 +3393,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().item_fling_effect_list(
@@ -3448,7 +3410,6 @@ where
                                                 apis::item_fling_effect::ItemFlingEffectListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3494,13 +3455,13 @@ async fn item_fling_effect_read<I, A>(
   Path(path_params): Path<models::ItemFlingEffectReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::item_fling_effect::ItemFlingEffect,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     item_fling_effect_read_validation(
         path_params,
     )
@@ -3512,7 +3473,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().item_fling_effect_read(
@@ -3529,7 +3490,6 @@ where
                                                 apis::item_fling_effect::ItemFlingEffectReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3575,13 +3535,13 @@ async fn item_pocket_list<I, A>(
   Query(query_params): Query<models::ItemPocketListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::item_pocket::ItemPocket,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     item_pocket_list_validation(
         query_params,
     )
@@ -3593,7 +3553,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().item_pocket_list(
@@ -3610,7 +3570,6 @@ where
                                                 apis::item_pocket::ItemPocketListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3656,13 +3615,13 @@ async fn item_pocket_read<I, A>(
   Path(path_params): Path<models::ItemPocketReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::item_pocket::ItemPocket,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     item_pocket_read_validation(
         path_params,
     )
@@ -3674,7 +3633,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().item_pocket_read(
@@ -3691,7 +3650,6 @@ where
                                                 apis::item_pocket::ItemPocketReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3737,13 +3695,13 @@ async fn language_list<I, A>(
   Query(query_params): Query<models::LanguageListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::language::Language,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     language_list_validation(
         query_params,
     )
@@ -3755,7 +3713,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().language_list(
@@ -3772,7 +3730,6 @@ where
                                                 apis::language::LanguageListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3818,13 +3775,13 @@ async fn language_read<I, A>(
   Path(path_params): Path<models::LanguageReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::language::Language,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     language_read_validation(
         path_params,
     )
@@ -3836,7 +3793,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().language_read(
@@ -3853,7 +3810,6 @@ where
                                                 apis::language::LanguageReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3899,13 +3855,13 @@ async fn location_list<I, A>(
   Query(query_params): Query<models::LocationListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::location::Location,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     location_list_validation(
         query_params,
     )
@@ -3917,7 +3873,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().location_list(
@@ -3934,7 +3890,6 @@ where
                                                 apis::location::LocationListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -3980,13 +3935,13 @@ async fn location_read<I, A>(
   Path(path_params): Path<models::LocationReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::location::Location,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     location_read_validation(
         path_params,
     )
@@ -3998,7 +3953,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().location_read(
@@ -4015,7 +3970,6 @@ where
                                                 apis::location::LocationReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4061,13 +4015,13 @@ async fn location_area_list<I, A>(
   Query(query_params): Query<models::LocationAreaListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::location_area::LocationArea,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     location_area_list_validation(
         query_params,
     )
@@ -4079,7 +4033,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().location_area_list(
@@ -4096,7 +4050,6 @@ where
                                                 apis::location_area::LocationAreaListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4142,13 +4095,13 @@ async fn location_area_read<I, A>(
   Path(path_params): Path<models::LocationAreaReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::location_area::LocationArea,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     location_area_read_validation(
         path_params,
     )
@@ -4160,7 +4113,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().location_area_read(
@@ -4177,7 +4130,6 @@ where
                                                 apis::location_area::LocationAreaReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4223,13 +4175,13 @@ async fn machine_list<I, A>(
   Query(query_params): Query<models::MachineListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::machine::Machine,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     machine_list_validation(
         query_params,
     )
@@ -4241,7 +4193,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().machine_list(
@@ -4258,7 +4210,6 @@ where
                                                 apis::machine::MachineListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4304,13 +4255,13 @@ async fn machine_read<I, A>(
   Path(path_params): Path<models::MachineReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::machine::Machine,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     machine_read_validation(
         path_params,
     )
@@ -4322,7 +4273,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().machine_read(
@@ -4339,7 +4290,6 @@ where
                                                 apis::machine::MachineReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4385,13 +4335,13 @@ async fn move_list<I, A>(
   Query(query_params): Query<models::MoveListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::r#move::R#move,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     move_list_validation(
         query_params,
     )
@@ -4403,7 +4353,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().move_list(
@@ -4420,7 +4370,6 @@ where
                                                 apis::r#move::MoveListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4466,13 +4415,13 @@ async fn move_read<I, A>(
   Path(path_params): Path<models::MoveReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::r#move::R#move,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     move_read_validation(
         path_params,
     )
@@ -4484,7 +4433,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().move_read(
@@ -4501,7 +4450,6 @@ where
                                                 apis::r#move::MoveReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4547,13 +4495,13 @@ async fn move_ailment_list<I, A>(
   Query(query_params): Query<models::MoveAilmentListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::move_ailment::MoveAilment,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     move_ailment_list_validation(
         query_params,
     )
@@ -4565,7 +4513,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().move_ailment_list(
@@ -4582,7 +4530,6 @@ where
                                                 apis::move_ailment::MoveAilmentListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4628,13 +4575,13 @@ async fn move_ailment_read<I, A>(
   Path(path_params): Path<models::MoveAilmentReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::move_ailment::MoveAilment,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     move_ailment_read_validation(
         path_params,
     )
@@ -4646,7 +4593,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().move_ailment_read(
@@ -4663,7 +4610,6 @@ where
                                                 apis::move_ailment::MoveAilmentReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4709,13 +4655,13 @@ async fn move_battle_style_list<I, A>(
   Query(query_params): Query<models::MoveBattleStyleListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::move_battle_style::MoveBattleStyle,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     move_battle_style_list_validation(
         query_params,
     )
@@ -4727,7 +4673,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().move_battle_style_list(
@@ -4744,7 +4690,6 @@ where
                                                 apis::move_battle_style::MoveBattleStyleListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4790,13 +4735,13 @@ async fn move_battle_style_read<I, A>(
   Path(path_params): Path<models::MoveBattleStyleReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::move_battle_style::MoveBattleStyle,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     move_battle_style_read_validation(
         path_params,
     )
@@ -4808,7 +4753,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().move_battle_style_read(
@@ -4825,7 +4770,6 @@ where
                                                 apis::move_battle_style::MoveBattleStyleReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4871,13 +4815,13 @@ async fn move_category_list<I, A>(
   Query(query_params): Query<models::MoveCategoryListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::move_category::MoveCategory,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     move_category_list_validation(
         query_params,
     )
@@ -4889,7 +4833,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().move_category_list(
@@ -4906,7 +4850,6 @@ where
                                                 apis::move_category::MoveCategoryListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -4952,13 +4895,13 @@ async fn move_category_read<I, A>(
   Path(path_params): Path<models::MoveCategoryReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::move_category::MoveCategory,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     move_category_read_validation(
         path_params,
     )
@@ -4970,7 +4913,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().move_category_read(
@@ -4987,7 +4930,6 @@ where
                                                 apis::move_category::MoveCategoryReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5033,13 +4975,13 @@ async fn move_damage_class_list<I, A>(
   Query(query_params): Query<models::MoveDamageClassListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::move_damage_class::MoveDamageClass,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     move_damage_class_list_validation(
         query_params,
     )
@@ -5051,7 +4993,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().move_damage_class_list(
@@ -5068,7 +5010,6 @@ where
                                                 apis::move_damage_class::MoveDamageClassListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5114,13 +5055,13 @@ async fn move_damage_class_read<I, A>(
   Path(path_params): Path<models::MoveDamageClassReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::move_damage_class::MoveDamageClass,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     move_damage_class_read_validation(
         path_params,
     )
@@ -5132,7 +5073,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().move_damage_class_read(
@@ -5149,7 +5090,6 @@ where
                                                 apis::move_damage_class::MoveDamageClassReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5195,13 +5135,13 @@ async fn move_learn_method_list<I, A>(
   Query(query_params): Query<models::MoveLearnMethodListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::move_learn_method::MoveLearnMethod,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     move_learn_method_list_validation(
         query_params,
     )
@@ -5213,7 +5153,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().move_learn_method_list(
@@ -5230,7 +5170,6 @@ where
                                                 apis::move_learn_method::MoveLearnMethodListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5276,13 +5215,13 @@ async fn move_learn_method_read<I, A>(
   Path(path_params): Path<models::MoveLearnMethodReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::move_learn_method::MoveLearnMethod,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     move_learn_method_read_validation(
         path_params,
     )
@@ -5294,7 +5233,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().move_learn_method_read(
@@ -5311,7 +5250,6 @@ where
                                                 apis::move_learn_method::MoveLearnMethodReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5357,13 +5295,13 @@ async fn move_target_list<I, A>(
   Query(query_params): Query<models::MoveTargetListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::move_target::MoveTarget,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     move_target_list_validation(
         query_params,
     )
@@ -5375,7 +5313,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().move_target_list(
@@ -5392,7 +5330,6 @@ where
                                                 apis::move_target::MoveTargetListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5438,13 +5375,13 @@ async fn move_target_read<I, A>(
   Path(path_params): Path<models::MoveTargetReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::move_target::MoveTarget,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     move_target_read_validation(
         path_params,
     )
@@ -5456,7 +5393,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().move_target_read(
@@ -5473,7 +5410,6 @@ where
                                                 apis::move_target::MoveTargetReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5519,13 +5455,13 @@ async fn nature_list<I, A>(
   Query(query_params): Query<models::NatureListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::nature::Nature,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     nature_list_validation(
         query_params,
     )
@@ -5537,7 +5473,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().nature_list(
@@ -5554,7 +5490,6 @@ where
                                                 apis::nature::NatureListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5600,13 +5535,13 @@ async fn nature_read<I, A>(
   Path(path_params): Path<models::NatureReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::nature::Nature,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     nature_read_validation(
         path_params,
     )
@@ -5618,7 +5553,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().nature_read(
@@ -5635,7 +5570,6 @@ where
                                                 apis::nature::NatureReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5681,13 +5615,13 @@ async fn pal_park_area_list<I, A>(
   Query(query_params): Query<models::PalParkAreaListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pal_park_area::PalParkArea,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pal_park_area_list_validation(
         query_params,
     )
@@ -5699,7 +5633,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pal_park_area_list(
@@ -5716,7 +5650,6 @@ where
                                                 apis::pal_park_area::PalParkAreaListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5762,13 +5695,13 @@ async fn pal_park_area_read<I, A>(
   Path(path_params): Path<models::PalParkAreaReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pal_park_area::PalParkArea,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pal_park_area_read_validation(
         path_params,
     )
@@ -5780,7 +5713,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pal_park_area_read(
@@ -5797,7 +5730,6 @@ where
                                                 apis::pal_park_area::PalParkAreaReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5843,13 +5775,13 @@ async fn pokeathlon_stat_list<I, A>(
   Query(query_params): Query<models::PokeathlonStatListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pokeathlon_stat::PokeathlonStat,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pokeathlon_stat_list_validation(
         query_params,
     )
@@ -5861,7 +5793,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pokeathlon_stat_list(
@@ -5878,7 +5810,6 @@ where
                                                 apis::pokeathlon_stat::PokeathlonStatListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -5924,13 +5855,13 @@ async fn pokeathlon_stat_read<I, A>(
   Path(path_params): Path<models::PokeathlonStatReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pokeathlon_stat::PokeathlonStat,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pokeathlon_stat_read_validation(
         path_params,
     )
@@ -5942,7 +5873,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pokeathlon_stat_read(
@@ -5959,7 +5890,6 @@ where
                                                 apis::pokeathlon_stat::PokeathlonStatReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6005,13 +5935,13 @@ async fn pokedex_list<I, A>(
   Query(query_params): Query<models::PokedexListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pokedex::Pokedex,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pokedex_list_validation(
         query_params,
     )
@@ -6023,7 +5953,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pokedex_list(
@@ -6040,7 +5970,6 @@ where
                                                 apis::pokedex::PokedexListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6086,13 +6015,13 @@ async fn pokedex_read<I, A>(
   Path(path_params): Path<models::PokedexReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pokedex::Pokedex,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pokedex_read_validation(
         path_params,
     )
@@ -6104,7 +6033,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pokedex_read(
@@ -6121,7 +6050,6 @@ where
                                                 apis::pokedex::PokedexReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6167,13 +6095,13 @@ async fn pokemon_list<I, A>(
   Query(query_params): Query<models::PokemonListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pokemon::Pokemon,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pokemon_list_validation(
         query_params,
     )
@@ -6185,7 +6113,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pokemon_list(
@@ -6202,7 +6130,6 @@ where
                                                 apis::pokemon::PokemonListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6248,13 +6175,13 @@ async fn pokemon_read<I, A>(
   Path(path_params): Path<models::PokemonReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pokemon::Pokemon,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pokemon_read_validation(
         path_params,
     )
@@ -6266,7 +6193,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pokemon_read(
@@ -6283,7 +6210,6 @@ where
                                                 apis::pokemon::PokemonReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6329,13 +6255,13 @@ async fn pokemon_color_list<I, A>(
   Query(query_params): Query<models::PokemonColorListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pokemon_color::PokemonColor,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pokemon_color_list_validation(
         query_params,
     )
@@ -6347,7 +6273,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pokemon_color_list(
@@ -6364,7 +6290,6 @@ where
                                                 apis::pokemon_color::PokemonColorListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6410,13 +6335,13 @@ async fn pokemon_color_read<I, A>(
   Path(path_params): Path<models::PokemonColorReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pokemon_color::PokemonColor,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pokemon_color_read_validation(
         path_params,
     )
@@ -6428,7 +6353,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pokemon_color_read(
@@ -6445,7 +6370,6 @@ where
                                                 apis::pokemon_color::PokemonColorReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6491,13 +6415,13 @@ async fn pokemon_form_list<I, A>(
   Query(query_params): Query<models::PokemonFormListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pokemon_form::PokemonForm,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pokemon_form_list_validation(
         query_params,
     )
@@ -6509,7 +6433,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pokemon_form_list(
@@ -6526,7 +6450,6 @@ where
                                                 apis::pokemon_form::PokemonFormListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6572,13 +6495,13 @@ async fn pokemon_form_read<I, A>(
   Path(path_params): Path<models::PokemonFormReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pokemon_form::PokemonForm,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pokemon_form_read_validation(
         path_params,
     )
@@ -6590,7 +6513,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pokemon_form_read(
@@ -6607,7 +6530,6 @@ where
                                                 apis::pokemon_form::PokemonFormReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6653,13 +6575,13 @@ async fn pokemon_habitat_list<I, A>(
   Query(query_params): Query<models::PokemonHabitatListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pokemon_habitat::PokemonHabitat,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pokemon_habitat_list_validation(
         query_params,
     )
@@ -6671,7 +6593,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pokemon_habitat_list(
@@ -6688,7 +6610,6 @@ where
                                                 apis::pokemon_habitat::PokemonHabitatListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6734,13 +6655,13 @@ async fn pokemon_habitat_read<I, A>(
   Path(path_params): Path<models::PokemonHabitatReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pokemon_habitat::PokemonHabitat,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pokemon_habitat_read_validation(
         path_params,
     )
@@ -6752,7 +6673,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pokemon_habitat_read(
@@ -6769,7 +6690,6 @@ where
                                                 apis::pokemon_habitat::PokemonHabitatReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6815,13 +6735,13 @@ async fn pokemon_shape_list<I, A>(
   Query(query_params): Query<models::PokemonShapeListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pokemon_shape::PokemonShape,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pokemon_shape_list_validation(
         query_params,
     )
@@ -6833,7 +6753,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pokemon_shape_list(
@@ -6850,7 +6770,6 @@ where
                                                 apis::pokemon_shape::PokemonShapeListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6896,13 +6815,13 @@ async fn pokemon_shape_read<I, A>(
   Path(path_params): Path<models::PokemonShapeReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pokemon_shape::PokemonShape,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pokemon_shape_read_validation(
         path_params,
     )
@@ -6914,7 +6833,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pokemon_shape_read(
@@ -6931,7 +6850,6 @@ where
                                                 apis::pokemon_shape::PokemonShapeReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -6977,13 +6895,13 @@ async fn pokemon_species_list<I, A>(
   Query(query_params): Query<models::PokemonSpeciesListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pokemon_species::PokemonSpecies,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pokemon_species_list_validation(
         query_params,
     )
@@ -6995,7 +6913,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pokemon_species_list(
@@ -7012,7 +6930,6 @@ where
                                                 apis::pokemon_species::PokemonSpeciesListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7058,13 +6975,13 @@ async fn pokemon_species_read<I, A>(
   Path(path_params): Path<models::PokemonSpeciesReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::pokemon_species::PokemonSpecies,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     pokemon_species_read_validation(
         path_params,
     )
@@ -7076,7 +6993,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().pokemon_species_read(
@@ -7093,7 +7010,6 @@ where
                                                 apis::pokemon_species::PokemonSpeciesReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7139,13 +7055,13 @@ async fn region_list<I, A>(
   Query(query_params): Query<models::RegionListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::region::Region,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     region_list_validation(
         query_params,
     )
@@ -7157,7 +7073,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().region_list(
@@ -7174,7 +7090,6 @@ where
                                                 apis::region::RegionListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7220,13 +7135,13 @@ async fn region_read<I, A>(
   Path(path_params): Path<models::RegionReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::region::Region,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     region_read_validation(
         path_params,
     )
@@ -7238,7 +7153,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().region_read(
@@ -7255,7 +7170,6 @@ where
                                                 apis::region::RegionReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7301,13 +7215,13 @@ async fn stat_list<I, A>(
   Query(query_params): Query<models::StatListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::stat::Stat,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     stat_list_validation(
         query_params,
     )
@@ -7319,7 +7233,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().stat_list(
@@ -7336,7 +7250,6 @@ where
                                                 apis::stat::StatListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7382,13 +7295,13 @@ async fn stat_read<I, A>(
   Path(path_params): Path<models::StatReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::stat::Stat,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     stat_read_validation(
         path_params,
     )
@@ -7400,7 +7313,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().stat_read(
@@ -7417,7 +7330,6 @@ where
                                                 apis::stat::StatReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7463,13 +7375,13 @@ async fn super_contest_effect_list<I, A>(
   Query(query_params): Query<models::SuperContestEffectListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::super_contest_effect::SuperContestEffect,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     super_contest_effect_list_validation(
         query_params,
     )
@@ -7481,7 +7393,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().super_contest_effect_list(
@@ -7498,7 +7410,6 @@ where
                                                 apis::super_contest_effect::SuperContestEffectListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7544,13 +7455,13 @@ async fn super_contest_effect_read<I, A>(
   Path(path_params): Path<models::SuperContestEffectReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::super_contest_effect::SuperContestEffect,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     super_contest_effect_read_validation(
         path_params,
     )
@@ -7562,7 +7473,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().super_contest_effect_read(
@@ -7579,7 +7490,6 @@ where
                                                 apis::super_contest_effect::SuperContestEffectReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7625,13 +7535,13 @@ async fn type_list<I, A>(
   Query(query_params): Query<models::TypeListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::r#type::R#type,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     type_list_validation(
         query_params,
     )
@@ -7643,7 +7553,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().type_list(
@@ -7660,7 +7570,6 @@ where
                                                 apis::r#type::TypeListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7706,13 +7615,13 @@ async fn type_read<I, A>(
   Path(path_params): Path<models::TypeReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::r#type::R#type,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     type_read_validation(
         path_params,
     )
@@ -7724,7 +7633,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().type_read(
@@ -7741,7 +7650,6 @@ where
                                                 apis::r#type::TypeReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7787,13 +7695,13 @@ async fn version_list<I, A>(
   Query(query_params): Query<models::VersionListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::version::Version,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     version_list_validation(
         query_params,
     )
@@ -7805,7 +7713,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().version_list(
@@ -7822,7 +7730,6 @@ where
                                                 apis::version::VersionListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7868,13 +7775,13 @@ async fn version_read<I, A>(
   Path(path_params): Path<models::VersionReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::version::Version,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     version_read_validation(
         path_params,
     )
@@ -7886,7 +7793,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().version_read(
@@ -7903,7 +7810,6 @@ where
                                                 apis::version::VersionReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -7949,13 +7855,13 @@ async fn version_group_list<I, A>(
   Query(query_params): Query<models::VersionGroupListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::version_group::VersionGroup,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     version_group_list_validation(
         query_params,
     )
@@ -7967,7 +7873,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().version_group_list(
@@ -7984,7 +7890,6 @@ where
                                                 apis::version_group::VersionGroupListResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -8030,13 +7935,13 @@ async fn version_group_read<I, A>(
   Path(path_params): Path<models::VersionGroupReadPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::version_group::VersionGroup,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     version_group_read_validation(
         path_params,
     )
@@ -8048,7 +7953,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().version_group_read(
@@ -8065,7 +7970,6 @@ where
                                                 apis::version_group::VersionGroupReadResponse::Status0_DefaultResponse
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(0);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();

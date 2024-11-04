@@ -36,7 +36,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-09T12:13:30.171005723Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-11-03T13:18:27.230346196Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 @Controller
 @Tag(name = "EncounterCondition", description = "The EncounterCondition API")
 public class EncounterConditionController {

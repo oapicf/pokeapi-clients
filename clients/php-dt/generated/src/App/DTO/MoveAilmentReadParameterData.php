@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for move-ailment_read
+ * Parameters for moveAilmentRead
  */
 class MoveAilmentReadParameterData
 {

@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for version_list
+ * Parameters for versionList
  */
 class VersionListParameterData
 {

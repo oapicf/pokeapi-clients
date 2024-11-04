@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, ItemCategoryApi } from '';
+import type { ItemCategoryApiItemCategoryListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ItemCategoryApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new ItemCategoryApi(configuration);
 
-let body:.ItemCategoryApiItemCategoryListRequest = {
-  // number (optional)
+const request: ItemCategoryApiItemCategoryListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.itemCategoryList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.itemCategoryList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, ItemCategoryApi } from '';
+import type { ItemCategoryApiItemCategoryReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ItemCategoryApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new ItemCategoryApi(configuration);
 
-let body:.ItemCategoryApiItemCategoryReadRequest = {
-  // number
+const request: ItemCategoryApiItemCategoryReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.itemCategoryRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.itemCategoryRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

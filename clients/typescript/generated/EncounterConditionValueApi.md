@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EncounterConditionValueApi } from '';
+import type { EncounterConditionValueApiEncounterConditionValueListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EncounterConditionValueApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EncounterConditionValueApi(configuration);
 
-let body:.EncounterConditionValueApiEncounterConditionValueListRequest = {
-  // number (optional)
+const request: EncounterConditionValueApiEncounterConditionValueListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.encounterConditionValueList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.encounterConditionValueList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EncounterConditionValueApi } from '';
+import type { EncounterConditionValueApiEncounterConditionValueReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EncounterConditionValueApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EncounterConditionValueApi(configuration);
 
-let body:.EncounterConditionValueApiEncounterConditionValueReadRequest = {
-  // number
+const request: EncounterConditionValueApiEncounterConditionValueReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.encounterConditionValueRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.encounterConditionValueRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

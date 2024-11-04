@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for pokemon-species_list
+ * Parameters for pokemonSpeciesList
  */
 class PokemonSpeciesListParameterData
 {

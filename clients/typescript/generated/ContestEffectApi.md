@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, ContestEffectApi } from '';
+import type { ContestEffectApiContestEffectListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ContestEffectApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new ContestEffectApi(configuration);
 
-let body:.ContestEffectApiContestEffectListRequest = {
-  // number (optional)
+const request: ContestEffectApiContestEffectListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.contestEffectList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.contestEffectList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, ContestEffectApi } from '';
+import type { ContestEffectApiContestEffectReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .ContestEffectApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new ContestEffectApi(configuration);
 
-let body:.ContestEffectApiContestEffectReadRequest = {
-  // number
+const request: ContestEffectApiContestEffectReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.contestEffectRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.contestEffectRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

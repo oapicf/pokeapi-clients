@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for gender_list
+ * Parameters for genderList
  */
 class GenderListParameterData
 {

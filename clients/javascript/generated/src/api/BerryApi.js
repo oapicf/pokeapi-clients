@@ -17,7 +17,7 @@ import ApiClient from "../ApiClient";
 /**
 * Berry service.
 * @module api/BerryApi
-* @version 1.0.1-pre.0
+* @version 1.1.1-pre.0
 */
 export default class BerryApi {
 

@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Query parameters for ability_list
+ * Query parameters for abilityList
  */
 class AbilityListQueryData
 {

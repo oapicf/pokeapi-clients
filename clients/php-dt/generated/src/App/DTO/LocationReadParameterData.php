@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for location_read
+ * Parameters for locationRead
  */
 class LocationReadParameterData
 {

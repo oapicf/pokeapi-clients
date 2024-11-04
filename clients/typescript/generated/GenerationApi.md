@@ -16,22 +16,21 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, GenerationApi } from '';
+import type { GenerationApiGenerationListRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GenerationApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new GenerationApi(configuration);
 
-let body:.GenerationApiGenerationListRequest = {
-  // number (optional)
+const request: GenerationApiGenerationListRequest = {
+  
   limit: 1,
-  // number (optional)
+  
   offset: 1,
 };
 
-apiInstance.generationList(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.generationList(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -72,20 +71,19 @@ No authorization required
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, GenerationApi } from '';
+import type { GenerationApiGenerationReadRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .GenerationApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new GenerationApi(configuration);
 
-let body:.GenerationApiGenerationReadRequest = {
-  // number
+const request: GenerationApiGenerationReadRequest = {
+  
   id: 1,
 };
 
-apiInstance.generationRead(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.generationRead(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

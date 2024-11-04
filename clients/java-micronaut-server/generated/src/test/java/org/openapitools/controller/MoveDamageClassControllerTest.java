@@ -78,7 +78,7 @@ public class MoveDamageClassControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/move-damage-class/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@52454457");
+            .accept("[Ljava.lang.String;@17207f5b");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class MoveDamageClassControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@4130a648");
+            .accept("[Ljava.lang.String;@373052b5");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Query parameters for growth-rate_list
+ * Query parameters for growthRateList
  */
 class GrowthRateListQueryData
 {

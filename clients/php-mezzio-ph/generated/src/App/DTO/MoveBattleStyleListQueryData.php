@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Query parameters for move-battle-style_list
+ * Query parameters for moveBattleStyleList
  */
 class MoveBattleStyleListQueryData
 {
