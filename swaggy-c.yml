@@ -6,4 +6,6 @@ contact:
   email: blah+oapicf@cliffano.com
 base_dir:
   github_actions: /home/runner/work/pokeapi-clients/pokeapi-clients
-  local: /Users/cliffano/dev/workspace-studio/pokeapi-clients
+  local: /Users/cliffano/dev/workspace-oapicf/pokeapi-clients
+  custom: >-
+    /home/runner/work/generator-openapi-generator/generator-openapi-generator/stage/pokeapi-clients/
