@@ -55,13 +55,7 @@ void OAIHttpRequestInput::add_file(QString variable_name, QString local_filename
 
 OAIHttpRequestWorker::OAIHttpRequestWorker(QObject *parent, QNetworkAccessManager *_manager)
     : QObject(parent), manager(_manager), timeOutTimer(this), isResponseCompressionEnabled(false), isRequestCompressionEnabled(false), httpResponseCode(-1) {
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     randomGenerator = QRandomGenerator(QDateTime::currentDateTime().toSecsSinceEpoch());
-#else
-    qsrand(QDateTime::currentDateTime().toTime_t());
-#endif
-
     if (manager == nullptr) {
         manager = new QNetworkAccessManager(this);
     }
@@ -220,13 +214,8 @@ void OAIHttpRequestWorker::execute(OAIHttpRequestInput *input) {
         // variable layout is MULTIPART
 
         boundary = QString("__-----------------------%1%2")
-                    #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
                             .arg(QDateTime::currentDateTime().toSecsSinceEpoch())
                             .arg(randomGenerator.generate());
-                    #else
-                            .arg(QDateTime::currentDateTime().toTime_t())
-                            .arg(qrand());
-                    #endif
         QString boundary_delimiter = "--";
         QString new_line = "\r\n";
 
@@ -367,26 +356,17 @@ void OAIHttpRequestWorker::execute(OAIHttpRequestInput *input) {
     } else if (input->http_method == "DELETE") {
         reply = manager->deleteResource(request);
     } else {
-#if (QT_VERSION >= 0x050800)
         reply = manager->sendCustomRequest(request, input->http_method.toLatin1(), request_content);
-#else
-        QBuffer *buffer = new QBuffer;
-        buffer->setData(request_content);
-        buffer->open(QIODevice::ReadOnly);
-
-        reply = manager->sendCustomRequest(request, input->http_method.toLatin1(), buffer);
-        buffer->setParent(reply);
-#endif
     }
     if (reply != nullptr) {
         reply->setParent(this);
         connect(reply, &QNetworkReply::downloadProgress, this, &OAIHttpRequestWorker::downloadProgress);
-        connect(reply, &QNetworkReply::finished, [this, reply] {
+        connect(reply, &QNetworkReply::finished, this, [this, reply] {
             on_reply_finished(reply);
         });
     }
     if (timeOutTimer.interval() > 0) {
-        QObject::connect(&timeOutTimer, &QTimer::timeout, [this, reply] {
+        QObject::connect(&timeOutTimer, &QTimer::timeout, this, [this, reply] {
             on_reply_timeout(reply);
         });
         timeOutTimer.start();

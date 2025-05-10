@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **pokeathlon_stat_list**
 > str pokeathlon_stat_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **pokeathlon_stat_read**
 > str pokeathlon_stat_read(id)
-
-
 
 ### Example
 

@@ -26,6 +26,7 @@ import Http
 import Json.Decode
 import Json.Encode
 
+
 eggGroupList : Maybe Int -> Maybe Int -> Api.Request ()
 eggGroupList limit_query offset_query =
     Api.request

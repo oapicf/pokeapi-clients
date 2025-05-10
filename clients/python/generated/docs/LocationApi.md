@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **location_list**
 > str location_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **location_read**
 > str location_read(id)
-
-
 
 ### Example
 

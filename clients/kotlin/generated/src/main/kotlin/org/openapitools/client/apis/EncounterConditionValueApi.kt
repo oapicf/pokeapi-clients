@@ -45,6 +45,7 @@ class EncounterConditionValueApi(basePath: kotlin.String = defaultBasePath, clie
     }
 
     /**
+     * GET /api/v2/encounter-condition-value/
      * 
      * 
      * @param limit  (optional)
@@ -77,6 +78,7 @@ class EncounterConditionValueApi(basePath: kotlin.String = defaultBasePath, clie
     }
 
     /**
+     * GET /api/v2/encounter-condition-value/
      * 
      * 
      * @param limit  (optional)
@@ -114,7 +116,8 @@ class EncounterConditionValueApi(basePath: kotlin.String = defaultBasePath, clie
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        
+        localVariableHeaders["Accept"] = "text/plain"
+
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/encounter-condition-value/",
@@ -126,6 +129,7 @@ class EncounterConditionValueApi(basePath: kotlin.String = defaultBasePath, clie
     }
 
     /**
+     * GET /api/v2/encounter-condition-value/{id}/
      * 
      * 
      * @param id 
@@ -157,6 +161,7 @@ class EncounterConditionValueApi(basePath: kotlin.String = defaultBasePath, clie
     }
 
     /**
+     * GET /api/v2/encounter-condition-value/{id}/
      * 
      * 
      * @param id 
@@ -184,7 +189,8 @@ class EncounterConditionValueApi(basePath: kotlin.String = defaultBasePath, clie
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        
+        localVariableHeaders["Accept"] = "text/plain"
+
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/encounter-condition-value/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),

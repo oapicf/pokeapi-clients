@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **encounter_condition_value_list**
 > str encounter_condition_value_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **encounter_condition_value_read**
 > str encounter_condition_value_read(id)
-
-
 
 ### Example
 

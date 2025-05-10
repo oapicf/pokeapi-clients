@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **ability_list**
 > str ability_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **ability_read**
 > str ability_read(id)
-
-
 
 ### Example
 

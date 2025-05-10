@@ -2,6 +2,8 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
+from pydantic import StrictInt, StrictStr
+from typing import Optional
 
 
 class BaseEggGroupApi:
@@ -12,14 +14,14 @@ class BaseEggGroupApi:
         BaseEggGroupApi.subclasses = BaseEggGroupApi.subclasses + (cls,)
     async def egg_group_list(
         self,
-        limit: int,
-        offset: int,
+        limit: Optional[StrictInt],
+        offset: Optional[StrictInt],
     ) -> str:
         ...
 
 
     async def egg_group_read(
         self,
-        id: int,
+        id: StrictInt,
     ) -> str:
         ...

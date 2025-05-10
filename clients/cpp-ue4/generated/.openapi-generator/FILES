@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 OpenAPI.Build.cs
 Private/OpenAPIAbilityApi.cpp
 Private/OpenAPIAbilityApiOperations.cpp

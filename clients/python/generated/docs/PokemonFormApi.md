@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **pokemon_form_list**
 > str pokemon_form_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **pokemon_form_read**
 > str pokemon_form_read(id)
-
-
 
 ### Example
 

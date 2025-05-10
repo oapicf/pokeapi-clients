@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **evolution_trigger_list**
 > str evolution_trigger_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **evolution_trigger_read**
 > str evolution_trigger_read(id)
-
-
 
 ### Example
 

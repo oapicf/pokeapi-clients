@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **generation_list**
 > str generation_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **generation_read**
 > str generation_read(id)
-
-
 
 ### Example
 

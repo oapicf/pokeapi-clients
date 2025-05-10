@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **evolution_chain_list**
 > str evolution_chain_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **evolution_chain_read**
 > str evolution_chain_read(id)
-
-
 
 ### Example
 

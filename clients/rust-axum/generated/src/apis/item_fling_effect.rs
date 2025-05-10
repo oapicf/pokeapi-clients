@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum ItemFlingEffectReadResponse {
 /// ItemFlingEffect
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait ItemFlingEffect {
+pub trait ItemFlingEffect<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// ItemFlingEffectList - GET /api/v2/item-fling-effect/
     async fn item_fling_effect_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::ItemFlingEffectListQueryParams,
-    ) -> Result<ItemFlingEffectListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::ItemFlingEffectListQueryParams,
+    ) -> Result<ItemFlingEffectListResponse, E>;
 
     /// ItemFlingEffectRead - GET /api/v2/item-fling-effect/{id}/
     async fn item_fling_effect_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::ItemFlingEffectReadPathParams,
-    ) -> Result<ItemFlingEffectReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::ItemFlingEffectReadPathParams,
+    ) -> Result<ItemFlingEffectReadResponse, E>;
 }

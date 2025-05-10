@@ -26,6 +26,7 @@ import Http
 import Json.Decode
 import Json.Encode
 
+
 growthRateList : Maybe Int -> Maybe Int -> Api.Request ()
 growthRateList limit_query offset_query =
     Api.request

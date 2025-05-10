@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **region_list**
 > str region_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **region_read**
 > str region_read(id)
-
-
 
 ### Example
 

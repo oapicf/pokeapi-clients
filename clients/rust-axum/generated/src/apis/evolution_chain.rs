@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum EvolutionChainReadResponse {
 /// EvolutionChain
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait EvolutionChain {
+pub trait EvolutionChain<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// EvolutionChainList - GET /api/v2/evolution-chain/
     async fn evolution_chain_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::EvolutionChainListQueryParams,
-    ) -> Result<EvolutionChainListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::EvolutionChainListQueryParams,
+    ) -> Result<EvolutionChainListResponse, E>;
 
     /// EvolutionChainRead - GET /api/v2/evolution-chain/{id}/
     async fn evolution_chain_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::EvolutionChainReadPathParams,
-    ) -> Result<EvolutionChainReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::EvolutionChainReadPathParams,
+    ) -> Result<EvolutionChainReadResponse, E>;
 }

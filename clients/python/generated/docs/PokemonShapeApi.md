@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **pokemon_shape_list**
 > str pokemon_shape_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **pokemon_shape_read**
 > str pokemon_shape_read(id)
-
-
 
 ### Example
 

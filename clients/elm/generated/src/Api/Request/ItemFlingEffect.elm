@@ -26,6 +26,7 @@ import Http
 import Json.Decode
 import Json.Encode
 
+
 itemFlingEffectList : Maybe Int -> Maybe Int -> Api.Request ()
 itemFlingEffectList limit_query offset_query =
     Api.request

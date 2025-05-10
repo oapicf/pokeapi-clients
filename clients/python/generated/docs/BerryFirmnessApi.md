@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **berry_firmness_list**
 > str berry_firmness_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **berry_firmness_read**
 > str berry_firmness_read(id)
-
-
 
 ### Example
 

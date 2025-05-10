@@ -23,6 +23,8 @@ from fastapi import (  # noqa: F401
 )
 
 from openapi_server.models.extra_models import TokenModel  # noqa: F401
+from pydantic import StrictInt, StrictStr
+from typing import Optional
 
 
 router = APIRouter()
@@ -41,8 +43,8 @@ for _, name, _ in pkgutil.iter_modules(ns_pkg.__path__, ns_pkg.__name__ + "."):
     response_model_by_alias=True,
 )
 async def evolution_trigger_list(
-    limit: int = Query(None, description="", alias="limit"),
-    offset: int = Query(None, description="", alias="offset"),
+    limit: Optional[StrictInt] = Query(None, description="", alias="limit"),
+    offset: Optional[StrictInt] = Query(None, description="", alias="offset"),
 ) -> str:
     if not BaseEvolutionTriggerApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")
@@ -58,7 +60,7 @@ async def evolution_trigger_list(
     response_model_by_alias=True,
 )
 async def evolution_trigger_read(
-    id: int = Path(..., description=""),
+    id: StrictInt = Path(..., description=""),
 ) -> str:
     if not BaseEvolutionTriggerApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")

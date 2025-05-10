@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **contest_effect_list**
 > str contest_effect_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **contest_effect_read**
 > str contest_effect_read(id)
-
-
 
 ### Example
 

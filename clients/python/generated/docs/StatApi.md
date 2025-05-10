@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **stat_list**
 > str stat_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **stat_read**
 > str stat_read(id)
-
-
 
 ### Example
 

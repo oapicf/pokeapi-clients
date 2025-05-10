@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum StatReadResponse {
 /// Stat
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait Stat {
+pub trait Stat<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// StatList - GET /api/v2/stat/
     async fn stat_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::StatListQueryParams,
-    ) -> Result<StatListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::StatListQueryParams,
+    ) -> Result<StatListResponse, E>;
 
     /// StatRead - GET /api/v2/stat/{id}/
     async fn stat_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::StatReadPathParams,
-    ) -> Result<StatReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::StatReadPathParams,
+    ) -> Result<StatReadResponse, E>;
 }

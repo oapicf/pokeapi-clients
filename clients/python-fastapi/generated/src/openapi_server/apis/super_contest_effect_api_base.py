@@ -2,6 +2,8 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
+from pydantic import StrictInt, StrictStr
+from typing import Optional
 
 
 class BaseSuperContestEffectApi:
@@ -12,14 +14,14 @@ class BaseSuperContestEffectApi:
         BaseSuperContestEffectApi.subclasses = BaseSuperContestEffectApi.subclasses + (cls,)
     async def super_contest_effect_list(
         self,
-        limit: int,
-        offset: int,
+        limit: Optional[StrictInt],
+        offset: Optional[StrictInt],
     ) -> str:
         ...
 
 
     async def super_contest_effect_read(
         self,
-        id: int,
+        id: StrictInt,
     ) -> str:
         ...

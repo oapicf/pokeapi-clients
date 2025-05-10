@@ -1,6 +1,9 @@
-.openapi-generator-ignore
 README.md
 build.gradle.kts
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+gradlew
+gradlew.bat
 pom.xml
 settings.gradle
 src/main/kotlin/org/openapitools/Application.kt
@@ -11,4 +14,3 @@ src/main/kotlin/org/openapitools/api/ApiUtil.kt
 src/main/kotlin/org/openapitools/api/Exceptions.kt
 src/main/resources/application.yaml
 src/main/resources/openapi.yaml
-src/test/kotlin/org/openapitools/api/ApiApiTest.kt

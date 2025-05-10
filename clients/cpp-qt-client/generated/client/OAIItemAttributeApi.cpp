@@ -226,7 +226,7 @@ void OAIItemAttributeApi::itemAttributeList(const ::OpenAPI::OptionalParam<qint3
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("limit")).append(querySuffix).append(QUrl::toPercentEncoding(limit.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("limit")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(limit.stringValue())));
     }
     if (offset.hasValue())
     {
@@ -241,7 +241,7 @@ void OAIItemAttributeApi::itemAttributeList(const ::OpenAPI::OptionalParam<qint3
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(offset.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(offset.stringValue())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -256,7 +256,7 @@ void OAIItemAttributeApi::itemAttributeList(const ::OpenAPI::OptionalParam<qint3
 
     connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIItemAttributeApi::itemAttributeListCallback);
     connect(this, &OAIItemAttributeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -341,7 +341,7 @@ void OAIItemAttributeApi::itemAttributeRead(const qint32 &id) {
 
     connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIItemAttributeApi::itemAttributeReadCallback);
     connect(this, &OAIItemAttributeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

@@ -5,11 +5,6 @@
 
 #define MAX_NUMBER_LENGTH 16
 #define MAX_BUFFER_LENGTH 4096
-#define intToStr(dst, src) \
-    do {\
-    char dst[256];\
-    snprintf(dst, 256, "%ld", (long int)(src));\
-}while(0)
 
 
 char*
@@ -21,11 +16,14 @@ LanguageAPI_languageList(apiClient_t *apiClient, int *limit, int *offset)
     list_t *localVarHeaderType = list_createList();
     list_t *localVarContentType = NULL;
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
+
+    // clear the error code from the previous api call
+    apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/api/v2/language/")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/api/v2/language/");
+    char *localVarPath = strdup("/api/v2/language/");
+
 
 
 
@@ -64,14 +62,17 @@ LanguageAPI_languageList(apiClient_t *apiClient, int *limit, int *offset)
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "GET");
 
     // uncomment below to debug the error response
     //if (apiClient->response_code == 0) {
     //    printf("%s\n","Default response");
     //}
-    //primitive return type simple
-    char* elementToReturn =  strdup((char*)apiClient->dataReceived);
+    //primitive return type simple string
+    char* elementToReturn = NULL;
+    if(apiClient->response_code >= 200 && apiClient->response_code < 300)
+        elementToReturn = strdup((char*)apiClient->dataReceived);
 
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);
@@ -124,15 +125,18 @@ LanguageAPI_languageRead(apiClient_t *apiClient, int *id)
     list_t *localVarHeaderType = list_createList();
     list_t *localVarContentType = NULL;
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
+
+    // clear the error code from the previous api call
+    apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/api/v2/language/{id}/")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/api/v2/language/{id}/");
+    char *localVarPath = strdup("/api/v2/language/{id}/");
+
 
 
     // Path Params
-    long sizeOfPathParams_id =  + strlen("{ id }");
+    long sizeOfPathParams_id =  + sizeof("{ id }") - 1;
     if(id == 0){
         goto end;
     }
@@ -140,7 +144,7 @@ LanguageAPI_languageRead(apiClient_t *apiClient, int *id)
     snprintf(localVarToReplace_id, sizeOfPathParams_id, "{%s}", "id");
 
     char localVarBuff_id[256];
-    intToStr(localVarBuff_id, *id);
+    snprintf(localVarBuff_id, sizeof localVarBuff_id, "%ld", (long)*id);
 
     localVarPath = strReplace(localVarPath, localVarToReplace_id, localVarBuff_id);
 
@@ -155,14 +159,17 @@ LanguageAPI_languageRead(apiClient_t *apiClient, int *id)
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "GET");
 
     // uncomment below to debug the error response
     //if (apiClient->response_code == 0) {
     //    printf("%s\n","Default response");
     //}
-    //primitive return type simple
-    char* elementToReturn =  strdup((char*)apiClient->dataReceived);
+    //primitive return type simple string
+    char* elementToReturn = NULL;
+    if(apiClient->response_code >= 200 && apiClient->response_code < 300)
+        elementToReturn = strdup((char*)apiClient->dataReceived);
 
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);

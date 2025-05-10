@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **pal_park_area_list**
 > str pal_park_area_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **pal_park_area_read**
 > str pal_park_area_read(id)
-
-
 
 ### Example
 

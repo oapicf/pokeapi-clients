@@ -2,6 +2,8 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
+from pydantic import StrictInt, StrictStr
+from typing import Optional
 
 
 class BaseLocationAreaApi:
@@ -12,14 +14,14 @@ class BaseLocationAreaApi:
         BaseLocationAreaApi.subclasses = BaseLocationAreaApi.subclasses + (cls,)
     async def location_area_list(
         self,
-        limit: int,
-        offset: int,
+        limit: Optional[StrictInt],
+        offset: Optional[StrictInt],
     ) -> str:
         ...
 
 
     async def location_area_read(
         self,
-        id: int,
+        id: StrictInt,
     ) -> str:
         ...

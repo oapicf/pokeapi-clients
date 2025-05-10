@@ -10,7 +10,7 @@ import java.io.FileInputStream;
 import play.libs.Files.TemporaryFile;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-11-03T13:18:41.614766531Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2025-05-10T05:53:38.625191772Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class LanguageApiControllerImp extends LanguageApiControllerImpInterface {
     @Override
     public String languageList(Http.Request request, Integer limit, Integer offset) throws Exception {

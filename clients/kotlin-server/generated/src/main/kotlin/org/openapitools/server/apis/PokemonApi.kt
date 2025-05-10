@@ -11,7 +11,6 @@
 */
 package org.openapitools.server.apis
 
-import com.google.gson.Gson
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
@@ -28,7 +27,6 @@ import io.ktor.server.routing.*
 import org.openapitools.server.infrastructure.ApiPrincipal
 
 fun Route.PokemonApi() {
-    val gson = Gson()
     val empty = mutableMapOf<String, Any?>()
 
     get<Paths.pokemonList> {

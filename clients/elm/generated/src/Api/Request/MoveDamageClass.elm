@@ -26,6 +26,7 @@ import Http
 import Json.Decode
 import Json.Encode
 
+
 moveDamageClassList : Maybe Int -> Maybe Int -> Api.Request ()
 moveDamageClassList limit_query offset_query =
     Api.request

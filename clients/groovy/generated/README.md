@@ -6,8 +6,8 @@ This Groovy package, using the [http-builder-ng library](https://http-builder-ng
 
 - API version: 20220523
 - Package version: 20220523
-- Build date: 2024-11-03T13:17:21.461189359Z[Etc/UTC]
-- Generator version: 7.9.0
+- Build date: 2025-05-10T05:53:14.448538441Z[Etc/UTC]
+- Generator version: 7.12.0
 - Build package: org.openapitools.codegen.languages.GroovyClientCodegen
 For more information, please visit [https://github.com/oapicf/pokeapi-clients](https://github.com/oapicf/pokeapi-clients)
 

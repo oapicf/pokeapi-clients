@@ -2,6 +2,8 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
+from pydantic import StrictInt, StrictStr
+from typing import Optional
 
 
 class BaseTypeApi:
@@ -12,14 +14,14 @@ class BaseTypeApi:
         BaseTypeApi.subclasses = BaseTypeApi.subclasses + (cls,)
     async def type_list(
         self,
-        limit: int,
-        offset: int,
+        limit: Optional[StrictInt],
+        offset: Optional[StrictInt],
     ) -> str:
         ...
 
 
     async def type_read(
         self,
-        id: int,
+        id: StrictInt,
     ) -> str:
         ...

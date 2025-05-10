@@ -1,7 +1,6 @@
 package org.openapitools.server
 
 import io.ktor.server.application.*
-import io.ktor.serialization.gson.*
 import io.ktor.http.*
 import io.ktor.server.resources.*
 import io.ktor.server.plugins.autohead.*
@@ -63,7 +62,6 @@ import org.openapitools.server.apis.VersionApi
 import org.openapitools.server.apis.VersionGroupApi
 
 
-
 fun Application.main() {
     install(DefaultHeaders)
     install(DropwizardMetrics) {
@@ -75,13 +73,13 @@ fun Application.main() {
         reporter.start(10, TimeUnit.SECONDS)
     }
     install(ContentNegotiation) {
-        register(ContentType.Application.Json, GsonConverter())
+        json()
     }
     install(AutoHeadResponse) // see https://ktor.io/docs/autoheadresponse.html
     install(Compression, ApplicationCompressionConfiguration()) // see https://ktor.io/docs/compression.html
     install(HSTS, ApplicationHstsConfiguration()) // see https://ktor.io/docs/hsts.html
     install(Resources)
-    install(Routing) {
+    routing {
         AbilityApi()
         BerryApi()
         BerryFirmnessApi()
@@ -131,5 +129,4 @@ fun Application.main() {
         VersionApi()
         VersionGroupApi()
     }
-
 }

@@ -26,6 +26,7 @@ import Http
 import Json.Decode
 import Json.Encode
 
+
 pokedexList : Maybe Int -> Maybe Int -> Api.Request ()
 pokedexList limit_query offset_query =
     Api.request

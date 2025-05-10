@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **machine_list**
 > str machine_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **machine_read**
 > str machine_read(id)
-
-
 
 ### Example
 

@@ -226,7 +226,7 @@ void OAIEggGroupApi::eggGroupList(const ::OpenAPI::OptionalParam<qint32> &limit,
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("limit")).append(querySuffix).append(QUrl::toPercentEncoding(limit.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("limit")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(limit.stringValue())));
     }
     if (offset.hasValue())
     {
@@ -241,7 +241,7 @@ void OAIEggGroupApi::eggGroupList(const ::OpenAPI::OptionalParam<qint32> &limit,
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(offset.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(offset.stringValue())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -256,7 +256,7 @@ void OAIEggGroupApi::eggGroupList(const ::OpenAPI::OptionalParam<qint32> &limit,
 
     connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIEggGroupApi::eggGroupListCallback);
     connect(this, &OAIEggGroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -341,7 +341,7 @@ void OAIEggGroupApi::eggGroupRead(const qint32 &id) {
 
     connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIEggGroupApi::eggGroupReadCallback);
     connect(this, &OAIEggGroupApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

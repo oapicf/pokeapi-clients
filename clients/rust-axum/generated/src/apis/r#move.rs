@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum MoveReadResponse {
 /// R#move
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait R#move {
+pub trait R#move<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// MoveList - GET /api/v2/move/
     async fn move_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::MoveListQueryParams,
-    ) -> Result<MoveListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::MoveListQueryParams,
+    ) -> Result<MoveListResponse, E>;
 
     /// MoveRead - GET /api/v2/move/{id}/
     async fn move_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::MoveReadPathParams,
-    ) -> Result<MoveReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::MoveReadPathParams,
+    ) -> Result<MoveReadResponse, E>;
 }

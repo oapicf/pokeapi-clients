@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum PokemonSpeciesReadResponse {
 /// PokemonSpecies
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait PokemonSpecies {
+pub trait PokemonSpecies<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// PokemonSpeciesList - GET /api/v2/pokemon-species/
     async fn pokemon_species_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::PokemonSpeciesListQueryParams,
-    ) -> Result<PokemonSpeciesListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::PokemonSpeciesListQueryParams,
+    ) -> Result<PokemonSpeciesListResponse, E>;
 
     /// PokemonSpeciesRead - GET /api/v2/pokemon-species/{id}/
     async fn pokemon_species_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::PokemonSpeciesReadPathParams,
-    ) -> Result<PokemonSpeciesReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::PokemonSpeciesReadPathParams,
+    ) -> Result<PokemonSpeciesReadResponse, E>;
 }

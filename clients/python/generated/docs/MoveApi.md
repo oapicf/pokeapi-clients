@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **move_list**
 > str move_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **move_read**
 > str move_read(id)
-
-
 
 ### Example
 

@@ -26,6 +26,7 @@ import Http
 import Json.Decode
 import Json.Encode
 
+
 encounterConditionValueList : Maybe Int -> Maybe Int -> Api.Request ()
 encounterConditionValueList limit_query offset_query =
     Api.request

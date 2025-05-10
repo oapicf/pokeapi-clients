@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **nature_list**
 > str nature_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **nature_read**
 > str nature_read(id)
-
-
 
 ### Example
 

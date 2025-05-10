@@ -2,6 +2,8 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
+from pydantic import StrictInt, StrictStr
+from typing import Optional
 
 
 class BaseBerryApi:
@@ -12,14 +14,14 @@ class BaseBerryApi:
         BaseBerryApi.subclasses = BaseBerryApi.subclasses + (cls,)
     async def berry_list(
         self,
-        limit: int,
-        offset: int,
+        limit: Optional[StrictInt],
+        offset: Optional[StrictInt],
     ) -> str:
         ...
 
 
     async def berry_read(
         self,
-        id: int,
+        id: StrictInt,
     ) -> str:
         ...

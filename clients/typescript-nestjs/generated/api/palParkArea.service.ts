@@ -13,7 +13,7 @@
 
 import { Injectable, Optional } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
-import { AxiosResponse } from 'axios';
+import type { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { Observable, from, of, switchMap } from 'rxjs';
 import { Configuration } from '../configuration';
 import { COLLECTION_FORMATS } from '../variables';
@@ -25,10 +25,12 @@ export class PalParkAreaService {
     protected basePath = 'https://pokeapi.co';
     public defaultHeaders: Record<string,string> = {};
     public configuration = new Configuration();
+    protected httpClient: HttpService;
 
-    constructor(protected httpClient: HttpService, @Optional() configuration: Configuration) {
+    constructor(httpClient: HttpService, @Optional() configuration: Configuration) {
         this.configuration = configuration || this.configuration;
         this.basePath = configuration?.basePath || this.basePath;
+        this.httpClient = configuration?.httpClient || httpClient;
     }
 
     /**
@@ -47,9 +49,10 @@ export class PalParkAreaService {
      * @param offset 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
+     * @param {*} [palParkAreaListOpts.config] Override http request option.
      */
-    public palParkAreaList(limit?: number, offset?: number, ): Observable<AxiosResponse<string>>;
-    public palParkAreaList(limit?: number, offset?: number, ): Observable<any> {
+    public palParkAreaList(limit?: number, offset?: number, palParkAreaListOpts?: { config?: AxiosRequestConfig }): Observable<AxiosResponse<string>>;
+    public palParkAreaList(limit?: number, offset?: number, palParkAreaListOpts?: { config?: AxiosRequestConfig }): Observable<any> {
         let queryParameters = new URLSearchParams();
         if (limit !== undefined && limit !== null) {
             queryParameters.append('limit', <any>limit);
@@ -84,7 +87,8 @@ export class PalParkAreaService {
                     {
                         params: queryParameters,
                         withCredentials: this.configuration.withCredentials,
-                        headers: headers
+                        ...palParkAreaListOpts?.config,
+                        headers: {...headers, ...palParkAreaListOpts?.config?.headers},
                     }
                 );
             })
@@ -96,9 +100,10 @@ export class PalParkAreaService {
      * @param id 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
+     * @param {*} [palParkAreaReadOpts.config] Override http request option.
      */
-    public palParkAreaRead(id: number, ): Observable<AxiosResponse<string>>;
-    public palParkAreaRead(id: number, ): Observable<any> {
+    public palParkAreaRead(id: number, palParkAreaReadOpts?: { config?: AxiosRequestConfig }): Observable<AxiosResponse<string>>;
+    public palParkAreaRead(id: number, palParkAreaReadOpts?: { config?: AxiosRequestConfig }): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling palParkAreaRead.');
         }
@@ -128,7 +133,8 @@ export class PalParkAreaService {
                 return this.httpClient.get<string>(`${this.basePath}/api/v2/pal-park-area/${encodeURIComponent(String(id))}/`,
                     {
                         withCredentials: this.configuration.withCredentials,
-                        headers: headers
+                        ...palParkAreaReadOpts?.config,
+                        headers: {...headers, ...palParkAreaReadOpts?.config?.headers},
                     }
                 );
             })

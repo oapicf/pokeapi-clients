@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **pokemon_habitat_list**
 > str pokemon_habitat_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **pokemon_habitat_read**
 > str pokemon_habitat_read(id)
-
-
 
 ### Example
 

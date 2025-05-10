@@ -2,6 +2,8 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
+from pydantic import StrictInt, StrictStr
+from typing import Optional
 
 
 class BaseContestTypeApi:
@@ -12,14 +14,14 @@ class BaseContestTypeApi:
         BaseContestTypeApi.subclasses = BaseContestTypeApi.subclasses + (cls,)
     async def contest_type_list(
         self,
-        limit: int,
-        offset: int,
+        limit: Optional[StrictInt],
+        offset: Optional[StrictInt],
     ) -> str:
         ...
 
 
     async def contest_type_read(
         self,
-        id: int,
+        id: StrictInt,
     ) -> str:
         ...

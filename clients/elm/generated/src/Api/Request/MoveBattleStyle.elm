@@ -26,6 +26,7 @@ import Http
 import Json.Decode
 import Json.Encode
 
+
 moveBattleStyleList : Maybe Int -> Maybe Int -> Api.Request ()
 moveBattleStyleList limit_query offset_query =
     Api.request

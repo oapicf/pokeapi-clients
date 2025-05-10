@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **type_list**
 > str type_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **type_read**
 > str type_read(id)
-
-
 
 ### Example
 

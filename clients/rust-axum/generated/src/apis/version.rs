@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum VersionReadResponse {
 /// Version
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait Version {
+pub trait Version<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// VersionList - GET /api/v2/version/
     async fn version_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::VersionListQueryParams,
-    ) -> Result<VersionListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::VersionListQueryParams,
+    ) -> Result<VersionListResponse, E>;
 
     /// VersionRead - GET /api/v2/version/{id}/
     async fn version_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::VersionReadPathParams,
-    ) -> Result<VersionReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::VersionReadPathParams,
+    ) -> Result<VersionReadResponse, E>;
 }

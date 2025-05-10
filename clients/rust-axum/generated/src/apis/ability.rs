@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum AbilityReadResponse {
 /// Ability
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait Ability {
+pub trait Ability<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// AbilityList - GET /api/v2/ability/
     async fn ability_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::AbilityListQueryParams,
-    ) -> Result<AbilityListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::AbilityListQueryParams,
+    ) -> Result<AbilityListResponse, E>;
 
     /// AbilityRead - GET /api/v2/ability/{id}/
     async fn ability_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::AbilityReadPathParams,
-    ) -> Result<AbilityReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::AbilityReadPathParams,
+    ) -> Result<AbilityReadResponse, E>;
 }

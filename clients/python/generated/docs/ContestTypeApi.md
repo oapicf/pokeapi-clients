@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **contest_type_list**
 > str contest_type_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **contest_type_read**
 > str contest_type_read(id)
-
-
 
 ### Example
 

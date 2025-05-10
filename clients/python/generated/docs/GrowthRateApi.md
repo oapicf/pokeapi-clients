@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **growth_rate_list**
 > str growth_rate_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **growth_rate_read**
 > str growth_rate_read(id)
-
-
 
 ### Example
 

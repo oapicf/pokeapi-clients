@@ -52,7 +52,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: text/plain
 
 <a id="encounterConditionValueRead"></a>
 # **encounterConditionValueRead**
@@ -96,5 +96,5 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: text/plain
 

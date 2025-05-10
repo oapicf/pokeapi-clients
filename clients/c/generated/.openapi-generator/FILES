@@ -1,5 +1,5 @@
-.openapi-generator-ignore
 CMakeLists.txt
+Config.cmake.in
 Packing.cmake
 README.md
 api/AbilityAPI.c
@@ -154,6 +154,7 @@ include/binary.h
 include/keyValuePair.h
 include/list.h
 libcurl.licence
+model/any_type.h
 model/object.c
 model/object.h
 src/apiClient.c

@@ -22,7 +22,7 @@ import java.io.IOException;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-11-03T13:18:35.669597013Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2025-05-10T05:53:37.006147697Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 @Controller
 public class MoveBattleStyleApiController implements MoveBattleStyleApi {
     private final ObjectMapper objectMapper;

@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum LocationAreaReadResponse {
 /// LocationArea
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait LocationArea {
+pub trait LocationArea<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// LocationAreaList - GET /api/v2/location-area/
     async fn location_area_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::LocationAreaListQueryParams,
-    ) -> Result<LocationAreaListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::LocationAreaListQueryParams,
+    ) -> Result<LocationAreaListResponse, E>;
 
     /// LocationAreaRead - GET /api/v2/location-area/{id}/
     async fn location_area_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::LocationAreaReadPathParams,
-    ) -> Result<LocationAreaReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::LocationAreaReadPathParams,
+    ) -> Result<LocationAreaReadResponse, E>;
 }

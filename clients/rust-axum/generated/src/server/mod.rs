@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 use axum::{body::Body, extract::*, response::Response, routing::*};
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::{header::CONTENT_TYPE, HeaderMap, HeaderName, HeaderValue, Method, StatusCode};
 use tracing::error;
@@ -14,300 +14,302 @@ use crate::{apis, models};
 
 
 /// Setup API Server.
-pub fn new<I, A>(api_impl: I) -> Router
+pub fn new<I, A, E>(api_impl: I) -> Router
 where
     I: AsRef<A> + Clone + Send + Sync + 'static,
-    A: apis::ability::Ability + apis::berry::Berry + apis::berry_firmness::BerryFirmness + apis::berry_flavor::BerryFlavor + apis::characteristic::Characteristic + apis::contest_effect::ContestEffect + apis::contest_type::ContestType + apis::egg_group::EggGroup + apis::encounter_condition::EncounterCondition + apis::encounter_condition_value::EncounterConditionValue + apis::encounter_method::EncounterMethod + apis::evolution_chain::EvolutionChain + apis::evolution_trigger::EvolutionTrigger + apis::gender::Gender + apis::generation::Generation + apis::growth_rate::GrowthRate + apis::item::Item + apis::item_attribute::ItemAttribute + apis::item_category::ItemCategory + apis::item_fling_effect::ItemFlingEffect + apis::item_pocket::ItemPocket + apis::language::Language + apis::location::Location + apis::location_area::LocationArea + apis::machine::Machine + apis::r#move::R#move + apis::move_ailment::MoveAilment + apis::move_battle_style::MoveBattleStyle + apis::move_category::MoveCategory + apis::move_damage_class::MoveDamageClass + apis::move_learn_method::MoveLearnMethod + apis::move_target::MoveTarget + apis::nature::Nature + apis::pal_park_area::PalParkArea + apis::pokeathlon_stat::PokeathlonStat + apis::pokedex::Pokedex + apis::pokemon::Pokemon + apis::pokemon_color::PokemonColor + apis::pokemon_form::PokemonForm + apis::pokemon_habitat::PokemonHabitat + apis::pokemon_shape::PokemonShape + apis::pokemon_species::PokemonSpecies + apis::region::Region + apis::stat::Stat + apis::super_contest_effect::SuperContestEffect + apis::r#type::R#type + apis::version::Version + apis::version_group::VersionGroup + 'static,
+    A: apis::ability::Ability<E> + apis::berry::Berry<E> + apis::berry_firmness::BerryFirmness<E> + apis::berry_flavor::BerryFlavor<E> + apis::characteristic::Characteristic<E> + apis::contest_effect::ContestEffect<E> + apis::contest_type::ContestType<E> + apis::egg_group::EggGroup<E> + apis::encounter_condition::EncounterCondition<E> + apis::encounter_condition_value::EncounterConditionValue<E> + apis::encounter_method::EncounterMethod<E> + apis::evolution_chain::EvolutionChain<E> + apis::evolution_trigger::EvolutionTrigger<E> + apis::gender::Gender<E> + apis::generation::Generation<E> + apis::growth_rate::GrowthRate<E> + apis::item::Item<E> + apis::item_attribute::ItemAttribute<E> + apis::item_category::ItemCategory<E> + apis::item_fling_effect::ItemFlingEffect<E> + apis::item_pocket::ItemPocket<E> + apis::language::Language<E> + apis::location::Location<E> + apis::location_area::LocationArea<E> + apis::machine::Machine<E> + apis::r#move::R#move<E> + apis::move_ailment::MoveAilment<E> + apis::move_battle_style::MoveBattleStyle<E> + apis::move_category::MoveCategory<E> + apis::move_damage_class::MoveDamageClass<E> + apis::move_learn_method::MoveLearnMethod<E> + apis::move_target::MoveTarget<E> + apis::nature::Nature<E> + apis::pal_park_area::PalParkArea<E> + apis::pokeathlon_stat::PokeathlonStat<E> + apis::pokedex::Pokedex<E> + apis::pokemon::Pokemon<E> + apis::pokemon_color::PokemonColor<E> + apis::pokemon_form::PokemonForm<E> + apis::pokemon_habitat::PokemonHabitat<E> + apis::pokemon_shape::PokemonShape<E> + apis::pokemon_species::PokemonSpecies<E> + apis::region::Region<E> + apis::stat::Stat<E> + apis::super_contest_effect::SuperContestEffect<E> + apis::r#type::R#type<E> + apis::version::Version<E> + apis::version_group::VersionGroup<E> + Send + Sync + 'static,
+    E: std::fmt::Debug + Send + Sync + 'static,
+    
 {
     // build our application with a route
     Router::new()
         .route("/api/v2/ability/",
-            get(ability_list::<I, A>)
+            get(ability_list::<I, A, E>)
         )
-        .route("/api/v2/ability/:id/",
-            get(ability_read::<I, A>)
+        .route("/api/v2/ability/{id}/",
+            get(ability_read::<I, A, E>)
         )
         .route("/api/v2/berry-firmness/",
-            get(berry_firmness_list::<I, A>)
+            get(berry_firmness_list::<I, A, E>)
         )
-        .route("/api/v2/berry-firmness/:id/",
-            get(berry_firmness_read::<I, A>)
+        .route("/api/v2/berry-firmness/{id}/",
+            get(berry_firmness_read::<I, A, E>)
         )
         .route("/api/v2/berry-flavor/",
-            get(berry_flavor_list::<I, A>)
+            get(berry_flavor_list::<I, A, E>)
         )
-        .route("/api/v2/berry-flavor/:id/",
-            get(berry_flavor_read::<I, A>)
+        .route("/api/v2/berry-flavor/{id}/",
+            get(berry_flavor_read::<I, A, E>)
         )
         .route("/api/v2/berry/",
-            get(berry_list::<I, A>)
+            get(berry_list::<I, A, E>)
         )
-        .route("/api/v2/berry/:id/",
-            get(berry_read::<I, A>)
+        .route("/api/v2/berry/{id}/",
+            get(berry_read::<I, A, E>)
         )
         .route("/api/v2/characteristic/",
-            get(characteristic_list::<I, A>)
+            get(characteristic_list::<I, A, E>)
         )
-        .route("/api/v2/characteristic/:id/",
-            get(characteristic_read::<I, A>)
+        .route("/api/v2/characteristic/{id}/",
+            get(characteristic_read::<I, A, E>)
         )
         .route("/api/v2/contest-effect/",
-            get(contest_effect_list::<I, A>)
+            get(contest_effect_list::<I, A, E>)
         )
-        .route("/api/v2/contest-effect/:id/",
-            get(contest_effect_read::<I, A>)
+        .route("/api/v2/contest-effect/{id}/",
+            get(contest_effect_read::<I, A, E>)
         )
         .route("/api/v2/contest-type/",
-            get(contest_type_list::<I, A>)
+            get(contest_type_list::<I, A, E>)
         )
-        .route("/api/v2/contest-type/:id/",
-            get(contest_type_read::<I, A>)
+        .route("/api/v2/contest-type/{id}/",
+            get(contest_type_read::<I, A, E>)
         )
         .route("/api/v2/egg-group/",
-            get(egg_group_list::<I, A>)
+            get(egg_group_list::<I, A, E>)
         )
-        .route("/api/v2/egg-group/:id/",
-            get(egg_group_read::<I, A>)
+        .route("/api/v2/egg-group/{id}/",
+            get(egg_group_read::<I, A, E>)
         )
         .route("/api/v2/encounter-condition-value/",
-            get(encounter_condition_value_list::<I, A>)
+            get(encounter_condition_value_list::<I, A, E>)
         )
-        .route("/api/v2/encounter-condition-value/:id/",
-            get(encounter_condition_value_read::<I, A>)
+        .route("/api/v2/encounter-condition-value/{id}/",
+            get(encounter_condition_value_read::<I, A, E>)
         )
         .route("/api/v2/encounter-condition/",
-            get(encounter_condition_list::<I, A>)
+            get(encounter_condition_list::<I, A, E>)
         )
-        .route("/api/v2/encounter-condition/:id/",
-            get(encounter_condition_read::<I, A>)
+        .route("/api/v2/encounter-condition/{id}/",
+            get(encounter_condition_read::<I, A, E>)
         )
         .route("/api/v2/encounter-method/",
-            get(encounter_method_list::<I, A>)
+            get(encounter_method_list::<I, A, E>)
         )
-        .route("/api/v2/encounter-method/:id/",
-            get(encounter_method_read::<I, A>)
+        .route("/api/v2/encounter-method/{id}/",
+            get(encounter_method_read::<I, A, E>)
         )
         .route("/api/v2/evolution-chain/",
-            get(evolution_chain_list::<I, A>)
+            get(evolution_chain_list::<I, A, E>)
         )
-        .route("/api/v2/evolution-chain/:id/",
-            get(evolution_chain_read::<I, A>)
+        .route("/api/v2/evolution-chain/{id}/",
+            get(evolution_chain_read::<I, A, E>)
         )
         .route("/api/v2/evolution-trigger/",
-            get(evolution_trigger_list::<I, A>)
+            get(evolution_trigger_list::<I, A, E>)
         )
-        .route("/api/v2/evolution-trigger/:id/",
-            get(evolution_trigger_read::<I, A>)
+        .route("/api/v2/evolution-trigger/{id}/",
+            get(evolution_trigger_read::<I, A, E>)
         )
         .route("/api/v2/gender/",
-            get(gender_list::<I, A>)
+            get(gender_list::<I, A, E>)
         )
-        .route("/api/v2/gender/:id/",
-            get(gender_read::<I, A>)
+        .route("/api/v2/gender/{id}/",
+            get(gender_read::<I, A, E>)
         )
         .route("/api/v2/generation/",
-            get(generation_list::<I, A>)
+            get(generation_list::<I, A, E>)
         )
-        .route("/api/v2/generation/:id/",
-            get(generation_read::<I, A>)
+        .route("/api/v2/generation/{id}/",
+            get(generation_read::<I, A, E>)
         )
         .route("/api/v2/growth-rate/",
-            get(growth_rate_list::<I, A>)
+            get(growth_rate_list::<I, A, E>)
         )
-        .route("/api/v2/growth-rate/:id/",
-            get(growth_rate_read::<I, A>)
+        .route("/api/v2/growth-rate/{id}/",
+            get(growth_rate_read::<I, A, E>)
         )
         .route("/api/v2/item-attribute/",
-            get(item_attribute_list::<I, A>)
+            get(item_attribute_list::<I, A, E>)
         )
-        .route("/api/v2/item-attribute/:id/",
-            get(item_attribute_read::<I, A>)
+        .route("/api/v2/item-attribute/{id}/",
+            get(item_attribute_read::<I, A, E>)
         )
         .route("/api/v2/item-category/",
-            get(item_category_list::<I, A>)
+            get(item_category_list::<I, A, E>)
         )
-        .route("/api/v2/item-category/:id/",
-            get(item_category_read::<I, A>)
+        .route("/api/v2/item-category/{id}/",
+            get(item_category_read::<I, A, E>)
         )
         .route("/api/v2/item-fling-effect/",
-            get(item_fling_effect_list::<I, A>)
+            get(item_fling_effect_list::<I, A, E>)
         )
-        .route("/api/v2/item-fling-effect/:id/",
-            get(item_fling_effect_read::<I, A>)
+        .route("/api/v2/item-fling-effect/{id}/",
+            get(item_fling_effect_read::<I, A, E>)
         )
         .route("/api/v2/item-pocket/",
-            get(item_pocket_list::<I, A>)
+            get(item_pocket_list::<I, A, E>)
         )
-        .route("/api/v2/item-pocket/:id/",
-            get(item_pocket_read::<I, A>)
+        .route("/api/v2/item-pocket/{id}/",
+            get(item_pocket_read::<I, A, E>)
         )
         .route("/api/v2/item/",
-            get(item_list::<I, A>)
+            get(item_list::<I, A, E>)
         )
-        .route("/api/v2/item/:id/",
-            get(item_read::<I, A>)
+        .route("/api/v2/item/{id}/",
+            get(item_read::<I, A, E>)
         )
         .route("/api/v2/language/",
-            get(language_list::<I, A>)
+            get(language_list::<I, A, E>)
         )
-        .route("/api/v2/language/:id/",
-            get(language_read::<I, A>)
+        .route("/api/v2/language/{id}/",
+            get(language_read::<I, A, E>)
         )
         .route("/api/v2/location-area/",
-            get(location_area_list::<I, A>)
+            get(location_area_list::<I, A, E>)
         )
-        .route("/api/v2/location-area/:id/",
-            get(location_area_read::<I, A>)
+        .route("/api/v2/location-area/{id}/",
+            get(location_area_read::<I, A, E>)
         )
         .route("/api/v2/location/",
-            get(location_list::<I, A>)
+            get(location_list::<I, A, E>)
         )
-        .route("/api/v2/location/:id/",
-            get(location_read::<I, A>)
+        .route("/api/v2/location/{id}/",
+            get(location_read::<I, A, E>)
         )
         .route("/api/v2/machine/",
-            get(machine_list::<I, A>)
+            get(machine_list::<I, A, E>)
         )
-        .route("/api/v2/machine/:id/",
-            get(machine_read::<I, A>)
+        .route("/api/v2/machine/{id}/",
+            get(machine_read::<I, A, E>)
         )
         .route("/api/v2/move-ailment/",
-            get(move_ailment_list::<I, A>)
+            get(move_ailment_list::<I, A, E>)
         )
-        .route("/api/v2/move-ailment/:id/",
-            get(move_ailment_read::<I, A>)
+        .route("/api/v2/move-ailment/{id}/",
+            get(move_ailment_read::<I, A, E>)
         )
         .route("/api/v2/move-battle-style/",
-            get(move_battle_style_list::<I, A>)
+            get(move_battle_style_list::<I, A, E>)
         )
-        .route("/api/v2/move-battle-style/:id/",
-            get(move_battle_style_read::<I, A>)
+        .route("/api/v2/move-battle-style/{id}/",
+            get(move_battle_style_read::<I, A, E>)
         )
         .route("/api/v2/move-category/",
-            get(move_category_list::<I, A>)
+            get(move_category_list::<I, A, E>)
         )
-        .route("/api/v2/move-category/:id/",
-            get(move_category_read::<I, A>)
+        .route("/api/v2/move-category/{id}/",
+            get(move_category_read::<I, A, E>)
         )
         .route("/api/v2/move-damage-class/",
-            get(move_damage_class_list::<I, A>)
+            get(move_damage_class_list::<I, A, E>)
         )
-        .route("/api/v2/move-damage-class/:id/",
-            get(move_damage_class_read::<I, A>)
+        .route("/api/v2/move-damage-class/{id}/",
+            get(move_damage_class_read::<I, A, E>)
         )
         .route("/api/v2/move-learn-method/",
-            get(move_learn_method_list::<I, A>)
+            get(move_learn_method_list::<I, A, E>)
         )
-        .route("/api/v2/move-learn-method/:id/",
-            get(move_learn_method_read::<I, A>)
+        .route("/api/v2/move-learn-method/{id}/",
+            get(move_learn_method_read::<I, A, E>)
         )
         .route("/api/v2/move-target/",
-            get(move_target_list::<I, A>)
+            get(move_target_list::<I, A, E>)
         )
-        .route("/api/v2/move-target/:id/",
-            get(move_target_read::<I, A>)
+        .route("/api/v2/move-target/{id}/",
+            get(move_target_read::<I, A, E>)
         )
         .route("/api/v2/move/",
-            get(move_list::<I, A>)
+            get(move_list::<I, A, E>)
         )
-        .route("/api/v2/move/:id/",
-            get(move_read::<I, A>)
+        .route("/api/v2/move/{id}/",
+            get(move_read::<I, A, E>)
         )
         .route("/api/v2/nature/",
-            get(nature_list::<I, A>)
+            get(nature_list::<I, A, E>)
         )
-        .route("/api/v2/nature/:id/",
-            get(nature_read::<I, A>)
+        .route("/api/v2/nature/{id}/",
+            get(nature_read::<I, A, E>)
         )
         .route("/api/v2/pal-park-area/",
-            get(pal_park_area_list::<I, A>)
+            get(pal_park_area_list::<I, A, E>)
         )
-        .route("/api/v2/pal-park-area/:id/",
-            get(pal_park_area_read::<I, A>)
+        .route("/api/v2/pal-park-area/{id}/",
+            get(pal_park_area_read::<I, A, E>)
         )
         .route("/api/v2/pokeathlon-stat/",
-            get(pokeathlon_stat_list::<I, A>)
+            get(pokeathlon_stat_list::<I, A, E>)
         )
-        .route("/api/v2/pokeathlon-stat/:id/",
-            get(pokeathlon_stat_read::<I, A>)
+        .route("/api/v2/pokeathlon-stat/{id}/",
+            get(pokeathlon_stat_read::<I, A, E>)
         )
         .route("/api/v2/pokedex/",
-            get(pokedex_list::<I, A>)
+            get(pokedex_list::<I, A, E>)
         )
-        .route("/api/v2/pokedex/:id/",
-            get(pokedex_read::<I, A>)
+        .route("/api/v2/pokedex/{id}/",
+            get(pokedex_read::<I, A, E>)
         )
         .route("/api/v2/pokemon-color/",
-            get(pokemon_color_list::<I, A>)
+            get(pokemon_color_list::<I, A, E>)
         )
-        .route("/api/v2/pokemon-color/:id/",
-            get(pokemon_color_read::<I, A>)
+        .route("/api/v2/pokemon-color/{id}/",
+            get(pokemon_color_read::<I, A, E>)
         )
         .route("/api/v2/pokemon-form/",
-            get(pokemon_form_list::<I, A>)
+            get(pokemon_form_list::<I, A, E>)
         )
-        .route("/api/v2/pokemon-form/:id/",
-            get(pokemon_form_read::<I, A>)
+        .route("/api/v2/pokemon-form/{id}/",
+            get(pokemon_form_read::<I, A, E>)
         )
         .route("/api/v2/pokemon-habitat/",
-            get(pokemon_habitat_list::<I, A>)
+            get(pokemon_habitat_list::<I, A, E>)
         )
-        .route("/api/v2/pokemon-habitat/:id/",
-            get(pokemon_habitat_read::<I, A>)
+        .route("/api/v2/pokemon-habitat/{id}/",
+            get(pokemon_habitat_read::<I, A, E>)
         )
         .route("/api/v2/pokemon-shape/",
-            get(pokemon_shape_list::<I, A>)
+            get(pokemon_shape_list::<I, A, E>)
         )
-        .route("/api/v2/pokemon-shape/:id/",
-            get(pokemon_shape_read::<I, A>)
+        .route("/api/v2/pokemon-shape/{id}/",
+            get(pokemon_shape_read::<I, A, E>)
         )
         .route("/api/v2/pokemon-species/",
-            get(pokemon_species_list::<I, A>)
+            get(pokemon_species_list::<I, A, E>)
         )
-        .route("/api/v2/pokemon-species/:id/",
-            get(pokemon_species_read::<I, A>)
+        .route("/api/v2/pokemon-species/{id}/",
+            get(pokemon_species_read::<I, A, E>)
         )
         .route("/api/v2/pokemon/",
-            get(pokemon_list::<I, A>)
+            get(pokemon_list::<I, A, E>)
         )
-        .route("/api/v2/pokemon/:id/",
-            get(pokemon_read::<I, A>)
+        .route("/api/v2/pokemon/{id}/",
+            get(pokemon_read::<I, A, E>)
         )
         .route("/api/v2/region/",
-            get(region_list::<I, A>)
+            get(region_list::<I, A, E>)
         )
-        .route("/api/v2/region/:id/",
-            get(region_read::<I, A>)
+        .route("/api/v2/region/{id}/",
+            get(region_read::<I, A, E>)
         )
         .route("/api/v2/stat/",
-            get(stat_list::<I, A>)
+            get(stat_list::<I, A, E>)
         )
-        .route("/api/v2/stat/:id/",
-            get(stat_read::<I, A>)
+        .route("/api/v2/stat/{id}/",
+            get(stat_read::<I, A, E>)
         )
         .route("/api/v2/super-contest-effect/",
-            get(super_contest_effect_list::<I, A>)
+            get(super_contest_effect_list::<I, A, E>)
         )
-        .route("/api/v2/super-contest-effect/:id/",
-            get(super_contest_effect_read::<I, A>)
+        .route("/api/v2/super-contest-effect/{id}/",
+            get(super_contest_effect_read::<I, A, E>)
         )
         .route("/api/v2/type/",
-            get(type_list::<I, A>)
+            get(type_list::<I, A, E>)
         )
-        .route("/api/v2/type/:id/",
-            get(type_read::<I, A>)
+        .route("/api/v2/type/{id}/",
+            get(type_read::<I, A, E>)
         )
         .route("/api/v2/version-group/",
-            get(version_group_list::<I, A>)
+            get(version_group_list::<I, A, E>)
         )
-        .route("/api/v2/version-group/:id/",
-            get(version_group_read::<I, A>)
+        .route("/api/v2/version-group/{id}/",
+            get(version_group_read::<I, A, E>)
         )
         .route("/api/v2/version/",
-            get(version_list::<I, A>)
+            get(version_list::<I, A, E>)
         )
-        .route("/api/v2/version/:id/",
-            get(version_read::<I, A>)
+        .route("/api/v2/version/{id}/",
+            get(version_read::<I, A, E>)
         )
         .with_state(api_impl)
 }
@@ -328,7 +330,7 @@ Ok((
 }
 /// AbilityList - GET /api/v2/ability/
 #[tracing::instrument(skip_all)]
-async fn ability_list<I, A>(
+async fn ability_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -337,8 +339,10 @@ async fn ability_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::ability::Ability,
-{
+    A: apis::ability::Ability<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -357,10 +361,10 @@ where
   };
 
   let result = api_impl.as_ref().ability_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -382,10 +386,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -408,7 +412,7 @@ Ok((
 }
 /// AbilityRead - GET /api/v2/ability/{id}/
 #[tracing::instrument(skip_all)]
-async fn ability_read<I, A>(
+async fn ability_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -417,8 +421,10 @@ async fn ability_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::ability::Ability,
-{
+    A: apis::ability::Ability<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -437,10 +443,10 @@ where
   };
 
   let result = api_impl.as_ref().ability_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -462,10 +468,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -488,7 +494,7 @@ Ok((
 }
 /// BerryList - GET /api/v2/berry/
 #[tracing::instrument(skip_all)]
-async fn berry_list<I, A>(
+async fn berry_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -497,8 +503,10 @@ async fn berry_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::berry::Berry,
-{
+    A: apis::berry::Berry<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -517,10 +525,10 @@ where
   };
 
   let result = api_impl.as_ref().berry_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -542,10 +550,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -568,7 +576,7 @@ Ok((
 }
 /// BerryRead - GET /api/v2/berry/{id}/
 #[tracing::instrument(skip_all)]
-async fn berry_read<I, A>(
+async fn berry_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -577,8 +585,10 @@ async fn berry_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::berry::Berry,
-{
+    A: apis::berry::Berry<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -597,10 +607,10 @@ where
   };
 
   let result = api_impl.as_ref().berry_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -622,10 +632,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -648,7 +658,7 @@ Ok((
 }
 /// BerryFirmnessList - GET /api/v2/berry-firmness/
 #[tracing::instrument(skip_all)]
-async fn berry_firmness_list<I, A>(
+async fn berry_firmness_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -657,8 +667,10 @@ async fn berry_firmness_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::berry_firmness::BerryFirmness,
-{
+    A: apis::berry_firmness::BerryFirmness<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -677,10 +689,10 @@ where
   };
 
   let result = api_impl.as_ref().berry_firmness_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -702,10 +714,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -728,7 +740,7 @@ Ok((
 }
 /// BerryFirmnessRead - GET /api/v2/berry-firmness/{id}/
 #[tracing::instrument(skip_all)]
-async fn berry_firmness_read<I, A>(
+async fn berry_firmness_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -737,8 +749,10 @@ async fn berry_firmness_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::berry_firmness::BerryFirmness,
-{
+    A: apis::berry_firmness::BerryFirmness<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -757,10 +771,10 @@ where
   };
 
   let result = api_impl.as_ref().berry_firmness_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -782,10 +796,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -808,7 +822,7 @@ Ok((
 }
 /// BerryFlavorList - GET /api/v2/berry-flavor/
 #[tracing::instrument(skip_all)]
-async fn berry_flavor_list<I, A>(
+async fn berry_flavor_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -817,8 +831,10 @@ async fn berry_flavor_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::berry_flavor::BerryFlavor,
-{
+    A: apis::berry_flavor::BerryFlavor<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -837,10 +853,10 @@ where
   };
 
   let result = api_impl.as_ref().berry_flavor_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -862,10 +878,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -888,7 +904,7 @@ Ok((
 }
 /// BerryFlavorRead - GET /api/v2/berry-flavor/{id}/
 #[tracing::instrument(skip_all)]
-async fn berry_flavor_read<I, A>(
+async fn berry_flavor_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -897,8 +913,10 @@ async fn berry_flavor_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::berry_flavor::BerryFlavor,
-{
+    A: apis::berry_flavor::BerryFlavor<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -917,10 +935,10 @@ where
   };
 
   let result = api_impl.as_ref().berry_flavor_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -942,10 +960,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -968,7 +986,7 @@ Ok((
 }
 /// CharacteristicList - GET /api/v2/characteristic/
 #[tracing::instrument(skip_all)]
-async fn characteristic_list<I, A>(
+async fn characteristic_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -977,8 +995,10 @@ async fn characteristic_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::characteristic::Characteristic,
-{
+    A: apis::characteristic::Characteristic<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -997,10 +1017,10 @@ where
   };
 
   let result = api_impl.as_ref().characteristic_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -1022,10 +1042,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -1048,7 +1068,7 @@ Ok((
 }
 /// CharacteristicRead - GET /api/v2/characteristic/{id}/
 #[tracing::instrument(skip_all)]
-async fn characteristic_read<I, A>(
+async fn characteristic_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -1057,8 +1077,10 @@ async fn characteristic_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::characteristic::Characteristic,
-{
+    A: apis::characteristic::Characteristic<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -1077,10 +1099,10 @@ where
   };
 
   let result = api_impl.as_ref().characteristic_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -1102,10 +1124,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -1128,7 +1150,7 @@ Ok((
 }
 /// ContestEffectList - GET /api/v2/contest-effect/
 #[tracing::instrument(skip_all)]
-async fn contest_effect_list<I, A>(
+async fn contest_effect_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -1137,8 +1159,10 @@ async fn contest_effect_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::contest_effect::ContestEffect,
-{
+    A: apis::contest_effect::ContestEffect<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -1157,10 +1181,10 @@ where
   };
 
   let result = api_impl.as_ref().contest_effect_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -1182,10 +1206,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -1208,7 +1232,7 @@ Ok((
 }
 /// ContestEffectRead - GET /api/v2/contest-effect/{id}/
 #[tracing::instrument(skip_all)]
-async fn contest_effect_read<I, A>(
+async fn contest_effect_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -1217,8 +1241,10 @@ async fn contest_effect_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::contest_effect::ContestEffect,
-{
+    A: apis::contest_effect::ContestEffect<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -1237,10 +1263,10 @@ where
   };
 
   let result = api_impl.as_ref().contest_effect_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -1262,10 +1288,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -1288,7 +1314,7 @@ Ok((
 }
 /// ContestTypeList - GET /api/v2/contest-type/
 #[tracing::instrument(skip_all)]
-async fn contest_type_list<I, A>(
+async fn contest_type_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -1297,8 +1323,10 @@ async fn contest_type_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::contest_type::ContestType,
-{
+    A: apis::contest_type::ContestType<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -1317,10 +1345,10 @@ where
   };
 
   let result = api_impl.as_ref().contest_type_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -1342,10 +1370,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -1368,7 +1396,7 @@ Ok((
 }
 /// ContestTypeRead - GET /api/v2/contest-type/{id}/
 #[tracing::instrument(skip_all)]
-async fn contest_type_read<I, A>(
+async fn contest_type_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -1377,8 +1405,10 @@ async fn contest_type_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::contest_type::ContestType,
-{
+    A: apis::contest_type::ContestType<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -1397,10 +1427,10 @@ where
   };
 
   let result = api_impl.as_ref().contest_type_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -1422,10 +1452,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -1448,7 +1478,7 @@ Ok((
 }
 /// EggGroupList - GET /api/v2/egg-group/
 #[tracing::instrument(skip_all)]
-async fn egg_group_list<I, A>(
+async fn egg_group_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -1457,8 +1487,10 @@ async fn egg_group_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::egg_group::EggGroup,
-{
+    A: apis::egg_group::EggGroup<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -1477,10 +1509,10 @@ where
   };
 
   let result = api_impl.as_ref().egg_group_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -1502,10 +1534,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -1528,7 +1560,7 @@ Ok((
 }
 /// EggGroupRead - GET /api/v2/egg-group/{id}/
 #[tracing::instrument(skip_all)]
-async fn egg_group_read<I, A>(
+async fn egg_group_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -1537,8 +1569,10 @@ async fn egg_group_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::egg_group::EggGroup,
-{
+    A: apis::egg_group::EggGroup<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -1557,10 +1591,10 @@ where
   };
 
   let result = api_impl.as_ref().egg_group_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -1582,10 +1616,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -1608,7 +1642,7 @@ Ok((
 }
 /// EncounterConditionList - GET /api/v2/encounter-condition/
 #[tracing::instrument(skip_all)]
-async fn encounter_condition_list<I, A>(
+async fn encounter_condition_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -1617,8 +1651,10 @@ async fn encounter_condition_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::encounter_condition::EncounterCondition,
-{
+    A: apis::encounter_condition::EncounterCondition<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -1637,10 +1673,10 @@ where
   };
 
   let result = api_impl.as_ref().encounter_condition_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -1662,10 +1698,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -1688,7 +1724,7 @@ Ok((
 }
 /// EncounterConditionRead - GET /api/v2/encounter-condition/{id}/
 #[tracing::instrument(skip_all)]
-async fn encounter_condition_read<I, A>(
+async fn encounter_condition_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -1697,8 +1733,10 @@ async fn encounter_condition_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::encounter_condition::EncounterCondition,
-{
+    A: apis::encounter_condition::EncounterCondition<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -1717,10 +1755,10 @@ where
   };
 
   let result = api_impl.as_ref().encounter_condition_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -1742,10 +1780,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -1768,7 +1806,7 @@ Ok((
 }
 /// EncounterConditionValueList - GET /api/v2/encounter-condition-value/
 #[tracing::instrument(skip_all)]
-async fn encounter_condition_value_list<I, A>(
+async fn encounter_condition_value_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -1777,8 +1815,10 @@ async fn encounter_condition_value_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::encounter_condition_value::EncounterConditionValue,
-{
+    A: apis::encounter_condition_value::EncounterConditionValue<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -1797,10 +1837,10 @@ where
   };
 
   let result = api_impl.as_ref().encounter_condition_value_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -1822,10 +1862,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -1848,7 +1888,7 @@ Ok((
 }
 /// EncounterConditionValueRead - GET /api/v2/encounter-condition-value/{id}/
 #[tracing::instrument(skip_all)]
-async fn encounter_condition_value_read<I, A>(
+async fn encounter_condition_value_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -1857,8 +1897,10 @@ async fn encounter_condition_value_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::encounter_condition_value::EncounterConditionValue,
-{
+    A: apis::encounter_condition_value::EncounterConditionValue<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -1877,10 +1919,10 @@ where
   };
 
   let result = api_impl.as_ref().encounter_condition_value_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -1902,10 +1944,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -1928,7 +1970,7 @@ Ok((
 }
 /// EncounterMethodList - GET /api/v2/encounter-method/
 #[tracing::instrument(skip_all)]
-async fn encounter_method_list<I, A>(
+async fn encounter_method_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -1937,8 +1979,10 @@ async fn encounter_method_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::encounter_method::EncounterMethod,
-{
+    A: apis::encounter_method::EncounterMethod<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -1957,10 +2001,10 @@ where
   };
 
   let result = api_impl.as_ref().encounter_method_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -1982,10 +2026,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -2008,7 +2052,7 @@ Ok((
 }
 /// EncounterMethodRead - GET /api/v2/encounter-method/{id}/
 #[tracing::instrument(skip_all)]
-async fn encounter_method_read<I, A>(
+async fn encounter_method_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -2017,8 +2061,10 @@ async fn encounter_method_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::encounter_method::EncounterMethod,
-{
+    A: apis::encounter_method::EncounterMethod<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -2037,10 +2083,10 @@ where
   };
 
   let result = api_impl.as_ref().encounter_method_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -2062,10 +2108,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -2088,7 +2134,7 @@ Ok((
 }
 /// EvolutionChainList - GET /api/v2/evolution-chain/
 #[tracing::instrument(skip_all)]
-async fn evolution_chain_list<I, A>(
+async fn evolution_chain_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -2097,8 +2143,10 @@ async fn evolution_chain_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::evolution_chain::EvolutionChain,
-{
+    A: apis::evolution_chain::EvolutionChain<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -2117,10 +2165,10 @@ where
   };
 
   let result = api_impl.as_ref().evolution_chain_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -2142,10 +2190,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -2168,7 +2216,7 @@ Ok((
 }
 /// EvolutionChainRead - GET /api/v2/evolution-chain/{id}/
 #[tracing::instrument(skip_all)]
-async fn evolution_chain_read<I, A>(
+async fn evolution_chain_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -2177,8 +2225,10 @@ async fn evolution_chain_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::evolution_chain::EvolutionChain,
-{
+    A: apis::evolution_chain::EvolutionChain<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -2197,10 +2247,10 @@ where
   };
 
   let result = api_impl.as_ref().evolution_chain_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -2222,10 +2272,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -2248,7 +2298,7 @@ Ok((
 }
 /// EvolutionTriggerList - GET /api/v2/evolution-trigger/
 #[tracing::instrument(skip_all)]
-async fn evolution_trigger_list<I, A>(
+async fn evolution_trigger_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -2257,8 +2307,10 @@ async fn evolution_trigger_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::evolution_trigger::EvolutionTrigger,
-{
+    A: apis::evolution_trigger::EvolutionTrigger<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -2277,10 +2329,10 @@ where
   };
 
   let result = api_impl.as_ref().evolution_trigger_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -2302,10 +2354,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -2328,7 +2380,7 @@ Ok((
 }
 /// EvolutionTriggerRead - GET /api/v2/evolution-trigger/{id}/
 #[tracing::instrument(skip_all)]
-async fn evolution_trigger_read<I, A>(
+async fn evolution_trigger_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -2337,8 +2389,10 @@ async fn evolution_trigger_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::evolution_trigger::EvolutionTrigger,
-{
+    A: apis::evolution_trigger::EvolutionTrigger<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -2357,10 +2411,10 @@ where
   };
 
   let result = api_impl.as_ref().evolution_trigger_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -2382,10 +2436,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -2408,7 +2462,7 @@ Ok((
 }
 /// GenderList - GET /api/v2/gender/
 #[tracing::instrument(skip_all)]
-async fn gender_list<I, A>(
+async fn gender_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -2417,8 +2471,10 @@ async fn gender_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::gender::Gender,
-{
+    A: apis::gender::Gender<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -2437,10 +2493,10 @@ where
   };
 
   let result = api_impl.as_ref().gender_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -2462,10 +2518,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -2488,7 +2544,7 @@ Ok((
 }
 /// GenderRead - GET /api/v2/gender/{id}/
 #[tracing::instrument(skip_all)]
-async fn gender_read<I, A>(
+async fn gender_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -2497,8 +2553,10 @@ async fn gender_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::gender::Gender,
-{
+    A: apis::gender::Gender<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -2517,10 +2575,10 @@ where
   };
 
   let result = api_impl.as_ref().gender_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -2542,10 +2600,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -2568,7 +2626,7 @@ Ok((
 }
 /// GenerationList - GET /api/v2/generation/
 #[tracing::instrument(skip_all)]
-async fn generation_list<I, A>(
+async fn generation_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -2577,8 +2635,10 @@ async fn generation_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::generation::Generation,
-{
+    A: apis::generation::Generation<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -2597,10 +2657,10 @@ where
   };
 
   let result = api_impl.as_ref().generation_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -2622,10 +2682,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -2648,7 +2708,7 @@ Ok((
 }
 /// GenerationRead - GET /api/v2/generation/{id}/
 #[tracing::instrument(skip_all)]
-async fn generation_read<I, A>(
+async fn generation_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -2657,8 +2717,10 @@ async fn generation_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::generation::Generation,
-{
+    A: apis::generation::Generation<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -2677,10 +2739,10 @@ where
   };
 
   let result = api_impl.as_ref().generation_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -2702,10 +2764,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -2728,7 +2790,7 @@ Ok((
 }
 /// GrowthRateList - GET /api/v2/growth-rate/
 #[tracing::instrument(skip_all)]
-async fn growth_rate_list<I, A>(
+async fn growth_rate_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -2737,8 +2799,10 @@ async fn growth_rate_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::growth_rate::GrowthRate,
-{
+    A: apis::growth_rate::GrowthRate<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -2757,10 +2821,10 @@ where
   };
 
   let result = api_impl.as_ref().growth_rate_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -2782,10 +2846,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -2808,7 +2872,7 @@ Ok((
 }
 /// GrowthRateRead - GET /api/v2/growth-rate/{id}/
 #[tracing::instrument(skip_all)]
-async fn growth_rate_read<I, A>(
+async fn growth_rate_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -2817,8 +2881,10 @@ async fn growth_rate_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::growth_rate::GrowthRate,
-{
+    A: apis::growth_rate::GrowthRate<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -2837,10 +2903,10 @@ where
   };
 
   let result = api_impl.as_ref().growth_rate_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -2862,10 +2928,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -2888,7 +2954,7 @@ Ok((
 }
 /// ItemList - GET /api/v2/item/
 #[tracing::instrument(skip_all)]
-async fn item_list<I, A>(
+async fn item_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -2897,8 +2963,10 @@ async fn item_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::item::Item,
-{
+    A: apis::item::Item<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -2917,10 +2985,10 @@ where
   };
 
   let result = api_impl.as_ref().item_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -2942,10 +3010,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -2968,7 +3036,7 @@ Ok((
 }
 /// ItemRead - GET /api/v2/item/{id}/
 #[tracing::instrument(skip_all)]
-async fn item_read<I, A>(
+async fn item_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -2977,8 +3045,10 @@ async fn item_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::item::Item,
-{
+    A: apis::item::Item<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -2997,10 +3067,10 @@ where
   };
 
   let result = api_impl.as_ref().item_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -3022,10 +3092,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -3048,7 +3118,7 @@ Ok((
 }
 /// ItemAttributeList - GET /api/v2/item-attribute/
 #[tracing::instrument(skip_all)]
-async fn item_attribute_list<I, A>(
+async fn item_attribute_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -3057,8 +3127,10 @@ async fn item_attribute_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::item_attribute::ItemAttribute,
-{
+    A: apis::item_attribute::ItemAttribute<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -3077,10 +3149,10 @@ where
   };
 
   let result = api_impl.as_ref().item_attribute_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -3102,10 +3174,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -3128,7 +3200,7 @@ Ok((
 }
 /// ItemAttributeRead - GET /api/v2/item-attribute/{id}/
 #[tracing::instrument(skip_all)]
-async fn item_attribute_read<I, A>(
+async fn item_attribute_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -3137,8 +3209,10 @@ async fn item_attribute_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::item_attribute::ItemAttribute,
-{
+    A: apis::item_attribute::ItemAttribute<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -3157,10 +3231,10 @@ where
   };
 
   let result = api_impl.as_ref().item_attribute_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -3182,10 +3256,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -3208,7 +3282,7 @@ Ok((
 }
 /// ItemCategoryList - GET /api/v2/item-category/
 #[tracing::instrument(skip_all)]
-async fn item_category_list<I, A>(
+async fn item_category_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -3217,8 +3291,10 @@ async fn item_category_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::item_category::ItemCategory,
-{
+    A: apis::item_category::ItemCategory<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -3237,10 +3313,10 @@ where
   };
 
   let result = api_impl.as_ref().item_category_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -3262,10 +3338,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -3288,7 +3364,7 @@ Ok((
 }
 /// ItemCategoryRead - GET /api/v2/item-category/{id}/
 #[tracing::instrument(skip_all)]
-async fn item_category_read<I, A>(
+async fn item_category_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -3297,8 +3373,10 @@ async fn item_category_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::item_category::ItemCategory,
-{
+    A: apis::item_category::ItemCategory<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -3317,10 +3395,10 @@ where
   };
 
   let result = api_impl.as_ref().item_category_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -3342,10 +3420,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -3368,7 +3446,7 @@ Ok((
 }
 /// ItemFlingEffectList - GET /api/v2/item-fling-effect/
 #[tracing::instrument(skip_all)]
-async fn item_fling_effect_list<I, A>(
+async fn item_fling_effect_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -3377,8 +3455,10 @@ async fn item_fling_effect_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::item_fling_effect::ItemFlingEffect,
-{
+    A: apis::item_fling_effect::ItemFlingEffect<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -3397,10 +3477,10 @@ where
   };
 
   let result = api_impl.as_ref().item_fling_effect_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -3422,10 +3502,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -3448,7 +3528,7 @@ Ok((
 }
 /// ItemFlingEffectRead - GET /api/v2/item-fling-effect/{id}/
 #[tracing::instrument(skip_all)]
-async fn item_fling_effect_read<I, A>(
+async fn item_fling_effect_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -3457,8 +3537,10 @@ async fn item_fling_effect_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::item_fling_effect::ItemFlingEffect,
-{
+    A: apis::item_fling_effect::ItemFlingEffect<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -3477,10 +3559,10 @@ where
   };
 
   let result = api_impl.as_ref().item_fling_effect_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -3502,10 +3584,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -3528,7 +3610,7 @@ Ok((
 }
 /// ItemPocketList - GET /api/v2/item-pocket/
 #[tracing::instrument(skip_all)]
-async fn item_pocket_list<I, A>(
+async fn item_pocket_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -3537,8 +3619,10 @@ async fn item_pocket_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::item_pocket::ItemPocket,
-{
+    A: apis::item_pocket::ItemPocket<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -3557,10 +3641,10 @@ where
   };
 
   let result = api_impl.as_ref().item_pocket_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -3582,10 +3666,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -3608,7 +3692,7 @@ Ok((
 }
 /// ItemPocketRead - GET /api/v2/item-pocket/{id}/
 #[tracing::instrument(skip_all)]
-async fn item_pocket_read<I, A>(
+async fn item_pocket_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -3617,8 +3701,10 @@ async fn item_pocket_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::item_pocket::ItemPocket,
-{
+    A: apis::item_pocket::ItemPocket<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -3637,10 +3723,10 @@ where
   };
 
   let result = api_impl.as_ref().item_pocket_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -3662,10 +3748,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -3688,7 +3774,7 @@ Ok((
 }
 /// LanguageList - GET /api/v2/language/
 #[tracing::instrument(skip_all)]
-async fn language_list<I, A>(
+async fn language_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -3697,8 +3783,10 @@ async fn language_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::language::Language,
-{
+    A: apis::language::Language<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -3717,10 +3805,10 @@ where
   };
 
   let result = api_impl.as_ref().language_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -3742,10 +3830,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -3768,7 +3856,7 @@ Ok((
 }
 /// LanguageRead - GET /api/v2/language/{id}/
 #[tracing::instrument(skip_all)]
-async fn language_read<I, A>(
+async fn language_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -3777,8 +3865,10 @@ async fn language_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::language::Language,
-{
+    A: apis::language::Language<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -3797,10 +3887,10 @@ where
   };
 
   let result = api_impl.as_ref().language_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -3822,10 +3912,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -3848,7 +3938,7 @@ Ok((
 }
 /// LocationList - GET /api/v2/location/
 #[tracing::instrument(skip_all)]
-async fn location_list<I, A>(
+async fn location_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -3857,8 +3947,10 @@ async fn location_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::location::Location,
-{
+    A: apis::location::Location<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -3877,10 +3969,10 @@ where
   };
 
   let result = api_impl.as_ref().location_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -3902,10 +3994,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -3928,7 +4020,7 @@ Ok((
 }
 /// LocationRead - GET /api/v2/location/{id}/
 #[tracing::instrument(skip_all)]
-async fn location_read<I, A>(
+async fn location_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -3937,8 +4029,10 @@ async fn location_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::location::Location,
-{
+    A: apis::location::Location<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -3957,10 +4051,10 @@ where
   };
 
   let result = api_impl.as_ref().location_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -3982,10 +4076,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -4008,7 +4102,7 @@ Ok((
 }
 /// LocationAreaList - GET /api/v2/location-area/
 #[tracing::instrument(skip_all)]
-async fn location_area_list<I, A>(
+async fn location_area_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -4017,8 +4111,10 @@ async fn location_area_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::location_area::LocationArea,
-{
+    A: apis::location_area::LocationArea<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -4037,10 +4133,10 @@ where
   };
 
   let result = api_impl.as_ref().location_area_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -4062,10 +4158,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -4088,7 +4184,7 @@ Ok((
 }
 /// LocationAreaRead - GET /api/v2/location-area/{id}/
 #[tracing::instrument(skip_all)]
-async fn location_area_read<I, A>(
+async fn location_area_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -4097,8 +4193,10 @@ async fn location_area_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::location_area::LocationArea,
-{
+    A: apis::location_area::LocationArea<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -4117,10 +4215,10 @@ where
   };
 
   let result = api_impl.as_ref().location_area_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -4142,10 +4240,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -4168,7 +4266,7 @@ Ok((
 }
 /// MachineList - GET /api/v2/machine/
 #[tracing::instrument(skip_all)]
-async fn machine_list<I, A>(
+async fn machine_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -4177,8 +4275,10 @@ async fn machine_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::machine::Machine,
-{
+    A: apis::machine::Machine<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -4197,10 +4297,10 @@ where
   };
 
   let result = api_impl.as_ref().machine_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -4222,10 +4322,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -4248,7 +4348,7 @@ Ok((
 }
 /// MachineRead - GET /api/v2/machine/{id}/
 #[tracing::instrument(skip_all)]
-async fn machine_read<I, A>(
+async fn machine_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -4257,8 +4357,10 @@ async fn machine_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::machine::Machine,
-{
+    A: apis::machine::Machine<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -4277,10 +4379,10 @@ where
   };
 
   let result = api_impl.as_ref().machine_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -4302,10 +4404,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -4328,7 +4430,7 @@ Ok((
 }
 /// MoveList - GET /api/v2/move/
 #[tracing::instrument(skip_all)]
-async fn move_list<I, A>(
+async fn move_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -4337,8 +4439,10 @@ async fn move_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::r#move::R#move,
-{
+    A: apis::r#move::R#move<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -4357,10 +4461,10 @@ where
   };
 
   let result = api_impl.as_ref().move_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -4382,10 +4486,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -4408,7 +4512,7 @@ Ok((
 }
 /// MoveRead - GET /api/v2/move/{id}/
 #[tracing::instrument(skip_all)]
-async fn move_read<I, A>(
+async fn move_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -4417,8 +4521,10 @@ async fn move_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::r#move::R#move,
-{
+    A: apis::r#move::R#move<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -4437,10 +4543,10 @@ where
   };
 
   let result = api_impl.as_ref().move_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -4462,10 +4568,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -4488,7 +4594,7 @@ Ok((
 }
 /// MoveAilmentList - GET /api/v2/move-ailment/
 #[tracing::instrument(skip_all)]
-async fn move_ailment_list<I, A>(
+async fn move_ailment_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -4497,8 +4603,10 @@ async fn move_ailment_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::move_ailment::MoveAilment,
-{
+    A: apis::move_ailment::MoveAilment<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -4517,10 +4625,10 @@ where
   };
 
   let result = api_impl.as_ref().move_ailment_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -4542,10 +4650,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -4568,7 +4676,7 @@ Ok((
 }
 /// MoveAilmentRead - GET /api/v2/move-ailment/{id}/
 #[tracing::instrument(skip_all)]
-async fn move_ailment_read<I, A>(
+async fn move_ailment_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -4577,8 +4685,10 @@ async fn move_ailment_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::move_ailment::MoveAilment,
-{
+    A: apis::move_ailment::MoveAilment<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -4597,10 +4707,10 @@ where
   };
 
   let result = api_impl.as_ref().move_ailment_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -4622,10 +4732,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -4648,7 +4758,7 @@ Ok((
 }
 /// MoveBattleStyleList - GET /api/v2/move-battle-style/
 #[tracing::instrument(skip_all)]
-async fn move_battle_style_list<I, A>(
+async fn move_battle_style_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -4657,8 +4767,10 @@ async fn move_battle_style_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::move_battle_style::MoveBattleStyle,
-{
+    A: apis::move_battle_style::MoveBattleStyle<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -4677,10 +4789,10 @@ where
   };
 
   let result = api_impl.as_ref().move_battle_style_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -4702,10 +4814,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -4728,7 +4840,7 @@ Ok((
 }
 /// MoveBattleStyleRead - GET /api/v2/move-battle-style/{id}/
 #[tracing::instrument(skip_all)]
-async fn move_battle_style_read<I, A>(
+async fn move_battle_style_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -4737,8 +4849,10 @@ async fn move_battle_style_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::move_battle_style::MoveBattleStyle,
-{
+    A: apis::move_battle_style::MoveBattleStyle<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -4757,10 +4871,10 @@ where
   };
 
   let result = api_impl.as_ref().move_battle_style_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -4782,10 +4896,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -4808,7 +4922,7 @@ Ok((
 }
 /// MoveCategoryList - GET /api/v2/move-category/
 #[tracing::instrument(skip_all)]
-async fn move_category_list<I, A>(
+async fn move_category_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -4817,8 +4931,10 @@ async fn move_category_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::move_category::MoveCategory,
-{
+    A: apis::move_category::MoveCategory<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -4837,10 +4953,10 @@ where
   };
 
   let result = api_impl.as_ref().move_category_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -4862,10 +4978,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -4888,7 +5004,7 @@ Ok((
 }
 /// MoveCategoryRead - GET /api/v2/move-category/{id}/
 #[tracing::instrument(skip_all)]
-async fn move_category_read<I, A>(
+async fn move_category_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -4897,8 +5013,10 @@ async fn move_category_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::move_category::MoveCategory,
-{
+    A: apis::move_category::MoveCategory<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -4917,10 +5035,10 @@ where
   };
 
   let result = api_impl.as_ref().move_category_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -4942,10 +5060,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -4968,7 +5086,7 @@ Ok((
 }
 /// MoveDamageClassList - GET /api/v2/move-damage-class/
 #[tracing::instrument(skip_all)]
-async fn move_damage_class_list<I, A>(
+async fn move_damage_class_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -4977,8 +5095,10 @@ async fn move_damage_class_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::move_damage_class::MoveDamageClass,
-{
+    A: apis::move_damage_class::MoveDamageClass<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -4997,10 +5117,10 @@ where
   };
 
   let result = api_impl.as_ref().move_damage_class_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -5022,10 +5142,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -5048,7 +5168,7 @@ Ok((
 }
 /// MoveDamageClassRead - GET /api/v2/move-damage-class/{id}/
 #[tracing::instrument(skip_all)]
-async fn move_damage_class_read<I, A>(
+async fn move_damage_class_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -5057,8 +5177,10 @@ async fn move_damage_class_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::move_damage_class::MoveDamageClass,
-{
+    A: apis::move_damage_class::MoveDamageClass<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -5077,10 +5199,10 @@ where
   };
 
   let result = api_impl.as_ref().move_damage_class_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -5102,10 +5224,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -5128,7 +5250,7 @@ Ok((
 }
 /// MoveLearnMethodList - GET /api/v2/move-learn-method/
 #[tracing::instrument(skip_all)]
-async fn move_learn_method_list<I, A>(
+async fn move_learn_method_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -5137,8 +5259,10 @@ async fn move_learn_method_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::move_learn_method::MoveLearnMethod,
-{
+    A: apis::move_learn_method::MoveLearnMethod<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -5157,10 +5281,10 @@ where
   };
 
   let result = api_impl.as_ref().move_learn_method_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -5182,10 +5306,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -5208,7 +5332,7 @@ Ok((
 }
 /// MoveLearnMethodRead - GET /api/v2/move-learn-method/{id}/
 #[tracing::instrument(skip_all)]
-async fn move_learn_method_read<I, A>(
+async fn move_learn_method_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -5217,8 +5341,10 @@ async fn move_learn_method_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::move_learn_method::MoveLearnMethod,
-{
+    A: apis::move_learn_method::MoveLearnMethod<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -5237,10 +5363,10 @@ where
   };
 
   let result = api_impl.as_ref().move_learn_method_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -5262,10 +5388,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -5288,7 +5414,7 @@ Ok((
 }
 /// MoveTargetList - GET /api/v2/move-target/
 #[tracing::instrument(skip_all)]
-async fn move_target_list<I, A>(
+async fn move_target_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -5297,8 +5423,10 @@ async fn move_target_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::move_target::MoveTarget,
-{
+    A: apis::move_target::MoveTarget<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -5317,10 +5445,10 @@ where
   };
 
   let result = api_impl.as_ref().move_target_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -5342,10 +5470,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -5368,7 +5496,7 @@ Ok((
 }
 /// MoveTargetRead - GET /api/v2/move-target/{id}/
 #[tracing::instrument(skip_all)]
-async fn move_target_read<I, A>(
+async fn move_target_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -5377,8 +5505,10 @@ async fn move_target_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::move_target::MoveTarget,
-{
+    A: apis::move_target::MoveTarget<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -5397,10 +5527,10 @@ where
   };
 
   let result = api_impl.as_ref().move_target_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -5422,10 +5552,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -5448,7 +5578,7 @@ Ok((
 }
 /// NatureList - GET /api/v2/nature/
 #[tracing::instrument(skip_all)]
-async fn nature_list<I, A>(
+async fn nature_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -5457,8 +5587,10 @@ async fn nature_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::nature::Nature,
-{
+    A: apis::nature::Nature<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -5477,10 +5609,10 @@ where
   };
 
   let result = api_impl.as_ref().nature_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -5502,10 +5634,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -5528,7 +5660,7 @@ Ok((
 }
 /// NatureRead - GET /api/v2/nature/{id}/
 #[tracing::instrument(skip_all)]
-async fn nature_read<I, A>(
+async fn nature_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -5537,8 +5669,10 @@ async fn nature_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::nature::Nature,
-{
+    A: apis::nature::Nature<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -5557,10 +5691,10 @@ where
   };
 
   let result = api_impl.as_ref().nature_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -5582,10 +5716,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -5608,7 +5742,7 @@ Ok((
 }
 /// PalParkAreaList - GET /api/v2/pal-park-area/
 #[tracing::instrument(skip_all)]
-async fn pal_park_area_list<I, A>(
+async fn pal_park_area_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -5617,8 +5751,10 @@ async fn pal_park_area_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pal_park_area::PalParkArea,
-{
+    A: apis::pal_park_area::PalParkArea<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -5637,10 +5773,10 @@ where
   };
 
   let result = api_impl.as_ref().pal_park_area_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -5662,10 +5798,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -5688,7 +5824,7 @@ Ok((
 }
 /// PalParkAreaRead - GET /api/v2/pal-park-area/{id}/
 #[tracing::instrument(skip_all)]
-async fn pal_park_area_read<I, A>(
+async fn pal_park_area_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -5697,8 +5833,10 @@ async fn pal_park_area_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pal_park_area::PalParkArea,
-{
+    A: apis::pal_park_area::PalParkArea<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -5717,10 +5855,10 @@ where
   };
 
   let result = api_impl.as_ref().pal_park_area_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -5742,10 +5880,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -5768,7 +5906,7 @@ Ok((
 }
 /// PokeathlonStatList - GET /api/v2/pokeathlon-stat/
 #[tracing::instrument(skip_all)]
-async fn pokeathlon_stat_list<I, A>(
+async fn pokeathlon_stat_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -5777,8 +5915,10 @@ async fn pokeathlon_stat_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokeathlon_stat::PokeathlonStat,
-{
+    A: apis::pokeathlon_stat::PokeathlonStat<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -5797,10 +5937,10 @@ where
   };
 
   let result = api_impl.as_ref().pokeathlon_stat_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -5822,10 +5962,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -5848,7 +5988,7 @@ Ok((
 }
 /// PokeathlonStatRead - GET /api/v2/pokeathlon-stat/{id}/
 #[tracing::instrument(skip_all)]
-async fn pokeathlon_stat_read<I, A>(
+async fn pokeathlon_stat_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -5857,8 +5997,10 @@ async fn pokeathlon_stat_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokeathlon_stat::PokeathlonStat,
-{
+    A: apis::pokeathlon_stat::PokeathlonStat<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -5877,10 +6019,10 @@ where
   };
 
   let result = api_impl.as_ref().pokeathlon_stat_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -5902,10 +6044,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -5928,7 +6070,7 @@ Ok((
 }
 /// PokedexList - GET /api/v2/pokedex/
 #[tracing::instrument(skip_all)]
-async fn pokedex_list<I, A>(
+async fn pokedex_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -5937,8 +6079,10 @@ async fn pokedex_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokedex::Pokedex,
-{
+    A: apis::pokedex::Pokedex<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -5957,10 +6101,10 @@ where
   };
 
   let result = api_impl.as_ref().pokedex_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -5982,10 +6126,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -6008,7 +6152,7 @@ Ok((
 }
 /// PokedexRead - GET /api/v2/pokedex/{id}/
 #[tracing::instrument(skip_all)]
-async fn pokedex_read<I, A>(
+async fn pokedex_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -6017,8 +6161,10 @@ async fn pokedex_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokedex::Pokedex,
-{
+    A: apis::pokedex::Pokedex<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -6037,10 +6183,10 @@ where
   };
 
   let result = api_impl.as_ref().pokedex_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -6062,10 +6208,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -6088,7 +6234,7 @@ Ok((
 }
 /// PokemonList - GET /api/v2/pokemon/
 #[tracing::instrument(skip_all)]
-async fn pokemon_list<I, A>(
+async fn pokemon_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -6097,8 +6243,10 @@ async fn pokemon_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon,
-{
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -6117,10 +6265,10 @@ where
   };
 
   let result = api_impl.as_ref().pokemon_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -6142,10 +6290,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -6168,7 +6316,7 @@ Ok((
 }
 /// PokemonRead - GET /api/v2/pokemon/{id}/
 #[tracing::instrument(skip_all)]
-async fn pokemon_read<I, A>(
+async fn pokemon_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -6177,8 +6325,10 @@ async fn pokemon_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon::Pokemon,
-{
+    A: apis::pokemon::Pokemon<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -6197,10 +6347,10 @@ where
   };
 
   let result = api_impl.as_ref().pokemon_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -6222,10 +6372,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -6248,7 +6398,7 @@ Ok((
 }
 /// PokemonColorList - GET /api/v2/pokemon-color/
 #[tracing::instrument(skip_all)]
-async fn pokemon_color_list<I, A>(
+async fn pokemon_color_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -6257,8 +6407,10 @@ async fn pokemon_color_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon_color::PokemonColor,
-{
+    A: apis::pokemon_color::PokemonColor<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -6277,10 +6429,10 @@ where
   };
 
   let result = api_impl.as_ref().pokemon_color_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -6302,10 +6454,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -6328,7 +6480,7 @@ Ok((
 }
 /// PokemonColorRead - GET /api/v2/pokemon-color/{id}/
 #[tracing::instrument(skip_all)]
-async fn pokemon_color_read<I, A>(
+async fn pokemon_color_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -6337,8 +6489,10 @@ async fn pokemon_color_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon_color::PokemonColor,
-{
+    A: apis::pokemon_color::PokemonColor<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -6357,10 +6511,10 @@ where
   };
 
   let result = api_impl.as_ref().pokemon_color_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -6382,10 +6536,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -6408,7 +6562,7 @@ Ok((
 }
 /// PokemonFormList - GET /api/v2/pokemon-form/
 #[tracing::instrument(skip_all)]
-async fn pokemon_form_list<I, A>(
+async fn pokemon_form_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -6417,8 +6571,10 @@ async fn pokemon_form_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon_form::PokemonForm,
-{
+    A: apis::pokemon_form::PokemonForm<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -6437,10 +6593,10 @@ where
   };
 
   let result = api_impl.as_ref().pokemon_form_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -6462,10 +6618,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -6488,7 +6644,7 @@ Ok((
 }
 /// PokemonFormRead - GET /api/v2/pokemon-form/{id}/
 #[tracing::instrument(skip_all)]
-async fn pokemon_form_read<I, A>(
+async fn pokemon_form_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -6497,8 +6653,10 @@ async fn pokemon_form_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon_form::PokemonForm,
-{
+    A: apis::pokemon_form::PokemonForm<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -6517,10 +6675,10 @@ where
   };
 
   let result = api_impl.as_ref().pokemon_form_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -6542,10 +6700,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -6568,7 +6726,7 @@ Ok((
 }
 /// PokemonHabitatList - GET /api/v2/pokemon-habitat/
 #[tracing::instrument(skip_all)]
-async fn pokemon_habitat_list<I, A>(
+async fn pokemon_habitat_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -6577,8 +6735,10 @@ async fn pokemon_habitat_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon_habitat::PokemonHabitat,
-{
+    A: apis::pokemon_habitat::PokemonHabitat<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -6597,10 +6757,10 @@ where
   };
 
   let result = api_impl.as_ref().pokemon_habitat_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -6622,10 +6782,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -6648,7 +6808,7 @@ Ok((
 }
 /// PokemonHabitatRead - GET /api/v2/pokemon-habitat/{id}/
 #[tracing::instrument(skip_all)]
-async fn pokemon_habitat_read<I, A>(
+async fn pokemon_habitat_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -6657,8 +6817,10 @@ async fn pokemon_habitat_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon_habitat::PokemonHabitat,
-{
+    A: apis::pokemon_habitat::PokemonHabitat<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -6677,10 +6839,10 @@ where
   };
 
   let result = api_impl.as_ref().pokemon_habitat_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -6702,10 +6864,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -6728,7 +6890,7 @@ Ok((
 }
 /// PokemonShapeList - GET /api/v2/pokemon-shape/
 #[tracing::instrument(skip_all)]
-async fn pokemon_shape_list<I, A>(
+async fn pokemon_shape_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -6737,8 +6899,10 @@ async fn pokemon_shape_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon_shape::PokemonShape,
-{
+    A: apis::pokemon_shape::PokemonShape<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -6757,10 +6921,10 @@ where
   };
 
   let result = api_impl.as_ref().pokemon_shape_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -6782,10 +6946,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -6808,7 +6972,7 @@ Ok((
 }
 /// PokemonShapeRead - GET /api/v2/pokemon-shape/{id}/
 #[tracing::instrument(skip_all)]
-async fn pokemon_shape_read<I, A>(
+async fn pokemon_shape_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -6817,8 +6981,10 @@ async fn pokemon_shape_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon_shape::PokemonShape,
-{
+    A: apis::pokemon_shape::PokemonShape<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -6837,10 +7003,10 @@ where
   };
 
   let result = api_impl.as_ref().pokemon_shape_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -6862,10 +7028,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -6888,7 +7054,7 @@ Ok((
 }
 /// PokemonSpeciesList - GET /api/v2/pokemon-species/
 #[tracing::instrument(skip_all)]
-async fn pokemon_species_list<I, A>(
+async fn pokemon_species_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -6897,8 +7063,10 @@ async fn pokemon_species_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon_species::PokemonSpecies,
-{
+    A: apis::pokemon_species::PokemonSpecies<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -6917,10 +7085,10 @@ where
   };
 
   let result = api_impl.as_ref().pokemon_species_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -6942,10 +7110,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -6968,7 +7136,7 @@ Ok((
 }
 /// PokemonSpeciesRead - GET /api/v2/pokemon-species/{id}/
 #[tracing::instrument(skip_all)]
-async fn pokemon_species_read<I, A>(
+async fn pokemon_species_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -6977,8 +7145,10 @@ async fn pokemon_species_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::pokemon_species::PokemonSpecies,
-{
+    A: apis::pokemon_species::PokemonSpecies<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -6997,10 +7167,10 @@ where
   };
 
   let result = api_impl.as_ref().pokemon_species_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -7022,10 +7192,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -7048,7 +7218,7 @@ Ok((
 }
 /// RegionList - GET /api/v2/region/
 #[tracing::instrument(skip_all)]
-async fn region_list<I, A>(
+async fn region_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -7057,8 +7227,10 @@ async fn region_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::region::Region,
-{
+    A: apis::region::Region<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -7077,10 +7249,10 @@ where
   };
 
   let result = api_impl.as_ref().region_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -7102,10 +7274,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -7128,7 +7300,7 @@ Ok((
 }
 /// RegionRead - GET /api/v2/region/{id}/
 #[tracing::instrument(skip_all)]
-async fn region_read<I, A>(
+async fn region_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -7137,8 +7309,10 @@ async fn region_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::region::Region,
-{
+    A: apis::region::Region<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -7157,10 +7331,10 @@ where
   };
 
   let result = api_impl.as_ref().region_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -7182,10 +7356,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -7208,7 +7382,7 @@ Ok((
 }
 /// StatList - GET /api/v2/stat/
 #[tracing::instrument(skip_all)]
-async fn stat_list<I, A>(
+async fn stat_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -7217,8 +7391,10 @@ async fn stat_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::stat::Stat,
-{
+    A: apis::stat::Stat<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -7237,10 +7413,10 @@ where
   };
 
   let result = api_impl.as_ref().stat_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -7262,10 +7438,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -7288,7 +7464,7 @@ Ok((
 }
 /// StatRead - GET /api/v2/stat/{id}/
 #[tracing::instrument(skip_all)]
-async fn stat_read<I, A>(
+async fn stat_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -7297,8 +7473,10 @@ async fn stat_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::stat::Stat,
-{
+    A: apis::stat::Stat<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -7317,10 +7495,10 @@ where
   };
 
   let result = api_impl.as_ref().stat_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -7342,10 +7520,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -7368,7 +7546,7 @@ Ok((
 }
 /// SuperContestEffectList - GET /api/v2/super-contest-effect/
 #[tracing::instrument(skip_all)]
-async fn super_contest_effect_list<I, A>(
+async fn super_contest_effect_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -7377,8 +7555,10 @@ async fn super_contest_effect_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::super_contest_effect::SuperContestEffect,
-{
+    A: apis::super_contest_effect::SuperContestEffect<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -7397,10 +7577,10 @@ where
   };
 
   let result = api_impl.as_ref().super_contest_effect_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -7422,10 +7602,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -7448,7 +7628,7 @@ Ok((
 }
 /// SuperContestEffectRead - GET /api/v2/super-contest-effect/{id}/
 #[tracing::instrument(skip_all)]
-async fn super_contest_effect_read<I, A>(
+async fn super_contest_effect_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -7457,8 +7637,10 @@ async fn super_contest_effect_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::super_contest_effect::SuperContestEffect,
-{
+    A: apis::super_contest_effect::SuperContestEffect<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -7477,10 +7659,10 @@ where
   };
 
   let result = api_impl.as_ref().super_contest_effect_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -7502,10 +7684,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -7528,7 +7710,7 @@ Ok((
 }
 /// TypeList - GET /api/v2/type/
 #[tracing::instrument(skip_all)]
-async fn type_list<I, A>(
+async fn type_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -7537,8 +7719,10 @@ async fn type_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::r#type::R#type,
-{
+    A: apis::r#type::R#type<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -7557,10 +7741,10 @@ where
   };
 
   let result = api_impl.as_ref().type_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -7582,10 +7766,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -7608,7 +7792,7 @@ Ok((
 }
 /// TypeRead - GET /api/v2/type/{id}/
 #[tracing::instrument(skip_all)]
-async fn type_read<I, A>(
+async fn type_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -7617,8 +7801,10 @@ async fn type_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::r#type::R#type,
-{
+    A: apis::r#type::R#type<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -7637,10 +7823,10 @@ where
   };
 
   let result = api_impl.as_ref().type_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -7662,10 +7848,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -7688,7 +7874,7 @@ Ok((
 }
 /// VersionList - GET /api/v2/version/
 #[tracing::instrument(skip_all)]
-async fn version_list<I, A>(
+async fn version_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -7697,8 +7883,10 @@ async fn version_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::version::Version,
-{
+    A: apis::version::Version<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -7717,10 +7905,10 @@ where
   };
 
   let result = api_impl.as_ref().version_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -7742,10 +7930,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -7768,7 +7956,7 @@ Ok((
 }
 /// VersionRead - GET /api/v2/version/{id}/
 #[tracing::instrument(skip_all)]
-async fn version_read<I, A>(
+async fn version_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -7777,8 +7965,10 @@ async fn version_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::version::Version,
-{
+    A: apis::version::Version<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -7797,10 +7987,10 @@ where
   };
 
   let result = api_impl.as_ref().version_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -7822,10 +8012,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -7848,7 +8038,7 @@ Ok((
 }
 /// VersionGroupList - GET /api/v2/version-group/
 #[tracing::instrument(skip_all)]
-async fn version_group_list<I, A>(
+async fn version_group_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -7857,8 +8047,10 @@ async fn version_group_list<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::version_group::VersionGroup,
-{
+    A: apis::version_group::VersionGroup<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -7877,10 +8069,10 @@ where
   };
 
   let result = api_impl.as_ref().version_group_list(
-      method,
-      host,
-      cookies,
-        query_params,
+      &method,
+      &host,
+      &cookies,
+        &query_params,
   ).await;
 
   let mut response = Response::builder();
@@ -7902,10 +8094,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 
@@ -7928,7 +8120,7 @@ Ok((
 }
 /// VersionGroupRead - GET /api/v2/version-group/{id}/
 #[tracing::instrument(skip_all)]
-async fn version_group_read<I, A>(
+async fn version_group_read<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -7937,8 +8129,10 @@ async fn version_group_read<I, A>(
 ) -> Result<Response, StatusCode>
 where
     I: AsRef<A> + Send + Sync,
-    A: apis::version_group::VersionGroup,
-{
+    A: apis::version_group::VersionGroup<E> + Send + Sync,
+    E: std::fmt::Debug + Send + Sync + 'static,
+        {
+
 
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
@@ -7957,10 +8151,10 @@ where
   };
 
   let result = api_impl.as_ref().version_group_read(
-      method,
-      host,
-      cookies,
-        path_params,
+      &method,
+      &host,
+      &cookies,
+        &path_params,
   ).await;
 
   let mut response = Response::builder();
@@ -7982,10 +8176,10 @@ where
                                                   response.body(Body::from(body_content))
                                                 },
                                             },
-                                            Err(_) => {
+                                            Err(why) => {
                                                 // Application code returned an error. This should not happen, as the implementation should
                                                 // return a valid response.
-                                                response.status(500).body(Body::empty())
+                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
 

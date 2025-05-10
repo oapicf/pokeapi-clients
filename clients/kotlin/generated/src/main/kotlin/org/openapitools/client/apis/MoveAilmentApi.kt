@@ -45,6 +45,7 @@ class MoveAilmentApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
+     * GET /api/v2/move-ailment/
      * 
      * 
      * @param limit  (optional)
@@ -77,6 +78,7 @@ class MoveAilmentApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
+     * GET /api/v2/move-ailment/
      * 
      * 
      * @param limit  (optional)
@@ -114,7 +116,8 @@ class MoveAilmentApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        
+        localVariableHeaders["Accept"] = "text/plain"
+
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/move-ailment/",
@@ -126,6 +129,7 @@ class MoveAilmentApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
+     * GET /api/v2/move-ailment/{id}/
      * 
      * 
      * @param id 
@@ -157,6 +161,7 @@ class MoveAilmentApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
     }
 
     /**
+     * GET /api/v2/move-ailment/{id}/
      * 
      * 
      * @param id 
@@ -184,7 +189,8 @@ class MoveAilmentApi(basePath: kotlin.String = defaultBasePath, client: Call.Fac
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        
+        localVariableHeaders["Accept"] = "text/plain"
+
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/move-ailment/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),

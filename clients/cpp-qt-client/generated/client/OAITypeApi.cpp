@@ -226,7 +226,7 @@ void OAITypeApi::typeList(const ::OpenAPI::OptionalParam<qint32> &limit, const :
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("limit")).append(querySuffix).append(QUrl::toPercentEncoding(limit.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("limit")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(limit.stringValue())));
     }
     if (offset.hasValue())
     {
@@ -241,7 +241,7 @@ void OAITypeApi::typeList(const ::OpenAPI::OptionalParam<qint32> &limit, const :
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(offset.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("offset")).append(querySuffix).append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(offset.stringValue())));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -256,7 +256,7 @@ void OAITypeApi::typeList(const ::OpenAPI::OptionalParam<qint32> &limit, const :
 
     connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAITypeApi::typeListCallback);
     connect(this, &OAITypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -341,7 +341,7 @@ void OAITypeApi::typeRead(const qint32 &id) {
 
     connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAITypeApi::typeReadCallback);
     connect(this, &OAITypeApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

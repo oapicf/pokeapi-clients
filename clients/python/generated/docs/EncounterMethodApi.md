@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **encounter_method_list**
 > str encounter_method_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **encounter_method_read**
 > str encounter_method_read(id)
-
-
 
 ### Example
 

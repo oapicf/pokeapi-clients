@@ -2,6 +2,8 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
+from pydantic import StrictInt, StrictStr
+from typing import Optional
 
 
 class BaseEncounterConditionApi:
@@ -12,14 +14,14 @@ class BaseEncounterConditionApi:
         BaseEncounterConditionApi.subclasses = BaseEncounterConditionApi.subclasses + (cls,)
     async def encounter_condition_list(
         self,
-        limit: int,
-        offset: int,
+        limit: Optional[StrictInt],
+        offset: Optional[StrictInt],
     ) -> str:
         ...
 
 
     async def encounter_condition_read(
         self,
-        id: int,
+        id: StrictInt,
     ) -> str:
         ...

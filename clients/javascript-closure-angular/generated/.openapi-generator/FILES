@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 API/Client/AbilityApi.js
 API/Client/BerryApi.js
 API/Client/BerryFirmnessApi.js

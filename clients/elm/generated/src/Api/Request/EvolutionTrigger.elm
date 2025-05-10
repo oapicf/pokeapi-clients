@@ -26,6 +26,7 @@ import Http
 import Json.Decode
 import Json.Encode
 
+
 evolutionTriggerList : Maybe Int -> Maybe Int -> Api.Request ()
 evolutionTriggerList limit_query offset_query =
     Api.request

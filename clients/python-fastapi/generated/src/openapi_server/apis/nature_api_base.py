@@ -2,6 +2,8 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
+from pydantic import StrictInt, StrictStr
+from typing import Optional
 
 
 class BaseNatureApi:
@@ -12,14 +14,14 @@ class BaseNatureApi:
         BaseNatureApi.subclasses = BaseNatureApi.subclasses + (cls,)
     async def nature_list(
         self,
-        limit: int,
-        offset: int,
+        limit: Optional[StrictInt],
+        offset: Optional[StrictInt],
     ) -> str:
         ...
 
 
     async def nature_read(
         self,
-        id: int,
+        id: StrictInt,
     ) -> str:
         ...

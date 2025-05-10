@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum LanguageReadResponse {
 /// Language
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait Language {
+pub trait Language<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// LanguageList - GET /api/v2/language/
     async fn language_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::LanguageListQueryParams,
-    ) -> Result<LanguageListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::LanguageListQueryParams,
+    ) -> Result<LanguageListResponse, E>;
 
     /// LanguageRead - GET /api/v2/language/{id}/
     async fn language_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::LanguageReadPathParams,
-    ) -> Result<LanguageReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::LanguageReadPathParams,
+    ) -> Result<LanguageReadResponse, E>;
 }

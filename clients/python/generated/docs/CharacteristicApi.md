@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **characteristic_list**
 > str characteristic_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **characteristic_read**
 > str characteristic_read(id)
-
-
 
 ### Example
 

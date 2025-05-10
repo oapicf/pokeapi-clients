@@ -23,7 +23,7 @@ import com.typesafe.config.Config;
 
 import openapitools.OpenAPIUtils.ApiAction;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-11-03T13:18:41.614766531Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2025-05-10T05:53:38.625191772Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class EncounterMethodApiController extends Controller {
     private final EncounterMethodApiControllerImpInterface imp;
     private final ObjectMapper mapper;

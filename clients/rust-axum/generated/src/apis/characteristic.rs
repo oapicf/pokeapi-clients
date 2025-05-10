@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum CharacteristicReadResponse {
 /// Characteristic
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait Characteristic {
+pub trait Characteristic<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// CharacteristicList - GET /api/v2/characteristic/
     async fn characteristic_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::CharacteristicListQueryParams,
-    ) -> Result<CharacteristicListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::CharacteristicListQueryParams,
+    ) -> Result<CharacteristicListResponse, E>;
 
     /// CharacteristicRead - GET /api/v2/characteristic/{id}/
     async fn characteristic_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::CharacteristicReadPathParams,
-    ) -> Result<CharacteristicReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::CharacteristicReadPathParams,
+    ) -> Result<CharacteristicReadResponse, E>;
 }

@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **berry_list**
 > str berry_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **berry_read**
 > str berry_read(id)
-
-
 
 ### Example
 

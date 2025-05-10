@@ -18,7 +18,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2024-11-03T13:19:15.678678313Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2025-05-10T05:53:49.872555194Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class ApiApiServiceImpl implements ApiApiService {
       @Override
       public Response abilityList(Integer limit, Integer offset, SecurityContext securityContext) {

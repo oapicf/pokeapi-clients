@@ -13,7 +13,7 @@
 
 import { Injectable, Optional } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
-import { AxiosResponse } from 'axios';
+import type { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { Observable, from, of, switchMap } from 'rxjs';
 import { Configuration } from '../configuration';
 import { COLLECTION_FORMATS } from '../variables';
@@ -25,10 +25,12 @@ export class EvolutionTriggerService {
     protected basePath = 'https://pokeapi.co';
     public defaultHeaders: Record<string,string> = {};
     public configuration = new Configuration();
+    protected httpClient: HttpService;
 
-    constructor(protected httpClient: HttpService, @Optional() configuration: Configuration) {
+    constructor(httpClient: HttpService, @Optional() configuration: Configuration) {
         this.configuration = configuration || this.configuration;
         this.basePath = configuration?.basePath || this.basePath;
+        this.httpClient = configuration?.httpClient || httpClient;
     }
 
     /**
@@ -47,9 +49,10 @@ export class EvolutionTriggerService {
      * @param offset 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
+     * @param {*} [evolutionTriggerListOpts.config] Override http request option.
      */
-    public evolutionTriggerList(limit?: number, offset?: number, ): Observable<AxiosResponse<string>>;
-    public evolutionTriggerList(limit?: number, offset?: number, ): Observable<any> {
+    public evolutionTriggerList(limit?: number, offset?: number, evolutionTriggerListOpts?: { config?: AxiosRequestConfig }): Observable<AxiosResponse<string>>;
+    public evolutionTriggerList(limit?: number, offset?: number, evolutionTriggerListOpts?: { config?: AxiosRequestConfig }): Observable<any> {
         let queryParameters = new URLSearchParams();
         if (limit !== undefined && limit !== null) {
             queryParameters.append('limit', <any>limit);
@@ -84,7 +87,8 @@ export class EvolutionTriggerService {
                     {
                         params: queryParameters,
                         withCredentials: this.configuration.withCredentials,
-                        headers: headers
+                        ...evolutionTriggerListOpts?.config,
+                        headers: {...headers, ...evolutionTriggerListOpts?.config?.headers},
                     }
                 );
             })
@@ -96,9 +100,10 @@ export class EvolutionTriggerService {
      * @param id 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
+     * @param {*} [evolutionTriggerReadOpts.config] Override http request option.
      */
-    public evolutionTriggerRead(id: number, ): Observable<AxiosResponse<string>>;
-    public evolutionTriggerRead(id: number, ): Observable<any> {
+    public evolutionTriggerRead(id: number, evolutionTriggerReadOpts?: { config?: AxiosRequestConfig }): Observable<AxiosResponse<string>>;
+    public evolutionTriggerRead(id: number, evolutionTriggerReadOpts?: { config?: AxiosRequestConfig }): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling evolutionTriggerRead.');
         }
@@ -128,7 +133,8 @@ export class EvolutionTriggerService {
                 return this.httpClient.get<string>(`${this.basePath}/api/v2/evolution-trigger/${encodeURIComponent(String(id))}/`,
                     {
                         withCredentials: this.configuration.withCredentials,
-                        headers: headers
+                        ...evolutionTriggerReadOpts?.config,
+                        headers: {...headers, ...evolutionTriggerReadOpts?.config?.headers},
                     }
                 );
             })

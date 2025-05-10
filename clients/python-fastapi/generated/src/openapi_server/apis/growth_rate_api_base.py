@@ -2,6 +2,8 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
+from pydantic import StrictInt, StrictStr
+from typing import Optional
 
 
 class BaseGrowthRateApi:
@@ -12,14 +14,14 @@ class BaseGrowthRateApi:
         BaseGrowthRateApi.subclasses = BaseGrowthRateApi.subclasses + (cls,)
     async def growth_rate_list(
         self,
-        limit: int,
-        offset: int,
+        limit: Optional[StrictInt],
+        offset: Optional[StrictInt],
     ) -> str:
         ...
 
 
     async def growth_rate_read(
         self,
-        id: int,
+        id: StrictInt,
     ) -> str:
         ...

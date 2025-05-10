@@ -1,10 +1,8 @@
-.openapi-generator-ignore
 README.md
 pom.xml
 src/main/java/org/openapitools/OpenApiGeneratorApplication.java
 src/main/java/org/openapitools/RFC3339DateFormat.java
 src/main/java/org/openapitools/api/ApiApi.java
-src/main/java/org/openapitools/api/ApiApiController.java
 src/main/java/org/openapitools/api/ApiUtil.java
 src/main/java/org/openapitools/configuration/HomeController.java
 src/main/java/org/openapitools/configuration/SpringDocConfiguration.java

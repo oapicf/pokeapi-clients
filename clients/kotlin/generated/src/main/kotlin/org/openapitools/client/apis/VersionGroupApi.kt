@@ -45,6 +45,7 @@ class VersionGroupApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
+     * GET /api/v2/version-group/
      * 
      * 
      * @param limit  (optional)
@@ -77,6 +78,7 @@ class VersionGroupApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
+     * GET /api/v2/version-group/
      * 
      * 
      * @param limit  (optional)
@@ -114,7 +116,8 @@ class VersionGroupApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        
+        localVariableHeaders["Accept"] = "text/plain"
+
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/version-group/",
@@ -126,6 +129,7 @@ class VersionGroupApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
+     * GET /api/v2/version-group/{id}/
      * 
      * 
      * @param id 
@@ -157,6 +161,7 @@ class VersionGroupApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
+     * GET /api/v2/version-group/{id}/
      * 
      * 
      * @param id 
@@ -184,7 +189,8 @@ class VersionGroupApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        
+        localVariableHeaders["Accept"] = "text/plain"
+
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/version-group/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),

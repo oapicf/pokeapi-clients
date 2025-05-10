@@ -26,6 +26,7 @@ import Http
 import Json.Decode
 import Json.Encode
 
+
 berryFlavorList : Maybe Int -> Maybe Int -> Api.Request ()
 berryFlavorList limit_query offset_query =
     Api.request

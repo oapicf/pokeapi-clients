@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **version_list**
 > str version_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **version_read**
 > str version_read(id)
-
-
 
 ### Example
 

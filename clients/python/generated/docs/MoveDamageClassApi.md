@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **move_damage_class_list**
 > str move_damage_class_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **move_damage_class_read**
 > str move_damage_class_read(id)
-
-
 
 ### Example
 

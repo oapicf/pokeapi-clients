@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum MoveBattleStyleReadResponse {
 /// MoveBattleStyle
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait MoveBattleStyle {
+pub trait MoveBattleStyle<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// MoveBattleStyleList - GET /api/v2/move-battle-style/
     async fn move_battle_style_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::MoveBattleStyleListQueryParams,
-    ) -> Result<MoveBattleStyleListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::MoveBattleStyleListQueryParams,
+    ) -> Result<MoveBattleStyleListResponse, E>;
 
     /// MoveBattleStyleRead - GET /api/v2/move-battle-style/{id}/
     async fn move_battle_style_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::MoveBattleStyleReadPathParams,
-    ) -> Result<MoveBattleStyleReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::MoveBattleStyleReadPathParams,
+    ) -> Result<MoveBattleStyleReadResponse, E>;
 }

@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **egg_group_list**
 > str egg_group_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **egg_group_read**
 > str egg_group_read(id)
-
-
 
 ### Example
 

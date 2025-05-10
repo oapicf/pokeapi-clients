@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum EncounterConditionReadResponse {
 /// EncounterCondition
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait EncounterCondition {
+pub trait EncounterCondition<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// EncounterConditionList - GET /api/v2/encounter-condition/
     async fn encounter_condition_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::EncounterConditionListQueryParams,
-    ) -> Result<EncounterConditionListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::EncounterConditionListQueryParams,
+    ) -> Result<EncounterConditionListResponse, E>;
 
     /// EncounterConditionRead - GET /api/v2/encounter-condition/{id}/
     async fn encounter_condition_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::EncounterConditionReadPathParams,
-    ) -> Result<EncounterConditionReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::EncounterConditionReadPathParams,
+    ) -> Result<EncounterConditionReadResponse, E>;
 }

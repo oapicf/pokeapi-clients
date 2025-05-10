@@ -26,6 +26,7 @@ import Http
 import Json.Decode
 import Json.Encode
 
+
 characteristicList : Maybe Int -> Maybe Int -> Api.Request ()
 characteristicList limit_query offset_query =
     Api.request

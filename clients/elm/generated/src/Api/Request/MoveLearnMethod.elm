@@ -26,6 +26,7 @@ import Http
 import Json.Decode
 import Json.Encode
 
+
 moveLearnMethodList : Maybe Int -> Maybe Int -> Api.Request ()
 moveLearnMethodList limit_query offset_query =
     Api.request

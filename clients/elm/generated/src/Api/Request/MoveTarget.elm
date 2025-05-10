@@ -26,6 +26,7 @@ import Http
 import Json.Decode
 import Json.Encode
 
+
 moveTargetList : Maybe Int -> Maybe Int -> Api.Request ()
 moveTargetList limit_query offset_query =
     Api.request

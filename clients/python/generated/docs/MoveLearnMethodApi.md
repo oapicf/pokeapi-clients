@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **move_learn_method_list**
 > str move_learn_method_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **move_learn_method_read**
 > str move_learn_method_read(id)
-
-
 
 ### Example
 

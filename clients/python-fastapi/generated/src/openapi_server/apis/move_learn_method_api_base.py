@@ -2,6 +2,8 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
+from pydantic import StrictInt, StrictStr
+from typing import Optional
 
 
 class BaseMoveLearnMethodApi:
@@ -12,14 +14,14 @@ class BaseMoveLearnMethodApi:
         BaseMoveLearnMethodApi.subclasses = BaseMoveLearnMethodApi.subclasses + (cls,)
     async def move_learn_method_list(
         self,
-        limit: int,
-        offset: int,
+        limit: Optional[StrictInt],
+        offset: Optional[StrictInt],
     ) -> str:
         ...
 
 
     async def move_learn_method_read(
         self,
-        id: int,
+        id: StrictInt,
     ) -> str:
         ...

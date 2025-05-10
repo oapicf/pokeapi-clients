@@ -13,7 +13,7 @@
 
 import { Injectable, Optional } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
-import { AxiosResponse } from 'axios';
+import type { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { Observable, from, of, switchMap } from 'rxjs';
 import { Configuration } from '../configuration';
 import { COLLECTION_FORMATS } from '../variables';
@@ -25,10 +25,12 @@ export class MoveCategoryService {
     protected basePath = 'https://pokeapi.co';
     public defaultHeaders: Record<string,string> = {};
     public configuration = new Configuration();
+    protected httpClient: HttpService;
 
-    constructor(protected httpClient: HttpService, @Optional() configuration: Configuration) {
+    constructor(httpClient: HttpService, @Optional() configuration: Configuration) {
         this.configuration = configuration || this.configuration;
         this.basePath = configuration?.basePath || this.basePath;
+        this.httpClient = configuration?.httpClient || httpClient;
     }
 
     /**
@@ -47,9 +49,10 @@ export class MoveCategoryService {
      * @param offset 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
+     * @param {*} [moveCategoryListOpts.config] Override http request option.
      */
-    public moveCategoryList(limit?: number, offset?: number, ): Observable<AxiosResponse<string>>;
-    public moveCategoryList(limit?: number, offset?: number, ): Observable<any> {
+    public moveCategoryList(limit?: number, offset?: number, moveCategoryListOpts?: { config?: AxiosRequestConfig }): Observable<AxiosResponse<string>>;
+    public moveCategoryList(limit?: number, offset?: number, moveCategoryListOpts?: { config?: AxiosRequestConfig }): Observable<any> {
         let queryParameters = new URLSearchParams();
         if (limit !== undefined && limit !== null) {
             queryParameters.append('limit', <any>limit);
@@ -84,7 +87,8 @@ export class MoveCategoryService {
                     {
                         params: queryParameters,
                         withCredentials: this.configuration.withCredentials,
-                        headers: headers
+                        ...moveCategoryListOpts?.config,
+                        headers: {...headers, ...moveCategoryListOpts?.config?.headers},
                     }
                 );
             })
@@ -96,9 +100,10 @@ export class MoveCategoryService {
      * @param id 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
+     * @param {*} [moveCategoryReadOpts.config] Override http request option.
      */
-    public moveCategoryRead(id: number, ): Observable<AxiosResponse<string>>;
-    public moveCategoryRead(id: number, ): Observable<any> {
+    public moveCategoryRead(id: number, moveCategoryReadOpts?: { config?: AxiosRequestConfig }): Observable<AxiosResponse<string>>;
+    public moveCategoryRead(id: number, moveCategoryReadOpts?: { config?: AxiosRequestConfig }): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling moveCategoryRead.');
         }
@@ -128,7 +133,8 @@ export class MoveCategoryService {
                 return this.httpClient.get<string>(`${this.basePath}/api/v2/move-category/${encodeURIComponent(String(id))}/`,
                     {
                         withCredentials: this.configuration.withCredentials,
-                        headers: headers
+                        ...moveCategoryReadOpts?.config,
+                        headers: {...headers, ...moveCategoryReadOpts?.config?.headers},
                     }
                 );
             })

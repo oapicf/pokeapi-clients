@@ -2,6 +2,8 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
+from pydantic import StrictInt, StrictStr
+from typing import Optional
 
 
 class BaseCharacteristicApi:
@@ -12,14 +14,14 @@ class BaseCharacteristicApi:
         BaseCharacteristicApi.subclasses = BaseCharacteristicApi.subclasses + (cls,)
     async def characteristic_list(
         self,
-        limit: int,
-        offset: int,
+        limit: Optional[StrictInt],
+        offset: Optional[StrictInt],
     ) -> str:
         ...
 
 
     async def characteristic_read(
         self,
-        id: int,
+        id: StrictInt,
     ) -> str:
         ...

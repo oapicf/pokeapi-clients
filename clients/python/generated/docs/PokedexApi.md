@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **pokedex_list**
 > str pokedex_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **pokedex_read**
 > str pokedex_read(id)
-
-
 
 ### Example
 

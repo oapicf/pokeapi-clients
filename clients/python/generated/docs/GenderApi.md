@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **gender_list**
 > str gender_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **gender_read**
 > str gender_read(id)
-
-
 
 ### Example
 

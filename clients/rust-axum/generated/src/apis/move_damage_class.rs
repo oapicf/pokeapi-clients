@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum MoveDamageClassReadResponse {
 /// MoveDamageClass
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait MoveDamageClass {
+pub trait MoveDamageClass<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// MoveDamageClassList - GET /api/v2/move-damage-class/
     async fn move_damage_class_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::MoveDamageClassListQueryParams,
-    ) -> Result<MoveDamageClassListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::MoveDamageClassListQueryParams,
+    ) -> Result<MoveDamageClassListResponse, E>;
 
     /// MoveDamageClassRead - GET /api/v2/move-damage-class/{id}/
     async fn move_damage_class_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::MoveDamageClassReadPathParams,
-    ) -> Result<MoveDamageClassReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::MoveDamageClassReadPathParams,
+    ) -> Result<MoveDamageClassReadResponse, E>;
 }

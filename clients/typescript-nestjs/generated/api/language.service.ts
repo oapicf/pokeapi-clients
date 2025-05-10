@@ -13,7 +13,7 @@
 
 import { Injectable, Optional } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
-import { AxiosResponse } from 'axios';
+import type { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { Observable, from, of, switchMap } from 'rxjs';
 import { Configuration } from '../configuration';
 import { COLLECTION_FORMATS } from '../variables';
@@ -25,10 +25,12 @@ export class LanguageService {
     protected basePath = 'https://pokeapi.co';
     public defaultHeaders: Record<string,string> = {};
     public configuration = new Configuration();
+    protected httpClient: HttpService;
 
-    constructor(protected httpClient: HttpService, @Optional() configuration: Configuration) {
+    constructor(httpClient: HttpService, @Optional() configuration: Configuration) {
         this.configuration = configuration || this.configuration;
         this.basePath = configuration?.basePath || this.basePath;
+        this.httpClient = configuration?.httpClient || httpClient;
     }
 
     /**
@@ -47,9 +49,10 @@ export class LanguageService {
      * @param offset 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
+     * @param {*} [languageListOpts.config] Override http request option.
      */
-    public languageList(limit?: number, offset?: number, ): Observable<AxiosResponse<string>>;
-    public languageList(limit?: number, offset?: number, ): Observable<any> {
+    public languageList(limit?: number, offset?: number, languageListOpts?: { config?: AxiosRequestConfig }): Observable<AxiosResponse<string>>;
+    public languageList(limit?: number, offset?: number, languageListOpts?: { config?: AxiosRequestConfig }): Observable<any> {
         let queryParameters = new URLSearchParams();
         if (limit !== undefined && limit !== null) {
             queryParameters.append('limit', <any>limit);
@@ -84,7 +87,8 @@ export class LanguageService {
                     {
                         params: queryParameters,
                         withCredentials: this.configuration.withCredentials,
-                        headers: headers
+                        ...languageListOpts?.config,
+                        headers: {...headers, ...languageListOpts?.config?.headers},
                     }
                 );
             })
@@ -96,9 +100,10 @@ export class LanguageService {
      * @param id 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
+     * @param {*} [languageReadOpts.config] Override http request option.
      */
-    public languageRead(id: number, ): Observable<AxiosResponse<string>>;
-    public languageRead(id: number, ): Observable<any> {
+    public languageRead(id: number, languageReadOpts?: { config?: AxiosRequestConfig }): Observable<AxiosResponse<string>>;
+    public languageRead(id: number, languageReadOpts?: { config?: AxiosRequestConfig }): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling languageRead.');
         }
@@ -128,7 +133,8 @@ export class LanguageService {
                 return this.httpClient.get<string>(`${this.basePath}/api/v2/language/${encodeURIComponent(String(id))}/`,
                     {
                         withCredentials: this.configuration.withCredentials,
-                        headers: headers
+                        ...languageReadOpts?.config,
+                        headers: {...headers, ...languageReadOpts?.config?.headers},
                     }
                 );
             })

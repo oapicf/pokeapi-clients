@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum PokeathlonStatReadResponse {
 /// PokeathlonStat
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait PokeathlonStat {
+pub trait PokeathlonStat<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// PokeathlonStatList - GET /api/v2/pokeathlon-stat/
     async fn pokeathlon_stat_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::PokeathlonStatListQueryParams,
-    ) -> Result<PokeathlonStatListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::PokeathlonStatListQueryParams,
+    ) -> Result<PokeathlonStatListResponse, E>;
 
     /// PokeathlonStatRead - GET /api/v2/pokeathlon-stat/{id}/
     async fn pokeathlon_stat_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::PokeathlonStatReadPathParams,
-    ) -> Result<PokeathlonStatReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::PokeathlonStatReadPathParams,
+    ) -> Result<PokeathlonStatReadResponse, E>;
 }

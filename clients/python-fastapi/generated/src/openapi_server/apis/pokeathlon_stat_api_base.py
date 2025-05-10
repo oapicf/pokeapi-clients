@@ -2,6 +2,8 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
+from pydantic import StrictInt, StrictStr
+from typing import Optional
 
 
 class BasePokeathlonStatApi:
@@ -12,14 +14,14 @@ class BasePokeathlonStatApi:
         BasePokeathlonStatApi.subclasses = BasePokeathlonStatApi.subclasses + (cls,)
     async def pokeathlon_stat_list(
         self,
-        limit: int,
-        offset: int,
+        limit: Optional[StrictInt],
+        offset: Optional[StrictInt],
     ) -> str:
         ...
 
 
     async def pokeathlon_stat_read(
         self,
-        id: int,
+        id: StrictInt,
     ) -> str:
         ...

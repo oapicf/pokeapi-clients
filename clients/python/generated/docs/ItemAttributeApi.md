@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **item_attribute_list**
 > str item_attribute_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **item_attribute_read**
 > str item_attribute_read(id)
-
-
 
 ### Example
 

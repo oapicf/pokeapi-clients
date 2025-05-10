@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum MachineReadResponse {
 /// Machine
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait Machine {
+pub trait Machine<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// MachineList - GET /api/v2/machine/
     async fn machine_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::MachineListQueryParams,
-    ) -> Result<MachineListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::MachineListQueryParams,
+    ) -> Result<MachineListResponse, E>;
 
     /// MachineRead - GET /api/v2/machine/{id}/
     async fn machine_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::MachineReadPathParams,
-    ) -> Result<MachineReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::MachineReadPathParams,
+    ) -> Result<MachineReadResponse, E>;
 }

@@ -2,6 +2,8 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
+from pydantic import StrictInt, StrictStr
+from typing import Optional
 
 
 class BaseVersionGroupApi:
@@ -12,14 +14,14 @@ class BaseVersionGroupApi:
         BaseVersionGroupApi.subclasses = BaseVersionGroupApi.subclasses + (cls,)
     async def version_group_list(
         self,
-        limit: int,
-        offset: int,
+        limit: Optional[StrictInt],
+        offset: Optional[StrictInt],
     ) -> str:
         ...
 
 
     async def version_group_read(
         self,
-        id: int,
+        id: StrictInt,
     ) -> str:
         ...

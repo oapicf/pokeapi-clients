@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 README.md
 lib/Models/Helpers.cpp
 lib/Models/Helpers.h

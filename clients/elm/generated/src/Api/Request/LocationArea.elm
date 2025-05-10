@@ -26,6 +26,7 @@ import Http
 import Json.Decode
 import Json.Encode
 
+
 locationAreaList : Maybe Int -> Maybe Int -> Api.Request ()
 locationAreaList limit_query offset_query =
     Api.request

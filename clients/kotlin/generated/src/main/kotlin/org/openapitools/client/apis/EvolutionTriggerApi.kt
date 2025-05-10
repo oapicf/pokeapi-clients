@@ -45,6 +45,7 @@ class EvolutionTriggerApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
+     * GET /api/v2/evolution-trigger/
      * 
      * 
      * @param limit  (optional)
@@ -77,6 +78,7 @@ class EvolutionTriggerApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
+     * GET /api/v2/evolution-trigger/
      * 
      * 
      * @param limit  (optional)
@@ -114,7 +116,8 @@ class EvolutionTriggerApi(basePath: kotlin.String = defaultBasePath, client: Cal
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        
+        localVariableHeaders["Accept"] = "text/plain"
+
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/evolution-trigger/",
@@ -126,6 +129,7 @@ class EvolutionTriggerApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
+     * GET /api/v2/evolution-trigger/{id}/
      * 
      * 
      * @param id 
@@ -157,6 +161,7 @@ class EvolutionTriggerApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
+     * GET /api/v2/evolution-trigger/{id}/
      * 
      * 
      * @param id 
@@ -184,7 +189,8 @@ class EvolutionTriggerApi(basePath: kotlin.String = defaultBasePath, client: Cal
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        
+        localVariableHeaders["Accept"] = "text/plain"
+
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/evolution-trigger/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),

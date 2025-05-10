@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum MoveCategoryReadResponse {
 /// MoveCategory
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait MoveCategory {
+pub trait MoveCategory<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// MoveCategoryList - GET /api/v2/move-category/
     async fn move_category_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::MoveCategoryListQueryParams,
-    ) -> Result<MoveCategoryListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::MoveCategoryListQueryParams,
+    ) -> Result<MoveCategoryListResponse, E>;
 
     /// MoveCategoryRead - GET /api/v2/move-category/{id}/
     async fn move_category_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::MoveCategoryReadPathParams,
-    ) -> Result<MoveCategoryReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::MoveCategoryReadPathParams,
+    ) -> Result<MoveCategoryReadResponse, E>;
 }

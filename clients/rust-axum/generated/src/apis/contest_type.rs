@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum ContestTypeReadResponse {
 /// ContestType
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait ContestType {
+pub trait ContestType<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// ContestTypeList - GET /api/v2/contest-type/
     async fn contest_type_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::ContestTypeListQueryParams,
-    ) -> Result<ContestTypeListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::ContestTypeListQueryParams,
+    ) -> Result<ContestTypeListResponse, E>;
 
     /// ContestTypeRead - GET /api/v2/contest-type/{id}/
     async fn contest_type_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::ContestTypeReadPathParams,
-    ) -> Result<ContestTypeReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::ContestTypeReadPathParams,
+    ) -> Result<ContestTypeReadResponse, E>;
 }

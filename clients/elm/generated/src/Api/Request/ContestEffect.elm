@@ -26,6 +26,7 @@ import Http
 import Json.Decode
 import Json.Encode
 
+
 contestEffectList : Maybe Int -> Maybe Int -> Api.Request ()
 contestEffectList limit_query offset_query =
     Api.request

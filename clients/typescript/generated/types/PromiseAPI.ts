@@ -1,5 +1,6 @@
 import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/http';
-import { Configuration} from '../configuration'
+import { Configuration, ConfigurationOptions, PromiseConfigurationOptions } from '../configuration'
+import { PromiseMiddleware, Middleware, PromiseMiddlewareWrapper } from '../middleware';
 
 import { ObservableAbilityApi } from './ObservableAPI';
 
@@ -19,8 +20,20 @@ export class PromiseAbilityApi {
      * @param [limit]
      * @param [offset]
      */
-    public abilityListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.abilityListWithHttpInfo(limit, offset, _options);
+    public abilityListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.abilityListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -28,24 +41,60 @@ export class PromiseAbilityApi {
      * @param [limit]
      * @param [offset]
      */
-    public abilityList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.abilityList(limit, offset, _options);
+    public abilityList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.abilityList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public abilityReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.abilityReadWithHttpInfo(id, _options);
+    public abilityReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.abilityReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public abilityRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.abilityRead(id, _options);
+    public abilityRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.abilityRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -72,8 +121,20 @@ export class PromiseBerryApi {
      * @param [limit]
      * @param [offset]
      */
-    public berryListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.berryListWithHttpInfo(limit, offset, _options);
+    public berryListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.berryListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -81,24 +142,60 @@ export class PromiseBerryApi {
      * @param [limit]
      * @param [offset]
      */
-    public berryList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.berryList(limit, offset, _options);
+    public berryList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.berryList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public berryReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.berryReadWithHttpInfo(id, _options);
+    public berryReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.berryReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public berryRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.berryRead(id, _options);
+    public berryRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.berryRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -125,8 +222,20 @@ export class PromiseBerryFirmnessApi {
      * @param [limit]
      * @param [offset]
      */
-    public berryFirmnessListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.berryFirmnessListWithHttpInfo(limit, offset, _options);
+    public berryFirmnessListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.berryFirmnessListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -134,24 +243,60 @@ export class PromiseBerryFirmnessApi {
      * @param [limit]
      * @param [offset]
      */
-    public berryFirmnessList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.berryFirmnessList(limit, offset, _options);
+    public berryFirmnessList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.berryFirmnessList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public berryFirmnessReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.berryFirmnessReadWithHttpInfo(id, _options);
+    public berryFirmnessReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.berryFirmnessReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public berryFirmnessRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.berryFirmnessRead(id, _options);
+    public berryFirmnessRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.berryFirmnessRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -178,8 +323,20 @@ export class PromiseBerryFlavorApi {
      * @param [limit]
      * @param [offset]
      */
-    public berryFlavorListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.berryFlavorListWithHttpInfo(limit, offset, _options);
+    public berryFlavorListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.berryFlavorListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -187,24 +344,60 @@ export class PromiseBerryFlavorApi {
      * @param [limit]
      * @param [offset]
      */
-    public berryFlavorList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.berryFlavorList(limit, offset, _options);
+    public berryFlavorList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.berryFlavorList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public berryFlavorReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.berryFlavorReadWithHttpInfo(id, _options);
+    public berryFlavorReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.berryFlavorReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public berryFlavorRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.berryFlavorRead(id, _options);
+    public berryFlavorRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.berryFlavorRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -231,8 +424,20 @@ export class PromiseCharacteristicApi {
      * @param [limit]
      * @param [offset]
      */
-    public characteristicListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.characteristicListWithHttpInfo(limit, offset, _options);
+    public characteristicListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.characteristicListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -240,24 +445,60 @@ export class PromiseCharacteristicApi {
      * @param [limit]
      * @param [offset]
      */
-    public characteristicList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.characteristicList(limit, offset, _options);
+    public characteristicList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.characteristicList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public characteristicReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.characteristicReadWithHttpInfo(id, _options);
+    public characteristicReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.characteristicReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public characteristicRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.characteristicRead(id, _options);
+    public characteristicRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.characteristicRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -284,8 +525,20 @@ export class PromiseContestEffectApi {
      * @param [limit]
      * @param [offset]
      */
-    public contestEffectListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.contestEffectListWithHttpInfo(limit, offset, _options);
+    public contestEffectListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.contestEffectListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -293,24 +546,60 @@ export class PromiseContestEffectApi {
      * @param [limit]
      * @param [offset]
      */
-    public contestEffectList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.contestEffectList(limit, offset, _options);
+    public contestEffectList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.contestEffectList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public contestEffectReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.contestEffectReadWithHttpInfo(id, _options);
+    public contestEffectReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.contestEffectReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public contestEffectRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.contestEffectRead(id, _options);
+    public contestEffectRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.contestEffectRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -337,8 +626,20 @@ export class PromiseContestTypeApi {
      * @param [limit]
      * @param [offset]
      */
-    public contestTypeListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.contestTypeListWithHttpInfo(limit, offset, _options);
+    public contestTypeListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.contestTypeListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -346,24 +647,60 @@ export class PromiseContestTypeApi {
      * @param [limit]
      * @param [offset]
      */
-    public contestTypeList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.contestTypeList(limit, offset, _options);
+    public contestTypeList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.contestTypeList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public contestTypeReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.contestTypeReadWithHttpInfo(id, _options);
+    public contestTypeReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.contestTypeReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public contestTypeRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.contestTypeRead(id, _options);
+    public contestTypeRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.contestTypeRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -390,8 +727,20 @@ export class PromiseEggGroupApi {
      * @param [limit]
      * @param [offset]
      */
-    public eggGroupListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.eggGroupListWithHttpInfo(limit, offset, _options);
+    public eggGroupListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.eggGroupListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -399,24 +748,60 @@ export class PromiseEggGroupApi {
      * @param [limit]
      * @param [offset]
      */
-    public eggGroupList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.eggGroupList(limit, offset, _options);
+    public eggGroupList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.eggGroupList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public eggGroupReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.eggGroupReadWithHttpInfo(id, _options);
+    public eggGroupReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.eggGroupReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public eggGroupRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.eggGroupRead(id, _options);
+    public eggGroupRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.eggGroupRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -443,8 +828,20 @@ export class PromiseEncounterConditionApi {
      * @param [limit]
      * @param [offset]
      */
-    public encounterConditionListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.encounterConditionListWithHttpInfo(limit, offset, _options);
+    public encounterConditionListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.encounterConditionListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -452,24 +849,60 @@ export class PromiseEncounterConditionApi {
      * @param [limit]
      * @param [offset]
      */
-    public encounterConditionList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.encounterConditionList(limit, offset, _options);
+    public encounterConditionList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.encounterConditionList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public encounterConditionReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.encounterConditionReadWithHttpInfo(id, _options);
+    public encounterConditionReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.encounterConditionReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public encounterConditionRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.encounterConditionRead(id, _options);
+    public encounterConditionRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.encounterConditionRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -496,8 +929,20 @@ export class PromiseEncounterConditionValueApi {
      * @param [limit]
      * @param [offset]
      */
-    public encounterConditionValueListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.encounterConditionValueListWithHttpInfo(limit, offset, _options);
+    public encounterConditionValueListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.encounterConditionValueListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -505,24 +950,60 @@ export class PromiseEncounterConditionValueApi {
      * @param [limit]
      * @param [offset]
      */
-    public encounterConditionValueList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.encounterConditionValueList(limit, offset, _options);
+    public encounterConditionValueList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.encounterConditionValueList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public encounterConditionValueReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.encounterConditionValueReadWithHttpInfo(id, _options);
+    public encounterConditionValueReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.encounterConditionValueReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public encounterConditionValueRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.encounterConditionValueRead(id, _options);
+    public encounterConditionValueRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.encounterConditionValueRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -549,8 +1030,20 @@ export class PromiseEncounterMethodApi {
      * @param [limit]
      * @param [offset]
      */
-    public encounterMethodListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.encounterMethodListWithHttpInfo(limit, offset, _options);
+    public encounterMethodListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.encounterMethodListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -558,24 +1051,60 @@ export class PromiseEncounterMethodApi {
      * @param [limit]
      * @param [offset]
      */
-    public encounterMethodList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.encounterMethodList(limit, offset, _options);
+    public encounterMethodList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.encounterMethodList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public encounterMethodReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.encounterMethodReadWithHttpInfo(id, _options);
+    public encounterMethodReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.encounterMethodReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public encounterMethodRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.encounterMethodRead(id, _options);
+    public encounterMethodRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.encounterMethodRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -602,8 +1131,20 @@ export class PromiseEvolutionChainApi {
      * @param [limit]
      * @param [offset]
      */
-    public evolutionChainListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.evolutionChainListWithHttpInfo(limit, offset, _options);
+    public evolutionChainListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.evolutionChainListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -611,24 +1152,60 @@ export class PromiseEvolutionChainApi {
      * @param [limit]
      * @param [offset]
      */
-    public evolutionChainList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.evolutionChainList(limit, offset, _options);
+    public evolutionChainList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.evolutionChainList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public evolutionChainReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.evolutionChainReadWithHttpInfo(id, _options);
+    public evolutionChainReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.evolutionChainReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public evolutionChainRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.evolutionChainRead(id, _options);
+    public evolutionChainRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.evolutionChainRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -655,8 +1232,20 @@ export class PromiseEvolutionTriggerApi {
      * @param [limit]
      * @param [offset]
      */
-    public evolutionTriggerListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.evolutionTriggerListWithHttpInfo(limit, offset, _options);
+    public evolutionTriggerListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.evolutionTriggerListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -664,24 +1253,60 @@ export class PromiseEvolutionTriggerApi {
      * @param [limit]
      * @param [offset]
      */
-    public evolutionTriggerList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.evolutionTriggerList(limit, offset, _options);
+    public evolutionTriggerList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.evolutionTriggerList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public evolutionTriggerReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.evolutionTriggerReadWithHttpInfo(id, _options);
+    public evolutionTriggerReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.evolutionTriggerReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public evolutionTriggerRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.evolutionTriggerRead(id, _options);
+    public evolutionTriggerRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.evolutionTriggerRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -708,8 +1333,20 @@ export class PromiseGenderApi {
      * @param [limit]
      * @param [offset]
      */
-    public genderListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.genderListWithHttpInfo(limit, offset, _options);
+    public genderListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.genderListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -717,24 +1354,60 @@ export class PromiseGenderApi {
      * @param [limit]
      * @param [offset]
      */
-    public genderList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.genderList(limit, offset, _options);
+    public genderList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.genderList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public genderReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.genderReadWithHttpInfo(id, _options);
+    public genderReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.genderReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public genderRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.genderRead(id, _options);
+    public genderRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.genderRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -761,8 +1434,20 @@ export class PromiseGenerationApi {
      * @param [limit]
      * @param [offset]
      */
-    public generationListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.generationListWithHttpInfo(limit, offset, _options);
+    public generationListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.generationListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -770,24 +1455,60 @@ export class PromiseGenerationApi {
      * @param [limit]
      * @param [offset]
      */
-    public generationList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.generationList(limit, offset, _options);
+    public generationList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.generationList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public generationReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.generationReadWithHttpInfo(id, _options);
+    public generationReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.generationReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public generationRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.generationRead(id, _options);
+    public generationRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.generationRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -814,8 +1535,20 @@ export class PromiseGrowthRateApi {
      * @param [limit]
      * @param [offset]
      */
-    public growthRateListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.growthRateListWithHttpInfo(limit, offset, _options);
+    public growthRateListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.growthRateListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -823,24 +1556,60 @@ export class PromiseGrowthRateApi {
      * @param [limit]
      * @param [offset]
      */
-    public growthRateList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.growthRateList(limit, offset, _options);
+    public growthRateList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.growthRateList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public growthRateReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.growthRateReadWithHttpInfo(id, _options);
+    public growthRateReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.growthRateReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public growthRateRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.growthRateRead(id, _options);
+    public growthRateRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.growthRateRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -867,8 +1636,20 @@ export class PromiseItemApi {
      * @param [limit]
      * @param [offset]
      */
-    public itemListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.itemListWithHttpInfo(limit, offset, _options);
+    public itemListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -876,24 +1657,60 @@ export class PromiseItemApi {
      * @param [limit]
      * @param [offset]
      */
-    public itemList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.itemList(limit, offset, _options);
+    public itemList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public itemReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.itemReadWithHttpInfo(id, _options);
+    public itemReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public itemRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.itemRead(id, _options);
+    public itemRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -920,8 +1737,20 @@ export class PromiseItemAttributeApi {
      * @param [limit]
      * @param [offset]
      */
-    public itemAttributeListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.itemAttributeListWithHttpInfo(limit, offset, _options);
+    public itemAttributeListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemAttributeListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -929,24 +1758,60 @@ export class PromiseItemAttributeApi {
      * @param [limit]
      * @param [offset]
      */
-    public itemAttributeList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.itemAttributeList(limit, offset, _options);
+    public itemAttributeList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemAttributeList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public itemAttributeReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.itemAttributeReadWithHttpInfo(id, _options);
+    public itemAttributeReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemAttributeReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public itemAttributeRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.itemAttributeRead(id, _options);
+    public itemAttributeRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemAttributeRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -973,8 +1838,20 @@ export class PromiseItemCategoryApi {
      * @param [limit]
      * @param [offset]
      */
-    public itemCategoryListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.itemCategoryListWithHttpInfo(limit, offset, _options);
+    public itemCategoryListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemCategoryListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -982,24 +1859,60 @@ export class PromiseItemCategoryApi {
      * @param [limit]
      * @param [offset]
      */
-    public itemCategoryList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.itemCategoryList(limit, offset, _options);
+    public itemCategoryList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemCategoryList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public itemCategoryReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.itemCategoryReadWithHttpInfo(id, _options);
+    public itemCategoryReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemCategoryReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public itemCategoryRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.itemCategoryRead(id, _options);
+    public itemCategoryRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemCategoryRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1026,8 +1939,20 @@ export class PromiseItemFlingEffectApi {
      * @param [limit]
      * @param [offset]
      */
-    public itemFlingEffectListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.itemFlingEffectListWithHttpInfo(limit, offset, _options);
+    public itemFlingEffectListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemFlingEffectListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1035,24 +1960,60 @@ export class PromiseItemFlingEffectApi {
      * @param [limit]
      * @param [offset]
      */
-    public itemFlingEffectList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.itemFlingEffectList(limit, offset, _options);
+    public itemFlingEffectList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemFlingEffectList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public itemFlingEffectReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.itemFlingEffectReadWithHttpInfo(id, _options);
+    public itemFlingEffectReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemFlingEffectReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public itemFlingEffectRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.itemFlingEffectRead(id, _options);
+    public itemFlingEffectRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemFlingEffectRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1079,8 +2040,20 @@ export class PromiseItemPocketApi {
      * @param [limit]
      * @param [offset]
      */
-    public itemPocketListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.itemPocketListWithHttpInfo(limit, offset, _options);
+    public itemPocketListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemPocketListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1088,24 +2061,60 @@ export class PromiseItemPocketApi {
      * @param [limit]
      * @param [offset]
      */
-    public itemPocketList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.itemPocketList(limit, offset, _options);
+    public itemPocketList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemPocketList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public itemPocketReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.itemPocketReadWithHttpInfo(id, _options);
+    public itemPocketReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemPocketReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public itemPocketRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.itemPocketRead(id, _options);
+    public itemPocketRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.itemPocketRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1132,8 +2141,20 @@ export class PromiseLanguageApi {
      * @param [limit]
      * @param [offset]
      */
-    public languageListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.languageListWithHttpInfo(limit, offset, _options);
+    public languageListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.languageListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1141,24 +2162,60 @@ export class PromiseLanguageApi {
      * @param [limit]
      * @param [offset]
      */
-    public languageList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.languageList(limit, offset, _options);
+    public languageList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.languageList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public languageReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.languageReadWithHttpInfo(id, _options);
+    public languageReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.languageReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public languageRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.languageRead(id, _options);
+    public languageRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.languageRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1185,8 +2242,20 @@ export class PromiseLocationApi {
      * @param [limit]
      * @param [offset]
      */
-    public locationListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.locationListWithHttpInfo(limit, offset, _options);
+    public locationListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.locationListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1194,24 +2263,60 @@ export class PromiseLocationApi {
      * @param [limit]
      * @param [offset]
      */
-    public locationList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.locationList(limit, offset, _options);
+    public locationList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.locationList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public locationReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.locationReadWithHttpInfo(id, _options);
+    public locationReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.locationReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public locationRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.locationRead(id, _options);
+    public locationRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.locationRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1238,8 +2343,20 @@ export class PromiseLocationAreaApi {
      * @param [limit]
      * @param [offset]
      */
-    public locationAreaListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.locationAreaListWithHttpInfo(limit, offset, _options);
+    public locationAreaListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.locationAreaListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1247,24 +2364,60 @@ export class PromiseLocationAreaApi {
      * @param [limit]
      * @param [offset]
      */
-    public locationAreaList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.locationAreaList(limit, offset, _options);
+    public locationAreaList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.locationAreaList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public locationAreaReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.locationAreaReadWithHttpInfo(id, _options);
+    public locationAreaReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.locationAreaReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public locationAreaRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.locationAreaRead(id, _options);
+    public locationAreaRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.locationAreaRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1291,8 +2444,20 @@ export class PromiseMachineApi {
      * @param [limit]
      * @param [offset]
      */
-    public machineListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.machineListWithHttpInfo(limit, offset, _options);
+    public machineListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.machineListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1300,24 +2465,60 @@ export class PromiseMachineApi {
      * @param [limit]
      * @param [offset]
      */
-    public machineList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.machineList(limit, offset, _options);
+    public machineList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.machineList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public machineReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.machineReadWithHttpInfo(id, _options);
+    public machineReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.machineReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public machineRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.machineRead(id, _options);
+    public machineRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.machineRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1344,8 +2545,20 @@ export class PromiseMoveApi {
      * @param [limit]
      * @param [offset]
      */
-    public moveListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.moveListWithHttpInfo(limit, offset, _options);
+    public moveListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1353,24 +2566,60 @@ export class PromiseMoveApi {
      * @param [limit]
      * @param [offset]
      */
-    public moveList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.moveList(limit, offset, _options);
+    public moveList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public moveReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.moveReadWithHttpInfo(id, _options);
+    public moveReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public moveRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.moveRead(id, _options);
+    public moveRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1397,8 +2646,20 @@ export class PromiseMoveAilmentApi {
      * @param [limit]
      * @param [offset]
      */
-    public moveAilmentListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.moveAilmentListWithHttpInfo(limit, offset, _options);
+    public moveAilmentListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveAilmentListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1406,24 +2667,60 @@ export class PromiseMoveAilmentApi {
      * @param [limit]
      * @param [offset]
      */
-    public moveAilmentList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.moveAilmentList(limit, offset, _options);
+    public moveAilmentList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveAilmentList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public moveAilmentReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.moveAilmentReadWithHttpInfo(id, _options);
+    public moveAilmentReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveAilmentReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public moveAilmentRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.moveAilmentRead(id, _options);
+    public moveAilmentRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveAilmentRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1450,8 +2747,20 @@ export class PromiseMoveBattleStyleApi {
      * @param [limit]
      * @param [offset]
      */
-    public moveBattleStyleListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.moveBattleStyleListWithHttpInfo(limit, offset, _options);
+    public moveBattleStyleListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveBattleStyleListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1459,24 +2768,60 @@ export class PromiseMoveBattleStyleApi {
      * @param [limit]
      * @param [offset]
      */
-    public moveBattleStyleList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.moveBattleStyleList(limit, offset, _options);
+    public moveBattleStyleList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveBattleStyleList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public moveBattleStyleReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.moveBattleStyleReadWithHttpInfo(id, _options);
+    public moveBattleStyleReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveBattleStyleReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public moveBattleStyleRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.moveBattleStyleRead(id, _options);
+    public moveBattleStyleRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveBattleStyleRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1503,8 +2848,20 @@ export class PromiseMoveCategoryApi {
      * @param [limit]
      * @param [offset]
      */
-    public moveCategoryListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.moveCategoryListWithHttpInfo(limit, offset, _options);
+    public moveCategoryListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveCategoryListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1512,24 +2869,60 @@ export class PromiseMoveCategoryApi {
      * @param [limit]
      * @param [offset]
      */
-    public moveCategoryList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.moveCategoryList(limit, offset, _options);
+    public moveCategoryList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveCategoryList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public moveCategoryReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.moveCategoryReadWithHttpInfo(id, _options);
+    public moveCategoryReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveCategoryReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public moveCategoryRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.moveCategoryRead(id, _options);
+    public moveCategoryRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveCategoryRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1556,8 +2949,20 @@ export class PromiseMoveDamageClassApi {
      * @param [limit]
      * @param [offset]
      */
-    public moveDamageClassListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.moveDamageClassListWithHttpInfo(limit, offset, _options);
+    public moveDamageClassListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveDamageClassListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1565,24 +2970,60 @@ export class PromiseMoveDamageClassApi {
      * @param [limit]
      * @param [offset]
      */
-    public moveDamageClassList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.moveDamageClassList(limit, offset, _options);
+    public moveDamageClassList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveDamageClassList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public moveDamageClassReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.moveDamageClassReadWithHttpInfo(id, _options);
+    public moveDamageClassReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveDamageClassReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public moveDamageClassRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.moveDamageClassRead(id, _options);
+    public moveDamageClassRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveDamageClassRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1609,8 +3050,20 @@ export class PromiseMoveLearnMethodApi {
      * @param [limit]
      * @param [offset]
      */
-    public moveLearnMethodListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.moveLearnMethodListWithHttpInfo(limit, offset, _options);
+    public moveLearnMethodListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveLearnMethodListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1618,24 +3071,60 @@ export class PromiseMoveLearnMethodApi {
      * @param [limit]
      * @param [offset]
      */
-    public moveLearnMethodList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.moveLearnMethodList(limit, offset, _options);
+    public moveLearnMethodList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveLearnMethodList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public moveLearnMethodReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.moveLearnMethodReadWithHttpInfo(id, _options);
+    public moveLearnMethodReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveLearnMethodReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public moveLearnMethodRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.moveLearnMethodRead(id, _options);
+    public moveLearnMethodRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveLearnMethodRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1662,8 +3151,20 @@ export class PromiseMoveTargetApi {
      * @param [limit]
      * @param [offset]
      */
-    public moveTargetListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.moveTargetListWithHttpInfo(limit, offset, _options);
+    public moveTargetListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveTargetListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1671,24 +3172,60 @@ export class PromiseMoveTargetApi {
      * @param [limit]
      * @param [offset]
      */
-    public moveTargetList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.moveTargetList(limit, offset, _options);
+    public moveTargetList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveTargetList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public moveTargetReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.moveTargetReadWithHttpInfo(id, _options);
+    public moveTargetReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveTargetReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public moveTargetRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.moveTargetRead(id, _options);
+    public moveTargetRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.moveTargetRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1715,8 +3252,20 @@ export class PromiseNatureApi {
      * @param [limit]
      * @param [offset]
      */
-    public natureListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.natureListWithHttpInfo(limit, offset, _options);
+    public natureListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.natureListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1724,24 +3273,60 @@ export class PromiseNatureApi {
      * @param [limit]
      * @param [offset]
      */
-    public natureList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.natureList(limit, offset, _options);
+    public natureList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.natureList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public natureReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.natureReadWithHttpInfo(id, _options);
+    public natureReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.natureReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public natureRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.natureRead(id, _options);
+    public natureRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.natureRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1768,8 +3353,20 @@ export class PromisePalParkAreaApi {
      * @param [limit]
      * @param [offset]
      */
-    public palParkAreaListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.palParkAreaListWithHttpInfo(limit, offset, _options);
+    public palParkAreaListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.palParkAreaListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1777,24 +3374,60 @@ export class PromisePalParkAreaApi {
      * @param [limit]
      * @param [offset]
      */
-    public palParkAreaList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.palParkAreaList(limit, offset, _options);
+    public palParkAreaList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.palParkAreaList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public palParkAreaReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.palParkAreaReadWithHttpInfo(id, _options);
+    public palParkAreaReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.palParkAreaReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public palParkAreaRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.palParkAreaRead(id, _options);
+    public palParkAreaRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.palParkAreaRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1821,8 +3454,20 @@ export class PromisePokeathlonStatApi {
      * @param [limit]
      * @param [offset]
      */
-    public pokeathlonStatListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.pokeathlonStatListWithHttpInfo(limit, offset, _options);
+    public pokeathlonStatListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokeathlonStatListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1830,24 +3475,60 @@ export class PromisePokeathlonStatApi {
      * @param [limit]
      * @param [offset]
      */
-    public pokeathlonStatList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.pokeathlonStatList(limit, offset, _options);
+    public pokeathlonStatList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokeathlonStatList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public pokeathlonStatReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.pokeathlonStatReadWithHttpInfo(id, _options);
+    public pokeathlonStatReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokeathlonStatReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public pokeathlonStatRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.pokeathlonStatRead(id, _options);
+    public pokeathlonStatRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokeathlonStatRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1874,8 +3555,20 @@ export class PromisePokedexApi {
      * @param [limit]
      * @param [offset]
      */
-    public pokedexListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.pokedexListWithHttpInfo(limit, offset, _options);
+    public pokedexListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokedexListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1883,24 +3576,60 @@ export class PromisePokedexApi {
      * @param [limit]
      * @param [offset]
      */
-    public pokedexList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.pokedexList(limit, offset, _options);
+    public pokedexList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokedexList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public pokedexReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.pokedexReadWithHttpInfo(id, _options);
+    public pokedexReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokedexReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public pokedexRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.pokedexRead(id, _options);
+    public pokedexRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokedexRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1927,8 +3656,20 @@ export class PromisePokemonApi {
      * @param [limit]
      * @param [offset]
      */
-    public pokemonListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.pokemonListWithHttpInfo(limit, offset, _options);
+    public pokemonListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1936,24 +3677,60 @@ export class PromisePokemonApi {
      * @param [limit]
      * @param [offset]
      */
-    public pokemonList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.pokemonList(limit, offset, _options);
+    public pokemonList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public pokemonReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.pokemonReadWithHttpInfo(id, _options);
+    public pokemonReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public pokemonRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.pokemonRead(id, _options);
+    public pokemonRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -1980,8 +3757,20 @@ export class PromisePokemonColorApi {
      * @param [limit]
      * @param [offset]
      */
-    public pokemonColorListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.pokemonColorListWithHttpInfo(limit, offset, _options);
+    public pokemonColorListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonColorListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -1989,24 +3778,60 @@ export class PromisePokemonColorApi {
      * @param [limit]
      * @param [offset]
      */
-    public pokemonColorList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.pokemonColorList(limit, offset, _options);
+    public pokemonColorList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonColorList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public pokemonColorReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.pokemonColorReadWithHttpInfo(id, _options);
+    public pokemonColorReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonColorReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public pokemonColorRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.pokemonColorRead(id, _options);
+    public pokemonColorRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonColorRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -2033,8 +3858,20 @@ export class PromisePokemonFormApi {
      * @param [limit]
      * @param [offset]
      */
-    public pokemonFormListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.pokemonFormListWithHttpInfo(limit, offset, _options);
+    public pokemonFormListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonFormListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -2042,24 +3879,60 @@ export class PromisePokemonFormApi {
      * @param [limit]
      * @param [offset]
      */
-    public pokemonFormList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.pokemonFormList(limit, offset, _options);
+    public pokemonFormList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonFormList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public pokemonFormReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.pokemonFormReadWithHttpInfo(id, _options);
+    public pokemonFormReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonFormReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public pokemonFormRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.pokemonFormRead(id, _options);
+    public pokemonFormRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonFormRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -2086,8 +3959,20 @@ export class PromisePokemonHabitatApi {
      * @param [limit]
      * @param [offset]
      */
-    public pokemonHabitatListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.pokemonHabitatListWithHttpInfo(limit, offset, _options);
+    public pokemonHabitatListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonHabitatListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -2095,24 +3980,60 @@ export class PromisePokemonHabitatApi {
      * @param [limit]
      * @param [offset]
      */
-    public pokemonHabitatList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.pokemonHabitatList(limit, offset, _options);
+    public pokemonHabitatList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonHabitatList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public pokemonHabitatReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.pokemonHabitatReadWithHttpInfo(id, _options);
+    public pokemonHabitatReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonHabitatReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public pokemonHabitatRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.pokemonHabitatRead(id, _options);
+    public pokemonHabitatRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonHabitatRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -2139,8 +4060,20 @@ export class PromisePokemonShapeApi {
      * @param [limit]
      * @param [offset]
      */
-    public pokemonShapeListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.pokemonShapeListWithHttpInfo(limit, offset, _options);
+    public pokemonShapeListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonShapeListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -2148,24 +4081,60 @@ export class PromisePokemonShapeApi {
      * @param [limit]
      * @param [offset]
      */
-    public pokemonShapeList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.pokemonShapeList(limit, offset, _options);
+    public pokemonShapeList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonShapeList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public pokemonShapeReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.pokemonShapeReadWithHttpInfo(id, _options);
+    public pokemonShapeReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonShapeReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public pokemonShapeRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.pokemonShapeRead(id, _options);
+    public pokemonShapeRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonShapeRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -2192,8 +4161,20 @@ export class PromisePokemonSpeciesApi {
      * @param [limit]
      * @param [offset]
      */
-    public pokemonSpeciesListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.pokemonSpeciesListWithHttpInfo(limit, offset, _options);
+    public pokemonSpeciesListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonSpeciesListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -2201,24 +4182,60 @@ export class PromisePokemonSpeciesApi {
      * @param [limit]
      * @param [offset]
      */
-    public pokemonSpeciesList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.pokemonSpeciesList(limit, offset, _options);
+    public pokemonSpeciesList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonSpeciesList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public pokemonSpeciesReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.pokemonSpeciesReadWithHttpInfo(id, _options);
+    public pokemonSpeciesReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonSpeciesReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public pokemonSpeciesRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.pokemonSpeciesRead(id, _options);
+    public pokemonSpeciesRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.pokemonSpeciesRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -2245,8 +4262,20 @@ export class PromiseRegionApi {
      * @param [limit]
      * @param [offset]
      */
-    public regionListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.regionListWithHttpInfo(limit, offset, _options);
+    public regionListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.regionListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -2254,24 +4283,60 @@ export class PromiseRegionApi {
      * @param [limit]
      * @param [offset]
      */
-    public regionList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.regionList(limit, offset, _options);
+    public regionList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.regionList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public regionReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.regionReadWithHttpInfo(id, _options);
+    public regionReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.regionReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public regionRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.regionRead(id, _options);
+    public regionRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.regionRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -2298,8 +4363,20 @@ export class PromiseStatApi {
      * @param [limit]
      * @param [offset]
      */
-    public statListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.statListWithHttpInfo(limit, offset, _options);
+    public statListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.statListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -2307,24 +4384,60 @@ export class PromiseStatApi {
      * @param [limit]
      * @param [offset]
      */
-    public statList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.statList(limit, offset, _options);
+    public statList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.statList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public statReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.statReadWithHttpInfo(id, _options);
+    public statReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.statReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public statRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.statRead(id, _options);
+    public statRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.statRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -2351,8 +4464,20 @@ export class PromiseSuperContestEffectApi {
      * @param [limit]
      * @param [offset]
      */
-    public superContestEffectListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.superContestEffectListWithHttpInfo(limit, offset, _options);
+    public superContestEffectListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.superContestEffectListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -2360,24 +4485,60 @@ export class PromiseSuperContestEffectApi {
      * @param [limit]
      * @param [offset]
      */
-    public superContestEffectList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.superContestEffectList(limit, offset, _options);
+    public superContestEffectList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.superContestEffectList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public superContestEffectReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.superContestEffectReadWithHttpInfo(id, _options);
+    public superContestEffectReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.superContestEffectReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public superContestEffectRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.superContestEffectRead(id, _options);
+    public superContestEffectRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.superContestEffectRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -2404,8 +4565,20 @@ export class PromiseTypeApi {
      * @param [limit]
      * @param [offset]
      */
-    public typeListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.typeListWithHttpInfo(limit, offset, _options);
+    public typeListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.typeListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -2413,24 +4586,60 @@ export class PromiseTypeApi {
      * @param [limit]
      * @param [offset]
      */
-    public typeList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.typeList(limit, offset, _options);
+    public typeList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.typeList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public typeReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.typeReadWithHttpInfo(id, _options);
+    public typeReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.typeReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public typeRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.typeRead(id, _options);
+    public typeRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.typeRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -2457,8 +4666,20 @@ export class PromiseVersionApi {
      * @param [limit]
      * @param [offset]
      */
-    public versionListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.versionListWithHttpInfo(limit, offset, _options);
+    public versionListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.versionListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -2466,24 +4687,60 @@ export class PromiseVersionApi {
      * @param [limit]
      * @param [offset]
      */
-    public versionList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.versionList(limit, offset, _options);
+    public versionList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.versionList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public versionReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.versionReadWithHttpInfo(id, _options);
+    public versionReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.versionReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public versionRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.versionRead(id, _options);
+    public versionRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.versionRead(id, observableOptions);
         return result.toPromise();
     }
 
@@ -2510,8 +4767,20 @@ export class PromiseVersionGroupApi {
      * @param [limit]
      * @param [offset]
      */
-    public versionGroupListWithHttpInfo(limit?: number, offset?: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.versionGroupListWithHttpInfo(limit, offset, _options);
+    public versionGroupListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.versionGroupListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
 
@@ -2519,24 +4788,60 @@ export class PromiseVersionGroupApi {
      * @param [limit]
      * @param [offset]
      */
-    public versionGroupList(limit?: number, offset?: number, _options?: Configuration): Promise<void> {
-        const result = this.api.versionGroupList(limit, offset, _options);
+    public versionGroupList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.versionGroupList(limit, offset, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public versionGroupReadWithHttpInfo(id: number, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.versionGroupReadWithHttpInfo(id, _options);
+    public versionGroupReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.versionGroupReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
 
     /**
      * @param id
      */
-    public versionGroupRead(id: number, _options?: Configuration): Promise<void> {
-        const result = this.api.versionGroupRead(id, _options);
+    public versionGroupRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.versionGroupRead(id, observableOptions);
         return result.toPromise();
     }
 

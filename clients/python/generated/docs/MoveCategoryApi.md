@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **move_category_list**
 > str move_category_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **move_category_read**
 > str move_category_read(id)
-
-
 
 ### Example
 

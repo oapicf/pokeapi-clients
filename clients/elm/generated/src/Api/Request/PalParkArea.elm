@@ -26,6 +26,7 @@ import Http
 import Json.Decode
 import Json.Encode
 
+
 palParkAreaList : Maybe Int -> Maybe Int -> Api.Request ()
 palParkAreaList limit_query offset_query =
     Api.request

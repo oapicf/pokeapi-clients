@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **language_list**
 > str language_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **language_read**
 > str language_read(id)
-
-
 
 ### Example
 

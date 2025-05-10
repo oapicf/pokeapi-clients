@@ -2,6 +2,8 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
+from pydantic import StrictInt, StrictStr
+from typing import Optional
 
 
 class BaseAbilityApi:
@@ -12,14 +14,14 @@ class BaseAbilityApi:
         BaseAbilityApi.subclasses = BaseAbilityApi.subclasses + (cls,)
     async def ability_list(
         self,
-        limit: int,
-        offset: int,
+        limit: Optional[StrictInt],
+        offset: Optional[StrictInt],
     ) -> str:
         ...
 
 
     async def ability_read(
         self,
-        id: int,
+        id: StrictInt,
     ) -> str:
         ...

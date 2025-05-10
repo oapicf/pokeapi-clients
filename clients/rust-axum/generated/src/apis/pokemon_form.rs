@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum PokemonFormReadResponse {
 /// PokemonForm
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait PokemonForm {
+pub trait PokemonForm<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// PokemonFormList - GET /api/v2/pokemon-form/
     async fn pokemon_form_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::PokemonFormListQueryParams,
-    ) -> Result<PokemonFormListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::PokemonFormListQueryParams,
+    ) -> Result<PokemonFormListResponse, E>;
 
     /// PokemonFormRead - GET /api/v2/pokemon-form/{id}/
     async fn pokemon_form_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::PokemonFormReadPathParams,
-    ) -> Result<PokemonFormReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::PokemonFormReadPathParams,
+    ) -> Result<PokemonFormReadResponse, E>;
 }

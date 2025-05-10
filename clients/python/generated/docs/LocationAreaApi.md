@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **location_area_list**
 > str location_area_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **location_area_read**
 > str location_area_read(id)
-
-
 
 ### Example
 

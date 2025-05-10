@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **item_fling_effect_list**
 > str item_fling_effect_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **item_fling_effect_read**
 > str item_fling_effect_read(id)
-
-
 
 ### Example
 

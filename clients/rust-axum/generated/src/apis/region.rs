@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 use axum::extract::*;
-use axum_extra::extract::{CookieJar, Multipart};
+use axum_extra::extract::{CookieJar, Host};
 use bytes::Bytes;
 use http::Method;
 use serde::{Deserialize, Serialize};
@@ -29,22 +29,22 @@ pub enum RegionReadResponse {
 /// Region
 #[async_trait]
 #[allow(clippy::ptr_arg)]
-pub trait Region {
+pub trait Region<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// RegionList - GET /api/v2/region/
     async fn region_list(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      query_params: models::RegionListQueryParams,
-    ) -> Result<RegionListResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      query_params: &models::RegionListQueryParams,
+    ) -> Result<RegionListResponse, E>;
 
     /// RegionRead - GET /api/v2/region/{id}/
     async fn region_read(
     &self,
-    method: Method,
-    host: Host,
-    cookies: CookieJar,
-      path_params: models::RegionReadPathParams,
-    ) -> Result<RegionReadResponse, String>;
+    method: &Method,
+    host: &Host,
+    cookies: &CookieJar,
+      path_params: &models::RegionReadPathParams,
+    ) -> Result<RegionReadResponse, E>;
 }

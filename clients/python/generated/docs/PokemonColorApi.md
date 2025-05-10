@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **pokemon_color_list**
 > str pokemon_color_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **pokemon_color_read**
 > str pokemon_color_read(id)
-
-
 
 ### Example
 

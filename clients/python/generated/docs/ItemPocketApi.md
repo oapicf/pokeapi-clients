@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **item_pocket_list**
 > str item_pocket_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **item_pocket_read**
 > str item_pocket_read(id)
-
-
 
 ### Example
 

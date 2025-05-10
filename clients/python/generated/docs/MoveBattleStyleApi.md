@@ -11,8 +11,6 @@ Method | HTTP request | Description
 # **move_battle_style_list**
 > str move_battle_style_list(limit=limit, offset=offset)
 
-
-
 ### Example
 
 
@@ -76,8 +74,6 @@ No authorization required
 
 # **move_battle_style_read**
 > str move_battle_style_read(id)
-
-
 
 ### Example
 
