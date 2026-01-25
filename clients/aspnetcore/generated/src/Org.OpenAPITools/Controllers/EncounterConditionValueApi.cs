@@ -41,12 +41,12 @@ namespace Org.OpenAPITools.Controllers
         {
 
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(0, default(string));
+            // return StatusCode(0, default);
             string exampleJson = null;
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<string>(exampleJson)
-            : default(string);
+            : default;
             //TODO: Change the data returned
             return new ObjectResult(example);
         }
@@ -65,12 +65,12 @@ namespace Org.OpenAPITools.Controllers
         {
 
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(0, default(string));
+            // return StatusCode(0, default);
             string exampleJson = null;
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<string>(exampleJson)
-            : default(string);
+            : default;
             //TODO: Change the data returned
             return new ObjectResult(example);
         }

@@ -72,8 +72,8 @@ class EggGroupApiSimulation extends Simulation {
         .feed(egg-group_listQUERYFeeder)
         .exec(http("eggGroupList")
         .httpRequest("GET","/api/v2/egg-group/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scneggGroupList with warm up and reach a constant rate for entire duration

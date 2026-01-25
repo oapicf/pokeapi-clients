@@ -26,6 +26,8 @@ pub enum LocationReadResponse {
 }
 
 
+
+
 /// Location
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait Location<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     /// LocationList - GET /api/v2/location/
     async fn location_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait Location<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     /// LocationRead - GET /api/v2/location/{id}/
     async fn location_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

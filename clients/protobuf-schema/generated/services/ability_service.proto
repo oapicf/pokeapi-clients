@@ -30,15 +30,17 @@ message AbilityListRequest {
 }
 
 message AbilityListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message AbilityReadRequest {
   int32 id = 1;
 
 }
 
 message AbilityReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

@@ -26,6 +26,8 @@ pub enum ItemAttributeReadResponse {
 }
 
 
+
+
 /// ItemAttribute
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait ItemAttribute<E: std::fmt::Debug + Send + Sync + 'static = ()>: super:
     /// ItemAttributeList - GET /api/v2/item-attribute/
     async fn item_attribute_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait ItemAttribute<E: std::fmt::Debug + Send + Sync + 'static = ()>: super:
     /// ItemAttributeRead - GET /api/v2/item-attribute/{id}/
     async fn item_attribute_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

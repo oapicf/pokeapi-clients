@@ -52,17 +52,39 @@ func NewLocationAreaAPIController(s LocationAreaAPIServicer, opts ...LocationAre
 func (c *LocationAreaAPIController) Routes() Routes {
 	return Routes{
 		"LocationAreaList": Route{
+			"LocationAreaList",
 			strings.ToUpper("Get"),
 			"/api/v2/location-area/",
 			c.LocationAreaList,
 		},
 		"LocationAreaRead": Route{
+			"LocationAreaRead",
 			strings.ToUpper("Get"),
 			"/api/v2/location-area/{id}/",
 			c.LocationAreaRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the LocationAreaAPIController
+func (c *LocationAreaAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"LocationAreaList",
+			strings.ToUpper("Get"),
+			"/api/v2/location-area/",
+			c.LocationAreaList,
+		},
+		Route{
+			"LocationAreaRead",
+			strings.ToUpper("Get"),
+			"/api/v2/location-area/{id}/",
+			c.LocationAreaRead,
+		},
+	}
+}
+
+
 
 // LocationAreaList - 
 func (c *LocationAreaAPIController) LocationAreaList(w http.ResponseWriter, r *http.Request) {

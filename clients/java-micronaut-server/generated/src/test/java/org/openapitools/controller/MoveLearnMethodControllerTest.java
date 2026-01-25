@@ -78,7 +78,7 @@ public class MoveLearnMethodControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/move-learn-method/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@1f992a3a");
+            .accept("[Ljava.lang.String;@3c770db4");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class MoveLearnMethodControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@30bf26df");
+            .accept("[Ljava.lang.String;@3e046e39");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

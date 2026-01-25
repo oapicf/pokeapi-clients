@@ -85,7 +85,7 @@ public class ContestTypeApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call contestTypeListCall(Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call contestTypeListCall(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -138,7 +138,7 @@ public class ContestTypeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call contestTypeListValidateBeforeCall(Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call contestTypeListValidateBeforeCall(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
         return contestTypeListCall(limit, offset, _callback);
 
     }
@@ -157,7 +157,7 @@ public class ContestTypeApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public String contestTypeList(Integer limit, Integer offset) throws ApiException {
+    public String contestTypeList(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
         ApiResponse<String> localVarResp = contestTypeListWithHttpInfo(limit, offset);
         return localVarResp.getData();
     }
@@ -176,7 +176,7 @@ public class ContestTypeApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> contestTypeListWithHttpInfo(Integer limit, Integer offset) throws ApiException {
+    public ApiResponse<String> contestTypeListWithHttpInfo(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
         okhttp3.Call localVarCall = contestTypeListValidateBeforeCall(limit, offset, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -197,7 +197,7 @@ public class ContestTypeApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call contestTypeListAsync(Integer limit, Integer offset, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call contestTypeListAsync(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = contestTypeListValidateBeforeCall(limit, offset, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -217,7 +217,7 @@ public class ContestTypeApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call contestTypeReadCall(Integer id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call contestTypeReadCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -263,7 +263,7 @@ public class ContestTypeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call contestTypeReadValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call contestTypeReadValidateBeforeCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling contestTypeRead(Async)");
@@ -286,7 +286,7 @@ public class ContestTypeApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public String contestTypeRead(Integer id) throws ApiException {
+    public String contestTypeRead(@javax.annotation.Nonnull Integer id) throws ApiException {
         ApiResponse<String> localVarResp = contestTypeReadWithHttpInfo(id);
         return localVarResp.getData();
     }
@@ -304,7 +304,7 @@ public class ContestTypeApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> contestTypeReadWithHttpInfo(Integer id) throws ApiException {
+    public ApiResponse<String> contestTypeReadWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = contestTypeReadValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -324,7 +324,7 @@ public class ContestTypeApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call contestTypeReadAsync(Integer id, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call contestTypeReadAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = contestTypeReadValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();

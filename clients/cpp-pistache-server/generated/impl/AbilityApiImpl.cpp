@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 AbilityApiImpl::AbilityApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : AbilityApi(rtr)
 {
+    
 }
 
 void AbilityApiImpl::ability_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

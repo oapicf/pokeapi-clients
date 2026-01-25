@@ -13,60 +13,6 @@ All URIs are relative to *https://pokeapi.co*
 
 
 
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
-
-namespace Example
-{
-    public class MoveDamageClassListExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://pokeapi.co";
-            var apiInstance = new MoveDamageClassApi(config);
-            var limit = 56;  // int |  (optional) 
-            var offset = 56;  // int |  (optional) 
-
-            try
-            {
-                string result = apiInstance.MoveDamageClassList(limit, offset);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling MoveDamageClassApi.MoveDamageClassList: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the MoveDamageClassListWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    ApiResponse<string> response = apiInstance.MoveDamageClassListWithHttpInfo(limit, offset);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling MoveDamageClassApi.MoveDamageClassListWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
 
 ### Parameters
 
@@ -102,59 +48,6 @@ No authorization required
 
 
 
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
-
-namespace Example
-{
-    public class MoveDamageClassReadExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://pokeapi.co";
-            var apiInstance = new MoveDamageClassApi(config);
-            var id = 56;  // int | 
-
-            try
-            {
-                string result = apiInstance.MoveDamageClassRead(id);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling MoveDamageClassApi.MoveDamageClassRead: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the MoveDamageClassReadWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    ApiResponse<string> response = apiInstance.MoveDamageClassReadWithHttpInfo(id);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling MoveDamageClassApi.MoveDamageClassReadWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
 
 ### Parameters
 

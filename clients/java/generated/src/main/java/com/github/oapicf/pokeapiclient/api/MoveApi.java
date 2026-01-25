@@ -85,7 +85,7 @@ public class MoveApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call moveListCall(Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call moveListCall(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -138,7 +138,7 @@ public class MoveApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call moveListValidateBeforeCall(Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call moveListValidateBeforeCall(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
         return moveListCall(limit, offset, _callback);
 
     }
@@ -157,7 +157,7 @@ public class MoveApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public String moveList(Integer limit, Integer offset) throws ApiException {
+    public String moveList(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
         ApiResponse<String> localVarResp = moveListWithHttpInfo(limit, offset);
         return localVarResp.getData();
     }
@@ -176,7 +176,7 @@ public class MoveApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> moveListWithHttpInfo(Integer limit, Integer offset) throws ApiException {
+    public ApiResponse<String> moveListWithHttpInfo(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
         okhttp3.Call localVarCall = moveListValidateBeforeCall(limit, offset, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -197,7 +197,7 @@ public class MoveApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call moveListAsync(Integer limit, Integer offset, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call moveListAsync(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = moveListValidateBeforeCall(limit, offset, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -217,7 +217,7 @@ public class MoveApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call moveReadCall(Integer id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call moveReadCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -263,7 +263,7 @@ public class MoveApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call moveReadValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call moveReadValidateBeforeCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling moveRead(Async)");
@@ -286,7 +286,7 @@ public class MoveApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public String moveRead(Integer id) throws ApiException {
+    public String moveRead(@javax.annotation.Nonnull Integer id) throws ApiException {
         ApiResponse<String> localVarResp = moveReadWithHttpInfo(id);
         return localVarResp.getData();
     }
@@ -304,7 +304,7 @@ public class MoveApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> moveReadWithHttpInfo(Integer id) throws ApiException {
+    public ApiResponse<String> moveReadWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = moveReadValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -324,7 +324,7 @@ public class MoveApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call moveReadAsync(Integer id, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call moveReadAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = moveReadValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();

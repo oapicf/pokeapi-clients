@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  EncounterConditionApiImpl : public org::openapitools::server::api::EncounterConditionApi {
 public:
     explicit EncounterConditionApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

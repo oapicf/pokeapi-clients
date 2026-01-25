@@ -52,17 +52,39 @@ func NewContestEffectAPIController(s ContestEffectAPIServicer, opts ...ContestEf
 func (c *ContestEffectAPIController) Routes() Routes {
 	return Routes{
 		"ContestEffectList": Route{
+			"ContestEffectList",
 			strings.ToUpper("Get"),
 			"/api/v2/contest-effect/",
 			c.ContestEffectList,
 		},
 		"ContestEffectRead": Route{
+			"ContestEffectRead",
 			strings.ToUpper("Get"),
 			"/api/v2/contest-effect/{id}/",
 			c.ContestEffectRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the ContestEffectAPIController
+func (c *ContestEffectAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"ContestEffectList",
+			strings.ToUpper("Get"),
+			"/api/v2/contest-effect/",
+			c.ContestEffectList,
+		},
+		Route{
+			"ContestEffectRead",
+			strings.ToUpper("Get"),
+			"/api/v2/contest-effect/{id}/",
+			c.ContestEffectRead,
+		},
+	}
+}
+
+
 
 // ContestEffectList - 
 func (c *ContestEffectAPIController) ContestEffectList(w http.ResponseWriter, r *http.Request) {

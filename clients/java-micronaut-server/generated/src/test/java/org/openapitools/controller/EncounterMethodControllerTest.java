@@ -78,7 +78,7 @@ public class EncounterMethodControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/encounter-method/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@63f9b562");
+            .accept("[Ljava.lang.String;@2c829dbc");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class EncounterMethodControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@20ead579");
+            .accept("[Ljava.lang.String;@57efc6fd");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

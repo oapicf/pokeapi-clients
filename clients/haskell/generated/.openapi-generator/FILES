@@ -1,4 +1,5 @@
 .cabal
+.openapi-generator-ignore
 README.md
 Setup.hs
 lib/API.hs

@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 PokemonColorApiImpl::PokemonColorApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : PokemonColorApi(rtr)
 {
+    
 }
 
 void PokemonColorApiImpl::pokemon_color_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

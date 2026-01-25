@@ -85,7 +85,7 @@ public class LanguageApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call languageListCall(Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call languageListCall(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -138,7 +138,7 @@ public class LanguageApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call languageListValidateBeforeCall(Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call languageListValidateBeforeCall(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
         return languageListCall(limit, offset, _callback);
 
     }
@@ -157,7 +157,7 @@ public class LanguageApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public String languageList(Integer limit, Integer offset) throws ApiException {
+    public String languageList(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
         ApiResponse<String> localVarResp = languageListWithHttpInfo(limit, offset);
         return localVarResp.getData();
     }
@@ -176,7 +176,7 @@ public class LanguageApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> languageListWithHttpInfo(Integer limit, Integer offset) throws ApiException {
+    public ApiResponse<String> languageListWithHttpInfo(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
         okhttp3.Call localVarCall = languageListValidateBeforeCall(limit, offset, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -197,7 +197,7 @@ public class LanguageApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call languageListAsync(Integer limit, Integer offset, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call languageListAsync(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = languageListValidateBeforeCall(limit, offset, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -217,7 +217,7 @@ public class LanguageApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call languageReadCall(Integer id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call languageReadCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -263,7 +263,7 @@ public class LanguageApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call languageReadValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call languageReadValidateBeforeCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling languageRead(Async)");
@@ -286,7 +286,7 @@ public class LanguageApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public String languageRead(Integer id) throws ApiException {
+    public String languageRead(@javax.annotation.Nonnull Integer id) throws ApiException {
         ApiResponse<String> localVarResp = languageReadWithHttpInfo(id);
         return localVarResp.getData();
     }
@@ -304,7 +304,7 @@ public class LanguageApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> languageReadWithHttpInfo(Integer id) throws ApiException {
+    public ApiResponse<String> languageReadWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = languageReadValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -324,7 +324,7 @@ public class LanguageApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call languageReadAsync(Integer id, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call languageReadAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = languageReadValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();

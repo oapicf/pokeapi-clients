@@ -85,7 +85,7 @@ public class ItemCategoryApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call itemCategoryListCall(Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call itemCategoryListCall(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -138,7 +138,7 @@ public class ItemCategoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call itemCategoryListValidateBeforeCall(Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call itemCategoryListValidateBeforeCall(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback _callback) throws ApiException {
         return itemCategoryListCall(limit, offset, _callback);
 
     }
@@ -157,7 +157,7 @@ public class ItemCategoryApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public String itemCategoryList(Integer limit, Integer offset) throws ApiException {
+    public String itemCategoryList(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
         ApiResponse<String> localVarResp = itemCategoryListWithHttpInfo(limit, offset);
         return localVarResp.getData();
     }
@@ -176,7 +176,7 @@ public class ItemCategoryApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> itemCategoryListWithHttpInfo(Integer limit, Integer offset) throws ApiException {
+    public ApiResponse<String> itemCategoryListWithHttpInfo(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset) throws ApiException {
         okhttp3.Call localVarCall = itemCategoryListValidateBeforeCall(limit, offset, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -197,7 +197,7 @@ public class ItemCategoryApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call itemCategoryListAsync(Integer limit, Integer offset, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call itemCategoryListAsync(@javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = itemCategoryListValidateBeforeCall(limit, offset, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -217,7 +217,7 @@ public class ItemCategoryApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call itemCategoryReadCall(Integer id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call itemCategoryReadCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -263,7 +263,7 @@ public class ItemCategoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call itemCategoryReadValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call itemCategoryReadValidateBeforeCall(@javax.annotation.Nonnull Integer id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling itemCategoryRead(Async)");
@@ -286,7 +286,7 @@ public class ItemCategoryApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public String itemCategoryRead(Integer id) throws ApiException {
+    public String itemCategoryRead(@javax.annotation.Nonnull Integer id) throws ApiException {
         ApiResponse<String> localVarResp = itemCategoryReadWithHttpInfo(id);
         return localVarResp.getData();
     }
@@ -304,7 +304,7 @@ public class ItemCategoryApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> itemCategoryReadWithHttpInfo(Integer id) throws ApiException {
+    public ApiResponse<String> itemCategoryReadWithHttpInfo(@javax.annotation.Nonnull Integer id) throws ApiException {
         okhttp3.Call localVarCall = itemCategoryReadValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -324,7 +324,7 @@ public class ItemCategoryApi {
         <tr><td> 0 </td><td> Default response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call itemCategoryReadAsync(Integer id, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call itemCategoryReadAsync(@javax.annotation.Nonnull Integer id, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = itemCategoryReadValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();

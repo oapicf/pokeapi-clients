@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  LanguageApiImpl : public org::openapitools::server::api::LanguageApi {
 public:
     explicit LanguageApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

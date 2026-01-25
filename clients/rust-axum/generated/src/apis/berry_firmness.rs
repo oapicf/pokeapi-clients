@@ -26,6 +26,8 @@ pub enum BerryFirmnessReadResponse {
 }
 
 
+
+
 /// BerryFirmness
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait BerryFirmness<E: std::fmt::Debug + Send + Sync + 'static = ()>: super:
     /// BerryFirmnessList - GET /api/v2/berry-firmness/
     async fn berry_firmness_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait BerryFirmness<E: std::fmt::Debug + Send + Sync + 'static = ()>: super:
     /// BerryFirmnessRead - GET /api/v2/berry-firmness/{id}/
     async fn berry_firmness_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

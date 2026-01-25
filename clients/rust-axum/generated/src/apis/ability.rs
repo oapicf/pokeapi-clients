@@ -26,6 +26,8 @@ pub enum AbilityReadResponse {
 }
 
 
+
+
 /// Ability
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait Ability<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     /// AbilityList - GET /api/v2/ability/
     async fn ability_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait Ability<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     /// AbilityRead - GET /api/v2/ability/{id}/
     async fn ability_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

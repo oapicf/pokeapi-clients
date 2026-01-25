@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  EggGroupApiImpl : public org::openapitools::server::api::EggGroupApi {
 public:
     explicit EggGroupApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

@@ -41,7 +41,7 @@ class CharacteristicApi implements CharacteristicApiInterface
     /**
      * Implementation of CharacteristicApiInterface#characteristicList
      */
-    public function characteristicList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function characteristicList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class CharacteristicApi implements CharacteristicApiInterface
     /**
      * Implementation of CharacteristicApiInterface#characteristicRead
      */
-    public function characteristicRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function characteristicRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

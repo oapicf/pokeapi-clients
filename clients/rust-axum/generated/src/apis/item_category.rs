@@ -26,6 +26,8 @@ pub enum ItemCategoryReadResponse {
 }
 
 
+
+
 /// ItemCategory
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait ItemCategory<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::
     /// ItemCategoryList - GET /api/v2/item-category/
     async fn item_category_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait ItemCategory<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::
     /// ItemCategoryRead - GET /api/v2/item-category/{id}/
     async fn item_category_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

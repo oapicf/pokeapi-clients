@@ -78,7 +78,7 @@ public class GrowthRateControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/growth-rate/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@1378eea2");
+            .accept("[Ljava.lang.String;@180b3819");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class GrowthRateControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@634ff56");
+            .accept("[Ljava.lang.String;@733c464f");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

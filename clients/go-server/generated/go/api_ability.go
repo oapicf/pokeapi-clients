@@ -52,17 +52,39 @@ func NewAbilityAPIController(s AbilityAPIServicer, opts ...AbilityAPIOption) *Ab
 func (c *AbilityAPIController) Routes() Routes {
 	return Routes{
 		"AbilityList": Route{
+			"AbilityList",
 			strings.ToUpper("Get"),
 			"/api/v2/ability/",
 			c.AbilityList,
 		},
 		"AbilityRead": Route{
+			"AbilityRead",
 			strings.ToUpper("Get"),
 			"/api/v2/ability/{id}/",
 			c.AbilityRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the AbilityAPIController
+func (c *AbilityAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"AbilityList",
+			strings.ToUpper("Get"),
+			"/api/v2/ability/",
+			c.AbilityList,
+		},
+		Route{
+			"AbilityRead",
+			strings.ToUpper("Get"),
+			"/api/v2/ability/{id}/",
+			c.AbilityRead,
+		},
+	}
+}
+
+
 
 // AbilityList - 
 func (c *AbilityAPIController) AbilityList(w http.ResponseWriter, r *http.Request) {

@@ -26,6 +26,8 @@ pub enum StatReadResponse {
 }
 
 
+
+
 /// Stat
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait Stat<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHan
     /// StatList - GET /api/v2/stat/
     async fn stat_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait Stat<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHan
     /// StatRead - GET /api/v2/stat/{id}/
     async fn stat_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

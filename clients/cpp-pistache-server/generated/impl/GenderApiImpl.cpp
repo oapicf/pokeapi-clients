@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 GenderApiImpl::GenderApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : GenderApi(rtr)
 {
+    
 }
 
 void GenderApiImpl::gender_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

@@ -52,17 +52,39 @@ func NewItemPocketAPIController(s ItemPocketAPIServicer, opts ...ItemPocketAPIOp
 func (c *ItemPocketAPIController) Routes() Routes {
 	return Routes{
 		"ItemPocketList": Route{
+			"ItemPocketList",
 			strings.ToUpper("Get"),
 			"/api/v2/item-pocket/",
 			c.ItemPocketList,
 		},
 		"ItemPocketRead": Route{
+			"ItemPocketRead",
 			strings.ToUpper("Get"),
 			"/api/v2/item-pocket/{id}/",
 			c.ItemPocketRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the ItemPocketAPIController
+func (c *ItemPocketAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"ItemPocketList",
+			strings.ToUpper("Get"),
+			"/api/v2/item-pocket/",
+			c.ItemPocketList,
+		},
+		Route{
+			"ItemPocketRead",
+			strings.ToUpper("Get"),
+			"/api/v2/item-pocket/{id}/",
+			c.ItemPocketRead,
+		},
+	}
+}
+
+
 
 // ItemPocketList - 
 func (c *ItemPocketAPIController) ItemPocketList(w http.ResponseWriter, r *http.Request) {

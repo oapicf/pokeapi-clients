@@ -26,6 +26,8 @@ pub enum ItemFlingEffectReadResponse {
 }
 
 
+
+
 /// ItemFlingEffect
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait ItemFlingEffect<E: std::fmt::Debug + Send + Sync + 'static = ()>: supe
     /// ItemFlingEffectList - GET /api/v2/item-fling-effect/
     async fn item_fling_effect_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait ItemFlingEffect<E: std::fmt::Debug + Send + Sync + 'static = ()>: supe
     /// ItemFlingEffectRead - GET /api/v2/item-fling-effect/{id}/
     async fn item_fling_effect_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

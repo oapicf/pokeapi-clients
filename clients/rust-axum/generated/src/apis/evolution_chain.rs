@@ -26,6 +26,8 @@ pub enum EvolutionChainReadResponse {
 }
 
 
+
+
 /// EvolutionChain
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait EvolutionChain<E: std::fmt::Debug + Send + Sync + 'static = ()>: super
     /// EvolutionChainList - GET /api/v2/evolution-chain/
     async fn evolution_chain_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait EvolutionChain<E: std::fmt::Debug + Send + Sync + 'static = ()>: super
     /// EvolutionChainRead - GET /api/v2/evolution-chain/{id}/
     async fn evolution_chain_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

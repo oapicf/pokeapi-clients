@@ -78,7 +78,7 @@ public class LocationAreaControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/location-area/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@62b57479");
+            .accept("[Ljava.lang.String;@3c232051");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class LocationAreaControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@29a33620");
+            .accept("[Ljava.lang.String;@15d0d6c9");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

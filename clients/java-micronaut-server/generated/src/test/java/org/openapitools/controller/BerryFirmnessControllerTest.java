@@ -78,7 +78,7 @@ public class BerryFirmnessControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/berry-firmness/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@405b6d75");
+            .accept("[Ljava.lang.String;@57ddd45b");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class BerryFirmnessControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@682abca7");
+            .accept("[Ljava.lang.String;@2e7bf7b7");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

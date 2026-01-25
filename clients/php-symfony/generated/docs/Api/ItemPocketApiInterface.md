@@ -41,7 +41,7 @@ class ItemPocketApi implements ItemPocketApiInterface
     /**
      * Implementation of ItemPocketApiInterface#itemPocketList
      */
-    public function itemPocketList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function itemPocketList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class ItemPocketApi implements ItemPocketApiInterface
     /**
      * Implementation of ItemPocketApiInterface#itemPocketRead
      */
-    public function itemPocketRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function itemPocketRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

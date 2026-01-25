@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 EggGroupApiImpl::EggGroupApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : EggGroupApi(rtr)
 {
+    
 }
 
 void EggGroupApiImpl::egg_group_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

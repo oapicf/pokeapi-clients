@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 MoveLearnMethodApiImpl::MoveLearnMethodApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : MoveLearnMethodApi(rtr)
 {
+    
 }
 
 void MoveLearnMethodApiImpl::move_learn_method_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

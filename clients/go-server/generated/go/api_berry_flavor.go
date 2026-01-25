@@ -52,17 +52,39 @@ func NewBerryFlavorAPIController(s BerryFlavorAPIServicer, opts ...BerryFlavorAP
 func (c *BerryFlavorAPIController) Routes() Routes {
 	return Routes{
 		"BerryFlavorList": Route{
+			"BerryFlavorList",
 			strings.ToUpper("Get"),
 			"/api/v2/berry-flavor/",
 			c.BerryFlavorList,
 		},
 		"BerryFlavorRead": Route{
+			"BerryFlavorRead",
 			strings.ToUpper("Get"),
 			"/api/v2/berry-flavor/{id}/",
 			c.BerryFlavorRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the BerryFlavorAPIController
+func (c *BerryFlavorAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"BerryFlavorList",
+			strings.ToUpper("Get"),
+			"/api/v2/berry-flavor/",
+			c.BerryFlavorList,
+		},
+		Route{
+			"BerryFlavorRead",
+			strings.ToUpper("Get"),
+			"/api/v2/berry-flavor/{id}/",
+			c.BerryFlavorRead,
+		},
+	}
+}
+
+
 
 // BerryFlavorList - 
 func (c *BerryFlavorAPIController) BerryFlavorList(w http.ResponseWriter, r *http.Request) {

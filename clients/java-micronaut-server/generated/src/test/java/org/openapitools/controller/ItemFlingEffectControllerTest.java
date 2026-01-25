@@ -78,7 +78,7 @@ public class ItemFlingEffectControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/item-fling-effect/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@60f21960");
+            .accept("[Ljava.lang.String;@2ec99035");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class ItemFlingEffectControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@6a6c7f42");
+            .accept("[Ljava.lang.String;@60743cdb");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

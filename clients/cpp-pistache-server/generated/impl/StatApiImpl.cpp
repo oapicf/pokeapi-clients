@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 StatApiImpl::StatApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : StatApi(rtr)
 {
+    
 }
 
 void StatApiImpl::stat_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

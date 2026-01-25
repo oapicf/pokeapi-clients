@@ -78,7 +78,7 @@ public class LanguageControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/language/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@76ff68c5");
+            .accept("[Ljava.lang.String;@10850d17");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class LanguageControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@6418e39e");
+            .accept("[Ljava.lang.String;@51e754e1");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

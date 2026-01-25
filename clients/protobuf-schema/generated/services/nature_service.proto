@@ -30,15 +30,17 @@ message NatureListRequest {
 }
 
 message NatureListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message NatureReadRequest {
   int32 id = 1;
 
 }
 
 message NatureReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

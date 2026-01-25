@@ -26,6 +26,8 @@ pub enum EncounterConditionReadResponse {
 }
 
 
+
+
 /// EncounterCondition
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait EncounterCondition<E: std::fmt::Debug + Send + Sync + 'static = ()>: s
     /// EncounterConditionList - GET /api/v2/encounter-condition/
     async fn encounter_condition_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait EncounterCondition<E: std::fmt::Debug + Send + Sync + 'static = ()>: s
     /// EncounterConditionRead - GET /api/v2/encounter-condition/{id}/
     async fn encounter_condition_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

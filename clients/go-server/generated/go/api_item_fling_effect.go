@@ -52,17 +52,39 @@ func NewItemFlingEffectAPIController(s ItemFlingEffectAPIServicer, opts ...ItemF
 func (c *ItemFlingEffectAPIController) Routes() Routes {
 	return Routes{
 		"ItemFlingEffectList": Route{
+			"ItemFlingEffectList",
 			strings.ToUpper("Get"),
 			"/api/v2/item-fling-effect/",
 			c.ItemFlingEffectList,
 		},
 		"ItemFlingEffectRead": Route{
+			"ItemFlingEffectRead",
 			strings.ToUpper("Get"),
 			"/api/v2/item-fling-effect/{id}/",
 			c.ItemFlingEffectRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the ItemFlingEffectAPIController
+func (c *ItemFlingEffectAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"ItemFlingEffectList",
+			strings.ToUpper("Get"),
+			"/api/v2/item-fling-effect/",
+			c.ItemFlingEffectList,
+		},
+		Route{
+			"ItemFlingEffectRead",
+			strings.ToUpper("Get"),
+			"/api/v2/item-fling-effect/{id}/",
+			c.ItemFlingEffectRead,
+		},
+	}
+}
+
+
 
 // ItemFlingEffectList - 
 func (c *ItemFlingEffectAPIController) ItemFlingEffectList(w http.ResponseWriter, r *http.Request) {

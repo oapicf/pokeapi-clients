@@ -26,6 +26,8 @@ pub enum PokemonFormReadResponse {
 }
 
 
+
+
 /// PokemonForm
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait PokemonForm<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::E
     /// PokemonFormList - GET /api/v2/pokemon-form/
     async fn pokemon_form_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait PokemonForm<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::E
     /// PokemonFormRead - GET /api/v2/pokemon-form/{id}/
     async fn pokemon_form_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

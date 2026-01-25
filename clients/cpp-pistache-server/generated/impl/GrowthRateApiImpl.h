@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  GrowthRateApiImpl : public org::openapitools::server::api::GrowthRateApi {
 public:
     explicit GrowthRateApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

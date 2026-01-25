@@ -26,6 +26,8 @@ pub enum GenderReadResponse {
 }
 
 
+
+
 /// Gender
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait Gender<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorH
     /// GenderList - GET /api/v2/gender/
     async fn gender_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait Gender<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorH
     /// GenderRead - GET /api/v2/gender/{id}/
     async fn gender_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

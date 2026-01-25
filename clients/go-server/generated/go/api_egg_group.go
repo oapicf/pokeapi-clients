@@ -52,17 +52,39 @@ func NewEggGroupAPIController(s EggGroupAPIServicer, opts ...EggGroupAPIOption) 
 func (c *EggGroupAPIController) Routes() Routes {
 	return Routes{
 		"EggGroupList": Route{
+			"EggGroupList",
 			strings.ToUpper("Get"),
 			"/api/v2/egg-group/",
 			c.EggGroupList,
 		},
 		"EggGroupRead": Route{
+			"EggGroupRead",
 			strings.ToUpper("Get"),
 			"/api/v2/egg-group/{id}/",
 			c.EggGroupRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the EggGroupAPIController
+func (c *EggGroupAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"EggGroupList",
+			strings.ToUpper("Get"),
+			"/api/v2/egg-group/",
+			c.EggGroupList,
+		},
+		Route{
+			"EggGroupRead",
+			strings.ToUpper("Get"),
+			"/api/v2/egg-group/{id}/",
+			c.EggGroupRead,
+		},
+	}
+}
+
+
 
 // EggGroupList - 
 func (c *EggGroupAPIController) EggGroupList(w http.ResponseWriter, r *http.Request) {

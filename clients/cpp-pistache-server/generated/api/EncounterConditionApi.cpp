@@ -18,13 +18,11 @@ namespace org::openapitools::server::api
 
 using namespace org::openapitools::server::helpers;
 
-
 const std::string EncounterConditionApi::base = "";
 
 EncounterConditionApi::EncounterConditionApi(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : ApiBase(rtr)
-{
-}
+{}
 
 void EncounterConditionApi::init() {
     setupRoutes();
@@ -40,14 +38,12 @@ void EncounterConditionApi::setupRoutes() {
     router->addCustomHandler(Routes::bind(&EncounterConditionApi::encounter_condition_api_default_handler, this));
 }
 
-void EncounterConditionApi::handleParsingException(const std::exception& ex, Pistache::Http::ResponseWriter &response) const noexcept
-{
+void EncounterConditionApi::handleParsingException(const std::exception& ex, Pistache::Http::ResponseWriter &response) const noexcept {
     std::pair<Pistache::Http::Code, std::string> codeAndError = handleParsingException(ex);
     response.send(codeAndError.first, codeAndError.second);
 }
 
-std::pair<Pistache::Http::Code, std::string> EncounterConditionApi::handleParsingException(const std::exception& ex) const noexcept
-{
+std::pair<Pistache::Http::Code, std::string> EncounterConditionApi::handleParsingException(const std::exception& ex) const noexcept {
     try {
         throw;
     } catch (nlohmann::detail::exception &e) {
@@ -59,75 +55,94 @@ std::pair<Pistache::Http::Code, std::string> EncounterConditionApi::handleParsin
     }
 }
 
-void EncounterConditionApi::handleOperationException(const std::exception& ex, Pistache::Http::ResponseWriter &response) const noexcept
-{
+void EncounterConditionApi::handleOperationException(const std::exception& ex, Pistache::Http::ResponseWriter &response) const noexcept {
     std::pair<Pistache::Http::Code, std::string> codeAndError = handleOperationException(ex);
     response.send(codeAndError.first, codeAndError.second);
 }
 
-std::pair<Pistache::Http::Code, std::string> EncounterConditionApi::handleOperationException(const std::exception& ex) const noexcept
-{
+std::pair<Pistache::Http::Code, std::string> EncounterConditionApi::handleOperationException(const std::exception& ex) const noexcept {
     return std::make_pair(Pistache::Http::Code::Internal_Server_Error, ex.what());
 }
 
-void EncounterConditionApi::encounter_condition_list_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response) {
+void EncounterConditionApi::encounter_condition_list_handler(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response) {
     try {
 
-
-    // Getting the query params
-    auto limitQuery = request.query().get("limit");
-    std::optional<int32_t> limit;
-    if(limitQuery.has_value()){
-        int32_t valueQuery_instance;
-        if(fromStringValue(limitQuery.value(), valueQuery_instance)){
-            limit = valueQuery_instance;
+        
+        
+        // Getting the query params
+        auto limitQuery = request.query().get("limit");
+        std::optional<int32_t> limit;
+        if (limitQuery.has_value()) {
+            int32_t valueQuery_instance;
+            if (fromStringValue(limitQuery.value(), valueQuery_instance)) {
+                limit = valueQuery_instance;
+            }
         }
-    }
-    auto offsetQuery = request.query().get("offset");
-    std::optional<int32_t> offset;
-    if(offsetQuery.has_value()){
-        int32_t valueQuery_instance;
-        if(fromStringValue(offsetQuery.value(), valueQuery_instance)){
-            offset = valueQuery_instance;
+        auto offsetQuery = request.query().get("offset");
+        std::optional<int32_t> offset;
+        if (offsetQuery.has_value()) {
+            int32_t valueQuery_instance;
+            if (fromStringValue(offsetQuery.value(), valueQuery_instance)) {
+                offset = valueQuery_instance;
+            }
         }
-    }
     
-    try {
-        this->encounter_condition_list(limit, offset, response);
-    } catch (Pistache::Http::HttpError &e) {
-        response.send(static_cast<Pistache::Http::Code>(e.code()), e.what());
-        return;
-    } catch (std::exception &e) {
-        this->handleOperationException(e, response);
-        return;
-    }
+
+
+        try {
+
+
+
+
+
+            this->encounter_condition_list(limit, offset, response);
+            } catch (Pistache::Http::HttpError &e) {
+                response.send(static_cast<Pistache::Http::Code>(e.code()), e.what());
+                return;
+            } catch (std::exception &e) {
+                this->handleOperationException(e, response);
+                return;
+            }
 
     } catch (std::exception &e) {
         response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
     }
 
+
 }
-void EncounterConditionApi::encounter_condition_read_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response) {
+
+void EncounterConditionApi::encounter_condition_read_handler(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response) {
     try {
 
-    // Getting the path params
-    auto id = request.param(":id").as<int32_t>();
+        // Getting the path params
+        auto id = request.param(":id").as<int32_t>();
+        
+        
     
-    try {
-        this->encounter_condition_read(id, response);
-    } catch (Pistache::Http::HttpError &e) {
-        response.send(static_cast<Pistache::Http::Code>(e.code()), e.what());
-        return;
-    } catch (std::exception &e) {
-        this->handleOperationException(e, response);
-        return;
-    }
+
+
+        try {
+
+
+
+
+
+            this->encounter_condition_read(id, response);
+            } catch (Pistache::Http::HttpError &e) {
+                response.send(static_cast<Pistache::Http::Code>(e.code()), e.what());
+                return;
+            } catch (std::exception &e) {
+                this->handleOperationException(e, response);
+                return;
+            }
 
     } catch (std::exception &e) {
         response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
     }
 
+
 }
+
 
 void EncounterConditionApi::encounter_condition_api_default_handler(const Pistache::Rest::Request &, Pistache::Http::ResponseWriter response) {
     response.send(Pistache::Http::Code::Not_Found, "The requested method does not exist");

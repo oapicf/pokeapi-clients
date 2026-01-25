@@ -72,8 +72,8 @@ class PokedexApiSimulation extends Simulation {
         .feed(pokedex_listQUERYFeeder)
         .exec(http("pokedexList")
         .httpRequest("GET","/api/v2/pokedex/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnpokedexList with warm up and reach a constant rate for entire duration

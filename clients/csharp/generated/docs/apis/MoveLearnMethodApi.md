@@ -13,60 +13,6 @@ All URIs are relative to *https://pokeapi.co*
 
 
 
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
-
-namespace Example
-{
-    public class MoveLearnMethodListExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://pokeapi.co";
-            var apiInstance = new MoveLearnMethodApi(config);
-            var limit = 56;  // int |  (optional) 
-            var offset = 56;  // int |  (optional) 
-
-            try
-            {
-                string result = apiInstance.MoveLearnMethodList(limit, offset);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling MoveLearnMethodApi.MoveLearnMethodList: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the MoveLearnMethodListWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    ApiResponse<string> response = apiInstance.MoveLearnMethodListWithHttpInfo(limit, offset);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling MoveLearnMethodApi.MoveLearnMethodListWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
 
 ### Parameters
 
@@ -102,59 +48,6 @@ No authorization required
 
 
 
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
-
-namespace Example
-{
-    public class MoveLearnMethodReadExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://pokeapi.co";
-            var apiInstance = new MoveLearnMethodApi(config);
-            var id = 56;  // int | 
-
-            try
-            {
-                string result = apiInstance.MoveLearnMethodRead(id);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling MoveLearnMethodApi.MoveLearnMethodRead: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the MoveLearnMethodReadWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    ApiResponse<string> response = apiInstance.MoveLearnMethodReadWithHttpInfo(id);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling MoveLearnMethodApi.MoveLearnMethodReadWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
 
 ### Parameters
 

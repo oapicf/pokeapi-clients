@@ -78,7 +78,7 @@ public class ItemAttributeControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/item-attribute/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@4978777f");
+            .accept("[Ljava.lang.String;@4cc65c2");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class ItemAttributeControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@7bc6935c");
+            .accept("[Ljava.lang.String;@574059d5");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

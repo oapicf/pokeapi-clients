@@ -41,7 +41,7 @@ class MachineApi implements MachineApiInterface
     /**
      * Implementation of MachineApiInterface#machineList
      */
-    public function machineList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function machineList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class MachineApi implements MachineApiInterface
     /**
      * Implementation of MachineApiInterface#machineRead
      */
-    public function machineRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function machineRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

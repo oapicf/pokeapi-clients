@@ -41,7 +41,7 @@ class MoveLearnMethodApi implements MoveLearnMethodApiInterface
     /**
      * Implementation of MoveLearnMethodApiInterface#moveLearnMethodList
      */
-    public function moveLearnMethodList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function moveLearnMethodList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class MoveLearnMethodApi implements MoveLearnMethodApiInterface
     /**
      * Implementation of MoveLearnMethodApiInterface#moveLearnMethodRead
      */
-    public function moveLearnMethodRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function moveLearnMethodRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

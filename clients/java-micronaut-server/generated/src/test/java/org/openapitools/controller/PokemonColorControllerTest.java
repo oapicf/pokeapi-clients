@@ -78,7 +78,7 @@ public class PokemonColorControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/pokemon-color/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@40ce9049");
+            .accept("[Ljava.lang.String;@7fdd43cd");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class PokemonColorControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@52ca2652");
+            .accept("[Ljava.lang.String;@3a38f122");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

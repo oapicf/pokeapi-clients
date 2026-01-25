@@ -26,6 +26,8 @@ pub enum PokemonHabitatReadResponse {
 }
 
 
+
+
 /// PokemonHabitat
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait PokemonHabitat<E: std::fmt::Debug + Send + Sync + 'static = ()>: super
     /// PokemonHabitatList - GET /api/v2/pokemon-habitat/
     async fn pokemon_habitat_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait PokemonHabitat<E: std::fmt::Debug + Send + Sync + 'static = ()>: super
     /// PokemonHabitatRead - GET /api/v2/pokemon-habitat/{id}/
     async fn pokemon_habitat_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

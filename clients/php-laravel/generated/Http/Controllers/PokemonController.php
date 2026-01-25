@@ -74,12 +74,8 @@ class PokemonController extends Controller
 
         $offset = $request->integer('offset');
 
-        try {
-            $apiResult = $this->api->pokemonList($limit, $offset);
-        } catch (\Exception $exception) {
-            // This shouldn't happen
-            return response()->json(['error' => $exception->getMessage()], 500);
-        }
+
+        $apiResult = $this->api->pokemonList($limit, $offset);
 
         if ($apiResult instanceof string) {
             return response()->json($this->serde->serialize($apiResult, format: 'array'), 0);
@@ -117,12 +113,8 @@ class PokemonController extends Controller
         }
 
 
-        try {
-            $apiResult = $this->api->pokemonRead($id);
-        } catch (\Exception $exception) {
-            // This shouldn't happen
-            return response()->json(['error' => $exception->getMessage()], 500);
-        }
+
+        $apiResult = $this->api->pokemonRead($id);
 
         if ($apiResult instanceof string) {
             return response()->json($this->serde->serialize($apiResult, format: 'array'), 0);

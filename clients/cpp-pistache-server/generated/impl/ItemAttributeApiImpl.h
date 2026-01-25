@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  ItemAttributeApiImpl : public org::openapitools::server::api::ItemAttributeApi {
 public:
     explicit ItemAttributeApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

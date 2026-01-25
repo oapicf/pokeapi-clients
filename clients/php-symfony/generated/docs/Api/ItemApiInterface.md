@@ -41,7 +41,7 @@ class ItemApi implements ItemApiInterface
     /**
      * Implementation of ItemApiInterface#itemList
      */
-    public function itemList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function itemList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class ItemApi implements ItemApiInterface
     /**
      * Implementation of ItemApiInterface#itemRead
      */
-    public function itemRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function itemRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

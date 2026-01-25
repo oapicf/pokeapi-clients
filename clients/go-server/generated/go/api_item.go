@@ -52,17 +52,39 @@ func NewItemAPIController(s ItemAPIServicer, opts ...ItemAPIOption) *ItemAPICont
 func (c *ItemAPIController) Routes() Routes {
 	return Routes{
 		"ItemList": Route{
+			"ItemList",
 			strings.ToUpper("Get"),
 			"/api/v2/item/",
 			c.ItemList,
 		},
 		"ItemRead": Route{
+			"ItemRead",
 			strings.ToUpper("Get"),
 			"/api/v2/item/{id}/",
 			c.ItemRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the ItemAPIController
+func (c *ItemAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"ItemList",
+			strings.ToUpper("Get"),
+			"/api/v2/item/",
+			c.ItemList,
+		},
+		Route{
+			"ItemRead",
+			strings.ToUpper("Get"),
+			"/api/v2/item/{id}/",
+			c.ItemRead,
+		},
+	}
+}
+
+
 
 // ItemList - 
 func (c *ItemAPIController) ItemList(w http.ResponseWriter, r *http.Request) {

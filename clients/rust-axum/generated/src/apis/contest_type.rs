@@ -26,6 +26,8 @@ pub enum ContestTypeReadResponse {
 }
 
 
+
+
 /// ContestType
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait ContestType<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::E
     /// ContestTypeList - GET /api/v2/contest-type/
     async fn contest_type_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait ContestType<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::E
     /// ContestTypeRead - GET /api/v2/contest-type/{id}/
     async fn contest_type_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

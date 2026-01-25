@@ -26,6 +26,8 @@ pub enum RegionReadResponse {
 }
 
 
+
+
 /// Region
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait Region<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorH
     /// RegionList - GET /api/v2/region/
     async fn region_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait Region<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorH
     /// RegionRead - GET /api/v2/region/{id}/
     async fn region_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

@@ -30,15 +30,17 @@ message SuperContestEffectListRequest {
 }
 
 message SuperContestEffectListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message SuperContestEffectReadRequest {
   int32 id = 1;
 
 }
 
 message SuperContestEffectReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

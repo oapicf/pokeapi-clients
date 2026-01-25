@@ -41,7 +41,7 @@ class MoveBattleStyleApi implements MoveBattleStyleApiInterface
     /**
      * Implementation of MoveBattleStyleApiInterface#moveBattleStyleList
      */
-    public function moveBattleStyleList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function moveBattleStyleList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class MoveBattleStyleApi implements MoveBattleStyleApiInterface
     /**
      * Implementation of MoveBattleStyleApiInterface#moveBattleStyleRead
      */
-    public function moveBattleStyleRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function moveBattleStyleRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

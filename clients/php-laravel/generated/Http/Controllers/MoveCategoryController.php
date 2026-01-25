@@ -74,12 +74,8 @@ class MoveCategoryController extends Controller
 
         $offset = $request->integer('offset');
 
-        try {
-            $apiResult = $this->api->moveCategoryList($limit, $offset);
-        } catch (\Exception $exception) {
-            // This shouldn't happen
-            return response()->json(['error' => $exception->getMessage()], 500);
-        }
+
+        $apiResult = $this->api->moveCategoryList($limit, $offset);
 
         if ($apiResult instanceof string) {
             return response()->json($this->serde->serialize($apiResult, format: 'array'), 0);
@@ -117,12 +113,8 @@ class MoveCategoryController extends Controller
         }
 
 
-        try {
-            $apiResult = $this->api->moveCategoryRead($id);
-        } catch (\Exception $exception) {
-            // This shouldn't happen
-            return response()->json(['error' => $exception->getMessage()], 500);
-        }
+
+        $apiResult = $this->api->moveCategoryRead($id);
 
         if ($apiResult instanceof string) {
             return response()->json($this->serde->serialize($apiResult, format: 'array'), 0);

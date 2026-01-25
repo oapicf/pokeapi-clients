@@ -41,7 +41,7 @@ class PokemonShapeApi implements PokemonShapeApiInterface
     /**
      * Implementation of PokemonShapeApiInterface#pokemonShapeList
      */
-    public function pokemonShapeList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function pokemonShapeList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class PokemonShapeApi implements PokemonShapeApiInterface
     /**
      * Implementation of PokemonShapeApiInterface#pokemonShapeRead
      */
-    public function pokemonShapeRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function pokemonShapeRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

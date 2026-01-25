@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 MoveTargetApiImpl::MoveTargetApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : MoveTargetApi(rtr)
 {
+    
 }
 
 void MoveTargetApiImpl::move_target_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

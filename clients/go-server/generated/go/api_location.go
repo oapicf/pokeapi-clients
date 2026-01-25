@@ -52,17 +52,39 @@ func NewLocationAPIController(s LocationAPIServicer, opts ...LocationAPIOption) 
 func (c *LocationAPIController) Routes() Routes {
 	return Routes{
 		"LocationList": Route{
+			"LocationList",
 			strings.ToUpper("Get"),
 			"/api/v2/location/",
 			c.LocationList,
 		},
 		"LocationRead": Route{
+			"LocationRead",
 			strings.ToUpper("Get"),
 			"/api/v2/location/{id}/",
 			c.LocationRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the LocationAPIController
+func (c *LocationAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"LocationList",
+			strings.ToUpper("Get"),
+			"/api/v2/location/",
+			c.LocationList,
+		},
+		Route{
+			"LocationRead",
+			strings.ToUpper("Get"),
+			"/api/v2/location/{id}/",
+			c.LocationRead,
+		},
+	}
+}
+
+
 
 // LocationList - 
 func (c *LocationAPIController) LocationList(w http.ResponseWriter, r *http.Request) {

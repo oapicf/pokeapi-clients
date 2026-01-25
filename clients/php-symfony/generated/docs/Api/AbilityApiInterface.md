@@ -41,7 +41,7 @@ class AbilityApi implements AbilityApiInterface
     /**
      * Implementation of AbilityApiInterface#abilityList
      */
-    public function abilityList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function abilityList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class AbilityApi implements AbilityApiInterface
     /**
      * Implementation of AbilityApiInterface#abilityRead
      */
-    public function abilityRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function abilityRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

@@ -50,14 +50,14 @@ interface StatApiInterface
      * @param  int     &$responseCode    The HTTP Response Code
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return array|object|null
+     * @return string
      */
     public function statList(
         ?int $limit,
         ?int $offset,
         int &$responseCode,
         array &$responseHeaders
-    ): array|object|null;
+    ): string;
 
     /**
      * Operation statRead
@@ -66,11 +66,11 @@ interface StatApiInterface
      * @param  int     &$responseCode    The HTTP Response Code
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return array|object|null
+     * @return string
      */
     public function statRead(
         int $id,
         int &$responseCode,
         array &$responseHeaders
-    ): array|object|null;
+    ): string;
 }

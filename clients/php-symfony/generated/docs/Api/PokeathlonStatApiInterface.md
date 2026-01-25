@@ -41,7 +41,7 @@ class PokeathlonStatApi implements PokeathlonStatApiInterface
     /**
      * Implementation of PokeathlonStatApiInterface#pokeathlonStatList
      */
-    public function pokeathlonStatList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function pokeathlonStatList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class PokeathlonStatApi implements PokeathlonStatApiInterface
     /**
      * Implementation of PokeathlonStatApiInterface#pokeathlonStatRead
      */
-    public function pokeathlonStatRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function pokeathlonStatRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

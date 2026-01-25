@@ -52,17 +52,39 @@ func NewGenderAPIController(s GenderAPIServicer, opts ...GenderAPIOption) *Gende
 func (c *GenderAPIController) Routes() Routes {
 	return Routes{
 		"GenderList": Route{
+			"GenderList",
 			strings.ToUpper("Get"),
 			"/api/v2/gender/",
 			c.GenderList,
 		},
 		"GenderRead": Route{
+			"GenderRead",
 			strings.ToUpper("Get"),
 			"/api/v2/gender/{id}/",
 			c.GenderRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the GenderAPIController
+func (c *GenderAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"GenderList",
+			strings.ToUpper("Get"),
+			"/api/v2/gender/",
+			c.GenderList,
+		},
+		Route{
+			"GenderRead",
+			strings.ToUpper("Get"),
+			"/api/v2/gender/{id}/",
+			c.GenderRead,
+		},
+	}
+}
+
+
 
 // GenderList - 
 func (c *GenderAPIController) GenderList(w http.ResponseWriter, r *http.Request) {

@@ -41,7 +41,7 @@ class EncounterMethodApi implements EncounterMethodApiInterface
     /**
      * Implementation of EncounterMethodApiInterface#encounterMethodList
      */
-    public function encounterMethodList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function encounterMethodList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class EncounterMethodApi implements EncounterMethodApiInterface
     /**
      * Implementation of EncounterMethodApiInterface#encounterMethodRead
      */
-    public function encounterMethodRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function encounterMethodRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

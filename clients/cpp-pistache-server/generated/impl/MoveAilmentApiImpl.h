@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  MoveAilmentApiImpl : public org::openapitools::server::api::MoveAilmentApi {
 public:
     explicit MoveAilmentApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

@@ -26,6 +26,8 @@ pub enum GrowthRateReadResponse {
 }
 
 
+
+
 /// GrowthRate
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait GrowthRate<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Er
     /// GrowthRateList - GET /api/v2/growth-rate/
     async fn growth_rate_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait GrowthRate<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Er
     /// GrowthRateRead - GET /api/v2/growth-rate/{id}/
     async fn growth_rate_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

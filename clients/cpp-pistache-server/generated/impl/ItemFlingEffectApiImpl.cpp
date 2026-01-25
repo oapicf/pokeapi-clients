@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 ItemFlingEffectApiImpl::ItemFlingEffectApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : ItemFlingEffectApi(rtr)
 {
+    
 }
 
 void ItemFlingEffectApiImpl::item_fling_effect_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

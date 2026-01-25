@@ -52,17 +52,39 @@ func NewMoveBattleStyleAPIController(s MoveBattleStyleAPIServicer, opts ...MoveB
 func (c *MoveBattleStyleAPIController) Routes() Routes {
 	return Routes{
 		"MoveBattleStyleList": Route{
+			"MoveBattleStyleList",
 			strings.ToUpper("Get"),
 			"/api/v2/move-battle-style/",
 			c.MoveBattleStyleList,
 		},
 		"MoveBattleStyleRead": Route{
+			"MoveBattleStyleRead",
 			strings.ToUpper("Get"),
 			"/api/v2/move-battle-style/{id}/",
 			c.MoveBattleStyleRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the MoveBattleStyleAPIController
+func (c *MoveBattleStyleAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"MoveBattleStyleList",
+			strings.ToUpper("Get"),
+			"/api/v2/move-battle-style/",
+			c.MoveBattleStyleList,
+		},
+		Route{
+			"MoveBattleStyleRead",
+			strings.ToUpper("Get"),
+			"/api/v2/move-battle-style/{id}/",
+			c.MoveBattleStyleRead,
+		},
+	}
+}
+
+
 
 // MoveBattleStyleList - 
 func (c *MoveBattleStyleAPIController) MoveBattleStyleList(w http.ResponseWriter, r *http.Request) {

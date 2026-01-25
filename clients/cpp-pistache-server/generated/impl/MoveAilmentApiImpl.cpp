@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 MoveAilmentApiImpl::MoveAilmentApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : MoveAilmentApi(rtr)
 {
+    
 }
 
 void MoveAilmentApiImpl::move_ailment_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

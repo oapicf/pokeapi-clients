@@ -52,17 +52,39 @@ func NewEncounterConditionValueAPIController(s EncounterConditionValueAPIService
 func (c *EncounterConditionValueAPIController) Routes() Routes {
 	return Routes{
 		"EncounterConditionValueList": Route{
+			"EncounterConditionValueList",
 			strings.ToUpper("Get"),
 			"/api/v2/encounter-condition-value/",
 			c.EncounterConditionValueList,
 		},
 		"EncounterConditionValueRead": Route{
+			"EncounterConditionValueRead",
 			strings.ToUpper("Get"),
 			"/api/v2/encounter-condition-value/{id}/",
 			c.EncounterConditionValueRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the EncounterConditionValueAPIController
+func (c *EncounterConditionValueAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"EncounterConditionValueList",
+			strings.ToUpper("Get"),
+			"/api/v2/encounter-condition-value/",
+			c.EncounterConditionValueList,
+		},
+		Route{
+			"EncounterConditionValueRead",
+			strings.ToUpper("Get"),
+			"/api/v2/encounter-condition-value/{id}/",
+			c.EncounterConditionValueRead,
+		},
+	}
+}
+
+
 
 // EncounterConditionValueList - 
 func (c *EncounterConditionValueAPIController) EncounterConditionValueList(w http.ResponseWriter, r *http.Request) {

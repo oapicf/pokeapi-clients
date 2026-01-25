@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  CharacteristicApiImpl : public org::openapitools::server::api::CharacteristicApi {
 public:
     explicit CharacteristicApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

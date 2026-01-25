@@ -52,17 +52,39 @@ func NewMoveAilmentAPIController(s MoveAilmentAPIServicer, opts ...MoveAilmentAP
 func (c *MoveAilmentAPIController) Routes() Routes {
 	return Routes{
 		"MoveAilmentList": Route{
+			"MoveAilmentList",
 			strings.ToUpper("Get"),
 			"/api/v2/move-ailment/",
 			c.MoveAilmentList,
 		},
 		"MoveAilmentRead": Route{
+			"MoveAilmentRead",
 			strings.ToUpper("Get"),
 			"/api/v2/move-ailment/{id}/",
 			c.MoveAilmentRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the MoveAilmentAPIController
+func (c *MoveAilmentAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"MoveAilmentList",
+			strings.ToUpper("Get"),
+			"/api/v2/move-ailment/",
+			c.MoveAilmentList,
+		},
+		Route{
+			"MoveAilmentRead",
+			strings.ToUpper("Get"),
+			"/api/v2/move-ailment/{id}/",
+			c.MoveAilmentRead,
+		},
+	}
+}
+
+
 
 // MoveAilmentList - 
 func (c *MoveAilmentAPIController) MoveAilmentList(w http.ResponseWriter, r *http.Request) {

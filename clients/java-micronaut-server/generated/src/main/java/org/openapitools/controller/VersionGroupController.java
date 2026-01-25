@@ -36,7 +36,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2025-05-10T05:53:34.161416389Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-01-25T00:36:12.352010752Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Controller
 @Tag(name = "VersionGroup", description = "The VersionGroup API")
 public class VersionGroupController {

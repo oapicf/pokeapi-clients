@@ -50,14 +50,14 @@ interface LocationAreaApiInterface
      * @param  int     &$responseCode    The HTTP Response Code
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return array|object|null
+     * @return string
      */
     public function locationAreaList(
         ?int $limit,
         ?int $offset,
         int &$responseCode,
         array &$responseHeaders
-    ): array|object|null;
+    ): string;
 
     /**
      * Operation locationAreaRead
@@ -66,11 +66,11 @@ interface LocationAreaApiInterface
      * @param  int     &$responseCode    The HTTP Response Code
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return array|object|null
+     * @return string
      */
     public function locationAreaRead(
         int $id,
         int &$responseCode,
         array &$responseHeaders
-    ): array|object|null;
+    ): string;
 }

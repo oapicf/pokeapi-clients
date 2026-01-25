@@ -41,7 +41,7 @@ class RegionApi implements RegionApiInterface
     /**
      * Implementation of RegionApiInterface#regionList
      */
-    public function regionList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function regionList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class RegionApi implements RegionApiInterface
     /**
      * Implementation of RegionApiInterface#regionRead
      */
-    public function regionRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function regionRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

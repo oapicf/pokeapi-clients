@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  ItemCategoryApiImpl : public org::openapitools::server::api::ItemCategoryApi {
 public:
     explicit ItemCategoryApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

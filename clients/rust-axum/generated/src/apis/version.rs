@@ -26,6 +26,8 @@ pub enum VersionReadResponse {
 }
 
 
+
+
 /// Version
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait Version<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     /// VersionList - GET /api/v2/version/
     async fn version_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait Version<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     /// VersionRead - GET /api/v2/version/{id}/
     async fn version_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

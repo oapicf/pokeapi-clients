@@ -41,7 +41,7 @@ class LocationAreaApi implements LocationAreaApiInterface
     /**
      * Implementation of LocationAreaApiInterface#locationAreaList
      */
-    public function locationAreaList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function locationAreaList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class LocationAreaApi implements LocationAreaApiInterface
     /**
      * Implementation of LocationAreaApiInterface#locationAreaRead
      */
-    public function locationAreaRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function locationAreaRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

@@ -41,7 +41,7 @@ class ContestEffectApi implements ContestEffectApiInterface
     /**
      * Implementation of ContestEffectApiInterface#contestEffectList
      */
-    public function contestEffectList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function contestEffectList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class ContestEffectApi implements ContestEffectApiInterface
     /**
      * Implementation of ContestEffectApiInterface#contestEffectRead
      */
-    public function contestEffectRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function contestEffectRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

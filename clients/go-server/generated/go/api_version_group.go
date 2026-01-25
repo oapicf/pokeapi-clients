@@ -52,17 +52,39 @@ func NewVersionGroupAPIController(s VersionGroupAPIServicer, opts ...VersionGrou
 func (c *VersionGroupAPIController) Routes() Routes {
 	return Routes{
 		"VersionGroupList": Route{
+			"VersionGroupList",
 			strings.ToUpper("Get"),
 			"/api/v2/version-group/",
 			c.VersionGroupList,
 		},
 		"VersionGroupRead": Route{
+			"VersionGroupRead",
 			strings.ToUpper("Get"),
 			"/api/v2/version-group/{id}/",
 			c.VersionGroupRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the VersionGroupAPIController
+func (c *VersionGroupAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"VersionGroupList",
+			strings.ToUpper("Get"),
+			"/api/v2/version-group/",
+			c.VersionGroupList,
+		},
+		Route{
+			"VersionGroupRead",
+			strings.ToUpper("Get"),
+			"/api/v2/version-group/{id}/",
+			c.VersionGroupRead,
+		},
+	}
+}
+
+
 
 // VersionGroupList - 
 func (c *VersionGroupAPIController) VersionGroupList(w http.ResponseWriter, r *http.Request) {

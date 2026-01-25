@@ -41,7 +41,7 @@ class VersionApi implements VersionApiInterface
     /**
      * Implementation of VersionApiInterface#versionList
      */
-    public function versionList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function versionList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class VersionApi implements VersionApiInterface
     /**
      * Implementation of VersionApiInterface#versionRead
      */
-    public function versionRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function versionRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

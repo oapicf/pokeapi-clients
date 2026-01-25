@@ -41,7 +41,7 @@ class PokemonFormApi implements PokemonFormApiInterface
     /**
      * Implementation of PokemonFormApiInterface#pokemonFormList
      */
-    public function pokemonFormList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function pokemonFormList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class PokemonFormApi implements PokemonFormApiInterface
     /**
      * Implementation of PokemonFormApiInterface#pokemonFormRead
      */
-    public function pokemonFormRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function pokemonFormRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

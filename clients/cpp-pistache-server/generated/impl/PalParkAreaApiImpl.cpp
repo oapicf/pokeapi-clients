@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 PalParkAreaApiImpl::PalParkAreaApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : PalParkAreaApi(rtr)
 {
+    
 }
 
 void PalParkAreaApiImpl::pal_park_area_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

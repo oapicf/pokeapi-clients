@@ -17,6 +17,7 @@ class ApiApiTest {
     fun abilityListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.abilityList(limit, offset)
 
         // TODO: test validations
@@ -31,6 +32,7 @@ class ApiApiTest {
     @Test
     fun abilityReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.abilityRead(id)
 
         // TODO: test validations
@@ -46,6 +48,7 @@ class ApiApiTest {
     fun berryFirmnessListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.berryFirmnessList(limit, offset)
 
         // TODO: test validations
@@ -60,6 +63,7 @@ class ApiApiTest {
     @Test
     fun berryFirmnessReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.berryFirmnessRead(id)
 
         // TODO: test validations
@@ -75,6 +79,7 @@ class ApiApiTest {
     fun berryFlavorListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.berryFlavorList(limit, offset)
 
         // TODO: test validations
@@ -89,6 +94,7 @@ class ApiApiTest {
     @Test
     fun berryFlavorReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.berryFlavorRead(id)
 
         // TODO: test validations
@@ -104,6 +110,7 @@ class ApiApiTest {
     fun berryListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.berryList(limit, offset)
 
         // TODO: test validations
@@ -118,6 +125,7 @@ class ApiApiTest {
     @Test
     fun berryReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.berryRead(id)
 
         // TODO: test validations
@@ -133,6 +141,7 @@ class ApiApiTest {
     fun characteristicListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.characteristicList(limit, offset)
 
         // TODO: test validations
@@ -147,6 +156,7 @@ class ApiApiTest {
     @Test
     fun characteristicReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.characteristicRead(id)
 
         // TODO: test validations
@@ -162,6 +172,7 @@ class ApiApiTest {
     fun contestEffectListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.contestEffectList(limit, offset)
 
         // TODO: test validations
@@ -176,6 +187,7 @@ class ApiApiTest {
     @Test
     fun contestEffectReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.contestEffectRead(id)
 
         // TODO: test validations
@@ -191,6 +203,7 @@ class ApiApiTest {
     fun contestTypeListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.contestTypeList(limit, offset)
 
         // TODO: test validations
@@ -205,6 +218,7 @@ class ApiApiTest {
     @Test
     fun contestTypeReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.contestTypeRead(id)
 
         // TODO: test validations
@@ -220,6 +234,7 @@ class ApiApiTest {
     fun eggGroupListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.eggGroupList(limit, offset)
 
         // TODO: test validations
@@ -234,6 +249,7 @@ class ApiApiTest {
     @Test
     fun eggGroupReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.eggGroupRead(id)
 
         // TODO: test validations
@@ -249,6 +265,7 @@ class ApiApiTest {
     fun encounterConditionListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.encounterConditionList(limit, offset)
 
         // TODO: test validations
@@ -263,6 +280,7 @@ class ApiApiTest {
     @Test
     fun encounterConditionReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.encounterConditionRead(id)
 
         // TODO: test validations
@@ -278,6 +296,7 @@ class ApiApiTest {
     fun encounterConditionValueListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.encounterConditionValueList(limit, offset)
 
         // TODO: test validations
@@ -292,6 +311,7 @@ class ApiApiTest {
     @Test
     fun encounterConditionValueReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.encounterConditionValueRead(id)
 
         // TODO: test validations
@@ -307,6 +327,7 @@ class ApiApiTest {
     fun encounterMethodListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.encounterMethodList(limit, offset)
 
         // TODO: test validations
@@ -321,6 +342,7 @@ class ApiApiTest {
     @Test
     fun encounterMethodReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.encounterMethodRead(id)
 
         // TODO: test validations
@@ -336,6 +358,7 @@ class ApiApiTest {
     fun evolutionChainListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.evolutionChainList(limit, offset)
 
         // TODO: test validations
@@ -350,6 +373,7 @@ class ApiApiTest {
     @Test
     fun evolutionChainReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.evolutionChainRead(id)
 
         // TODO: test validations
@@ -365,6 +389,7 @@ class ApiApiTest {
     fun evolutionTriggerListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.evolutionTriggerList(limit, offset)
 
         // TODO: test validations
@@ -379,6 +404,7 @@ class ApiApiTest {
     @Test
     fun evolutionTriggerReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.evolutionTriggerRead(id)
 
         // TODO: test validations
@@ -394,6 +420,7 @@ class ApiApiTest {
     fun genderListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.genderList(limit, offset)
 
         // TODO: test validations
@@ -408,6 +435,7 @@ class ApiApiTest {
     @Test
     fun genderReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.genderRead(id)
 
         // TODO: test validations
@@ -423,6 +451,7 @@ class ApiApiTest {
     fun generationListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.generationList(limit, offset)
 
         // TODO: test validations
@@ -437,6 +466,7 @@ class ApiApiTest {
     @Test
     fun generationReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.generationRead(id)
 
         // TODO: test validations
@@ -452,6 +482,7 @@ class ApiApiTest {
     fun growthRateListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.growthRateList(limit, offset)
 
         // TODO: test validations
@@ -466,6 +497,7 @@ class ApiApiTest {
     @Test
     fun growthRateReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.growthRateRead(id)
 
         // TODO: test validations
@@ -481,6 +513,7 @@ class ApiApiTest {
     fun itemAttributeListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.itemAttributeList(limit, offset)
 
         // TODO: test validations
@@ -495,6 +528,7 @@ class ApiApiTest {
     @Test
     fun itemAttributeReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.itemAttributeRead(id)
 
         // TODO: test validations
@@ -510,6 +544,7 @@ class ApiApiTest {
     fun itemCategoryListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.itemCategoryList(limit, offset)
 
         // TODO: test validations
@@ -524,6 +559,7 @@ class ApiApiTest {
     @Test
     fun itemCategoryReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.itemCategoryRead(id)
 
         // TODO: test validations
@@ -539,6 +575,7 @@ class ApiApiTest {
     fun itemFlingEffectListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.itemFlingEffectList(limit, offset)
 
         // TODO: test validations
@@ -553,6 +590,7 @@ class ApiApiTest {
     @Test
     fun itemFlingEffectReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.itemFlingEffectRead(id)
 
         // TODO: test validations
@@ -568,6 +606,7 @@ class ApiApiTest {
     fun itemListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.itemList(limit, offset)
 
         // TODO: test validations
@@ -583,6 +622,7 @@ class ApiApiTest {
     fun itemPocketListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.itemPocketList(limit, offset)
 
         // TODO: test validations
@@ -597,6 +637,7 @@ class ApiApiTest {
     @Test
     fun itemPocketReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.itemPocketRead(id)
 
         // TODO: test validations
@@ -611,6 +652,7 @@ class ApiApiTest {
     @Test
     fun itemReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.itemRead(id)
 
         // TODO: test validations
@@ -626,6 +668,7 @@ class ApiApiTest {
     fun languageListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.languageList(limit, offset)
 
         // TODO: test validations
@@ -640,6 +683,7 @@ class ApiApiTest {
     @Test
     fun languageReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.languageRead(id)
 
         // TODO: test validations
@@ -655,6 +699,7 @@ class ApiApiTest {
     fun locationAreaListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.locationAreaList(limit, offset)
 
         // TODO: test validations
@@ -669,6 +714,7 @@ class ApiApiTest {
     @Test
     fun locationAreaReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.locationAreaRead(id)
 
         // TODO: test validations
@@ -684,6 +730,7 @@ class ApiApiTest {
     fun locationListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.locationList(limit, offset)
 
         // TODO: test validations
@@ -698,6 +745,7 @@ class ApiApiTest {
     @Test
     fun locationReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.locationRead(id)
 
         // TODO: test validations
@@ -713,6 +761,7 @@ class ApiApiTest {
     fun machineListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.machineList(limit, offset)
 
         // TODO: test validations
@@ -727,6 +776,7 @@ class ApiApiTest {
     @Test
     fun machineReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.machineRead(id)
 
         // TODO: test validations
@@ -742,6 +792,7 @@ class ApiApiTest {
     fun moveAilmentListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.moveAilmentList(limit, offset)
 
         // TODO: test validations
@@ -756,6 +807,7 @@ class ApiApiTest {
     @Test
     fun moveAilmentReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.moveAilmentRead(id)
 
         // TODO: test validations
@@ -771,6 +823,7 @@ class ApiApiTest {
     fun moveBattleStyleListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.moveBattleStyleList(limit, offset)
 
         // TODO: test validations
@@ -785,6 +838,7 @@ class ApiApiTest {
     @Test
     fun moveBattleStyleReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.moveBattleStyleRead(id)
 
         // TODO: test validations
@@ -800,6 +854,7 @@ class ApiApiTest {
     fun moveCategoryListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.moveCategoryList(limit, offset)
 
         // TODO: test validations
@@ -814,6 +869,7 @@ class ApiApiTest {
     @Test
     fun moveCategoryReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.moveCategoryRead(id)
 
         // TODO: test validations
@@ -829,6 +885,7 @@ class ApiApiTest {
     fun moveDamageClassListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.moveDamageClassList(limit, offset)
 
         // TODO: test validations
@@ -843,6 +900,7 @@ class ApiApiTest {
     @Test
     fun moveDamageClassReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.moveDamageClassRead(id)
 
         // TODO: test validations
@@ -858,6 +916,7 @@ class ApiApiTest {
     fun moveLearnMethodListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.moveLearnMethodList(limit, offset)
 
         // TODO: test validations
@@ -872,6 +931,7 @@ class ApiApiTest {
     @Test
     fun moveLearnMethodReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.moveLearnMethodRead(id)
 
         // TODO: test validations
@@ -887,6 +947,7 @@ class ApiApiTest {
     fun moveListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.moveList(limit, offset)
 
         // TODO: test validations
@@ -901,6 +962,7 @@ class ApiApiTest {
     @Test
     fun moveReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.moveRead(id)
 
         // TODO: test validations
@@ -916,6 +978,7 @@ class ApiApiTest {
     fun moveTargetListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.moveTargetList(limit, offset)
 
         // TODO: test validations
@@ -930,6 +993,7 @@ class ApiApiTest {
     @Test
     fun moveTargetReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.moveTargetRead(id)
 
         // TODO: test validations
@@ -945,6 +1009,7 @@ class ApiApiTest {
     fun natureListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.natureList(limit, offset)
 
         // TODO: test validations
@@ -959,6 +1024,7 @@ class ApiApiTest {
     @Test
     fun natureReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.natureRead(id)
 
         // TODO: test validations
@@ -974,6 +1040,7 @@ class ApiApiTest {
     fun palParkAreaListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.palParkAreaList(limit, offset)
 
         // TODO: test validations
@@ -988,6 +1055,7 @@ class ApiApiTest {
     @Test
     fun palParkAreaReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.palParkAreaRead(id)
 
         // TODO: test validations
@@ -1003,6 +1071,7 @@ class ApiApiTest {
     fun pokeathlonStatListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.pokeathlonStatList(limit, offset)
 
         // TODO: test validations
@@ -1017,6 +1086,7 @@ class ApiApiTest {
     @Test
     fun pokeathlonStatReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.pokeathlonStatRead(id)
 
         // TODO: test validations
@@ -1032,6 +1102,7 @@ class ApiApiTest {
     fun pokedexListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.pokedexList(limit, offset)
 
         // TODO: test validations
@@ -1046,6 +1117,7 @@ class ApiApiTest {
     @Test
     fun pokedexReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.pokedexRead(id)
 
         // TODO: test validations
@@ -1061,6 +1133,7 @@ class ApiApiTest {
     fun pokemonColorListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.pokemonColorList(limit, offset)
 
         // TODO: test validations
@@ -1075,6 +1148,7 @@ class ApiApiTest {
     @Test
     fun pokemonColorReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.pokemonColorRead(id)
 
         // TODO: test validations
@@ -1090,6 +1164,7 @@ class ApiApiTest {
     fun pokemonFormListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.pokemonFormList(limit, offset)
 
         // TODO: test validations
@@ -1104,6 +1179,7 @@ class ApiApiTest {
     @Test
     fun pokemonFormReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.pokemonFormRead(id)
 
         // TODO: test validations
@@ -1119,6 +1195,7 @@ class ApiApiTest {
     fun pokemonHabitatListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.pokemonHabitatList(limit, offset)
 
         // TODO: test validations
@@ -1133,6 +1210,7 @@ class ApiApiTest {
     @Test
     fun pokemonHabitatReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.pokemonHabitatRead(id)
 
         // TODO: test validations
@@ -1148,6 +1226,7 @@ class ApiApiTest {
     fun pokemonListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.pokemonList(limit, offset)
 
         // TODO: test validations
@@ -1162,6 +1241,7 @@ class ApiApiTest {
     @Test
     fun pokemonReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.pokemonRead(id)
 
         // TODO: test validations
@@ -1177,6 +1257,7 @@ class ApiApiTest {
     fun pokemonShapeListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.pokemonShapeList(limit, offset)
 
         // TODO: test validations
@@ -1191,6 +1272,7 @@ class ApiApiTest {
     @Test
     fun pokemonShapeReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.pokemonShapeRead(id)
 
         // TODO: test validations
@@ -1206,6 +1288,7 @@ class ApiApiTest {
     fun pokemonSpeciesListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.pokemonSpeciesList(limit, offset)
 
         // TODO: test validations
@@ -1220,6 +1303,7 @@ class ApiApiTest {
     @Test
     fun pokemonSpeciesReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.pokemonSpeciesRead(id)
 
         // TODO: test validations
@@ -1235,6 +1319,7 @@ class ApiApiTest {
     fun regionListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.regionList(limit, offset)
 
         // TODO: test validations
@@ -1249,6 +1334,7 @@ class ApiApiTest {
     @Test
     fun regionReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.regionRead(id)
 
         // TODO: test validations
@@ -1264,6 +1350,7 @@ class ApiApiTest {
     fun statListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.statList(limit, offset)
 
         // TODO: test validations
@@ -1278,6 +1365,7 @@ class ApiApiTest {
     @Test
     fun statReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.statRead(id)
 
         // TODO: test validations
@@ -1293,6 +1381,7 @@ class ApiApiTest {
     fun superContestEffectListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.superContestEffectList(limit, offset)
 
         // TODO: test validations
@@ -1307,6 +1396,7 @@ class ApiApiTest {
     @Test
     fun superContestEffectReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.superContestEffectRead(id)
 
         // TODO: test validations
@@ -1322,6 +1412,7 @@ class ApiApiTest {
     fun typeListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.typeList(limit, offset)
 
         // TODO: test validations
@@ -1336,6 +1427,7 @@ class ApiApiTest {
     @Test
     fun typeReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.typeRead(id)
 
         // TODO: test validations
@@ -1351,6 +1443,7 @@ class ApiApiTest {
     fun versionGroupListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.versionGroupList(limit, offset)
 
         // TODO: test validations
@@ -1365,6 +1458,7 @@ class ApiApiTest {
     @Test
     fun versionGroupReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.versionGroupRead(id)
 
         // TODO: test validations
@@ -1380,6 +1474,7 @@ class ApiApiTest {
     fun versionListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.versionList(limit, offset)
 
         // TODO: test validations
@@ -1394,6 +1489,7 @@ class ApiApiTest {
     @Test
     fun versionReadTest() {
         val id: kotlin.Int = TODO()
+        
         val response: ResponseEntity<kotlin.String> = api.versionRead(id)
 
         // TODO: test validations

@@ -30,15 +30,17 @@ message EggGroupListRequest {
 }
 
 message EggGroupListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message EggGroupReadRequest {
   int32 id = 1;
 
 }
 
 message EggGroupReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

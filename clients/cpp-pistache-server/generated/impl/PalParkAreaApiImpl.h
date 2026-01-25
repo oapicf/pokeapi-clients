@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  PalParkAreaApiImpl : public org::openapitools::server::api::PalParkAreaApi {
 public:
     explicit PalParkAreaApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

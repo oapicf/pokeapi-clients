@@ -78,7 +78,7 @@ public class BerryControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/berry/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@6d6d480c");
+            .accept("[Ljava.lang.String;@2007435e");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class BerryControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@e95595b");
+            .accept("[Ljava.lang.String;@da28d03");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

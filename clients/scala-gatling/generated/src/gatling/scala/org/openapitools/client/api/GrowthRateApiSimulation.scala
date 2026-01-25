@@ -72,8 +72,8 @@ class GrowthRateApiSimulation extends Simulation {
         .feed(growth-rate_listQUERYFeeder)
         .exec(http("growthRateList")
         .httpRequest("GET","/api/v2/growth-rate/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scngrowthRateList with warm up and reach a constant rate for entire duration

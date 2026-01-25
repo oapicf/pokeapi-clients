@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 PokemonShapeApiImpl::PokemonShapeApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : PokemonShapeApi(rtr)
 {
+    
 }
 
 void PokemonShapeApiImpl::pokemon_shape_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

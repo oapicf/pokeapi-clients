@@ -41,7 +41,7 @@ class GenerationApi implements GenerationApiInterface
     /**
      * Implementation of GenerationApiInterface#generationList
      */
-    public function generationList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function generationList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class GenerationApi implements GenerationApiInterface
     /**
      * Implementation of GenerationApiInterface#generationRead
      */
-    public function generationRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function generationRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

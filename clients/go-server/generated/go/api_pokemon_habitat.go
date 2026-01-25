@@ -52,17 +52,39 @@ func NewPokemonHabitatAPIController(s PokemonHabitatAPIServicer, opts ...Pokemon
 func (c *PokemonHabitatAPIController) Routes() Routes {
 	return Routes{
 		"PokemonHabitatList": Route{
+			"PokemonHabitatList",
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-habitat/",
 			c.PokemonHabitatList,
 		},
 		"PokemonHabitatRead": Route{
+			"PokemonHabitatRead",
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-habitat/{id}/",
 			c.PokemonHabitatRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the PokemonHabitatAPIController
+func (c *PokemonHabitatAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"PokemonHabitatList",
+			strings.ToUpper("Get"),
+			"/api/v2/pokemon-habitat/",
+			c.PokemonHabitatList,
+		},
+		Route{
+			"PokemonHabitatRead",
+			strings.ToUpper("Get"),
+			"/api/v2/pokemon-habitat/{id}/",
+			c.PokemonHabitatRead,
+		},
+	}
+}
+
+
 
 // PokemonHabitatList - 
 func (c *PokemonHabitatAPIController) PokemonHabitatList(w http.ResponseWriter, r *http.Request) {

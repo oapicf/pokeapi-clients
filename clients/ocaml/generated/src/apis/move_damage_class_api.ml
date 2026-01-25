@@ -9,8 +9,36 @@ let move_damage_class_list ?limit ?offset () =
     let open Lwt.Infix in
     let uri = Request.build_uri "/api/v2/move-damage-class/" in
     let headers = Request.default_headers in
-    let uri = Request.maybe_add_query_param uri "limit" Int32.to_string limit in
-    let uri = Request.maybe_add_query_param uri "offset" Int32.to_string offset in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as (JsonSupport.to_string) resp body
 
@@ -18,7 +46,21 @@ let move_damage_class_read ~id =
     let open Lwt.Infix in
     let uri = Request.build_uri "/api/v2/move-damage-class/{id}/" in
     let headers = Request.default_headers in
-    let uri = Request.replace_path_param uri "id" Int32.to_string id in
+    let uri = Request.replace_path_param uri "id"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ id in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as (JsonSupport.to_string) resp body
 

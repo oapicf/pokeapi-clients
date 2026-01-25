@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  PokemonApiImpl : public org::openapitools::server::api::PokemonApi {
 public:
     explicit PokemonApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

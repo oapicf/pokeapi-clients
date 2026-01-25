@@ -41,7 +41,7 @@ class BerryFlavorApi implements BerryFlavorApiInterface
     /**
      * Implementation of BerryFlavorApiInterface#berryFlavorList
      */
-    public function berryFlavorList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function berryFlavorList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class BerryFlavorApi implements BerryFlavorApiInterface
     /**
      * Implementation of BerryFlavorApiInterface#berryFlavorRead
      */
-    public function berryFlavorRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function berryFlavorRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

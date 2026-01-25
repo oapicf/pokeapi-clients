@@ -50,14 +50,14 @@ interface VersionGroupApiInterface
      * @param  int     &$responseCode    The HTTP Response Code
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return array|object|null
+     * @return string
      */
     public function versionGroupList(
         ?int $limit,
         ?int $offset,
         int &$responseCode,
         array &$responseHeaders
-    ): array|object|null;
+    ): string;
 
     /**
      * Operation versionGroupRead
@@ -66,11 +66,11 @@ interface VersionGroupApiInterface
      * @param  int     &$responseCode    The HTTP Response Code
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return array|object|null
+     * @return string
      */
     public function versionGroupRead(
         int $id,
         int &$responseCode,
         array &$responseHeaders
-    ): array|object|null;
+    ): string;
 }

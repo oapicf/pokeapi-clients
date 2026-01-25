@@ -41,7 +41,7 @@ class ItemFlingEffectApi implements ItemFlingEffectApiInterface
     /**
      * Implementation of ItemFlingEffectApiInterface#itemFlingEffectList
      */
-    public function itemFlingEffectList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function itemFlingEffectList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class ItemFlingEffectApi implements ItemFlingEffectApiInterface
     /**
      * Implementation of ItemFlingEffectApiInterface#itemFlingEffectRead
      */
-    public function itemFlingEffectRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function itemFlingEffectRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

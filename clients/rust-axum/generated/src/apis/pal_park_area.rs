@@ -26,6 +26,8 @@ pub enum PalParkAreaReadResponse {
 }
 
 
+
+
 /// PalParkArea
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait PalParkArea<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::E
     /// PalParkAreaList - GET /api/v2/pal-park-area/
     async fn pal_park_area_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait PalParkArea<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::E
     /// PalParkAreaRead - GET /api/v2/pal-park-area/{id}/
     async fn pal_park_area_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

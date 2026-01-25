@@ -1,5 +1,5 @@
 import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/http';
-import { Configuration, ConfigurationOptions, PromiseConfigurationOptions } from '../configuration'
+import { Configuration, PromiseConfigurationOptions, wrapOptions } from '../configuration'
 import { PromiseMiddleware, Middleware, PromiseMiddlewareWrapper } from '../middleware';
 
 import { ObservableAbilityApi } from './ObservableAPI';
@@ -21,18 +21,7 @@ export class PromiseAbilityApi {
      * @param [offset]
      */
     public abilityListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.abilityListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -42,18 +31,7 @@ export class PromiseAbilityApi {
      * @param [offset]
      */
     public abilityList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.abilityList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -62,18 +40,7 @@ export class PromiseAbilityApi {
      * @param id
      */
     public abilityReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.abilityReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -82,18 +49,7 @@ export class PromiseAbilityApi {
      * @param id
      */
     public abilityRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.abilityRead(id, observableOptions);
         return result.toPromise();
     }
@@ -122,18 +78,7 @@ export class PromiseBerryApi {
      * @param [offset]
      */
     public berryListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.berryListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -143,18 +88,7 @@ export class PromiseBerryApi {
      * @param [offset]
      */
     public berryList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.berryList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -163,18 +97,7 @@ export class PromiseBerryApi {
      * @param id
      */
     public berryReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.berryReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -183,18 +106,7 @@ export class PromiseBerryApi {
      * @param id
      */
     public berryRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.berryRead(id, observableOptions);
         return result.toPromise();
     }
@@ -223,18 +135,7 @@ export class PromiseBerryFirmnessApi {
      * @param [offset]
      */
     public berryFirmnessListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.berryFirmnessListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -244,18 +145,7 @@ export class PromiseBerryFirmnessApi {
      * @param [offset]
      */
     public berryFirmnessList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.berryFirmnessList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -264,18 +154,7 @@ export class PromiseBerryFirmnessApi {
      * @param id
      */
     public berryFirmnessReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.berryFirmnessReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -284,18 +163,7 @@ export class PromiseBerryFirmnessApi {
      * @param id
      */
     public berryFirmnessRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.berryFirmnessRead(id, observableOptions);
         return result.toPromise();
     }
@@ -324,18 +192,7 @@ export class PromiseBerryFlavorApi {
      * @param [offset]
      */
     public berryFlavorListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.berryFlavorListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -345,18 +202,7 @@ export class PromiseBerryFlavorApi {
      * @param [offset]
      */
     public berryFlavorList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.berryFlavorList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -365,18 +211,7 @@ export class PromiseBerryFlavorApi {
      * @param id
      */
     public berryFlavorReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.berryFlavorReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -385,18 +220,7 @@ export class PromiseBerryFlavorApi {
      * @param id
      */
     public berryFlavorRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.berryFlavorRead(id, observableOptions);
         return result.toPromise();
     }
@@ -425,18 +249,7 @@ export class PromiseCharacteristicApi {
      * @param [offset]
      */
     public characteristicListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.characteristicListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -446,18 +259,7 @@ export class PromiseCharacteristicApi {
      * @param [offset]
      */
     public characteristicList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.characteristicList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -466,18 +268,7 @@ export class PromiseCharacteristicApi {
      * @param id
      */
     public characteristicReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.characteristicReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -486,18 +277,7 @@ export class PromiseCharacteristicApi {
      * @param id
      */
     public characteristicRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.characteristicRead(id, observableOptions);
         return result.toPromise();
     }
@@ -526,18 +306,7 @@ export class PromiseContestEffectApi {
      * @param [offset]
      */
     public contestEffectListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.contestEffectListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -547,18 +316,7 @@ export class PromiseContestEffectApi {
      * @param [offset]
      */
     public contestEffectList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.contestEffectList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -567,18 +325,7 @@ export class PromiseContestEffectApi {
      * @param id
      */
     public contestEffectReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.contestEffectReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -587,18 +334,7 @@ export class PromiseContestEffectApi {
      * @param id
      */
     public contestEffectRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.contestEffectRead(id, observableOptions);
         return result.toPromise();
     }
@@ -627,18 +363,7 @@ export class PromiseContestTypeApi {
      * @param [offset]
      */
     public contestTypeListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.contestTypeListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -648,18 +373,7 @@ export class PromiseContestTypeApi {
      * @param [offset]
      */
     public contestTypeList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.contestTypeList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -668,18 +382,7 @@ export class PromiseContestTypeApi {
      * @param id
      */
     public contestTypeReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.contestTypeReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -688,18 +391,7 @@ export class PromiseContestTypeApi {
      * @param id
      */
     public contestTypeRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.contestTypeRead(id, observableOptions);
         return result.toPromise();
     }
@@ -728,18 +420,7 @@ export class PromiseEggGroupApi {
      * @param [offset]
      */
     public eggGroupListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.eggGroupListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -749,18 +430,7 @@ export class PromiseEggGroupApi {
      * @param [offset]
      */
     public eggGroupList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.eggGroupList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -769,18 +439,7 @@ export class PromiseEggGroupApi {
      * @param id
      */
     public eggGroupReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.eggGroupReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -789,18 +448,7 @@ export class PromiseEggGroupApi {
      * @param id
      */
     public eggGroupRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.eggGroupRead(id, observableOptions);
         return result.toPromise();
     }
@@ -829,18 +477,7 @@ export class PromiseEncounterConditionApi {
      * @param [offset]
      */
     public encounterConditionListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.encounterConditionListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -850,18 +487,7 @@ export class PromiseEncounterConditionApi {
      * @param [offset]
      */
     public encounterConditionList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.encounterConditionList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -870,18 +496,7 @@ export class PromiseEncounterConditionApi {
      * @param id
      */
     public encounterConditionReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.encounterConditionReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -890,18 +505,7 @@ export class PromiseEncounterConditionApi {
      * @param id
      */
     public encounterConditionRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.encounterConditionRead(id, observableOptions);
         return result.toPromise();
     }
@@ -930,18 +534,7 @@ export class PromiseEncounterConditionValueApi {
      * @param [offset]
      */
     public encounterConditionValueListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.encounterConditionValueListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -951,18 +544,7 @@ export class PromiseEncounterConditionValueApi {
      * @param [offset]
      */
     public encounterConditionValueList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.encounterConditionValueList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -971,18 +553,7 @@ export class PromiseEncounterConditionValueApi {
      * @param id
      */
     public encounterConditionValueReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.encounterConditionValueReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -991,18 +562,7 @@ export class PromiseEncounterConditionValueApi {
      * @param id
      */
     public encounterConditionValueRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.encounterConditionValueRead(id, observableOptions);
         return result.toPromise();
     }
@@ -1031,18 +591,7 @@ export class PromiseEncounterMethodApi {
      * @param [offset]
      */
     public encounterMethodListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.encounterMethodListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1052,18 +601,7 @@ export class PromiseEncounterMethodApi {
      * @param [offset]
      */
     public encounterMethodList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.encounterMethodList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1072,18 +610,7 @@ export class PromiseEncounterMethodApi {
      * @param id
      */
     public encounterMethodReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.encounterMethodReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -1092,18 +619,7 @@ export class PromiseEncounterMethodApi {
      * @param id
      */
     public encounterMethodRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.encounterMethodRead(id, observableOptions);
         return result.toPromise();
     }
@@ -1132,18 +648,7 @@ export class PromiseEvolutionChainApi {
      * @param [offset]
      */
     public evolutionChainListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.evolutionChainListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1153,18 +658,7 @@ export class PromiseEvolutionChainApi {
      * @param [offset]
      */
     public evolutionChainList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.evolutionChainList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1173,18 +667,7 @@ export class PromiseEvolutionChainApi {
      * @param id
      */
     public evolutionChainReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.evolutionChainReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -1193,18 +676,7 @@ export class PromiseEvolutionChainApi {
      * @param id
      */
     public evolutionChainRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.evolutionChainRead(id, observableOptions);
         return result.toPromise();
     }
@@ -1233,18 +705,7 @@ export class PromiseEvolutionTriggerApi {
      * @param [offset]
      */
     public evolutionTriggerListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.evolutionTriggerListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1254,18 +715,7 @@ export class PromiseEvolutionTriggerApi {
      * @param [offset]
      */
     public evolutionTriggerList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.evolutionTriggerList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1274,18 +724,7 @@ export class PromiseEvolutionTriggerApi {
      * @param id
      */
     public evolutionTriggerReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.evolutionTriggerReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -1294,18 +733,7 @@ export class PromiseEvolutionTriggerApi {
      * @param id
      */
     public evolutionTriggerRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.evolutionTriggerRead(id, observableOptions);
         return result.toPromise();
     }
@@ -1334,18 +762,7 @@ export class PromiseGenderApi {
      * @param [offset]
      */
     public genderListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.genderListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1355,18 +772,7 @@ export class PromiseGenderApi {
      * @param [offset]
      */
     public genderList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.genderList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1375,18 +781,7 @@ export class PromiseGenderApi {
      * @param id
      */
     public genderReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.genderReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -1395,18 +790,7 @@ export class PromiseGenderApi {
      * @param id
      */
     public genderRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.genderRead(id, observableOptions);
         return result.toPromise();
     }
@@ -1435,18 +819,7 @@ export class PromiseGenerationApi {
      * @param [offset]
      */
     public generationListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.generationListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1456,18 +829,7 @@ export class PromiseGenerationApi {
      * @param [offset]
      */
     public generationList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.generationList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1476,18 +838,7 @@ export class PromiseGenerationApi {
      * @param id
      */
     public generationReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.generationReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -1496,18 +847,7 @@ export class PromiseGenerationApi {
      * @param id
      */
     public generationRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.generationRead(id, observableOptions);
         return result.toPromise();
     }
@@ -1536,18 +876,7 @@ export class PromiseGrowthRateApi {
      * @param [offset]
      */
     public growthRateListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.growthRateListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1557,18 +886,7 @@ export class PromiseGrowthRateApi {
      * @param [offset]
      */
     public growthRateList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.growthRateList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1577,18 +895,7 @@ export class PromiseGrowthRateApi {
      * @param id
      */
     public growthRateReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.growthRateReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -1597,18 +904,7 @@ export class PromiseGrowthRateApi {
      * @param id
      */
     public growthRateRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.growthRateRead(id, observableOptions);
         return result.toPromise();
     }
@@ -1637,18 +933,7 @@ export class PromiseItemApi {
      * @param [offset]
      */
     public itemListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1658,18 +943,7 @@ export class PromiseItemApi {
      * @param [offset]
      */
     public itemList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1678,18 +952,7 @@ export class PromiseItemApi {
      * @param id
      */
     public itemReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -1698,18 +961,7 @@ export class PromiseItemApi {
      * @param id
      */
     public itemRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemRead(id, observableOptions);
         return result.toPromise();
     }
@@ -1738,18 +990,7 @@ export class PromiseItemAttributeApi {
      * @param [offset]
      */
     public itemAttributeListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemAttributeListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1759,18 +1000,7 @@ export class PromiseItemAttributeApi {
      * @param [offset]
      */
     public itemAttributeList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemAttributeList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1779,18 +1009,7 @@ export class PromiseItemAttributeApi {
      * @param id
      */
     public itemAttributeReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemAttributeReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -1799,18 +1018,7 @@ export class PromiseItemAttributeApi {
      * @param id
      */
     public itemAttributeRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemAttributeRead(id, observableOptions);
         return result.toPromise();
     }
@@ -1839,18 +1047,7 @@ export class PromiseItemCategoryApi {
      * @param [offset]
      */
     public itemCategoryListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemCategoryListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1860,18 +1057,7 @@ export class PromiseItemCategoryApi {
      * @param [offset]
      */
     public itemCategoryList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemCategoryList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1880,18 +1066,7 @@ export class PromiseItemCategoryApi {
      * @param id
      */
     public itemCategoryReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemCategoryReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -1900,18 +1075,7 @@ export class PromiseItemCategoryApi {
      * @param id
      */
     public itemCategoryRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemCategoryRead(id, observableOptions);
         return result.toPromise();
     }
@@ -1940,18 +1104,7 @@ export class PromiseItemFlingEffectApi {
      * @param [offset]
      */
     public itemFlingEffectListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemFlingEffectListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1961,18 +1114,7 @@ export class PromiseItemFlingEffectApi {
      * @param [offset]
      */
     public itemFlingEffectList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemFlingEffectList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -1981,18 +1123,7 @@ export class PromiseItemFlingEffectApi {
      * @param id
      */
     public itemFlingEffectReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemFlingEffectReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -2001,18 +1132,7 @@ export class PromiseItemFlingEffectApi {
      * @param id
      */
     public itemFlingEffectRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemFlingEffectRead(id, observableOptions);
         return result.toPromise();
     }
@@ -2041,18 +1161,7 @@ export class PromiseItemPocketApi {
      * @param [offset]
      */
     public itemPocketListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemPocketListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2062,18 +1171,7 @@ export class PromiseItemPocketApi {
      * @param [offset]
      */
     public itemPocketList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemPocketList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2082,18 +1180,7 @@ export class PromiseItemPocketApi {
      * @param id
      */
     public itemPocketReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemPocketReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -2102,18 +1189,7 @@ export class PromiseItemPocketApi {
      * @param id
      */
     public itemPocketRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.itemPocketRead(id, observableOptions);
         return result.toPromise();
     }
@@ -2142,18 +1218,7 @@ export class PromiseLanguageApi {
      * @param [offset]
      */
     public languageListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.languageListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2163,18 +1228,7 @@ export class PromiseLanguageApi {
      * @param [offset]
      */
     public languageList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.languageList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2183,18 +1237,7 @@ export class PromiseLanguageApi {
      * @param id
      */
     public languageReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.languageReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -2203,18 +1246,7 @@ export class PromiseLanguageApi {
      * @param id
      */
     public languageRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.languageRead(id, observableOptions);
         return result.toPromise();
     }
@@ -2243,18 +1275,7 @@ export class PromiseLocationApi {
      * @param [offset]
      */
     public locationListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.locationListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2264,18 +1285,7 @@ export class PromiseLocationApi {
      * @param [offset]
      */
     public locationList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.locationList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2284,18 +1294,7 @@ export class PromiseLocationApi {
      * @param id
      */
     public locationReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.locationReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -2304,18 +1303,7 @@ export class PromiseLocationApi {
      * @param id
      */
     public locationRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.locationRead(id, observableOptions);
         return result.toPromise();
     }
@@ -2344,18 +1332,7 @@ export class PromiseLocationAreaApi {
      * @param [offset]
      */
     public locationAreaListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.locationAreaListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2365,18 +1342,7 @@ export class PromiseLocationAreaApi {
      * @param [offset]
      */
     public locationAreaList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.locationAreaList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2385,18 +1351,7 @@ export class PromiseLocationAreaApi {
      * @param id
      */
     public locationAreaReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.locationAreaReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -2405,18 +1360,7 @@ export class PromiseLocationAreaApi {
      * @param id
      */
     public locationAreaRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.locationAreaRead(id, observableOptions);
         return result.toPromise();
     }
@@ -2445,18 +1389,7 @@ export class PromiseMachineApi {
      * @param [offset]
      */
     public machineListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.machineListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2466,18 +1399,7 @@ export class PromiseMachineApi {
      * @param [offset]
      */
     public machineList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.machineList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2486,18 +1408,7 @@ export class PromiseMachineApi {
      * @param id
      */
     public machineReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.machineReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -2506,18 +1417,7 @@ export class PromiseMachineApi {
      * @param id
      */
     public machineRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.machineRead(id, observableOptions);
         return result.toPromise();
     }
@@ -2546,18 +1446,7 @@ export class PromiseMoveApi {
      * @param [offset]
      */
     public moveListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2567,18 +1456,7 @@ export class PromiseMoveApi {
      * @param [offset]
      */
     public moveList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2587,18 +1465,7 @@ export class PromiseMoveApi {
      * @param id
      */
     public moveReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -2607,18 +1474,7 @@ export class PromiseMoveApi {
      * @param id
      */
     public moveRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveRead(id, observableOptions);
         return result.toPromise();
     }
@@ -2647,18 +1503,7 @@ export class PromiseMoveAilmentApi {
      * @param [offset]
      */
     public moveAilmentListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveAilmentListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2668,18 +1513,7 @@ export class PromiseMoveAilmentApi {
      * @param [offset]
      */
     public moveAilmentList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveAilmentList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2688,18 +1522,7 @@ export class PromiseMoveAilmentApi {
      * @param id
      */
     public moveAilmentReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveAilmentReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -2708,18 +1531,7 @@ export class PromiseMoveAilmentApi {
      * @param id
      */
     public moveAilmentRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveAilmentRead(id, observableOptions);
         return result.toPromise();
     }
@@ -2748,18 +1560,7 @@ export class PromiseMoveBattleStyleApi {
      * @param [offset]
      */
     public moveBattleStyleListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveBattleStyleListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2769,18 +1570,7 @@ export class PromiseMoveBattleStyleApi {
      * @param [offset]
      */
     public moveBattleStyleList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveBattleStyleList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2789,18 +1579,7 @@ export class PromiseMoveBattleStyleApi {
      * @param id
      */
     public moveBattleStyleReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveBattleStyleReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -2809,18 +1588,7 @@ export class PromiseMoveBattleStyleApi {
      * @param id
      */
     public moveBattleStyleRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveBattleStyleRead(id, observableOptions);
         return result.toPromise();
     }
@@ -2849,18 +1617,7 @@ export class PromiseMoveCategoryApi {
      * @param [offset]
      */
     public moveCategoryListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveCategoryListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2870,18 +1627,7 @@ export class PromiseMoveCategoryApi {
      * @param [offset]
      */
     public moveCategoryList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveCategoryList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2890,18 +1636,7 @@ export class PromiseMoveCategoryApi {
      * @param id
      */
     public moveCategoryReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveCategoryReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -2910,18 +1645,7 @@ export class PromiseMoveCategoryApi {
      * @param id
      */
     public moveCategoryRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveCategoryRead(id, observableOptions);
         return result.toPromise();
     }
@@ -2950,18 +1674,7 @@ export class PromiseMoveDamageClassApi {
      * @param [offset]
      */
     public moveDamageClassListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveDamageClassListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2971,18 +1684,7 @@ export class PromiseMoveDamageClassApi {
      * @param [offset]
      */
     public moveDamageClassList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveDamageClassList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -2991,18 +1693,7 @@ export class PromiseMoveDamageClassApi {
      * @param id
      */
     public moveDamageClassReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveDamageClassReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -3011,18 +1702,7 @@ export class PromiseMoveDamageClassApi {
      * @param id
      */
     public moveDamageClassRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveDamageClassRead(id, observableOptions);
         return result.toPromise();
     }
@@ -3051,18 +1731,7 @@ export class PromiseMoveLearnMethodApi {
      * @param [offset]
      */
     public moveLearnMethodListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveLearnMethodListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3072,18 +1741,7 @@ export class PromiseMoveLearnMethodApi {
      * @param [offset]
      */
     public moveLearnMethodList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveLearnMethodList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3092,18 +1750,7 @@ export class PromiseMoveLearnMethodApi {
      * @param id
      */
     public moveLearnMethodReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveLearnMethodReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -3112,18 +1759,7 @@ export class PromiseMoveLearnMethodApi {
      * @param id
      */
     public moveLearnMethodRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveLearnMethodRead(id, observableOptions);
         return result.toPromise();
     }
@@ -3152,18 +1788,7 @@ export class PromiseMoveTargetApi {
      * @param [offset]
      */
     public moveTargetListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveTargetListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3173,18 +1798,7 @@ export class PromiseMoveTargetApi {
      * @param [offset]
      */
     public moveTargetList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveTargetList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3193,18 +1807,7 @@ export class PromiseMoveTargetApi {
      * @param id
      */
     public moveTargetReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveTargetReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -3213,18 +1816,7 @@ export class PromiseMoveTargetApi {
      * @param id
      */
     public moveTargetRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.moveTargetRead(id, observableOptions);
         return result.toPromise();
     }
@@ -3253,18 +1845,7 @@ export class PromiseNatureApi {
      * @param [offset]
      */
     public natureListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.natureListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3274,18 +1855,7 @@ export class PromiseNatureApi {
      * @param [offset]
      */
     public natureList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.natureList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3294,18 +1864,7 @@ export class PromiseNatureApi {
      * @param id
      */
     public natureReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.natureReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -3314,18 +1873,7 @@ export class PromiseNatureApi {
      * @param id
      */
     public natureRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.natureRead(id, observableOptions);
         return result.toPromise();
     }
@@ -3354,18 +1902,7 @@ export class PromisePalParkAreaApi {
      * @param [offset]
      */
     public palParkAreaListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.palParkAreaListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3375,18 +1912,7 @@ export class PromisePalParkAreaApi {
      * @param [offset]
      */
     public palParkAreaList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.palParkAreaList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3395,18 +1921,7 @@ export class PromisePalParkAreaApi {
      * @param id
      */
     public palParkAreaReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.palParkAreaReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -3415,18 +1930,7 @@ export class PromisePalParkAreaApi {
      * @param id
      */
     public palParkAreaRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.palParkAreaRead(id, observableOptions);
         return result.toPromise();
     }
@@ -3455,18 +1959,7 @@ export class PromisePokeathlonStatApi {
      * @param [offset]
      */
     public pokeathlonStatListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokeathlonStatListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3476,18 +1969,7 @@ export class PromisePokeathlonStatApi {
      * @param [offset]
      */
     public pokeathlonStatList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokeathlonStatList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3496,18 +1978,7 @@ export class PromisePokeathlonStatApi {
      * @param id
      */
     public pokeathlonStatReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokeathlonStatReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -3516,18 +1987,7 @@ export class PromisePokeathlonStatApi {
      * @param id
      */
     public pokeathlonStatRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokeathlonStatRead(id, observableOptions);
         return result.toPromise();
     }
@@ -3556,18 +2016,7 @@ export class PromisePokedexApi {
      * @param [offset]
      */
     public pokedexListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokedexListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3577,18 +2026,7 @@ export class PromisePokedexApi {
      * @param [offset]
      */
     public pokedexList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokedexList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3597,18 +2035,7 @@ export class PromisePokedexApi {
      * @param id
      */
     public pokedexReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokedexReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -3617,18 +2044,7 @@ export class PromisePokedexApi {
      * @param id
      */
     public pokedexRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokedexRead(id, observableOptions);
         return result.toPromise();
     }
@@ -3657,18 +2073,7 @@ export class PromisePokemonApi {
      * @param [offset]
      */
     public pokemonListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3678,18 +2083,7 @@ export class PromisePokemonApi {
      * @param [offset]
      */
     public pokemonList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3698,18 +2092,7 @@ export class PromisePokemonApi {
      * @param id
      */
     public pokemonReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -3718,18 +2101,7 @@ export class PromisePokemonApi {
      * @param id
      */
     public pokemonRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonRead(id, observableOptions);
         return result.toPromise();
     }
@@ -3758,18 +2130,7 @@ export class PromisePokemonColorApi {
      * @param [offset]
      */
     public pokemonColorListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonColorListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3779,18 +2140,7 @@ export class PromisePokemonColorApi {
      * @param [offset]
      */
     public pokemonColorList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonColorList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3799,18 +2149,7 @@ export class PromisePokemonColorApi {
      * @param id
      */
     public pokemonColorReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonColorReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -3819,18 +2158,7 @@ export class PromisePokemonColorApi {
      * @param id
      */
     public pokemonColorRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonColorRead(id, observableOptions);
         return result.toPromise();
     }
@@ -3859,18 +2187,7 @@ export class PromisePokemonFormApi {
      * @param [offset]
      */
     public pokemonFormListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonFormListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3880,18 +2197,7 @@ export class PromisePokemonFormApi {
      * @param [offset]
      */
     public pokemonFormList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonFormList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3900,18 +2206,7 @@ export class PromisePokemonFormApi {
      * @param id
      */
     public pokemonFormReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonFormReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -3920,18 +2215,7 @@ export class PromisePokemonFormApi {
      * @param id
      */
     public pokemonFormRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonFormRead(id, observableOptions);
         return result.toPromise();
     }
@@ -3960,18 +2244,7 @@ export class PromisePokemonHabitatApi {
      * @param [offset]
      */
     public pokemonHabitatListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonHabitatListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -3981,18 +2254,7 @@ export class PromisePokemonHabitatApi {
      * @param [offset]
      */
     public pokemonHabitatList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonHabitatList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -4001,18 +2263,7 @@ export class PromisePokemonHabitatApi {
      * @param id
      */
     public pokemonHabitatReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonHabitatReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -4021,18 +2272,7 @@ export class PromisePokemonHabitatApi {
      * @param id
      */
     public pokemonHabitatRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonHabitatRead(id, observableOptions);
         return result.toPromise();
     }
@@ -4061,18 +2301,7 @@ export class PromisePokemonShapeApi {
      * @param [offset]
      */
     public pokemonShapeListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonShapeListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -4082,18 +2311,7 @@ export class PromisePokemonShapeApi {
      * @param [offset]
      */
     public pokemonShapeList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonShapeList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -4102,18 +2320,7 @@ export class PromisePokemonShapeApi {
      * @param id
      */
     public pokemonShapeReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonShapeReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -4122,18 +2329,7 @@ export class PromisePokemonShapeApi {
      * @param id
      */
     public pokemonShapeRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonShapeRead(id, observableOptions);
         return result.toPromise();
     }
@@ -4162,18 +2358,7 @@ export class PromisePokemonSpeciesApi {
      * @param [offset]
      */
     public pokemonSpeciesListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonSpeciesListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -4183,18 +2368,7 @@ export class PromisePokemonSpeciesApi {
      * @param [offset]
      */
     public pokemonSpeciesList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonSpeciesList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -4203,18 +2377,7 @@ export class PromisePokemonSpeciesApi {
      * @param id
      */
     public pokemonSpeciesReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonSpeciesReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -4223,18 +2386,7 @@ export class PromisePokemonSpeciesApi {
      * @param id
      */
     public pokemonSpeciesRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.pokemonSpeciesRead(id, observableOptions);
         return result.toPromise();
     }
@@ -4263,18 +2415,7 @@ export class PromiseRegionApi {
      * @param [offset]
      */
     public regionListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.regionListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -4284,18 +2425,7 @@ export class PromiseRegionApi {
      * @param [offset]
      */
     public regionList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.regionList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -4304,18 +2434,7 @@ export class PromiseRegionApi {
      * @param id
      */
     public regionReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.regionReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -4324,18 +2443,7 @@ export class PromiseRegionApi {
      * @param id
      */
     public regionRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.regionRead(id, observableOptions);
         return result.toPromise();
     }
@@ -4364,18 +2472,7 @@ export class PromiseStatApi {
      * @param [offset]
      */
     public statListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.statListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -4385,18 +2482,7 @@ export class PromiseStatApi {
      * @param [offset]
      */
     public statList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.statList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -4405,18 +2491,7 @@ export class PromiseStatApi {
      * @param id
      */
     public statReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.statReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -4425,18 +2500,7 @@ export class PromiseStatApi {
      * @param id
      */
     public statRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.statRead(id, observableOptions);
         return result.toPromise();
     }
@@ -4465,18 +2529,7 @@ export class PromiseSuperContestEffectApi {
      * @param [offset]
      */
     public superContestEffectListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.superContestEffectListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -4486,18 +2539,7 @@ export class PromiseSuperContestEffectApi {
      * @param [offset]
      */
     public superContestEffectList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.superContestEffectList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -4506,18 +2548,7 @@ export class PromiseSuperContestEffectApi {
      * @param id
      */
     public superContestEffectReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.superContestEffectReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -4526,18 +2557,7 @@ export class PromiseSuperContestEffectApi {
      * @param id
      */
     public superContestEffectRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.superContestEffectRead(id, observableOptions);
         return result.toPromise();
     }
@@ -4566,18 +2586,7 @@ export class PromiseTypeApi {
      * @param [offset]
      */
     public typeListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.typeListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -4587,18 +2596,7 @@ export class PromiseTypeApi {
      * @param [offset]
      */
     public typeList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.typeList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -4607,18 +2605,7 @@ export class PromiseTypeApi {
      * @param id
      */
     public typeReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.typeReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -4627,18 +2614,7 @@ export class PromiseTypeApi {
      * @param id
      */
     public typeRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.typeRead(id, observableOptions);
         return result.toPromise();
     }
@@ -4667,18 +2643,7 @@ export class PromiseVersionApi {
      * @param [offset]
      */
     public versionListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.versionListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -4688,18 +2653,7 @@ export class PromiseVersionApi {
      * @param [offset]
      */
     public versionList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.versionList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -4708,18 +2662,7 @@ export class PromiseVersionApi {
      * @param id
      */
     public versionReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.versionReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -4728,18 +2671,7 @@ export class PromiseVersionApi {
      * @param id
      */
     public versionRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.versionRead(id, observableOptions);
         return result.toPromise();
     }
@@ -4768,18 +2700,7 @@ export class PromiseVersionGroupApi {
      * @param [offset]
      */
     public versionGroupListWithHttpInfo(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.versionGroupListWithHttpInfo(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -4789,18 +2710,7 @@ export class PromiseVersionGroupApi {
      * @param [offset]
      */
     public versionGroupList(limit?: number, offset?: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.versionGroupList(limit, offset, observableOptions);
         return result.toPromise();
     }
@@ -4809,18 +2719,7 @@ export class PromiseVersionGroupApi {
      * @param id
      */
     public versionGroupReadWithHttpInfo(id: number, _options?: PromiseConfigurationOptions): Promise<HttpInfo<void>> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.versionGroupReadWithHttpInfo(id, observableOptions);
         return result.toPromise();
     }
@@ -4829,18 +2728,7 @@ export class PromiseVersionGroupApi {
      * @param id
      */
     public versionGroupRead(id: number, _options?: PromiseConfigurationOptions): Promise<void> {
-        let observableOptions: undefined | ConfigurationOptions
-        if (_options){
-	    observableOptions = {
-                baseServer: _options.baseServer,
-                httpApi: _options.httpApi,
-                middleware: _options.middleware?.map(
-                    m => new PromiseMiddlewareWrapper(m)
-		),
-		middlewareMergeStrategy: _options.middlewareMergeStrategy,
-                authMethods: _options.authMethods
-	    }
-	}
+        const observableOptions = wrapOptions(_options);
         const result = this.api.versionGroupRead(id, observableOptions);
         return result.toPromise();
     }

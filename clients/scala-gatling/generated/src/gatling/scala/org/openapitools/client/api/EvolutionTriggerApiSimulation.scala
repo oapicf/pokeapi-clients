@@ -72,8 +72,8 @@ class EvolutionTriggerApiSimulation extends Simulation {
         .feed(evolution-trigger_listQUERYFeeder)
         .exec(http("evolutionTriggerList")
         .httpRequest("GET","/api/v2/evolution-trigger/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnevolutionTriggerList with warm up and reach a constant rate for entire duration

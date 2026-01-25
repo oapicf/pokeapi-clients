@@ -74,12 +74,8 @@ class MachineController extends Controller
 
         $offset = $request->integer('offset');
 
-        try {
-            $apiResult = $this->api->machineList($limit, $offset);
-        } catch (\Exception $exception) {
-            // This shouldn't happen
-            return response()->json(['error' => $exception->getMessage()], 500);
-        }
+
+        $apiResult = $this->api->machineList($limit, $offset);
 
         if ($apiResult instanceof string) {
             return response()->json($this->serde->serialize($apiResult, format: 'array'), 0);
@@ -117,12 +113,8 @@ class MachineController extends Controller
         }
 
 
-        try {
-            $apiResult = $this->api->machineRead($id);
-        } catch (\Exception $exception) {
-            // This shouldn't happen
-            return response()->json(['error' => $exception->getMessage()], 500);
-        }
+
+        $apiResult = $this->api->machineRead($id);
 
         if ($apiResult instanceof string) {
             return response()->json($this->serde->serialize($apiResult, format: 'array'), 0);

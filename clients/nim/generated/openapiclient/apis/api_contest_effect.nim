@@ -24,10 +24,7 @@ const basepath = "https://pokeapi.co"
 template constructResult[T](response: Response): untyped =
   if response.code in {Http200, Http201, Http202, Http204, Http206}:
     try:
-      when name(stripGenericParams(T.typedesc).typedesc) == name(Table):
-        (some(json.to(parseJson(response.body), T.typedesc)), response)
-      else:
-        (some(marshal.to[T](response.body)), response)
+      (some(to(parseJson(response.body), T)), response)
     except JsonParsingError:
       # The server returned a malformed response though the response code is 2XX
       # TODO: need better error handling
@@ -39,12 +36,14 @@ template constructResult[T](response: Response): untyped =
 
 proc contestEffectList*(httpClient: HttpClient, limit: int, offset: int): (Option[string], Response) =
   ## 
-  let query_for_api_call = encodeQuery([
-    ("limit", $limit), # 
-    ("offset", $offset), # 
-  ])
+  var query_params_list: seq[(string, string)] = @[]
+  if $limit != "":
+    query_params_list.add(("limit", $limit))
+  if $offset != "":
+    query_params_list.add(("offset", $offset))
+  let url_encoded_query_params = encodeQuery(query_params_list)
 
-  let response = httpClient.get(basepath & "/api/v2/contest-effect/" & "?" & query_for_api_call)
+  let response = httpClient.get(basepath & "/api/v2/contest-effect/" & "?" & url_encoded_query_params)
   constructResult[string](response)
 
 

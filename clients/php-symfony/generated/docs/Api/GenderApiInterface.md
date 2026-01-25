@@ -41,7 +41,7 @@ class GenderApi implements GenderApiInterface
     /**
      * Implementation of GenderApiInterface#genderList
      */
-    public function genderList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function genderList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class GenderApi implements GenderApiInterface
     /**
      * Implementation of GenderApiInterface#genderRead
      */
-    public function genderRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function genderRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

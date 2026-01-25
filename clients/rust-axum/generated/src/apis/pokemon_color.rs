@@ -26,6 +26,8 @@ pub enum PokemonColorReadResponse {
 }
 
 
+
+
 /// PokemonColor
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait PokemonColor<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::
     /// PokemonColorList - GET /api/v2/pokemon-color/
     async fn pokemon_color_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait PokemonColor<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::
     /// PokemonColorRead - GET /api/v2/pokemon-color/{id}/
     async fn pokemon_color_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

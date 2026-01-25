@@ -41,7 +41,7 @@ class TypeApi implements TypeApiInterface
     /**
      * Implementation of TypeApiInterface#typeList
      */
-    public function typeList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function typeList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class TypeApi implements TypeApiInterface
     /**
      * Implementation of TypeApiInterface#typeRead
      */
-    public function typeRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function typeRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

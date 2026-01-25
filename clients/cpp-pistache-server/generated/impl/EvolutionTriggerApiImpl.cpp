@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 EvolutionTriggerApiImpl::EvolutionTriggerApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : EvolutionTriggerApi(rtr)
 {
+    
 }
 
 void EvolutionTriggerApiImpl::evolution_trigger_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

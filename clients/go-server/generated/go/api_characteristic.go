@@ -52,17 +52,39 @@ func NewCharacteristicAPIController(s CharacteristicAPIServicer, opts ...Charact
 func (c *CharacteristicAPIController) Routes() Routes {
 	return Routes{
 		"CharacteristicList": Route{
+			"CharacteristicList",
 			strings.ToUpper("Get"),
 			"/api/v2/characteristic/",
 			c.CharacteristicList,
 		},
 		"CharacteristicRead": Route{
+			"CharacteristicRead",
 			strings.ToUpper("Get"),
 			"/api/v2/characteristic/{id}/",
 			c.CharacteristicRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the CharacteristicAPIController
+func (c *CharacteristicAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"CharacteristicList",
+			strings.ToUpper("Get"),
+			"/api/v2/characteristic/",
+			c.CharacteristicList,
+		},
+		Route{
+			"CharacteristicRead",
+			strings.ToUpper("Get"),
+			"/api/v2/characteristic/{id}/",
+			c.CharacteristicRead,
+		},
+	}
+}
+
+
 
 // CharacteristicList - 
 func (c *CharacteristicAPIController) CharacteristicList(w http.ResponseWriter, r *http.Request) {

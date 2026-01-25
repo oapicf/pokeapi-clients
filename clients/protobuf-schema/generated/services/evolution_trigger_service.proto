@@ -30,15 +30,17 @@ message EvolutionTriggerListRequest {
 }
 
 message EvolutionTriggerListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message EvolutionTriggerReadRequest {
   int32 id = 1;
 
 }
 
 message EvolutionTriggerReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

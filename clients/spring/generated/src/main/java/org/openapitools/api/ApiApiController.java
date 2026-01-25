@@ -1,5 +1,6 @@
 package org.openapitools.api;
 
+import org.springframework.lang.Nullable;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-11-03T13:23:38.213795787Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-25T00:39:34.509464186Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Controller
 @RequestMapping("${openapi..base-path:}")
 public class ApiApiController implements ApiApi {

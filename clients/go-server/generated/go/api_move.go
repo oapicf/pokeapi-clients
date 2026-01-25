@@ -52,17 +52,39 @@ func NewMoveAPIController(s MoveAPIServicer, opts ...MoveAPIOption) *MoveAPICont
 func (c *MoveAPIController) Routes() Routes {
 	return Routes{
 		"MoveList": Route{
+			"MoveList",
 			strings.ToUpper("Get"),
 			"/api/v2/move/",
 			c.MoveList,
 		},
 		"MoveRead": Route{
+			"MoveRead",
 			strings.ToUpper("Get"),
 			"/api/v2/move/{id}/",
 			c.MoveRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the MoveAPIController
+func (c *MoveAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"MoveList",
+			strings.ToUpper("Get"),
+			"/api/v2/move/",
+			c.MoveList,
+		},
+		Route{
+			"MoveRead",
+			strings.ToUpper("Get"),
+			"/api/v2/move/{id}/",
+			c.MoveRead,
+		},
+	}
+}
+
+
 
 // MoveList - 
 func (c *MoveAPIController) MoveList(w http.ResponseWriter, r *http.Request) {

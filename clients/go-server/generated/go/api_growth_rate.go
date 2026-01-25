@@ -52,17 +52,39 @@ func NewGrowthRateAPIController(s GrowthRateAPIServicer, opts ...GrowthRateAPIOp
 func (c *GrowthRateAPIController) Routes() Routes {
 	return Routes{
 		"GrowthRateList": Route{
+			"GrowthRateList",
 			strings.ToUpper("Get"),
 			"/api/v2/growth-rate/",
 			c.GrowthRateList,
 		},
 		"GrowthRateRead": Route{
+			"GrowthRateRead",
 			strings.ToUpper("Get"),
 			"/api/v2/growth-rate/{id}/",
 			c.GrowthRateRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the GrowthRateAPIController
+func (c *GrowthRateAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"GrowthRateList",
+			strings.ToUpper("Get"),
+			"/api/v2/growth-rate/",
+			c.GrowthRateList,
+		},
+		Route{
+			"GrowthRateRead",
+			strings.ToUpper("Get"),
+			"/api/v2/growth-rate/{id}/",
+			c.GrowthRateRead,
+		},
+	}
+}
+
+
 
 // GrowthRateList - 
 func (c *GrowthRateAPIController) GrowthRateList(w http.ResponseWriter, r *http.Request) {

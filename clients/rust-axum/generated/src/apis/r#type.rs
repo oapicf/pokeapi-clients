@@ -26,6 +26,8 @@ pub enum TypeReadResponse {
 }
 
 
+
+
 /// R#type
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait R#type<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorH
     /// TypeList - GET /api/v2/type/
     async fn type_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait R#type<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorH
     /// TypeRead - GET /api/v2/type/{id}/
     async fn type_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

@@ -26,6 +26,8 @@ pub enum MoveCategoryReadResponse {
 }
 
 
+
+
 /// MoveCategory
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait MoveCategory<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::
     /// MoveCategoryList - GET /api/v2/move-category/
     async fn move_category_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait MoveCategory<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::
     /// MoveCategoryRead - GET /api/v2/move-category/{id}/
     async fn move_category_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

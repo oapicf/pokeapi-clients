@@ -26,7 +26,6 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 
 /**
  * AbilityApi - axios parameter creator
- * @export
  */
 export const AbilityApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -58,8 +57,8 @@ export const AbilityApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -91,8 +90,8 @@ export const AbilityApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -107,7 +106,6 @@ export const AbilityApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * AbilityApi - functional programming interface
- * @export
  */
 export const AbilityApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AbilityApiAxiosParamCreator(configuration)
@@ -142,7 +140,6 @@ export const AbilityApiFp = function(configuration?: Configuration) {
 
 /**
  * AbilityApi - factory interface
- * @export
  */
 export const AbilityApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = AbilityApiFp(configuration)
@@ -171,9 +168,6 @@ export const AbilityApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * AbilityApi - object-oriented interface
- * @export
- * @class AbilityApi
- * @extends {BaseAPI}
  */
 export class AbilityApi extends BaseAPI {
     /**
@@ -182,7 +176,6 @@ export class AbilityApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AbilityApi
      */
     public abilityList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return AbilityApiFp(this.configuration).abilityList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -193,7 +186,6 @@ export class AbilityApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AbilityApi
      */
     public abilityRead(id: number, options?: RawAxiosRequestConfig) {
         return AbilityApiFp(this.configuration).abilityRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -204,7 +196,6 @@ export class AbilityApi extends BaseAPI {
 
 /**
  * BerryApi - axios parameter creator
- * @export
  */
 export const BerryApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -236,8 +227,8 @@ export const BerryApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -269,8 +260,8 @@ export const BerryApiAxiosParamCreator = function (configuration?: Configuration
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -285,7 +276,6 @@ export const BerryApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * BerryApi - functional programming interface
- * @export
  */
 export const BerryApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = BerryApiAxiosParamCreator(configuration)
@@ -320,7 +310,6 @@ export const BerryApiFp = function(configuration?: Configuration) {
 
 /**
  * BerryApi - factory interface
- * @export
  */
 export const BerryApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = BerryApiFp(configuration)
@@ -349,9 +338,6 @@ export const BerryApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * BerryApi - object-oriented interface
- * @export
- * @class BerryApi
- * @extends {BaseAPI}
  */
 export class BerryApi extends BaseAPI {
     /**
@@ -360,7 +346,6 @@ export class BerryApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof BerryApi
      */
     public berryList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return BerryApiFp(this.configuration).berryList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -371,7 +356,6 @@ export class BerryApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof BerryApi
      */
     public berryRead(id: number, options?: RawAxiosRequestConfig) {
         return BerryApiFp(this.configuration).berryRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -382,7 +366,6 @@ export class BerryApi extends BaseAPI {
 
 /**
  * BerryFirmnessApi - axios parameter creator
- * @export
  */
 export const BerryFirmnessApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -414,8 +397,8 @@ export const BerryFirmnessApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -447,8 +430,8 @@ export const BerryFirmnessApiAxiosParamCreator = function (configuration?: Confi
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -463,7 +446,6 @@ export const BerryFirmnessApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * BerryFirmnessApi - functional programming interface
- * @export
  */
 export const BerryFirmnessApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = BerryFirmnessApiAxiosParamCreator(configuration)
@@ -498,7 +480,6 @@ export const BerryFirmnessApiFp = function(configuration?: Configuration) {
 
 /**
  * BerryFirmnessApi - factory interface
- * @export
  */
 export const BerryFirmnessApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = BerryFirmnessApiFp(configuration)
@@ -527,9 +508,6 @@ export const BerryFirmnessApiFactory = function (configuration?: Configuration, 
 
 /**
  * BerryFirmnessApi - object-oriented interface
- * @export
- * @class BerryFirmnessApi
- * @extends {BaseAPI}
  */
 export class BerryFirmnessApi extends BaseAPI {
     /**
@@ -538,7 +516,6 @@ export class BerryFirmnessApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof BerryFirmnessApi
      */
     public berryFirmnessList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return BerryFirmnessApiFp(this.configuration).berryFirmnessList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -549,7 +526,6 @@ export class BerryFirmnessApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof BerryFirmnessApi
      */
     public berryFirmnessRead(id: number, options?: RawAxiosRequestConfig) {
         return BerryFirmnessApiFp(this.configuration).berryFirmnessRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -560,7 +536,6 @@ export class BerryFirmnessApi extends BaseAPI {
 
 /**
  * BerryFlavorApi - axios parameter creator
- * @export
  */
 export const BerryFlavorApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -592,8 +567,8 @@ export const BerryFlavorApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -625,8 +600,8 @@ export const BerryFlavorApiAxiosParamCreator = function (configuration?: Configu
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -641,7 +616,6 @@ export const BerryFlavorApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * BerryFlavorApi - functional programming interface
- * @export
  */
 export const BerryFlavorApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = BerryFlavorApiAxiosParamCreator(configuration)
@@ -676,7 +650,6 @@ export const BerryFlavorApiFp = function(configuration?: Configuration) {
 
 /**
  * BerryFlavorApi - factory interface
- * @export
  */
 export const BerryFlavorApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = BerryFlavorApiFp(configuration)
@@ -705,9 +678,6 @@ export const BerryFlavorApiFactory = function (configuration?: Configuration, ba
 
 /**
  * BerryFlavorApi - object-oriented interface
- * @export
- * @class BerryFlavorApi
- * @extends {BaseAPI}
  */
 export class BerryFlavorApi extends BaseAPI {
     /**
@@ -716,7 +686,6 @@ export class BerryFlavorApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof BerryFlavorApi
      */
     public berryFlavorList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return BerryFlavorApiFp(this.configuration).berryFlavorList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -727,7 +696,6 @@ export class BerryFlavorApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof BerryFlavorApi
      */
     public berryFlavorRead(id: number, options?: RawAxiosRequestConfig) {
         return BerryFlavorApiFp(this.configuration).berryFlavorRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -738,7 +706,6 @@ export class BerryFlavorApi extends BaseAPI {
 
 /**
  * CharacteristicApi - axios parameter creator
- * @export
  */
 export const CharacteristicApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -770,8 +737,8 @@ export const CharacteristicApiAxiosParamCreator = function (configuration?: Conf
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -803,8 +770,8 @@ export const CharacteristicApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -819,7 +786,6 @@ export const CharacteristicApiAxiosParamCreator = function (configuration?: Conf
 
 /**
  * CharacteristicApi - functional programming interface
- * @export
  */
 export const CharacteristicApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CharacteristicApiAxiosParamCreator(configuration)
@@ -854,7 +820,6 @@ export const CharacteristicApiFp = function(configuration?: Configuration) {
 
 /**
  * CharacteristicApi - factory interface
- * @export
  */
 export const CharacteristicApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CharacteristicApiFp(configuration)
@@ -883,9 +848,6 @@ export const CharacteristicApiFactory = function (configuration?: Configuration,
 
 /**
  * CharacteristicApi - object-oriented interface
- * @export
- * @class CharacteristicApi
- * @extends {BaseAPI}
  */
 export class CharacteristicApi extends BaseAPI {
     /**
@@ -894,7 +856,6 @@ export class CharacteristicApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CharacteristicApi
      */
     public characteristicList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return CharacteristicApiFp(this.configuration).characteristicList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -905,7 +866,6 @@ export class CharacteristicApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CharacteristicApi
      */
     public characteristicRead(id: number, options?: RawAxiosRequestConfig) {
         return CharacteristicApiFp(this.configuration).characteristicRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -916,7 +876,6 @@ export class CharacteristicApi extends BaseAPI {
 
 /**
  * ContestEffectApi - axios parameter creator
- * @export
  */
 export const ContestEffectApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -948,8 +907,8 @@ export const ContestEffectApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -981,8 +940,8 @@ export const ContestEffectApiAxiosParamCreator = function (configuration?: Confi
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -997,7 +956,6 @@ export const ContestEffectApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * ContestEffectApi - functional programming interface
- * @export
  */
 export const ContestEffectApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ContestEffectApiAxiosParamCreator(configuration)
@@ -1032,7 +990,6 @@ export const ContestEffectApiFp = function(configuration?: Configuration) {
 
 /**
  * ContestEffectApi - factory interface
- * @export
  */
 export const ContestEffectApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ContestEffectApiFp(configuration)
@@ -1061,9 +1018,6 @@ export const ContestEffectApiFactory = function (configuration?: Configuration, 
 
 /**
  * ContestEffectApi - object-oriented interface
- * @export
- * @class ContestEffectApi
- * @extends {BaseAPI}
  */
 export class ContestEffectApi extends BaseAPI {
     /**
@@ -1072,7 +1026,6 @@ export class ContestEffectApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContestEffectApi
      */
     public contestEffectList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return ContestEffectApiFp(this.configuration).contestEffectList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -1083,7 +1036,6 @@ export class ContestEffectApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContestEffectApi
      */
     public contestEffectRead(id: number, options?: RawAxiosRequestConfig) {
         return ContestEffectApiFp(this.configuration).contestEffectRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -1094,7 +1046,6 @@ export class ContestEffectApi extends BaseAPI {
 
 /**
  * ContestTypeApi - axios parameter creator
- * @export
  */
 export const ContestTypeApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -1126,8 +1077,8 @@ export const ContestTypeApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -1159,8 +1110,8 @@ export const ContestTypeApiAxiosParamCreator = function (configuration?: Configu
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -1175,7 +1126,6 @@ export const ContestTypeApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * ContestTypeApi - functional programming interface
- * @export
  */
 export const ContestTypeApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ContestTypeApiAxiosParamCreator(configuration)
@@ -1210,7 +1160,6 @@ export const ContestTypeApiFp = function(configuration?: Configuration) {
 
 /**
  * ContestTypeApi - factory interface
- * @export
  */
 export const ContestTypeApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ContestTypeApiFp(configuration)
@@ -1239,9 +1188,6 @@ export const ContestTypeApiFactory = function (configuration?: Configuration, ba
 
 /**
  * ContestTypeApi - object-oriented interface
- * @export
- * @class ContestTypeApi
- * @extends {BaseAPI}
  */
 export class ContestTypeApi extends BaseAPI {
     /**
@@ -1250,7 +1196,6 @@ export class ContestTypeApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContestTypeApi
      */
     public contestTypeList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return ContestTypeApiFp(this.configuration).contestTypeList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -1261,7 +1206,6 @@ export class ContestTypeApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ContestTypeApi
      */
     public contestTypeRead(id: number, options?: RawAxiosRequestConfig) {
         return ContestTypeApiFp(this.configuration).contestTypeRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -1272,7 +1216,6 @@ export class ContestTypeApi extends BaseAPI {
 
 /**
  * EggGroupApi - axios parameter creator
- * @export
  */
 export const EggGroupApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -1304,8 +1247,8 @@ export const EggGroupApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -1337,8 +1280,8 @@ export const EggGroupApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -1353,7 +1296,6 @@ export const EggGroupApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * EggGroupApi - functional programming interface
- * @export
  */
 export const EggGroupApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EggGroupApiAxiosParamCreator(configuration)
@@ -1388,7 +1330,6 @@ export const EggGroupApiFp = function(configuration?: Configuration) {
 
 /**
  * EggGroupApi - factory interface
- * @export
  */
 export const EggGroupApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = EggGroupApiFp(configuration)
@@ -1417,9 +1358,6 @@ export const EggGroupApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * EggGroupApi - object-oriented interface
- * @export
- * @class EggGroupApi
- * @extends {BaseAPI}
  */
 export class EggGroupApi extends BaseAPI {
     /**
@@ -1428,7 +1366,6 @@ export class EggGroupApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EggGroupApi
      */
     public eggGroupList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return EggGroupApiFp(this.configuration).eggGroupList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -1439,7 +1376,6 @@ export class EggGroupApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EggGroupApi
      */
     public eggGroupRead(id: number, options?: RawAxiosRequestConfig) {
         return EggGroupApiFp(this.configuration).eggGroupRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -1450,7 +1386,6 @@ export class EggGroupApi extends BaseAPI {
 
 /**
  * EncounterConditionApi - axios parameter creator
- * @export
  */
 export const EncounterConditionApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -1482,8 +1417,8 @@ export const EncounterConditionApiAxiosParamCreator = function (configuration?: 
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -1515,8 +1450,8 @@ export const EncounterConditionApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -1531,7 +1466,6 @@ export const EncounterConditionApiAxiosParamCreator = function (configuration?: 
 
 /**
  * EncounterConditionApi - functional programming interface
- * @export
  */
 export const EncounterConditionApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EncounterConditionApiAxiosParamCreator(configuration)
@@ -1566,7 +1500,6 @@ export const EncounterConditionApiFp = function(configuration?: Configuration) {
 
 /**
  * EncounterConditionApi - factory interface
- * @export
  */
 export const EncounterConditionApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = EncounterConditionApiFp(configuration)
@@ -1595,9 +1528,6 @@ export const EncounterConditionApiFactory = function (configuration?: Configurat
 
 /**
  * EncounterConditionApi - object-oriented interface
- * @export
- * @class EncounterConditionApi
- * @extends {BaseAPI}
  */
 export class EncounterConditionApi extends BaseAPI {
     /**
@@ -1606,7 +1536,6 @@ export class EncounterConditionApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EncounterConditionApi
      */
     public encounterConditionList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return EncounterConditionApiFp(this.configuration).encounterConditionList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -1617,7 +1546,6 @@ export class EncounterConditionApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EncounterConditionApi
      */
     public encounterConditionRead(id: number, options?: RawAxiosRequestConfig) {
         return EncounterConditionApiFp(this.configuration).encounterConditionRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -1628,7 +1556,6 @@ export class EncounterConditionApi extends BaseAPI {
 
 /**
  * EncounterConditionValueApi - axios parameter creator
- * @export
  */
 export const EncounterConditionValueApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -1660,8 +1587,8 @@ export const EncounterConditionValueApiAxiosParamCreator = function (configurati
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -1693,8 +1620,8 @@ export const EncounterConditionValueApiAxiosParamCreator = function (configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -1709,7 +1636,6 @@ export const EncounterConditionValueApiAxiosParamCreator = function (configurati
 
 /**
  * EncounterConditionValueApi - functional programming interface
- * @export
  */
 export const EncounterConditionValueApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EncounterConditionValueApiAxiosParamCreator(configuration)
@@ -1744,7 +1670,6 @@ export const EncounterConditionValueApiFp = function(configuration?: Configurati
 
 /**
  * EncounterConditionValueApi - factory interface
- * @export
  */
 export const EncounterConditionValueApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = EncounterConditionValueApiFp(configuration)
@@ -1773,9 +1698,6 @@ export const EncounterConditionValueApiFactory = function (configuration?: Confi
 
 /**
  * EncounterConditionValueApi - object-oriented interface
- * @export
- * @class EncounterConditionValueApi
- * @extends {BaseAPI}
  */
 export class EncounterConditionValueApi extends BaseAPI {
     /**
@@ -1784,7 +1706,6 @@ export class EncounterConditionValueApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EncounterConditionValueApi
      */
     public encounterConditionValueList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return EncounterConditionValueApiFp(this.configuration).encounterConditionValueList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -1795,7 +1716,6 @@ export class EncounterConditionValueApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EncounterConditionValueApi
      */
     public encounterConditionValueRead(id: number, options?: RawAxiosRequestConfig) {
         return EncounterConditionValueApiFp(this.configuration).encounterConditionValueRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -1806,7 +1726,6 @@ export class EncounterConditionValueApi extends BaseAPI {
 
 /**
  * EncounterMethodApi - axios parameter creator
- * @export
  */
 export const EncounterMethodApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -1838,8 +1757,8 @@ export const EncounterMethodApiAxiosParamCreator = function (configuration?: Con
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -1871,8 +1790,8 @@ export const EncounterMethodApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -1887,7 +1806,6 @@ export const EncounterMethodApiAxiosParamCreator = function (configuration?: Con
 
 /**
  * EncounterMethodApi - functional programming interface
- * @export
  */
 export const EncounterMethodApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EncounterMethodApiAxiosParamCreator(configuration)
@@ -1922,7 +1840,6 @@ export const EncounterMethodApiFp = function(configuration?: Configuration) {
 
 /**
  * EncounterMethodApi - factory interface
- * @export
  */
 export const EncounterMethodApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = EncounterMethodApiFp(configuration)
@@ -1951,9 +1868,6 @@ export const EncounterMethodApiFactory = function (configuration?: Configuration
 
 /**
  * EncounterMethodApi - object-oriented interface
- * @export
- * @class EncounterMethodApi
- * @extends {BaseAPI}
  */
 export class EncounterMethodApi extends BaseAPI {
     /**
@@ -1962,7 +1876,6 @@ export class EncounterMethodApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EncounterMethodApi
      */
     public encounterMethodList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return EncounterMethodApiFp(this.configuration).encounterMethodList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -1973,7 +1886,6 @@ export class EncounterMethodApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EncounterMethodApi
      */
     public encounterMethodRead(id: number, options?: RawAxiosRequestConfig) {
         return EncounterMethodApiFp(this.configuration).encounterMethodRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -1984,7 +1896,6 @@ export class EncounterMethodApi extends BaseAPI {
 
 /**
  * EvolutionChainApi - axios parameter creator
- * @export
  */
 export const EvolutionChainApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -2016,8 +1927,8 @@ export const EvolutionChainApiAxiosParamCreator = function (configuration?: Conf
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -2049,8 +1960,8 @@ export const EvolutionChainApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -2065,7 +1976,6 @@ export const EvolutionChainApiAxiosParamCreator = function (configuration?: Conf
 
 /**
  * EvolutionChainApi - functional programming interface
- * @export
  */
 export const EvolutionChainApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EvolutionChainApiAxiosParamCreator(configuration)
@@ -2100,7 +2010,6 @@ export const EvolutionChainApiFp = function(configuration?: Configuration) {
 
 /**
  * EvolutionChainApi - factory interface
- * @export
  */
 export const EvolutionChainApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = EvolutionChainApiFp(configuration)
@@ -2129,9 +2038,6 @@ export const EvolutionChainApiFactory = function (configuration?: Configuration,
 
 /**
  * EvolutionChainApi - object-oriented interface
- * @export
- * @class EvolutionChainApi
- * @extends {BaseAPI}
  */
 export class EvolutionChainApi extends BaseAPI {
     /**
@@ -2140,7 +2046,6 @@ export class EvolutionChainApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EvolutionChainApi
      */
     public evolutionChainList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return EvolutionChainApiFp(this.configuration).evolutionChainList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -2151,7 +2056,6 @@ export class EvolutionChainApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EvolutionChainApi
      */
     public evolutionChainRead(id: number, options?: RawAxiosRequestConfig) {
         return EvolutionChainApiFp(this.configuration).evolutionChainRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -2162,7 +2066,6 @@ export class EvolutionChainApi extends BaseAPI {
 
 /**
  * EvolutionTriggerApi - axios parameter creator
- * @export
  */
 export const EvolutionTriggerApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -2194,8 +2097,8 @@ export const EvolutionTriggerApiAxiosParamCreator = function (configuration?: Co
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -2227,8 +2130,8 @@ export const EvolutionTriggerApiAxiosParamCreator = function (configuration?: Co
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -2243,7 +2146,6 @@ export const EvolutionTriggerApiAxiosParamCreator = function (configuration?: Co
 
 /**
  * EvolutionTriggerApi - functional programming interface
- * @export
  */
 export const EvolutionTriggerApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EvolutionTriggerApiAxiosParamCreator(configuration)
@@ -2278,7 +2180,6 @@ export const EvolutionTriggerApiFp = function(configuration?: Configuration) {
 
 /**
  * EvolutionTriggerApi - factory interface
- * @export
  */
 export const EvolutionTriggerApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = EvolutionTriggerApiFp(configuration)
@@ -2307,9 +2208,6 @@ export const EvolutionTriggerApiFactory = function (configuration?: Configuratio
 
 /**
  * EvolutionTriggerApi - object-oriented interface
- * @export
- * @class EvolutionTriggerApi
- * @extends {BaseAPI}
  */
 export class EvolutionTriggerApi extends BaseAPI {
     /**
@@ -2318,7 +2216,6 @@ export class EvolutionTriggerApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EvolutionTriggerApi
      */
     public evolutionTriggerList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return EvolutionTriggerApiFp(this.configuration).evolutionTriggerList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -2329,7 +2226,6 @@ export class EvolutionTriggerApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof EvolutionTriggerApi
      */
     public evolutionTriggerRead(id: number, options?: RawAxiosRequestConfig) {
         return EvolutionTriggerApiFp(this.configuration).evolutionTriggerRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -2340,7 +2236,6 @@ export class EvolutionTriggerApi extends BaseAPI {
 
 /**
  * GenderApi - axios parameter creator
- * @export
  */
 export const GenderApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -2372,8 +2267,8 @@ export const GenderApiAxiosParamCreator = function (configuration?: Configuratio
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -2405,8 +2300,8 @@ export const GenderApiAxiosParamCreator = function (configuration?: Configuratio
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -2421,7 +2316,6 @@ export const GenderApiAxiosParamCreator = function (configuration?: Configuratio
 
 /**
  * GenderApi - functional programming interface
- * @export
  */
 export const GenderApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = GenderApiAxiosParamCreator(configuration)
@@ -2456,7 +2350,6 @@ export const GenderApiFp = function(configuration?: Configuration) {
 
 /**
  * GenderApi - factory interface
- * @export
  */
 export const GenderApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = GenderApiFp(configuration)
@@ -2485,9 +2378,6 @@ export const GenderApiFactory = function (configuration?: Configuration, basePat
 
 /**
  * GenderApi - object-oriented interface
- * @export
- * @class GenderApi
- * @extends {BaseAPI}
  */
 export class GenderApi extends BaseAPI {
     /**
@@ -2496,7 +2386,6 @@ export class GenderApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GenderApi
      */
     public genderList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return GenderApiFp(this.configuration).genderList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -2507,7 +2396,6 @@ export class GenderApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GenderApi
      */
     public genderRead(id: number, options?: RawAxiosRequestConfig) {
         return GenderApiFp(this.configuration).genderRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -2518,7 +2406,6 @@ export class GenderApi extends BaseAPI {
 
 /**
  * GenerationApi - axios parameter creator
- * @export
  */
 export const GenerationApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -2550,8 +2437,8 @@ export const GenerationApiAxiosParamCreator = function (configuration?: Configur
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -2583,8 +2470,8 @@ export const GenerationApiAxiosParamCreator = function (configuration?: Configur
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -2599,7 +2486,6 @@ export const GenerationApiAxiosParamCreator = function (configuration?: Configur
 
 /**
  * GenerationApi - functional programming interface
- * @export
  */
 export const GenerationApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = GenerationApiAxiosParamCreator(configuration)
@@ -2634,7 +2520,6 @@ export const GenerationApiFp = function(configuration?: Configuration) {
 
 /**
  * GenerationApi - factory interface
- * @export
  */
 export const GenerationApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = GenerationApiFp(configuration)
@@ -2663,9 +2548,6 @@ export const GenerationApiFactory = function (configuration?: Configuration, bas
 
 /**
  * GenerationApi - object-oriented interface
- * @export
- * @class GenerationApi
- * @extends {BaseAPI}
  */
 export class GenerationApi extends BaseAPI {
     /**
@@ -2674,7 +2556,6 @@ export class GenerationApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GenerationApi
      */
     public generationList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return GenerationApiFp(this.configuration).generationList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -2685,7 +2566,6 @@ export class GenerationApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GenerationApi
      */
     public generationRead(id: number, options?: RawAxiosRequestConfig) {
         return GenerationApiFp(this.configuration).generationRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -2696,7 +2576,6 @@ export class GenerationApi extends BaseAPI {
 
 /**
  * GrowthRateApi - axios parameter creator
- * @export
  */
 export const GrowthRateApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -2728,8 +2607,8 @@ export const GrowthRateApiAxiosParamCreator = function (configuration?: Configur
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -2761,8 +2640,8 @@ export const GrowthRateApiAxiosParamCreator = function (configuration?: Configur
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -2777,7 +2656,6 @@ export const GrowthRateApiAxiosParamCreator = function (configuration?: Configur
 
 /**
  * GrowthRateApi - functional programming interface
- * @export
  */
 export const GrowthRateApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = GrowthRateApiAxiosParamCreator(configuration)
@@ -2812,7 +2690,6 @@ export const GrowthRateApiFp = function(configuration?: Configuration) {
 
 /**
  * GrowthRateApi - factory interface
- * @export
  */
 export const GrowthRateApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = GrowthRateApiFp(configuration)
@@ -2841,9 +2718,6 @@ export const GrowthRateApiFactory = function (configuration?: Configuration, bas
 
 /**
  * GrowthRateApi - object-oriented interface
- * @export
- * @class GrowthRateApi
- * @extends {BaseAPI}
  */
 export class GrowthRateApi extends BaseAPI {
     /**
@@ -2852,7 +2726,6 @@ export class GrowthRateApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GrowthRateApi
      */
     public growthRateList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return GrowthRateApiFp(this.configuration).growthRateList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -2863,7 +2736,6 @@ export class GrowthRateApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof GrowthRateApi
      */
     public growthRateRead(id: number, options?: RawAxiosRequestConfig) {
         return GrowthRateApiFp(this.configuration).growthRateRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -2874,7 +2746,6 @@ export class GrowthRateApi extends BaseAPI {
 
 /**
  * ItemApi - axios parameter creator
- * @export
  */
 export const ItemApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -2906,8 +2777,8 @@ export const ItemApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -2939,8 +2810,8 @@ export const ItemApiAxiosParamCreator = function (configuration?: Configuration)
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -2955,7 +2826,6 @@ export const ItemApiAxiosParamCreator = function (configuration?: Configuration)
 
 /**
  * ItemApi - functional programming interface
- * @export
  */
 export const ItemApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ItemApiAxiosParamCreator(configuration)
@@ -2990,7 +2860,6 @@ export const ItemApiFp = function(configuration?: Configuration) {
 
 /**
  * ItemApi - factory interface
- * @export
  */
 export const ItemApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ItemApiFp(configuration)
@@ -3019,9 +2888,6 @@ export const ItemApiFactory = function (configuration?: Configuration, basePath?
 
 /**
  * ItemApi - object-oriented interface
- * @export
- * @class ItemApi
- * @extends {BaseAPI}
  */
 export class ItemApi extends BaseAPI {
     /**
@@ -3030,7 +2896,6 @@ export class ItemApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ItemApi
      */
     public itemList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return ItemApiFp(this.configuration).itemList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -3041,7 +2906,6 @@ export class ItemApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ItemApi
      */
     public itemRead(id: number, options?: RawAxiosRequestConfig) {
         return ItemApiFp(this.configuration).itemRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -3052,7 +2916,6 @@ export class ItemApi extends BaseAPI {
 
 /**
  * ItemAttributeApi - axios parameter creator
- * @export
  */
 export const ItemAttributeApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -3084,8 +2947,8 @@ export const ItemAttributeApiAxiosParamCreator = function (configuration?: Confi
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3117,8 +2980,8 @@ export const ItemAttributeApiAxiosParamCreator = function (configuration?: Confi
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3133,7 +2996,6 @@ export const ItemAttributeApiAxiosParamCreator = function (configuration?: Confi
 
 /**
  * ItemAttributeApi - functional programming interface
- * @export
  */
 export const ItemAttributeApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ItemAttributeApiAxiosParamCreator(configuration)
@@ -3168,7 +3030,6 @@ export const ItemAttributeApiFp = function(configuration?: Configuration) {
 
 /**
  * ItemAttributeApi - factory interface
- * @export
  */
 export const ItemAttributeApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ItemAttributeApiFp(configuration)
@@ -3197,9 +3058,6 @@ export const ItemAttributeApiFactory = function (configuration?: Configuration, 
 
 /**
  * ItemAttributeApi - object-oriented interface
- * @export
- * @class ItemAttributeApi
- * @extends {BaseAPI}
  */
 export class ItemAttributeApi extends BaseAPI {
     /**
@@ -3208,7 +3066,6 @@ export class ItemAttributeApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ItemAttributeApi
      */
     public itemAttributeList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return ItemAttributeApiFp(this.configuration).itemAttributeList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -3219,7 +3076,6 @@ export class ItemAttributeApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ItemAttributeApi
      */
     public itemAttributeRead(id: number, options?: RawAxiosRequestConfig) {
         return ItemAttributeApiFp(this.configuration).itemAttributeRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -3230,7 +3086,6 @@ export class ItemAttributeApi extends BaseAPI {
 
 /**
  * ItemCategoryApi - axios parameter creator
- * @export
  */
 export const ItemCategoryApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -3262,8 +3117,8 @@ export const ItemCategoryApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3295,8 +3150,8 @@ export const ItemCategoryApiAxiosParamCreator = function (configuration?: Config
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3311,7 +3166,6 @@ export const ItemCategoryApiAxiosParamCreator = function (configuration?: Config
 
 /**
  * ItemCategoryApi - functional programming interface
- * @export
  */
 export const ItemCategoryApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ItemCategoryApiAxiosParamCreator(configuration)
@@ -3346,7 +3200,6 @@ export const ItemCategoryApiFp = function(configuration?: Configuration) {
 
 /**
  * ItemCategoryApi - factory interface
- * @export
  */
 export const ItemCategoryApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ItemCategoryApiFp(configuration)
@@ -3375,9 +3228,6 @@ export const ItemCategoryApiFactory = function (configuration?: Configuration, b
 
 /**
  * ItemCategoryApi - object-oriented interface
- * @export
- * @class ItemCategoryApi
- * @extends {BaseAPI}
  */
 export class ItemCategoryApi extends BaseAPI {
     /**
@@ -3386,7 +3236,6 @@ export class ItemCategoryApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ItemCategoryApi
      */
     public itemCategoryList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return ItemCategoryApiFp(this.configuration).itemCategoryList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -3397,7 +3246,6 @@ export class ItemCategoryApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ItemCategoryApi
      */
     public itemCategoryRead(id: number, options?: RawAxiosRequestConfig) {
         return ItemCategoryApiFp(this.configuration).itemCategoryRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -3408,7 +3256,6 @@ export class ItemCategoryApi extends BaseAPI {
 
 /**
  * ItemFlingEffectApi - axios parameter creator
- * @export
  */
 export const ItemFlingEffectApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -3440,8 +3287,8 @@ export const ItemFlingEffectApiAxiosParamCreator = function (configuration?: Con
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3473,8 +3320,8 @@ export const ItemFlingEffectApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3489,7 +3336,6 @@ export const ItemFlingEffectApiAxiosParamCreator = function (configuration?: Con
 
 /**
  * ItemFlingEffectApi - functional programming interface
- * @export
  */
 export const ItemFlingEffectApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ItemFlingEffectApiAxiosParamCreator(configuration)
@@ -3524,7 +3370,6 @@ export const ItemFlingEffectApiFp = function(configuration?: Configuration) {
 
 /**
  * ItemFlingEffectApi - factory interface
- * @export
  */
 export const ItemFlingEffectApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ItemFlingEffectApiFp(configuration)
@@ -3553,9 +3398,6 @@ export const ItemFlingEffectApiFactory = function (configuration?: Configuration
 
 /**
  * ItemFlingEffectApi - object-oriented interface
- * @export
- * @class ItemFlingEffectApi
- * @extends {BaseAPI}
  */
 export class ItemFlingEffectApi extends BaseAPI {
     /**
@@ -3564,7 +3406,6 @@ export class ItemFlingEffectApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ItemFlingEffectApi
      */
     public itemFlingEffectList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return ItemFlingEffectApiFp(this.configuration).itemFlingEffectList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -3575,7 +3416,6 @@ export class ItemFlingEffectApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ItemFlingEffectApi
      */
     public itemFlingEffectRead(id: number, options?: RawAxiosRequestConfig) {
         return ItemFlingEffectApiFp(this.configuration).itemFlingEffectRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -3586,7 +3426,6 @@ export class ItemFlingEffectApi extends BaseAPI {
 
 /**
  * ItemPocketApi - axios parameter creator
- * @export
  */
 export const ItemPocketApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -3618,8 +3457,8 @@ export const ItemPocketApiAxiosParamCreator = function (configuration?: Configur
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3651,8 +3490,8 @@ export const ItemPocketApiAxiosParamCreator = function (configuration?: Configur
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3667,7 +3506,6 @@ export const ItemPocketApiAxiosParamCreator = function (configuration?: Configur
 
 /**
  * ItemPocketApi - functional programming interface
- * @export
  */
 export const ItemPocketApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ItemPocketApiAxiosParamCreator(configuration)
@@ -3702,7 +3540,6 @@ export const ItemPocketApiFp = function(configuration?: Configuration) {
 
 /**
  * ItemPocketApi - factory interface
- * @export
  */
 export const ItemPocketApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ItemPocketApiFp(configuration)
@@ -3731,9 +3568,6 @@ export const ItemPocketApiFactory = function (configuration?: Configuration, bas
 
 /**
  * ItemPocketApi - object-oriented interface
- * @export
- * @class ItemPocketApi
- * @extends {BaseAPI}
  */
 export class ItemPocketApi extends BaseAPI {
     /**
@@ -3742,7 +3576,6 @@ export class ItemPocketApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ItemPocketApi
      */
     public itemPocketList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return ItemPocketApiFp(this.configuration).itemPocketList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -3753,7 +3586,6 @@ export class ItemPocketApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ItemPocketApi
      */
     public itemPocketRead(id: number, options?: RawAxiosRequestConfig) {
         return ItemPocketApiFp(this.configuration).itemPocketRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -3764,7 +3596,6 @@ export class ItemPocketApi extends BaseAPI {
 
 /**
  * LanguageApi - axios parameter creator
- * @export
  */
 export const LanguageApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -3796,8 +3627,8 @@ export const LanguageApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3829,8 +3660,8 @@ export const LanguageApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3845,7 +3676,6 @@ export const LanguageApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * LanguageApi - functional programming interface
- * @export
  */
 export const LanguageApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = LanguageApiAxiosParamCreator(configuration)
@@ -3880,7 +3710,6 @@ export const LanguageApiFp = function(configuration?: Configuration) {
 
 /**
  * LanguageApi - factory interface
- * @export
  */
 export const LanguageApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = LanguageApiFp(configuration)
@@ -3909,9 +3738,6 @@ export const LanguageApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * LanguageApi - object-oriented interface
- * @export
- * @class LanguageApi
- * @extends {BaseAPI}
  */
 export class LanguageApi extends BaseAPI {
     /**
@@ -3920,7 +3746,6 @@ export class LanguageApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LanguageApi
      */
     public languageList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return LanguageApiFp(this.configuration).languageList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -3931,7 +3756,6 @@ export class LanguageApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LanguageApi
      */
     public languageRead(id: number, options?: RawAxiosRequestConfig) {
         return LanguageApiFp(this.configuration).languageRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -3942,7 +3766,6 @@ export class LanguageApi extends BaseAPI {
 
 /**
  * LocationApi - axios parameter creator
- * @export
  */
 export const LocationApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -3974,8 +3797,8 @@ export const LocationApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -4007,8 +3830,8 @@ export const LocationApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -4023,7 +3846,6 @@ export const LocationApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * LocationApi - functional programming interface
- * @export
  */
 export const LocationApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = LocationApiAxiosParamCreator(configuration)
@@ -4058,7 +3880,6 @@ export const LocationApiFp = function(configuration?: Configuration) {
 
 /**
  * LocationApi - factory interface
- * @export
  */
 export const LocationApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = LocationApiFp(configuration)
@@ -4087,9 +3908,6 @@ export const LocationApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * LocationApi - object-oriented interface
- * @export
- * @class LocationApi
- * @extends {BaseAPI}
  */
 export class LocationApi extends BaseAPI {
     /**
@@ -4098,7 +3916,6 @@ export class LocationApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LocationApi
      */
     public locationList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return LocationApiFp(this.configuration).locationList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -4109,7 +3926,6 @@ export class LocationApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LocationApi
      */
     public locationRead(id: number, options?: RawAxiosRequestConfig) {
         return LocationApiFp(this.configuration).locationRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -4120,7 +3936,6 @@ export class LocationApi extends BaseAPI {
 
 /**
  * LocationAreaApi - axios parameter creator
- * @export
  */
 export const LocationAreaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -4152,8 +3967,8 @@ export const LocationAreaApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -4185,8 +4000,8 @@ export const LocationAreaApiAxiosParamCreator = function (configuration?: Config
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -4201,7 +4016,6 @@ export const LocationAreaApiAxiosParamCreator = function (configuration?: Config
 
 /**
  * LocationAreaApi - functional programming interface
- * @export
  */
 export const LocationAreaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = LocationAreaApiAxiosParamCreator(configuration)
@@ -4236,7 +4050,6 @@ export const LocationAreaApiFp = function(configuration?: Configuration) {
 
 /**
  * LocationAreaApi - factory interface
- * @export
  */
 export const LocationAreaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = LocationAreaApiFp(configuration)
@@ -4265,9 +4078,6 @@ export const LocationAreaApiFactory = function (configuration?: Configuration, b
 
 /**
  * LocationAreaApi - object-oriented interface
- * @export
- * @class LocationAreaApi
- * @extends {BaseAPI}
  */
 export class LocationAreaApi extends BaseAPI {
     /**
@@ -4276,7 +4086,6 @@ export class LocationAreaApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LocationAreaApi
      */
     public locationAreaList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return LocationAreaApiFp(this.configuration).locationAreaList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -4287,7 +4096,6 @@ export class LocationAreaApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof LocationAreaApi
      */
     public locationAreaRead(id: number, options?: RawAxiosRequestConfig) {
         return LocationAreaApiFp(this.configuration).locationAreaRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -4298,7 +4106,6 @@ export class LocationAreaApi extends BaseAPI {
 
 /**
  * MachineApi - axios parameter creator
- * @export
  */
 export const MachineApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -4330,8 +4137,8 @@ export const MachineApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -4363,8 +4170,8 @@ export const MachineApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -4379,7 +4186,6 @@ export const MachineApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * MachineApi - functional programming interface
- * @export
  */
 export const MachineApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MachineApiAxiosParamCreator(configuration)
@@ -4414,7 +4220,6 @@ export const MachineApiFp = function(configuration?: Configuration) {
 
 /**
  * MachineApi - factory interface
- * @export
  */
 export const MachineApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MachineApiFp(configuration)
@@ -4443,9 +4248,6 @@ export const MachineApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * MachineApi - object-oriented interface
- * @export
- * @class MachineApi
- * @extends {BaseAPI}
  */
 export class MachineApi extends BaseAPI {
     /**
@@ -4454,7 +4256,6 @@ export class MachineApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineApi
      */
     public machineList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return MachineApiFp(this.configuration).machineList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -4465,7 +4266,6 @@ export class MachineApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MachineApi
      */
     public machineRead(id: number, options?: RawAxiosRequestConfig) {
         return MachineApiFp(this.configuration).machineRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -4476,7 +4276,6 @@ export class MachineApi extends BaseAPI {
 
 /**
  * MoveApi - axios parameter creator
- * @export
  */
 export const MoveApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -4508,8 +4307,8 @@ export const MoveApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -4541,8 +4340,8 @@ export const MoveApiAxiosParamCreator = function (configuration?: Configuration)
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -4557,7 +4356,6 @@ export const MoveApiAxiosParamCreator = function (configuration?: Configuration)
 
 /**
  * MoveApi - functional programming interface
- * @export
  */
 export const MoveApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MoveApiAxiosParamCreator(configuration)
@@ -4592,7 +4390,6 @@ export const MoveApiFp = function(configuration?: Configuration) {
 
 /**
  * MoveApi - factory interface
- * @export
  */
 export const MoveApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MoveApiFp(configuration)
@@ -4621,9 +4418,6 @@ export const MoveApiFactory = function (configuration?: Configuration, basePath?
 
 /**
  * MoveApi - object-oriented interface
- * @export
- * @class MoveApi
- * @extends {BaseAPI}
  */
 export class MoveApi extends BaseAPI {
     /**
@@ -4632,7 +4426,6 @@ export class MoveApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MoveApi
      */
     public moveList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return MoveApiFp(this.configuration).moveList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -4643,7 +4436,6 @@ export class MoveApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MoveApi
      */
     public moveRead(id: number, options?: RawAxiosRequestConfig) {
         return MoveApiFp(this.configuration).moveRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -4654,7 +4446,6 @@ export class MoveApi extends BaseAPI {
 
 /**
  * MoveAilmentApi - axios parameter creator
- * @export
  */
 export const MoveAilmentApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -4686,8 +4477,8 @@ export const MoveAilmentApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -4719,8 +4510,8 @@ export const MoveAilmentApiAxiosParamCreator = function (configuration?: Configu
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -4735,7 +4526,6 @@ export const MoveAilmentApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * MoveAilmentApi - functional programming interface
- * @export
  */
 export const MoveAilmentApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MoveAilmentApiAxiosParamCreator(configuration)
@@ -4770,7 +4560,6 @@ export const MoveAilmentApiFp = function(configuration?: Configuration) {
 
 /**
  * MoveAilmentApi - factory interface
- * @export
  */
 export const MoveAilmentApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MoveAilmentApiFp(configuration)
@@ -4799,9 +4588,6 @@ export const MoveAilmentApiFactory = function (configuration?: Configuration, ba
 
 /**
  * MoveAilmentApi - object-oriented interface
- * @export
- * @class MoveAilmentApi
- * @extends {BaseAPI}
  */
 export class MoveAilmentApi extends BaseAPI {
     /**
@@ -4810,7 +4596,6 @@ export class MoveAilmentApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MoveAilmentApi
      */
     public moveAilmentList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return MoveAilmentApiFp(this.configuration).moveAilmentList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -4821,7 +4606,6 @@ export class MoveAilmentApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MoveAilmentApi
      */
     public moveAilmentRead(id: number, options?: RawAxiosRequestConfig) {
         return MoveAilmentApiFp(this.configuration).moveAilmentRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -4832,7 +4616,6 @@ export class MoveAilmentApi extends BaseAPI {
 
 /**
  * MoveBattleStyleApi - axios parameter creator
- * @export
  */
 export const MoveBattleStyleApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -4864,8 +4647,8 @@ export const MoveBattleStyleApiAxiosParamCreator = function (configuration?: Con
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -4897,8 +4680,8 @@ export const MoveBattleStyleApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -4913,7 +4696,6 @@ export const MoveBattleStyleApiAxiosParamCreator = function (configuration?: Con
 
 /**
  * MoveBattleStyleApi - functional programming interface
- * @export
  */
 export const MoveBattleStyleApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MoveBattleStyleApiAxiosParamCreator(configuration)
@@ -4948,7 +4730,6 @@ export const MoveBattleStyleApiFp = function(configuration?: Configuration) {
 
 /**
  * MoveBattleStyleApi - factory interface
- * @export
  */
 export const MoveBattleStyleApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MoveBattleStyleApiFp(configuration)
@@ -4977,9 +4758,6 @@ export const MoveBattleStyleApiFactory = function (configuration?: Configuration
 
 /**
  * MoveBattleStyleApi - object-oriented interface
- * @export
- * @class MoveBattleStyleApi
- * @extends {BaseAPI}
  */
 export class MoveBattleStyleApi extends BaseAPI {
     /**
@@ -4988,7 +4766,6 @@ export class MoveBattleStyleApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MoveBattleStyleApi
      */
     public moveBattleStyleList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return MoveBattleStyleApiFp(this.configuration).moveBattleStyleList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -4999,7 +4776,6 @@ export class MoveBattleStyleApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MoveBattleStyleApi
      */
     public moveBattleStyleRead(id: number, options?: RawAxiosRequestConfig) {
         return MoveBattleStyleApiFp(this.configuration).moveBattleStyleRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -5010,7 +4786,6 @@ export class MoveBattleStyleApi extends BaseAPI {
 
 /**
  * MoveCategoryApi - axios parameter creator
- * @export
  */
 export const MoveCategoryApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -5042,8 +4817,8 @@ export const MoveCategoryApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -5075,8 +4850,8 @@ export const MoveCategoryApiAxiosParamCreator = function (configuration?: Config
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -5091,7 +4866,6 @@ export const MoveCategoryApiAxiosParamCreator = function (configuration?: Config
 
 /**
  * MoveCategoryApi - functional programming interface
- * @export
  */
 export const MoveCategoryApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MoveCategoryApiAxiosParamCreator(configuration)
@@ -5126,7 +4900,6 @@ export const MoveCategoryApiFp = function(configuration?: Configuration) {
 
 /**
  * MoveCategoryApi - factory interface
- * @export
  */
 export const MoveCategoryApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MoveCategoryApiFp(configuration)
@@ -5155,9 +4928,6 @@ export const MoveCategoryApiFactory = function (configuration?: Configuration, b
 
 /**
  * MoveCategoryApi - object-oriented interface
- * @export
- * @class MoveCategoryApi
- * @extends {BaseAPI}
  */
 export class MoveCategoryApi extends BaseAPI {
     /**
@@ -5166,7 +4936,6 @@ export class MoveCategoryApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MoveCategoryApi
      */
     public moveCategoryList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return MoveCategoryApiFp(this.configuration).moveCategoryList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -5177,7 +4946,6 @@ export class MoveCategoryApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MoveCategoryApi
      */
     public moveCategoryRead(id: number, options?: RawAxiosRequestConfig) {
         return MoveCategoryApiFp(this.configuration).moveCategoryRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -5188,7 +4956,6 @@ export class MoveCategoryApi extends BaseAPI {
 
 /**
  * MoveDamageClassApi - axios parameter creator
- * @export
  */
 export const MoveDamageClassApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -5220,8 +4987,8 @@ export const MoveDamageClassApiAxiosParamCreator = function (configuration?: Con
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -5253,8 +5020,8 @@ export const MoveDamageClassApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -5269,7 +5036,6 @@ export const MoveDamageClassApiAxiosParamCreator = function (configuration?: Con
 
 /**
  * MoveDamageClassApi - functional programming interface
- * @export
  */
 export const MoveDamageClassApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MoveDamageClassApiAxiosParamCreator(configuration)
@@ -5304,7 +5070,6 @@ export const MoveDamageClassApiFp = function(configuration?: Configuration) {
 
 /**
  * MoveDamageClassApi - factory interface
- * @export
  */
 export const MoveDamageClassApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MoveDamageClassApiFp(configuration)
@@ -5333,9 +5098,6 @@ export const MoveDamageClassApiFactory = function (configuration?: Configuration
 
 /**
  * MoveDamageClassApi - object-oriented interface
- * @export
- * @class MoveDamageClassApi
- * @extends {BaseAPI}
  */
 export class MoveDamageClassApi extends BaseAPI {
     /**
@@ -5344,7 +5106,6 @@ export class MoveDamageClassApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MoveDamageClassApi
      */
     public moveDamageClassList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return MoveDamageClassApiFp(this.configuration).moveDamageClassList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -5355,7 +5116,6 @@ export class MoveDamageClassApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MoveDamageClassApi
      */
     public moveDamageClassRead(id: number, options?: RawAxiosRequestConfig) {
         return MoveDamageClassApiFp(this.configuration).moveDamageClassRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -5366,7 +5126,6 @@ export class MoveDamageClassApi extends BaseAPI {
 
 /**
  * MoveLearnMethodApi - axios parameter creator
- * @export
  */
 export const MoveLearnMethodApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -5398,8 +5157,8 @@ export const MoveLearnMethodApiAxiosParamCreator = function (configuration?: Con
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -5431,8 +5190,8 @@ export const MoveLearnMethodApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -5447,7 +5206,6 @@ export const MoveLearnMethodApiAxiosParamCreator = function (configuration?: Con
 
 /**
  * MoveLearnMethodApi - functional programming interface
- * @export
  */
 export const MoveLearnMethodApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MoveLearnMethodApiAxiosParamCreator(configuration)
@@ -5482,7 +5240,6 @@ export const MoveLearnMethodApiFp = function(configuration?: Configuration) {
 
 /**
  * MoveLearnMethodApi - factory interface
- * @export
  */
 export const MoveLearnMethodApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MoveLearnMethodApiFp(configuration)
@@ -5511,9 +5268,6 @@ export const MoveLearnMethodApiFactory = function (configuration?: Configuration
 
 /**
  * MoveLearnMethodApi - object-oriented interface
- * @export
- * @class MoveLearnMethodApi
- * @extends {BaseAPI}
  */
 export class MoveLearnMethodApi extends BaseAPI {
     /**
@@ -5522,7 +5276,6 @@ export class MoveLearnMethodApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MoveLearnMethodApi
      */
     public moveLearnMethodList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return MoveLearnMethodApiFp(this.configuration).moveLearnMethodList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -5533,7 +5286,6 @@ export class MoveLearnMethodApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MoveLearnMethodApi
      */
     public moveLearnMethodRead(id: number, options?: RawAxiosRequestConfig) {
         return MoveLearnMethodApiFp(this.configuration).moveLearnMethodRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -5544,7 +5296,6 @@ export class MoveLearnMethodApi extends BaseAPI {
 
 /**
  * MoveTargetApi - axios parameter creator
- * @export
  */
 export const MoveTargetApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -5576,8 +5327,8 @@ export const MoveTargetApiAxiosParamCreator = function (configuration?: Configur
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -5609,8 +5360,8 @@ export const MoveTargetApiAxiosParamCreator = function (configuration?: Configur
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -5625,7 +5376,6 @@ export const MoveTargetApiAxiosParamCreator = function (configuration?: Configur
 
 /**
  * MoveTargetApi - functional programming interface
- * @export
  */
 export const MoveTargetApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MoveTargetApiAxiosParamCreator(configuration)
@@ -5660,7 +5410,6 @@ export const MoveTargetApiFp = function(configuration?: Configuration) {
 
 /**
  * MoveTargetApi - factory interface
- * @export
  */
 export const MoveTargetApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MoveTargetApiFp(configuration)
@@ -5689,9 +5438,6 @@ export const MoveTargetApiFactory = function (configuration?: Configuration, bas
 
 /**
  * MoveTargetApi - object-oriented interface
- * @export
- * @class MoveTargetApi
- * @extends {BaseAPI}
  */
 export class MoveTargetApi extends BaseAPI {
     /**
@@ -5700,7 +5446,6 @@ export class MoveTargetApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MoveTargetApi
      */
     public moveTargetList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return MoveTargetApiFp(this.configuration).moveTargetList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -5711,7 +5456,6 @@ export class MoveTargetApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MoveTargetApi
      */
     public moveTargetRead(id: number, options?: RawAxiosRequestConfig) {
         return MoveTargetApiFp(this.configuration).moveTargetRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -5722,7 +5466,6 @@ export class MoveTargetApi extends BaseAPI {
 
 /**
  * NatureApi - axios parameter creator
- * @export
  */
 export const NatureApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -5754,8 +5497,8 @@ export const NatureApiAxiosParamCreator = function (configuration?: Configuratio
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -5787,8 +5530,8 @@ export const NatureApiAxiosParamCreator = function (configuration?: Configuratio
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -5803,7 +5546,6 @@ export const NatureApiAxiosParamCreator = function (configuration?: Configuratio
 
 /**
  * NatureApi - functional programming interface
- * @export
  */
 export const NatureApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = NatureApiAxiosParamCreator(configuration)
@@ -5838,7 +5580,6 @@ export const NatureApiFp = function(configuration?: Configuration) {
 
 /**
  * NatureApi - factory interface
- * @export
  */
 export const NatureApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = NatureApiFp(configuration)
@@ -5867,9 +5608,6 @@ export const NatureApiFactory = function (configuration?: Configuration, basePat
 
 /**
  * NatureApi - object-oriented interface
- * @export
- * @class NatureApi
- * @extends {BaseAPI}
  */
 export class NatureApi extends BaseAPI {
     /**
@@ -5878,7 +5616,6 @@ export class NatureApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NatureApi
      */
     public natureList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return NatureApiFp(this.configuration).natureList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -5889,7 +5626,6 @@ export class NatureApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NatureApi
      */
     public natureRead(id: number, options?: RawAxiosRequestConfig) {
         return NatureApiFp(this.configuration).natureRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -5900,7 +5636,6 @@ export class NatureApi extends BaseAPI {
 
 /**
  * PalParkAreaApi - axios parameter creator
- * @export
  */
 export const PalParkAreaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -5932,8 +5667,8 @@ export const PalParkAreaApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -5965,8 +5700,8 @@ export const PalParkAreaApiAxiosParamCreator = function (configuration?: Configu
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -5981,7 +5716,6 @@ export const PalParkAreaApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * PalParkAreaApi - functional programming interface
- * @export
  */
 export const PalParkAreaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PalParkAreaApiAxiosParamCreator(configuration)
@@ -6016,7 +5750,6 @@ export const PalParkAreaApiFp = function(configuration?: Configuration) {
 
 /**
  * PalParkAreaApi - factory interface
- * @export
  */
 export const PalParkAreaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PalParkAreaApiFp(configuration)
@@ -6045,9 +5778,6 @@ export const PalParkAreaApiFactory = function (configuration?: Configuration, ba
 
 /**
  * PalParkAreaApi - object-oriented interface
- * @export
- * @class PalParkAreaApi
- * @extends {BaseAPI}
  */
 export class PalParkAreaApi extends BaseAPI {
     /**
@@ -6056,7 +5786,6 @@ export class PalParkAreaApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PalParkAreaApi
      */
     public palParkAreaList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PalParkAreaApiFp(this.configuration).palParkAreaList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -6067,7 +5796,6 @@ export class PalParkAreaApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PalParkAreaApi
      */
     public palParkAreaRead(id: number, options?: RawAxiosRequestConfig) {
         return PalParkAreaApiFp(this.configuration).palParkAreaRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -6078,7 +5806,6 @@ export class PalParkAreaApi extends BaseAPI {
 
 /**
  * PokeathlonStatApi - axios parameter creator
- * @export
  */
 export const PokeathlonStatApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -6110,8 +5837,8 @@ export const PokeathlonStatApiAxiosParamCreator = function (configuration?: Conf
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -6143,8 +5870,8 @@ export const PokeathlonStatApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -6159,7 +5886,6 @@ export const PokeathlonStatApiAxiosParamCreator = function (configuration?: Conf
 
 /**
  * PokeathlonStatApi - functional programming interface
- * @export
  */
 export const PokeathlonStatApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PokeathlonStatApiAxiosParamCreator(configuration)
@@ -6194,7 +5920,6 @@ export const PokeathlonStatApiFp = function(configuration?: Configuration) {
 
 /**
  * PokeathlonStatApi - factory interface
- * @export
  */
 export const PokeathlonStatApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PokeathlonStatApiFp(configuration)
@@ -6223,9 +5948,6 @@ export const PokeathlonStatApiFactory = function (configuration?: Configuration,
 
 /**
  * PokeathlonStatApi - object-oriented interface
- * @export
- * @class PokeathlonStatApi
- * @extends {BaseAPI}
  */
 export class PokeathlonStatApi extends BaseAPI {
     /**
@@ -6234,7 +5956,6 @@ export class PokeathlonStatApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PokeathlonStatApi
      */
     public pokeathlonStatList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PokeathlonStatApiFp(this.configuration).pokeathlonStatList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -6245,7 +5966,6 @@ export class PokeathlonStatApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PokeathlonStatApi
      */
     public pokeathlonStatRead(id: number, options?: RawAxiosRequestConfig) {
         return PokeathlonStatApiFp(this.configuration).pokeathlonStatRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -6256,7 +5976,6 @@ export class PokeathlonStatApi extends BaseAPI {
 
 /**
  * PokedexApi - axios parameter creator
- * @export
  */
 export const PokedexApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -6288,8 +6007,8 @@ export const PokedexApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -6321,8 +6040,8 @@ export const PokedexApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -6337,7 +6056,6 @@ export const PokedexApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * PokedexApi - functional programming interface
- * @export
  */
 export const PokedexApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PokedexApiAxiosParamCreator(configuration)
@@ -6372,7 +6090,6 @@ export const PokedexApiFp = function(configuration?: Configuration) {
 
 /**
  * PokedexApi - factory interface
- * @export
  */
 export const PokedexApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PokedexApiFp(configuration)
@@ -6401,9 +6118,6 @@ export const PokedexApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * PokedexApi - object-oriented interface
- * @export
- * @class PokedexApi
- * @extends {BaseAPI}
  */
 export class PokedexApi extends BaseAPI {
     /**
@@ -6412,7 +6126,6 @@ export class PokedexApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PokedexApi
      */
     public pokedexList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PokedexApiFp(this.configuration).pokedexList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -6423,7 +6136,6 @@ export class PokedexApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PokedexApi
      */
     public pokedexRead(id: number, options?: RawAxiosRequestConfig) {
         return PokedexApiFp(this.configuration).pokedexRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -6434,7 +6146,6 @@ export class PokedexApi extends BaseAPI {
 
 /**
  * PokemonApi - axios parameter creator
- * @export
  */
 export const PokemonApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -6466,8 +6177,8 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -6499,8 +6210,8 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -6515,7 +6226,6 @@ export const PokemonApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * PokemonApi - functional programming interface
- * @export
  */
 export const PokemonApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PokemonApiAxiosParamCreator(configuration)
@@ -6550,7 +6260,6 @@ export const PokemonApiFp = function(configuration?: Configuration) {
 
 /**
  * PokemonApi - factory interface
- * @export
  */
 export const PokemonApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PokemonApiFp(configuration)
@@ -6579,9 +6288,6 @@ export const PokemonApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * PokemonApi - object-oriented interface
- * @export
- * @class PokemonApi
- * @extends {BaseAPI}
  */
 export class PokemonApi extends BaseAPI {
     /**
@@ -6590,7 +6296,6 @@ export class PokemonApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PokemonApi
      */
     public pokemonList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PokemonApiFp(this.configuration).pokemonList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -6601,7 +6306,6 @@ export class PokemonApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PokemonApi
      */
     public pokemonRead(id: number, options?: RawAxiosRequestConfig) {
         return PokemonApiFp(this.configuration).pokemonRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -6612,7 +6316,6 @@ export class PokemonApi extends BaseAPI {
 
 /**
  * PokemonColorApi - axios parameter creator
- * @export
  */
 export const PokemonColorApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -6644,8 +6347,8 @@ export const PokemonColorApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -6677,8 +6380,8 @@ export const PokemonColorApiAxiosParamCreator = function (configuration?: Config
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -6693,7 +6396,6 @@ export const PokemonColorApiAxiosParamCreator = function (configuration?: Config
 
 /**
  * PokemonColorApi - functional programming interface
- * @export
  */
 export const PokemonColorApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PokemonColorApiAxiosParamCreator(configuration)
@@ -6728,7 +6430,6 @@ export const PokemonColorApiFp = function(configuration?: Configuration) {
 
 /**
  * PokemonColorApi - factory interface
- * @export
  */
 export const PokemonColorApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PokemonColorApiFp(configuration)
@@ -6757,9 +6458,6 @@ export const PokemonColorApiFactory = function (configuration?: Configuration, b
 
 /**
  * PokemonColorApi - object-oriented interface
- * @export
- * @class PokemonColorApi
- * @extends {BaseAPI}
  */
 export class PokemonColorApi extends BaseAPI {
     /**
@@ -6768,7 +6466,6 @@ export class PokemonColorApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PokemonColorApi
      */
     public pokemonColorList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PokemonColorApiFp(this.configuration).pokemonColorList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -6779,7 +6476,6 @@ export class PokemonColorApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PokemonColorApi
      */
     public pokemonColorRead(id: number, options?: RawAxiosRequestConfig) {
         return PokemonColorApiFp(this.configuration).pokemonColorRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -6790,7 +6486,6 @@ export class PokemonColorApi extends BaseAPI {
 
 /**
  * PokemonFormApi - axios parameter creator
- * @export
  */
 export const PokemonFormApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -6822,8 +6517,8 @@ export const PokemonFormApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -6855,8 +6550,8 @@ export const PokemonFormApiAxiosParamCreator = function (configuration?: Configu
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -6871,7 +6566,6 @@ export const PokemonFormApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * PokemonFormApi - functional programming interface
- * @export
  */
 export const PokemonFormApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PokemonFormApiAxiosParamCreator(configuration)
@@ -6906,7 +6600,6 @@ export const PokemonFormApiFp = function(configuration?: Configuration) {
 
 /**
  * PokemonFormApi - factory interface
- * @export
  */
 export const PokemonFormApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PokemonFormApiFp(configuration)
@@ -6935,9 +6628,6 @@ export const PokemonFormApiFactory = function (configuration?: Configuration, ba
 
 /**
  * PokemonFormApi - object-oriented interface
- * @export
- * @class PokemonFormApi
- * @extends {BaseAPI}
  */
 export class PokemonFormApi extends BaseAPI {
     /**
@@ -6946,7 +6636,6 @@ export class PokemonFormApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PokemonFormApi
      */
     public pokemonFormList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PokemonFormApiFp(this.configuration).pokemonFormList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -6957,7 +6646,6 @@ export class PokemonFormApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PokemonFormApi
      */
     public pokemonFormRead(id: number, options?: RawAxiosRequestConfig) {
         return PokemonFormApiFp(this.configuration).pokemonFormRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -6968,7 +6656,6 @@ export class PokemonFormApi extends BaseAPI {
 
 /**
  * PokemonHabitatApi - axios parameter creator
- * @export
  */
 export const PokemonHabitatApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -7000,8 +6687,8 @@ export const PokemonHabitatApiAxiosParamCreator = function (configuration?: Conf
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -7033,8 +6720,8 @@ export const PokemonHabitatApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -7049,7 +6736,6 @@ export const PokemonHabitatApiAxiosParamCreator = function (configuration?: Conf
 
 /**
  * PokemonHabitatApi - functional programming interface
- * @export
  */
 export const PokemonHabitatApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PokemonHabitatApiAxiosParamCreator(configuration)
@@ -7084,7 +6770,6 @@ export const PokemonHabitatApiFp = function(configuration?: Configuration) {
 
 /**
  * PokemonHabitatApi - factory interface
- * @export
  */
 export const PokemonHabitatApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PokemonHabitatApiFp(configuration)
@@ -7113,9 +6798,6 @@ export const PokemonHabitatApiFactory = function (configuration?: Configuration,
 
 /**
  * PokemonHabitatApi - object-oriented interface
- * @export
- * @class PokemonHabitatApi
- * @extends {BaseAPI}
  */
 export class PokemonHabitatApi extends BaseAPI {
     /**
@@ -7124,7 +6806,6 @@ export class PokemonHabitatApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PokemonHabitatApi
      */
     public pokemonHabitatList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PokemonHabitatApiFp(this.configuration).pokemonHabitatList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -7135,7 +6816,6 @@ export class PokemonHabitatApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PokemonHabitatApi
      */
     public pokemonHabitatRead(id: number, options?: RawAxiosRequestConfig) {
         return PokemonHabitatApiFp(this.configuration).pokemonHabitatRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -7146,7 +6826,6 @@ export class PokemonHabitatApi extends BaseAPI {
 
 /**
  * PokemonShapeApi - axios parameter creator
- * @export
  */
 export const PokemonShapeApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -7178,8 +6857,8 @@ export const PokemonShapeApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -7211,8 +6890,8 @@ export const PokemonShapeApiAxiosParamCreator = function (configuration?: Config
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -7227,7 +6906,6 @@ export const PokemonShapeApiAxiosParamCreator = function (configuration?: Config
 
 /**
  * PokemonShapeApi - functional programming interface
- * @export
  */
 export const PokemonShapeApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PokemonShapeApiAxiosParamCreator(configuration)
@@ -7262,7 +6940,6 @@ export const PokemonShapeApiFp = function(configuration?: Configuration) {
 
 /**
  * PokemonShapeApi - factory interface
- * @export
  */
 export const PokemonShapeApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PokemonShapeApiFp(configuration)
@@ -7291,9 +6968,6 @@ export const PokemonShapeApiFactory = function (configuration?: Configuration, b
 
 /**
  * PokemonShapeApi - object-oriented interface
- * @export
- * @class PokemonShapeApi
- * @extends {BaseAPI}
  */
 export class PokemonShapeApi extends BaseAPI {
     /**
@@ -7302,7 +6976,6 @@ export class PokemonShapeApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PokemonShapeApi
      */
     public pokemonShapeList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PokemonShapeApiFp(this.configuration).pokemonShapeList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -7313,7 +6986,6 @@ export class PokemonShapeApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PokemonShapeApi
      */
     public pokemonShapeRead(id: number, options?: RawAxiosRequestConfig) {
         return PokemonShapeApiFp(this.configuration).pokemonShapeRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -7324,7 +6996,6 @@ export class PokemonShapeApi extends BaseAPI {
 
 /**
  * PokemonSpeciesApi - axios parameter creator
- * @export
  */
 export const PokemonSpeciesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -7356,8 +7027,8 @@ export const PokemonSpeciesApiAxiosParamCreator = function (configuration?: Conf
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -7389,8 +7060,8 @@ export const PokemonSpeciesApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -7405,7 +7076,6 @@ export const PokemonSpeciesApiAxiosParamCreator = function (configuration?: Conf
 
 /**
  * PokemonSpeciesApi - functional programming interface
- * @export
  */
 export const PokemonSpeciesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PokemonSpeciesApiAxiosParamCreator(configuration)
@@ -7440,7 +7110,6 @@ export const PokemonSpeciesApiFp = function(configuration?: Configuration) {
 
 /**
  * PokemonSpeciesApi - factory interface
- * @export
  */
 export const PokemonSpeciesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PokemonSpeciesApiFp(configuration)
@@ -7469,9 +7138,6 @@ export const PokemonSpeciesApiFactory = function (configuration?: Configuration,
 
 /**
  * PokemonSpeciesApi - object-oriented interface
- * @export
- * @class PokemonSpeciesApi
- * @extends {BaseAPI}
  */
 export class PokemonSpeciesApi extends BaseAPI {
     /**
@@ -7480,7 +7146,6 @@ export class PokemonSpeciesApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PokemonSpeciesApi
      */
     public pokemonSpeciesList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return PokemonSpeciesApiFp(this.configuration).pokemonSpeciesList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -7491,7 +7156,6 @@ export class PokemonSpeciesApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PokemonSpeciesApi
      */
     public pokemonSpeciesRead(id: number, options?: RawAxiosRequestConfig) {
         return PokemonSpeciesApiFp(this.configuration).pokemonSpeciesRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -7502,7 +7166,6 @@ export class PokemonSpeciesApi extends BaseAPI {
 
 /**
  * RegionApi - axios parameter creator
- * @export
  */
 export const RegionApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -7534,8 +7197,8 @@ export const RegionApiAxiosParamCreator = function (configuration?: Configuratio
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -7567,8 +7230,8 @@ export const RegionApiAxiosParamCreator = function (configuration?: Configuratio
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -7583,7 +7246,6 @@ export const RegionApiAxiosParamCreator = function (configuration?: Configuratio
 
 /**
  * RegionApi - functional programming interface
- * @export
  */
 export const RegionApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = RegionApiAxiosParamCreator(configuration)
@@ -7618,7 +7280,6 @@ export const RegionApiFp = function(configuration?: Configuration) {
 
 /**
  * RegionApi - factory interface
- * @export
  */
 export const RegionApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = RegionApiFp(configuration)
@@ -7647,9 +7308,6 @@ export const RegionApiFactory = function (configuration?: Configuration, basePat
 
 /**
  * RegionApi - object-oriented interface
- * @export
- * @class RegionApi
- * @extends {BaseAPI}
  */
 export class RegionApi extends BaseAPI {
     /**
@@ -7658,7 +7316,6 @@ export class RegionApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RegionApi
      */
     public regionList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return RegionApiFp(this.configuration).regionList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -7669,7 +7326,6 @@ export class RegionApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RegionApi
      */
     public regionRead(id: number, options?: RawAxiosRequestConfig) {
         return RegionApiFp(this.configuration).regionRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -7680,7 +7336,6 @@ export class RegionApi extends BaseAPI {
 
 /**
  * StatApi - axios parameter creator
- * @export
  */
 export const StatApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -7712,8 +7367,8 @@ export const StatApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -7745,8 +7400,8 @@ export const StatApiAxiosParamCreator = function (configuration?: Configuration)
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -7761,7 +7416,6 @@ export const StatApiAxiosParamCreator = function (configuration?: Configuration)
 
 /**
  * StatApi - functional programming interface
- * @export
  */
 export const StatApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = StatApiAxiosParamCreator(configuration)
@@ -7796,7 +7450,6 @@ export const StatApiFp = function(configuration?: Configuration) {
 
 /**
  * StatApi - factory interface
- * @export
  */
 export const StatApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = StatApiFp(configuration)
@@ -7825,9 +7478,6 @@ export const StatApiFactory = function (configuration?: Configuration, basePath?
 
 /**
  * StatApi - object-oriented interface
- * @export
- * @class StatApi
- * @extends {BaseAPI}
  */
 export class StatApi extends BaseAPI {
     /**
@@ -7836,7 +7486,6 @@ export class StatApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StatApi
      */
     public statList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return StatApiFp(this.configuration).statList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -7847,7 +7496,6 @@ export class StatApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StatApi
      */
     public statRead(id: number, options?: RawAxiosRequestConfig) {
         return StatApiFp(this.configuration).statRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -7858,7 +7506,6 @@ export class StatApi extends BaseAPI {
 
 /**
  * SuperContestEffectApi - axios parameter creator
- * @export
  */
 export const SuperContestEffectApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -7890,8 +7537,8 @@ export const SuperContestEffectApiAxiosParamCreator = function (configuration?: 
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -7923,8 +7570,8 @@ export const SuperContestEffectApiAxiosParamCreator = function (configuration?: 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -7939,7 +7586,6 @@ export const SuperContestEffectApiAxiosParamCreator = function (configuration?: 
 
 /**
  * SuperContestEffectApi - functional programming interface
- * @export
  */
 export const SuperContestEffectApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SuperContestEffectApiAxiosParamCreator(configuration)
@@ -7974,7 +7620,6 @@ export const SuperContestEffectApiFp = function(configuration?: Configuration) {
 
 /**
  * SuperContestEffectApi - factory interface
- * @export
  */
 export const SuperContestEffectApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = SuperContestEffectApiFp(configuration)
@@ -8003,9 +7648,6 @@ export const SuperContestEffectApiFactory = function (configuration?: Configurat
 
 /**
  * SuperContestEffectApi - object-oriented interface
- * @export
- * @class SuperContestEffectApi
- * @extends {BaseAPI}
  */
 export class SuperContestEffectApi extends BaseAPI {
     /**
@@ -8014,7 +7656,6 @@ export class SuperContestEffectApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SuperContestEffectApi
      */
     public superContestEffectList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return SuperContestEffectApiFp(this.configuration).superContestEffectList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -8025,7 +7666,6 @@ export class SuperContestEffectApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof SuperContestEffectApi
      */
     public superContestEffectRead(id: number, options?: RawAxiosRequestConfig) {
         return SuperContestEffectApiFp(this.configuration).superContestEffectRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -8036,7 +7676,6 @@ export class SuperContestEffectApi extends BaseAPI {
 
 /**
  * TypeApi - axios parameter creator
- * @export
  */
 export const TypeApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -8068,8 +7707,8 @@ export const TypeApiAxiosParamCreator = function (configuration?: Configuration)
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -8101,8 +7740,8 @@ export const TypeApiAxiosParamCreator = function (configuration?: Configuration)
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -8117,7 +7756,6 @@ export const TypeApiAxiosParamCreator = function (configuration?: Configuration)
 
 /**
  * TypeApi - functional programming interface
- * @export
  */
 export const TypeApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TypeApiAxiosParamCreator(configuration)
@@ -8152,7 +7790,6 @@ export const TypeApiFp = function(configuration?: Configuration) {
 
 /**
  * TypeApi - factory interface
- * @export
  */
 export const TypeApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = TypeApiFp(configuration)
@@ -8181,9 +7818,6 @@ export const TypeApiFactory = function (configuration?: Configuration, basePath?
 
 /**
  * TypeApi - object-oriented interface
- * @export
- * @class TypeApi
- * @extends {BaseAPI}
  */
 export class TypeApi extends BaseAPI {
     /**
@@ -8192,7 +7826,6 @@ export class TypeApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TypeApi
      */
     public typeList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return TypeApiFp(this.configuration).typeList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -8203,7 +7836,6 @@ export class TypeApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TypeApi
      */
     public typeRead(id: number, options?: RawAxiosRequestConfig) {
         return TypeApiFp(this.configuration).typeRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -8214,7 +7846,6 @@ export class TypeApi extends BaseAPI {
 
 /**
  * VersionApi - axios parameter creator
- * @export
  */
 export const VersionApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -8246,8 +7877,8 @@ export const VersionApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -8279,8 +7910,8 @@ export const VersionApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -8295,7 +7926,6 @@ export const VersionApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * VersionApi - functional programming interface
- * @export
  */
 export const VersionApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = VersionApiAxiosParamCreator(configuration)
@@ -8330,7 +7960,6 @@ export const VersionApiFp = function(configuration?: Configuration) {
 
 /**
  * VersionApi - factory interface
- * @export
  */
 export const VersionApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = VersionApiFp(configuration)
@@ -8359,9 +7988,6 @@ export const VersionApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * VersionApi - object-oriented interface
- * @export
- * @class VersionApi
- * @extends {BaseAPI}
  */
 export class VersionApi extends BaseAPI {
     /**
@@ -8370,7 +7996,6 @@ export class VersionApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VersionApi
      */
     public versionList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return VersionApiFp(this.configuration).versionList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -8381,7 +8006,6 @@ export class VersionApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VersionApi
      */
     public versionRead(id: number, options?: RawAxiosRequestConfig) {
         return VersionApiFp(this.configuration).versionRead(id, options).then((request) => request(this.axios, this.basePath));
@@ -8392,7 +8016,6 @@ export class VersionApi extends BaseAPI {
 
 /**
  * VersionGroupApi - axios parameter creator
- * @export
  */
 export const VersionGroupApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -8424,8 +8047,8 @@ export const VersionGroupApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['offset'] = offset;
             }
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -8457,8 +8080,8 @@ export const VersionGroupApiAxiosParamCreator = function (configuration?: Config
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            localVarHeaderParameter['Accept'] = 'text/plain';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -8473,7 +8096,6 @@ export const VersionGroupApiAxiosParamCreator = function (configuration?: Config
 
 /**
  * VersionGroupApi - functional programming interface
- * @export
  */
 export const VersionGroupApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = VersionGroupApiAxiosParamCreator(configuration)
@@ -8508,7 +8130,6 @@ export const VersionGroupApiFp = function(configuration?: Configuration) {
 
 /**
  * VersionGroupApi - factory interface
- * @export
  */
 export const VersionGroupApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = VersionGroupApiFp(configuration)
@@ -8537,9 +8158,6 @@ export const VersionGroupApiFactory = function (configuration?: Configuration, b
 
 /**
  * VersionGroupApi - object-oriented interface
- * @export
- * @class VersionGroupApi
- * @extends {BaseAPI}
  */
 export class VersionGroupApi extends BaseAPI {
     /**
@@ -8548,7 +8166,6 @@ export class VersionGroupApi extends BaseAPI {
      * @param {number} [offset] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VersionGroupApi
      */
     public versionGroupList(limit?: number, offset?: number, options?: RawAxiosRequestConfig) {
         return VersionGroupApiFp(this.configuration).versionGroupList(limit, offset, options).then((request) => request(this.axios, this.basePath));
@@ -8559,7 +8176,6 @@ export class VersionGroupApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof VersionGroupApi
      */
     public versionGroupRead(id: number, options?: RawAxiosRequestConfig) {
         return VersionGroupApiFp(this.configuration).versionGroupRead(id, options).then((request) => request(this.axios, this.basePath));

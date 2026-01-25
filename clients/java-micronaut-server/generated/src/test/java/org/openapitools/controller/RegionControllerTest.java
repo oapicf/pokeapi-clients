@@ -78,7 +78,7 @@ public class RegionControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/region/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@741ac284");
+            .accept("[Ljava.lang.String;@c1e14f");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class RegionControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@4ef4f627");
+            .accept("[Ljava.lang.String;@226de93c");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

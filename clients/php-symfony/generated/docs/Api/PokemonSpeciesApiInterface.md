@@ -41,7 +41,7 @@ class PokemonSpeciesApi implements PokemonSpeciesApiInterface
     /**
      * Implementation of PokemonSpeciesApiInterface#pokemonSpeciesList
      */
-    public function pokemonSpeciesList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function pokemonSpeciesList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class PokemonSpeciesApi implements PokemonSpeciesApiInterface
     /**
      * Implementation of PokemonSpeciesApiInterface#pokemonSpeciesRead
      */
-    public function pokemonSpeciesRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function pokemonSpeciesRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

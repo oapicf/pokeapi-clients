@@ -10,7 +10,7 @@ import java.io.FileInputStream;
 import play.libs.Files.TemporaryFile;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2025-05-10T05:53:38.625191772Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-01-25T00:36:21.175854040Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class VersionApiControllerImp extends VersionApiControllerImpInterface {
     @Override
     public String versionList(Http.Request request, Integer limit, Integer offset) throws Exception {

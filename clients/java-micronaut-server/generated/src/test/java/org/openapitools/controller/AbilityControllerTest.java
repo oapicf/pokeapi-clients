@@ -78,7 +78,7 @@ public class AbilityControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/ability/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@31b82e0f");
+            .accept("[Ljava.lang.String;@1a07bf6");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class AbilityControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@27a09971");
+            .accept("[Ljava.lang.String;@4c0e426a");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

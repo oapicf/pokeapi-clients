@@ -50,14 +50,14 @@ interface VersionApiInterface
      * @param  int     &$responseCode    The HTTP Response Code
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return array|object|null
+     * @return string
      */
     public function versionList(
         ?int $limit,
         ?int $offset,
         int &$responseCode,
         array &$responseHeaders
-    ): array|object|null;
+    ): string;
 
     /**
      * Operation versionRead
@@ -66,11 +66,11 @@ interface VersionApiInterface
      * @param  int     &$responseCode    The HTTP Response Code
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return array|object|null
+     * @return string
      */
     public function versionRead(
         int $id,
         int &$responseCode,
         array &$responseHeaders
-    ): array|object|null;
+    ): string;
 }

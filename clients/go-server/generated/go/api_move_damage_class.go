@@ -52,17 +52,39 @@ func NewMoveDamageClassAPIController(s MoveDamageClassAPIServicer, opts ...MoveD
 func (c *MoveDamageClassAPIController) Routes() Routes {
 	return Routes{
 		"MoveDamageClassList": Route{
+			"MoveDamageClassList",
 			strings.ToUpper("Get"),
 			"/api/v2/move-damage-class/",
 			c.MoveDamageClassList,
 		},
 		"MoveDamageClassRead": Route{
+			"MoveDamageClassRead",
 			strings.ToUpper("Get"),
 			"/api/v2/move-damage-class/{id}/",
 			c.MoveDamageClassRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the MoveDamageClassAPIController
+func (c *MoveDamageClassAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"MoveDamageClassList",
+			strings.ToUpper("Get"),
+			"/api/v2/move-damage-class/",
+			c.MoveDamageClassList,
+		},
+		Route{
+			"MoveDamageClassRead",
+			strings.ToUpper("Get"),
+			"/api/v2/move-damage-class/{id}/",
+			c.MoveDamageClassRead,
+		},
+	}
+}
+
+
 
 // MoveDamageClassList - 
 func (c *MoveDamageClassAPIController) MoveDamageClassList(w http.ResponseWriter, r *http.Request) {

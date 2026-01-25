@@ -52,17 +52,39 @@ func NewPokedexAPIController(s PokedexAPIServicer, opts ...PokedexAPIOption) *Po
 func (c *PokedexAPIController) Routes() Routes {
 	return Routes{
 		"PokedexList": Route{
+			"PokedexList",
 			strings.ToUpper("Get"),
 			"/api/v2/pokedex/",
 			c.PokedexList,
 		},
 		"PokedexRead": Route{
+			"PokedexRead",
 			strings.ToUpper("Get"),
 			"/api/v2/pokedex/{id}/",
 			c.PokedexRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the PokedexAPIController
+func (c *PokedexAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"PokedexList",
+			strings.ToUpper("Get"),
+			"/api/v2/pokedex/",
+			c.PokedexList,
+		},
+		Route{
+			"PokedexRead",
+			strings.ToUpper("Get"),
+			"/api/v2/pokedex/{id}/",
+			c.PokedexRead,
+		},
+	}
+}
+
+
 
 // PokedexList - 
 func (c *PokedexAPIController) PokedexList(w http.ResponseWriter, r *http.Request) {

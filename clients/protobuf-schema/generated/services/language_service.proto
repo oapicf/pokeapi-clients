@@ -30,15 +30,17 @@ message LanguageListRequest {
 }
 
 message LanguageListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message LanguageReadRequest {
   int32 id = 1;
 
 }
 
 message LanguageReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

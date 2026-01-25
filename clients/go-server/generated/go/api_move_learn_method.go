@@ -52,17 +52,39 @@ func NewMoveLearnMethodAPIController(s MoveLearnMethodAPIServicer, opts ...MoveL
 func (c *MoveLearnMethodAPIController) Routes() Routes {
 	return Routes{
 		"MoveLearnMethodList": Route{
+			"MoveLearnMethodList",
 			strings.ToUpper("Get"),
 			"/api/v2/move-learn-method/",
 			c.MoveLearnMethodList,
 		},
 		"MoveLearnMethodRead": Route{
+			"MoveLearnMethodRead",
 			strings.ToUpper("Get"),
 			"/api/v2/move-learn-method/{id}/",
 			c.MoveLearnMethodRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the MoveLearnMethodAPIController
+func (c *MoveLearnMethodAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"MoveLearnMethodList",
+			strings.ToUpper("Get"),
+			"/api/v2/move-learn-method/",
+			c.MoveLearnMethodList,
+		},
+		Route{
+			"MoveLearnMethodRead",
+			strings.ToUpper("Get"),
+			"/api/v2/move-learn-method/{id}/",
+			c.MoveLearnMethodRead,
+		},
+	}
+}
+
+
 
 // MoveLearnMethodList - 
 func (c *MoveLearnMethodAPIController) MoveLearnMethodList(w http.ResponseWriter, r *http.Request) {

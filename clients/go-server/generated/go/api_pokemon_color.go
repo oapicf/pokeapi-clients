@@ -52,17 +52,39 @@ func NewPokemonColorAPIController(s PokemonColorAPIServicer, opts ...PokemonColo
 func (c *PokemonColorAPIController) Routes() Routes {
 	return Routes{
 		"PokemonColorList": Route{
+			"PokemonColorList",
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-color/",
 			c.PokemonColorList,
 		},
 		"PokemonColorRead": Route{
+			"PokemonColorRead",
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-color/{id}/",
 			c.PokemonColorRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the PokemonColorAPIController
+func (c *PokemonColorAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"PokemonColorList",
+			strings.ToUpper("Get"),
+			"/api/v2/pokemon-color/",
+			c.PokemonColorList,
+		},
+		Route{
+			"PokemonColorRead",
+			strings.ToUpper("Get"),
+			"/api/v2/pokemon-color/{id}/",
+			c.PokemonColorRead,
+		},
+	}
+}
+
+
 
 // PokemonColorList - 
 func (c *PokemonColorAPIController) PokemonColorList(w http.ResponseWriter, r *http.Request) {

@@ -52,17 +52,39 @@ func NewPokeathlonStatAPIController(s PokeathlonStatAPIServicer, opts ...Pokeath
 func (c *PokeathlonStatAPIController) Routes() Routes {
 	return Routes{
 		"PokeathlonStatList": Route{
+			"PokeathlonStatList",
 			strings.ToUpper("Get"),
 			"/api/v2/pokeathlon-stat/",
 			c.PokeathlonStatList,
 		},
 		"PokeathlonStatRead": Route{
+			"PokeathlonStatRead",
 			strings.ToUpper("Get"),
 			"/api/v2/pokeathlon-stat/{id}/",
 			c.PokeathlonStatRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the PokeathlonStatAPIController
+func (c *PokeathlonStatAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"PokeathlonStatList",
+			strings.ToUpper("Get"),
+			"/api/v2/pokeathlon-stat/",
+			c.PokeathlonStatList,
+		},
+		Route{
+			"PokeathlonStatRead",
+			strings.ToUpper("Get"),
+			"/api/v2/pokeathlon-stat/{id}/",
+			c.PokeathlonStatRead,
+		},
+	}
+}
+
+
 
 // PokeathlonStatList - 
 func (c *PokeathlonStatAPIController) PokeathlonStatList(w http.ResponseWriter, r *http.Request) {

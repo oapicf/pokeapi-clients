@@ -50,14 +50,14 @@ interface PokeathlonStatApiInterface
      * @param  int     &$responseCode    The HTTP Response Code
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return array|object|null
+     * @return string
      */
     public function pokeathlonStatList(
         ?int $limit,
         ?int $offset,
         int &$responseCode,
         array &$responseHeaders
-    ): array|object|null;
+    ): string;
 
     /**
      * Operation pokeathlonStatRead
@@ -66,11 +66,11 @@ interface PokeathlonStatApiInterface
      * @param  int     &$responseCode    The HTTP Response Code
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return array|object|null
+     * @return string
      */
     public function pokeathlonStatRead(
         int $id,
         int &$responseCode,
         array &$responseHeaders
-    ): array|object|null;
+    ): string;
 }

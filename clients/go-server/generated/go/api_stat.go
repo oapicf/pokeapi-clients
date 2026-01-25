@@ -52,17 +52,39 @@ func NewStatAPIController(s StatAPIServicer, opts ...StatAPIOption) *StatAPICont
 func (c *StatAPIController) Routes() Routes {
 	return Routes{
 		"StatList": Route{
+			"StatList",
 			strings.ToUpper("Get"),
 			"/api/v2/stat/",
 			c.StatList,
 		},
 		"StatRead": Route{
+			"StatRead",
 			strings.ToUpper("Get"),
 			"/api/v2/stat/{id}/",
 			c.StatRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the StatAPIController
+func (c *StatAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"StatList",
+			strings.ToUpper("Get"),
+			"/api/v2/stat/",
+			c.StatList,
+		},
+		Route{
+			"StatRead",
+			strings.ToUpper("Get"),
+			"/api/v2/stat/{id}/",
+			c.StatRead,
+		},
+	}
+}
+
+
 
 // StatList - 
 func (c *StatAPIController) StatList(w http.ResponseWriter, r *http.Request) {

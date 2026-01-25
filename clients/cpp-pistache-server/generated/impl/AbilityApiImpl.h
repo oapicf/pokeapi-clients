@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  AbilityApiImpl : public org::openapitools::server::api::AbilityApi {
 public:
     explicit AbilityApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

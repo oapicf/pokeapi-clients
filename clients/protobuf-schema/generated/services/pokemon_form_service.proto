@@ -30,15 +30,17 @@ message PokemonFormListRequest {
 }
 
 message PokemonFormListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message PokemonFormReadRequest {
   int32 id = 1;
 
 }
 
 message PokemonFormReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

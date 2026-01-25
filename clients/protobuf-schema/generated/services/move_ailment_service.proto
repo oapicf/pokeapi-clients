@@ -30,15 +30,17 @@ message MoveAilmentListRequest {
 }
 
 message MoveAilmentListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message MoveAilmentReadRequest {
   int32 id = 1;
 
 }
 
 message MoveAilmentReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

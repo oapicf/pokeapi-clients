@@ -12,8 +12,8 @@ To see how to make this your own, look here:
 [README](https://openapi-generator.tech)
 
 - API version: 20220523
-- Build date: 2025-05-10T05:53:08.583013613Z[Etc/UTC]
-- Generator version: 7.12.0
+- Build date: 2026-01-25T00:35:38.907309290Z[Etc/UTC]
+- Generator version: 7.18.0
 For more information, please visit [https://github.com/oapicf/pokeapi-clients](https://github.com/oapicf/pokeapi-clients)
 
 

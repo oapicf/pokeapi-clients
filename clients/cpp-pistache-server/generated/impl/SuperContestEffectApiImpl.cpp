@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 SuperContestEffectApiImpl::SuperContestEffectApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : SuperContestEffectApi(rtr)
 {
+    
 }
 
 void SuperContestEffectApiImpl::super_contest_effect_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

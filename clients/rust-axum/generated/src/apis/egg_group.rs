@@ -26,6 +26,8 @@ pub enum EggGroupReadResponse {
 }
 
 
+
+
 /// EggGroup
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait EggGroup<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     /// EggGroupList - GET /api/v2/egg-group/
     async fn egg_group_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait EggGroup<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     /// EggGroupRead - GET /api/v2/egg-group/{id}/
     async fn egg_group_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

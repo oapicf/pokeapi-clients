@@ -26,6 +26,8 @@ pub enum NatureReadResponse {
 }
 
 
+
+
 /// Nature
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait Nature<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorH
     /// NatureList - GET /api/v2/nature/
     async fn nature_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait Nature<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorH
     /// NatureRead - GET /api/v2/nature/{id}/
     async fn nature_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

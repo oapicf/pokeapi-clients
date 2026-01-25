@@ -30,15 +30,17 @@ message RegionListRequest {
 }
 
 message RegionListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message RegionReadRequest {
   int32 id = 1;
 
 }
 
 message RegionReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

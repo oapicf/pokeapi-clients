@@ -52,17 +52,39 @@ func NewVersionAPIController(s VersionAPIServicer, opts ...VersionAPIOption) *Ve
 func (c *VersionAPIController) Routes() Routes {
 	return Routes{
 		"VersionList": Route{
+			"VersionList",
 			strings.ToUpper("Get"),
 			"/api/v2/version/",
 			c.VersionList,
 		},
 		"VersionRead": Route{
+			"VersionRead",
 			strings.ToUpper("Get"),
 			"/api/v2/version/{id}/",
 			c.VersionRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the VersionAPIController
+func (c *VersionAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"VersionList",
+			strings.ToUpper("Get"),
+			"/api/v2/version/",
+			c.VersionList,
+		},
+		Route{
+			"VersionRead",
+			strings.ToUpper("Get"),
+			"/api/v2/version/{id}/",
+			c.VersionRead,
+		},
+	}
+}
+
+
 
 // VersionList - 
 func (c *VersionAPIController) VersionList(w http.ResponseWriter, r *http.Request) {

@@ -41,7 +41,7 @@ class EvolutionTriggerApi implements EvolutionTriggerApiInterface
     /**
      * Implementation of EvolutionTriggerApiInterface#evolutionTriggerList
      */
-    public function evolutionTriggerList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function evolutionTriggerList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class EvolutionTriggerApi implements EvolutionTriggerApiInterface
     /**
      * Implementation of EvolutionTriggerApiInterface#evolutionTriggerRead
      */
-    public function evolutionTriggerRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function evolutionTriggerRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

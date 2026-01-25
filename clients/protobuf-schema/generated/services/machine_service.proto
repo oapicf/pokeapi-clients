@@ -30,15 +30,17 @@ message MachineListRequest {
 }
 
 message MachineListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message MachineReadRequest {
   int32 id = 1;
 
 }
 
 message MachineReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

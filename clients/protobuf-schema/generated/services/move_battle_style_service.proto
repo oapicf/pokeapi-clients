@@ -30,15 +30,17 @@ message MoveBattleStyleListRequest {
 }
 
 message MoveBattleStyleListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message MoveBattleStyleReadRequest {
   int32 id = 1;
 
 }
 
 message MoveBattleStyleReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

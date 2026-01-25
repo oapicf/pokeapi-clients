@@ -26,6 +26,8 @@ pub enum BerryReadResponse {
 }
 
 
+
+
 /// Berry
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait Berry<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     /// BerryList - GET /api/v2/berry/
     async fn berry_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait Berry<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHa
     /// BerryRead - GET /api/v2/berry/{id}/
     async fn berry_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

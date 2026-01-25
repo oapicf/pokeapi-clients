@@ -3,6 +3,8 @@
 from fastapi.testclient import TestClient
 
 
+from pydantic import StrictInt, StrictStr  # noqa: F401
+from typing import Optional  # noqa: F401
 
 
 def test_pokemon_habitat_list(client: TestClient):

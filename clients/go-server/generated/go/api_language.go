@@ -52,17 +52,39 @@ func NewLanguageAPIController(s LanguageAPIServicer, opts ...LanguageAPIOption) 
 func (c *LanguageAPIController) Routes() Routes {
 	return Routes{
 		"LanguageList": Route{
+			"LanguageList",
 			strings.ToUpper("Get"),
 			"/api/v2/language/",
 			c.LanguageList,
 		},
 		"LanguageRead": Route{
+			"LanguageRead",
 			strings.ToUpper("Get"),
 			"/api/v2/language/{id}/",
 			c.LanguageRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the LanguageAPIController
+func (c *LanguageAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"LanguageList",
+			strings.ToUpper("Get"),
+			"/api/v2/language/",
+			c.LanguageList,
+		},
+		Route{
+			"LanguageRead",
+			strings.ToUpper("Get"),
+			"/api/v2/language/{id}/",
+			c.LanguageRead,
+		},
+	}
+}
+
+
 
 // LanguageList - 
 func (c *LanguageAPIController) LanguageList(w http.ResponseWriter, r *http.Request) {

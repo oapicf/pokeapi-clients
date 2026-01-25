@@ -30,15 +30,17 @@ message MoveListRequest {
 }
 
 message MoveListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message MoveReadRequest {
   int32 id = 1;
 
 }
 
 message MoveReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

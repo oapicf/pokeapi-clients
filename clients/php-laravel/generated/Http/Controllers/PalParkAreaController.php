@@ -74,12 +74,8 @@ class PalParkAreaController extends Controller
 
         $offset = $request->integer('offset');
 
-        try {
-            $apiResult = $this->api->palParkAreaList($limit, $offset);
-        } catch (\Exception $exception) {
-            // This shouldn't happen
-            return response()->json(['error' => $exception->getMessage()], 500);
-        }
+
+        $apiResult = $this->api->palParkAreaList($limit, $offset);
 
         if ($apiResult instanceof string) {
             return response()->json($this->serde->serialize($apiResult, format: 'array'), 0);
@@ -117,12 +113,8 @@ class PalParkAreaController extends Controller
         }
 
 
-        try {
-            $apiResult = $this->api->palParkAreaRead($id);
-        } catch (\Exception $exception) {
-            // This shouldn't happen
-            return response()->json(['error' => $exception->getMessage()], 500);
-        }
+
+        $apiResult = $this->api->palParkAreaRead($id);
 
         if ($apiResult instanceof string) {
             return response()->json($this->serde->serialize($apiResult, format: 'array'), 0);

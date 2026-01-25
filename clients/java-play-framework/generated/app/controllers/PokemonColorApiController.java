@@ -23,7 +23,7 @@ import com.typesafe.config.Config;
 
 import openapitools.OpenAPIUtils.ApiAction;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2025-05-10T05:53:38.625191772Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-01-25T00:36:21.175854040Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class PokemonColorApiController extends Controller {
     private final PokemonColorApiControllerImpInterface imp;
     private final ObjectMapper mapper;

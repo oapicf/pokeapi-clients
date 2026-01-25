@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  MoveDamageClassApiImpl : public org::openapitools::server::api::MoveDamageClassApi {
 public:
     explicit MoveDamageClassApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

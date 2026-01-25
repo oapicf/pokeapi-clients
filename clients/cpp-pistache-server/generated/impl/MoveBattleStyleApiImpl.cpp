@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 MoveBattleStyleApiImpl::MoveBattleStyleApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : MoveBattleStyleApi(rtr)
 {
+    
 }
 
 void MoveBattleStyleApiImpl::move_battle_style_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

@@ -78,7 +78,7 @@ public class PokemonFormControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/pokemon-form/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@322204dc");
+            .accept("[Ljava.lang.String;@72b0a004");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class PokemonFormControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@656a3d6b");
+            .accept("[Ljava.lang.String;@4cdba2ed");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

@@ -78,7 +78,7 @@ public class GenerationControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/generation/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@17229821");
+            .accept("[Ljava.lang.String;@706ddbc8");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class GenerationControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@e829999");
+            .accept("[Ljava.lang.String;@fd09e43");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

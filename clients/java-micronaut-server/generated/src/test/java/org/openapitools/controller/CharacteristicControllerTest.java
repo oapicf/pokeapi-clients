@@ -78,7 +78,7 @@ public class CharacteristicControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/characteristic/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@5be052ca");
+            .accept("[Ljava.lang.String;@c889805");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class CharacteristicControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@2007435e");
+            .accept("[Ljava.lang.String;@77db3d02");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

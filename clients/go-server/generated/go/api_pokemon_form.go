@@ -52,17 +52,39 @@ func NewPokemonFormAPIController(s PokemonFormAPIServicer, opts ...PokemonFormAP
 func (c *PokemonFormAPIController) Routes() Routes {
 	return Routes{
 		"PokemonFormList": Route{
+			"PokemonFormList",
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-form/",
 			c.PokemonFormList,
 		},
 		"PokemonFormRead": Route{
+			"PokemonFormRead",
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-form/{id}/",
 			c.PokemonFormRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the PokemonFormAPIController
+func (c *PokemonFormAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"PokemonFormList",
+			strings.ToUpper("Get"),
+			"/api/v2/pokemon-form/",
+			c.PokemonFormList,
+		},
+		Route{
+			"PokemonFormRead",
+			strings.ToUpper("Get"),
+			"/api/v2/pokemon-form/{id}/",
+			c.PokemonFormRead,
+		},
+	}
+}
+
+
 
 // PokemonFormList - 
 func (c *PokemonFormAPIController) PokemonFormList(w http.ResponseWriter, r *http.Request) {

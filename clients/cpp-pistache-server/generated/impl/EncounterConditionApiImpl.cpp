@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 EncounterConditionApiImpl::EncounterConditionApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : EncounterConditionApi(rtr)
 {
+    
 }
 
 void EncounterConditionApiImpl::encounter_condition_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

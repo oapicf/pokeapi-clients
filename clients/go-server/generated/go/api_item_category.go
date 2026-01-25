@@ -52,17 +52,39 @@ func NewItemCategoryAPIController(s ItemCategoryAPIServicer, opts ...ItemCategor
 func (c *ItemCategoryAPIController) Routes() Routes {
 	return Routes{
 		"ItemCategoryList": Route{
+			"ItemCategoryList",
 			strings.ToUpper("Get"),
 			"/api/v2/item-category/",
 			c.ItemCategoryList,
 		},
 		"ItemCategoryRead": Route{
+			"ItemCategoryRead",
 			strings.ToUpper("Get"),
 			"/api/v2/item-category/{id}/",
 			c.ItemCategoryRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the ItemCategoryAPIController
+func (c *ItemCategoryAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"ItemCategoryList",
+			strings.ToUpper("Get"),
+			"/api/v2/item-category/",
+			c.ItemCategoryList,
+		},
+		Route{
+			"ItemCategoryRead",
+			strings.ToUpper("Get"),
+			"/api/v2/item-category/{id}/",
+			c.ItemCategoryRead,
+		},
+	}
+}
+
+
 
 // ItemCategoryList - 
 func (c *ItemCategoryAPIController) ItemCategoryList(w http.ResponseWriter, r *http.Request) {

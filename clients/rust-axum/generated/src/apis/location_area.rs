@@ -26,6 +26,8 @@ pub enum LocationAreaReadResponse {
 }
 
 
+
+
 /// LocationArea
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait LocationArea<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::
     /// LocationAreaList - GET /api/v2/location-area/
     async fn location_area_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait LocationArea<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::
     /// LocationAreaRead - GET /api/v2/location-area/{id}/
     async fn location_area_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

@@ -52,17 +52,39 @@ func NewMachineAPIController(s MachineAPIServicer, opts ...MachineAPIOption) *Ma
 func (c *MachineAPIController) Routes() Routes {
 	return Routes{
 		"MachineList": Route{
+			"MachineList",
 			strings.ToUpper("Get"),
 			"/api/v2/machine/",
 			c.MachineList,
 		},
 		"MachineRead": Route{
+			"MachineRead",
 			strings.ToUpper("Get"),
 			"/api/v2/machine/{id}/",
 			c.MachineRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the MachineAPIController
+func (c *MachineAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"MachineList",
+			strings.ToUpper("Get"),
+			"/api/v2/machine/",
+			c.MachineList,
+		},
+		Route{
+			"MachineRead",
+			strings.ToUpper("Get"),
+			"/api/v2/machine/{id}/",
+			c.MachineRead,
+		},
+	}
+}
+
+
 
 // MachineList - 
 func (c *MachineAPIController) MachineList(w http.ResponseWriter, r *http.Request) {

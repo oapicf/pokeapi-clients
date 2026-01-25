@@ -41,7 +41,7 @@ class PalParkAreaApi implements PalParkAreaApiInterface
     /**
      * Implementation of PalParkAreaApiInterface#palParkAreaList
      */
-    public function palParkAreaList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function palParkAreaList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class PalParkAreaApi implements PalParkAreaApiInterface
     /**
      * Implementation of PalParkAreaApiInterface#palParkAreaRead
      */
-    public function palParkAreaRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function palParkAreaRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

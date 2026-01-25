@@ -72,8 +72,8 @@ class PokeathlonStatApiSimulation extends Simulation {
         .feed(pokeathlon-stat_listQUERYFeeder)
         .exec(http("pokeathlonStatList")
         .httpRequest("GET","/api/v2/pokeathlon-stat/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnpokeathlonStatList with warm up and reach a constant rate for entire duration

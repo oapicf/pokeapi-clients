@@ -52,17 +52,39 @@ func NewSuperContestEffectAPIController(s SuperContestEffectAPIServicer, opts ..
 func (c *SuperContestEffectAPIController) Routes() Routes {
 	return Routes{
 		"SuperContestEffectList": Route{
+			"SuperContestEffectList",
 			strings.ToUpper("Get"),
 			"/api/v2/super-contest-effect/",
 			c.SuperContestEffectList,
 		},
 		"SuperContestEffectRead": Route{
+			"SuperContestEffectRead",
 			strings.ToUpper("Get"),
 			"/api/v2/super-contest-effect/{id}/",
 			c.SuperContestEffectRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the SuperContestEffectAPIController
+func (c *SuperContestEffectAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"SuperContestEffectList",
+			strings.ToUpper("Get"),
+			"/api/v2/super-contest-effect/",
+			c.SuperContestEffectList,
+		},
+		Route{
+			"SuperContestEffectRead",
+			strings.ToUpper("Get"),
+			"/api/v2/super-contest-effect/{id}/",
+			c.SuperContestEffectRead,
+		},
+	}
+}
+
+
 
 // SuperContestEffectList - 
 func (c *SuperContestEffectAPIController) SuperContestEffectList(w http.ResponseWriter, r *http.Request) {

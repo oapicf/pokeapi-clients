@@ -41,7 +41,7 @@ class MoveAilmentApi implements MoveAilmentApiInterface
     /**
      * Implementation of MoveAilmentApiInterface#moveAilmentList
      */
-    public function moveAilmentList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function moveAilmentList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class MoveAilmentApi implements MoveAilmentApiInterface
     /**
      * Implementation of MoveAilmentApiInterface#moveAilmentRead
      */
-    public function moveAilmentRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function moveAilmentRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

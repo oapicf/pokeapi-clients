@@ -26,6 +26,8 @@ pub enum LanguageReadResponse {
 }
 
 
+
+
 /// Language
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait Language<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     /// LanguageList - GET /api/v2/language/
     async fn language_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait Language<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Erro
     /// LanguageRead - GET /api/v2/language/{id}/
     async fn language_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

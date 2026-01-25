@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 ItemPocketApiImpl::ItemPocketApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : ItemPocketApi(rtr)
 {
+    
 }
 
 void ItemPocketApiImpl::item_pocket_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

@@ -30,15 +30,17 @@ message PokemonSpeciesListRequest {
 }
 
 message PokemonSpeciesListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message PokemonSpeciesReadRequest {
   int32 id = 1;
 
 }
 
 message PokemonSpeciesReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

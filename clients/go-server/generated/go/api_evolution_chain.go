@@ -52,17 +52,39 @@ func NewEvolutionChainAPIController(s EvolutionChainAPIServicer, opts ...Evoluti
 func (c *EvolutionChainAPIController) Routes() Routes {
 	return Routes{
 		"EvolutionChainList": Route{
+			"EvolutionChainList",
 			strings.ToUpper("Get"),
 			"/api/v2/evolution-chain/",
 			c.EvolutionChainList,
 		},
 		"EvolutionChainRead": Route{
+			"EvolutionChainRead",
 			strings.ToUpper("Get"),
 			"/api/v2/evolution-chain/{id}/",
 			c.EvolutionChainRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the EvolutionChainAPIController
+func (c *EvolutionChainAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"EvolutionChainList",
+			strings.ToUpper("Get"),
+			"/api/v2/evolution-chain/",
+			c.EvolutionChainList,
+		},
+		Route{
+			"EvolutionChainRead",
+			strings.ToUpper("Get"),
+			"/api/v2/evolution-chain/{id}/",
+			c.EvolutionChainRead,
+		},
+	}
+}
+
+
 
 // EvolutionChainList - 
 func (c *EvolutionChainAPIController) EvolutionChainList(w http.ResponseWriter, r *http.Request) {

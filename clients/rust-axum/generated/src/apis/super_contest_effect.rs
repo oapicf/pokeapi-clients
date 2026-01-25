@@ -26,6 +26,8 @@ pub enum SuperContestEffectReadResponse {
 }
 
 
+
+
 /// SuperContestEffect
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait SuperContestEffect<E: std::fmt::Debug + Send + Sync + 'static = ()>: s
     /// SuperContestEffectList - GET /api/v2/super-contest-effect/
     async fn super_contest_effect_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait SuperContestEffect<E: std::fmt::Debug + Send + Sync + 'static = ()>: s
     /// SuperContestEffectRead - GET /api/v2/super-contest-effect/{id}/
     async fn super_contest_effect_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

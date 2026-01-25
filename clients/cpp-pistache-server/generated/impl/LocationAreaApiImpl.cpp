@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 LocationAreaApiImpl::LocationAreaApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : LocationAreaApi(rtr)
 {
+    
 }
 
 void LocationAreaApiImpl::location_area_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

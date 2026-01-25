@@ -3,6 +3,8 @@
 from fastapi.testclient import TestClient
 
 
+from pydantic import StrictInt, StrictStr  # noqa: F401
+from typing import Optional  # noqa: F401
 
 
 def test_move_learn_method_list(client: TestClient):

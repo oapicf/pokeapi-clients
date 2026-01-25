@@ -52,17 +52,39 @@ func NewMoveCategoryAPIController(s MoveCategoryAPIServicer, opts ...MoveCategor
 func (c *MoveCategoryAPIController) Routes() Routes {
 	return Routes{
 		"MoveCategoryList": Route{
+			"MoveCategoryList",
 			strings.ToUpper("Get"),
 			"/api/v2/move-category/",
 			c.MoveCategoryList,
 		},
 		"MoveCategoryRead": Route{
+			"MoveCategoryRead",
 			strings.ToUpper("Get"),
 			"/api/v2/move-category/{id}/",
 			c.MoveCategoryRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the MoveCategoryAPIController
+func (c *MoveCategoryAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"MoveCategoryList",
+			strings.ToUpper("Get"),
+			"/api/v2/move-category/",
+			c.MoveCategoryList,
+		},
+		Route{
+			"MoveCategoryRead",
+			strings.ToUpper("Get"),
+			"/api/v2/move-category/{id}/",
+			c.MoveCategoryRead,
+		},
+	}
+}
+
+
 
 // MoveCategoryList - 
 func (c *MoveCategoryAPIController) MoveCategoryList(w http.ResponseWriter, r *http.Request) {

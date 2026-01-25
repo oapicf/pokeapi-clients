@@ -41,7 +41,7 @@ class ContestTypeApi implements ContestTypeApiInterface
     /**
      * Implementation of ContestTypeApiInterface#contestTypeList
      */
-    public function contestTypeList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function contestTypeList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class ContestTypeApi implements ContestTypeApiInterface
     /**
      * Implementation of ContestTypeApiInterface#contestTypeRead
      */
-    public function contestTypeRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function contestTypeRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

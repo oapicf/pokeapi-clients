@@ -52,17 +52,39 @@ func NewTypeAPIController(s TypeAPIServicer, opts ...TypeAPIOption) *TypeAPICont
 func (c *TypeAPIController) Routes() Routes {
 	return Routes{
 		"TypeList": Route{
+			"TypeList",
 			strings.ToUpper("Get"),
 			"/api/v2/type/",
 			c.TypeList,
 		},
 		"TypeRead": Route{
+			"TypeRead",
 			strings.ToUpper("Get"),
 			"/api/v2/type/{id}/",
 			c.TypeRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the TypeAPIController
+func (c *TypeAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"TypeList",
+			strings.ToUpper("Get"),
+			"/api/v2/type/",
+			c.TypeList,
+		},
+		Route{
+			"TypeRead",
+			strings.ToUpper("Get"),
+			"/api/v2/type/{id}/",
+			c.TypeRead,
+		},
+	}
+}
+
+
 
 // TypeList - 
 func (c *TypeAPIController) TypeList(w http.ResponseWriter, r *http.Request) {

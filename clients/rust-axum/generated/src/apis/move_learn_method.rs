@@ -26,6 +26,8 @@ pub enum MoveLearnMethodReadResponse {
 }
 
 
+
+
 /// MoveLearnMethod
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait MoveLearnMethod<E: std::fmt::Debug + Send + Sync + 'static = ()>: supe
     /// MoveLearnMethodList - GET /api/v2/move-learn-method/
     async fn move_learn_method_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait MoveLearnMethod<E: std::fmt::Debug + Send + Sync + 'static = ()>: supe
     /// MoveLearnMethodRead - GET /api/v2/move-learn-method/{id}/
     async fn move_learn_method_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

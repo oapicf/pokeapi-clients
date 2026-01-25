@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 use axum::{body::Body, extract::*, response::Response, routing::*};
-use axum_extra::extract::{CookieJar, Host};
+use axum_extra::extract::{CookieJar, Host, Query as QueryExtra};
 use bytes::Bytes;
 use http::{header::CONTENT_TYPE, HeaderMap, HeaderName, HeaderValue, Method, StatusCode};
 use tracing::error;
@@ -11,6 +11,9 @@ use crate::{header, types::*};
 
 #[allow(unused_imports)]
 use crate::{apis, models};
+
+#[allow(unused_imports)]
+use crate::{models::check_xss_string, models::check_xss_vec_string, models::check_xss_map_string, models::check_xss_map_nested, models::check_xss_map};
 
 
 /// Setup API Server.
@@ -334,7 +337,7 @@ async fn ability_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::AbilityListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::AbilityListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -342,6 +345,8 @@ where
     A: apis::ability::Ability<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -360,7 +365,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().ability_list(
+
+
+let result = api_impl.as_ref().ability_list(
+      
       &method,
       &host,
       &cookies,
@@ -379,7 +387,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -387,11 +395,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -426,6 +435,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     ability_read_validation(
@@ -442,7 +453,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().ability_read(
+
+
+let result = api_impl.as_ref().ability_read(
+      
       &method,
       &host,
       &cookies,
@@ -461,7 +475,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -469,11 +483,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -498,7 +513,7 @@ async fn berry_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::BerryListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::BerryListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -506,6 +521,8 @@ where
     A: apis::berry::Berry<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -524,7 +541,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().berry_list(
+
+
+let result = api_impl.as_ref().berry_list(
+      
       &method,
       &host,
       &cookies,
@@ -543,7 +563,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -551,11 +571,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -590,6 +611,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     berry_read_validation(
@@ -606,7 +629,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().berry_read(
+
+
+let result = api_impl.as_ref().berry_read(
+      
       &method,
       &host,
       &cookies,
@@ -625,7 +651,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -633,11 +659,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -662,7 +689,7 @@ async fn berry_firmness_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::BerryFirmnessListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::BerryFirmnessListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -670,6 +697,8 @@ where
     A: apis::berry_firmness::BerryFirmness<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -688,7 +717,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().berry_firmness_list(
+
+
+let result = api_impl.as_ref().berry_firmness_list(
+      
       &method,
       &host,
       &cookies,
@@ -707,7 +739,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -715,11 +747,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -754,6 +787,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     berry_firmness_read_validation(
@@ -770,7 +805,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().berry_firmness_read(
+
+
+let result = api_impl.as_ref().berry_firmness_read(
+      
       &method,
       &host,
       &cookies,
@@ -789,7 +827,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -797,11 +835,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -826,7 +865,7 @@ async fn berry_flavor_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::BerryFlavorListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::BerryFlavorListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -834,6 +873,8 @@ where
     A: apis::berry_flavor::BerryFlavor<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -852,7 +893,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().berry_flavor_list(
+
+
+let result = api_impl.as_ref().berry_flavor_list(
+      
       &method,
       &host,
       &cookies,
@@ -871,7 +915,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -879,11 +923,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -918,6 +963,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     berry_flavor_read_validation(
@@ -934,7 +981,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().berry_flavor_read(
+
+
+let result = api_impl.as_ref().berry_flavor_read(
+      
       &method,
       &host,
       &cookies,
@@ -953,7 +1003,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -961,11 +1011,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -990,7 +1041,7 @@ async fn characteristic_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::CharacteristicListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::CharacteristicListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -998,6 +1049,8 @@ where
     A: apis::characteristic::Characteristic<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -1016,7 +1069,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().characteristic_list(
+
+
+let result = api_impl.as_ref().characteristic_list(
+      
       &method,
       &host,
       &cookies,
@@ -1035,7 +1091,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -1043,11 +1099,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -1082,6 +1139,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     characteristic_read_validation(
@@ -1098,7 +1157,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().characteristic_read(
+
+
+let result = api_impl.as_ref().characteristic_read(
+      
       &method,
       &host,
       &cookies,
@@ -1117,7 +1179,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -1125,11 +1187,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -1154,7 +1217,7 @@ async fn contest_effect_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::ContestEffectListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::ContestEffectListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -1162,6 +1225,8 @@ where
     A: apis::contest_effect::ContestEffect<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -1180,7 +1245,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().contest_effect_list(
+
+
+let result = api_impl.as_ref().contest_effect_list(
+      
       &method,
       &host,
       &cookies,
@@ -1199,7 +1267,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -1207,11 +1275,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -1246,6 +1315,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     contest_effect_read_validation(
@@ -1262,7 +1333,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().contest_effect_read(
+
+
+let result = api_impl.as_ref().contest_effect_read(
+      
       &method,
       &host,
       &cookies,
@@ -1281,7 +1355,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -1289,11 +1363,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -1318,7 +1393,7 @@ async fn contest_type_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::ContestTypeListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::ContestTypeListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -1326,6 +1401,8 @@ where
     A: apis::contest_type::ContestType<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -1344,7 +1421,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().contest_type_list(
+
+
+let result = api_impl.as_ref().contest_type_list(
+      
       &method,
       &host,
       &cookies,
@@ -1363,7 +1443,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -1371,11 +1451,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -1410,6 +1491,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     contest_type_read_validation(
@@ -1426,7 +1509,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().contest_type_read(
+
+
+let result = api_impl.as_ref().contest_type_read(
+      
       &method,
       &host,
       &cookies,
@@ -1445,7 +1531,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -1453,11 +1539,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -1482,7 +1569,7 @@ async fn egg_group_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::EggGroupListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::EggGroupListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -1490,6 +1577,8 @@ where
     A: apis::egg_group::EggGroup<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -1508,7 +1597,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().egg_group_list(
+
+
+let result = api_impl.as_ref().egg_group_list(
+      
       &method,
       &host,
       &cookies,
@@ -1527,7 +1619,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -1535,11 +1627,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -1574,6 +1667,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     egg_group_read_validation(
@@ -1590,7 +1685,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().egg_group_read(
+
+
+let result = api_impl.as_ref().egg_group_read(
+      
       &method,
       &host,
       &cookies,
@@ -1609,7 +1707,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -1617,11 +1715,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -1646,7 +1745,7 @@ async fn encounter_condition_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::EncounterConditionListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::EncounterConditionListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -1654,6 +1753,8 @@ where
     A: apis::encounter_condition::EncounterCondition<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -1672,7 +1773,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().encounter_condition_list(
+
+
+let result = api_impl.as_ref().encounter_condition_list(
+      
       &method,
       &host,
       &cookies,
@@ -1691,7 +1795,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -1699,11 +1803,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -1738,6 +1843,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     encounter_condition_read_validation(
@@ -1754,7 +1861,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().encounter_condition_read(
+
+
+let result = api_impl.as_ref().encounter_condition_read(
+      
       &method,
       &host,
       &cookies,
@@ -1773,7 +1883,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -1781,11 +1891,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -1810,7 +1921,7 @@ async fn encounter_condition_value_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::EncounterConditionValueListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::EncounterConditionValueListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -1818,6 +1929,8 @@ where
     A: apis::encounter_condition_value::EncounterConditionValue<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -1836,7 +1949,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().encounter_condition_value_list(
+
+
+let result = api_impl.as_ref().encounter_condition_value_list(
+      
       &method,
       &host,
       &cookies,
@@ -1855,7 +1971,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -1863,11 +1979,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -1902,6 +2019,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     encounter_condition_value_read_validation(
@@ -1918,7 +2037,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().encounter_condition_value_read(
+
+
+let result = api_impl.as_ref().encounter_condition_value_read(
+      
       &method,
       &host,
       &cookies,
@@ -1937,7 +2059,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -1945,11 +2067,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -1974,7 +2097,7 @@ async fn encounter_method_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::EncounterMethodListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::EncounterMethodListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -1982,6 +2105,8 @@ where
     A: apis::encounter_method::EncounterMethod<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -2000,7 +2125,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().encounter_method_list(
+
+
+let result = api_impl.as_ref().encounter_method_list(
+      
       &method,
       &host,
       &cookies,
@@ -2019,7 +2147,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -2027,11 +2155,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -2066,6 +2195,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     encounter_method_read_validation(
@@ -2082,7 +2213,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().encounter_method_read(
+
+
+let result = api_impl.as_ref().encounter_method_read(
+      
       &method,
       &host,
       &cookies,
@@ -2101,7 +2235,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -2109,11 +2243,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -2138,7 +2273,7 @@ async fn evolution_chain_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::EvolutionChainListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::EvolutionChainListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -2146,6 +2281,8 @@ where
     A: apis::evolution_chain::EvolutionChain<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -2164,7 +2301,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().evolution_chain_list(
+
+
+let result = api_impl.as_ref().evolution_chain_list(
+      
       &method,
       &host,
       &cookies,
@@ -2183,7 +2323,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -2191,11 +2331,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -2230,6 +2371,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     evolution_chain_read_validation(
@@ -2246,7 +2389,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().evolution_chain_read(
+
+
+let result = api_impl.as_ref().evolution_chain_read(
+      
       &method,
       &host,
       &cookies,
@@ -2265,7 +2411,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -2273,11 +2419,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -2302,7 +2449,7 @@ async fn evolution_trigger_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::EvolutionTriggerListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::EvolutionTriggerListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -2310,6 +2457,8 @@ where
     A: apis::evolution_trigger::EvolutionTrigger<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -2328,7 +2477,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().evolution_trigger_list(
+
+
+let result = api_impl.as_ref().evolution_trigger_list(
+      
       &method,
       &host,
       &cookies,
@@ -2347,7 +2499,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -2355,11 +2507,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -2394,6 +2547,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     evolution_trigger_read_validation(
@@ -2410,7 +2565,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().evolution_trigger_read(
+
+
+let result = api_impl.as_ref().evolution_trigger_read(
+      
       &method,
       &host,
       &cookies,
@@ -2429,7 +2587,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -2437,11 +2595,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -2466,7 +2625,7 @@ async fn gender_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::GenderListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::GenderListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -2474,6 +2633,8 @@ where
     A: apis::gender::Gender<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -2492,7 +2653,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().gender_list(
+
+
+let result = api_impl.as_ref().gender_list(
+      
       &method,
       &host,
       &cookies,
@@ -2511,7 +2675,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -2519,11 +2683,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -2558,6 +2723,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     gender_read_validation(
@@ -2574,7 +2741,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().gender_read(
+
+
+let result = api_impl.as_ref().gender_read(
+      
       &method,
       &host,
       &cookies,
@@ -2593,7 +2763,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -2601,11 +2771,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -2630,7 +2801,7 @@ async fn generation_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::GenerationListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::GenerationListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -2638,6 +2809,8 @@ where
     A: apis::generation::Generation<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -2656,7 +2829,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().generation_list(
+
+
+let result = api_impl.as_ref().generation_list(
+      
       &method,
       &host,
       &cookies,
@@ -2675,7 +2851,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -2683,11 +2859,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -2722,6 +2899,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     generation_read_validation(
@@ -2738,7 +2917,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().generation_read(
+
+
+let result = api_impl.as_ref().generation_read(
+      
       &method,
       &host,
       &cookies,
@@ -2757,7 +2939,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -2765,11 +2947,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -2794,7 +2977,7 @@ async fn growth_rate_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::GrowthRateListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::GrowthRateListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -2802,6 +2985,8 @@ where
     A: apis::growth_rate::GrowthRate<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -2820,7 +3005,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().growth_rate_list(
+
+
+let result = api_impl.as_ref().growth_rate_list(
+      
       &method,
       &host,
       &cookies,
@@ -2839,7 +3027,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -2847,11 +3035,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -2886,6 +3075,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     growth_rate_read_validation(
@@ -2902,7 +3093,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().growth_rate_read(
+
+
+let result = api_impl.as_ref().growth_rate_read(
+      
       &method,
       &host,
       &cookies,
@@ -2921,7 +3115,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -2929,11 +3123,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -2958,7 +3153,7 @@ async fn item_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::ItemListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::ItemListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -2966,6 +3161,8 @@ where
     A: apis::item::Item<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -2984,7 +3181,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().item_list(
+
+
+let result = api_impl.as_ref().item_list(
+      
       &method,
       &host,
       &cookies,
@@ -3003,7 +3203,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -3011,11 +3211,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -3050,6 +3251,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     item_read_validation(
@@ -3066,7 +3269,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().item_read(
+
+
+let result = api_impl.as_ref().item_read(
+      
       &method,
       &host,
       &cookies,
@@ -3085,7 +3291,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -3093,11 +3299,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -3122,7 +3329,7 @@ async fn item_attribute_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::ItemAttributeListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::ItemAttributeListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -3130,6 +3337,8 @@ where
     A: apis::item_attribute::ItemAttribute<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -3148,7 +3357,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().item_attribute_list(
+
+
+let result = api_impl.as_ref().item_attribute_list(
+      
       &method,
       &host,
       &cookies,
@@ -3167,7 +3379,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -3175,11 +3387,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -3214,6 +3427,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     item_attribute_read_validation(
@@ -3230,7 +3445,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().item_attribute_read(
+
+
+let result = api_impl.as_ref().item_attribute_read(
+      
       &method,
       &host,
       &cookies,
@@ -3249,7 +3467,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -3257,11 +3475,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -3286,7 +3505,7 @@ async fn item_category_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::ItemCategoryListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::ItemCategoryListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -3294,6 +3513,8 @@ where
     A: apis::item_category::ItemCategory<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -3312,7 +3533,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().item_category_list(
+
+
+let result = api_impl.as_ref().item_category_list(
+      
       &method,
       &host,
       &cookies,
@@ -3331,7 +3555,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -3339,11 +3563,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -3378,6 +3603,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     item_category_read_validation(
@@ -3394,7 +3621,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().item_category_read(
+
+
+let result = api_impl.as_ref().item_category_read(
+      
       &method,
       &host,
       &cookies,
@@ -3413,7 +3643,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -3421,11 +3651,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -3450,7 +3681,7 @@ async fn item_fling_effect_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::ItemFlingEffectListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::ItemFlingEffectListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -3458,6 +3689,8 @@ where
     A: apis::item_fling_effect::ItemFlingEffect<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -3476,7 +3709,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().item_fling_effect_list(
+
+
+let result = api_impl.as_ref().item_fling_effect_list(
+      
       &method,
       &host,
       &cookies,
@@ -3495,7 +3731,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -3503,11 +3739,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -3542,6 +3779,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     item_fling_effect_read_validation(
@@ -3558,7 +3797,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().item_fling_effect_read(
+
+
+let result = api_impl.as_ref().item_fling_effect_read(
+      
       &method,
       &host,
       &cookies,
@@ -3577,7 +3819,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -3585,11 +3827,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -3614,7 +3857,7 @@ async fn item_pocket_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::ItemPocketListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::ItemPocketListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -3622,6 +3865,8 @@ where
     A: apis::item_pocket::ItemPocket<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -3640,7 +3885,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().item_pocket_list(
+
+
+let result = api_impl.as_ref().item_pocket_list(
+      
       &method,
       &host,
       &cookies,
@@ -3659,7 +3907,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -3667,11 +3915,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -3706,6 +3955,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     item_pocket_read_validation(
@@ -3722,7 +3973,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().item_pocket_read(
+
+
+let result = api_impl.as_ref().item_pocket_read(
+      
       &method,
       &host,
       &cookies,
@@ -3741,7 +3995,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -3749,11 +4003,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -3778,7 +4033,7 @@ async fn language_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::LanguageListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::LanguageListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -3786,6 +4041,8 @@ where
     A: apis::language::Language<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -3804,7 +4061,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().language_list(
+
+
+let result = api_impl.as_ref().language_list(
+      
       &method,
       &host,
       &cookies,
@@ -3823,7 +4083,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -3831,11 +4091,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -3870,6 +4131,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     language_read_validation(
@@ -3886,7 +4149,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().language_read(
+
+
+let result = api_impl.as_ref().language_read(
+      
       &method,
       &host,
       &cookies,
@@ -3905,7 +4171,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -3913,11 +4179,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -3942,7 +4209,7 @@ async fn location_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::LocationListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::LocationListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -3950,6 +4217,8 @@ where
     A: apis::location::Location<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -3968,7 +4237,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().location_list(
+
+
+let result = api_impl.as_ref().location_list(
+      
       &method,
       &host,
       &cookies,
@@ -3987,7 +4259,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -3995,11 +4267,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -4034,6 +4307,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     location_read_validation(
@@ -4050,7 +4325,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().location_read(
+
+
+let result = api_impl.as_ref().location_read(
+      
       &method,
       &host,
       &cookies,
@@ -4069,7 +4347,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -4077,11 +4355,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -4106,7 +4385,7 @@ async fn location_area_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::LocationAreaListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::LocationAreaListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -4114,6 +4393,8 @@ where
     A: apis::location_area::LocationArea<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -4132,7 +4413,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().location_area_list(
+
+
+let result = api_impl.as_ref().location_area_list(
+      
       &method,
       &host,
       &cookies,
@@ -4151,7 +4435,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -4159,11 +4443,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -4198,6 +4483,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     location_area_read_validation(
@@ -4214,7 +4501,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().location_area_read(
+
+
+let result = api_impl.as_ref().location_area_read(
+      
       &method,
       &host,
       &cookies,
@@ -4233,7 +4523,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -4241,11 +4531,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -4270,7 +4561,7 @@ async fn machine_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::MachineListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::MachineListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -4278,6 +4569,8 @@ where
     A: apis::machine::Machine<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -4296,7 +4589,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().machine_list(
+
+
+let result = api_impl.as_ref().machine_list(
+      
       &method,
       &host,
       &cookies,
@@ -4315,7 +4611,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -4323,11 +4619,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -4362,6 +4659,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     machine_read_validation(
@@ -4378,7 +4677,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().machine_read(
+
+
+let result = api_impl.as_ref().machine_read(
+      
       &method,
       &host,
       &cookies,
@@ -4397,7 +4699,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -4405,11 +4707,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -4434,7 +4737,7 @@ async fn move_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::MoveListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::MoveListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -4442,6 +4745,8 @@ where
     A: apis::r#move::R#move<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -4460,7 +4765,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().move_list(
+
+
+let result = api_impl.as_ref().move_list(
+      
       &method,
       &host,
       &cookies,
@@ -4479,7 +4787,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -4487,11 +4795,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -4526,6 +4835,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     move_read_validation(
@@ -4542,7 +4853,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().move_read(
+
+
+let result = api_impl.as_ref().move_read(
+      
       &method,
       &host,
       &cookies,
@@ -4561,7 +4875,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -4569,11 +4883,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -4598,7 +4913,7 @@ async fn move_ailment_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::MoveAilmentListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::MoveAilmentListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -4606,6 +4921,8 @@ where
     A: apis::move_ailment::MoveAilment<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -4624,7 +4941,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().move_ailment_list(
+
+
+let result = api_impl.as_ref().move_ailment_list(
+      
       &method,
       &host,
       &cookies,
@@ -4643,7 +4963,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -4651,11 +4971,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -4690,6 +5011,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     move_ailment_read_validation(
@@ -4706,7 +5029,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().move_ailment_read(
+
+
+let result = api_impl.as_ref().move_ailment_read(
+      
       &method,
       &host,
       &cookies,
@@ -4725,7 +5051,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -4733,11 +5059,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -4762,7 +5089,7 @@ async fn move_battle_style_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::MoveBattleStyleListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::MoveBattleStyleListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -4770,6 +5097,8 @@ where
     A: apis::move_battle_style::MoveBattleStyle<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -4788,7 +5117,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().move_battle_style_list(
+
+
+let result = api_impl.as_ref().move_battle_style_list(
+      
       &method,
       &host,
       &cookies,
@@ -4807,7 +5139,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -4815,11 +5147,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -4854,6 +5187,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     move_battle_style_read_validation(
@@ -4870,7 +5205,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().move_battle_style_read(
+
+
+let result = api_impl.as_ref().move_battle_style_read(
+      
       &method,
       &host,
       &cookies,
@@ -4889,7 +5227,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -4897,11 +5235,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -4926,7 +5265,7 @@ async fn move_category_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::MoveCategoryListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::MoveCategoryListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -4934,6 +5273,8 @@ where
     A: apis::move_category::MoveCategory<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -4952,7 +5293,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().move_category_list(
+
+
+let result = api_impl.as_ref().move_category_list(
+      
       &method,
       &host,
       &cookies,
@@ -4971,7 +5315,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -4979,11 +5323,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -5018,6 +5363,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     move_category_read_validation(
@@ -5034,7 +5381,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().move_category_read(
+
+
+let result = api_impl.as_ref().move_category_read(
+      
       &method,
       &host,
       &cookies,
@@ -5053,7 +5403,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -5061,11 +5411,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -5090,7 +5441,7 @@ async fn move_damage_class_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::MoveDamageClassListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::MoveDamageClassListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -5098,6 +5449,8 @@ where
     A: apis::move_damage_class::MoveDamageClass<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -5116,7 +5469,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().move_damage_class_list(
+
+
+let result = api_impl.as_ref().move_damage_class_list(
+      
       &method,
       &host,
       &cookies,
@@ -5135,7 +5491,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -5143,11 +5499,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -5182,6 +5539,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     move_damage_class_read_validation(
@@ -5198,7 +5557,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().move_damage_class_read(
+
+
+let result = api_impl.as_ref().move_damage_class_read(
+      
       &method,
       &host,
       &cookies,
@@ -5217,7 +5579,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -5225,11 +5587,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -5254,7 +5617,7 @@ async fn move_learn_method_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::MoveLearnMethodListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::MoveLearnMethodListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -5262,6 +5625,8 @@ where
     A: apis::move_learn_method::MoveLearnMethod<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -5280,7 +5645,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().move_learn_method_list(
+
+
+let result = api_impl.as_ref().move_learn_method_list(
+      
       &method,
       &host,
       &cookies,
@@ -5299,7 +5667,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -5307,11 +5675,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -5346,6 +5715,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     move_learn_method_read_validation(
@@ -5362,7 +5733,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().move_learn_method_read(
+
+
+let result = api_impl.as_ref().move_learn_method_read(
+      
       &method,
       &host,
       &cookies,
@@ -5381,7 +5755,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -5389,11 +5763,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -5418,7 +5793,7 @@ async fn move_target_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::MoveTargetListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::MoveTargetListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -5426,6 +5801,8 @@ where
     A: apis::move_target::MoveTarget<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -5444,7 +5821,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().move_target_list(
+
+
+let result = api_impl.as_ref().move_target_list(
+      
       &method,
       &host,
       &cookies,
@@ -5463,7 +5843,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -5471,11 +5851,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -5510,6 +5891,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     move_target_read_validation(
@@ -5526,7 +5909,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().move_target_read(
+
+
+let result = api_impl.as_ref().move_target_read(
+      
       &method,
       &host,
       &cookies,
@@ -5545,7 +5931,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -5553,11 +5939,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -5582,7 +5969,7 @@ async fn nature_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::NatureListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::NatureListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -5590,6 +5977,8 @@ where
     A: apis::nature::Nature<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -5608,7 +5997,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().nature_list(
+
+
+let result = api_impl.as_ref().nature_list(
+      
       &method,
       &host,
       &cookies,
@@ -5627,7 +6019,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -5635,11 +6027,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -5674,6 +6067,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     nature_read_validation(
@@ -5690,7 +6085,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().nature_read(
+
+
+let result = api_impl.as_ref().nature_read(
+      
       &method,
       &host,
       &cookies,
@@ -5709,7 +6107,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -5717,11 +6115,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -5746,7 +6145,7 @@ async fn pal_park_area_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::PalParkAreaListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::PalParkAreaListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -5754,6 +6153,8 @@ where
     A: apis::pal_park_area::PalParkArea<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -5772,7 +6173,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pal_park_area_list(
+
+
+let result = api_impl.as_ref().pal_park_area_list(
+      
       &method,
       &host,
       &cookies,
@@ -5791,7 +6195,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -5799,11 +6203,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -5838,6 +6243,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     pal_park_area_read_validation(
@@ -5854,7 +6261,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pal_park_area_read(
+
+
+let result = api_impl.as_ref().pal_park_area_read(
+      
       &method,
       &host,
       &cookies,
@@ -5873,7 +6283,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -5881,11 +6291,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -5910,7 +6321,7 @@ async fn pokeathlon_stat_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::PokeathlonStatListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::PokeathlonStatListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -5918,6 +6329,8 @@ where
     A: apis::pokeathlon_stat::PokeathlonStat<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -5936,7 +6349,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pokeathlon_stat_list(
+
+
+let result = api_impl.as_ref().pokeathlon_stat_list(
+      
       &method,
       &host,
       &cookies,
@@ -5955,7 +6371,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -5963,11 +6379,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -6002,6 +6419,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     pokeathlon_stat_read_validation(
@@ -6018,7 +6437,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pokeathlon_stat_read(
+
+
+let result = api_impl.as_ref().pokeathlon_stat_read(
+      
       &method,
       &host,
       &cookies,
@@ -6037,7 +6459,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -6045,11 +6467,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -6074,7 +6497,7 @@ async fn pokedex_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::PokedexListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::PokedexListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -6082,6 +6505,8 @@ where
     A: apis::pokedex::Pokedex<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -6100,7 +6525,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pokedex_list(
+
+
+let result = api_impl.as_ref().pokedex_list(
+      
       &method,
       &host,
       &cookies,
@@ -6119,7 +6547,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -6127,11 +6555,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -6166,6 +6595,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     pokedex_read_validation(
@@ -6182,7 +6613,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pokedex_read(
+
+
+let result = api_impl.as_ref().pokedex_read(
+      
       &method,
       &host,
       &cookies,
@@ -6201,7 +6635,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -6209,11 +6643,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -6238,7 +6673,7 @@ async fn pokemon_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::PokemonListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::PokemonListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -6246,6 +6681,8 @@ where
     A: apis::pokemon::Pokemon<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -6264,7 +6701,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pokemon_list(
+
+
+let result = api_impl.as_ref().pokemon_list(
+      
       &method,
       &host,
       &cookies,
@@ -6283,7 +6723,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -6291,11 +6731,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -6330,6 +6771,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     pokemon_read_validation(
@@ -6346,7 +6789,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pokemon_read(
+
+
+let result = api_impl.as_ref().pokemon_read(
+      
       &method,
       &host,
       &cookies,
@@ -6365,7 +6811,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -6373,11 +6819,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -6402,7 +6849,7 @@ async fn pokemon_color_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::PokemonColorListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::PokemonColorListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -6410,6 +6857,8 @@ where
     A: apis::pokemon_color::PokemonColor<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -6428,7 +6877,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pokemon_color_list(
+
+
+let result = api_impl.as_ref().pokemon_color_list(
+      
       &method,
       &host,
       &cookies,
@@ -6447,7 +6899,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -6455,11 +6907,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -6494,6 +6947,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     pokemon_color_read_validation(
@@ -6510,7 +6965,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pokemon_color_read(
+
+
+let result = api_impl.as_ref().pokemon_color_read(
+      
       &method,
       &host,
       &cookies,
@@ -6529,7 +6987,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -6537,11 +6995,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -6566,7 +7025,7 @@ async fn pokemon_form_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::PokemonFormListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::PokemonFormListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -6574,6 +7033,8 @@ where
     A: apis::pokemon_form::PokemonForm<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -6592,7 +7053,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pokemon_form_list(
+
+
+let result = api_impl.as_ref().pokemon_form_list(
+      
       &method,
       &host,
       &cookies,
@@ -6611,7 +7075,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -6619,11 +7083,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -6658,6 +7123,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     pokemon_form_read_validation(
@@ -6674,7 +7141,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pokemon_form_read(
+
+
+let result = api_impl.as_ref().pokemon_form_read(
+      
       &method,
       &host,
       &cookies,
@@ -6693,7 +7163,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -6701,11 +7171,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -6730,7 +7201,7 @@ async fn pokemon_habitat_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::PokemonHabitatListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::PokemonHabitatListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -6738,6 +7209,8 @@ where
     A: apis::pokemon_habitat::PokemonHabitat<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -6756,7 +7229,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pokemon_habitat_list(
+
+
+let result = api_impl.as_ref().pokemon_habitat_list(
+      
       &method,
       &host,
       &cookies,
@@ -6775,7 +7251,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -6783,11 +7259,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -6822,6 +7299,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     pokemon_habitat_read_validation(
@@ -6838,7 +7317,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pokemon_habitat_read(
+
+
+let result = api_impl.as_ref().pokemon_habitat_read(
+      
       &method,
       &host,
       &cookies,
@@ -6857,7 +7339,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -6865,11 +7347,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -6894,7 +7377,7 @@ async fn pokemon_shape_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::PokemonShapeListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::PokemonShapeListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -6902,6 +7385,8 @@ where
     A: apis::pokemon_shape::PokemonShape<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -6920,7 +7405,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pokemon_shape_list(
+
+
+let result = api_impl.as_ref().pokemon_shape_list(
+      
       &method,
       &host,
       &cookies,
@@ -6939,7 +7427,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -6947,11 +7435,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -6986,6 +7475,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     pokemon_shape_read_validation(
@@ -7002,7 +7493,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pokemon_shape_read(
+
+
+let result = api_impl.as_ref().pokemon_shape_read(
+      
       &method,
       &host,
       &cookies,
@@ -7021,7 +7515,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -7029,11 +7523,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -7058,7 +7553,7 @@ async fn pokemon_species_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::PokemonSpeciesListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::PokemonSpeciesListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -7066,6 +7561,8 @@ where
     A: apis::pokemon_species::PokemonSpecies<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -7084,7 +7581,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pokemon_species_list(
+
+
+let result = api_impl.as_ref().pokemon_species_list(
+      
       &method,
       &host,
       &cookies,
@@ -7103,7 +7603,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -7111,11 +7611,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -7150,6 +7651,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     pokemon_species_read_validation(
@@ -7166,7 +7669,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().pokemon_species_read(
+
+
+let result = api_impl.as_ref().pokemon_species_read(
+      
       &method,
       &host,
       &cookies,
@@ -7185,7 +7691,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -7193,11 +7699,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -7222,7 +7729,7 @@ async fn region_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::RegionListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::RegionListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -7230,6 +7737,8 @@ where
     A: apis::region::Region<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -7248,7 +7757,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().region_list(
+
+
+let result = api_impl.as_ref().region_list(
+      
       &method,
       &host,
       &cookies,
@@ -7267,7 +7779,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -7275,11 +7787,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -7314,6 +7827,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     region_read_validation(
@@ -7330,7 +7845,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().region_read(
+
+
+let result = api_impl.as_ref().region_read(
+      
       &method,
       &host,
       &cookies,
@@ -7349,7 +7867,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -7357,11 +7875,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -7386,7 +7905,7 @@ async fn stat_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::StatListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::StatListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -7394,6 +7913,8 @@ where
     A: apis::stat::Stat<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -7412,7 +7933,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().stat_list(
+
+
+let result = api_impl.as_ref().stat_list(
+      
       &method,
       &host,
       &cookies,
@@ -7431,7 +7955,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -7439,11 +7963,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -7478,6 +8003,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     stat_read_validation(
@@ -7494,7 +8021,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().stat_read(
+
+
+let result = api_impl.as_ref().stat_read(
+      
       &method,
       &host,
       &cookies,
@@ -7513,7 +8043,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -7521,11 +8051,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -7550,7 +8081,7 @@ async fn super_contest_effect_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::SuperContestEffectListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::SuperContestEffectListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -7558,6 +8089,8 @@ where
     A: apis::super_contest_effect::SuperContestEffect<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -7576,7 +8109,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().super_contest_effect_list(
+
+
+let result = api_impl.as_ref().super_contest_effect_list(
+      
       &method,
       &host,
       &cookies,
@@ -7595,7 +8131,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -7603,11 +8139,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -7642,6 +8179,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     super_contest_effect_read_validation(
@@ -7658,7 +8197,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().super_contest_effect_read(
+
+
+let result = api_impl.as_ref().super_contest_effect_read(
+      
       &method,
       &host,
       &cookies,
@@ -7677,7 +8219,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -7685,11 +8227,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -7714,7 +8257,7 @@ async fn type_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::TypeListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::TypeListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -7722,6 +8265,8 @@ where
     A: apis::r#type::R#type<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -7740,7 +8285,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().type_list(
+
+
+let result = api_impl.as_ref().type_list(
+      
       &method,
       &host,
       &cookies,
@@ -7759,7 +8307,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -7767,11 +8315,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -7806,6 +8355,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     type_read_validation(
@@ -7822,7 +8373,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().type_read(
+
+
+let result = api_impl.as_ref().type_read(
+      
       &method,
       &host,
       &cookies,
@@ -7841,7 +8395,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -7849,11 +8403,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -7878,7 +8433,7 @@ async fn version_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::VersionListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::VersionListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -7886,6 +8441,8 @@ where
     A: apis::version::Version<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -7904,7 +8461,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().version_list(
+
+
+let result = api_impl.as_ref().version_list(
+      
       &method,
       &host,
       &cookies,
@@ -7923,7 +8483,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -7931,11 +8491,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -7970,6 +8531,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     version_read_validation(
@@ -7986,7 +8549,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().version_read(
+
+
+let result = api_impl.as_ref().version_read(
+      
       &method,
       &host,
       &cookies,
@@ -8005,7 +8571,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -8013,11 +8579,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -8042,7 +8609,7 @@ async fn version_group_list<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Query(query_params): Query<models::VersionGroupListQueryParams>,
+  QueryExtra(query_params): QueryExtra<models::VersionGroupListQueryParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -8050,6 +8617,8 @@ where
     A: apis::version_group::VersionGroup<E> + Send + Sync,
     E: std::fmt::Debug + Send + Sync + 'static,
         {
+
+
 
 
       #[allow(clippy::redundant_closure)]
@@ -8068,7 +8637,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().version_group_list(
+
+
+let result = api_impl.as_ref().version_group_list(
+      
       &method,
       &host,
       &cookies,
@@ -8087,7 +8659,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -8095,11 +8667,12 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
@@ -8134,6 +8707,8 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
     version_group_read_validation(
@@ -8150,7 +8725,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().version_group_read(
+
+
+let result = api_impl.as_ref().version_group_read(
+      
       &method,
       &host,
       &cookies,
@@ -8169,7 +8747,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("text/plain").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("text/plain"));
                                                   }
 
                                                   let body_content = body;
@@ -8177,12 +8755,22 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
 
+
+#[allow(dead_code)]
+#[inline]
+fn response_with_status_code_only(code: StatusCode) -> Result<Response, StatusCode> {
+   Response::builder()
+          .status(code)
+          .body(Body::empty())
+          .map_err(|_| code)
+}

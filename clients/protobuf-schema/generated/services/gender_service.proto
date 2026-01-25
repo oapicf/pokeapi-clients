@@ -30,15 +30,17 @@ message GenderListRequest {
 }
 
 message GenderListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message GenderReadRequest {
   int32 id = 1;
 
 }
 
 message GenderReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 BerryFirmnessApiImpl::BerryFirmnessApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : BerryFirmnessApi(rtr)
 {
+    
 }
 
 void BerryFirmnessApiImpl::berry_firmness_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

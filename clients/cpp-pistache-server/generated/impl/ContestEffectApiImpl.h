@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  ContestEffectApiImpl : public org::openapitools::server::api::ContestEffectApi {
 public:
     explicit ContestEffectApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

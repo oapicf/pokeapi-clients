@@ -26,6 +26,8 @@ pub enum PokeathlonStatReadResponse {
 }
 
 
+
+
 /// PokeathlonStat
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait PokeathlonStat<E: std::fmt::Debug + Send + Sync + 'static = ()>: super
     /// PokeathlonStatList - GET /api/v2/pokeathlon-stat/
     async fn pokeathlon_stat_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait PokeathlonStat<E: std::fmt::Debug + Send + Sync + 'static = ()>: super
     /// PokeathlonStatRead - GET /api/v2/pokeathlon-stat/{id}/
     async fn pokeathlon_stat_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

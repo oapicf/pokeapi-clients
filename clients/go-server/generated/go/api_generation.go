@@ -52,17 +52,39 @@ func NewGenerationAPIController(s GenerationAPIServicer, opts ...GenerationAPIOp
 func (c *GenerationAPIController) Routes() Routes {
 	return Routes{
 		"GenerationList": Route{
+			"GenerationList",
 			strings.ToUpper("Get"),
 			"/api/v2/generation/",
 			c.GenerationList,
 		},
 		"GenerationRead": Route{
+			"GenerationRead",
 			strings.ToUpper("Get"),
 			"/api/v2/generation/{id}/",
 			c.GenerationRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the GenerationAPIController
+func (c *GenerationAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"GenerationList",
+			strings.ToUpper("Get"),
+			"/api/v2/generation/",
+			c.GenerationList,
+		},
+		Route{
+			"GenerationRead",
+			strings.ToUpper("Get"),
+			"/api/v2/generation/{id}/",
+			c.GenerationRead,
+		},
+	}
+}
+
+
 
 // GenerationList - 
 func (c *GenerationAPIController) GenerationList(w http.ResponseWriter, r *http.Request) {

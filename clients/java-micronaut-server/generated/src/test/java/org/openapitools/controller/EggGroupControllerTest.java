@@ -78,7 +78,7 @@ public class EggGroupControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/egg-group/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@39c85c1a");
+            .accept("[Ljava.lang.String;@3fcee3d9");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class EggGroupControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@2b148329");
+            .accept("[Ljava.lang.String;@9c93d16");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

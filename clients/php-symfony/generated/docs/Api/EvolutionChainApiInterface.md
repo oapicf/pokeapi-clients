@@ -41,7 +41,7 @@ class EvolutionChainApi implements EvolutionChainApiInterface
     /**
      * Implementation of EvolutionChainApiInterface#evolutionChainList
      */
-    public function evolutionChainList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function evolutionChainList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class EvolutionChainApi implements EvolutionChainApiInterface
     /**
      * Implementation of EvolutionChainApiInterface#evolutionChainRead
      */
-    public function evolutionChainRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function evolutionChainRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

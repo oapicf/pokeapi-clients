@@ -41,7 +41,7 @@ class NatureApi implements NatureApiInterface
     /**
      * Implementation of NatureApiInterface#natureList
      */
-    public function natureList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function natureList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class NatureApi implements NatureApiInterface
     /**
      * Implementation of NatureApiInterface#natureRead
      */
-    public function natureRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function natureRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

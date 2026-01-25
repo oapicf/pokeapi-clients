@@ -41,7 +41,7 @@ class StatApi implements StatApiInterface
     /**
      * Implementation of StatApiInterface#statList
      */
-    public function statList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function statList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class StatApi implements StatApiInterface
     /**
      * Implementation of StatApiInterface#statRead
      */
-    public function statRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function statRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

@@ -52,17 +52,39 @@ func NewNatureAPIController(s NatureAPIServicer, opts ...NatureAPIOption) *Natur
 func (c *NatureAPIController) Routes() Routes {
 	return Routes{
 		"NatureList": Route{
+			"NatureList",
 			strings.ToUpper("Get"),
 			"/api/v2/nature/",
 			c.NatureList,
 		},
 		"NatureRead": Route{
+			"NatureRead",
 			strings.ToUpper("Get"),
 			"/api/v2/nature/{id}/",
 			c.NatureRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the NatureAPIController
+func (c *NatureAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"NatureList",
+			strings.ToUpper("Get"),
+			"/api/v2/nature/",
+			c.NatureList,
+		},
+		Route{
+			"NatureRead",
+			strings.ToUpper("Get"),
+			"/api/v2/nature/{id}/",
+			c.NatureRead,
+		},
+	}
+}
+
+
 
 // NatureList - 
 func (c *NatureAPIController) NatureList(w http.ResponseWriter, r *http.Request) {

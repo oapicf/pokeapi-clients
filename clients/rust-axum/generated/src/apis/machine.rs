@@ -26,6 +26,8 @@ pub enum MachineReadResponse {
 }
 
 
+
+
 /// Machine
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait Machine<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     /// MachineList - GET /api/v2/machine/
     async fn machine_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait Machine<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     /// MachineRead - GET /api/v2/machine/{id}/
     async fn machine_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

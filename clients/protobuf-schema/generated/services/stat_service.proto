@@ -30,15 +30,17 @@ message StatListRequest {
 }
 
 message StatListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message StatReadRequest {
   int32 id = 1;
 
 }
 
 message StatReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

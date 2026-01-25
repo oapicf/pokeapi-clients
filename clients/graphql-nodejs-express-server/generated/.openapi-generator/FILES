@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 docs/ability_api.md
 docs/berry_api.md
 docs/berry_firmness_api.md

@@ -52,17 +52,39 @@ func NewItemAttributeAPIController(s ItemAttributeAPIServicer, opts ...ItemAttri
 func (c *ItemAttributeAPIController) Routes() Routes {
 	return Routes{
 		"ItemAttributeList": Route{
+			"ItemAttributeList",
 			strings.ToUpper("Get"),
 			"/api/v2/item-attribute/",
 			c.ItemAttributeList,
 		},
 		"ItemAttributeRead": Route{
+			"ItemAttributeRead",
 			strings.ToUpper("Get"),
 			"/api/v2/item-attribute/{id}/",
 			c.ItemAttributeRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the ItemAttributeAPIController
+func (c *ItemAttributeAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"ItemAttributeList",
+			strings.ToUpper("Get"),
+			"/api/v2/item-attribute/",
+			c.ItemAttributeList,
+		},
+		Route{
+			"ItemAttributeRead",
+			strings.ToUpper("Get"),
+			"/api/v2/item-attribute/{id}/",
+			c.ItemAttributeRead,
+		},
+	}
+}
+
+
 
 // ItemAttributeList - 
 func (c *ItemAttributeAPIController) ItemAttributeList(w http.ResponseWriter, r *http.Request) {

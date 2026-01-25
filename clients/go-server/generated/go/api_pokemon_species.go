@@ -52,17 +52,39 @@ func NewPokemonSpeciesAPIController(s PokemonSpeciesAPIServicer, opts ...Pokemon
 func (c *PokemonSpeciesAPIController) Routes() Routes {
 	return Routes{
 		"PokemonSpeciesList": Route{
+			"PokemonSpeciesList",
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-species/",
 			c.PokemonSpeciesList,
 		},
 		"PokemonSpeciesRead": Route{
+			"PokemonSpeciesRead",
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-species/{id}/",
 			c.PokemonSpeciesRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the PokemonSpeciesAPIController
+func (c *PokemonSpeciesAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"PokemonSpeciesList",
+			strings.ToUpper("Get"),
+			"/api/v2/pokemon-species/",
+			c.PokemonSpeciesList,
+		},
+		Route{
+			"PokemonSpeciesRead",
+			strings.ToUpper("Get"),
+			"/api/v2/pokemon-species/{id}/",
+			c.PokemonSpeciesRead,
+		},
+	}
+}
+
+
 
 // PokemonSpeciesList - 
 func (c *PokemonSpeciesAPIController) PokemonSpeciesList(w http.ResponseWriter, r *http.Request) {

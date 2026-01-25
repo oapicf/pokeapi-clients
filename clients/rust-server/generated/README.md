@@ -14,8 +14,8 @@ To see how to make this your own, look here:
 [README]((https://openapi-generator.tech))
 
 - API version: 20220523
-- Build date: 2025-05-10T05:55:01.375943213Z[Etc/UTC]
-- Generator version: 7.12.0
+- Build date: 2026-01-25T00:39:06.126080466Z[Etc/UTC]
+- Generator version: 7.18.0
 
 For more information, please visit [https://github.com/oapicf/pokeapi-clients](https://github.com/oapicf/pokeapi-clients)
 
@@ -209,6 +209,9 @@ The generated library has a few optional features that can be activated through 
     * This defaults to disabled and creates extra derives on models to allow "transmogrification" between objects of structurally similar types.
 * `cli`
     * This defaults to disabled and is required for building the included CLI tool.
+* `validate`
+    * This defaults to disabled and allows JSON Schema validation of received data using `MakeService::set_validation` or `Service::set_validation`.
+    * Note, enabling validation will have a performance penalty, especially if the API heavily uses regex based checks.
 
 See https://doc.rust-lang.org/cargo/reference/manifest.html#the-features-section for how to use features in your `Cargo.toml`.
 

@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  StatApiImpl : public org::openapitools::server::api::StatApi {
 public:
     explicit StatApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

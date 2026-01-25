@@ -5,6 +5,7 @@ import org.openapitools.model.*;
 
 
 
+
 import java.util.List;
 import org.openapitools.api.NotFoundException;
 
@@ -15,7 +16,7 @@ import javax.validation.Valid;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2025-05-10T05:53:52.423598643Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-01-25T00:36:42.852721756Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public interface ApiApiService {
       Response abilityList(Integer limit,Integer offset,SecurityContext securityContext)
       throws NotFoundException;
@@ -209,4 +210,6 @@ public interface ApiApiService {
       throws NotFoundException;
       Response versionRead(Integer id,SecurityContext securityContext)
       throws NotFoundException;
+
+
 }

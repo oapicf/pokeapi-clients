@@ -41,7 +41,7 @@ class PokemonColorApi implements PokemonColorApiInterface
     /**
      * Implementation of PokemonColorApiInterface#pokemonColorList
      */
-    public function pokemonColorList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function pokemonColorList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class PokemonColorApi implements PokemonColorApiInterface
     /**
      * Implementation of PokemonColorApiInterface#pokemonColorRead
      */
-    public function pokemonColorRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function pokemonColorRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

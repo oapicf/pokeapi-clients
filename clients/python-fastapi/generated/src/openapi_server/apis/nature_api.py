@@ -37,7 +37,7 @@ for _, name, _ in pkgutil.iter_modules(ns_pkg.__path__, ns_pkg.__name__ + "."):
 @router.get(
     "/api/v2/nature/",
     responses={
-        200: {"model": str, "description": "Default response"},
+        "default": {"model": str, "description": "Default response"},
     },
     tags=["nature"],
     response_model_by_alias=True,
@@ -54,7 +54,7 @@ async def nature_list(
 @router.get(
     "/api/v2/nature/{id}/",
     responses={
-        200: {"model": str, "description": "Default response"},
+        "default": {"model": str, "description": "Default response"},
     },
     tags=["nature"],
     response_model_by_alias=True,

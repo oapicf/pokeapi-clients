@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  MoveLearnMethodApiImpl : public org::openapitools::server::api::MoveLearnMethodApi {
 public:
     explicit MoveLearnMethodApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

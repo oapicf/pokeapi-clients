@@ -52,17 +52,39 @@ func NewEvolutionTriggerAPIController(s EvolutionTriggerAPIServicer, opts ...Evo
 func (c *EvolutionTriggerAPIController) Routes() Routes {
 	return Routes{
 		"EvolutionTriggerList": Route{
+			"EvolutionTriggerList",
 			strings.ToUpper("Get"),
 			"/api/v2/evolution-trigger/",
 			c.EvolutionTriggerList,
 		},
 		"EvolutionTriggerRead": Route{
+			"EvolutionTriggerRead",
 			strings.ToUpper("Get"),
 			"/api/v2/evolution-trigger/{id}/",
 			c.EvolutionTriggerRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the EvolutionTriggerAPIController
+func (c *EvolutionTriggerAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"EvolutionTriggerList",
+			strings.ToUpper("Get"),
+			"/api/v2/evolution-trigger/",
+			c.EvolutionTriggerList,
+		},
+		Route{
+			"EvolutionTriggerRead",
+			strings.ToUpper("Get"),
+			"/api/v2/evolution-trigger/{id}/",
+			c.EvolutionTriggerRead,
+		},
+	}
+}
+
+
 
 // EvolutionTriggerList - 
 func (c *EvolutionTriggerAPIController) EvolutionTriggerList(w http.ResponseWriter, r *http.Request) {

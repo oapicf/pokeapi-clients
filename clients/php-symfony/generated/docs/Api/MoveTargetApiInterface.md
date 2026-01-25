@@ -41,7 +41,7 @@ class MoveTargetApi implements MoveTargetApiInterface
     /**
      * Implementation of MoveTargetApiInterface#moveTargetList
      */
-    public function moveTargetList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function moveTargetList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class MoveTargetApi implements MoveTargetApiInterface
     /**
      * Implementation of MoveTargetApiInterface#moveTargetRead
      */
-    public function moveTargetRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function moveTargetRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

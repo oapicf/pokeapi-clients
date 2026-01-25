@@ -41,7 +41,7 @@ class MoveDamageClassApi implements MoveDamageClassApiInterface
     /**
      * Implementation of MoveDamageClassApiInterface#moveDamageClassList
      */
-    public function moveDamageClassList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function moveDamageClassList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class MoveDamageClassApi implements MoveDamageClassApiInterface
     /**
      * Implementation of MoveDamageClassApiInterface#moveDamageClassRead
      */
-    public function moveDamageClassRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function moveDamageClassRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

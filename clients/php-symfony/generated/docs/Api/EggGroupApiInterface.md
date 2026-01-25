@@ -41,7 +41,7 @@ class EggGroupApi implements EggGroupApiInterface
     /**
      * Implementation of EggGroupApiInterface#eggGroupList
      */
-    public function eggGroupList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function eggGroupList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class EggGroupApi implements EggGroupApiInterface
     /**
      * Implementation of EggGroupApiInterface#eggGroupRead
      */
-    public function eggGroupRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function eggGroupRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

@@ -72,8 +72,8 @@ class EvolutionChainApiSimulation extends Simulation {
         .feed(evolution-chain_listQUERYFeeder)
         .exec(http("evolutionChainList")
         .httpRequest("GET","/api/v2/evolution-chain/")
-        .queryParam("limit","${limit}")
         .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
 )
 
     // Run scnevolutionChainList with warm up and reach a constant rate for entire duration

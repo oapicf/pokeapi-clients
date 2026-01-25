@@ -103,7 +103,13 @@ MoveLearnMethodApi <- R6::R6Class(
       oauth_scopes <- NULL
       is_oauth <- FALSE
 
+      if (!missing(`limit`) && is.null(`limit`)) {
+        stop("Invalid value for `limit` when calling MoveLearnMethodApi$MoveLearnMethodList, `limit` is not nullable")
+      }
 
+      if (!missing(`offset`) && is.null(`offset`)) {
+        stop("Invalid value for `offset` when calling MoveLearnMethodApi$MoveLearnMethodList, `offset` is not nullable")
+      }
 
       query_params[["limit"]] <- `limit`
 
@@ -202,6 +208,9 @@ MoveLearnMethodApi <- R6::R6Class(
         stop("Missing required parameter `id`.")
       }
 
+      if (!missing(`id`) && is.null(`id`)) {
+        stop("Invalid value for `id` when calling MoveLearnMethodApi$MoveLearnMethodRead, `id` is not nullable")
+      }
 
       local_var_url_path <- "/api/v2/move-learn-method/{id}/"
       if (!missing(`id`)) {

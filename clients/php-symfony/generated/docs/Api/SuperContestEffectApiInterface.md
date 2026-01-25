@@ -41,7 +41,7 @@ class SuperContestEffectApi implements SuperContestEffectApiInterface
     /**
      * Implementation of SuperContestEffectApiInterface#superContestEffectList
      */
-    public function superContestEffectList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function superContestEffectList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class SuperContestEffectApi implements SuperContestEffectApiInterface
     /**
      * Implementation of SuperContestEffectApiInterface#superContestEffectRead
      */
-    public function superContestEffectRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function superContestEffectRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

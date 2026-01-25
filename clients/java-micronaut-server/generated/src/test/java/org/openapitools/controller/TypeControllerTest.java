@@ -78,7 +78,7 @@ public class TypeControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/type/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@3c25cfe1");
+            .accept("[Ljava.lang.String;@5e180aaf");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class TypeControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@1d3c112a");
+            .accept("[Ljava.lang.String;@7015ebef");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

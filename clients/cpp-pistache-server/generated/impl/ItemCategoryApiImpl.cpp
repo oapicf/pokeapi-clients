@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 ItemCategoryApiImpl::ItemCategoryApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : ItemCategoryApi(rtr)
 {
+    
 }
 
 void ItemCategoryApiImpl::item_category_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

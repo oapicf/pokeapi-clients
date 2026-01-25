@@ -41,7 +41,7 @@ class EncounterConditionApi implements EncounterConditionApiInterface
     /**
      * Implementation of EncounterConditionApiInterface#encounterConditionList
      */
-    public function encounterConditionList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function encounterConditionList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class EncounterConditionApi implements EncounterConditionApiInterface
     /**
      * Implementation of EncounterConditionApiInterface#encounterConditionRead
      */
-    public function encounterConditionRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function encounterConditionRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

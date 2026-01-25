@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  ContestTypeApiImpl : public org::openapitools::server::api::ContestTypeApi {
 public:
     explicit ContestTypeApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

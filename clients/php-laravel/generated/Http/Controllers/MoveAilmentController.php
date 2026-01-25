@@ -74,12 +74,8 @@ class MoveAilmentController extends Controller
 
         $offset = $request->integer('offset');
 
-        try {
-            $apiResult = $this->api->moveAilmentList($limit, $offset);
-        } catch (\Exception $exception) {
-            // This shouldn't happen
-            return response()->json(['error' => $exception->getMessage()], 500);
-        }
+
+        $apiResult = $this->api->moveAilmentList($limit, $offset);
 
         if ($apiResult instanceof string) {
             return response()->json($this->serde->serialize($apiResult, format: 'array'), 0);
@@ -117,12 +113,8 @@ class MoveAilmentController extends Controller
         }
 
 
-        try {
-            $apiResult = $this->api->moveAilmentRead($id);
-        } catch (\Exception $exception) {
-            // This shouldn't happen
-            return response()->json(['error' => $exception->getMessage()], 500);
-        }
+
+        $apiResult = $this->api->moveAilmentRead($id);
 
         if ($apiResult instanceof string) {
             return response()->json($this->serde->serialize($apiResult, format: 'array'), 0);

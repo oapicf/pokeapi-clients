@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  EvolutionTriggerApiImpl : public org::openapitools::server::api::EvolutionTriggerApi {
 public:
     explicit EvolutionTriggerApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

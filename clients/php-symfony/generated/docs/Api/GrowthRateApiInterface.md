@@ -41,7 +41,7 @@ class GrowthRateApi implements GrowthRateApiInterface
     /**
      * Implementation of GrowthRateApiInterface#growthRateList
      */
-    public function growthRateList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function growthRateList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class GrowthRateApi implements GrowthRateApiInterface
     /**
      * Implementation of GrowthRateApiInterface#growthRateRead
      */
-    public function growthRateRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function growthRateRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

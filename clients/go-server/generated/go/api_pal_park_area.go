@@ -52,17 +52,39 @@ func NewPalParkAreaAPIController(s PalParkAreaAPIServicer, opts ...PalParkAreaAP
 func (c *PalParkAreaAPIController) Routes() Routes {
 	return Routes{
 		"PalParkAreaList": Route{
+			"PalParkAreaList",
 			strings.ToUpper("Get"),
 			"/api/v2/pal-park-area/",
 			c.PalParkAreaList,
 		},
 		"PalParkAreaRead": Route{
+			"PalParkAreaRead",
 			strings.ToUpper("Get"),
 			"/api/v2/pal-park-area/{id}/",
 			c.PalParkAreaRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the PalParkAreaAPIController
+func (c *PalParkAreaAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"PalParkAreaList",
+			strings.ToUpper("Get"),
+			"/api/v2/pal-park-area/",
+			c.PalParkAreaList,
+		},
+		Route{
+			"PalParkAreaRead",
+			strings.ToUpper("Get"),
+			"/api/v2/pal-park-area/{id}/",
+			c.PalParkAreaRead,
+		},
+	}
+}
+
+
 
 // PalParkAreaList - 
 func (c *PalParkAreaAPIController) PalParkAreaList(w http.ResponseWriter, r *http.Request) {

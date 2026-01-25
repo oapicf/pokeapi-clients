@@ -26,6 +26,8 @@ pub enum MoveBattleStyleReadResponse {
 }
 
 
+
+
 /// MoveBattleStyle
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait MoveBattleStyle<E: std::fmt::Debug + Send + Sync + 'static = ()>: supe
     /// MoveBattleStyleList - GET /api/v2/move-battle-style/
     async fn move_battle_style_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait MoveBattleStyle<E: std::fmt::Debug + Send + Sync + 'static = ()>: supe
     /// MoveBattleStyleRead - GET /api/v2/move-battle-style/{id}/
     async fn move_battle_style_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

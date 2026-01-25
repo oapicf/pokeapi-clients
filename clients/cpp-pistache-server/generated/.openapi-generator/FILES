@@ -1,7 +1,9 @@
+.openapi-generator-ignore
 CMakeLists.txt
 README.md
 api/AbilityApi.cpp
 api/AbilityApi.h
+api/ApiBase.cpp
 api/ApiBase.h
 api/BerryApi.cpp
 api/BerryApi.h

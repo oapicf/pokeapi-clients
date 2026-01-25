@@ -52,17 +52,39 @@ func NewContestTypeAPIController(s ContestTypeAPIServicer, opts ...ContestTypeAP
 func (c *ContestTypeAPIController) Routes() Routes {
 	return Routes{
 		"ContestTypeList": Route{
+			"ContestTypeList",
 			strings.ToUpper("Get"),
 			"/api/v2/contest-type/",
 			c.ContestTypeList,
 		},
 		"ContestTypeRead": Route{
+			"ContestTypeRead",
 			strings.ToUpper("Get"),
 			"/api/v2/contest-type/{id}/",
 			c.ContestTypeRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the ContestTypeAPIController
+func (c *ContestTypeAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"ContestTypeList",
+			strings.ToUpper("Get"),
+			"/api/v2/contest-type/",
+			c.ContestTypeList,
+		},
+		Route{
+			"ContestTypeRead",
+			strings.ToUpper("Get"),
+			"/api/v2/contest-type/{id}/",
+			c.ContestTypeRead,
+		},
+	}
+}
+
+
 
 // ContestTypeList - 
 func (c *ContestTypeAPIController) ContestTypeList(w http.ResponseWriter, r *http.Request) {

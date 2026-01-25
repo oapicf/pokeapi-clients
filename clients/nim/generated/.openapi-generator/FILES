@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 README.md
 config.nim
 openapiclient.nim
@@ -49,4 +50,6 @@ openapiclient/apis/api_super_contest_effect.nim
 openapiclient/apis/api_type.nim
 openapiclient/apis/api_version.nim
 openapiclient/apis/api_version_group.nim
+openapiclient/models/model_any_type.nim
+openapiclient/models/model_object.nim
 sample_client.nim

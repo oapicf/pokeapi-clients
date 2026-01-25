@@ -52,17 +52,39 @@ func NewPokemonShapeAPIController(s PokemonShapeAPIServicer, opts ...PokemonShap
 func (c *PokemonShapeAPIController) Routes() Routes {
 	return Routes{
 		"PokemonShapeList": Route{
+			"PokemonShapeList",
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-shape/",
 			c.PokemonShapeList,
 		},
 		"PokemonShapeRead": Route{
+			"PokemonShapeRead",
 			strings.ToUpper("Get"),
 			"/api/v2/pokemon-shape/{id}/",
 			c.PokemonShapeRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the PokemonShapeAPIController
+func (c *PokemonShapeAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"PokemonShapeList",
+			strings.ToUpper("Get"),
+			"/api/v2/pokemon-shape/",
+			c.PokemonShapeList,
+		},
+		Route{
+			"PokemonShapeRead",
+			strings.ToUpper("Get"),
+			"/api/v2/pokemon-shape/{id}/",
+			c.PokemonShapeRead,
+		},
+	}
+}
+
+
 
 // PokemonShapeList - 
 func (c *PokemonShapeAPIController) PokemonShapeList(w http.ResponseWriter, r *http.Request) {

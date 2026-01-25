@@ -26,6 +26,8 @@ pub enum MoveDamageClassReadResponse {
 }
 
 
+
+
 /// MoveDamageClass
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait MoveDamageClass<E: std::fmt::Debug + Send + Sync + 'static = ()>: supe
     /// MoveDamageClassList - GET /api/v2/move-damage-class/
     async fn move_damage_class_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait MoveDamageClass<E: std::fmt::Debug + Send + Sync + 'static = ()>: supe
     /// MoveDamageClassRead - GET /api/v2/move-damage-class/{id}/
     async fn move_damage_class_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

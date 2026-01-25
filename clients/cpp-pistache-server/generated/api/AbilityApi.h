@@ -84,7 +84,7 @@ private:
     /// </remarks>
     /// <param name="limit"> (optional, default to 0)</param>
     /// <param name="offset"> (optional, default to 0)</param>
-    virtual void ability_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) = 0;
+    virtual void ability_list( const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) = 0;
     /// <summary>
     /// 
     /// </summary>
@@ -92,7 +92,7 @@ private:
     /// 
     /// </remarks>
     /// <param name="id"></param>
-    virtual void ability_read(const int32_t &id, Pistache::Http::ResponseWriter &response) = 0;
+    virtual void ability_read( const int32_t &id, Pistache::Http::ResponseWriter &response) = 0;
 
 };
 

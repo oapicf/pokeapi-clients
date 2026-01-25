@@ -26,6 +26,8 @@ pub enum PokemonShapeReadResponse {
 }
 
 
+
+
 /// PokemonShape
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait PokemonShape<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::
     /// PokemonShapeList - GET /api/v2/pokemon-shape/
     async fn pokemon_shape_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait PokemonShape<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::
     /// PokemonShapeRead - GET /api/v2/pokemon-shape/{id}/
     async fn pokemon_shape_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

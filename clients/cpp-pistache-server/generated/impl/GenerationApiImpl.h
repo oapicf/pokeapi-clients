@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  GenerationApiImpl : public org::openapitools::server::api::GenerationApi {
 public:
     explicit GenerationApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

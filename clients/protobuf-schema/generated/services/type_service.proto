@@ -30,15 +30,17 @@ message TypeListRequest {
 }
 
 message TypeListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message TypeReadRequest {
   int32 id = 1;
 
 }
 
 message TypeReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

@@ -30,15 +30,17 @@ message BerryListRequest {
 }
 
 message BerryListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message BerryReadRequest {
   int32 id = 1;
 
 }
 
 message BerryReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

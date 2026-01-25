@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 BerryFlavorApiImpl::BerryFlavorApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : BerryFlavorApi(rtr)
 {
+    
 }
 
 void BerryFlavorApiImpl::berry_flavor_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {

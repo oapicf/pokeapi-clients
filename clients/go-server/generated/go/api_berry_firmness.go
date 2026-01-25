@@ -52,17 +52,39 @@ func NewBerryFirmnessAPIController(s BerryFirmnessAPIServicer, opts ...BerryFirm
 func (c *BerryFirmnessAPIController) Routes() Routes {
 	return Routes{
 		"BerryFirmnessList": Route{
+			"BerryFirmnessList",
 			strings.ToUpper("Get"),
 			"/api/v2/berry-firmness/",
 			c.BerryFirmnessList,
 		},
 		"BerryFirmnessRead": Route{
+			"BerryFirmnessRead",
 			strings.ToUpper("Get"),
 			"/api/v2/berry-firmness/{id}/",
 			c.BerryFirmnessRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the BerryFirmnessAPIController
+func (c *BerryFirmnessAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"BerryFirmnessList",
+			strings.ToUpper("Get"),
+			"/api/v2/berry-firmness/",
+			c.BerryFirmnessList,
+		},
+		Route{
+			"BerryFirmnessRead",
+			strings.ToUpper("Get"),
+			"/api/v2/berry-firmness/{id}/",
+			c.BerryFirmnessRead,
+		},
+	}
+}
+
+
 
 // BerryFirmnessList - 
 func (c *BerryFirmnessAPIController) BerryFirmnessList(w http.ResponseWriter, r *http.Request) {

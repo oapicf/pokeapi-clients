@@ -30,15 +30,17 @@ message GrowthRateListRequest {
 }
 
 message GrowthRateListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message GrowthRateReadRequest {
   int32 id = 1;
 
 }
 
 message GrowthRateReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

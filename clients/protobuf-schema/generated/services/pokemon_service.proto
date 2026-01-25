@@ -30,15 +30,17 @@ message PokemonListRequest {
 }
 
 message PokemonListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message PokemonReadRequest {
   int32 id = 1;
 
 }
 
 message PokemonReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

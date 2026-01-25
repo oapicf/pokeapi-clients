@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 src/main/java/org/openapitools/RestConfiguration.java
 src/main/java/org/openapitools/api/AbilityApi.java
 src/main/java/org/openapitools/api/BerryApi.java

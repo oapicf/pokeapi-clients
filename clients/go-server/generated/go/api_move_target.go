@@ -52,17 +52,39 @@ func NewMoveTargetAPIController(s MoveTargetAPIServicer, opts ...MoveTargetAPIOp
 func (c *MoveTargetAPIController) Routes() Routes {
 	return Routes{
 		"MoveTargetList": Route{
+			"MoveTargetList",
 			strings.ToUpper("Get"),
 			"/api/v2/move-target/",
 			c.MoveTargetList,
 		},
 		"MoveTargetRead": Route{
+			"MoveTargetRead",
 			strings.ToUpper("Get"),
 			"/api/v2/move-target/{id}/",
 			c.MoveTargetRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the MoveTargetAPIController
+func (c *MoveTargetAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"MoveTargetList",
+			strings.ToUpper("Get"),
+			"/api/v2/move-target/",
+			c.MoveTargetList,
+		},
+		Route{
+			"MoveTargetRead",
+			strings.ToUpper("Get"),
+			"/api/v2/move-target/{id}/",
+			c.MoveTargetRead,
+		},
+	}
+}
+
+
 
 // MoveTargetList - 
 func (c *MoveTargetAPIController) MoveTargetList(w http.ResponseWriter, r *http.Request) {

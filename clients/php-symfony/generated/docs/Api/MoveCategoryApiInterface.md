@@ -41,7 +41,7 @@ class MoveCategoryApi implements MoveCategoryApiInterface
     /**
      * Implementation of MoveCategoryApiInterface#moveCategoryList
      */
-    public function moveCategoryList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function moveCategoryList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class MoveCategoryApi implements MoveCategoryApiInterface
     /**
      * Implementation of MoveCategoryApiInterface#moveCategoryRead
      */
-    public function moveCategoryRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function moveCategoryRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

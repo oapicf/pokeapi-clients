@@ -13,6 +13,7 @@
 #ifndef OAI_ENUM_H
 #define OAI_ENUM_H
 
+#include <QJsonObject>
 #include <QJsonValue>
 #include <QMetaType>
 #include <QString>
@@ -37,6 +38,12 @@ public:
         return jstr;
     }
 
+    virtual QJsonObject asJsonObject() const {
+        QJsonObject obj;
+        obj["value"] = jstr;
+        return obj;
+    }
+	
     virtual void fromJson(QString jsonString) {
         jstr = jsonString;
     }

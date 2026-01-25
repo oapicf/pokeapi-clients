@@ -41,7 +41,7 @@ class LanguageApi implements LanguageApiInterface
     /**
      * Implementation of LanguageApiInterface#languageList
      */
-    public function languageList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function languageList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class LanguageApi implements LanguageApiInterface
     /**
      * Implementation of LanguageApiInterface#languageRead
      */
-    public function languageRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function languageRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

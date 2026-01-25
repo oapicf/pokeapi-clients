@@ -26,6 +26,8 @@ pub enum VersionGroupReadResponse {
 }
 
 
+
+
 /// VersionGroup
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait VersionGroup<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::
     /// VersionGroupList - GET /api/v2/version-group/
     async fn version_group_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait VersionGroup<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::
     /// VersionGroupRead - GET /api/v2/version-group/{id}/
     async fn version_group_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

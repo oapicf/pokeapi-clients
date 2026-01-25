@@ -26,6 +26,8 @@ pub enum CharacteristicReadResponse {
 }
 
 
+
+
 /// Characteristic
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait Characteristic<E: std::fmt::Debug + Send + Sync + 'static = ()>: super
     /// CharacteristicList - GET /api/v2/characteristic/
     async fn characteristic_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait Characteristic<E: std::fmt::Debug + Send + Sync + 'static = ()>: super
     /// CharacteristicRead - GET /api/v2/characteristic/{id}/
     async fn characteristic_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

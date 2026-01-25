@@ -78,7 +78,7 @@ public class ContestEffectControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/contest-effect/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@4519f676");
+            .accept("[Ljava.lang.String;@7b5b5bfe");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -125,7 +125,7 @@ public class ContestEffectControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@78ec89a6");
+            .accept("[Ljava.lang.String;@74834afd");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, String.class);

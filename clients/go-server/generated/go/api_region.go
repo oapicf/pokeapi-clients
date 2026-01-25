@@ -52,17 +52,39 @@ func NewRegionAPIController(s RegionAPIServicer, opts ...RegionAPIOption) *Regio
 func (c *RegionAPIController) Routes() Routes {
 	return Routes{
 		"RegionList": Route{
+			"RegionList",
 			strings.ToUpper("Get"),
 			"/api/v2/region/",
 			c.RegionList,
 		},
 		"RegionRead": Route{
+			"RegionRead",
 			strings.ToUpper("Get"),
 			"/api/v2/region/{id}/",
 			c.RegionRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the RegionAPIController
+func (c *RegionAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"RegionList",
+			strings.ToUpper("Get"),
+			"/api/v2/region/",
+			c.RegionList,
+		},
+		Route{
+			"RegionRead",
+			strings.ToUpper("Get"),
+			"/api/v2/region/{id}/",
+			c.RegionRead,
+		},
+	}
+}
+
+
 
 // RegionList - 
 func (c *RegionAPIController) RegionList(w http.ResponseWriter, r *http.Request) {

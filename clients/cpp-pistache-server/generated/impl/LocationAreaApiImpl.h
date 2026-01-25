@@ -35,7 +35,6 @@ namespace org::openapitools::server::api
 {
 
 
-
 class  LocationAreaApiImpl : public org::openapitools::server::api::LocationAreaApi {
 public:
     explicit LocationAreaApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);

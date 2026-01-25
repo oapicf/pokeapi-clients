@@ -30,15 +30,17 @@ message LocationAreaListRequest {
 }
 
 message LocationAreaListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message LocationAreaReadRequest {
   int32 id = 1;
 
 }
 
 message LocationAreaReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

@@ -30,15 +30,17 @@ message PokedexListRequest {
 }
 
 message PokedexListResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-
 message PokedexReadRequest {
   int32 id = 1;
 
 }
 
 message PokedexReadResponse {
-  string data = 1;
+    oneof response {
+        string string_0 = 1;
+    }
 }
-

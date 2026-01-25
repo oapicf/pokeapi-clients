@@ -34,16 +34,16 @@ pub enum EncounterConditionValueReadError {
 
 pub async fn encounter_condition_value_list(configuration: &configuration::Configuration, limit: Option<i32>, offset: Option<i32>) -> Result<String, Error<EncounterConditionValueListError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_limit = limit;
-    let p_offset = offset;
+    let p_query_limit = limit;
+    let p_query_offset = offset;
 
     let uri_str = format!("{}/api/v2/encounter-condition-value/", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = p_query_limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_offset {
+    if let Some(ref param_value) = p_query_offset {
         req_builder = req_builder.query(&[("offset", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -77,9 +77,9 @@ pub async fn encounter_condition_value_list(configuration: &configuration::Confi
 
 pub async fn encounter_condition_value_read(configuration: &configuration::Configuration, id: i32) -> Result<String, Error<EncounterConditionValueReadError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_id = id;
+    let p_path_id = id;
 
-    let uri_str = format!("{}/api/v2/encounter-condition-value/{id}/", configuration.base_path, id=p_id);
+    let uri_str = format!("{}/api/v2/encounter-condition-value/{id}/", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {

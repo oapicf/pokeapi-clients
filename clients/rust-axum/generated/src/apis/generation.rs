@@ -26,6 +26,8 @@ pub enum GenerationReadResponse {
 }
 
 
+
+
 /// Generation
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait Generation<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Er
     /// GenerationList - GET /api/v2/generation/
     async fn generation_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait Generation<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Er
     /// GenerationRead - GET /api/v2/generation/{id}/
     async fn generation_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

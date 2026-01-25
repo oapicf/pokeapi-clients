@@ -41,7 +41,7 @@ class BerryFirmnessApi implements BerryFirmnessApiInterface
     /**
      * Implementation of BerryFirmnessApiInterface#berryFirmnessList
      */
-    public function berryFirmnessList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function berryFirmnessList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class BerryFirmnessApi implements BerryFirmnessApiInterface
     /**
      * Implementation of BerryFirmnessApiInterface#berryFirmnessRead
      */
-    public function berryFirmnessRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function berryFirmnessRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

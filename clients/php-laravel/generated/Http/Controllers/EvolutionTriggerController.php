@@ -74,12 +74,8 @@ class EvolutionTriggerController extends Controller
 
         $offset = $request->integer('offset');
 
-        try {
-            $apiResult = $this->api->evolutionTriggerList($limit, $offset);
-        } catch (\Exception $exception) {
-            // This shouldn't happen
-            return response()->json(['error' => $exception->getMessage()], 500);
-        }
+
+        $apiResult = $this->api->evolutionTriggerList($limit, $offset);
 
         if ($apiResult instanceof string) {
             return response()->json($this->serde->serialize($apiResult, format: 'array'), 0);
@@ -117,12 +113,8 @@ class EvolutionTriggerController extends Controller
         }
 
 
-        try {
-            $apiResult = $this->api->evolutionTriggerRead($id);
-        } catch (\Exception $exception) {
-            // This shouldn't happen
-            return response()->json(['error' => $exception->getMessage()], 500);
-        }
+
+        $apiResult = $this->api->evolutionTriggerRead($id);
 
         if ($apiResult instanceof string) {
             return response()->json($this->serde->serialize($apiResult, format: 'array'), 0);

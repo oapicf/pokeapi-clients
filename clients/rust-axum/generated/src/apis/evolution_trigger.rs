@@ -26,6 +26,8 @@ pub enum EvolutionTriggerReadResponse {
 }
 
 
+
+
 /// EvolutionTrigger
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait EvolutionTrigger<E: std::fmt::Debug + Send + Sync + 'static = ()>: sup
     /// EvolutionTriggerList - GET /api/v2/evolution-trigger/
     async fn evolution_trigger_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait EvolutionTrigger<E: std::fmt::Debug + Send + Sync + 'static = ()>: sup
     /// EvolutionTriggerRead - GET /api/v2/evolution-trigger/{id}/
     async fn evolution_trigger_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

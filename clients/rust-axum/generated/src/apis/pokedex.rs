@@ -26,6 +26,8 @@ pub enum PokedexReadResponse {
 }
 
 
+
+
 /// Pokedex
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait Pokedex<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     /// PokedexList - GET /api/v2/pokedex/
     async fn pokedex_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait Pokedex<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Error
     /// PokedexRead - GET /api/v2/pokedex/{id}/
     async fn pokedex_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

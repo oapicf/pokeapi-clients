@@ -18,13 +18,11 @@ namespace org::openapitools::server::api
 
 using namespace org::openapitools::server::helpers;
 
-
 const std::string MoveDamageClassApi::base = "";
 
 MoveDamageClassApi::MoveDamageClassApi(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : ApiBase(rtr)
-{
-}
+{}
 
 void MoveDamageClassApi::init() {
     setupRoutes();
@@ -40,14 +38,12 @@ void MoveDamageClassApi::setupRoutes() {
     router->addCustomHandler(Routes::bind(&MoveDamageClassApi::move_damage_class_api_default_handler, this));
 }
 
-void MoveDamageClassApi::handleParsingException(const std::exception& ex, Pistache::Http::ResponseWriter &response) const noexcept
-{
+void MoveDamageClassApi::handleParsingException(const std::exception& ex, Pistache::Http::ResponseWriter &response) const noexcept {
     std::pair<Pistache::Http::Code, std::string> codeAndError = handleParsingException(ex);
     response.send(codeAndError.first, codeAndError.second);
 }
 
-std::pair<Pistache::Http::Code, std::string> MoveDamageClassApi::handleParsingException(const std::exception& ex) const noexcept
-{
+std::pair<Pistache::Http::Code, std::string> MoveDamageClassApi::handleParsingException(const std::exception& ex) const noexcept {
     try {
         throw;
     } catch (nlohmann::detail::exception &e) {
@@ -59,75 +55,94 @@ std::pair<Pistache::Http::Code, std::string> MoveDamageClassApi::handleParsingEx
     }
 }
 
-void MoveDamageClassApi::handleOperationException(const std::exception& ex, Pistache::Http::ResponseWriter &response) const noexcept
-{
+void MoveDamageClassApi::handleOperationException(const std::exception& ex, Pistache::Http::ResponseWriter &response) const noexcept {
     std::pair<Pistache::Http::Code, std::string> codeAndError = handleOperationException(ex);
     response.send(codeAndError.first, codeAndError.second);
 }
 
-std::pair<Pistache::Http::Code, std::string> MoveDamageClassApi::handleOperationException(const std::exception& ex) const noexcept
-{
+std::pair<Pistache::Http::Code, std::string> MoveDamageClassApi::handleOperationException(const std::exception& ex) const noexcept {
     return std::make_pair(Pistache::Http::Code::Internal_Server_Error, ex.what());
 }
 
-void MoveDamageClassApi::move_damage_class_list_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response) {
+void MoveDamageClassApi::move_damage_class_list_handler(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response) {
     try {
 
-
-    // Getting the query params
-    auto limitQuery = request.query().get("limit");
-    std::optional<int32_t> limit;
-    if(limitQuery.has_value()){
-        int32_t valueQuery_instance;
-        if(fromStringValue(limitQuery.value(), valueQuery_instance)){
-            limit = valueQuery_instance;
+        
+        
+        // Getting the query params
+        auto limitQuery = request.query().get("limit");
+        std::optional<int32_t> limit;
+        if (limitQuery.has_value()) {
+            int32_t valueQuery_instance;
+            if (fromStringValue(limitQuery.value(), valueQuery_instance)) {
+                limit = valueQuery_instance;
+            }
         }
-    }
-    auto offsetQuery = request.query().get("offset");
-    std::optional<int32_t> offset;
-    if(offsetQuery.has_value()){
-        int32_t valueQuery_instance;
-        if(fromStringValue(offsetQuery.value(), valueQuery_instance)){
-            offset = valueQuery_instance;
+        auto offsetQuery = request.query().get("offset");
+        std::optional<int32_t> offset;
+        if (offsetQuery.has_value()) {
+            int32_t valueQuery_instance;
+            if (fromStringValue(offsetQuery.value(), valueQuery_instance)) {
+                offset = valueQuery_instance;
+            }
         }
-    }
     
-    try {
-        this->move_damage_class_list(limit, offset, response);
-    } catch (Pistache::Http::HttpError &e) {
-        response.send(static_cast<Pistache::Http::Code>(e.code()), e.what());
-        return;
-    } catch (std::exception &e) {
-        this->handleOperationException(e, response);
-        return;
-    }
+
+
+        try {
+
+
+
+
+
+            this->move_damage_class_list(limit, offset, response);
+            } catch (Pistache::Http::HttpError &e) {
+                response.send(static_cast<Pistache::Http::Code>(e.code()), e.what());
+                return;
+            } catch (std::exception &e) {
+                this->handleOperationException(e, response);
+                return;
+            }
 
     } catch (std::exception &e) {
         response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
     }
 
+
 }
-void MoveDamageClassApi::move_damage_class_read_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response) {
+
+void MoveDamageClassApi::move_damage_class_read_handler(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response) {
     try {
 
-    // Getting the path params
-    auto id = request.param(":id").as<int32_t>();
+        // Getting the path params
+        auto id = request.param(":id").as<int32_t>();
+        
+        
     
-    try {
-        this->move_damage_class_read(id, response);
-    } catch (Pistache::Http::HttpError &e) {
-        response.send(static_cast<Pistache::Http::Code>(e.code()), e.what());
-        return;
-    } catch (std::exception &e) {
-        this->handleOperationException(e, response);
-        return;
-    }
+
+
+        try {
+
+
+
+
+
+            this->move_damage_class_read(id, response);
+            } catch (Pistache::Http::HttpError &e) {
+                response.send(static_cast<Pistache::Http::Code>(e.code()), e.what());
+                return;
+            } catch (std::exception &e) {
+                this->handleOperationException(e, response);
+                return;
+            }
 
     } catch (std::exception &e) {
         response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
     }
 
+
 }
+
 
 void MoveDamageClassApi::move_damage_class_api_default_handler(const Pistache::Rest::Request &, Pistache::Http::ResponseWriter response) {
     response.send(Pistache::Http::Code::Not_Found, "The requested method does not exist");

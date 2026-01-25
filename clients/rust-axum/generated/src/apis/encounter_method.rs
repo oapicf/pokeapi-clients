@@ -26,6 +26,8 @@ pub enum EncounterMethodReadResponse {
 }
 
 
+
+
 /// EncounterMethod
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait EncounterMethod<E: std::fmt::Debug + Send + Sync + 'static = ()>: supe
     /// EncounterMethodList - GET /api/v2/encounter-method/
     async fn encounter_method_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait EncounterMethod<E: std::fmt::Debug + Send + Sync + 'static = ()>: supe
     /// EncounterMethodRead - GET /api/v2/encounter-method/{id}/
     async fn encounter_method_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

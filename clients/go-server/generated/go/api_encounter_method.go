@@ -52,17 +52,39 @@ func NewEncounterMethodAPIController(s EncounterMethodAPIServicer, opts ...Encou
 func (c *EncounterMethodAPIController) Routes() Routes {
 	return Routes{
 		"EncounterMethodList": Route{
+			"EncounterMethodList",
 			strings.ToUpper("Get"),
 			"/api/v2/encounter-method/",
 			c.EncounterMethodList,
 		},
 		"EncounterMethodRead": Route{
+			"EncounterMethodRead",
 			strings.ToUpper("Get"),
 			"/api/v2/encounter-method/{id}/",
 			c.EncounterMethodRead,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the EncounterMethodAPIController
+func (c *EncounterMethodAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"EncounterMethodList",
+			strings.ToUpper("Get"),
+			"/api/v2/encounter-method/",
+			c.EncounterMethodList,
+		},
+		Route{
+			"EncounterMethodRead",
+			strings.ToUpper("Get"),
+			"/api/v2/encounter-method/{id}/",
+			c.EncounterMethodRead,
+		},
+	}
+}
+
+
 
 // EncounterMethodList - 
 func (c *EncounterMethodAPIController) EncounterMethodList(w http.ResponseWriter, r *http.Request) {

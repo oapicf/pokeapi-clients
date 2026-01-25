@@ -1,5 +1,7 @@
 # OpenAPI\Client\ItemAttributeApi
 
+
+
 All URIs are relative to https://pokeapi.co, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

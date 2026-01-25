@@ -41,7 +41,7 @@ class PokedexApi implements PokedexApiInterface
     /**
      * Implementation of PokedexApiInterface#pokedexList
      */
-    public function pokedexList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): array|object|null
+    public function pokedexList(?int $limit, ?int $offset, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }
@@ -94,7 +94,7 @@ class PokedexApi implements PokedexApiInterface
     /**
      * Implementation of PokedexApiInterface#pokedexRead
      */
-    public function pokedexRead(int $id, int &$responseCode, array &$responseHeaders): array|object|null
+    public function pokedexRead(int $id, int &$responseCode, array &$responseHeaders): string
     {
         // Implement the operation ...
     }

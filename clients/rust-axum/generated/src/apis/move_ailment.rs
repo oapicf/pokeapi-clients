@@ -26,6 +26,8 @@ pub enum MoveAilmentReadResponse {
 }
 
 
+
+
 /// MoveAilment
 #[async_trait]
 #[allow(clippy::ptr_arg)]
@@ -33,6 +35,7 @@ pub trait MoveAilment<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::E
     /// MoveAilmentList - GET /api/v2/move-ailment/
     async fn move_ailment_list(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
@@ -42,6 +45,7 @@ pub trait MoveAilment<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::E
     /// MoveAilmentRead - GET /api/v2/move-ailment/{id}/
     async fn move_ailment_read(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,

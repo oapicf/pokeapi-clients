@@ -18,10 +18,10 @@ namespace server {
 namespace api {
 
 
-
 PokemonFormApiImpl::PokemonFormApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : PokemonFormApi(rtr)
 {
+    
 }
 
 void PokemonFormApiImpl::pokemon_form_list(const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, Pistache::Http::ResponseWriter &response) {
