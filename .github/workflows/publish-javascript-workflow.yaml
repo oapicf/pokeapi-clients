@@ -1,3 +1,4 @@
+---
 name: Publish JavaScript
 'on':
   push:
@@ -5,7 +6,7 @@ name: Publish JavaScript
       - '*'
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
         with:
