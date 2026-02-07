@@ -193,7 +193,13 @@ build-python:
 	  $(call python_venv,python3 setup.py sdist bdist_wheel) && \
 	  $(call python_venv,python3 setup.py install --single-version-externally-managed --record record.txt)
 
-build-ruby:
+build-ruby: x-build-ruby
+
+x-build-ruby:
+	# Remove files with names exceeding 100 chars (tar header limit for gem packaging)
+	find clients/ruby/generated/docs -type f -name "*.md" | while read f; do \
+	  if [ $$(basename "$$f" | wc -c) -gt 100 ]; then rm "$$f"; fi; \
+	done
 	apt-get install libyaml-dev
 	cd clients/ruby/generated/ && \
 	  rm -f *.gem && \
