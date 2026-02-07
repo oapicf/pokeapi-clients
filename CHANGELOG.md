@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 ### Added
-- Add x-build-ruby with removal of generated Ruby model longer than 100 chars #3
+- Add x-init-spec with removal of Pokemon Encounters to avoid generating class and doc longer than 100 chars #3
 
 ### Changed
 - Switch OpenAPI specification to official one from PokeAPI

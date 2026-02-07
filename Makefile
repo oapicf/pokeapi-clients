@@ -102,13 +102,17 @@ deps:
 # - CONTACT_NAME parameter
 # - CONTACT_ parameter
 # - CONTACT_NAME parameter
-init-spec: stage
+init-spec: stage x-init-spec
+
+x-init-spec:
 	if test $(findstring https, $(SPEC_URI)); then \
 	  curl $(SPEC_URI) --output $(LOCAL_SPEC_PATH); \
 	else \
 	  cp $(SPEC_URI) $(LOCAL_SPEC_PATH); \
 	fi
 	yq -i '.info.contact.name = "$(CONTACT_NAME)" | .info.contact.url = "$(CONTACT_URL)" | .info.contact.email = "$(CONTACT_EMAIL)"' "$(LOCAL_SPEC_PATH)"
+	# Remove pokemon encounters endpoint which generates files with names > 100 chars
+	yq -i 'del(.paths."/api/v2/pokemon/{pokemon_id}/encounters")' "$(LOCAL_SPEC_PATH)"
 
 # Shows a list of available generators supported by the given OPENAPI_GENERATOR_VERSION
 # Output is a space-separated list of generator names to be used in GENERATORS_ALL variable
@@ -193,13 +197,7 @@ build-python:
 	  $(call python_venv,python3 setup.py sdist bdist_wheel) && \
 	  $(call python_venv,python3 setup.py install --single-version-externally-managed --record record.txt)
 
-build-ruby: x-build-ruby
-
-x-build-ruby:
-	# Remove files with names exceeding 100 chars (tar header limit for gem packaging)
-	find clients/ruby/generated/docs -type f -name "*.md" | while read f; do \
-	  if [ $$(basename "$$f" | wc -c) -gt 100 ]; then rm "$$f"; fi; \
-	done
+build-ruby:
 	apt-get install libyaml-dev
 	cd clients/ruby/generated/ && \
 	  rm -f *.gem && \
