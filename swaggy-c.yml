@@ -1,5 +1,6 @@
 ---
-spec_uri: specification/pokeapi.yml
+spec_uri: >-
+  https://raw.githubusercontent.com/PokeAPI/pokeapi/refs/tags/2.9.0/openapi.yml
 version: 1.2.1-pre.0
 contact:
   name: OpenAPI Clients Factory
