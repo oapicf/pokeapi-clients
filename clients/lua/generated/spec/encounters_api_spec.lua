@@ -57,11 +57,4 @@ describe("encounters_api", function()
     end)
   end)
 
-  -- unit tests for pokemon_encounters_retrieve
-  describe("pokemon_encounters_retrieve test", function()
-    it("should work", function()
-      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
-    end)
-  end)
-
 end)

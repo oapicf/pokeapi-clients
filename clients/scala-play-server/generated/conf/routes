@@ -29,7 +29,6 @@ GET /api/v2/encounter-method/                 api.EncountersApiController.encoun
 GET /api/v2/encounter-condition/:id/          api.EncountersApiController.encounterConditionRetrieve(id: String)
 GET /api/v2/encounter-condition-value/:id/    api.EncountersApiController.encounterConditionValueRetrieve(id: String)
 GET /api/v2/encounter-method/:id/             api.EncountersApiController.encounterMethodRetrieve(id: String)
-GET /api/v2/pokemon/:pokemonId/encounters     api.EncountersApiController.pokemonEncountersRetrieve(pokemonId: String)
 
 # Routes for Evolution API
 

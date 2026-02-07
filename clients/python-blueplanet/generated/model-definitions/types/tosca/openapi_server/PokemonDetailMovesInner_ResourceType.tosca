@@ -1,0 +1,43 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonDetailMovesInner"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonDetailMovesInner"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+  PokemonDetailMovesInnerVersionGroupDetailsInner = openapi_server.resourceTypes.PokemonDetailMovesInnerVersionGroupDetailsInner
+}
+resourceTypes {
+
+  PokemonDetailMovesInner {
+    title = PokemonDetailMovesInner
+    description = PokemonDetailMovesInner
+    derivedFrom = Root
+    properties {
+        move {
+          type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+        version_group_details {
+          type = array
+          items.type = PokemonDetailMovesInnerVersionGroupDetailsInner
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonDetailMovesInner {
+    title = PokemonDetailMovesInner
+    description = PokemonDetailMovesInner
+    implements = openapi_server.resourceTypes.PokemonDetailMovesInner
+
+  }
+}

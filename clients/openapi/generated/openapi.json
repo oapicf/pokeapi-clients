@@ -4488,45 +4488,6 @@
         "summary" : "Get version group",
         "tags" : [ "games" ]
       }
-    },
-    "/api/v2/pokemon/{pokemon_id}/encounters" : {
-      "get" : {
-        "description" : "Handles Pokemon Encounters as a sub-resource.",
-        "operationId" : "pokemon_encounters_retrieve",
-        "parameters" : [ {
-          "explode" : false,
-          "in" : "path",
-          "name" : "pokemon_id",
-          "required" : true,
-          "schema" : {
-            "pattern" : "^\\d+$",
-            "type" : "string"
-          },
-          "style" : "simple"
-        } ],
-        "responses" : {
-          "200" : {
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "items" : {
-                    "$ref" : "#/components/schemas/pokemon_encounters_retrieve_200_response_inner"
-                  },
-                  "type" : "array"
-                }
-              }
-            },
-            "description" : ""
-          }
-        },
-        "security" : [ {
-          "cookieAuth" : [ ]
-        }, {
-          "basicAuth" : [ ]
-        }, { } ],
-        "summary" : "Get pokemon encounter",
-        "tags" : [ "encounters" ]
-      }
     }
   },
   "components" : {
@@ -9045,120 +9006,6 @@
         },
         "required" : [ "name", "url" ]
       },
-      "pokemon_encounters_retrieve_200_response_inner_location_area" : {
-        "properties" : {
-          "name" : {
-            "example" : "cerulean-city-area",
-            "type" : "string"
-          },
-          "url" : {
-            "example" : "https://pokeapi.co/api/v2/location-area/281/",
-            "format" : "uri",
-            "type" : "string"
-          }
-        },
-        "required" : [ "name", "url" ]
-      },
-      "pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner" : {
-        "properties" : {
-          "name" : {
-            "example" : "story-progress-beat-red",
-            "type" : "string"
-          },
-          "url" : {
-            "example" : "https://pokeapi.co/api/v2/encounter-condition-value/55/",
-            "format" : "uri",
-            "type" : "string"
-          }
-        },
-        "required" : [ "name", "url" ]
-      },
-      "pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method" : {
-        "properties" : {
-          "name" : {
-            "example" : "gift",
-            "type" : "string"
-          },
-          "url" : {
-            "example" : "https://pokeapi.co/api/v2/encounter-method/18/",
-            "format" : "uri",
-            "type" : "string"
-          }
-        },
-        "required" : [ "name", "url" ]
-      },
-      "pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner" : {
-        "properties" : {
-          "chance" : {
-            "example" : 100,
-            "type" : "number"
-          },
-          "condition_values" : {
-            "items" : {
-              "$ref" : "#/components/schemas/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner"
-            },
-            "type" : "array"
-          },
-          "max_level" : {
-            "example" : 10,
-            "type" : "number"
-          },
-          "method" : {
-            "$ref" : "#/components/schemas/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method"
-          },
-          "min_level" : {
-            "example" : 10,
-            "type" : "number"
-          }
-        },
-        "required" : [ "chance", "condition_values", "max_level", "method", "min_level" ]
-      },
-      "pokemon_encounters_retrieve_200_response_inner_version_details_inner_version" : {
-        "properties" : {
-          "name" : {
-            "example" : "red",
-            "type" : "string"
-          },
-          "url" : {
-            "example" : "https://pokeapi.co/api/v2/version/1/",
-            "format" : "uri",
-            "type" : "string"
-          }
-        },
-        "required" : [ "name", "url" ]
-      },
-      "pokemon_encounters_retrieve_200_response_inner_version_details_inner" : {
-        "properties" : {
-          "encounter_details" : {
-            "items" : {
-              "$ref" : "#/components/schemas/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner"
-            },
-            "type" : "array"
-          },
-          "max_chance" : {
-            "example" : 100,
-            "type" : "number"
-          },
-          "version" : {
-            "$ref" : "#/components/schemas/pokemon_encounters_retrieve_200_response_inner_version_details_inner_version"
-          }
-        },
-        "required" : [ "encounter_details", "max_chance", "version" ]
-      },
-      "pokemon_encounters_retrieve_200_response_inner" : {
-        "properties" : {
-          "location_area" : {
-            "$ref" : "#/components/schemas/pokemon_encounters_retrieve_200_response_inner_location_area"
-          },
-          "version_details" : {
-            "items" : {
-              "$ref" : "#/components/schemas/pokemon_encounters_retrieve_200_response_inner_version_details_inner"
-            },
-            "type" : "array"
-          }
-        },
-        "required" : [ "location_area", "version_details" ]
-      },
       "AbilityDetail_pokemon_inner_pokemon" : {
         "properties" : {
           "name" : {
@@ -9274,11 +9121,11 @@
             "$ref" : "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender"
           },
           "known_move" : {
-            "type" : "",
+            "type" : "object",
             "nullable" : true
           },
           "known_move_type" : {
-            "type" : "",
+            "type" : "object",
             "nullable" : true
           },
           "location" : {

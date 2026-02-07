@@ -8,11 +8,9 @@ package com.prokarma.pkmst.controller;
 import com.prokarma.pkmst.model.EncounterConditionDetail;
 import com.prokarma.pkmst.model.EncounterConditionValueDetail;
 import com.prokarma.pkmst.model.EncounterMethodDetail;
-import java.util.List;
 import com.prokarma.pkmst.model.PaginatedEncounterConditionSummaryList;
 import com.prokarma.pkmst.model.PaginatedEncounterConditionValueSummaryList;
 import com.prokarma.pkmst.model.PaginatedEncounterMethodSummaryList;
-import com.prokarma.pkmst.model.PokemonEncountersRetrieve200ResponseInner;
 
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +24,7 @@ import java.util.List;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-02-07T04:17:07.396624034Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-02-07T15:23:15.032724200Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Api(value = "Encounters", description = "the Encounters API")
 public interface EncountersApi {
 
@@ -124,21 +122,5 @@ public interface EncountersApi {
         produces = { "application/json" }
     )
     ResponseEntity<EncounterMethodDetail> encounterMethodRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
-
-
-    @ApiOperation(value = "Get pokemon encounter", notes = "Handles Pokemon Encounters as a sub-resource.", response = PokemonEncountersRetrieve200ResponseInner.class, responseContainer = "List", authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "encounters", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "", response = PokemonEncountersRetrieve200ResponseInner.class, responseContainer = "List") })
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/api/v2/pokemon/{pokemon_id}/encounters",
-        produces = { "application/json" }
-    )
-    ResponseEntity<List<PokemonEncountersRetrieve200ResponseInner>> pokemonEncountersRetrieve(@ApiParam(value = "",required=true ) @PathVariable("pokemon_id") String pokemonId, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 }

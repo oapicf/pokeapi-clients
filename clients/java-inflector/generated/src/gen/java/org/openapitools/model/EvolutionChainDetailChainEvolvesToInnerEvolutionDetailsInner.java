@@ -13,7 +13,7 @@ import org.openapitools.model.EvolutionChainDetailChainEvolvesToInnerEvolutionDe
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-02-07T04:16:44.910526458Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-02-07T15:22:50.575598517Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
   @JsonProperty("gender")
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender gender;
@@ -25,10 +25,10 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item;
 
   @JsonProperty("known_move")
-  private Object knownMove = null;
+  private Object knownMove;
 
   @JsonProperty("known_move_type")
-  private Object knownMoveType = null;
+  private Object knownMoveType;
 
   @JsonProperty("location")
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location;

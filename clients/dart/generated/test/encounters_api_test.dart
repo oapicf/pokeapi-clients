@@ -71,14 +71,5 @@ void main() {
       // TODO
     });
 
-    // Get pokemon encounter
-    //
-    // Handles Pokemon Encounters as a sub-resource.
-    //
-    //Future<List<PokemonEncountersRetrieve200ResponseInner>> pokemonEncountersRetrieve(String pokemonId) async
-    test('test pokemonEncountersRetrieve', () async {
-      // TODO
-    });
-
   });
 }

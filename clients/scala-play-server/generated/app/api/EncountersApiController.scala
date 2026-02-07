@@ -10,9 +10,8 @@ import model.EncounterMethodDetail
 import model.PaginatedEncounterConditionSummaryList
 import model.PaginatedEncounterConditionValueSummaryList
 import model.PaginatedEncounterMethodSummaryList
-import model.PokemonEncountersRetrieve200ResponseInner
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-02-07T04:22:15.008485676Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-02-07T15:28:57.811621661Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Singleton
 class EncountersApiController @Inject()(cc: ControllerComponents, api: EncountersApi) extends AbstractController(cc) {
   /**
@@ -113,19 +112,6 @@ class EncountersApiController @Inject()(cc: ControllerComponents, api: Encounter
   def encounterMethodRetrieve(id: String): Action[AnyContent] = Action { request =>
     def executeApi(): EncounterMethodDetail = {
       api.encounterMethodRetrieve(id)
-    }
-
-    val result = executeApi()
-    val json = Json.toJson(result)
-    Ok(json)
-  }
-
-  /**
-    * GET /api/v2/pokemon/:pokemonId/encounters
-    */
-  def pokemonEncountersRetrieve(pokemonId: String): Action[AnyContent] = Action { request =>
-    def executeApi(): List[PokemonEncountersRetrieve200ResponseInner] = {
-      api.pokemonEncountersRetrieve(pokemonId)
     }
 
     val result = executeApi()

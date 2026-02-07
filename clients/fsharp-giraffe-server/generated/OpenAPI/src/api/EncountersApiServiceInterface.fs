@@ -15,5 +15,4 @@ module EncountersApiServiceInterface =
       abstract member EncounterConditionValueRetrieve:HttpContext -> EncounterConditionValueRetrieveArgs->EncounterConditionValueRetrieveResult
       abstract member EncounterMethodList:HttpContext -> EncounterMethodListArgs->EncounterMethodListResult
       abstract member EncounterMethodRetrieve:HttpContext -> EncounterMethodRetrieveArgs->EncounterMethodRetrieveResult
-      abstract member PokemonEncountersRetrieve:HttpContext -> PokemonEncountersRetrieveArgs->PokemonEncountersRetrieveResult
     //#endregion

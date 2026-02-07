@@ -246,18 +246,6 @@ package body .Servers is
       null;
    end Encounter_Method_Retrieve;
 
-   --  Get pokemon encounter
-   --  Handles Pokemon Encounters as a sub-resource.
-   overriding
-   procedure Pokemon_Encounters_Retrieve
-      (Server : in out Server_Type;
-       Pokemon_Id : in Swagger.UString;
-       Result  : out ;
-       Context : in out Swagger.Servers.Context_Type) is
-   begin
-      null;
-   end Pokemon_Encounters_Retrieve;
-
    --  List evolution chains
    --  Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
    overriding

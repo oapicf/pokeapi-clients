@@ -12,8 +12,8 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender gender;
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender heldItem;
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item;
-  private Object knownMove = null;
-  private Object knownMoveType = null;
+  private Object knownMove;
+  private Object knownMoveType;
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location;
   private Integer minAffection;
   private Integer minBeauty;

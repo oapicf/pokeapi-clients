@@ -110,19 +110,3 @@ module EncountersApiHandlers =
           let responseContentType = "application/json"
           ContentResult(Content = content, ContentType = responseContentType, StatusCode = System.Nullable(200))
 
-    //#region PokemonEncountersRetrieve
-    /// <summary>
-    /// Get pokemon encounter
-    /// </summary>
-   [<FunctionName("PokemonEncountersRetrieve")>]
-    let PokemonEncountersRetrieve
-        ([<HttpTrigger(Extensions.Http.AuthorizationLevel.Anonymous, "GET", Route = "/api/v2/pokemon/{pokemon_id}/encounters")>]
-        req:HttpRequest ) =
-
-      let result = EncountersApiService.PokemonEncountersRetrieve ()
-      match result with
-      | PokemonEncountersRetrieveStatusCode200 resolved ->
-          let content = JsonConvert.SerializeObject resolved.content
-          let responseContentType = "application/json"
-          ContentResult(Content = content, ContentType = responseContentType, StatusCode = System.Nullable(200))
-

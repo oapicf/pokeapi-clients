@@ -35,9 +35,7 @@
 #include "PaginatedEncounterConditionSummaryList.h"
 #include "PaginatedEncounterConditionValueSummaryList.h"
 #include "PaginatedEncounterMethodSummaryList.h"
-#include "Pokemon_encounters_retrieve_200_response_inner.h"
 #include <string>
-#include <vector>
 
 namespace org::openapitools::server::api
 {
@@ -55,7 +53,6 @@ public:
     void encounter_condition_value_retrieve(const HttpBasicCredentials &credentials,const std::string &id, Pistache::Http::ResponseWriter &response);
     void encounter_method_list(const HttpBasicCredentials &credentials,const std::optional<int32_t> &limit, const std::optional<int32_t> &offset, const std::optional<std::string> &q, Pistache::Http::ResponseWriter &response);
     void encounter_method_retrieve(const HttpBasicCredentials &credentials,const std::string &id, Pistache::Http::ResponseWriter &response);
-    void pokemon_encounters_retrieve(const HttpBasicCredentials &credentials,const std::string &pokemonId, Pistache::Http::ResponseWriter &response);
 
 };
 

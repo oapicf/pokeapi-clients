@@ -93,14 +93,3 @@ func (s *EncountersAPIService) EncounterConditionValueRetrieve(ctx context.Conte
 
 	return Response(http.StatusNotImplemented, nil), errors.New("EncounterConditionValueRetrieve method not implemented")
 }
-
-// PokemonEncountersRetrieve - Get pokemon encounter
-func (s *EncountersAPIService) PokemonEncountersRetrieve(ctx context.Context, pokemonId string) (ImplResponse, error) {
-	// TODO - update PokemonEncountersRetrieve with the required logic for this service method.
-	// Add api_encounters_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
-
-	// TODO: Uncomment the next line to return response Response(200, []PokemonEncountersRetrieve200ResponseInner{}) or use other options such as http.Ok ...
-	// return Response(200, []PokemonEncountersRetrieve200ResponseInner{}), nil
-
-	return Response(http.StatusNotImplemented, nil), errors.New("PokemonEncountersRetrieve method not implemented")
-}

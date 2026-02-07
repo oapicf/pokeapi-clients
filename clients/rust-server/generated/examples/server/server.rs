@@ -155,7 +155,6 @@ use openapi_client::{
     EncounterConditionRetrieveResponse,
     EncounterConditionValueRetrieveResponse,
     EncounterMethodRetrieveResponse,
-    PokemonEncountersRetrieveResponse,
     EvolutionChainListResponse,
     EvolutionTriggerListResponse,
     EvolutionChainRetrieveResponse,
@@ -437,16 +436,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         context: &C) -> Result<EncounterMethodRetrieveResponse, ApiError>
     {
         info!("encounter_method_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    /// Get pokemon encounter
-    async fn pokemon_encounters_retrieve(
-        &self,
-        pokemon_id: String,
-        context: &C) -> Result<PokemonEncountersRetrieveResponse, ApiError>
-    {
-        info!("pokemon_encounters_retrieve(\"{}\") - X-Span-ID: {:?}", pokemon_id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 

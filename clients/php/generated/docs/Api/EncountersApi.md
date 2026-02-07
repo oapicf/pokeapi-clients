@@ -12,7 +12,6 @@ All URIs are relative to https://pokeapi.co, except if the operation defines ano
 | [**encounterConditionValueRetrieve()**](EncountersApi.md#encounterConditionValueRetrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value |
 | [**encounterMethodList()**](EncountersApi.md#encounterMethodList) | **GET** /api/v2/encounter-method/ | List encounter methods |
 | [**encounterMethodRetrieve()**](EncountersApi.md#encounterMethodRetrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method |
-| [**pokemonEncountersRetrieve()**](EncountersApi.md#pokemonEncountersRetrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter |
 
 
 ## `encounterConditionList()`
@@ -415,73 +414,6 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\EncounterMethodDetail**](../Model/EncounterMethodDetail.md)
-
-### Authorization
-
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `pokemonEncountersRetrieve()`
-
-```php
-pokemonEncountersRetrieve($pokemon_id): \OpenAPI\Client\Model\PokemonEncountersRetrieve200ResponseInner[]
-```
-
-Get pokemon encounter
-
-Handles Pokemon Encounters as a sub-resource.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure HTTP basic authorization: basicAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: cookieAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\EncountersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$pokemon_id = 'pokemon_id_example'; // string
-
-try {
-    $result = $apiInstance->pokemonEncountersRetrieve($pokemon_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling EncountersApi->pokemonEncountersRetrieve: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **pokemon_id** | **string**|  | |
-
-### Return type
-
-[**\OpenAPI\Client\Model\PokemonEncountersRetrieve200ResponseInner[]**](../Model/PokemonEncountersRetrieve200ResponseInner.md)
 
 ### Authorization
 

@@ -76,9 +76,9 @@ class EvolutionApiSimulation extends Simulation {
         .feed(evolution_chain_listQUERYFeeder)
         .exec(http("evolutionChainList")
         .httpRequest("GET","/api/v2/evolution-chain/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnevolutionChainList with warm up and reach a constant rate for entire duration
@@ -107,9 +107,9 @@ class EvolutionApiSimulation extends Simulation {
         .feed(evolution_trigger_listQUERYFeeder)
         .exec(http("evolutionTriggerList")
         .httpRequest("GET","/api/v2/evolution-trigger/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnevolutionTriggerList with warm up and reach a constant rate for entire duration

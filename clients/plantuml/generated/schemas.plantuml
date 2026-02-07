@@ -1411,45 +1411,6 @@ entity PokemonDexEntry {
     * pokedex: PokedexSummary
 }
 
-entity PokemonEncountersRetrieve200ResponseInner {
-    * location_area: PokemonEncountersRetrieve200ResponseInnerLocationArea
-    * version_details: List<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner>
-}
-
-entity PokemonEncountersRetrieve200ResponseInnerLocationArea {
-    * name: String
-    * url: URI
-}
-
-entity PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner {
-    * encounter_details: List<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner>
-    * max_chance: BigDecimal
-    * version: PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion
-}
-
-entity PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner {
-    * chance: BigDecimal
-    * condition_values: List<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner>
-    * max_level: BigDecimal
-    * method: PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod
-    * min_level: BigDecimal
-}
-
-entity PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner {
-    * name: String
-    * url: URI
-}
-
-entity PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod {
-    * name: String
-    * url: URI
-}
-
-entity PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion {
-    * name: String
-    * url: URI
-}
-
 entity PokemonFormDetail {
     * id: Integer
     * name: String
@@ -1809,8 +1770,6 @@ LocationAreaDetailPokemonEncountersInnerVersionDetailsInner -- LocationAreaDetai
 NatureName -- LanguageSummary : language
 PalParkAreaName -- LanguageSummary : language
 LocationAreaName -- LanguageSummary : language
-PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner -- "0..*" PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner : encounter_details
-PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner -- PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion : version
 VersionDetail -- "0..*" VersionName : names
 VersionDetail -- VersionGroupSummary : version_group
 EncounterConditionName -- LanguageSummary : language
@@ -1833,8 +1792,6 @@ GenderDetail -- "0..*" AbilityDetailPokemonInnerPokemon : required_for_evolution
 MoveDetailContestCombosNormal -- "0..*" AbilityDetailPokemonInnerPokemon : use_before
 MoveDetailContestCombosNormal -- "0..*" AbilityDetailPokemonInnerPokemon : use_after
 PaginatedGenderSummaryList -- "0..*" GenderSummary : results
-PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner -- "0..*" PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner : condition_values
-PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner -- PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod : method
 PaginatedRegionSummaryList -- "0..*" RegionSummary : results
 EncounterConditionDetail -- "0..*" EncounterConditionValueSummary : values
 EncounterConditionDetail -- "0..*" EncounterConditionName : names
@@ -2078,8 +2035,6 @@ MoveDetail -- TypeSummary : type
 MoveDetail -- "0..*" MoveDetailMachinesInner : machines
 MoveDetail -- "0..*" MoveFlavorText : flavor_text_entries
 MoveDetail -- "0..*" AbilityDetailPokemonInnerPokemon : learned_by_pokemon
-PokemonEncountersRetrieve200ResponseInner -- PokemonEncountersRetrieve200ResponseInnerLocationArea : location_area
-PokemonEncountersRetrieve200ResponseInner -- "0..*" PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner : version_details
 RegionName -- LanguageSummary : language
 MoveChange -- "0..*" MoveChangeEffectEntriesInner : effect_entries
 MoveChange -- TypeSummary : type

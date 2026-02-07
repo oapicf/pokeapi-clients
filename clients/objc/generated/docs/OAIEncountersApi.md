@@ -10,7 +10,6 @@ Method | HTTP request | Description
 [**encounterConditionValueRetrieve**](OAIEncountersApi.md#encounterconditionvalueretrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 [**encounterMethodList**](OAIEncountersApi.md#encountermethodlist) | **GET** /api/v2/encounter-method/ | List encounter methods
 [**encounterMethodRetrieve**](OAIEncountersApi.md#encountermethodretrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-[**pokemonEncountersRetrieve**](OAIEncountersApi.md#pokemonencountersretrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 
 
 # **encounterConditionList**
@@ -385,66 +384,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OAIEncounterMethodDetail***](OAIEncounterMethodDetail.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **pokemonEncountersRetrieve**
-```objc
--(NSURLSessionTask*) pokemonEncountersRetrieveWithPokemonId: (NSString*) pokemonId
-        completionHandler: (void (^)(NSArray<OAIPokemonEncountersRetrieve200ResponseInner>* output, NSError* error)) handler;
-```
-
-Get pokemon encounter
-
-Handles Pokemon Encounters as a sub-resource.
-
-### Example
-```objc
-OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: basicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-// Configure API key authorization: (authentication scheme: cookieAuth)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"sessionid"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"sessionid"];
-
-
-NSString* pokemonId = @"pokemonId_example"; // 
-
-OAIEncountersApi*apiInstance = [[OAIEncountersApi alloc] init];
-
-// Get pokemon encounter
-[apiInstance pokemonEncountersRetrieveWithPokemonId:pokemonId
-          completionHandler: ^(NSArray<OAIPokemonEncountersRetrieve200ResponseInner>* output, NSError* error) {
-                        if (output) {
-                            NSLog(@"%@", output);
-                        }
-                        if (error) {
-                            NSLog(@"Error calling OAIEncountersApi->pokemonEncountersRetrieve: %@", error);
-                        }
-                    }];
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pokemonId** | **NSString***|  | 
-
-### Return type
-
-[**NSArray<OAIPokemonEncountersRetrieve200ResponseInner>***](OAIPokemonEncountersRetrieve200ResponseInner.md)
 
 ### Authorization
 

@@ -775,50 +775,6 @@ h4. Responses
 
 
 
-h3. pokemonEncountersRetrieve
-{panel:title=pokemonEncountersRetrieve|borderStyle=solid|borderColor=#003b6f|titleBGColor=#003b6f|titleColor=#a6b8c7|bgColor=#ffffff}
-    *Summary:* Get pokemon encounter
-    *Description:* Handles Pokemon Encounters as a sub-resource.
-
-	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
-    || Protocol | {noformat:nopanel=true}https{noformat} |
-    || Path | {noformat:nopanel=true}/api/v2/pokemon/{pokemon_id}/encounters{noformat} |
-    || Base Path | {noformat:nopanel=true}https://pokeapi.co{noformat} |
-    || Produces | {noformat:nopanel=true}application/json {noformat} |
-----
-h4. Parameters
-h5. Path Parameters
-        ||Name||Description||Type||Required||Default||Pattern||Enum||Example||
-        |pokemon_id | | String | (/) |null | /^\\d+$/ |  |
-
-
-
-----
-h4. Responses
-
-    	|| Status Code | {status:colour=Green|title=200|subtle=false} |
-    	|| Message |  |
-    	|| Response Type | array[pokemon_encounters_retrieve_200_response_inner] |
-    	|| Response Model | [array[pokemon_encounters_retrieve_200_response_inner] Model|#array[pokemon_encounters_retrieve_200_response_inner]ModelAnchor|Jump to model] |
-    	|| Response Schema | {code:collapse=true}{
-  "description" : "",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "type" : "array",
-        "items" : {
-          "$ref" : "#/components/schemas/pokemon_encounters_retrieve_200_response_inner"
-        }
-      }
-    }
-  }
-}{code} |
-       
-
-{panel}
-
-
-
 h3. evolutionChainList
 {panel:title=evolutionChainList|borderStyle=solid|borderColor=#003b6f|titleBGColor=#003b6f|titleColor=#a6b8c7|bgColor=#ffffff}
     *Summary:* List evolution chains
@@ -6570,80 +6526,6 @@ h2. Models
         ||Field Name||Required||Type||Description||Enum||Example||
          |entry_number |(/) |{noformat:nopanel=true}Integer{noformat} |  |  | null
          |pokedex |(/) |{noformat:nopanel=true}PokedexSummary{noformat} |  |  | null
-         
-        {anchor:PokemonEncountersRetrieve200ResponseInnerModelAnchor}
-        h3. PokemonEncountersRetrieve200ResponseInner
-
-        
-
-        
-        ||Field Name||Required||Type||Description||Enum||Example||
-         |location_area |(/) |{noformat:nopanel=true}pokemon_encounters_retrieve_200_response_inner_location_area{noformat} |  |  | null
-         |version_details |(/) |{noformat:nopanel=true}array[pokemon_encounters_retrieve_200_response_inner_version_details_inner]{noformat} |  |  | null
-         
-        {anchor:PokemonEncountersRetrieve200ResponseInnerLocationAreaModelAnchor}
-        h3. PokemonEncountersRetrieve200ResponseInnerLocationArea
-
-        
-
-        
-        ||Field Name||Required||Type||Description||Enum||Example||
-         |name |(/) |{noformat:nopanel=true}String{noformat} |  |  | cerulean-city-area
-         |url |(/) |{noformat:nopanel=true}URI{noformat} |  |  | https://pokeapi.co/api/v2/location-area/281/
-         
-        {anchor:PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerModelAnchor}
-        h3. PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner
-
-        
-
-        
-        ||Field Name||Required||Type||Description||Enum||Example||
-         |encounter_details |(/) |{noformat:nopanel=true}array[pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner]{noformat} |  |  | null
-         |max_chance |(/) |{noformat:nopanel=true}BigDecimal{noformat} |  |  | 100
-         |version |(/) |{noformat:nopanel=true}pokemon_encounters_retrieve_200_response_inner_version_details_inner_version{noformat} |  |  | null
-         
-        {anchor:PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerModelAnchor}
-        h3. PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner
-
-        
-
-        
-        ||Field Name||Required||Type||Description||Enum||Example||
-         |chance |(/) |{noformat:nopanel=true}BigDecimal{noformat} |  |  | 100
-         |condition_values |(/) |{noformat:nopanel=true}array[pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner]{noformat} |  |  | null
-         |max_level |(/) |{noformat:nopanel=true}BigDecimal{noformat} |  |  | 10
-         |method |(/) |{noformat:nopanel=true}pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method{noformat} |  |  | null
-         |min_level |(/) |{noformat:nopanel=true}BigDecimal{noformat} |  |  | 10
-         
-        {anchor:PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInnerModelAnchor}
-        h3. PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner
-
-        
-
-        
-        ||Field Name||Required||Type||Description||Enum||Example||
-         |name |(/) |{noformat:nopanel=true}String{noformat} |  |  | story-progress-beat-red
-         |url |(/) |{noformat:nopanel=true}URI{noformat} |  |  | https://pokeapi.co/api/v2/encounter-condition-value/55/
-         
-        {anchor:PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethodModelAnchor}
-        h3. PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod
-
-        
-
-        
-        ||Field Name||Required||Type||Description||Enum||Example||
-         |name |(/) |{noformat:nopanel=true}String{noformat} |  |  | gift
-         |url |(/) |{noformat:nopanel=true}URI{noformat} |  |  | https://pokeapi.co/api/v2/encounter-method/18/
-         
-        {anchor:PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersionModelAnchor}
-        h3. PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion
-
-        
-
-        
-        ||Field Name||Required||Type||Description||Enum||Example||
-         |name |(/) |{noformat:nopanel=true}String{noformat} |  |  | red
-         |url |(/) |{noformat:nopanel=true}URI{noformat} |  |  | https://pokeapi.co/api/v2/version/1/
          
         {anchor:PokemonFormDetailModelAnchor}
         h3. PokemonFormDetail

@@ -36,12 +36,56 @@ export default function() {
         }
     });
 
+    group("/api/v2/version-group/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: version_group_list
+        {
+            let url = BASE_URL + `/api/v2/version-group/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
     group("/api/v2/move-damage-class/{id}/", () => {
         let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
 
         // Request No. 1: move_damage_class_retrieve
         {
             let url = BASE_URL + `/api/v2/move-damage-class/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/version/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: version_retrieve
+        {
+            let url = BASE_URL + `/api/v2/version/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/evolution-chain/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: evolution_chain_retrieve
+        {
+            let url = BASE_URL + `/api/v2/evolution-chain/${id}/`;
             let request = http.get(url);
 
             check(request, {
@@ -58,6 +102,20 @@ export default function() {
         // Request No. 1: pokemon_species_list
         {
             let url = BASE_URL + `/api/v2/pokemon-species/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/pokeathlon-stat/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: pokeathlon_stat_retrieve
+        {
+            let url = BASE_URL + `/api/v2/pokeathlon-stat/${id}/`;
             let request = http.get(url);
 
             check(request, {
@@ -114,6 +172,36 @@ export default function() {
         }
     });
 
+    group("/api/v2/stat/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: stat_retrieve
+        {
+            let url = BASE_URL + `/api/v2/stat/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/pokedex/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: pokedex_list
+        {
+            let url = BASE_URL + `/api/v2/pokedex/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
     group("/api/v2/encounter-condition/{id}/", () => {
         let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
 
@@ -144,6 +232,22 @@ export default function() {
         }
     });
 
+    group("/api/v2/stat/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: stat_list
+        {
+            let url = BASE_URL + `/api/v2/stat/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
     group("/api/v2/encounter-condition/", () => {
         let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
         let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
@@ -152,6 +256,22 @@ export default function() {
         // Request No. 1: encounter_condition_list
         {
             let url = BASE_URL + `/api/v2/encounter-condition/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/ability/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: ability_list
+        {
+            let url = BASE_URL + `/api/v2/ability/?limit=${limit}&offset=${offset}&q=${q}`;
             let request = http.get(url);
 
             check(request, {
@@ -174,12 +294,56 @@ export default function() {
         }
     });
 
+    group("/api/v2/pokemon/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: pokemon_retrieve
+        {
+            let url = BASE_URL + `/api/v2/pokemon/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/pokemon-form/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: pokemon_form_retrieve
+        {
+            let url = BASE_URL + `/api/v2/pokemon-form/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
     group("/api/v2/location-area/{id}/", () => {
         let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
 
         // Request No. 1: location_area_retrieve
         {
             let url = BASE_URL + `/api/v2/location-area/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/move-damage-class/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: move_damage_class_list
+        {
+            let url = BASE_URL + `/api/v2/move-damage-class/?limit=${limit}&offset=${offset}&q=${q}`;
             let request = http.get(url);
 
             check(request, {
@@ -204,12 +368,41 @@ export default function() {
         }
     });
 
+    group("/api/v2/gender/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: gender_retrieve
+        {
+            let url = BASE_URL + `/api/v2/gender/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
     group("/api/v2/item-fling-effect/{id}/", () => {
         let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
 
         // Request No. 1: item_fling_effect_retrieve
         {
             let url = BASE_URL + `/api/v2/item-fling-effect/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/location-area/", () => {
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: location_area_list
+        {
+            let url = BASE_URL + `/api/v2/location-area/?limit=${limit}&offset=${offset}`;
             let request = http.get(url);
 
             check(request, {
@@ -226,6 +419,36 @@ export default function() {
         // Request No. 1: item_list
         {
             let url = BASE_URL + `/api/v2/item/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/move/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: move_retrieve
+        {
+            let url = BASE_URL + `/api/v2/move/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/contest-effect/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: contest_effect_list
+        {
+            let url = BASE_URL + `/api/v2/contest-effect/?limit=${limit}&offset=${offset}&q=${q}`;
             let request = http.get(url);
 
             check(request, {
@@ -264,6 +487,50 @@ export default function() {
         }
     });
 
+    group("/api/v2/nature/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: nature_retrieve
+        {
+            let url = BASE_URL + `/api/v2/nature/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/pokedex/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: pokedex_retrieve
+        {
+            let url = BASE_URL + `/api/v2/pokedex/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/encounter-condition-value/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: encounter_condition_value_list
+        {
+            let url = BASE_URL + `/api/v2/encounter-condition-value/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
     group("/api/v2/item-category/", () => {
         let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
         let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
@@ -272,6 +539,78 @@ export default function() {
         // Request No. 1: item_category_list
         {
             let url = BASE_URL + `/api/v2/item-category/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/pokemon-color/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: pokemon_color_retrieve
+        {
+            let url = BASE_URL + `/api/v2/pokemon-color/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/characteristic/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: characteristic_retrieve
+        {
+            let url = BASE_URL + `/api/v2/characteristic/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/berry-flavor/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: berry_flavor_retrieve
+        {
+            let url = BASE_URL + `/api/v2/berry-flavor/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/move-battle-style/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: move_battle_style_retrieve
+        {
+            let url = BASE_URL + `/api/v2/move-battle-style/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/gender/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: gender_list
+        {
+            let url = BASE_URL + `/api/v2/gender/?limit=${limit}&offset=${offset}&q=${q}`;
             let request = http.get(url);
 
             check(request, {
@@ -312,6 +651,38 @@ export default function() {
         }
     });
 
+    group("/api/v2/item-attribute/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: item_attribute_list
+        {
+            let url = BASE_URL + `/api/v2/item-attribute/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/move-learn-method/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: move_learn_method_list
+        {
+            let url = BASE_URL + `/api/v2/move-learn-method/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
     group("/api/v2/encounter-method/{id}/", () => {
         let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
 
@@ -342,6 +713,36 @@ export default function() {
         }
     });
 
+    group("/api/v2/egg-group/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: egg_group_retrieve
+        {
+            let url = BASE_URL + `/api/v2/egg-group/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/evolution-trigger/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: evolution_trigger_list
+        {
+            let url = BASE_URL + `/api/v2/evolution-trigger/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
     group("/api/v2/generation/", () => {
         let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
         let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
@@ -358,12 +759,60 @@ export default function() {
         }
     });
 
+    group("/api/v2/evolution-chain/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: evolution_chain_list
+        {
+            let url = BASE_URL + `/api/v2/evolution-chain/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
     group("/api/v2/region/{id}/", () => {
         let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
 
         // Request No. 1: region_retrieve
         {
             let url = BASE_URL + `/api/v2/region/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/move-category/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: move_category_list
+        {
+            let url = BASE_URL + `/api/v2/move-category/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/nature/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: nature_list
+        {
+            let url = BASE_URL + `/api/v2/nature/?limit=${limit}&offset=${offset}&q=${q}`;
             let request = http.get(url);
 
             check(request, {
@@ -394,6 +843,38 @@ export default function() {
         // Request No. 1: pal_park_area_list
         {
             let url = BASE_URL + `/api/v2/pal-park-area/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/move-ailment/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: move_ailment_list
+        {
+            let url = BASE_URL + `/api/v2/move-ailment/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/item-pocket/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: item_pocket_list
+        {
+            let url = BASE_URL + `/api/v2/item-pocket/?limit=${limit}&offset=${offset}&q=${q}`;
             let request = http.get(url);
 
             check(request, {
@@ -448,6 +929,20 @@ export default function() {
         }
     });
 
+    group("/api/v2/berry/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: berry_retrieve
+        {
+            let url = BASE_URL + `/api/v2/berry/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
     group("/api/v2/encounter-method/", () => {
         let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
         let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
@@ -456,6 +951,22 @@ export default function() {
         // Request No. 1: encounter_method_list
         {
             let url = BASE_URL + `/api/v2/encounter-method/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/super-contest-effect/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: super_contest_effect_list
+        {
+            let url = BASE_URL + `/api/v2/super-contest-effect/?limit=${limit}&offset=${offset}&q=${q}`;
             let request = http.get(url);
 
             check(request, {
@@ -508,6 +1019,50 @@ export default function() {
         }
     });
 
+    group("/api/v2/contest-effect/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: contest_effect_retrieve
+        {
+            let url = BASE_URL + `/api/v2/contest-effect/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/egg-group/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: egg_group_list
+        {
+            let url = BASE_URL + `/api/v2/egg-group/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/move-ailment/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: move_ailment_retrieve
+        {
+            let url = BASE_URL + `/api/v2/move-ailment/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
     group("/api/v2/berry-flavor/", () => {
         let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
         let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
@@ -538,6 +1093,36 @@ export default function() {
         }
     });
 
+    group("/api/v2/pokemon-form/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: pokemon_form_list
+        {
+            let url = BASE_URL + `/api/v2/pokemon-form/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/item-category/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: item_category_retrieve
+        {
+            let url = BASE_URL + `/api/v2/item-category/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
     group("/api/v2/berry/", () => {
         let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
         let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
@@ -546,6 +1131,50 @@ export default function() {
         // Request No. 1: berry_list
         {
             let url = BASE_URL + `/api/v2/berry/?limit=${limit}&offset=${offset}&q=${q}`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/move-target/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: move_target_retrieve
+        {
+            let url = BASE_URL + `/api/v2/move-target/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/location/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: location_retrieve
+        {
+            let url = BASE_URL + `/api/v2/location/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/region/", () => {
+        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
+        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: region_list
+        {
+            let url = BASE_URL + `/api/v2/region/?limit=${limit}&offset=${offset}&q=${q}`;
             let request = http.get(url);
 
             check(request, {
@@ -646,719 +1275,6 @@ export default function() {
         }
     });
 
-    group("/api/v2/item/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: item_retrieve
-        {
-            let url = BASE_URL + `/api/v2/item/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/pokemon-habitat/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: pokemon_habitat_retrieve
-        {
-            let url = BASE_URL + `/api/v2/pokemon-habitat/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/pokemon/{pokemon_id}/encounters", () => {
-        let pokemonId = 'TODO_EDIT_THE_POKEMON_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: pokemon_encounters_retrieve
-        {
-            let url = BASE_URL + `/api/v2/pokemon/${pokemon_id}/encounters`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/encounter-condition-value/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: encounter_condition_value_retrieve
-        {
-            let url = BASE_URL + `/api/v2/encounter-condition-value/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/ability/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: ability_retrieve
-        {
-            let url = BASE_URL + `/api/v2/ability/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/pokemon-shape/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: pokemon_shape_retrieve
-        {
-            let url = BASE_URL + `/api/v2/pokemon-shape/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/version-group/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: version_group_list
-        {
-            let url = BASE_URL + `/api/v2/version-group/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/version/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: version_retrieve
-        {
-            let url = BASE_URL + `/api/v2/version/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/evolution-chain/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: evolution_chain_retrieve
-        {
-            let url = BASE_URL + `/api/v2/evolution-chain/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/pokeathlon-stat/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: pokeathlon_stat_retrieve
-        {
-            let url = BASE_URL + `/api/v2/pokeathlon-stat/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/stat/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: stat_retrieve
-        {
-            let url = BASE_URL + `/api/v2/stat/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/pokedex/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: pokedex_list
-        {
-            let url = BASE_URL + `/api/v2/pokedex/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/stat/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: stat_list
-        {
-            let url = BASE_URL + `/api/v2/stat/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/ability/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: ability_list
-        {
-            let url = BASE_URL + `/api/v2/ability/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/pokemon/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: pokemon_retrieve
-        {
-            let url = BASE_URL + `/api/v2/pokemon/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/pokemon-form/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: pokemon_form_retrieve
-        {
-            let url = BASE_URL + `/api/v2/pokemon-form/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/move-damage-class/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: move_damage_class_list
-        {
-            let url = BASE_URL + `/api/v2/move-damage-class/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/gender/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: gender_retrieve
-        {
-            let url = BASE_URL + `/api/v2/gender/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/location-area/", () => {
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: location_area_list
-        {
-            let url = BASE_URL + `/api/v2/location-area/?limit=${limit}&offset=${offset}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/move/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: move_retrieve
-        {
-            let url = BASE_URL + `/api/v2/move/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/contest-effect/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: contest_effect_list
-        {
-            let url = BASE_URL + `/api/v2/contest-effect/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/nature/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: nature_retrieve
-        {
-            let url = BASE_URL + `/api/v2/nature/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/pokedex/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: pokedex_retrieve
-        {
-            let url = BASE_URL + `/api/v2/pokedex/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/encounter-condition-value/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: encounter_condition_value_list
-        {
-            let url = BASE_URL + `/api/v2/encounter-condition-value/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/pokemon-color/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: pokemon_color_retrieve
-        {
-            let url = BASE_URL + `/api/v2/pokemon-color/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/characteristic/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: characteristic_retrieve
-        {
-            let url = BASE_URL + `/api/v2/characteristic/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/berry-flavor/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: berry_flavor_retrieve
-        {
-            let url = BASE_URL + `/api/v2/berry-flavor/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/move-battle-style/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: move_battle_style_retrieve
-        {
-            let url = BASE_URL + `/api/v2/move-battle-style/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/gender/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: gender_list
-        {
-            let url = BASE_URL + `/api/v2/gender/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/item-attribute/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: item_attribute_list
-        {
-            let url = BASE_URL + `/api/v2/item-attribute/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/move-learn-method/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: move_learn_method_list
-        {
-            let url = BASE_URL + `/api/v2/move-learn-method/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/egg-group/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: egg_group_retrieve
-        {
-            let url = BASE_URL + `/api/v2/egg-group/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/evolution-trigger/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: evolution_trigger_list
-        {
-            let url = BASE_URL + `/api/v2/evolution-trigger/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/evolution-chain/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: evolution_chain_list
-        {
-            let url = BASE_URL + `/api/v2/evolution-chain/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/move-category/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: move_category_list
-        {
-            let url = BASE_URL + `/api/v2/move-category/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/nature/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: nature_list
-        {
-            let url = BASE_URL + `/api/v2/nature/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/move-ailment/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: move_ailment_list
-        {
-            let url = BASE_URL + `/api/v2/move-ailment/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/item-pocket/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: item_pocket_list
-        {
-            let url = BASE_URL + `/api/v2/item-pocket/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/berry/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: berry_retrieve
-        {
-            let url = BASE_URL + `/api/v2/berry/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/super-contest-effect/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: super_contest_effect_list
-        {
-            let url = BASE_URL + `/api/v2/super-contest-effect/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/contest-effect/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: contest_effect_retrieve
-        {
-            let url = BASE_URL + `/api/v2/contest-effect/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/egg-group/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: egg_group_list
-        {
-            let url = BASE_URL + `/api/v2/egg-group/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/move-ailment/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: move_ailment_retrieve
-        {
-            let url = BASE_URL + `/api/v2/move-ailment/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/pokemon-form/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: pokemon_form_list
-        {
-            let url = BASE_URL + `/api/v2/pokemon-form/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/item-category/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: item_category_retrieve
-        {
-            let url = BASE_URL + `/api/v2/item-category/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/move-target/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: move_target_retrieve
-        {
-            let url = BASE_URL + `/api/v2/move-target/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/location/{id}/", () => {
-        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: location_retrieve
-        {
-            let url = BASE_URL + `/api/v2/location/${id}/`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
-    group("/api/v2/region/", () => {
-        let q = 'TODO_EDIT_THE_Q'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let offset = 'TODO_EDIT_THE_OFFSET'; // specify value as there is no example value for this parameter in OpenAPI spec
-        let limit = 'TODO_EDIT_THE_LIMIT'; // specify value as there is no example value for this parameter in OpenAPI spec
-
-        // Request No. 1: region_list
-        {
-            let url = BASE_URL + `/api/v2/region/?limit=${limit}&offset=${offset}&q=${q}`;
-            let request = http.get(url);
-
-            check(request, {
-                "": (r) => r.status === 200
-            });
-        }
-    });
-
     group("/api/v2/version-group/{id}/", () => {
         let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
 
@@ -1403,6 +1319,34 @@ export default function() {
         }
     });
 
+    group("/api/v2/item/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: item_retrieve
+        {
+            let url = BASE_URL + `/api/v2/item/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/pokemon-habitat/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: pokemon_habitat_retrieve
+        {
+            let url = BASE_URL + `/api/v2/pokemon-habitat/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
     group("/api/v2/berry-firmness/{id}/", () => {
         let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
 
@@ -1417,12 +1361,40 @@ export default function() {
         }
     });
 
+    group("/api/v2/encounter-condition-value/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: encounter_condition_value_retrieve
+        {
+            let url = BASE_URL + `/api/v2/encounter-condition-value/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
     group("/api/v2/generation/{id}/", () => {
         let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
 
         // Request No. 1: generation_retrieve
         {
             let url = BASE_URL + `/api/v2/generation/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/ability/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: ability_retrieve
+        {
+            let url = BASE_URL + `/api/v2/ability/${id}/`;
             let request = http.get(url);
 
             check(request, {
@@ -1467,6 +1439,20 @@ export default function() {
         // Request No. 1: pal_park_area_retrieve
         {
             let url = BASE_URL + `/api/v2/pal-park-area/${id}/`;
+            let request = http.get(url);
+
+            check(request, {
+                "": (r) => r.status === 200
+            });
+        }
+    });
+
+    group("/api/v2/pokemon-shape/{id}/", () => {
+        let id = 'TODO_EDIT_THE_ID'; // specify value as there is no example value for this parameter in OpenAPI spec
+
+        // Request No. 1: pokemon_shape_retrieve
+        {
+            let url = BASE_URL + `/api/v2/pokemon-shape/${id}/`;
             let request = http.get(url);
 
             check(request, {

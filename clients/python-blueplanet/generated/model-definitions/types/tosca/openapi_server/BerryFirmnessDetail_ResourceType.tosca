@@ -1,0 +1,54 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server BerryFirmnessDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a BerryFirmnessDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  BerryFirmnessName = openapi_server.resourceTypes.BerryFirmnessName
+  BerrySummary = openapi_server.resourceTypes.BerrySummary
+}
+resourceTypes {
+
+  BerryFirmnessDetail {
+    title = BerryFirmnessDetail
+    description = BerryFirmnessDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        berries {
+          type = array
+          items.type = BerrySummary
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = BerryFirmnessName
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  BerryFirmnessDetail {
+    title = BerryFirmnessDetail
+    description = BerryFirmnessDetail
+    implements = openapi_server.resourceTypes.BerryFirmnessDetail
+
+  }
+}

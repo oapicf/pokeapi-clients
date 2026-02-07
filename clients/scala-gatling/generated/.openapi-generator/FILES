@@ -239,13 +239,6 @@ src/gatling/scala/org/openapitools/client/model/PokemonDetailPastTypesInner.scal
 src/gatling/scala/org/openapitools/client/model/PokemonDetailSprites.scala
 src/gatling/scala/org/openapitools/client/model/PokemonDetailTypesInner.scala
 src/gatling/scala/org/openapitools/client/model/PokemonDexEntry.scala
-src/gatling/scala/org/openapitools/client/model/PokemonEncountersRetrieve200ResponseInner.scala
-src/gatling/scala/org/openapitools/client/model/PokemonEncountersRetrieve200ResponseInnerLocationArea.scala
-src/gatling/scala/org/openapitools/client/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.scala
-src/gatling/scala/org/openapitools/client/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.scala
-src/gatling/scala/org/openapitools/client/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner.scala
-src/gatling/scala/org/openapitools/client/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod.scala
-src/gatling/scala/org/openapitools/client/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.scala
 src/gatling/scala/org/openapitools/client/model/PokemonFormDetail.scala
 src/gatling/scala/org/openapitools/client/model/PokemonFormDetailFormNamesInner.scala
 src/gatling/scala/org/openapitools/client/model/PokemonFormDetailSprites.scala

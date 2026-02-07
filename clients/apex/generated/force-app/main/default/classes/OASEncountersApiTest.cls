@@ -269,48 +269,4 @@ private class OASEncountersApiTest {
         response = (OASEncounterMethodDetail) api.encounterMethodRetrieve(params);
         System.assertEquals(expectedResponse, response);
     }
-
-    /**
-     * Get pokemon encounter
-     *
-     * Handles Pokemon Encounters as a sub-resource.
-     */
-    @isTest
-    private static void pokemonEncountersRetrieveTest() {
-        HttpResponse res = new HttpResponse();
-        res.setStatusCode(200);
-        res.setStatus('OK');
-        Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
-
-        Map<String, Object> params = new Map<String, Object>{
-            'pokemonId' => 'null'
-        };
-
-        OASClient client;
-        OASEncountersApi api;
-        List<OASPokemonEncountersRetrieve200Respo> response;
-        List<OASPokemonEncountersRetrieve200Respo> expectedResponse;
-        String js = '';
-
-        client = new OASClient();
-        api = new OASEncountersApi(client);
-
-        js = JSON.serialize(new List<OASPokemonEncountersRetrieve200Respo>{OASPokemonEncountersRetrieve200Respo.getExample()});
-        res.setHeader('Content-Type', 'application/json');
-        res.setBody(js);
-        expectedResponse = new List<OASPokemonEncountersRetrieve200Respo>{OASPokemonEncountersRetrieve200Respo.getExample()};
-        response = (List<OASPokemonEncountersRetrieve200Respo>) api.pokemonEncountersRetrieve(params);
-        System.assertEquals(expectedResponse, response);
-        client = new OASClient();
-        api = new OASEncountersApi(client);
-        ((OAS.ApiKeyAuth)client.getAuthentication('cookieAuth')).setApiKey('foo-bar-api-key');
-
-
-        js = JSON.serialize(new List<OASPokemonEncountersRetrieve200Respo>{OASPokemonEncountersRetrieve200Respo.getExample()});
-        res.setHeader('Content-Type', 'application/json');
-        res.setBody(js);
-        expectedResponse = new List<OASPokemonEncountersRetrieve200Respo>{OASPokemonEncountersRetrieve200Respo.getExample()};
-        response = (List<OASPokemonEncountersRetrieve200Respo>) api.pokemonEncountersRetrieve(params);
-        System.assertEquals(expectedResponse, response);
-    }
 }

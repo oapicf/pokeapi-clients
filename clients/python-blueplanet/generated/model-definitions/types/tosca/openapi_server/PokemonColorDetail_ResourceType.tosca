@@ -1,0 +1,54 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonColorDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonColorDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  PokemonColorName = openapi_server.resourceTypes.PokemonColorName
+  PokemonSpeciesSummary = openapi_server.resourceTypes.PokemonSpeciesSummary
+}
+resourceTypes {
+
+  PokemonColorDetail {
+    title = PokemonColorDetail
+    description = PokemonColorDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = PokemonColorName
+          description = ""
+          optional = true
+        }
+        pokemon_species {
+          type = array
+          items.type = PokemonSpeciesSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonColorDetail {
+    title = PokemonColorDetail
+    description = PokemonColorDetail
+    implements = openapi_server.resourceTypes.PokemonColorDetail
+
+  }
+}

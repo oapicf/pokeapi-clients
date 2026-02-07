@@ -36,7 +36,7 @@ import javax.annotation.Generated;
   EggGroupDetail.JSON_PROPERTY_POKEMON_SPECIES
 })
 @JsonTypeName("EggGroupDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T04:16:49.114765561Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Introspected
 public class EggGroupDetail {
     public static final String JSON_PROPERTY_ID = "id";

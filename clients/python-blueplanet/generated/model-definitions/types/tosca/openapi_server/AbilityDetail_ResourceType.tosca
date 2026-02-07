@@ -1,0 +1,86 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server AbilityDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a AbilityDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityChange = openapi_server.resourceTypes.AbilityChange
+  AbilityDetailPokemonInner = openapi_server.resourceTypes.AbilityDetailPokemonInner
+  AbilityEffectText = openapi_server.resourceTypes.AbilityEffectText
+  AbilityFlavorText = openapi_server.resourceTypes.AbilityFlavorText
+  AbilityName = openapi_server.resourceTypes.AbilityName
+  GenerationSummary = openapi_server.resourceTypes.GenerationSummary
+}
+resourceTypes {
+
+  AbilityDetail {
+    title = AbilityDetail
+    description = AbilityDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        is_main_series {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        generation {
+          type = GenerationSummary
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = AbilityName
+          description = ""
+          optional = true
+        }
+        effect_entries {
+          type = array
+          items.type = AbilityEffectText
+          description = ""
+          optional = true
+        }
+        effect_changes {
+          type = array
+          items.type = AbilityChange
+          description = ""
+          optional = true
+        }
+        flavor_text_entries {
+          type = array
+          items.type = AbilityFlavorText
+          description = ""
+          optional = true
+        }
+        pokemon {
+          type = array
+          items.type = AbilityDetailPokemonInner
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  AbilityDetail {
+    title = AbilityDetail
+    description = AbilityDetail
+    implements = openapi_server.resourceTypes.AbilityDetail
+
+  }
+}

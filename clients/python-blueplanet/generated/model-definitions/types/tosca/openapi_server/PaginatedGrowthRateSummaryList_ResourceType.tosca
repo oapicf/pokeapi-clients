@@ -1,0 +1,52 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PaginatedGrowthRateSummaryList"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PaginatedGrowthRateSummaryList"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  GrowthRateSummary = openapi_server.resourceTypes.GrowthRateSummary
+}
+resourceTypes {
+
+  PaginatedGrowthRateSummaryList {
+    title = PaginatedGrowthRateSummaryList
+    description = PaginatedGrowthRateSummaryList
+    derivedFrom = Root
+    properties {
+        count {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        next {
+          type =  string
+          description = ""
+          optional = false
+        }
+        previous {
+          type =  string
+          description = ""
+          optional = false
+        }
+        results {
+          type = array
+          items.type = GrowthRateSummary
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PaginatedGrowthRateSummaryList {
+    title = PaginatedGrowthRateSummaryList
+    description = PaginatedGrowthRateSummaryList
+    implements = openapi_server.resourceTypes.PaginatedGrowthRateSummaryList
+
+  }
+}

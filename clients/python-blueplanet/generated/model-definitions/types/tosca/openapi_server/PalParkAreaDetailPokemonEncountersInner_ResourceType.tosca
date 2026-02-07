@@ -1,0 +1,46 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PalParkAreaDetailPokemonEncountersInner"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PalParkAreaDetailPokemonEncountersInner"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+}
+resourceTypes {
+
+  PalParkAreaDetailPokemonEncountersInner {
+    title = PalParkAreaDetailPokemonEncountersInner
+    description = PalParkAreaDetailPokemonEncountersInner
+    derivedFrom = Root
+    properties {
+        base_score {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        pokemon_species {
+          type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+        rate {
+          type =  integer
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PalParkAreaDetailPokemonEncountersInner {
+    title = PalParkAreaDetailPokemonEncountersInner
+    description = PalParkAreaDetailPokemonEncountersInner
+    implements = openapi_server.resourceTypes.PalParkAreaDetailPokemonEncountersInner
+
+  }
+}

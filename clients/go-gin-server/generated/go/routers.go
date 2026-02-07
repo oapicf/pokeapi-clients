@@ -198,12 +198,6 @@ func getRoutes(handleFunctions ApiHandleFunctions) []Route {
 			handleFunctions.EncountersAPI.EncounterMethodRetrieve,
 		},
 		{
-			"PokemonEncountersRetrieve",
-			http.MethodGet,
-			"/api/v2/pokemon/:pokemon_id/encounters",
-			handleFunctions.EncountersAPI.PokemonEncountersRetrieve,
-		},
-		{
 			"EvolutionChainList",
 			http.MethodGet,
 			"/api/v2/evolution-chain/",

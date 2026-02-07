@@ -1,0 +1,53 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server EncounterConditionValueDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a EncounterConditionValueDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  EncounterConditionSummary = openapi_server.resourceTypes.EncounterConditionSummary
+  EncounterConditionValueName = openapi_server.resourceTypes.EncounterConditionValueName
+}
+resourceTypes {
+
+  EncounterConditionValueDetail {
+    title = EncounterConditionValueDetail
+    description = EncounterConditionValueDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        condition {
+          type = EncounterConditionSummary
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = EncounterConditionValueName
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  EncounterConditionValueDetail {
+    title = EncounterConditionValueDetail
+    description = EncounterConditionValueDetail
+    implements = openapi_server.resourceTypes.EncounterConditionValueDetail
+
+  }
+}

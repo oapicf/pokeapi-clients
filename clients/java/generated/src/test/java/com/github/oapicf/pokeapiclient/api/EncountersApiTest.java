@@ -20,7 +20,6 @@ import com.github.oapicf.pokeapiclient.model.EncounterMethodDetail;
 import com.github.oapicf.pokeapiclient.model.PaginatedEncounterConditionSummaryList;
 import com.github.oapicf.pokeapiclient.model.PaginatedEncounterConditionValueSummaryList;
 import com.github.oapicf.pokeapiclient.model.PaginatedEncounterMethodSummaryList;
-import com.github.oapicf.pokeapiclient.model.PokemonEncountersRetrieve200ResponseInner;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -124,20 +123,6 @@ public class EncountersApiTest {
     public void encounterMethodRetrieveTest() throws ApiException {
         String id = null;
         EncounterMethodDetail response = api.encounterMethodRetrieve(id);
-        // TODO: test validations
-    }
-
-    /**
-     * Get pokemon encounter
-     *
-     * Handles Pokemon Encounters as a sub-resource.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void pokemonEncountersRetrieveTest() throws ApiException {
-        String pokemonId = null;
-        List<PokemonEncountersRetrieve200ResponseInner> response = api.pokemonEncountersRetrieve(pokemonId);
         // TODO: test validations
     }
 

@@ -1,0 +1,27 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "id" },
+      {"model": "name" },
+      {"model": "damage_relations" },
+      {"model": "past_damage_relations" },
+      {"model": "game_indices" },
+      {"model": "generation" },
+      {"model": "move_damage_class" },
+      {"model": "names" },
+      {"model": "pokemon" },
+      {"model": "moves" },
+      {"model": "sprites" },
+    ]
+  }]
+}

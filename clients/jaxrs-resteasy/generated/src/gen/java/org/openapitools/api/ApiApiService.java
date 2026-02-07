@@ -91,7 +91,6 @@ import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
 import org.openapitools.model.PokemonDetail;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 import org.openapitools.model.PokemonFormDetail;
 import org.openapitools.model.PokemonHabitatDetail;
 import org.openapitools.model.PokemonShapeDetail;
@@ -113,7 +112,7 @@ import javax.validation.Valid;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-02-07T04:17:47.675703185Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-02-07T15:23:57.425124504Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public interface ApiApiService {
       Response abilityList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
@@ -262,8 +261,6 @@ public interface ApiApiService {
       Response pokemonColorList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
       Response pokemonColorRetrieve(String id,SecurityContext securityContext)
-      throws NotFoundException;
-      Response pokemonEncountersRetrieve(String pokemonId,SecurityContext securityContext)
       throws NotFoundException;
       Response pokemonFormList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;

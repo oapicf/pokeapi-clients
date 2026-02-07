@@ -21,7 +21,6 @@ import { EncounterMethodDetail } from '../model/encounterMethodDetail';
 import { PaginatedEncounterConditionSummaryList } from '../model/paginatedEncounterConditionSummaryList';
 import { PaginatedEncounterConditionValueSummaryList } from '../model/paginatedEncounterConditionValueSummaryList';
 import { PaginatedEncounterMethodSummaryList } from '../model/paginatedEncounterMethodSummaryList';
-import { PokemonEncountersRetrieve200ResponseInner } from '../model/pokemonEncountersRetrieve200ResponseInner';
 import { Configuration } from '../configuration';
 import { COLLECTION_FORMATS } from '../variables';
 
@@ -386,58 +385,6 @@ export class EncountersService {
                         withCredentials: this.configuration.withCredentials,
                         ...encounterMethodRetrieveOpts?.config,
                         headers: {...headers, ...encounterMethodRetrieveOpts?.config?.headers},
-                    }
-                );
-            })
-        );
-    }
-    /**
-     * Get pokemon encounter
-     * Handles Pokemon Encounters as a sub-resource.
-     * @param pokemonId 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     * @param {*} [pokemonEncountersRetrieveOpts.config] Override http request option.
-     */
-    public pokemonEncountersRetrieve(pokemonId: string, pokemonEncountersRetrieveOpts?: { config?: AxiosRequestConfig }): Observable<AxiosResponse<Array<PokemonEncountersRetrieve200ResponseInner>>>;
-    public pokemonEncountersRetrieve(pokemonId: string, pokemonEncountersRetrieveOpts?: { config?: AxiosRequestConfig }): Observable<any> {
-        if (pokemonId === null || pokemonId === undefined) {
-            throw new Error('Required parameter pokemonId was null or undefined when calling pokemonEncountersRetrieve.');
-        }
-
-        let headers = {...this.defaultHeaders};
-
-        let accessTokenObservable: Observable<any> = of(null);
-
-        // authentication (basicAuth) required
-        if (this.configuration.username || this.configuration.password) {
-            headers['Authorization'] = 'Basic ' + btoa(this.configuration.username + ':' + this.configuration.password);
-        }
-
-        // authentication (cookieAuth) required
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers['Accept'] = httpHeaderAcceptSelected;
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-        return accessTokenObservable.pipe(
-            switchMap((accessToken) => {
-                if (accessToken) {
-                    headers['Authorization'] = `Bearer ${accessToken}`;
-                }
-
-                return this.httpClient.get<Array<PokemonEncountersRetrieve200ResponseInner>>(`${this.basePath}/api/v2/pokemon/${encodeURIComponent(String(pokemon_id))}/encounters`,
-                    {
-                        withCredentials: this.configuration.withCredentials,
-                        ...pokemonEncountersRetrieveOpts?.config,
-                        headers: {...headers, ...pokemonEncountersRetrieveOpts?.config?.headers},
                     }
                 );
             })

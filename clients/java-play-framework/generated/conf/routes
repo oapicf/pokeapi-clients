@@ -28,7 +28,6 @@ GET     /api/v2/encounter-condition-value/                     controllers.Encou
 GET     /api/v2/encounter-condition-value/:id/                     controllers.EncountersApiController.encounterConditionValueRetrieve(request: Request, id: String)
 GET     /api/v2/encounter-method/                     controllers.EncountersApiController.encounterMethodList(request: Request)
 GET     /api/v2/encounter-method/:id/                     controllers.EncountersApiController.encounterMethodRetrieve(request: Request, id: String)
-GET     /api/v2/pokemon/:pokemonId/encounters                     controllers.EncountersApiController.pokemonEncountersRetrieve(request: Request, pokemonId: String)
 
 #Functions for Evolution API
 GET     /api/v2/evolution-chain/                     controllers.EvolutionApiController.evolutionChainList(request: Request)

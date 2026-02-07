@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server RegionName"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a RegionName"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  LanguageSummary = openapi_server.resourceTypes.LanguageSummary
+}
+resourceTypes {
+
+  RegionName {
+    title = RegionName
+    description = RegionName
+    derivedFrom = Root
+    properties {
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        language {
+          type = LanguageSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RegionName {
+    title = RegionName
+    description = RegionName
+    implements = openapi_server.resourceTypes.RegionName
+
+  }
+}

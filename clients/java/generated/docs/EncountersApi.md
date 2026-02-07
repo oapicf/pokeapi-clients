@@ -10,7 +10,6 @@ All URIs are relative to *https://pokeapi.co*
 | [**encounterConditionValueRetrieve**](EncountersApi.md#encounterConditionValueRetrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value |
 | [**encounterMethodList**](EncountersApi.md#encounterMethodList) | **GET** /api/v2/encounter-method/ | List encounter methods |
 | [**encounterMethodRetrieve**](EncountersApi.md#encounterMethodRetrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method |
-| [**pokemonEncountersRetrieve**](EncountersApi.md#pokemonEncountersRetrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter |
 
 
 <a id="encounterConditionList"></a>
@@ -454,80 +453,6 @@ public class Example {
 ### Return type
 
 [**EncounterMethodDetail**](EncounterMethodDetail.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** |  |  -  |
-
-<a id="pokemonEncountersRetrieve"></a>
-# **pokemonEncountersRetrieve**
-> List&lt;PokemonEncountersRetrieve200ResponseInner&gt; pokemonEncountersRetrieve(pokemonId)
-
-Get pokemon encounter
-
-Handles Pokemon Encounters as a sub-resource.
-
-### Example
-```java
-// Import classes:
-import com.github.oapicf.pokeapiclient.ApiClient;
-import com.github.oapicf.pokeapiclient.ApiException;
-import com.github.oapicf.pokeapiclient.Configuration;
-import com.github.oapicf.pokeapiclient.auth.*;
-import com.github.oapicf.pokeapiclient.models.*;
-import com.github.oapicf.pokeapiclient.api.EncountersApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://pokeapi.co");
-    
-    // Configure HTTP basic authorization: basicAuth
-    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-    basicAuth.setUsername("YOUR USERNAME");
-    basicAuth.setPassword("YOUR PASSWORD");
-
-    // Configure API key authorization: cookieAuth
-    ApiKeyAuth cookieAuth = (ApiKeyAuth) defaultClient.getAuthentication("cookieAuth");
-    cookieAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //cookieAuth.setApiKeyPrefix("Token");
-
-    EncountersApi apiInstance = new EncountersApi(defaultClient);
-    String pokemonId = "pokemonId_example"; // String | 
-    try {
-      List<PokemonEncountersRetrieve200ResponseInner> result = apiInstance.pokemonEncountersRetrieve(pokemonId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling EncountersApi#pokemonEncountersRetrieve");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **pokemonId** | **String**|  | |
-
-### Return type
-
-[**List&lt;PokemonEncountersRetrieve200ResponseInner&gt;**](PokemonEncountersRetrieve200ResponseInner.md)
 
 ### Authorization
 

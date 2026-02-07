@@ -33,8 +33,8 @@ evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t* instant
       instantiate_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender(0),
        // false, not to have infinite recursion
       instantiate_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender(0),
-      null,
-      null,
+      0,
+      0,
        // false, not to have infinite recursion
       instantiate_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender(0),
       56,
@@ -56,8 +56,8 @@ evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t* instant
       NULL,
       NULL,
       NULL,
-      null,
-      null,
+      0,
+      0,
       NULL,
       56,
       56,

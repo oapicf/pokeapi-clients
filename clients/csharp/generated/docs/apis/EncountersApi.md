@@ -10,7 +10,6 @@ All URIs are relative to *https://pokeapi.co*
 | [**EncounterConditionValueRetrieve**](EncountersApi.md#encounterconditionvalueretrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value |
 | [**EncounterMethodList**](EncountersApi.md#encountermethodlist) | **GET** /api/v2/encounter-method/ | List encounter methods |
 | [**EncounterMethodRetrieve**](EncountersApi.md#encountermethodretrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method |
-| [**PokemonEncountersRetrieve**](EncountersApi.md#pokemonencountersretrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter |
 
 <a id="encounterconditionlist"></a>
 # **EncounterConditionList**
@@ -216,42 +215,6 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 ### Return type
 
 [**EncounterMethodDetail**](EncounterMethodDetail.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** |  |  -  |
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-<a id="pokemonencountersretrieve"></a>
-# **PokemonEncountersRetrieve**
-> List&lt;PokemonEncountersRetrieve200ResponseInner&gt; PokemonEncountersRetrieve (string pokemonId)
-
-Get pokemon encounter
-
-Handles Pokemon Encounters as a sub-resource.
-
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **pokemonId** | **string** |  |  |
-
-### Return type
-
-[**List&lt;PokemonEncountersRetrieve200ResponseInner&gt;**](PokemonEncountersRetrieve200ResponseInner.md)
 
 ### Authorization
 

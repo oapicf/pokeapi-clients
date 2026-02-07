@@ -1,0 +1,46 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server MoveChangeEffectEntriesInner"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a MoveChangeEffectEntriesInner"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+}
+resourceTypes {
+
+  MoveChangeEffectEntriesInner {
+    title = MoveChangeEffectEntriesInner
+    description = MoveChangeEffectEntriesInner
+    derivedFrom = Root
+    properties {
+        effect {
+          type =  string
+          description = ""
+          optional = true
+        }
+        short_effect {
+          type =  string
+          description = ""
+          optional = true
+        }
+        language {
+          type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  MoveChangeEffectEntriesInner {
+    title = MoveChangeEffectEntriesInner
+    description = MoveChangeEffectEntriesInner
+    implements = openapi_server.resourceTypes.MoveChangeEffectEntriesInner
+
+  }
+}

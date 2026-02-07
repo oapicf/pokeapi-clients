@@ -4,6 +4,8 @@
             [pokéapi.specs.evolution-chain-detail-chain-evolves-to-inner-evolution-details-inner-gender :refer :all]
             [pokéapi.specs.evolution-chain-detail-chain-evolves-to-inner-evolution-details-inner-gender :refer :all]
             [pokéapi.specs.evolution-chain-detail-chain-evolves-to-inner-evolution-details-inner-gender :refer :all]
+            [pokéapi.specs. :refer :all]
+            [pokéapi.specs. :refer :all]
             [pokéapi.specs.evolution-chain-detail-chain-evolves-to-inner-evolution-details-inner-gender :refer :all]
             [pokéapi.specs.ability-detail-pokemon-inner-pokemon :refer :all]
             )

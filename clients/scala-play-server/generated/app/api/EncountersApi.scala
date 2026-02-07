@@ -7,9 +7,8 @@ import model.EncounterMethodDetail
 import model.PaginatedEncounterConditionSummaryList
 import model.PaginatedEncounterConditionValueSummaryList
 import model.PaginatedEncounterMethodSummaryList
-import model.PokemonEncountersRetrieve200ResponseInner
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-02-07T04:22:15.008485676Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-02-07T15:28:57.811621661Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 trait EncountersApi {
   /**
     * List encounter conditions
@@ -58,10 +57,4 @@ trait EncountersApi {
     * @param id This parameter can be a string or an integer.
     */
   def encounterMethodRetrieve(id: String): EncounterMethodDetail
-
-  /**
-    * Get pokemon encounter
-    * Handles Pokemon Encounters as a sub-resource.
-    */
-  def pokemonEncountersRetrieve(pokemonId: String): List[PokemonEncountersRetrieve200ResponseInner]
 }

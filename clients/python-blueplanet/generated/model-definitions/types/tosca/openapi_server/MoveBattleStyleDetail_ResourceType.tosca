@@ -1,0 +1,47 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server MoveBattleStyleDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a MoveBattleStyleDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  MoveBattleStyleName = openapi_server.resourceTypes.MoveBattleStyleName
+}
+resourceTypes {
+
+  MoveBattleStyleDetail {
+    title = MoveBattleStyleDetail
+    description = MoveBattleStyleDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = MoveBattleStyleName
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  MoveBattleStyleDetail {
+    title = MoveBattleStyleDetail
+    description = MoveBattleStyleDetail
+    implements = openapi_server.resourceTypes.MoveBattleStyleDetail
+
+  }
+}

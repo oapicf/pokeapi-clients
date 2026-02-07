@@ -139,27 +139,6 @@ const encounter_method_retrieve = ({ id }) => new Promise(
     }
   },
 );
-/**
-* Get pokemon encounter
-* Handles Pokemon Encounters as a sub-resource.
-*
-* pokemonUnderscoreid String 
-* returns List
-* */
-const pokemon_encounters_retrieve = ({ pokemonUnderscoreid }) => new Promise(
-  async (resolve, reject) => {
-    try {
-      resolve(Service.successResponse({
-        pokemonUnderscoreid,
-      }));
-    } catch (e) {
-      reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405,
-      ));
-    }
-  },
-);
 
 module.exports = {
   encounter_condition_list,
@@ -168,5 +147,4 @@ module.exports = {
   encounter_condition_value_retrieve,
   encounter_method_list,
   encounter_method_retrieve,
-  pokemon_encounters_retrieve,
 };

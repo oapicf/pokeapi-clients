@@ -150,18 +150,4 @@ class EncountersApiTest extends TestCase
             'Test of "encounterMethodRetrieve" method has not been implemented yet.'
         );
     }
-
-    /**
-     * Test case for pokemonEncountersRetrieve
-     *
-     * Get pokemon encounter.
-     *
-     * @covers ::pokemonEncountersRetrieve
-     */
-    public function testPokemonEncountersRetrieve()
-    {
-        self::markTestIncomplete(
-            'Test of "pokemonEncountersRetrieve" method has not been implemented yet.'
-        );
-    }
 }

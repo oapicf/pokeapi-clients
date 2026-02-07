@@ -10,7 +10,6 @@ All URIs are relative to *https://pokeapi.co*
 | [**encounterConditionValueRetrieve**](EncountersApi.md#encounterConditionValueRetrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value |
 | [**encounterMethodList**](EncountersApi.md#encounterMethodList) | **GET** /api/v2/encounter-method/ | List encounter methods |
 | [**encounterMethodRetrieve**](EncountersApi.md#encounterMethodRetrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method |
-| [**pokemonEncountersRetrieve**](EncountersApi.md#pokemonEncountersRetrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter |
 
 
 ## Creating EncountersApi
@@ -200,33 +199,6 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 
 ### Return type
 [**EncounterMethodDetail**](EncounterMethodDetail.md)
-
-### Authorization
-* **[basicAuth](auth.md#basicAuth)**
-* **[cookieAuth](auth.md#cookieAuth)**
-
-### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: `application/json`
-
-<a id="pokemonEncountersRetrieve"></a>
-# **pokemonEncountersRetrieve**
-```java
-Mono<List<PokemonEncountersRetrieve200ResponseInner>> EncountersApi.pokemonEncountersRetrieve(pokemonId)
-```
-
-Get pokemon encounter
-
-Handles Pokemon Encounters as a sub-resource.
-
-### Parameters
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **pokemonId** | `String`|  | |
-
-
-### Return type
-[**List&lt;PokemonEncountersRetrieve200ResponseInner&gt;**](PokemonEncountersRetrieve200ResponseInner.md)
 
 ### Authorization
 * **[basicAuth](auth.md#basicAuth)**

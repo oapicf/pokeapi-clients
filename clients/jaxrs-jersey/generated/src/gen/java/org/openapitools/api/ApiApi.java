@@ -92,7 +92,6 @@ import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
 import org.openapitools.model.PokemonDetail;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 import org.openapitools.model.PokemonFormDetail;
 import org.openapitools.model.PokemonHabitatDetail;
 import org.openapitools.model.PokemonShapeDetail;
@@ -125,7 +124,7 @@ import javax.validation.Valid;
 
 
 @io.swagger.annotations.Api(description = "the api API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T04:17:42.118739260Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T15:23:51.865177194Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class ApiApi  {
    private final ApiApiService delegate;
 
@@ -1259,21 +1258,6 @@ public class ApiApi  {
     public Response pokemonColorRetrieve(@ApiParam(value = "This parameter can be a string or an integer.", required = true) @PathParam("id") @NotNull  String id,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.pokemonColorRetrieve(id, securityContext);
-    }
-    @javax.ws.rs.GET
-    @Path("/pokemon/{pokemon_id}/encounters")
-    
-    @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Get pokemon encounter", notes = "Handles Pokemon Encounters as a sub-resource.", response = PokemonEncountersRetrieve200ResponseInner.class, responseContainer = "List", authorizations = {
-        @io.swagger.annotations.Authorization(value = "basicAuth"),
-        @io.swagger.annotations.Authorization(value = "cookieAuth")
-    }, tags={ "encounters", })
-    @io.swagger.annotations.ApiResponses(value = {
-        @io.swagger.annotations.ApiResponse(code = 200, message = "", response = PokemonEncountersRetrieve200ResponseInner.class, responseContainer = "List")
-    })
-    public Response pokemonEncountersRetrieve(@ApiParam(value = "", required = true) @PathParam("pokemon_id") @NotNull  @Pattern(regexp="^\\d+$") String pokemonId,@Context SecurityContext securityContext)
-    throws NotFoundException {
-        return delegate.pokemonEncountersRetrieve(pokemonId, securityContext);
     }
     @javax.ws.rs.GET
     @Path("/pokemon-form/")

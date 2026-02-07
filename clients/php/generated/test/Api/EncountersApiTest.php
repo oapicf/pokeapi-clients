@@ -143,16 +143,4 @@ class EncountersApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test case for pokemonEncountersRetrieve
-     *
-     * Get pokemon encounter.
-     *
-     */
-    public function testPokemonEncountersRetrieve()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
 }

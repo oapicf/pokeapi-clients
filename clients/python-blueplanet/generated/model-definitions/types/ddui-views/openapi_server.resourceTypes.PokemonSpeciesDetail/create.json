@@ -1,0 +1,43 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "id" },
+      {"model": "name" },
+      {"model": "order" },
+      {"model": "gender_rate" },
+      {"model": "capture_rate" },
+      {"model": "base_happiness" },
+      {"model": "is_baby" },
+      {"model": "is_legendary" },
+      {"model": "is_mythical" },
+      {"model": "hatch_counter" },
+      {"model": "has_gender_differences" },
+      {"model": "forms_switchable" },
+      {"model": "growth_rate" },
+      {"model": "pokedex_numbers" },
+      {"model": "egg_groups" },
+      {"model": "color" },
+      {"model": "shape" },
+      {"model": "evolves_from_species" },
+      {"model": "evolution_chain" },
+      {"model": "habitat" },
+      {"model": "generation" },
+      {"model": "names" },
+      {"model": "pal_park_encounters" },
+      {"model": "form_descriptions" },
+      {"model": "flavor_text_entries" },
+      {"model": "genera" },
+      {"model": "varieties" },
+    ]
+  }]
+}

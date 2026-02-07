@@ -124,12 +124,6 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A Seq[PokemonEncountersRetrieve200ResponseInner]
-        */
-        def Encounters_pokemonEncountersRetrieve(pokemonId: String, authParamcookieAuth: String): Either[CommonError,Seq[PokemonEncountersRetrieve200ResponseInner]] = Left(TODO)
-
-        /**
-        * 
         * @return A PaginatedEvolutionChainSummaryList
         */
         def Evolution_evolutionChainList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedEvolutionChainSummaryList] = Left(TODO)

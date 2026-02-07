@@ -484,13 +484,6 @@ use WWW::OpenAPIClient::Object::PokemonDetailPastTypesInner;
 use WWW::OpenAPIClient::Object::PokemonDetailSprites;
 use WWW::OpenAPIClient::Object::PokemonDetailTypesInner;
 use WWW::OpenAPIClient::Object::PokemonDexEntry;
-use WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInner;
-use WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerLocationArea;
-use WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner;
-use WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner;
-use WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner;
-use WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod;
-use WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion;
 use WWW::OpenAPIClient::Object::PokemonFormDetail;
 use WWW::OpenAPIClient::Object::PokemonFormDetailFormNamesInner;
 use WWW::OpenAPIClient::Object::PokemonFormDetailSprites;
@@ -783,13 +776,6 @@ use WWW::OpenAPIClient::Object::PokemonDetailPastTypesInner;
 use WWW::OpenAPIClient::Object::PokemonDetailSprites;
 use WWW::OpenAPIClient::Object::PokemonDetailTypesInner;
 use WWW::OpenAPIClient::Object::PokemonDexEntry;
-use WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInner;
-use WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerLocationArea;
-use WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner;
-use WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner;
-use WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner;
-use WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod;
-use WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion;
 use WWW::OpenAPIClient::Object::PokemonFormDetail;
 use WWW::OpenAPIClient::Object::PokemonFormDetailFormNamesInner;
 use WWW::OpenAPIClient::Object::PokemonFormDetailSprites;
@@ -890,7 +876,6 @@ Class | Method | HTTP request | Description
 *EncountersApi* | [**encounter_condition_value_retrieve**](docs/EncountersApi.md#encounter_condition_value_retrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 *EncountersApi* | [**encounter_method_list**](docs/EncountersApi.md#encounter_method_list) | **GET** /api/v2/encounter-method/ | List encounter methods
 *EncountersApi* | [**encounter_method_retrieve**](docs/EncountersApi.md#encounter_method_retrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-*EncountersApi* | [**pokemon_encounters_retrieve**](docs/EncountersApi.md#pokemon_encounters_retrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 *EvolutionApi* | [**evolution_chain_list**](docs/EvolutionApi.md#evolution_chain_list) | **GET** /api/v2/evolution-chain/ | List evolution chains
 *EvolutionApi* | [**evolution_chain_retrieve**](docs/EvolutionApi.md#evolution_chain_retrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 *EvolutionApi* | [**evolution_trigger_list**](docs/EvolutionApi.md#evolution_trigger_list) | **GET** /api/v2/evolution-trigger/ | List evolution triggers
@@ -1193,13 +1178,6 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::PokemonDetailSprites](docs/PokemonDetailSprites.md)
  - [WWW::OpenAPIClient::Object::PokemonDetailTypesInner](docs/PokemonDetailTypesInner.md)
  - [WWW::OpenAPIClient::Object::PokemonDexEntry](docs/PokemonDexEntry.md)
- - [WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInner](docs/PokemonEncountersRetrieve200ResponseInner.md)
- - [WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerLocationArea](docs/PokemonEncountersRetrieve200ResponseInnerLocationArea.md)
- - [WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner](docs/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.md)
- - [WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner](docs/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.md)
- - [WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner](docs/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner.md)
- - [WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod](docs/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod.md)
- - [WWW::OpenAPIClient::Object::PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion](docs/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.md)
  - [WWW::OpenAPIClient::Object::PokemonFormDetail](docs/PokemonFormDetail.md)
  - [WWW::OpenAPIClient::Object::PokemonFormDetailFormNamesInner](docs/PokemonFormDetailFormNamesInner.md)
  - [WWW::OpenAPIClient::Object::PokemonFormDetailSprites](docs/PokemonFormDetailSprites.md)

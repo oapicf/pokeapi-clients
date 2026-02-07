@@ -941,34 +941,6 @@ public class JsonUtil {
       return new TypeToken<List<PokemonDexEntry>>(){}.getType();
     }
     
-    if ("PokemonEncountersRetrieve200ResponseInner".equalsIgnoreCase(className)) {
-      return new TypeToken<List<PokemonEncountersRetrieve200ResponseInner>>(){}.getType();
-    }
-    
-    if ("PokemonEncountersRetrieve200ResponseInnerLocationArea".equalsIgnoreCase(className)) {
-      return new TypeToken<List<PokemonEncountersRetrieve200ResponseInnerLocationArea>>(){}.getType();
-    }
-    
-    if ("PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner".equalsIgnoreCase(className)) {
-      return new TypeToken<List<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner>>(){}.getType();
-    }
-    
-    if ("PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner".equalsIgnoreCase(className)) {
-      return new TypeToken<List<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner>>(){}.getType();
-    }
-    
-    if ("PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner".equalsIgnoreCase(className)) {
-      return new TypeToken<List<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner>>(){}.getType();
-    }
-    
-    if ("PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod".equalsIgnoreCase(className)) {
-      return new TypeToken<List<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod>>(){}.getType();
-    }
-    
-    if ("PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion".equalsIgnoreCase(className)) {
-      return new TypeToken<List<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion>>(){}.getType();
-    }
-    
     if ("PokemonFormDetail".equalsIgnoreCase(className)) {
       return new TypeToken<List<PokemonFormDetail>>(){}.getType();
     }
@@ -2045,34 +2017,6 @@ public class JsonUtil {
     
     if ("PokemonDexEntry".equalsIgnoreCase(className)) {
       return new TypeToken<PokemonDexEntry>(){}.getType();
-    }
-    
-    if ("PokemonEncountersRetrieve200ResponseInner".equalsIgnoreCase(className)) {
-      return new TypeToken<PokemonEncountersRetrieve200ResponseInner>(){}.getType();
-    }
-    
-    if ("PokemonEncountersRetrieve200ResponseInnerLocationArea".equalsIgnoreCase(className)) {
-      return new TypeToken<PokemonEncountersRetrieve200ResponseInnerLocationArea>(){}.getType();
-    }
-    
-    if ("PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner".equalsIgnoreCase(className)) {
-      return new TypeToken<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner>(){}.getType();
-    }
-    
-    if ("PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner".equalsIgnoreCase(className)) {
-      return new TypeToken<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner>(){}.getType();
-    }
-    
-    if ("PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner".equalsIgnoreCase(className)) {
-      return new TypeToken<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner>(){}.getType();
-    }
-    
-    if ("PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod".equalsIgnoreCase(className)) {
-      return new TypeToken<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod>(){}.getType();
-    }
-    
-    if ("PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion".equalsIgnoreCase(className)) {
-      return new TypeToken<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion>(){}.getType();
     }
     
     if ("PokemonFormDetail".equalsIgnoreCase(className)) {

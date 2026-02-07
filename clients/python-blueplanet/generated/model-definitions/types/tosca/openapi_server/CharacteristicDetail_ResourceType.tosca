@@ -1,0 +1,59 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server CharacteristicDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a CharacteristicDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  CharacteristicDescription = openapi_server.resourceTypes.CharacteristicDescription
+  StatSummary = openapi_server.resourceTypes.StatSummary
+}
+resourceTypes {
+
+  CharacteristicDetail {
+    title = CharacteristicDetail
+    description = CharacteristicDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        gene_modulo {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        possible_values {
+          type = array
+          items.type =  integer
+          description = ""
+          optional = true
+        }
+        highest_stat {
+          type = StatSummary
+          description = ""
+          optional = true
+        }
+        descriptions {
+          type = array
+          items.type = CharacteristicDescription
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  CharacteristicDetail {
+    title = CharacteristicDetail
+    description = CharacteristicDetail
+    implements = openapi_server.resourceTypes.CharacteristicDetail
+
+  }
+}

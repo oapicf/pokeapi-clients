@@ -24,7 +24,6 @@ use openapi_client::{
     EncounterConditionRetrieveResponse,
     EncounterConditionValueRetrieveResponse,
     EncounterMethodRetrieveResponse,
-    PokemonEncountersRetrieveResponse,
     EvolutionChainListResponse,
     EvolutionTriggerListResponse,
     EvolutionChainRetrieveResponse,
@@ -278,10 +277,6 @@ enum Operation {
     EncounterMethodRetrieve {
         /// This parameter can be a string or an integer.
         id: String,
-    },
-    /// Get pokemon encounter
-    PokemonEncountersRetrieve {
-        pokemon_id: String,
     },
     /// List evolution chains
     EvolutionChainList {
@@ -1254,26 +1249,6 @@ async fn main() -> Result<()> {
 
             match result {
                 EncounterMethodRetrieveResponse::Status200
-                (body)
-                => "Status200\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PokemonEncountersRetrieve {
-            pokemon_id,
-        } => {
-            info!("Performing a PokemonEncountersRetrieve request on {:?}", (
-                &pokemon_id
-            ));
-
-            let result = client.pokemon_encounters_retrieve(
-                pokemon_id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PokemonEncountersRetrieveResponse::Status200
                 (body)
                 => "Status200\n".to_string()
                    +

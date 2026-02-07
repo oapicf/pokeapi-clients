@@ -7,7 +7,6 @@ import org.openapitools.model.EncounterMethodDetail;
 import org.openapitools.model.PaginatedEncounterConditionSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionValueSummaryList;
 import org.openapitools.model.PaginatedEncounterMethodSummaryList;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -97,18 +96,6 @@ public class EncountersApiServiceImpl implements EncountersApi {
      */
     @Override
     public EncounterMethodDetail encounterMethodRetrieve(String id) {
-        // TODO: Implement...
-        return null;
-    }
-
-    /**
-     * Get pokemon encounter
-     *
-     * Handles Pokemon Encounters as a sub-resource.
-     *
-     */
-    @Override
-    public List<PokemonEncountersRetrieve200ResponseInner> pokemonEncountersRetrieve(String pokemonId) {
         // TODO: Implement...
         return null;
     }

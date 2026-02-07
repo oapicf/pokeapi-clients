@@ -1,0 +1,52 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PaginatedPokemonColorSummaryList"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PaginatedPokemonColorSummaryList"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  PokemonColorSummary = openapi_server.resourceTypes.PokemonColorSummary
+}
+resourceTypes {
+
+  PaginatedPokemonColorSummaryList {
+    title = PaginatedPokemonColorSummaryList
+    description = PaginatedPokemonColorSummaryList
+    derivedFrom = Root
+    properties {
+        count {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        next {
+          type =  string
+          description = ""
+          optional = false
+        }
+        previous {
+          type =  string
+          description = ""
+          optional = false
+        }
+        results {
+          type = array
+          items.type = PokemonColorSummary
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PaginatedPokemonColorSummaryList {
+    title = PaginatedPokemonColorSummaryList
+    description = PaginatedPokemonColorSummaryList
+    implements = openapi_server.resourceTypes.PaginatedPokemonColorSummaryList
+
+  }
+}

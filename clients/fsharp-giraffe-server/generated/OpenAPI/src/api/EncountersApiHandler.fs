@@ -13,7 +13,6 @@ open OpenAPI.Model.EncounterMethodDetail
 open OpenAPI.Model.PaginatedEncounterConditionSummaryList
 open OpenAPI.Model.PaginatedEncounterConditionValueSummaryList
 open OpenAPI.Model.PaginatedEncounterMethodSummaryList
-open OpenAPI.Model.PokemonEncountersRetrieve200ResponseInner
 
 module EncountersApiHandler =
 
@@ -121,23 +120,6 @@ module EncountersApiHandler =
           let result = EncountersApiService.EncounterMethodRetrieve ctx serviceArgs
           return! (match result with
                       | EncounterMethodRetrieveStatusCode200 resolved ->
-                            setStatusCode 200 >=> json resolved.content
-          ) next ctx
-        }
-    //#endregion
-
-    //#region PokemonEncountersRetrieve
-    /// <summary>
-    /// Get pokemon encounter
-    /// </summary>
-
-    let PokemonEncountersRetrieve (pathParams:PokemonEncountersRetrievePathParams) : HttpHandler =
-      fun (next : HttpFunc) (ctx : HttpContext) ->
-        task {
-          let serviceArgs = {    pathParams=pathParams;  } : PokemonEncountersRetrieveArgs
-          let result = EncountersApiService.PokemonEncountersRetrieve ctx serviceArgs
-          return! (match result with
-                      | PokemonEncountersRetrieveStatusCode200 resolved ->
                             setStatusCode 200 >=> json resolved.content
           ) next ctx
         }

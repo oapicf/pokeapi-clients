@@ -90,7 +90,6 @@ import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
 import org.openapitools.model.PokemonDetail;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 import org.openapitools.model.PokemonFormDetail;
 import org.openapitools.model.PokemonHabitatDetail;
 import org.openapitools.model.PokemonShapeDetail;
@@ -111,7 +110,7 @@ import javax.validation.Valid;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-02-07T04:17:52.397146649Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-02-07T15:24:02.238725160Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class ApiApiServiceImpl implements ApiApi {
       public Response abilityList(Integer limit,Integer offset,String q,SecurityContext securityContext) {
       // do some magic!
@@ -406,10 +405,6 @@ public class ApiApiServiceImpl implements ApiApi {
       return Response.ok().build();
   }
       public Response pokemonColorRetrieve(String id,SecurityContext securityContext) {
-      // do some magic!
-      return Response.ok().build();
-  }
-      public Response pokemonEncountersRetrieve(String pokemonId,SecurityContext securityContext) {
       // do some magic!
       return Response.ok().build();
   }

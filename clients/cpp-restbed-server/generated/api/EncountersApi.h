@@ -37,9 +37,7 @@
 #include "PaginatedEncounterConditionSummaryList.h"
 #include "PaginatedEncounterConditionValueSummaryList.h"
 #include "PaginatedEncounterMethodSummaryList.h"
-#include "Pokemon_encounters_retrieve_200_response_inner.h"
 #include <string>
-#include <vector>
 
 namespace org {
 namespace openapitools {
@@ -437,68 +435,6 @@ private:
     void handler_GET_internal(const std::shared_ptr<restbed::Session> session);
 };
 
-/// <summary>
-/// Get pokemon encounter
-/// </summary>
-/// <remarks>
-/// Handles Pokemon Encounters as a sub-resource.
-/// </remarks>
-class  ApiV2PokemonPokemon_idEncountersResource: public restbed::Resource
-{
-public:
-    ApiV2PokemonPokemon_idEncountersResource(const std::string& context = "");
-    virtual ~ApiV2PokemonPokemon_idEncountersResource() = default;
-
-    ApiV2PokemonPokemon_idEncountersResource(
-        const ApiV2PokemonPokemon_idEncountersResource& other) = default; // copy constructor
-    ApiV2PokemonPokemon_idEncountersResource(ApiV2PokemonPokemon_idEncountersResource&& other) noexcept = default; // move constructor
-
-    ApiV2PokemonPokemon_idEncountersResource& operator=(const ApiV2PokemonPokemon_idEncountersResource& other) = default; // copy assignment
-    ApiV2PokemonPokemon_idEncountersResource& operator=(ApiV2PokemonPokemon_idEncountersResource&& other) noexcept = default; // move assignment
-
-    /////////////////////////////////////////////////////
-    // Set these to implement the server functionality //
-    /////////////////////////////////////////////////////
-    std::function<std::pair<int, std::vector<Pokemon_encounters_retrieve_200_response_inner>>(
-        std::string & pokemonId)> handler_GET_func =
-            [](std::string &) -> std::pair<int, std::vector<Pokemon_encounters_retrieve_200_response_inner>>
-                { throw EncountersApiException(501, "Not implemented"); };
-
-
-protected:
-    //////////////////////////////////////////////////////////
-    // As an alternative to setting the `std::function`s    //
-    // override these to implement the server functionality //
-    //////////////////////////////////////////////////////////
-
-    virtual std::pair<int, std::vector<Pokemon_encounters_retrieve_200_response_inner>> handler_GET(
-        std::string & pokemonId);
-
-
-protected:
-    //////////////////////////////////////
-    // Override these for customization //
-    //////////////////////////////////////
-
-    virtual std::string extractBodyContent(const std::shared_ptr<restbed::Session>& session);
-    virtual std::string extractFormParamsFromBody(const std::string& paramName, const std::string& body);
-
-    virtual std::pair<int, std::string> handleEncountersApiException(const EncountersApiException& e);
-    virtual std::pair<int, std::string> handleStdException(const std::exception& e);
-    virtual std::pair<int, std::string> handleUnspecifiedException();
-
-    virtual void setResponseHeader(const std::shared_ptr<restbed::Session>& session,
-        const std::string& header);
-
-    virtual void returnResponse(const std::shared_ptr<restbed::Session>& session,
-        const int status, const std::string& result, std::multimap<std::string, std::string>& contentType);
-    virtual void defaultSessionClose(const std::shared_ptr<restbed::Session>& session,
-        const int status, const std::string& result);
-
-private:
-    void handler_GET_internal(const std::shared_ptr<restbed::Session> session);
-};
-
 } /* namespace EncountersApiResources */
 
 using EncountersApiApiV2Encounter_conditionResource [[deprecated]] = EncountersApiResources::ApiV2Encounter_conditionResource;
@@ -507,7 +443,6 @@ using EncountersApiApiV2Encounter_condition_valueResource [[deprecated]] = Encou
 using EncountersApiApiV2Encounter_condition_valueIdResource [[deprecated]] = EncountersApiResources::ApiV2Encounter_condition_valueIdResource;
 using EncountersApiApiV2Encounter_methodResource [[deprecated]] = EncountersApiResources::ApiV2Encounter_methodResource;
 using EncountersApiApiV2Encounter_methodIdResource [[deprecated]] = EncountersApiResources::ApiV2Encounter_methodIdResource;
-using EncountersApiApiV2PokemonPokemon_idEncountersResource [[deprecated]] = EncountersApiResources::ApiV2PokemonPokemon_idEncountersResource;
 
 //
 // The restbed service to actually implement the REST server
@@ -524,7 +459,6 @@ public:
     std::shared_ptr<EncountersApiResources::ApiV2Encounter_condition_valueIdResource> getApiV2Encounter_condition_valueIdResource();
     std::shared_ptr<EncountersApiResources::ApiV2Encounter_methodResource> getApiV2Encounter_methodResource();
     std::shared_ptr<EncountersApiResources::ApiV2Encounter_methodIdResource> getApiV2Encounter_methodIdResource();
-    std::shared_ptr<EncountersApiResources::ApiV2PokemonPokemon_idEncountersResource> getApiV2PokemonPokemon_idEncountersResource();
 
     void setResource(std::shared_ptr<EncountersApiResources::ApiV2Encounter_conditionResource> resource);
     void setResource(std::shared_ptr<EncountersApiResources::ApiV2Encounter_conditionIdResource> resource);
@@ -532,7 +466,6 @@ public:
     void setResource(std::shared_ptr<EncountersApiResources::ApiV2Encounter_condition_valueIdResource> resource);
     void setResource(std::shared_ptr<EncountersApiResources::ApiV2Encounter_methodResource> resource);
     void setResource(std::shared_ptr<EncountersApiResources::ApiV2Encounter_methodIdResource> resource);
-    void setResource(std::shared_ptr<EncountersApiResources::ApiV2PokemonPokemon_idEncountersResource> resource);
     [[deprecated("use setResource()")]]
     virtual void setEncountersApiApiV2Encounter_conditionResource(std::shared_ptr<EncountersApiResources::ApiV2Encounter_conditionResource> spEncountersApiApiV2Encounter_conditionResource);
     [[deprecated("use setResource()")]]
@@ -545,8 +478,6 @@ public:
     virtual void setEncountersApiApiV2Encounter_methodResource(std::shared_ptr<EncountersApiResources::ApiV2Encounter_methodResource> spEncountersApiApiV2Encounter_methodResource);
     [[deprecated("use setResource()")]]
     virtual void setEncountersApiApiV2Encounter_methodIdResource(std::shared_ptr<EncountersApiResources::ApiV2Encounter_methodIdResource> spEncountersApiApiV2Encounter_methodIdResource);
-    [[deprecated("use setResource()")]]
-    virtual void setEncountersApiApiV2PokemonPokemon_idEncountersResource(std::shared_ptr<EncountersApiResources::ApiV2PokemonPokemon_idEncountersResource> spEncountersApiApiV2PokemonPokemon_idEncountersResource);
 
     virtual void publishDefaultResources();
 
@@ -559,7 +490,6 @@ protected:
     std::shared_ptr<EncountersApiResources::ApiV2Encounter_condition_valueIdResource> m_spApiV2Encounter_condition_valueIdResource;
     std::shared_ptr<EncountersApiResources::ApiV2Encounter_methodResource> m_spApiV2Encounter_methodResource;
     std::shared_ptr<EncountersApiResources::ApiV2Encounter_methodIdResource> m_spApiV2Encounter_methodIdResource;
-    std::shared_ptr<EncountersApiResources::ApiV2PokemonPokemon_idEncountersResource> m_spApiV2PokemonPokemon_idEncountersResource;
 
 private:
     std::shared_ptr<restbed::Service> m_service;

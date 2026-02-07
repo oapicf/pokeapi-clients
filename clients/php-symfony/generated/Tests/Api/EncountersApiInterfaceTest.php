@@ -182,25 +182,6 @@ class EncountersApiInterfaceTest extends WebTestCase
     }
 
     /**
-     * Test case for pokemonEncountersRetrieve
-     *
-     * Get pokemon encounter.
-     *
-     */
-    public function testPokemonEncountersRetrieve(): void
-    {
-        $client = self::$client;
-
-        $path = '/api/v2/pokemon/{pokemon_id}/encounters';
-        $pattern = '{pokemonId}';
-        $data = $this->genTestData('^\\d+$');
-        $path = str_replace($pattern, $data, $path);
-
-        $crawler = $client->request('GET', $path);
-        $this->markTestSkipped('Test for pokemonEncountersRetrieve not implemented');
-    }
-
-    /**
      * @param string $regexp
      * @return mixed
      */

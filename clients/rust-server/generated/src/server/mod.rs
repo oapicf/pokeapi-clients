@@ -43,7 +43,6 @@ use crate::{Api,
      EncounterConditionRetrieveResponse,
      EncounterConditionValueRetrieveResponse,
      EncounterMethodRetrieveResponse,
-     PokemonEncountersRetrieveResponse,
      EvolutionChainListResponse,
      EvolutionTriggerListResponse,
      EvolutionChainRetrieveResponse,
@@ -215,7 +214,6 @@ mod paths {
             r"^/api/v2/pokemon-species/(?P<id>[^/?#]*)/$",
             r"^/api/v2/pokemon/$",
             r"^/api/v2/pokemon/(?P<id>[^/?#]*)/$",
-            r"^/api/v2/pokemon/(?P<pokemon_id>[^/?#]*)/encounters$",
             r"^/api/v2/region/$",
             r"^/api/v2/region/(?P<id>[^/?#]*)/$",
             r"^/api/v2/stat/$",
@@ -567,55 +565,48 @@ mod paths {
             regex::Regex::new(r"^/api/v2/pokemon/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEMON_ID_");
     }
-    pub(crate) static ID_API_V2_POKEMON_POKEMON_ID_ENCOUNTERS: usize = 84;
-    lazy_static! {
-        pub static ref REGEX_API_V2_POKEMON_POKEMON_ID_ENCOUNTERS: regex::Regex =
-            #[allow(clippy::invalid_regex)]
-            regex::Regex::new(r"^/api/v2/pokemon/(?P<pokemon_id>[^/?#]*)/encounters$")
-                .expect("Unable to create regex for API_V2_POKEMON_POKEMON_ID_ENCOUNTERS");
-    }
-    pub(crate) static ID_API_V2_REGION_: usize = 85;
-    pub(crate) static ID_API_V2_REGION_ID_: usize = 86;
+    pub(crate) static ID_API_V2_REGION_: usize = 84;
+    pub(crate) static ID_API_V2_REGION_ID_: usize = 85;
     lazy_static! {
         pub static ref REGEX_API_V2_REGION_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/region/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_REGION_ID_");
     }
-    pub(crate) static ID_API_V2_STAT_: usize = 87;
-    pub(crate) static ID_API_V2_STAT_ID_: usize = 88;
+    pub(crate) static ID_API_V2_STAT_: usize = 86;
+    pub(crate) static ID_API_V2_STAT_ID_: usize = 87;
     lazy_static! {
         pub static ref REGEX_API_V2_STAT_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/stat/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_STAT_ID_");
     }
-    pub(crate) static ID_API_V2_SUPER_CONTEST_EFFECT_: usize = 89;
-    pub(crate) static ID_API_V2_SUPER_CONTEST_EFFECT_ID_: usize = 90;
+    pub(crate) static ID_API_V2_SUPER_CONTEST_EFFECT_: usize = 88;
+    pub(crate) static ID_API_V2_SUPER_CONTEST_EFFECT_ID_: usize = 89;
     lazy_static! {
         pub static ref REGEX_API_V2_SUPER_CONTEST_EFFECT_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/super-contest-effect/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_SUPER_CONTEST_EFFECT_ID_");
     }
-    pub(crate) static ID_API_V2_TYPE_: usize = 91;
-    pub(crate) static ID_API_V2_TYPE_ID_: usize = 92;
+    pub(crate) static ID_API_V2_TYPE_: usize = 90;
+    pub(crate) static ID_API_V2_TYPE_ID_: usize = 91;
     lazy_static! {
         pub static ref REGEX_API_V2_TYPE_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/type/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_TYPE_ID_");
     }
-    pub(crate) static ID_API_V2_VERSION_GROUP_: usize = 93;
-    pub(crate) static ID_API_V2_VERSION_GROUP_ID_: usize = 94;
+    pub(crate) static ID_API_V2_VERSION_GROUP_: usize = 92;
+    pub(crate) static ID_API_V2_VERSION_GROUP_ID_: usize = 93;
     lazy_static! {
         pub static ref REGEX_API_V2_VERSION_GROUP_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/version-group/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_VERSION_GROUP_ID_");
     }
-    pub(crate) static ID_API_V2_VERSION_: usize = 95;
-    pub(crate) static ID_API_V2_VERSION_ID_: usize = 96;
+    pub(crate) static ID_API_V2_VERSION_: usize = 94;
+    pub(crate) static ID_API_V2_VERSION_ID_: usize = 95;
     lazy_static! {
         pub static ref REGEX_API_V2_VERSION_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
@@ -2351,77 +2342,6 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         match result {
                                             Ok(rsp) => match rsp {
                                                 EncounterMethodRetrieveResponse::Status200
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("application/json"));
-                                                    // JSON Body
-                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // PokemonEncountersRetrieve - GET /api/v2/pokemon/{pokemon_id}/encounters
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_POKEMON_ID_ENCOUNTERS) => {
-                {
-                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
-                        Some(ref authorization) => authorization,
-                        None => return Ok(Response::builder()
-                                                .status(StatusCode::FORBIDDEN)
-                                                .body(body_from_str("Unauthenticated"))
-                                                .expect("Unable to create Authentication Forbidden response")),
-                    };
-                }
-
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_POKEMON_POKEMON_ID_ENCOUNTERS
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_POKEMON_POKEMON_ID_ENCOUNTERS in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_POKEMON_ID_ENCOUNTERS.as_str())
-                    );
-
-                let param_pokemon_id = match percent_encoding::percent_decode(path_params["pokemon_id"].as_bytes()).decode_utf8() {
-                    Ok(param_pokemon_id) => match param_pokemon_id.parse::<String>() {
-                        Ok(param_pokemon_id) => param_pokemon_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter pokemon_id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["pokemon_id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.pokemon_encounters_retrieve(
-                                            param_pokemon_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                PokemonEncountersRetrieveResponse::Status200
                                                     (body)
                                                 => {
                                                     *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
@@ -9336,7 +9256,6 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
             _ if path.matched(paths::ID_API_V2_POKEMON_SPECIES_ID_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_POKEMON_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_POKEMON_ID_) => method_not_allowed(),
-            _ if path.matched(paths::ID_API_V2_POKEMON_POKEMON_ID_ENCOUNTERS) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_REGION_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_REGION_ID_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_STAT_) => method_not_allowed(),
@@ -9404,8 +9323,6 @@ impl<T> RequestParser<T> for ApiRequestParser {
             hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_ID_) => Some("EncounterConditionValueRetrieve"),
             // EncounterMethodRetrieve - GET /api/v2/encounter-method/{id}/
             hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_METHOD_ID_) => Some("EncounterMethodRetrieve"),
-            // PokemonEncountersRetrieve - GET /api/v2/pokemon/{pokemon_id}/encounters
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_POKEMON_ID_ENCOUNTERS) => Some("PokemonEncountersRetrieve"),
             // EvolutionChainList - GET /api/v2/evolution-chain/
             hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_) => Some("EvolutionChainList"),
             // EvolutionTriggerList - GET /api/v2/evolution-trigger/

@@ -1,0 +1,31 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "id" },
+      {"model": "name" },
+      {"model": "cost" },
+      {"model": "fling_power" },
+      {"model": "fling_effect" },
+      {"model": "attributes" },
+      {"model": "category" },
+      {"model": "effect_entries" },
+      {"model": "flavor_text_entries" },
+      {"model": "game_indices" },
+      {"model": "names" },
+      {"model": "held_by_pokemon" },
+      {"model": "sprites" },
+      {"model": "baby_trigger_for" },
+      {"model": "machines" },
+    ]
+  }]
+}

@@ -278,9 +278,6 @@ where
         .route("/api/v2/pokemon/{id}/",
             get(pokemon_retrieve::<I, A, E, C>)
         )
-        .route("/api/v2/pokemon/{pokemon_id}/encounters",
-            get(pokemon_encounters_retrieve::<I, A, E, C>)
-        )
         .route("/api/v2/region/",
             get(region_list::<I, A, E, C>)
         )
@@ -2163,110 +2160,6 @@ let result = api_impl.as_ref().encounter_method_retrieve(
   let resp = match result {
                                             Ok(rsp) => match rsp {
                                                 apis::encounters::EncounterMethodRetrieveResponse::Status200
-                                                    (body)
-                                                => {
-                                                  let mut response = response.status(200);
-                                                  {
-                                                    let mut response_headers = response.headers_mut().unwrap();
-                                                    response_headers.insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("application/json"));
-                                                  }
-
-                                                  let body_content =  tokio::task::spawn_blocking(move ||
-                                                      serde_json::to_vec(&body).map_err(|e| {
-                                                        error!(error = ?e);
-                                                        StatusCode::INTERNAL_SERVER_ERROR
-                                                      })).await.unwrap()?;
-                                                  response.body(Body::from(body_content))
-                                                },
-                                            },
-                                            Err(why) => {
-                                                    // Application code returned an error. This should not happen, as the implementation should
-                                                    // return a valid response.
-                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
-                                            },
-                                        };
-
-
-                                        resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
-}
-
-
-#[tracing::instrument(skip_all)]
-fn pokemon_encounters_retrieve_validation(
-  path_params: models::PokemonEncountersRetrievePathParams,
-) -> std::result::Result<(
-  models::PokemonEncountersRetrievePathParams,
-), ValidationErrors>
-{
-  path_params.validate()?;
-
-Ok((
-  path_params,
-))
-}
-/// PokemonEncountersRetrieve - GET /api/v2/pokemon/{pokemon_id}/encounters
-#[tracing::instrument(skip_all)]
-async fn pokemon_encounters_retrieve<I, A, E, C>(
-  method: Method,
-  host: Host,
-  cookies: CookieJar,
-  headers: HeaderMap,
-  Path(path_params): Path<models::PokemonEncountersRetrievePathParams>,
- State(api_impl): State<I>,
-) -> Result<Response, StatusCode>
-where
-    I: AsRef<A> + Send + Sync,
-    A: apis::encounters::Encounters<E, Claims = C>+ apis::CookieAuthentication<Claims = C>+ apis::ApiAuthBasic<Claims = C> + Send + Sync,
-    E: std::fmt::Debug + Send + Sync + 'static,
-        {
-
-
-    // Authentication
-    let claims_in_cookie = api_impl.as_ref().extract_claims_from_cookie(&cookies, "sessionid").await;
-    let claims_in_auth_header = api_impl.as_ref().extract_claims_from_auth_header(apis::BasicAuthKind::Basic, &headers, "authorization").await;
-    let claims = None
-             .or(claims_in_cookie)
-             .or(claims_in_auth_header)
-          ;
-    let Some(claims) = claims else {
-        return response_with_status_code_only(StatusCode::UNAUTHORIZED);
-    };
-
-
-      #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move ||
-    pokemon_encounters_retrieve_validation(
-        path_params,
-    )
-  ).await.unwrap();
-
-  let Ok((
-    path_params,
-  )) = validation else {
-    return Response::builder()
-            .status(StatusCode::BAD_REQUEST)
-            .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST);
-  };
-
-
-
-let result = api_impl.as_ref().pokemon_encounters_retrieve(
-      
-      &method,
-      &host,
-      &cookies,
-        &claims,
-        &path_params,
-  ).await;
-
-  let mut response = Response::builder();
-
-  let resp = match result {
-                                            Ok(rsp) => match rsp {
-                                                apis::encounters::PokemonEncountersRetrieveResponse::Status200
                                                     (body)
                                                 => {
                                                   let mut response = response.status(200);

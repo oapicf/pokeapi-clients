@@ -33,7 +33,6 @@ Rails.application.routes.draw do
   add_openapi_route 'GET', '/api/v2/encounter-condition-value/{id}/', controller_name: 'encounters', action_name: 'encounter_condition_value_retrieve'
   add_openapi_route 'GET', '/api/v2/encounter-method/', controller_name: 'encounters', action_name: 'encounter_method_list'
   add_openapi_route 'GET', '/api/v2/encounter-method/{id}/', controller_name: 'encounters', action_name: 'encounter_method_retrieve'
-  add_openapi_route 'GET', '/api/v2/pokemon/{pokemon_id}/encounters', controller_name: 'encounters', action_name: 'pokemon_encounters_retrieve'
   add_openapi_route 'GET', '/api/v2/evolution-chain/', controller_name: 'evolution', action_name: 'evolution_chain_list'
   add_openapi_route 'GET', '/api/v2/evolution-chain/{id}/', controller_name: 'evolution', action_name: 'evolution_chain_retrieve'
   add_openapi_route 'GET', '/api/v2/evolution-trigger/', controller_name: 'evolution', action_name: 'evolution_trigger_list'

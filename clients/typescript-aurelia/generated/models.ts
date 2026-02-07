@@ -1659,52 +1659,6 @@ export interface PokemonDexEntry {
 }
 
 
-export interface PokemonEncountersRetrieve200ResponseInner {
-  location_area: PokemonEncountersRetrieve200ResponseInnerLocationArea;
-  version_details: Array<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner>;
-}
-
-
-export interface PokemonEncountersRetrieve200ResponseInnerLocationArea {
-  name: string;
-  url: string;
-}
-
-
-export interface PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner {
-  encounter_details: Array<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner>;
-  max_chance: number;
-  version: PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion;
-}
-
-
-export interface PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner {
-  chance: number;
-  condition_values: Array<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner>;
-  max_level: number;
-  method: PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod;
-  min_level: number;
-}
-
-
-export interface PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner {
-  name: string;
-  url: string;
-}
-
-
-export interface PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod {
-  name: string;
-  url: string;
-}
-
-
-export interface PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion {
-  name: string;
-  url: string;
-}
-
-
 export interface PokemonFormDetail {
   id: number;
   name: string;

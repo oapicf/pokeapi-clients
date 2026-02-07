@@ -12,7 +12,6 @@ Method | HTTP request | Description
 [**encounterConditionValueRetrieve**](#encounterConditionValueRetrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 [**encounterMethodList**](#encounterMethodList) | **GET** /api/v2/encounter-method/ | List encounter methods
 [**encounterMethodRetrieve**](#encounterMethodRetrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-[**pokemonEncountersRetrieve**](#pokemonEncountersRetrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 
 <a id="encounterConditionList"></a>
 # **encounterConditionList**
@@ -167,32 +166,6 @@ Name | Type | Description  | Notes
 
 ### Return type
 [**EncounterMethodDetail**](../../docs/models/EncounterMethodDetail.md)
-
-### Authorization
-* **basicAuth**
-* **cookieAuth**
-
-### HTTP request headers
- - **Accepts Content-Type**: Not defined
- - **Produces Content-Type**: `application/json`
-
-<a id="pokemonEncountersRetrieve"></a>
-# **pokemonEncountersRetrieve**
-```java
-Mono<List<PokemonEncountersRetrieve200ResponseInner>> EncountersController.pokemonEncountersRetrieve(pokemonId)
-```
-
-Get pokemon encounter
-
-Handles Pokemon Encounters as a sub-resource.
-
-### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**pokemonId** | `String` |  |
-
-### Return type
-[**List&lt;PokemonEncountersRetrieve200ResponseInner&gt;**](../../docs/models/PokemonEncountersRetrieve200ResponseInner.md)
 
 ### Authorization
 * **basicAuth**

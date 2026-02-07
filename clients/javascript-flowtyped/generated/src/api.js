@@ -6098,163 +6098,6 @@ export type PokemonDexEntry = {
  * 
  * @export
  */
-export type PokemonEncountersRetrieve200ResponseInner = {
-    /**
-     * 
-     * @type {PokemonEncountersRetrieve200ResponseInnerLocationArea}
-     * @memberof PokemonEncountersRetrieve200ResponseInner
-     */
-    location_area: PokemonEncountersRetrieve200ResponseInnerLocationArea;
-    /**
-     * 
-     * @type {Array<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner>}
-     * @memberof PokemonEncountersRetrieve200ResponseInner
-     */
-    version_details: Array<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner>;
-}
-
-/**
- * 
- * @export
- */
-export type PokemonEncountersRetrieve200ResponseInnerLocationArea = {
-    /**
-     * 
-     * @type {string}
-     * @memberof PokemonEncountersRetrieve200ResponseInnerLocationArea
-     */
-    name: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PokemonEncountersRetrieve200ResponseInnerLocationArea
-     */
-    url: string;
-}
-
-/**
- * 
- * @export
- */
-export type PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner = {
-    /**
-     * 
-     * @type {Array<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner>}
-     * @memberof PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner
-     */
-    encounter_details: Array<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner>;
-    /**
-     * 
-     * @type {number}
-     * @memberof PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner
-     */
-    max_chance: number;
-    /**
-     * 
-     * @type {PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion}
-     * @memberof PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner
-     */
-    version: PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion;
-}
-
-/**
- * 
- * @export
- */
-export type PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner = {
-    /**
-     * 
-     * @type {number}
-     * @memberof PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner
-     */
-    chance: number;
-    /**
-     * 
-     * @type {Array<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner>}
-     * @memberof PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner
-     */
-    condition_values: Array<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner>;
-    /**
-     * 
-     * @type {number}
-     * @memberof PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner
-     */
-    max_level: number;
-    /**
-     * 
-     * @type {PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod}
-     * @memberof PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner
-     */
-    method: PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod;
-    /**
-     * 
-     * @type {number}
-     * @memberof PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner
-     */
-    min_level: number;
-}
-
-/**
- * 
- * @export
- */
-export type PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner = {
-    /**
-     * 
-     * @type {string}
-     * @memberof PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner
-     */
-    name: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner
-     */
-    url: string;
-}
-
-/**
- * 
- * @export
- */
-export type PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod = {
-    /**
-     * 
-     * @type {string}
-     * @memberof PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod
-     */
-    name: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod
-     */
-    url: string;
-}
-
-/**
- * 
- * @export
- */
-export type PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion = {
-    /**
-     * 
-     * @type {string}
-     * @memberof PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion
-     */
-    name: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion
-     */
-    url: string;
-}
-
-/**
- * 
- * @export
- */
 export type PokemonFormDetail = {
     /**
      * 
@@ -8581,41 +8424,6 @@ export const EncountersApiFetchParamCreator = function (configuration?: Configur
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * Handles Pokemon Encounters as a sub-resource.
-         * @summary Get pokemon encounter
-         * @throws {RequiredError}
-         */
-        pokemonEncountersRetrieve(pokemonId: string, options: RequestOptions): FetchArgs {
-            // verify required parameter 'pokemonId' is not null or undefined
-            if (pokemonId === null || pokemonId === undefined) {
-                throw new RequiredError('pokemonId','Required parameter pokemonId was null or undefined when calling pokemonEncountersRetrieve.');
-            }
-            const localVarPath = `/api/v2/pokemon/{pokemon_id}/encounters`
-                .replace(`{${"pokemon_id"}}`, encodeURIComponent(String(pokemonId)));
-            const localVarUrlObj = url.parse(localVarPath, true);
-            const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
-            const localVarHeaderParameter = {};
-            const localVarQueryParameter = {};
-
-            // authentication basicAuth required
-            // http basic authentication required
-            if (configuration && (configuration.username || configuration.password)) {
-                localVarHeaderParameter["Authorization"] = "Basic " + btoa(configuration.username + ":" + configuration.password);
-            }
-
-            // authentication cookieAuth required
-
-            localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            localVarUrlObj.search = null;
-            localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
-
-            return {
-                url: url.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -8631,8 +8439,6 @@ export type EncountersApiType = {
     encounterMethodList(limit?: number, offset?: number, q?: string, options?: RequestOptions): Promise<PaginatedEncounterMethodSummaryList>,
 
     encounterMethodRetrieve(id: string, options?: RequestOptions): Promise<EncounterMethodDetail>,
-
-    pokemonEncountersRetrieve(pokemonId: string, options?: RequestOptions): Promise<Array<PokemonEncountersRetrieve200ResponseInner>>,
 }
 
 /**
@@ -8724,21 +8530,6 @@ export const EncountersApi = function(configuration?: Configuration, fetch: Fetc
          */
         encounterMethodRetrieve(id: string, options?: RequestOptions = {}): Promise<EncounterMethodDetail> {
             const localVarFetchArgs = EncountersApiFetchParamCreator(configuration).encounterMethodRetrieve(id, options);
-            return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                if (response.status >= 200 && response.status < 300) {
-                    return response.json();
-                } else {
-                    throw response;
-                }
-            });
-        },
-        /**
-         * Handles Pokemon Encounters as a sub-resource.
-         * @summary Get pokemon encounter
-         * @throws {RequiredError}
-         */
-        pokemonEncountersRetrieve(pokemonId: string, options?: RequestOptions = {}): Promise<Array<PokemonEncountersRetrieve200ResponseInner>> {
-            const localVarFetchArgs = EncountersApiFetchParamCreator(configuration).pokemonEncountersRetrieve(pokemonId, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return response.json();

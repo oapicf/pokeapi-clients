@@ -71,9 +71,6 @@ func main() {
 	// EncounterMethodRetrieve - Get encounter method
 	e.GET("/api/v2/encounter-method/:id/", c.EncounterMethodRetrieve)
 
-	// PokemonEncountersRetrieve - Get pokemon encounter
-	e.GET("/api/v2/pokemon/:pokemon_id/encounters", c.PokemonEncountersRetrieve)
-
 	// EvolutionChainList - List evolution chains
 	e.GET("/api/v2/evolution-chain/", c.EvolutionChainList)
 

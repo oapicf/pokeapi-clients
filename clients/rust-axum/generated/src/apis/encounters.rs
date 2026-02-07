@@ -61,15 +61,6 @@ pub enum EncounterMethodRetrieveResponse {
     (models::EncounterMethodDetail)
 }
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-#[must_use]
-#[allow(clippy::large_enum_variant)]
-pub enum PokemonEncountersRetrieveResponse {
-
-    Status200
-    (Vec<models::PokemonEncountersRetrieve200ResponseInner>)
-}
-
 
 
 
@@ -156,17 +147,4 @@ pub trait Encounters<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::Er
         claims: &Self::Claims,
       path_params: &models::EncounterMethodRetrievePathParams,
     ) -> Result<EncounterMethodRetrieveResponse, E>;
-
-    /// Get pokemon encounter.
-    ///
-    /// PokemonEncountersRetrieve - GET /api/v2/pokemon/{pokemon_id}/encounters
-    async fn pokemon_encounters_retrieve(
-    &self,
-    
-    method: &Method,
-    host: &Host,
-    cookies: &CookieJar,
-        claims: &Self::Claims,
-      path_params: &models::PokemonEncountersRetrievePathParams,
-    ) -> Result<PokemonEncountersRetrieveResponse, E>;
 }

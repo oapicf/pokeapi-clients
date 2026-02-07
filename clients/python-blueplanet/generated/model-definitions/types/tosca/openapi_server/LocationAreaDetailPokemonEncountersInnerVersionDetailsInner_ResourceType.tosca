@@ -1,0 +1,47 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server LocationAreaDetailPokemonEncountersInnerVersionDetailsInner"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a LocationAreaDetailPokemonEncountersInnerVersionDetailsInner"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+  LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails = openapi_server.resourceTypes.LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
+}
+resourceTypes {
+
+  LocationAreaDetailPokemonEncountersInnerVersionDetailsInner {
+    title = LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
+    description = LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
+    derivedFrom = Root
+    properties {
+        version {
+          type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+        max_chance {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        encounter_details {
+          type = LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  LocationAreaDetailPokemonEncountersInnerVersionDetailsInner {
+    title = LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
+    description = LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
+    implements = openapi_server.resourceTypes.LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
+
+  }
+}

@@ -232,7 +232,6 @@ font-style: italic;
   <li><a href="#encounterConditionValueRetrieve"><code><span class="http-method">get</span> /api/v2/encounter-condition-value/{id}/</code></a></li>
   <li><a href="#encounterMethodList"><code><span class="http-method">get</span> /api/v2/encounter-method/</code></a></li>
   <li><a href="#encounterMethodRetrieve"><code><span class="http-method">get</span> /api/v2/encounter-method/{id}/</code></a></li>
-  <li><a href="#pokemonEncountersRetrieve"><code><span class="http-method">get</span> /api/v2/pokemon/{pokemon_id}/encounters</code></a></li>
   </ul>
   <h4><a href="#Evolution">Evolution</a></h4>
   <ul>
@@ -1521,210 +1520,6 @@ Case-insensitive query applied on the <code>name</code> property.</p>
         <a href="#EncounterMethodDetail">EncounterMethodDetail</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="pokemonEncountersRetrieve"/>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/v2/pokemon/{pokemon_id}/encounters</code></pre></div>
-    <div class="method-summary">Get pokemon encounter (<span class="nickname">pokemonEncountersRetrieve</span>)</div>
-    <div class="method-notes">Handles Pokemon Encounters as a sub-resource.</div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">pokemon_id (required)</div>
-
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  default: null </div>
-    </div>  <!-- field-items -->
-
-
-
-
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      array[<a href="#pokemon_encounters_retrieve_200_response_inner">pokemon_encounters_retrieve_200_response_inner</a>]
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>[ {
-  "version_details" : [ {
-    "max_chance" : 100,
-    "encounter_details" : [ {
-      "condition_values" : [ {
-        "name" : "story-progress-beat-red",
-        "url" : "https://pokeapi.co/api/v2/encounter-condition-value/55/"
-      }, {
-        "name" : "story-progress-beat-red",
-        "url" : "https://pokeapi.co/api/v2/encounter-condition-value/55/"
-      } ],
-      "chance" : 100,
-      "method" : {
-        "name" : "gift",
-        "url" : "https://pokeapi.co/api/v2/encounter-method/18/"
-      },
-      "max_level" : 10,
-      "min_level" : 10
-    }, {
-      "condition_values" : [ {
-        "name" : "story-progress-beat-red",
-        "url" : "https://pokeapi.co/api/v2/encounter-condition-value/55/"
-      }, {
-        "name" : "story-progress-beat-red",
-        "url" : "https://pokeapi.co/api/v2/encounter-condition-value/55/"
-      } ],
-      "chance" : 100,
-      "method" : {
-        "name" : "gift",
-        "url" : "https://pokeapi.co/api/v2/encounter-method/18/"
-      },
-      "max_level" : 10,
-      "min_level" : 10
-    } ],
-    "version" : {
-      "name" : "red",
-      "url" : "https://pokeapi.co/api/v2/version/1/"
-    }
-  }, {
-    "max_chance" : 100,
-    "encounter_details" : [ {
-      "condition_values" : [ {
-        "name" : "story-progress-beat-red",
-        "url" : "https://pokeapi.co/api/v2/encounter-condition-value/55/"
-      }, {
-        "name" : "story-progress-beat-red",
-        "url" : "https://pokeapi.co/api/v2/encounter-condition-value/55/"
-      } ],
-      "chance" : 100,
-      "method" : {
-        "name" : "gift",
-        "url" : "https://pokeapi.co/api/v2/encounter-method/18/"
-      },
-      "max_level" : 10,
-      "min_level" : 10
-    }, {
-      "condition_values" : [ {
-        "name" : "story-progress-beat-red",
-        "url" : "https://pokeapi.co/api/v2/encounter-condition-value/55/"
-      }, {
-        "name" : "story-progress-beat-red",
-        "url" : "https://pokeapi.co/api/v2/encounter-condition-value/55/"
-      } ],
-      "chance" : 100,
-      "method" : {
-        "name" : "gift",
-        "url" : "https://pokeapi.co/api/v2/encounter-method/18/"
-      },
-      "max_level" : 10,
-      "min_level" : 10
-    } ],
-    "version" : {
-      "name" : "red",
-      "url" : "https://pokeapi.co/api/v2/version/1/"
-    }
-  } ],
-  "location_area" : {
-    "name" : "cerulean-city-area",
-    "url" : "https://pokeapi.co/api/v2/location-area/281/"
-  }
-}, {
-  "version_details" : [ {
-    "max_chance" : 100,
-    "encounter_details" : [ {
-      "condition_values" : [ {
-        "name" : "story-progress-beat-red",
-        "url" : "https://pokeapi.co/api/v2/encounter-condition-value/55/"
-      }, {
-        "name" : "story-progress-beat-red",
-        "url" : "https://pokeapi.co/api/v2/encounter-condition-value/55/"
-      } ],
-      "chance" : 100,
-      "method" : {
-        "name" : "gift",
-        "url" : "https://pokeapi.co/api/v2/encounter-method/18/"
-      },
-      "max_level" : 10,
-      "min_level" : 10
-    }, {
-      "condition_values" : [ {
-        "name" : "story-progress-beat-red",
-        "url" : "https://pokeapi.co/api/v2/encounter-condition-value/55/"
-      }, {
-        "name" : "story-progress-beat-red",
-        "url" : "https://pokeapi.co/api/v2/encounter-condition-value/55/"
-      } ],
-      "chance" : 100,
-      "method" : {
-        "name" : "gift",
-        "url" : "https://pokeapi.co/api/v2/encounter-method/18/"
-      },
-      "max_level" : 10,
-      "min_level" : 10
-    } ],
-    "version" : {
-      "name" : "red",
-      "url" : "https://pokeapi.co/api/v2/version/1/"
-    }
-  }, {
-    "max_chance" : 100,
-    "encounter_details" : [ {
-      "condition_values" : [ {
-        "name" : "story-progress-beat-red",
-        "url" : "https://pokeapi.co/api/v2/encounter-condition-value/55/"
-      }, {
-        "name" : "story-progress-beat-red",
-        "url" : "https://pokeapi.co/api/v2/encounter-condition-value/55/"
-      } ],
-      "chance" : 100,
-      "method" : {
-        "name" : "gift",
-        "url" : "https://pokeapi.co/api/v2/encounter-method/18/"
-      },
-      "max_level" : 10,
-      "min_level" : 10
-    }, {
-      "condition_values" : [ {
-        "name" : "story-progress-beat-red",
-        "url" : "https://pokeapi.co/api/v2/encounter-condition-value/55/"
-      }, {
-        "name" : "story-progress-beat-red",
-        "url" : "https://pokeapi.co/api/v2/encounter-condition-value/55/"
-      } ],
-      "chance" : 100,
-      "method" : {
-        "name" : "gift",
-        "url" : "https://pokeapi.co/api/v2/encounter-method/18/"
-      },
-      "max_level" : 10,
-      "min_level" : 10
-    } ],
-    "version" : {
-      "name" : "red",
-      "url" : "https://pokeapi.co/api/v2/version/1/"
-    }
-  } ],
-  "location_area" : {
-    "name" : "cerulean-city-area",
-    "url" : "https://pokeapi.co/api/v2/location-area/281/"
-  }
-} ]</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    
-        
-  </div> <!-- method -->
-  <hr/>
   <h1><a name="Evolution">Evolution</a></h1>
   <div class="method"><a name="evolutionChainList"/>
     <div class="method-path">
@@ -1841,7 +1636,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
           "name" : "name",
           "url" : "https://openapi-generator.tech"
         },
-        "known_move" : "",
+        "known_move" : "{}",
         "min_beauty" : 1,
         "trade_species" : "trade_species",
         "trigger" : {
@@ -1851,7 +1646,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
         "needs_overworld_rain" : true,
         "party_species" : "party_species",
         "min_affection" : 6,
-        "known_move_type" : "",
+        "known_move_type" : "{}",
         "time_of_day" : "time_of_day",
         "location" : {
           "name" : "name",
@@ -1875,7 +1670,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
           "name" : "name",
           "url" : "https://openapi-generator.tech"
         },
-        "known_move" : "",
+        "known_move" : "{}",
         "min_beauty" : 1,
         "trade_species" : "trade_species",
         "trigger" : {
@@ -1885,7 +1680,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
         "needs_overworld_rain" : true,
         "party_species" : "party_species",
         "min_affection" : 6,
-        "known_move_type" : "",
+        "known_move_type" : "{}",
         "time_of_day" : "time_of_day",
         "location" : {
           "name" : "name",
@@ -1916,7 +1711,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
           "name" : "name",
           "url" : "https://openapi-generator.tech"
         },
-        "known_move" : "",
+        "known_move" : "{}",
         "min_beauty" : 1,
         "trade_species" : "trade_species",
         "trigger" : {
@@ -1926,7 +1721,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
         "needs_overworld_rain" : true,
         "party_species" : "party_species",
         "min_affection" : 6,
-        "known_move_type" : "",
+        "known_move_type" : "{}",
         "time_of_day" : "time_of_day",
         "location" : {
           "name" : "name",
@@ -1950,7 +1745,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
           "name" : "name",
           "url" : "https://openapi-generator.tech"
         },
-        "known_move" : "",
+        "known_move" : "{}",
         "min_beauty" : 1,
         "trade_species" : "trade_species",
         "trigger" : {
@@ -1960,7 +1755,7 @@ Case-insensitive query applied on the <code>name</code> property.</p>
         "needs_overworld_rain" : true,
         "party_species" : "party_species",
         "min_affection" : 6,
-        "known_move_type" : "",
+        "known_move_type" : "{}",
         "time_of_day" : "time_of_day",
         "location" : {
           "name" : "name",
@@ -8588,13 +8383,6 @@ Case-insensitive query applied on the <code>name</code> property.</p>
     <li><a href="#VersionGroupSummary"><code>VersionGroupSummary</code> - </a></li>
     <li><a href="#VersionName"><code>VersionName</code> - </a></li>
     <li><a href="#VersionSummary"><code>VersionSummary</code> - </a></li>
-    <li><a href="#pokemon_encounters_retrieve_200_response_inner"><code>pokemon_encounters_retrieve_200_response_inner</code> - </a></li>
-    <li><a href="#pokemon_encounters_retrieve_200_response_inner_location_area"><code>pokemon_encounters_retrieve_200_response_inner_location_area</code> - </a></li>
-    <li><a href="#pokemon_encounters_retrieve_200_response_inner_version_details_inner"><code>pokemon_encounters_retrieve_200_response_inner_version_details_inner</code> - </a></li>
-    <li><a href="#pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner"><code>pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner</code> - </a></li>
-    <li><a href="#pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner"><code>pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner</code> - </a></li>
-    <li><a href="#pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method"><code>pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method</code> - </a></li>
-    <li><a href="#pokemon_encounters_retrieve_200_response_inner_version_details_inner_version"><code>pokemon_encounters_retrieve_200_response_inner_version_details_inner_version</code> - </a></li>
   </ol>
 
   <div class="model">
@@ -9024,8 +8812,8 @@ Case-insensitive query applied on the <code>name</code> property.</p>
       <div class="param">gender </div><div class="param-desc"><span class="param-type"><a href="#EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender">EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender</a></span>  </div>
 <div class="param">held_item </div><div class="param-desc"><span class="param-type"><a href="#EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender">EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender</a></span>  </div>
 <div class="param">item </div><div class="param-desc"><span class="param-type"><a href="#EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender">EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender</a></span>  </div>
-<div class="param">known_move </div><div class="param-desc"><span class="param-type"><a href="#object">Object</a></span>  </div>
-<div class="param">known_move_type </div><div class="param-desc"><span class="param-type"><a href="#object">Object</a></span>  </div>
+<div class="param">known_move </div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span>  </div>
+<div class="param">known_move_type </div><div class="param-desc"><span class="param-type"><a href="#">Object</a></span>  </div>
 <div class="param">location </div><div class="param-desc"><span class="param-type"><a href="#EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender">EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender</a></span>  </div>
 <div class="param">min_affection </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
 <div class="param">min_beauty </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  format: int32</div>
@@ -11122,66 +10910,6 @@ not sure how to add anything other than a hyperlink</div>
   </div>
   <div class="model">
     <h3><a name="VersionSummary"><code>VersionSummary</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span>  format: uri</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="pokemon_encounters_retrieve_200_response_inner"><code>pokemon_encounters_retrieve_200_response_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">location_area </div><div class="param-desc"><span class="param-type"><a href="#pokemon_encounters_retrieve_200_response_inner_location_area">pokemon_encounters_retrieve_200_response_inner_location_area</a></span>  </div>
-<div class="param">version_details </div><div class="param-desc"><span class="param-type"><a href="#pokemon_encounters_retrieve_200_response_inner_version_details_inner">array[pokemon_encounters_retrieve_200_response_inner_version_details_inner]</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="pokemon_encounters_retrieve_200_response_inner_location_area"><code>pokemon_encounters_retrieve_200_response_inner_location_area</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span>  format: uri</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="pokemon_encounters_retrieve_200_response_inner_version_details_inner"><code>pokemon_encounters_retrieve_200_response_inner_version_details_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">encounter_details </div><div class="param-desc"><span class="param-type"><a href="#pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner">array[pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner]</a></span>  </div>
-<div class="param">max_chance </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
-<div class="param">version </div><div class="param-desc"><span class="param-type"><a href="#pokemon_encounters_retrieve_200_response_inner_version_details_inner_version">pokemon_encounters_retrieve_200_response_inner_version_details_inner_version</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner"><code>pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">chance </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
-<div class="param">condition_values </div><div class="param-desc"><span class="param-type"><a href="#pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner">array[pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner]</a></span>  </div>
-<div class="param">max_level </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
-<div class="param">method </div><div class="param-desc"><span class="param-type"><a href="#pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method">pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method</a></span>  </div>
-<div class="param">min_level </div><div class="param-desc"><span class="param-type"><a href="#number">BigDecimal</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner"><code>pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span>  format: uri</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method"><code>pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'></div>
-    <div class="field-items">
-      <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">url </div><div class="param-desc"><span class="param-type"><a href="#URI">URI</a></span>  format: uri</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="pokemon_encounters_retrieve_200_response_inner_version_details_inner_version"><code>pokemon_encounters_retrieve_200_response_inner_version_details_inner_version</code> - </a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'></div>
     <div class="field-items">
       <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>

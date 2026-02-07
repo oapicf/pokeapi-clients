@@ -35,7 +35,7 @@ import javax.annotation.Generated;
   PokemonDetailPastAbilitiesInner.JSON_PROPERTY_GENERATION
 })
 @JsonTypeName("PokemonDetail_past_abilities_inner")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T04:16:49.114765561Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Introspected
 public class PokemonDetailPastAbilitiesInner {
     public static final String JSON_PROPERTY_ABILITIES = "abilities";

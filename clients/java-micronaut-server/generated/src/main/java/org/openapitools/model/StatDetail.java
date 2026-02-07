@@ -45,7 +45,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   StatDetail.JSON_PROPERTY_NAMES
 })
 @JsonTypeName("StatDetail")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T04:16:54.641403954Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Introspected
 public class StatDetail {
     public static final String JSON_PROPERTY_ID = "id";

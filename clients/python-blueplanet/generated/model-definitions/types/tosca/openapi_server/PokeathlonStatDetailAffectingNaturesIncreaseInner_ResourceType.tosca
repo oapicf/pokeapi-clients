@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokeathlonStatDetailAffectingNaturesIncreaseInner"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokeathlonStatDetailAffectingNaturesIncreaseInner"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+}
+resourceTypes {
+
+  PokeathlonStatDetailAffectingNaturesIncreaseInner {
+    title = PokeathlonStatDetailAffectingNaturesIncreaseInner
+    description = PokeathlonStatDetailAffectingNaturesIncreaseInner
+    derivedFrom = Root
+    properties {
+        max_change {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        nature {
+          type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokeathlonStatDetailAffectingNaturesIncreaseInner {
+    title = PokeathlonStatDetailAffectingNaturesIncreaseInner
+    description = PokeathlonStatDetailAffectingNaturesIncreaseInner
+    implements = openapi_server.resourceTypes.PokeathlonStatDetailAffectingNaturesIncreaseInner
+
+  }
+}

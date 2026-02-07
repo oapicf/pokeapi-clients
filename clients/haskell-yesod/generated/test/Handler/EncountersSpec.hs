@@ -37,8 +37,3 @@ spec = withApp $ do
         it "returns 501 Not Implemented" $ do
             get $ ApiV2EncounterMethodByTextR "id_example"
             statusIs 501
-
-    describe "getApiV2PokemonByTextEncountersR" $
-        it "returns 501 Not Implemented" $ do
-            get $ ApiV2PokemonByTextEncountersR "pokemonId_example"
-            statusIs 501

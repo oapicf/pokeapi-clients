@@ -1,0 +1,47 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ItemFlavorText"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ItemFlavorText"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  LanguageSummary = openapi_server.resourceTypes.LanguageSummary
+  VersionGroupSummary = openapi_server.resourceTypes.VersionGroupSummary
+}
+resourceTypes {
+
+  ItemFlavorText {
+    title = ItemFlavorText
+    description = ItemFlavorText
+    derivedFrom = Root
+    properties {
+        text {
+          type =  string
+          description = ""
+          optional = true
+        }
+        version_group {
+          type = VersionGroupSummary
+          description = ""
+          optional = true
+        }
+        language {
+          type = LanguageSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ItemFlavorText {
+    title = ItemFlavorText
+    description = ItemFlavorText
+    implements = openapi_server.resourceTypes.ItemFlavorText
+
+  }
+}

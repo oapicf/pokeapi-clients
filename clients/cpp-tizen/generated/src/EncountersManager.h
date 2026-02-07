@@ -11,8 +11,6 @@
 #include "PaginatedEncounterConditionSummaryList.h"
 #include "PaginatedEncounterConditionValueSummaryList.h"
 #include "PaginatedEncounterMethodSummaryList.h"
-#include "Pokemon_encounters_retrieve_200_response_inner.h"
-#include <list>
 #include "Error.h"
 
 /** \defgroup Operations API Endpoints
@@ -202,33 +200,6 @@ bool encounterMethodRetrieveSync(char * accessToken,
 bool encounterMethodRetrieveAsync(char * accessToken,
 	std::string id, 
 	void(* handler)(EncounterMethodDetail, Error, void* )
-	, void* userData);
-
-
-/*! \brief Get pokemon encounter. *Synchronous*
- *
- * Handles Pokemon Encounters as a sub-resource.
- * \param pokemonId  *Required*
- * \param handler The callback function to be invoked on completion. *Required*
- * \param accessToken The Authorization token. *Required*
- * \param userData The user data to be passed to the callback function.
- */
-bool pokemonEncountersRetrieveSync(char * accessToken,
-	std::string pokemonId, 
-	void(* handler)(std::list<Pokemon_encounters_retrieve_200_response_inner>, Error, void* )
-	, void* userData);
-
-/*! \brief Get pokemon encounter. *Asynchronous*
- *
- * Handles Pokemon Encounters as a sub-resource.
- * \param pokemonId  *Required*
- * \param handler The callback function to be invoked on completion. *Required*
- * \param accessToken The Authorization token. *Required*
- * \param userData The user data to be passed to the callback function.
- */
-bool pokemonEncountersRetrieveAsync(char * accessToken,
-	std::string pokemonId, 
-	void(* handler)(std::list<Pokemon_encounters_retrieve_200_response_inner>, Error, void* )
 	, void* userData);
 
 

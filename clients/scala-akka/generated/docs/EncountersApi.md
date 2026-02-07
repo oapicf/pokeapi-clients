@@ -16,8 +16,6 @@ Method | HTTP request | Description
 [**encounterMethodListWithHttpInfo**](EncountersApi.md#encounterMethodListWithHttpInfo) | **GET** /api/v2/encounter-method/ | List encounter methods
 [**encounterMethodRetrieve**](EncountersApi.md#encounterMethodRetrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
 [**encounterMethodRetrieveWithHttpInfo**](EncountersApi.md#encounterMethodRetrieveWithHttpInfo) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-[**pokemonEncountersRetrieve**](EncountersApi.md#pokemonEncountersRetrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
-[**pokemonEncountersRetrieveWithHttpInfo**](EncountersApi.md#pokemonEncountersRetrieveWithHttpInfo) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 
 
 
@@ -538,92 +536,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 ApiRequest[[**EncounterMethodDetail**](EncounterMethodDetail.md)]
-
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** |  |  -  |
-
-
-## pokemonEncountersRetrieve
-
-> pokemonEncountersRetrieve(pokemonEncountersRetrieveRequest): ApiRequest[Seq[PokemonEncountersRetrieve200ResponseInner]]
-
-Get pokemon encounter
-
-Handles Pokemon Encounters as a sub-resource.
-
-### Example
-
-```scala
-// Import classes:
-import 
-import org.openapitools.client.core._
-import org.openapitools.client.core.CollectionFormats._
-import org.openapitools.client.core.ApiKeyLocations._
-
-import akka.actor.ActorSystem
-import scala.concurrent.Future
-import scala.util.{Failure, Success}
-
-object Example extends App {
-    
-    implicit val system: ActorSystem = ActorSystem()
-    import system.dispatcher
-    
-    // Configure HTTP basic authorization: basicAuth
-    implicit val basicAuth: BasicCredentials = BasicCredentials("YOUR USERNAME", "YOUR PASSWORD")
-
-    // Configure API key authorization: cookieAuth
-    implicit val cookieAuth: ApiKeyValue = ApiKeyValue("YOUR API KEY")
-
-    val apiInvoker = ApiInvoker()
-    val apiInstance = EncountersApi("https://pokeapi.co")
-    val pokemonId: String = pokemonId_example // String | 
-    
-    val request = apiInstance.pokemonEncountersRetrieve(pokemonId)
-    val response = apiInvoker.execute(request)
-
-    response.onComplete {
-        case Success(ApiResponse(code, content, headers)) =>
-            System.out.println(s"Status code: $code}")
-            System.out.println(s"Response headers: ${headers.mkString(", ")}")
-            System.out.println(s"Response body: $content")
-        
-        case Failure(error @ ApiError(code, message, responseContent, cause, headers)) =>
-            System.err.println("Exception when calling EncountersApi#pokemonEncountersRetrieve")
-            System.err.println(s"Status code: $code}")
-            System.err.println(s"Reason: $responseContent")
-            System.err.println(s"Response headers: ${headers.mkString(", ")}")
-            error.printStackTrace();
-
-        case Failure(exception) => 
-            System.err.println("Exception when calling EncountersApi#pokemonEncountersRetrieve")
-            exception.printStackTrace();
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pokemonId** | **String**|  |
-
-### Return type
-
-ApiRequest[[**Seq[PokemonEncountersRetrieve200ResponseInner]**](PokemonEncountersRetrieve200ResponseInner.md)]
 
 
 ### Authorization

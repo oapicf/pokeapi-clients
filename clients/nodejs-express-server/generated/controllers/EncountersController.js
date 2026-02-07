@@ -32,10 +32,6 @@ const encounter_method_retrieve = async (request, response) => {
   await Controller.handleRequest(request, response, service.encounter_method_retrieve);
 };
 
-const pokemon_encounters_retrieve = async (request, response) => {
-  await Controller.handleRequest(request, response, service.pokemon_encounters_retrieve);
-};
-
 
 module.exports = {
   encounter_condition_list,
@@ -44,5 +40,4 @@ module.exports = {
   encounter_condition_value_retrieve,
   encounter_method_list,
   encounter_method_retrieve,
-  pokemon_encounters_retrieve,
 };

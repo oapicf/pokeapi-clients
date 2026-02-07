@@ -1,0 +1,92 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server MoveMeta"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a MoveMeta"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  MoveMetaAilmentSummary = openapi_server.resourceTypes.MoveMetaAilmentSummary
+  MoveMetaCategorySummary = openapi_server.resourceTypes.MoveMetaCategorySummary
+}
+resourceTypes {
+
+  MoveMeta {
+    title = MoveMeta
+    description = MoveMeta
+    derivedFrom = Root
+    properties {
+        ailment {
+          type = MoveMetaAilmentSummary
+          description = ""
+          optional = true
+        }
+        category {
+          type = MoveMetaCategorySummary
+          description = ""
+          optional = true
+        }
+        min_hits {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        max_hits {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        min_turns {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        max_turns {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        drain {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        healing {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        crit_rate {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        ailment_chance {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        flinch_chance {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        stat_chance {
+          type =  integer
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  MoveMeta {
+    title = MoveMeta
+    description = MoveMeta
+    implements = openapi_server.resourceTypes.MoveMeta
+
+  }
+}

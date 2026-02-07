@@ -279,13 +279,6 @@ Import the following:
 #import <OpenAPIClient/OAIPokemonDetailSprites.h>
 #import <OpenAPIClient/OAIPokemonDetailTypesInner.h>
 #import <OpenAPIClient/OAIPokemonDexEntry.h>
-#import <OpenAPIClient/OAIPokemonEncountersRetrieve200ResponseInner.h>
-#import <OpenAPIClient/OAIPokemonEncountersRetrieve200ResponseInnerLocationArea.h>
-#import <OpenAPIClient/OAIPokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.h>
-#import <OpenAPIClient/OAIPokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.h>
-#import <OpenAPIClient/OAIPokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner.h>
-#import <OpenAPIClient/OAIPokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod.h>
-#import <OpenAPIClient/OAIPokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.h>
 #import <OpenAPIClient/OAIPokemonFormDetail.h>
 #import <OpenAPIClient/OAIPokemonFormDetailFormNamesInner.h>
 #import <OpenAPIClient/OAIPokemonFormDetailSprites.h>
@@ -414,7 +407,6 @@ Class | Method | HTTP request | Description
 *OAIEncountersApi* | [**encounterConditionValueRetrieve**](docs/OAIEncountersApi.md#encounterconditionvalueretrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 *OAIEncountersApi* | [**encounterMethodList**](docs/OAIEncountersApi.md#encountermethodlist) | **GET** /api/v2/encounter-method/ | List encounter methods
 *OAIEncountersApi* | [**encounterMethodRetrieve**](docs/OAIEncountersApi.md#encountermethodretrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-*OAIEncountersApi* | [**pokemonEncountersRetrieve**](docs/OAIEncountersApi.md#pokemonencountersretrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 *OAIEvolutionApi* | [**evolutionChainList**](docs/OAIEvolutionApi.md#evolutionchainlist) | **GET** /api/v2/evolution-chain/ | List evolution chains
 *OAIEvolutionApi* | [**evolutionChainRetrieve**](docs/OAIEvolutionApi.md#evolutionchainretrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 *OAIEvolutionApi* | [**evolutionTriggerList**](docs/OAIEvolutionApi.md#evolutiontriggerlist) | **GET** /api/v2/evolution-trigger/ | List evolution triggers
@@ -718,13 +710,6 @@ Class | Method | HTTP request | Description
  - [OAIPokemonDetailSprites](docs/OAIPokemonDetailSprites.md)
  - [OAIPokemonDetailTypesInner](docs/OAIPokemonDetailTypesInner.md)
  - [OAIPokemonDexEntry](docs/OAIPokemonDexEntry.md)
- - [OAIPokemonEncountersRetrieve200ResponseInner](docs/OAIPokemonEncountersRetrieve200ResponseInner.md)
- - [OAIPokemonEncountersRetrieve200ResponseInnerLocationArea](docs/OAIPokemonEncountersRetrieve200ResponseInnerLocationArea.md)
- - [OAIPokemonEncountersRetrieve200ResponseInnerVersionDetailsInner](docs/OAIPokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.md)
- - [OAIPokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner](docs/OAIPokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.md)
- - [OAIPokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner](docs/OAIPokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner.md)
- - [OAIPokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod](docs/OAIPokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod.md)
- - [OAIPokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion](docs/OAIPokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.md)
  - [OAIPokemonFormDetail](docs/OAIPokemonFormDetail.md)
  - [OAIPokemonFormDetailFormNamesInner](docs/OAIPokemonFormDetailFormNamesInner.md)
  - [OAIPokemonFormDetailSprites](docs/OAIPokemonFormDetailSprites.md)

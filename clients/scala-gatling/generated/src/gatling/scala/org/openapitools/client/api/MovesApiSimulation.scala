@@ -92,9 +92,9 @@ class MovesApiSimulation extends Simulation {
         .feed(move_ailment_listQUERYFeeder)
         .exec(http("moveAilmentList")
         .httpRequest("GET","/api/v2/move-ailment/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnmoveAilmentList with warm up and reach a constant rate for entire duration
@@ -123,9 +123,9 @@ class MovesApiSimulation extends Simulation {
         .feed(move_battle_style_listQUERYFeeder)
         .exec(http("moveBattleStyleList")
         .httpRequest("GET","/api/v2/move-battle-style/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnmoveBattleStyleList with warm up and reach a constant rate for entire duration
@@ -154,9 +154,9 @@ class MovesApiSimulation extends Simulation {
         .feed(move_category_listQUERYFeeder)
         .exec(http("moveCategoryList")
         .httpRequest("GET","/api/v2/move-category/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnmoveCategoryList with warm up and reach a constant rate for entire duration
@@ -185,9 +185,9 @@ class MovesApiSimulation extends Simulation {
         .feed(move_learn_method_listQUERYFeeder)
         .exec(http("moveLearnMethodList")
         .httpRequest("GET","/api/v2/move-learn-method/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnmoveLearnMethodList with warm up and reach a constant rate for entire duration
@@ -216,9 +216,9 @@ class MovesApiSimulation extends Simulation {
         .feed(move_listQUERYFeeder)
         .exec(http("moveList")
         .httpRequest("GET","/api/v2/move/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnmoveList with warm up and reach a constant rate for entire duration
@@ -247,9 +247,9 @@ class MovesApiSimulation extends Simulation {
         .feed(move_target_listQUERYFeeder)
         .exec(http("moveTargetList")
         .httpRequest("GET","/api/v2/move-target/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnmoveTargetList with warm up and reach a constant rate for entire duration

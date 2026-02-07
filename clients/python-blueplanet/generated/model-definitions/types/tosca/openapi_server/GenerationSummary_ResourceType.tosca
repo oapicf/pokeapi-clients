@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server GenerationSummary"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a GenerationSummary"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  GenerationSummary {
+    title = GenerationSummary
+    description = GenerationSummary
+    derivedFrom = Root
+    properties {
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        url {
+          type =  string
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  GenerationSummary {
+    title = GenerationSummary
+    description = GenerationSummary
+    implements = openapi_server.resourceTypes.GenerationSummary
+
+  }
+}

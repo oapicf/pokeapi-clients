@@ -34,7 +34,7 @@ import javax.annotation.Generated;
   LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails.JSON_PROPERTY_METHOD
 })
 @JsonTypeName("LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T04:16:49.114765561Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Introspected
 public class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails {
     public static final String JSON_PROPERTY_MIN_LEVEL = "min_level";

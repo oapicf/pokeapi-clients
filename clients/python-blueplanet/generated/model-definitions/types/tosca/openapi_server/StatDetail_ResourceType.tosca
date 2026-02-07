@@ -1,0 +1,82 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server StatDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a StatDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  CharacteristicSummary = openapi_server.resourceTypes.CharacteristicSummary
+  MoveDamageClassSummary = openapi_server.resourceTypes.MoveDamageClassSummary
+  StatDetailAffectingMoves = openapi_server.resourceTypes.StatDetailAffectingMoves
+  StatDetailAffectingNatures = openapi_server.resourceTypes.StatDetailAffectingNatures
+  StatName = openapi_server.resourceTypes.StatName
+}
+resourceTypes {
+
+  StatDetail {
+    title = StatDetail
+    description = StatDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        game_index {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        is_battle_only {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        affecting_moves {
+          type = StatDetailAffectingMoves
+          description = ""
+          optional = true
+        }
+        affecting_natures {
+          type = StatDetailAffectingNatures
+          description = ""
+          optional = true
+        }
+        characteristics {
+          type = array
+          items.type = CharacteristicSummary
+          description = ""
+          optional = true
+        }
+        move_damage_class {
+          type = MoveDamageClassSummary
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = StatName
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  StatDetail {
+    title = StatDetail
+    description = StatDetail
+    implements = openapi_server.resourceTypes.StatDetail
+
+  }
+}

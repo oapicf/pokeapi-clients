@@ -27,7 +27,7 @@ server, you can easily generate a server stub.
 To see how to make this your own, look here: [README]((https://openapi-generator.tech))
 
 - API version: 2.7.0
-- Build date: 2026-02-07T04:21:23.469863520Z[Etc/UTC]
+- Build date: 2026-02-07T15:27:54.238907977Z[Etc/UTC]
 - Generator version: 7.18.0
 
 For more information, please visit [https://github.com/oapicf/pokeapi-clients](https://github.com/oapicf/pokeapi-clients)

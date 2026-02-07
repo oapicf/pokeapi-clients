@@ -80,9 +80,9 @@ class ContestsApiSimulation extends Simulation {
         .feed(contest_effect_listQUERYFeeder)
         .exec(http("contestEffectList")
         .httpRequest("GET","/api/v2/contest-effect/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scncontestEffectList with warm up and reach a constant rate for entire duration
@@ -111,9 +111,9 @@ class ContestsApiSimulation extends Simulation {
         .feed(contest_type_listQUERYFeeder)
         .exec(http("contestTypeList")
         .httpRequest("GET","/api/v2/contest-type/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scncontestTypeList with warm up and reach a constant rate for entire duration
@@ -142,9 +142,9 @@ class ContestsApiSimulation extends Simulation {
         .feed(super_contest_effect_listQUERYFeeder)
         .exec(http("superContestEffectList")
         .httpRequest("GET","/api/v2/super-contest-effect/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnsuperContestEffectList with warm up and reach a constant rate for entire duration

@@ -901,10 +901,6 @@ force-app/main/default/classes/OASPokemonDexEntry.cls
 force-app/main/default/classes/OASPokemonDexEntry.cls-meta.xml
 force-app/main/default/classes/OASPokemonDexEntryTest.cls
 force-app/main/default/classes/OASPokemonDexEntryTest.cls-meta.xml
-force-app/main/default/classes/OASPokemonEncountersRetrieve200Respo.cls
-force-app/main/default/classes/OASPokemonEncountersRetrieve200Respo.cls-meta.xml
-force-app/main/default/classes/OASPokemonEncountersRetrieve200RespoTest.cls
-force-app/main/default/classes/OASPokemonEncountersRetrieve200RespoTest.cls-meta.xml
 force-app/main/default/classes/OASPokemonFormDetail.cls
 force-app/main/default/classes/OASPokemonFormDetail.cls-meta.xml
 force-app/main/default/classes/OASPokemonFormDetailFormNamesInner.cls

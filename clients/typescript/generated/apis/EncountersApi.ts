@@ -14,7 +14,6 @@ import { EncounterMethodDetail } from '../models/EncounterMethodDetail';
 import { PaginatedEncounterConditionSummaryList } from '../models/PaginatedEncounterConditionSummaryList';
 import { PaginatedEncounterConditionValueSummaryList } from '../models/PaginatedEncounterConditionValueSummaryList';
 import { PaginatedEncounterMethodSummaryList } from '../models/PaginatedEncounterMethodSummaryList';
-import { PokemonEncountersRetrieve200ResponseInner } from '../models/PokemonEncountersRetrieve200ResponseInner';
 
 /**
  * no description
@@ -318,49 +317,6 @@ export class EncountersApiRequestFactory extends BaseAPIRequestFactory {
         return requestContext;
     }
 
-    /**
-     * Handles Pokemon Encounters as a sub-resource.
-     * Get pokemon encounter
-     * @param pokemonId 
-     */
-    public async pokemonEncountersRetrieve(pokemonId: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'pokemonId' is not null or undefined
-        if (pokemonId === null || pokemonId === undefined) {
-            throw new RequiredError("EncountersApi", "pokemonEncountersRetrieve", "pokemonId");
-        }
-
-
-        // Path Params
-        const localVarPath = '/api/v2/pokemon/{pokemon_id}/encounters'
-            .replace('{' + 'pokemon_id' + '}', encodeURIComponent(String(pokemonId)));
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-
-        let authMethod: SecurityAuthentication | undefined;
-        // Apply auth methods
-        authMethod = _config.authMethods["basicAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        // Apply auth methods
-        authMethod = _config.authMethods["cookieAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        
-        const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
 }
 
 export class EncountersApiResponseProcessor {
@@ -533,35 +489,6 @@ export class EncountersApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "EncounterMethodDetail", ""
             ) as EncounterMethodDetail;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to pokemonEncountersRetrieve
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async pokemonEncountersRetrieveWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<PokemonEncountersRetrieve200ResponseInner> >> {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: Array<PokemonEncountersRetrieve200ResponseInner> = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<PokemonEncountersRetrieve200ResponseInner>", ""
-            ) as Array<PokemonEncountersRetrieve200ResponseInner>;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: Array<PokemonEncountersRetrieve200ResponseInner> = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "Array<PokemonEncountersRetrieve200ResponseInner>", ""
-            ) as Array<PokemonEncountersRetrieve200ResponseInner>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

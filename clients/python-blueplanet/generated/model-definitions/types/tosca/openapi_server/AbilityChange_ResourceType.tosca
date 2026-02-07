@@ -1,0 +1,43 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server AbilityChange"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a AbilityChange"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityChangeEffectText = openapi_server.resourceTypes.AbilityChangeEffectText
+  VersionGroupSummary = openapi_server.resourceTypes.VersionGroupSummary
+}
+resourceTypes {
+
+  AbilityChange {
+    title = AbilityChange
+    description = AbilityChange
+    derivedFrom = Root
+    properties {
+        version_group {
+          type = VersionGroupSummary
+          description = ""
+          optional = true
+        }
+        effect_entries {
+          type = array
+          items.type = AbilityChangeEffectText
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  AbilityChange {
+    title = AbilityChange
+    description = AbilityChange
+    implements = openapi_server.resourceTypes.AbilityChange
+
+  }
+}

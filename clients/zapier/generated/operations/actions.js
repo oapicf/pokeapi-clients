@@ -30,7 +30,6 @@ const actions = {
     [EncountersApi.encounterConditionValueRetrieve.key]: EncountersApi.encounterConditionValueRetrieve,
     [EncountersApi.encounterMethodList.key]: EncountersApi.encounterMethodList,
     [EncountersApi.encounterMethodRetrieve.key]: EncountersApi.encounterMethodRetrieve,
-    [EncountersApi.pokemonEncountersRetrieve.key]: EncountersApi.pokemonEncountersRetrieve,
     [EvolutionApi.evolutionChainList.key]: EvolutionApi.evolutionChainList,
     [EvolutionApi.evolutionChainRetrieve.key]: EvolutionApi.evolutionChainRetrieve,
     [EvolutionApi.evolutionTriggerList.key]: EvolutionApi.evolutionTriggerList,

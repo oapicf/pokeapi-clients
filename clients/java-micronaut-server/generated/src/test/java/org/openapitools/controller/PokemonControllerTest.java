@@ -113,7 +113,7 @@ public class PokemonControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/ability/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@61f62b80");
+            .accept("[Ljava.lang.String;@2202e978");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -163,7 +163,7 @@ public class PokemonControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@387bbd7a");
+            .accept("[Ljava.lang.String;@381ed137");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, AbilityDetail.class);
@@ -208,7 +208,7 @@ public class PokemonControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/characteristic/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@22cf6c9c");
+            .accept("[Ljava.lang.String;@6eacf3be");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -258,7 +258,7 @@ public class PokemonControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@4569b6a9");
+            .accept("[Ljava.lang.String;@1912ba29");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, CharacteristicDetail.class);
@@ -303,7 +303,7 @@ public class PokemonControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/egg-group/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@15932faf");
+            .accept("[Ljava.lang.String;@2c6ed95a");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -353,7 +353,7 @@ public class PokemonControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@7066c00a");
+            .accept("[Ljava.lang.String;@62b72289");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, EggGroupDetail.class);
@@ -398,7 +398,7 @@ public class PokemonControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/gender/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@2914f916");
+            .accept("[Ljava.lang.String;@6b8f1c62");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -448,7 +448,7 @@ public class PokemonControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@2140de63");
+            .accept("[Ljava.lang.String;@67c020c8");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, GenderDetail.class);
@@ -493,7 +493,7 @@ public class PokemonControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/growth-rate/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@2da273b3");
+            .accept("[Ljava.lang.String;@3d3e9163");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -543,7 +543,7 @@ public class PokemonControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@6b02909d");
+            .accept("[Ljava.lang.String;@66464f27");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, GrowthRateDetail.class);
@@ -588,7 +588,7 @@ public class PokemonControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/move-damage-class/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@655008a2");
+            .accept("[Ljava.lang.String;@75392381");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -638,7 +638,7 @@ public class PokemonControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@424461ad");
+            .accept("[Ljava.lang.String;@13198b8e");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, MoveDamageClassDetail.class);
@@ -683,7 +683,7 @@ public class PokemonControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/nature/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@7cc5bdbd");
+            .accept("[Ljava.lang.String;@5ae5a507");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -733,7 +733,7 @@ public class PokemonControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@33c5cc0");
+            .accept("[Ljava.lang.String;@e8ef60b");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, NatureDetail.class);
@@ -778,7 +778,7 @@ public class PokemonControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/pokeathlon-stat/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@664c411d");
+            .accept("[Ljava.lang.String;@3217e970");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -828,7 +828,7 @@ public class PokemonControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@7641d70");
+            .accept("[Ljava.lang.String;@6d0d5147");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, PokeathlonStatDetail.class);
@@ -873,7 +873,7 @@ public class PokemonControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/pokemon-color/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@569d7074");
+            .accept("[Ljava.lang.String;@1a370c7c");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -923,7 +923,7 @@ public class PokemonControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@3726fc3b");
+            .accept("[Ljava.lang.String;@63f08f9f");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, PokemonColorDetail.class);
@@ -968,7 +968,7 @@ public class PokemonControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/pokemon-form/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@33e6176b");
+            .accept("[Ljava.lang.String;@6e21b6f8");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -1018,7 +1018,7 @@ public class PokemonControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@14ce13fa");
+            .accept("[Ljava.lang.String;@69a14512");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, PokemonFormDetail.class);
@@ -1063,7 +1063,7 @@ public class PokemonControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/pokemon-habitat/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@296ddfc7");
+            .accept("[Ljava.lang.String;@4bd7e0b6");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -1113,7 +1113,7 @@ public class PokemonControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@29aa29f5");
+            .accept("[Ljava.lang.String;@2cbc0224");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, PokemonHabitatDetail.class);
@@ -1158,7 +1158,7 @@ public class PokemonControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/pokemon/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@2a742ee4");
+            .accept("[Ljava.lang.String;@4fc9e73d");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -1208,7 +1208,7 @@ public class PokemonControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@4e41b993");
+            .accept("[Ljava.lang.String;@2ca3a203");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, PokemonDetail.class);
@@ -1253,7 +1253,7 @@ public class PokemonControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/pokemon-shape/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@915c47b");
+            .accept("[Ljava.lang.String;@58052571");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -1303,7 +1303,7 @@ public class PokemonControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@7108b12d");
+            .accept("[Ljava.lang.String;@1464a177");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, PokemonShapeDetail.class);
@@ -1348,7 +1348,7 @@ public class PokemonControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/pokemon-species/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@7a80b2e6");
+            .accept("[Ljava.lang.String;@14144cc9");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -1398,7 +1398,7 @@ public class PokemonControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@394e0104");
+            .accept("[Ljava.lang.String;@259647f2");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, PokemonSpeciesDetail.class);
@@ -1443,7 +1443,7 @@ public class PokemonControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/stat/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@1e5f3c4a");
+            .accept("[Ljava.lang.String;@54c9c09c");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -1493,7 +1493,7 @@ public class PokemonControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@2aea7775");
+            .accept("[Ljava.lang.String;@6517bc6b");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, StatDetail.class);
@@ -1538,7 +1538,7 @@ public class PokemonControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/type/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@5502f74c");
+            .accept("[Ljava.lang.String;@53d3d604");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -1588,7 +1588,7 @@ public class PokemonControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@1c8d9ac9");
+            .accept("[Ljava.lang.String;@44eda25b");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, TypeDetail.class);

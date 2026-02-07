@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server LocationGameIndex"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a LocationGameIndex"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  GenerationSummary = openapi_server.resourceTypes.GenerationSummary
+}
+resourceTypes {
+
+  LocationGameIndex {
+    title = LocationGameIndex
+    description = LocationGameIndex
+    derivedFrom = Root
+    properties {
+        game_index {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        generation {
+          type = GenerationSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  LocationGameIndex {
+    title = LocationGameIndex
+    description = LocationGameIndex
+    implements = openapi_server.resourceTypes.LocationGameIndex
+
+  }
+}

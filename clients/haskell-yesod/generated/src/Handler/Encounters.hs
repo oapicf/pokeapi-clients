@@ -49,11 +49,3 @@ getApiV2EncounterMethodR = notImplemented
 getApiV2EncounterMethodByTextR :: Text -- ^ This parameter can be a string or an integer.
                                -> Handler Value
 getApiV2EncounterMethodByTextR id = notImplemented
-
--- | Get pokemon encounter
---
--- Handles Pokemon Encounters as a sub-resource.
--- operationId: pokemonEncountersRetrieve
-getApiV2PokemonByTextEncountersR :: Text -- ^ 
-                                 -> Handler Value
-getApiV2PokemonByTextEncountersR pokemonId = notImplemented

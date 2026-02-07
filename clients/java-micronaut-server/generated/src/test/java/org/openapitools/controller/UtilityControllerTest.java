@@ -83,7 +83,7 @@ public class UtilityControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/language/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@670199c5");
+            .accept("[Ljava.lang.String;@672e4658");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -133,7 +133,7 @@ public class UtilityControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@7671c02d");
+            .accept("[Ljava.lang.String;@6bafe3b0");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, LanguageDetail.class);

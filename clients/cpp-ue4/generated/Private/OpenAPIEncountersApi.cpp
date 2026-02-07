@@ -295,31 +295,4 @@ void OpenAPIEncountersApi::OnEncounterMethodRetrieveResponse(FHttpRequestPtr Htt
 	Delegate.ExecuteIfBound(Response);
 }
 
-FHttpRequestPtr OpenAPIEncountersApi::PokemonEncountersRetrieve(const PokemonEncountersRetrieveRequest& Request, const FPokemonEncountersRetrieveDelegate& Delegate /*= FPokemonEncountersRetrieveDelegate()*/) const
-{
-	if (!IsValid())
-		return nullptr;
-
-	FHttpRequestRef HttpRequest = CreateHttpRequest(Request);
-	HttpRequest->SetURL(*(Url + Request.ComputePath()));
-
-	for(const auto& It : AdditionalHeaderParams)
-	{
-		HttpRequest->SetHeader(It.Key, It.Value);
-	}
-
-	Request.SetupHttpRequest(HttpRequest);
-
-	HttpRequest->OnProcessRequestComplete().BindRaw(this, &OpenAPIEncountersApi::OnPokemonEncountersRetrieveResponse, Delegate);
-	HttpRequest->ProcessRequest();
-	return HttpRequest;
-}
-
-void OpenAPIEncountersApi::OnPokemonEncountersRetrieveResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FPokemonEncountersRetrieveDelegate Delegate) const
-{
-	PokemonEncountersRetrieveResponse Response;
-	HandleResponse(HttpResponse, bSucceeded, Response);
-	Delegate.ExecuteIfBound(Response);
-}
-
 }

@@ -1,0 +1,25 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "id" },
+      {"model": "name" },
+      {"model": "game_index" },
+      {"model": "is_battle_only" },
+      {"model": "affecting_moves" },
+      {"model": "affecting_natures" },
+      {"model": "characteristics" },
+      {"model": "move_damage_class" },
+      {"model": "names" },
+    ]
+  }]
+}

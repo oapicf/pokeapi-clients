@@ -183,14 +183,6 @@ package .Skeletons is
        Result  : out .Models.EncounterMethodDetail_Type;
        Context : in out Swagger.Servers.Context_Type) is abstract;
 
-   --  Get pokemon encounter
-   --  Handles Pokemon Encounters as a sub-resource.
-   procedure Pokemon_Encounters_Retrieve
-      (Server : in out Server_Type;
-       Pokemon_Id : in Swagger.UString;
-       Result  : out .Models.PokemonEncountersRetrieve200ResponseInner_Type_Vectors.Vector;
-       Context : in out Swagger.Servers.Context_Type) is abstract;
-
    --  List evolution chains
    --  Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
    procedure Evolution_Chain_List
@@ -1044,14 +1036,6 @@ package .Skeletons is
           Context : in out Swagger.Servers.Context_Type);
 
 
-      --  Get pokemon encounter
-      procedure Pokemon_Encounters_Retrieve
-         (Req     : in out Swagger.Servers.Request'Class;
-          Reply   : in out Swagger.Servers.Response'Class;
-          Stream  : in out Swagger.Servers.Output_Stream'Class;
-          Context : in out Swagger.Servers.Context_Type);
-
-
       --  List evolution chains
       procedure Evolution_Chain_List
          (Req     : in out Swagger.Servers.Request'Class;
@@ -1829,14 +1813,6 @@ package .Skeletons is
           Context : in out Swagger.Servers.Context_Type);
 
 
-      --  Get pokemon encounter
-      procedure Pokemon_Encounters_Retrieve
-         (Req     : in out Swagger.Servers.Request'Class;
-          Reply   : in out Swagger.Servers.Response'Class;
-          Stream  : in out Swagger.Servers.Output_Stream'Class;
-          Context : in out Swagger.Servers.Context_Type);
-
-
       --  List evolution chains
       procedure Evolution_Chain_List
          (Req     : in out Swagger.Servers.Request'Class;
@@ -2588,12 +2564,6 @@ package .Skeletons is
          procedure Encounter_Method_Retrieve
             (Id : in Swagger.UString;
        Result  : out .Models.EncounterMethodDetail_Type;
-             Context : in out Swagger.Servers.Context_Type);
-
-         --  Get pokemon encounter
-         procedure Pokemon_Encounters_Retrieve
-            (Pokemon_Id : in Swagger.UString;
-       Result  : out .Models.PokemonEncountersRetrieve200ResponseInner_Type_Vectors.Vector;
              Context : in out Swagger.Servers.Context_Type);
 
          --  List evolution chains

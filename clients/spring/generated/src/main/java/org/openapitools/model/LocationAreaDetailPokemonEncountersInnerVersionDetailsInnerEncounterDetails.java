@@ -22,7 +22,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("LocationAreaDetail_pokemon_encounters_inner_version_details_inner_encounter_details")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T04:22:27.168374474Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails {
 
   private Integer minLevel;

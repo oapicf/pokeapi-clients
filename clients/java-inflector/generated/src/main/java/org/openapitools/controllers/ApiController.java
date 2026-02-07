@@ -32,7 +32,6 @@ import org.openapitools.model.ItemDetail;
 import org.openapitools.model.ItemFlingEffectDetail;
 import org.openapitools.model.ItemPocketDetail;
 import org.openapitools.model.LanguageDetail;
-import java.util.List;
 import org.openapitools.model.LocationAreaDetail;
 import org.openapitools.model.LocationDetail;
 import org.openapitools.model.MachineDetail;
@@ -97,7 +96,6 @@ import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
 import org.openapitools.model.PokemonDetail;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 import org.openapitools.model.PokemonFormDetail;
 import org.openapitools.model.PokemonHabitatDetail;
 import org.openapitools.model.PokemonShapeDetail;
@@ -109,7 +107,7 @@ import org.openapitools.model.TypeDetail;
 import org.openapitools.model.VersionDetail;
 import org.openapitools.model.VersionGroupDetail;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-02-07T04:16:44.910526458Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-02-07T15:22:50.575598517Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class ApiController  {
   /**
    * Uncomment and implement as you see fit.  These operations will map
@@ -557,12 +555,6 @@ public class ApiController  {
 
   /*
     public ResponseContext pokemonColorRetrieve(RequestContext request , String id) {
-        return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
-    }
-  */
-
-  /*
-    public ResponseContext pokemonEncountersRetrieve(RequestContext request , String pokemonId) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */

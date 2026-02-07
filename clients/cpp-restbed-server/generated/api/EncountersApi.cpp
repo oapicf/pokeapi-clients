@@ -810,120 +810,6 @@ std::string ApiV2Encounter_methodIdResource::extractFormParamsFromBody(const std
     }
     return "";
 }
-ApiV2PokemonPokemon_idEncountersResource::ApiV2PokemonPokemon_idEncountersResource(const std::string& context /* = "" */)
-{
-	this->set_path(context + "/api/v2/pokemon/{pokemon_id: .*}/encounters");
-	this->set_method_handler("GET",
-		std::bind(&ApiV2PokemonPokemon_idEncountersResource::handler_GET_internal, this,
-			std::placeholders::_1));
-}
-
-std::pair<int, std::string> ApiV2PokemonPokemon_idEncountersResource::handleEncountersApiException(const EncountersApiException& e)
-{
-    return std::make_pair<int, std::string>(e.getStatus(), e.what());
-}
-
-std::pair<int, std::string> ApiV2PokemonPokemon_idEncountersResource::handleStdException(const std::exception& e)
-{
-    return std::make_pair<int, std::string>(500, e.what());
-}
-
-std::pair<int, std::string> ApiV2PokemonPokemon_idEncountersResource::handleUnspecifiedException()
-{
-    return std::make_pair<int, std::string>(500, "Unknown exception occurred");
-}
-
-void ApiV2PokemonPokemon_idEncountersResource::setResponseHeader(const std::shared_ptr<restbed::Session>& session, const std::string& header)
-{
-    session->set_header(header, "");
-}
-
-void ApiV2PokemonPokemon_idEncountersResource::returnResponse(const std::shared_ptr<restbed::Session>& session, const int status, const std::string& result, std::multimap<std::string, std::string>& responseHeaders)
-{
-    responseHeaders.insert(std::make_pair("Connection", "close"));
-    session->close(status, result, responseHeaders);
-}
-
-void ApiV2PokemonPokemon_idEncountersResource::defaultSessionClose(const std::shared_ptr<restbed::Session>& session, const int status, const std::string& result)
-{
-    session->close(status, result, { {"Connection", "close"} });
-}
-
-void ApiV2PokemonPokemon_idEncountersResource::handler_GET_internal(const std::shared_ptr<restbed::Session> session)
-{
-    const auto request = session->get_request();
-    // Getting the path params
-    std::string pokemonId = request->get_path_parameter("pokemon_id", "");
-    
-    int status_code = 500;
-    std::vector<Pokemon_encounters_retrieve_200_response_inner> resultObject = std::vector<Pokemon_encounters_retrieve_200_response_inner>();
-    std::string result = "";
-    
-    try {
-        std::tie(status_code, resultObject) =
-            handler_GET(pokemonId);
-    }
-    catch(const EncountersApiException& e) {
-        std::tie(status_code, result) = handleEncountersApiException(e);
-    }
-    catch(const std::exception& e) {
-        std::tie(status_code, result) = handleStdException(e);
-    }
-    catch(...) {
-        std::tie(status_code, result) = handleUnspecifiedException();
-    }
-    
-    std::multimap< std::string, std::string > responseHeaders {};
-    static const std::vector<std::string> contentTypes{
-        "application/json",
-    };
-    static const std::string acceptTypes{
-    };
-    
-    if (status_code == 200) {
-        responseHeaders.insert(std::make_pair("Content-Type", selectPreferredContentType(contentTypes)));
-        if (!acceptTypes.empty()) {
-            responseHeaders.insert(std::make_pair("Accept", acceptTypes));
-        }
-    
-        returnResponse(session, 200, result.empty() ? "{}" : result, responseHeaders);
-        return;
-    }
-    defaultSessionClose(session, status_code, result);
-    
-    
-}
-
-
-std::pair<int, std::vector<Pokemon_encounters_retrieve_200_response_inner>> ApiV2PokemonPokemon_idEncountersResource::handler_GET(
-        std::string & pokemonId)
-{
-    return handler_GET_func(pokemonId);
-}
-
-
-std::string ApiV2PokemonPokemon_idEncountersResource::extractBodyContent(const std::shared_ptr<restbed::Session>& session) {
-  const auto request = session->get_request();
-  int content_length = request->get_header("Content-Length", 0);
-  std::string bodyContent;
-  session->fetch(content_length,
-                 [&bodyContent](const std::shared_ptr<restbed::Session> session,
-                                const restbed::Bytes &body) {
-                   bodyContent = restbed::String::format(
-                       "%.*s\n", (int)body.size(), body.data());
-                 });
-  return bodyContent;
-}
-
-std::string ApiV2PokemonPokemon_idEncountersResource::extractFormParamsFromBody(const std::string& paramName, const std::string& body) {
-    const auto uri = restbed::Uri("urlencoded?" + body, true);
-    const auto params = uri.get_query_parameters();
-    const auto result = params.find(paramName);
-    if (result != params.cend()) {
-        return result->second;
-    }
-    return "";
-}
 
 } /* namespace EncountersApiResources */
 
@@ -970,12 +856,6 @@ std::shared_ptr<EncountersApiResources::ApiV2Encounter_methodIdResource> Encount
     }
     return m_spApiV2Encounter_methodIdResource;
 }
-std::shared_ptr<EncountersApiResources::ApiV2PokemonPokemon_idEncountersResource> EncountersApi::getApiV2PokemonPokemon_idEncountersResource() {
-    if (!m_spApiV2PokemonPokemon_idEncountersResource) {
-        setResource(std::make_shared<EncountersApiResources::ApiV2PokemonPokemon_idEncountersResource>());
-    }
-    return m_spApiV2PokemonPokemon_idEncountersResource;
-}
 void EncountersApi::setResource(std::shared_ptr<EncountersApiResources::ApiV2Encounter_conditionResource> resource) {
     m_spApiV2Encounter_conditionResource = resource;
     m_service->publish(m_spApiV2Encounter_conditionResource);
@@ -999,10 +879,6 @@ void EncountersApi::setResource(std::shared_ptr<EncountersApiResources::ApiV2Enc
 void EncountersApi::setResource(std::shared_ptr<EncountersApiResources::ApiV2Encounter_methodIdResource> resource) {
     m_spApiV2Encounter_methodIdResource = resource;
     m_service->publish(m_spApiV2Encounter_methodIdResource);
-}
-void EncountersApi::setResource(std::shared_ptr<EncountersApiResources::ApiV2PokemonPokemon_idEncountersResource> resource) {
-    m_spApiV2PokemonPokemon_idEncountersResource = resource;
-    m_service->publish(m_spApiV2PokemonPokemon_idEncountersResource);
 }
 void EncountersApi::setEncountersApiApiV2Encounter_conditionResource(std::shared_ptr<EncountersApiResources::ApiV2Encounter_conditionResource> spApiV2Encounter_conditionResource) {
     m_spApiV2Encounter_conditionResource = spApiV2Encounter_conditionResource;
@@ -1028,10 +904,6 @@ void EncountersApi::setEncountersApiApiV2Encounter_methodIdResource(std::shared_
     m_spApiV2Encounter_methodIdResource = spApiV2Encounter_methodIdResource;
     m_service->publish(m_spApiV2Encounter_methodIdResource);
 }
-void EncountersApi::setEncountersApiApiV2PokemonPokemon_idEncountersResource(std::shared_ptr<EncountersApiResources::ApiV2PokemonPokemon_idEncountersResource> spApiV2PokemonPokemon_idEncountersResource) {
-    m_spApiV2PokemonPokemon_idEncountersResource = spApiV2PokemonPokemon_idEncountersResource;
-    m_service->publish(m_spApiV2PokemonPokemon_idEncountersResource);
-}
 
 
 void EncountersApi::publishDefaultResources() {
@@ -1052,9 +924,6 @@ void EncountersApi::publishDefaultResources() {
     }
     if (!m_spApiV2Encounter_methodIdResource) {
         setResource(std::make_shared<EncountersApiResources::ApiV2Encounter_methodIdResource>());
-    }
-    if (!m_spApiV2PokemonPokemon_idEncountersResource) {
-        setResource(std::make_shared<EncountersApiResources::ApiV2PokemonPokemon_idEncountersResource>());
     }
 }
 

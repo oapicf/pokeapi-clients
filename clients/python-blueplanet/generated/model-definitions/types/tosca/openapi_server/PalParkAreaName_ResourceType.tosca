@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PalParkAreaName"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PalParkAreaName"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  LanguageSummary = openapi_server.resourceTypes.LanguageSummary
+}
+resourceTypes {
+
+  PalParkAreaName {
+    title = PalParkAreaName
+    description = PalParkAreaName
+    derivedFrom = Root
+    properties {
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        language {
+          type = LanguageSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PalParkAreaName {
+    title = PalParkAreaName
+    description = PalParkAreaName
+    implements = openapi_server.resourceTypes.PalParkAreaName
+
+  }
+}

@@ -6,7 +6,6 @@ import apimodels.EncounterMethodDetail;
 import apimodels.PaginatedEncounterConditionSummaryList;
 import apimodels.PaginatedEncounterConditionValueSummaryList;
 import apimodels.PaginatedEncounterMethodSummaryList;
-import apimodels.PokemonEncountersRetrieve200ResponseInner;
 
 import com.google.inject.Inject;
 import com.typesafe.config.Config;
@@ -122,22 +121,5 @@ public abstract class EncountersApiControllerImpInterface {
     }
 
     public abstract EncounterMethodDetail encounterMethodRetrieve(Http.Request request, String id) throws Exception;
-
-    public Result pokemonEncountersRetrieveHttp(Http.Request request,  @Pattern(regexp="^\\d+$")String pokemonId) throws Exception {
-        List<PokemonEncountersRetrieve200ResponseInner> obj = pokemonEncountersRetrieve(request, pokemonId);
-
-        if (configuration.getBoolean("useOutputBeanValidation")) {
-            for (PokemonEncountersRetrieve200ResponseInner curItem : obj) {
-                OpenAPIUtils.validate(curItem);
-            }
-        }
-
-        JsonNode result = mapper.valueToTree(obj);
-
-        return ok(result);
-
-    }
-
-    public abstract List<PokemonEncountersRetrieve200ResponseInner> pokemonEncountersRetrieve(Http.Request request,  @Pattern(regexp="^\\d+$")String pokemonId) throws Exception;
 
 }

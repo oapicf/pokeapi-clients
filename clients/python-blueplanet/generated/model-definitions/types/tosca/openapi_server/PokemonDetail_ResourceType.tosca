@@ -1,0 +1,150 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  PokemonDetailAbilitiesInner = openapi_server.resourceTypes.PokemonDetailAbilitiesInner
+  PokemonDetailCries = openapi_server.resourceTypes.PokemonDetailCries
+  PokemonDetailHeldItems = openapi_server.resourceTypes.PokemonDetailHeldItems
+  PokemonDetailMovesInner = openapi_server.resourceTypes.PokemonDetailMovesInner
+  PokemonDetailPastAbilitiesInner = openapi_server.resourceTypes.PokemonDetailPastAbilitiesInner
+  PokemonDetailPastTypesInner = openapi_server.resourceTypes.PokemonDetailPastTypesInner
+  PokemonDetailSprites = openapi_server.resourceTypes.PokemonDetailSprites
+  PokemonDetailTypesInner = openapi_server.resourceTypes.PokemonDetailTypesInner
+  PokemonFormSummary = openapi_server.resourceTypes.PokemonFormSummary
+  PokemonGameIndex = openapi_server.resourceTypes.PokemonGameIndex
+  PokemonSpeciesSummary = openapi_server.resourceTypes.PokemonSpeciesSummary
+  PokemonStat = openapi_server.resourceTypes.PokemonStat
+}
+resourceTypes {
+
+  PokemonDetail {
+    title = PokemonDetail
+    description = PokemonDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        base_experience {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        height {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        is_default {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        order {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        weight {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        abilities {
+          type = array
+          items.type = PokemonDetailAbilitiesInner
+          description = ""
+          optional = true
+        }
+        past_abilities {
+          type = array
+          items.type = PokemonDetailPastAbilitiesInner
+          description = ""
+          optional = true
+        }
+        forms {
+          type = array
+          items.type = PokemonFormSummary
+          description = ""
+          optional = true
+        }
+        game_indices {
+          type = array
+          items.type = PokemonGameIndex
+          description = ""
+          optional = true
+        }
+        held_items {
+          type = PokemonDetailHeldItems
+          description = ""
+          optional = true
+        }
+        location_area_encounters {
+          type =  string
+          description = ""
+          optional = true
+        }
+        moves {
+          type = array
+          items.type = PokemonDetailMovesInner
+          description = ""
+          optional = true
+        }
+        species {
+          type = PokemonSpeciesSummary
+          description = ""
+          optional = true
+        }
+        sprites {
+          type = PokemonDetailSprites
+          description = ""
+          optional = true
+        }
+        cries {
+          type = PokemonDetailCries
+          description = ""
+          optional = true
+        }
+        stats {
+          type = array
+          items.type = PokemonStat
+          description = ""
+          optional = true
+        }
+        types {
+          type = array
+          items.type = PokemonDetailTypesInner
+          description = ""
+          optional = true
+        }
+        past_types {
+          type = array
+          items.type = PokemonDetailPastTypesInner
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonDetail {
+    title = PokemonDetail
+    description = PokemonDetail
+    implements = openapi_server.resourceTypes.PokemonDetail
+
+  }
+}

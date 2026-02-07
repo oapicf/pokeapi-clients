@@ -17,7 +17,6 @@ import org.openapitools.client.model.EncounterMethodDetail
 import org.openapitools.client.model.PaginatedEncounterConditionSummaryList
 import org.openapitools.client.model.PaginatedEncounterConditionValueSummaryList
 import org.openapitools.client.model.PaginatedEncounterMethodSummaryList
-import org.openapitools.client.model.PokemonEncountersRetrieve200ResponseInner
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
 import org.openapitools.client.core.ApiKeyLocations._
@@ -153,25 +152,6 @@ class EncountersApi(baseUrl: String) {
       .withCredentials(basicAuth).withApiKey(apiKey, "sessionid", COOKIE)
       .withPathParam("id", id)
       .withSuccessResponse[EncounterMethodDetail](200)
-      
-
-  /**
-   * Handles Pokemon Encounters as a sub-resource.
-   * 
-   * Expected answers:
-   *   code 200 : Seq[PokemonEncountersRetrieve200ResponseInner] ()
-   * 
-   * Available security schemes:
-   *   basicAuth (http)
-   *   cookieAuth (apiKey)
-   * 
-   * @param pokemonId 
-   */
-  def pokemonEncountersRetrieve(pokemonId: String)(implicit basicAuth: BasicCredentials, apiKey: ApiKeyValue): ApiRequest[Seq[PokemonEncountersRetrieve200ResponseInner]] =
-    ApiRequest[Seq[PokemonEncountersRetrieve200ResponseInner]](ApiMethods.GET, baseUrl, "/api/v2/pokemon/{pokemon_id}/encounters", "application/json")
-      .withCredentials(basicAuth).withApiKey(apiKey, "sessionid", COOKIE)
-      .withPathParam("pokemon_id", pokemonId)
-      .withSuccessResponse[Seq[PokemonEncountersRetrieve200ResponseInner]](200)
       
 
 

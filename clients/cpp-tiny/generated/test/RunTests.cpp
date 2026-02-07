@@ -483,20 +483,6 @@
 
 #include "PokemonSummaryTest.cpp"
 
-#include "Pokemon_encounters_retrieve_200_response_innerTest.cpp"
-
-#include "Pokemon_encounters_retrieve_200_response_inner_location_areaTest.cpp"
-
-#include "Pokemon_encounters_retrieve_200_response_inner_version_details_innerTest.cpp"
-
-#include "Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_innerTest.cpp"
-
-#include "Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_innerTest.cpp"
-
-#include "Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_methodTest.cpp"
-
-#include "Pokemon_encounters_retrieve_200_response_inner_version_details_inner_versionTest.cpp"
-
 #include "RegionDetailTest.cpp"
 
 #include "RegionNameTest.cpp"
@@ -2607,55 +2593,6 @@ void runTests(){
     
     
     RUN_TEST(test_PokemonSummary_url_is_assigned_from_json);
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_location_area_name_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_location_area_url_is_assigned_from_json);
-    
-    
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_max_chance_is_assigned_from_json);
-    
-    
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_chance_is_assigned_from_json);
-    
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_max_level_is_assigned_from_json);
-    
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_min_level_is_assigned_from_json);
-    
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner_name_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner_url_is_assigned_from_json);
-    
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method_name_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method_url_is_assigned_from_json);
-    
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_version_name_is_assigned_from_json);
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_version_url_is_assigned_from_json);
     
     
     
@@ -4897,55 +4834,6 @@ void runTests(){
     
     
     RUN_TEST(test_PokemonSummary_url_is_converted_to_json);
-    
-    
-    
-    
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_location_area_name_is_converted_to_json);
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_location_area_url_is_converted_to_json);
-    
-    
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_max_chance_is_converted_to_json);
-    
-    
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_chance_is_converted_to_json);
-    
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_max_level_is_converted_to_json);
-    
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_min_level_is_converted_to_json);
-    
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner_name_is_converted_to_json);
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner_url_is_converted_to_json);
-    
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method_name_is_converted_to_json);
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method_url_is_converted_to_json);
-    
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_version_name_is_converted_to_json);
-    
-    
-    RUN_TEST(test_Pokemon_encounters_retrieve_200_response_inner_version_details_inner_version_url_is_converted_to_json);
     
     
     

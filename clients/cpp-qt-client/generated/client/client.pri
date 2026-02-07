@@ -244,13 +244,6 @@ HEADERS += \
     $${PWD}/OAIPokemonSpeciesSummary.h \
     $${PWD}/OAIPokemonStat.h \
     $${PWD}/OAIPokemonSummary.h \
-    $${PWD}/OAIPokemon_encounters_retrieve_200_response_inner.h \
-    $${PWD}/OAIPokemon_encounters_retrieve_200_response_inner_location_area.h \
-    $${PWD}/OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner.h \
-    $${PWD}/OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner.h \
-    $${PWD}/OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner.h \
-    $${PWD}/OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method.h \
-    $${PWD}/OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner_version.h \
     $${PWD}/OAIRegionDetail.h \
     $${PWD}/OAIRegionName.h \
     $${PWD}/OAIRegionSummary.h \
@@ -543,13 +536,6 @@ SOURCES += \
     $${PWD}/OAIPokemonSpeciesSummary.cpp \
     $${PWD}/OAIPokemonStat.cpp \
     $${PWD}/OAIPokemonSummary.cpp \
-    $${PWD}/OAIPokemon_encounters_retrieve_200_response_inner.cpp \
-    $${PWD}/OAIPokemon_encounters_retrieve_200_response_inner_location_area.cpp \
-    $${PWD}/OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner.cpp \
-    $${PWD}/OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner.cpp \
-    $${PWD}/OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner.cpp \
-    $${PWD}/OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method.cpp \
-    $${PWD}/OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner_version.cpp \
     $${PWD}/OAIRegionDetail.cpp \
     $${PWD}/OAIRegionName.cpp \
     $${PWD}/OAIRegionSummary.cpp \

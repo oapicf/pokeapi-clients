@@ -7,7 +7,6 @@ import org.openapitools.model.EncounterMethodDetail
 import org.openapitools.model.PaginatedEncounterConditionSummaryList
 import org.openapitools.model.PaginatedEncounterConditionValueSummaryList
 import org.openapitools.model.PaginatedEncounterMethodSummaryList
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner
 
 class EncountersApi {
     String basePath = "https://pokeapi.co"
@@ -170,30 +169,6 @@ class EncountersApi {
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
                     EncounterMethodDetail.class )
-
-    }
-
-    def pokemonEncountersRetrieve ( String pokemonId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/v2/pokemon/${pokemon_id}/encounters"
-
-        // params
-        def queryParams = [:]
-        def headerParams = [:]
-        def bodyParams
-        def contentType
-
-        // verify required params are set
-        if (pokemonId == null) {
-            throw new RuntimeException("missing required params pokemonId")
-        }
-
-
-
-
-
-        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
-                    "GET", "array",
-                    PokemonEncountersRetrieve200ResponseInner.class )
 
     }
 

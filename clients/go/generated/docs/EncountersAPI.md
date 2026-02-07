@@ -10,7 +10,6 @@ Method | HTTP request | Description
 [**EncounterConditionValueRetrieve**](EncountersAPI.md#EncounterConditionValueRetrieve) | **Get** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 [**EncounterMethodList**](EncountersAPI.md#EncounterMethodList) | **Get** /api/v2/encounter-method/ | List encounter methods
 [**EncounterMethodRetrieve**](EncountersAPI.md#EncounterMethodRetrieve) | **Get** /api/v2/encounter-method/{id}/ | Get encounter method
-[**PokemonEncountersRetrieve**](EncountersAPI.md#PokemonEncountersRetrieve) | **Get** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 
 
 
@@ -419,76 +418,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EncounterMethodDetail**](EncounterMethodDetail.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## PokemonEncountersRetrieve
-
-> []PokemonEncountersRetrieve200ResponseInner PokemonEncountersRetrieve(ctx, pokemonId).Execute()
-
-Get pokemon encounter
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/oapicf/pokeapi-clients"
-)
-
-func main() {
-	pokemonId := "pokemonId_example" // string | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EncountersAPI.PokemonEncountersRetrieve(context.Background(), pokemonId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EncountersAPI.PokemonEncountersRetrieve``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PokemonEncountersRetrieve`: []PokemonEncountersRetrieve200ResponseInner
-	fmt.Fprintf(os.Stdout, "Response from `EncountersAPI.PokemonEncountersRetrieve`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**pokemonId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPokemonEncountersRetrieveRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**[]PokemonEncountersRetrieve200ResponseInner**](PokemonEncountersRetrieve200ResponseInner.md)
 
 ### Authorization
 

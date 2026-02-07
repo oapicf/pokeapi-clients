@@ -1,0 +1,26 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "id" },
+      {"model": "name" },
+      {"model": "decreased_stat" },
+      {"model": "increased_stat" },
+      {"model": "likes_flavor" },
+      {"model": "hates_flavor" },
+      {"model": "berries" },
+      {"model": "pokeathlon_stat_changes" },
+      {"model": "move_battle_style_preferences" },
+      {"model": "names" },
+    ]
+  }]
+}

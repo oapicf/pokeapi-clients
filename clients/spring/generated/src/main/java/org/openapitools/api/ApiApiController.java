@@ -87,7 +87,6 @@ import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
 import org.openapitools.model.PokemonDetail;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 import org.openapitools.model.PokemonFormDetail;
 import org.openapitools.model.PokemonHabitatDetail;
 import org.openapitools.model.PokemonShapeDetail;
@@ -123,7 +122,7 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T04:22:27.168374474Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Controller
 @RequestMapping("${openapi.pok.base-path:}")
 public class ApiApiController implements ApiApi {

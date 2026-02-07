@@ -1,0 +1,52 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PaginatedLanguageSummaryList"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PaginatedLanguageSummaryList"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  LanguageSummary = openapi_server.resourceTypes.LanguageSummary
+}
+resourceTypes {
+
+  PaginatedLanguageSummaryList {
+    title = PaginatedLanguageSummaryList
+    description = PaginatedLanguageSummaryList
+    derivedFrom = Root
+    properties {
+        count {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        next {
+          type =  string
+          description = ""
+          optional = false
+        }
+        previous {
+          type =  string
+          description = ""
+          optional = false
+        }
+        results {
+          type = array
+          items.type = LanguageSummary
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PaginatedLanguageSummaryList {
+    title = PaginatedLanguageSummaryList
+    description = PaginatedLanguageSummaryList
+    implements = openapi_server.resourceTypes.PaginatedLanguageSummaryList
+
+  }
+}

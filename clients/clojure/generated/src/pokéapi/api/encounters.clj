@@ -27,7 +27,6 @@
             [pokéapi.specs.pokeathlon-stat-detail-affecting-natures :refer :all]
             [pokéapi.specs.paginated-version-group-summary-list :refer :all]
             [pokéapi.specs.super-contest-effect-flavor-text :refer :all]
-            [pokéapi.specs.pokemon-encounters-retrieve-200-response-inner-version-details-inner-version :refer :all]
             [pokéapi.specs.pal-park-area-detail :refer :all]
             [pokéapi.specs.pokedex-detail-pokemon-entries-inner :refer :all]
             [pokéapi.specs.pokemon-detail-past-types-inner :refer :all]
@@ -39,14 +38,11 @@
             [pokéapi.specs.generation-summary :refer :all]
             [pokéapi.specs.gender-detail :refer :all]
             [pokéapi.specs.growth-rate-detail :refer :all]
-            [pokéapi.specs.pokemon-encounters-retrieve-200-response-inner :refer :all]
             [pokéapi.specs.berry-firmness-detail :refer :all]
             [pokéapi.specs.paginated-generation-summary-list :refer :all]
-            [pokéapi.specs.pokemon-encounters-retrieve-200-response-inner-version-details-inner-encounter-details-inner-method :refer :all]
             [pokéapi.specs.paginated-characteristic-summary-list :refer :all]
             [pokéapi.specs.paginated-item-attribute-summary-list :refer :all]
             [pokéapi.specs.encounter-condition-value-summary :refer :all]
-            [pokéapi.specs.pokemon-encounters-retrieve-200-response-inner-location-area :refer :all]
             [pokéapi.specs.item-detail-machines-inner :refer :all]
             [pokéapi.specs.stat-detail-affecting-moves-increase-inner :refer :all]
             [pokéapi.specs.paginated-item-pocket-summary-list :refer :all]
@@ -64,7 +60,6 @@
             [pokéapi.specs.type-detail-past-damage-relations-inner :refer :all]
             [pokéapi.specs.type-detail-damage-relations :refer :all]
             [pokéapi.specs.move-damage-class-name :refer :all]
-            [pokéapi.specs.pokemon-encounters-retrieve-200-response-inner-version-details-inner-encounter-details-inner-condition-values-inner :refer :all]
             [pokéapi.specs.move-detail-contest-combos :refer :all]
             [pokéapi.specs.item-category-detail :refer :all]
             [pokéapi.specs.move-meta :refer :all]
@@ -114,7 +109,6 @@
             [pokéapi.specs.move-target-summary :refer :all]
             [pokéapi.specs.paginated-move-battle-style-summary-list :refer :all]
             [pokéapi.specs.language-summary :refer :all]
-            [pokéapi.specs.pokemon-encounters-retrieve-200-response-inner-version-details-inner :refer :all]
             [pokéapi.specs.egg-group-summary :refer :all]
             [pokéapi.specs.move-change :refer :all]
             [pokéapi.specs.stat-name :refer :all]
@@ -175,7 +169,6 @@
             [pokéapi.specs.paginated-stat-summary-list :refer :all]
             [pokéapi.specs.type-detail-sprites-value-value :refer :all]
             [pokéapi.specs.paginated-location-area-summary-list :refer :all]
-            [pokéapi.specs.pokemon-encounters-retrieve-200-response-inner-version-details-inner-encounter-details-inner :refer :all]
             [pokéapi.specs.location-area-detail :refer :all]
             [pokéapi.specs.version-name :refer :all]
             [pokéapi.specs.ability-effect-text :refer :all]
@@ -426,30 +419,6 @@
   (let [res (:data (encounter-method-retrieve-with-http-info id))]
     (if (:decode-models *api-context*)
        (st/decode encounter-method-detail-spec res st/string-transformer)
-       res)))
-
-
-(defn-spec pokemon-encounters-retrieve-with-http-info any?
-  "Get pokemon encounter
-  Handles Pokemon Encounters as a sub-resource."
-  [pokemon_id string?]
-  (check-required-params pokemon_id)
-  (call-api "/api/v2/pokemon/{pokemon_id}/encounters" :get
-            {:path-params   {"pokemon_id" pokemon_id }
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :content-types []
-             :accepts       ["application/json"]
-             :auth-names    ["basicAuth" "cookieAuth"]}))
-
-(defn-spec pokemon-encounters-retrieve (s/coll-of pokemon-encounters-retrieve-200-response-inner-spec)
-  "Get pokemon encounter
-  Handles Pokemon Encounters as a sub-resource."
-  [pokemon_id string?]
-  (let [res (:data (pokemon-encounters-retrieve-with-http-info pokemon_id))]
-    (if (:decode-models *api-context*)
-       (st/decode (s/coll-of pokemon-encounters-retrieve-200-response-inner-spec) res st/string-transformer)
        res)))
 
 

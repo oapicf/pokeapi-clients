@@ -833,47 +833,6 @@ package body .Skeletons is
 
       end Encounter_Method_Retrieve;
 
-      package API_Pokemon_Encounters_Retrieve is
-         new Swagger.Servers.Operation
-            (Handler => Pokemon_Encounters_Retrieve,
-             Method  => Swagger.Servers.GET,
-             URI     => URI_Prefix & "/api/v2/pokemon/{pokemon_id}/encounters",
-             Mimes   => Media_List_1'Access);
-
-      --  Get pokemon encounter
-      procedure Pokemon_Encounters_Retrieve
-         (Req     : in out Swagger.Servers.Request'Class;
-          Reply   : in out Swagger.Servers.Response'Class;
-          Stream  : in out Swagger.Servers.Output_Stream'Class;
-          Context : in out Swagger.Servers.Context_Type) is
-         Impl : Implementation_Type;
-         Pokemon_Id : Swagger.UString;
-         Result : .Models.PokemonEncountersRetrieve200ResponseInner_Type_Vectors.Vector;
-      begin
-         if not Context.Is_Authenticated then
-            Context.Set_Error (401, "Not authenticated");
-            return;
-         end if;
-         if not Context.Is_Authenticated then
-            Context.Set_Error (401, "Not authenticated");
-            return;
-         end if;
-         
-         
-         Pokemon_Id := To_Swagger.UString (Swagger.Servers.Get_Path_Parameter (Req, 1));
-
-         Impl.Pokemon_Encounters_Retrieve
-            (Pokemon_Id, Result, Context);
-         if Context.Get_Status = 200 then
-
-            Stream.Start_Document;
-            Serialize (Stream, "", Result);
-            Stream.End_Document;
-            return;
-         end if;
-
-      end Pokemon_Encounters_Retrieve;
-
       package API_Evolution_Chain_List is
          new Swagger.Servers.Operation
             (Handler => Evolution_Chain_List,
@@ -4400,7 +4359,6 @@ package body .Skeletons is
          Swagger.Servers.Register (Server, API_Encounter_Condition_Value_Retrieve.Definition);
          Swagger.Servers.Register (Server, API_Encounter_Method_List.Definition);
          Swagger.Servers.Register (Server, API_Encounter_Method_Retrieve.Definition);
-         Swagger.Servers.Register (Server, API_Pokemon_Encounters_Retrieve.Definition);
          Swagger.Servers.Register (Server, API_Evolution_Chain_List.Definition);
          Swagger.Servers.Register (Server, API_Evolution_Chain_Retrieve.Definition);
          Swagger.Servers.Register (Server, API_Evolution_Trigger_List.Definition);
@@ -5266,47 +5224,6 @@ package body .Skeletons is
             (Handler => Encounter_Method_Retrieve,
              Method  => Swagger.Servers.GET,
              URI     => URI_Prefix & "/api/v2/encounter-method/{id}/",
-             Mimes   => Media_List_1'Access);
-
-
-      --  Get pokemon encounter
-      procedure Pokemon_Encounters_Retrieve
-         (Req     : in out Swagger.Servers.Request'Class;
-          Reply   : in out Swagger.Servers.Response'Class;
-          Stream  : in out Swagger.Servers.Output_Stream'Class;
-          Context : in out Swagger.Servers.Context_Type) is
-         Pokemon_Id : Swagger.UString;
-         Result : .Models.PokemonEncountersRetrieve200ResponseInner_Type_Vectors.Vector;
-      begin
-         if not Context.Is_Authenticated then
-            Context.Set_Error (401, "Not authenticated");
-            return;
-         end if;
-         if not Context.Is_Authenticated then
-            Context.Set_Error (401, "Not authenticated");
-            return;
-         end if;
-
-         
-         Pokemon_Id := To_Swagger.UString (Swagger.Servers.Get_Path_Parameter (Req, 1));
-
-         Server.Pokemon_Encounters_Retrieve
-            (Pokemon_Id, Result, Context);
-         if Context.Get_Status = 200 then
-
-            Stream.Start_Document;
-            Serialize (Stream, "", Result);
-            Stream.End_Document;
-            return;
-         end if;
-
-      end Pokemon_Encounters_Retrieve;
-
-      package API_Pokemon_Encounters_Retrieve is
-         new Swagger.Servers.Operation
-            (Handler => Pokemon_Encounters_Retrieve,
-             Method  => Swagger.Servers.GET,
-             URI     => URI_Prefix & "/api/v2/pokemon/{pokemon_id}/encounters",
              Mimes   => Media_List_1'Access);
 
 
@@ -8720,7 +8637,6 @@ package body .Skeletons is
          Swagger.Servers.Register (Server, API_Encounter_Condition_Value_Retrieve.Definition);
          Swagger.Servers.Register (Server, API_Encounter_Method_List.Definition);
          Swagger.Servers.Register (Server, API_Encounter_Method_Retrieve.Definition);
-         Swagger.Servers.Register (Server, API_Pokemon_Encounters_Retrieve.Definition);
          Swagger.Servers.Register (Server, API_Evolution_Chain_List.Definition);
          Swagger.Servers.Register (Server, API_Evolution_Chain_Retrieve.Definition);
          Swagger.Servers.Register (Server, API_Evolution_Trigger_List.Definition);
@@ -9053,18 +8969,6 @@ package body .Skeletons is
                 Result,
                 Context);
          end Encounter_Method_Retrieve;
-
-         --  Get pokemon encounter
-         procedure Pokemon_Encounters_Retrieve
-            (Pokemon_Id : in Swagger.UString;
-             Result : out .Models.PokemonEncountersRetrieve200ResponseInner_Type_Vectors.Vector;
-             Context : in out Swagger.Servers.Context_Type) is
-         begin
-            Impl.Pokemon_Encounters_Retrieve
-               (Pokemon_Id,
-                Result,
-                Context);
-         end Pokemon_Encounters_Retrieve;
 
          --  List evolution chains
          procedure Evolution_Chain_List

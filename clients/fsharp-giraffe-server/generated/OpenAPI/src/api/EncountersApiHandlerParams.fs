@@ -6,7 +6,6 @@ open OpenAPI.Model.EncounterMethodDetail
 open OpenAPI.Model.PaginatedEncounterConditionSummaryList
 open OpenAPI.Model.PaginatedEncounterConditionValueSummaryList
 open OpenAPI.Model.PaginatedEncounterMethodSummaryList
-open OpenAPI.Model.PokemonEncountersRetrieve200ResponseInner
 open System.Collections.Generic
 open System
 
@@ -137,21 +136,4 @@ module EncountersApiHandlerParams =
 
     type EncounterMethodRetrieveArgs = {
       pathParams:EncounterMethodRetrievePathParams;
-    }
-    //#region Path parameters
-    [<CLIMutable>]
-    type PokemonEncountersRetrievePathParams = {
-      pokemonId : string ;
-    }
-    //#endregion
-
-
-    type PokemonEncountersRetrieveStatusCode200Response = {
-      content:PokemonEncountersRetrieve200ResponseInner[];
-      
-    }
-    type PokemonEncountersRetrieveResult = PokemonEncountersRetrieveStatusCode200 of PokemonEncountersRetrieveStatusCode200Response
-
-    type PokemonEncountersRetrieveArgs = {
-      pathParams:PokemonEncountersRetrievePathParams;
     }

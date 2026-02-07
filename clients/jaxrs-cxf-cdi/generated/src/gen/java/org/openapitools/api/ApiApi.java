@@ -86,7 +86,6 @@ import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
 import org.openapitools.model.PokemonDetail;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 import org.openapitools.model.PokemonFormDetail;
 import org.openapitools.model.PokemonHabitatDetail;
 import org.openapitools.model.PokemonShapeDetail;
@@ -123,7 +122,7 @@ import javax.validation.Valid;
 @Api
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2026-02-07T04:17:37.250579205Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2026-02-07T15:23:48.055342879Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 
 public class ApiApi  {
 
@@ -1314,22 +1313,6 @@ public class ApiApi  {
         @ApiResponse(code = 200, message = "", response = PokemonColorDetail.class) })
     public Response pokemonColorRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true) @PathParam("id") String id) {
         return delegate.pokemonColorRetrieve(id, securityContext);
-    }
-
-    @GET
-    @Path("/pokemon/{pokemon_id}/encounters")
-    
-    @Produces({ "application/json" })
-    @ApiOperation(value = "Get pokemon encounter", notes = "Handles Pokemon Encounters as a sub-resource.", response = PokemonEncountersRetrieve200ResponseInner.class, responseContainer = "List", authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "encounters" })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "", response = PokemonEncountersRetrieve200ResponseInner.class, responseContainer = "List") })
-    public Response pokemonEncountersRetrieve( @Pattern(regexp="^\\d+$")@ApiParam(value = "",required=true) @PathParam("pokemon_id") String pokemonId) {
-        return delegate.pokemonEncountersRetrieve(pokemonId, securityContext);
     }
 
     @GET

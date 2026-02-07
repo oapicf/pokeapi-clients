@@ -305,45 +305,4 @@ class EncountersController extends Controller
         // This shouldn't happen
         return response()->abort(500);
     }
-    /**
-     * Operation pokemonEncountersRetrieve
-     *
-     * Get pokemon encounter.
-     *
-     */
-    public function pokemonEncountersRetrieve(Request $request, string $pokemonId): JsonResponse
-    {
-        $validator = Validator::make(
-            array_merge(
-                [
-                    'pokemonId' => $pokemonId,
-                ],
-                $request->all(),
-            ),
-            [
-                'pokemonId' => [
-                    'required',
-                    'regex:/^\\d+$/',
-                    'string',
-                ],
-            ],
-        );
-
-        if ($validator->fails()) {
-            return response()->json(['error' => 'Invalid input'], 400);
-        }
-
-
-
-        $apiResult = $this->api->pokemonEncountersRetrieve($pokemonId);
-
-        if (is_array($apiResult)) {
-            $serialized = array_map(fn ($item) => $this->serde->serialize($item, format: 'array'), $apiResult);
-            return response()->json($serialized, 200);
-        }
-
-
-        // This shouldn't happen
-        return response()->abort(500);
-    }
 }

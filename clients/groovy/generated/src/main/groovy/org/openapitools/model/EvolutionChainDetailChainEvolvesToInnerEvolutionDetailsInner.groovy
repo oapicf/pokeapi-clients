@@ -15,9 +15,9 @@ class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     
     EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item
     
-    Object knownMove = null
+    Object knownMove
     
-    Object knownMoveType = null
+    Object knownMoveType
     
     EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location
     

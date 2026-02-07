@@ -265,13 +265,6 @@ namespace Org.OpenAPITools.Client
             _jsonOptions.Converters.Add(new PokemonDetailSpritesJsonConverter());
             _jsonOptions.Converters.Add(new PokemonDetailTypesInnerJsonConverter());
             _jsonOptions.Converters.Add(new PokemonDexEntryJsonConverter());
-            _jsonOptions.Converters.Add(new PokemonEncountersRetrieve200ResponseInnerJsonConverter());
-            _jsonOptions.Converters.Add(new PokemonEncountersRetrieve200ResponseInnerLocationAreaJsonConverter());
-            _jsonOptions.Converters.Add(new PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerJsonConverter());
-            _jsonOptions.Converters.Add(new PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerJsonConverter());
-            _jsonOptions.Converters.Add(new PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInnerJsonConverter());
-            _jsonOptions.Converters.Add(new PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethodJsonConverter());
-            _jsonOptions.Converters.Add(new PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersionJsonConverter());
             _jsonOptions.Converters.Add(new PokemonFormDetailJsonConverter());
             _jsonOptions.Converters.Add(new PokemonFormDetailFormNamesInnerJsonConverter());
             _jsonOptions.Converters.Add(new PokemonFormDetailSpritesJsonConverter());

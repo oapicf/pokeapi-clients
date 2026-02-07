@@ -87,7 +87,6 @@ _()
     operations["encounterConditionValueRetrieve"]=1
     operations["encounterMethodList"]=1
     operations["encounterMethodRetrieve"]=1
-    operations["pokemonEncountersRetrieve"]=1
     operations["evolutionChainList"]=1
     operations["evolutionChainRetrieve"]=1
     operations["evolutionTriggerList"]=1
@@ -188,7 +187,6 @@ _()
     operation_parameters["encounterConditionValueRetrieve"]="id= "
     operation_parameters["encounterMethodList"]="limit= offset= q= "
     operation_parameters["encounterMethodRetrieve"]="id= "
-    operation_parameters["pokemonEncountersRetrieve"]="pokemon_id= "
     operation_parameters["evolutionChainList"]="limit= offset= q= "
     operation_parameters["evolutionChainRetrieve"]="id= "
     operation_parameters["evolutionTriggerList"]="limit= offset= q= "

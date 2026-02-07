@@ -148,13 +148,6 @@ pub enum EncounterMethodRetrieveResponse {
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PokemonEncountersRetrieveResponse {
-    /// 
-    Status200
-    (Vec<models::PokemonEncountersRetrieve200ResponseInner>)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub enum EvolutionChainListResponse {
     /// 
     Status200
@@ -830,12 +823,6 @@ pub trait Api<C: Send + Sync> {
         &self,
         id: String,
         context: &C) -> Result<EncounterMethodRetrieveResponse, ApiError>;
-
-    /// Get pokemon encounter
-    async fn pokemon_encounters_retrieve(
-        &self,
-        pokemon_id: String,
-        context: &C) -> Result<PokemonEncountersRetrieveResponse, ApiError>;
 
     /// List evolution chains
     async fn evolution_chain_list(
@@ -1519,12 +1506,6 @@ pub trait ApiNoContext<C: Send + Sync> {
         &self,
         id: String,
         ) -> Result<EncounterMethodRetrieveResponse, ApiError>;
-
-    /// Get pokemon encounter
-    async fn pokemon_encounters_retrieve(
-        &self,
-        pokemon_id: String,
-        ) -> Result<PokemonEncountersRetrieveResponse, ApiError>;
 
     /// List evolution chains
     async fn evolution_chain_list(
@@ -2286,16 +2267,6 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
     {
         let context = self.context().clone();
         self.api().encounter_method_retrieve(id, &context).await
-    }
-
-    /// Get pokemon encounter
-    async fn pokemon_encounters_retrieve(
-        &self,
-        pokemon_id: String,
-        ) -> Result<PokemonEncountersRetrieveResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pokemon_encounters_retrieve(pokemon_id, &context).await
     }
 
     /// List evolution chains

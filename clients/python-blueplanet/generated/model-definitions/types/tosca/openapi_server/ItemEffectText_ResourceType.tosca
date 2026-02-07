@@ -1,0 +1,46 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ItemEffectText"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ItemEffectText"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  LanguageSummary = openapi_server.resourceTypes.LanguageSummary
+}
+resourceTypes {
+
+  ItemEffectText {
+    title = ItemEffectText
+    description = ItemEffectText
+    derivedFrom = Root
+    properties {
+        effect {
+          type =  string
+          description = ""
+          optional = true
+        }
+        short_effect {
+          type =  string
+          description = ""
+          optional = true
+        }
+        language {
+          type = LanguageSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ItemEffectText {
+    title = ItemEffectText
+    description = ItemEffectText
+    implements = openapi_server.resourceTypes.ItemEffectText
+
+  }
+}

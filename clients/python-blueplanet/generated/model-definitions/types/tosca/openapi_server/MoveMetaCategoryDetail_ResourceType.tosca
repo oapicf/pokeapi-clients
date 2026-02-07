@@ -1,0 +1,54 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server MoveMetaCategoryDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a MoveMetaCategoryDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+  MoveMetaCategoryDescription = openapi_server.resourceTypes.MoveMetaCategoryDescription
+}
+resourceTypes {
+
+  MoveMetaCategoryDetail {
+    title = MoveMetaCategoryDetail
+    description = MoveMetaCategoryDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        descriptions {
+          type = array
+          items.type = MoveMetaCategoryDescription
+          description = ""
+          optional = true
+        }
+        moves {
+          type = array
+          items.type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  MoveMetaCategoryDetail {
+    title = MoveMetaCategoryDetail
+    description = MoveMetaCategoryDetail
+    implements = openapi_server.resourceTypes.MoveMetaCategoryDetail
+
+  }
+}

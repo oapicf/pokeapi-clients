@@ -17,7 +17,6 @@ import { AuthStorage } from './AuthStorage';
 import {
   PaginatedEncounterConditionSummaryList,
   PaginatedEncounterMethodSummaryList,
-  PokemonEncountersRetrieve200ResponseInner,
   EncounterConditionValueDetail,
   PaginatedEncounterConditionValueSummaryList,
   EncounterMethodDetail,
@@ -70,13 +69,6 @@ export interface IEncounterMethodListParams {
  */
 export interface IEncounterMethodRetrieveParams {
   id: string;
-}
-
-/**
- * pokemonEncountersRetrieve - parameters interface
- */
-export interface IPokemonEncountersRetrieveParams {
-  pokemonId: string;
 }
 
 /**
@@ -275,36 +267,6 @@ export class EncountersApi extends Api {
     // Create URL to call
     const url = `${this.basePath}/api/v2/encounter-method/{id}/`
       .replace(`{${'id'}}`, encodeURIComponent(`${params['id']}`));
-
-    const response = await this.httpClient.createRequest(url)
-      // Set HTTP method
-      .asGet()
-
-      // Authentication 'basicAuth' required
-      // Authentication 'cookieAuth' required
-      // Send the request
-      .send();
-
-    if (response.statusCode < 200 || response.statusCode >= 300) {
-      throw new Error(response.content);
-    }
-
-    // Extract the content
-    return response.content;
-  }
-
-  /**
-   * Get pokemon encounter
-   * Handles Pokemon Encounters as a sub-resource.
-   * @param params.pokemonId 
-   */
-  async pokemonEncountersRetrieve(params: IPokemonEncountersRetrieveParams): Promise<Array<PokemonEncountersRetrieve200ResponseInner>> {
-    // Verify required parameters are set
-    this.ensureParamIsSet('pokemonEncountersRetrieve', params, 'pokemonId');
-
-    // Create URL to call
-    const url = `${this.basePath}/api/v2/pokemon/{pokemon_id}/encounters`
-      .replace(`{${'pokemon_id'}}`, encodeURIComponent(`${params['pokemonId']}`));
 
     const response = await this.httpClient.createRequest(url)
       // Set HTTP method

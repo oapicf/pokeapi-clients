@@ -11,4 +11,3 @@ val encounter_condition_value_list : ?limit:int32 -> ?offset:int32 -> ?q:string 
 val encounter_condition_value_retrieve : id:string -> Encounter_condition_value_detail.t Lwt.t
 val encounter_method_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_encounter_method_summary_list.t Lwt.t
 val encounter_method_retrieve : id:string -> Encounter_method_detail.t Lwt.t
-val pokemon_encounters_retrieve : pokemon_id:string -> Pokemon_encounters_retrieve_200_response_inner.t list Lwt.t

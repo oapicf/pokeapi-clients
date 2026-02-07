@@ -10,7 +10,6 @@ All URIs are relative to *https://pokeapi.co*
 | [**encounterConditionValueRetrieve**](EncountersApi.md#encounterConditionValueRetrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value |
 | [**encounterMethodList**](EncountersApi.md#encounterMethodList) | **GET** /api/v2/encounter-method/ | List encounter methods |
 | [**encounterMethodRetrieve**](EncountersApi.md#encounterMethodRetrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method |
-| [**pokemonEncountersRetrieve**](EncountersApi.md#pokemonEncountersRetrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter |
 
 
 <a name="encounterConditionList"></a>
@@ -171,33 +170,6 @@ Get encounter method
 ### Return type
 
 [**EncounterMethodDetail**](../Models/EncounterMethodDetail.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-<a name="pokemonEncountersRetrieve"></a>
-# **pokemonEncountersRetrieve**
-> List pokemonEncountersRetrieve(pokemon\_id)
-
-Get pokemon encounter
-
-    Handles Pokemon Encounters as a sub-resource.
-
-### Parameters
-
-|Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **pokemon\_id** | **String**|  | [default to null] |
-
-### Return type
-
-[**List**](../Models/pokemon_encounters_retrieve_200_response_inner.md)
 
 ### Authorization
 

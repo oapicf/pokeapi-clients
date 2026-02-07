@@ -128,17 +128,5 @@ namespace Org.OpenAPITools.Test.Api
             var model = response.Ok();
             Assert.IsType<EncounterMethodDetail>(model);
         }
-
-        /// <summary>
-        /// Test PokemonEncountersRetrieve
-        /// </summary>
-        [Fact (Skip = "not implemented")]
-        public async Task PokemonEncountersRetrieveAsyncTest()
-        {
-            string pokemonId = default!;
-            var response = await _instance.PokemonEncountersRetrieveAsync(pokemonId);
-            var model = response.Ok();
-            Assert.IsType<List<PokemonEncountersRetrieve200ResponseInner>>(model);
-        }
     }
 }

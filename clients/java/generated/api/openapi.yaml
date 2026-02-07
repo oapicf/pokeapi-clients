@@ -3835,37 +3835,6 @@ paths:
       - games
       x-accepts:
       - application/json
-  /api/v2/pokemon/{pokemon_id}/encounters:
-    get:
-      description: Handles Pokemon Encounters as a sub-resource.
-      operationId: pokemon_encounters_retrieve
-      parameters:
-      - explode: false
-        in: path
-        name: pokemon_id
-        required: true
-        schema:
-          pattern: ^\d+$
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: "#/components/schemas/pokemon_encounters_retrieve_200_response_inner"
-                type: array
-          description: ""
-      security:
-      - cookieAuth: []
-      - basicAuth: []
-      - {}
-      summary: Get pokemon encounter
-      tags:
-      - encounters
-      x-accepts:
-      - application/json
 components:
   schemas:
     AbilityChange:
@@ -4835,7 +4804,7 @@ components:
               held_item:
                 name: name
                 url: https://openapi-generator.tech
-              known_move: ""
+              known_move: "{}"
               min_beauty: 1
               trade_species: trade_species
               trigger:
@@ -4844,7 +4813,7 @@ components:
               needs_overworld_rain: true
               party_species: party_species
               min_affection: 6
-              known_move_type: ""
+              known_move_type: "{}"
               time_of_day: time_of_day
               location:
                 name: name
@@ -4863,7 +4832,7 @@ components:
               held_item:
                 name: name
                 url: https://openapi-generator.tech
-              known_move: ""
+              known_move: "{}"
               min_beauty: 1
               trade_species: trade_species
               trigger:
@@ -4872,7 +4841,7 @@ components:
               needs_overworld_rain: true
               party_species: party_species
               min_affection: 6
-              known_move_type: ""
+              known_move_type: "{}"
               time_of_day: time_of_day
               location:
                 name: name
@@ -4896,7 +4865,7 @@ components:
               held_item:
                 name: name
                 url: https://openapi-generator.tech
-              known_move: ""
+              known_move: "{}"
               min_beauty: 1
               trade_species: trade_species
               trigger:
@@ -4905,7 +4874,7 @@ components:
               needs_overworld_rain: true
               party_species: party_species
               min_affection: 6
-              known_move_type: ""
+              known_move_type: "{}"
               time_of_day: time_of_day
               location:
                 name: name
@@ -4924,7 +4893,7 @@ components:
               held_item:
                 name: name
                 url: https://openapi-generator.tech
-              known_move: ""
+              known_move: "{}"
               min_beauty: 1
               trade_species: trade_species
               trigger:
@@ -4933,7 +4902,7 @@ components:
               needs_overworld_rain: true
               party_species: party_species
               min_affection: 6
-              known_move_type: ""
+              known_move_type: "{}"
               time_of_day: time_of_day
               location:
                 name: name
@@ -10384,214 +10353,6 @@ components:
       required:
       - name
       - url
-    pokemon_encounters_retrieve_200_response_inner_location_area:
-      example:
-        name: cerulean-city-area
-        url: https://pokeapi.co/api/v2/location-area/281/
-      properties:
-        name:
-          example: cerulean-city-area
-          type: string
-        url:
-          example: https://pokeapi.co/api/v2/location-area/281/
-          format: uri
-          type: string
-      required:
-      - name
-      - url
-    pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner:
-      example:
-        name: story-progress-beat-red
-        url: https://pokeapi.co/api/v2/encounter-condition-value/55/
-      properties:
-        name:
-          example: story-progress-beat-red
-          type: string
-        url:
-          example: https://pokeapi.co/api/v2/encounter-condition-value/55/
-          format: uri
-          type: string
-      required:
-      - name
-      - url
-    pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method:
-      example:
-        name: gift
-        url: https://pokeapi.co/api/v2/encounter-method/18/
-      properties:
-        name:
-          example: gift
-          type: string
-        url:
-          example: https://pokeapi.co/api/v2/encounter-method/18/
-          format: uri
-          type: string
-      required:
-      - name
-      - url
-    pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner:
-      example:
-        condition_values:
-        - name: story-progress-beat-red
-          url: https://pokeapi.co/api/v2/encounter-condition-value/55/
-        - name: story-progress-beat-red
-          url: https://pokeapi.co/api/v2/encounter-condition-value/55/
-        chance: 100
-        method:
-          name: gift
-          url: https://pokeapi.co/api/v2/encounter-method/18/
-        max_level: 10
-        min_level: 10
-      properties:
-        chance:
-          example: 100
-          type: number
-        condition_values:
-          items:
-            $ref: "#/components/schemas/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner"
-          type: array
-        max_level:
-          example: 10
-          type: number
-        method:
-          $ref: "#/components/schemas/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method"
-        min_level:
-          example: 10
-          type: number
-      required:
-      - chance
-      - condition_values
-      - max_level
-      - method
-      - min_level
-    pokemon_encounters_retrieve_200_response_inner_version_details_inner_version:
-      example:
-        name: red
-        url: https://pokeapi.co/api/v2/version/1/
-      properties:
-        name:
-          example: red
-          type: string
-        url:
-          example: https://pokeapi.co/api/v2/version/1/
-          format: uri
-          type: string
-      required:
-      - name
-      - url
-    pokemon_encounters_retrieve_200_response_inner_version_details_inner:
-      example:
-        max_chance: 100
-        encounter_details:
-        - condition_values:
-          - name: story-progress-beat-red
-            url: https://pokeapi.co/api/v2/encounter-condition-value/55/
-          - name: story-progress-beat-red
-            url: https://pokeapi.co/api/v2/encounter-condition-value/55/
-          chance: 100
-          method:
-            name: gift
-            url: https://pokeapi.co/api/v2/encounter-method/18/
-          max_level: 10
-          min_level: 10
-        - condition_values:
-          - name: story-progress-beat-red
-            url: https://pokeapi.co/api/v2/encounter-condition-value/55/
-          - name: story-progress-beat-red
-            url: https://pokeapi.co/api/v2/encounter-condition-value/55/
-          chance: 100
-          method:
-            name: gift
-            url: https://pokeapi.co/api/v2/encounter-method/18/
-          max_level: 10
-          min_level: 10
-        version:
-          name: red
-          url: https://pokeapi.co/api/v2/version/1/
-      properties:
-        encounter_details:
-          items:
-            $ref: "#/components/schemas/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner"
-          type: array
-        max_chance:
-          example: 100
-          type: number
-        version:
-          $ref: "#/components/schemas/pokemon_encounters_retrieve_200_response_inner_version_details_inner_version"
-      required:
-      - encounter_details
-      - max_chance
-      - version
-    pokemon_encounters_retrieve_200_response_inner:
-      example:
-        version_details:
-        - max_chance: 100
-          encounter_details:
-          - condition_values:
-            - name: story-progress-beat-red
-              url: https://pokeapi.co/api/v2/encounter-condition-value/55/
-            - name: story-progress-beat-red
-              url: https://pokeapi.co/api/v2/encounter-condition-value/55/
-            chance: 100
-            method:
-              name: gift
-              url: https://pokeapi.co/api/v2/encounter-method/18/
-            max_level: 10
-            min_level: 10
-          - condition_values:
-            - name: story-progress-beat-red
-              url: https://pokeapi.co/api/v2/encounter-condition-value/55/
-            - name: story-progress-beat-red
-              url: https://pokeapi.co/api/v2/encounter-condition-value/55/
-            chance: 100
-            method:
-              name: gift
-              url: https://pokeapi.co/api/v2/encounter-method/18/
-            max_level: 10
-            min_level: 10
-          version:
-            name: red
-            url: https://pokeapi.co/api/v2/version/1/
-        - max_chance: 100
-          encounter_details:
-          - condition_values:
-            - name: story-progress-beat-red
-              url: https://pokeapi.co/api/v2/encounter-condition-value/55/
-            - name: story-progress-beat-red
-              url: https://pokeapi.co/api/v2/encounter-condition-value/55/
-            chance: 100
-            method:
-              name: gift
-              url: https://pokeapi.co/api/v2/encounter-method/18/
-            max_level: 10
-            min_level: 10
-          - condition_values:
-            - name: story-progress-beat-red
-              url: https://pokeapi.co/api/v2/encounter-condition-value/55/
-            - name: story-progress-beat-red
-              url: https://pokeapi.co/api/v2/encounter-condition-value/55/
-            chance: 100
-            method:
-              name: gift
-              url: https://pokeapi.co/api/v2/encounter-method/18/
-            max_level: 10
-            min_level: 10
-          version:
-            name: red
-            url: https://pokeapi.co/api/v2/version/1/
-        location_area:
-          name: cerulean-city-area
-          url: https://pokeapi.co/api/v2/location-area/281/
-      properties:
-        location_area:
-          $ref: "#/components/schemas/pokemon_encounters_retrieve_200_response_inner_location_area"
-        version_details:
-          items:
-            $ref: "#/components/schemas/pokemon_encounters_retrieve_200_response_inner_version_details_inner"
-          type: array
-      required:
-      - location_area
-      - version_details
     AbilityDetail_pokemon_inner_pokemon:
       example:
         name: name
@@ -10723,7 +10484,7 @@ components:
         held_item:
           name: name
           url: https://openapi-generator.tech
-        known_move: ""
+        known_move: "{}"
         min_beauty: 1
         trade_species: trade_species
         trigger:
@@ -10732,7 +10493,7 @@ components:
         needs_overworld_rain: true
         party_species: party_species
         min_affection: 6
-        known_move_type: ""
+        known_move_type: "{}"
         time_of_day: time_of_day
         location:
           name: name
@@ -10746,10 +10507,10 @@ components:
         item:
           $ref: "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender"
         known_move:
-          type: ""
+          type: object
           nullable: true
         known_move_type:
-          type: ""
+          type: object
           nullable: true
         location:
           $ref: "#/components/schemas/EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender"
@@ -10825,7 +10586,7 @@ components:
           held_item:
             name: name
             url: https://openapi-generator.tech
-          known_move: ""
+          known_move: "{}"
           min_beauty: 1
           trade_species: trade_species
           trigger:
@@ -10834,7 +10595,7 @@ components:
           needs_overworld_rain: true
           party_species: party_species
           min_affection: 6
-          known_move_type: ""
+          known_move_type: "{}"
           time_of_day: time_of_day
           location:
             name: name
@@ -10853,7 +10614,7 @@ components:
           held_item:
             name: name
             url: https://openapi-generator.tech
-          known_move: ""
+          known_move: "{}"
           min_beauty: 1
           trade_species: trade_species
           trigger:
@@ -10862,7 +10623,7 @@ components:
           needs_overworld_rain: true
           party_species: party_species
           min_affection: 6
-          known_move_type: ""
+          known_move_type: "{}"
           time_of_day: time_of_day
           location:
             name: name
@@ -10908,7 +10669,7 @@ components:
             held_item:
               name: name
               url: https://openapi-generator.tech
-            known_move: ""
+            known_move: "{}"
             min_beauty: 1
             trade_species: trade_species
             trigger:
@@ -10917,7 +10678,7 @@ components:
             needs_overworld_rain: true
             party_species: party_species
             min_affection: 6
-            known_move_type: ""
+            known_move_type: "{}"
             time_of_day: time_of_day
             location:
               name: name
@@ -10936,7 +10697,7 @@ components:
             held_item:
               name: name
               url: https://openapi-generator.tech
-            known_move: ""
+            known_move: "{}"
             min_beauty: 1
             trade_species: trade_species
             trigger:
@@ -10945,7 +10706,7 @@ components:
             needs_overworld_rain: true
             party_species: party_species
             min_affection: 6
-            known_move_type: ""
+            known_move_type: "{}"
             time_of_day: time_of_day
             location:
               name: name
@@ -10969,7 +10730,7 @@ components:
             held_item:
               name: name
               url: https://openapi-generator.tech
-            known_move: ""
+            known_move: "{}"
             min_beauty: 1
             trade_species: trade_species
             trigger:
@@ -10978,7 +10739,7 @@ components:
             needs_overworld_rain: true
             party_species: party_species
             min_affection: 6
-            known_move_type: ""
+            known_move_type: "{}"
             time_of_day: time_of_day
             location:
               name: name
@@ -10997,7 +10758,7 @@ components:
             held_item:
               name: name
               url: https://openapi-generator.tech
-            known_move: ""
+            known_move: "{}"
             min_beauty: 1
             trade_species: trade_species
             trigger:
@@ -11006,7 +10767,7 @@ components:
             needs_overworld_rain: true
             party_species: party_species
             min_affection: 6
-            known_move_type: ""
+            known_move_type: "{}"
             time_of_day: time_of_day
             location:
               name: name

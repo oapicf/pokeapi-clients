@@ -131,14 +131,6 @@ open_api_server_encounters_encountermethodretrieve:
     requirements:
         id: '[a-z0-9]+'
 
-open_api_server_encounters_pokemonencountersretrieve:
-    path:     /api/v2/pokemon/{pokemon_id}/encounters
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.encounters::pokemonEncountersRetrieveAction
-    requirements:
-        pokemonId: '^\\d+$'
-
 # evolution
 open_api_server_evolution_evolutionchainlist:
     path:     /api/v2/evolution-chain/

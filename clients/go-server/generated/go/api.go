@@ -50,7 +50,6 @@ type EncountersAPIRouter interface {
 	EncounterConditionRetrieve(http.ResponseWriter, *http.Request)
 	EncounterConditionValueList(http.ResponseWriter, *http.Request)
 	EncounterConditionValueRetrieve(http.ResponseWriter, *http.Request)
-	PokemonEncountersRetrieve(http.ResponseWriter, *http.Request)
 }
 // EvolutionAPIRouter defines the required methods for binding the api requests to a responses for the EvolutionAPI
 // The EvolutionAPIRouter implementation should parse necessary information from the http request,
@@ -211,7 +210,6 @@ type EncountersAPIServicer interface {
 	EncounterConditionRetrieve(context.Context, string) (ImplResponse, error)
 	EncounterConditionValueList(context.Context, int32, int32, string) (ImplResponse, error)
 	EncounterConditionValueRetrieve(context.Context, string) (ImplResponse, error)
-	PokemonEncountersRetrieve(context.Context, string) (ImplResponse, error)
 }
 
 

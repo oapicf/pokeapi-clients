@@ -1,0 +1,53 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server MachineDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a MachineDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ItemSummary = openapi_server.resourceTypes.ItemSummary
+  MoveSummary = openapi_server.resourceTypes.MoveSummary
+  VersionGroupSummary = openapi_server.resourceTypes.VersionGroupSummary
+}
+resourceTypes {
+
+  MachineDetail {
+    title = MachineDetail
+    description = MachineDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        item {
+          type = ItemSummary
+          description = ""
+          optional = true
+        }
+        version_group {
+          type = VersionGroupSummary
+          description = ""
+          optional = true
+        }
+        move {
+          type = MoveSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  MachineDetail {
+    title = MachineDetail
+    description = MachineDetail
+    implements = openapi_server.resourceTypes.MachineDetail
+
+  }
+}

@@ -190,29 +190,4 @@ public class OASEncountersApi {
             OASEncounterMethodDetail.class
         );
     }
-    /**
-     * Get pokemon encounter
-     * Handles Pokemon Encounters as a sub-resource.
-     * @param pokemonId  (required)
-     * @return List<OASPokemonEncountersRetrieve200Respo>
-     * @throws OAS.ApiException if fails to make API call
-     */
-    public List<OASPokemonEncountersRetrieve200Respo> pokemonEncountersRetrieve(Map<String, Object> params) {
-        client.assertNotNull(params.get('pokemonId'), 'pokemonId');
-        List<OAS.Param> query = new List<OAS.Param>();
-        List<OAS.Param> form = new List<OAS.Param>();
-
-        return (List<OASPokemonEncountersRetrieve200Respo>) client.invoke(
-            'GET', '/api/v2/pokemon/{pokemon_id}/encounters', '',
-            query, form,
-            new Map<String, Object>{
-                'pokemon_id' => (String) params.get('pokemonId')
-            },
-            new Map<String, Object>(),
-            new List<String>{ 'application/json' },
-            new List<String>(),
-            new List<String> { 'basicAuth', 'cookieAuth' },
-            List<OASPokemonEncountersRetrieve200Respo>.class
-        );
-    }
 }

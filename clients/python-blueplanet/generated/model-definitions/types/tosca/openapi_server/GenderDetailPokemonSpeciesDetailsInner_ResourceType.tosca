@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server GenderDetailPokemonSpeciesDetailsInner"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a GenderDetailPokemonSpeciesDetailsInner"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+}
+resourceTypes {
+
+  GenderDetailPokemonSpeciesDetailsInner {
+    title = GenderDetailPokemonSpeciesDetailsInner
+    description = GenderDetailPokemonSpeciesDetailsInner
+    derivedFrom = Root
+    properties {
+        rate {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        pokemon_species {
+          type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  GenderDetailPokemonSpeciesDetailsInner {
+    title = GenderDetailPokemonSpeciesDetailsInner
+    description = GenderDetailPokemonSpeciesDetailsInner
+    implements = openapi_server.resourceTypes.GenderDetailPokemonSpeciesDetailsInner
+
+  }
+}

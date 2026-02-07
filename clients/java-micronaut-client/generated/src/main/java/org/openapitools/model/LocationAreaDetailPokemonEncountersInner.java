@@ -35,7 +35,7 @@ import javax.annotation.Generated;
   LocationAreaDetailPokemonEncountersInner.JSON_PROPERTY_VERSION_DETAILS
 })
 @JsonTypeName("LocationAreaDetail_pokemon_encounters_inner")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T04:16:49.114765561Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Introspected
 public class LocationAreaDetailPokemonEncountersInner {
     public static final String JSON_PROPERTY_POKEMON = "pokemon";

@@ -21,7 +21,6 @@
 #include "OpenAPIPaginatedEncounterConditionSummaryList.h"
 #include "OpenAPIPaginatedEncounterConditionValueSummaryList.h"
 #include "OpenAPIPaginatedEncounterMethodSummaryList.h"
-#include "OpenAPIPokemonEncountersRetrieve200ResponseInner.h"
 
 namespace OpenAPI
 {
@@ -186,30 +185,6 @@ public:
 	bool FromJson(const TSharedPtr<FJsonValue>& JsonValue) final;
 
     OpenAPIEncounterMethodDetail Content;
-};
-
-/* Get pokemon encounter
- *
- * Handles Pokemon Encounters as a sub-resource.
-*/
-class OPENAPI_API OpenAPIEncountersApi::PokemonEncountersRetrieveRequest : public Request
-{
-public:
-    virtual ~PokemonEncountersRetrieveRequest() {}
-	void SetupHttpRequest(const FHttpRequestRef& HttpRequest) const final;
-	FString ComputePath() const final;
-
-	FString PokemonId;
-};
-
-class OPENAPI_API OpenAPIEncountersApi::PokemonEncountersRetrieveResponse : public Response
-{
-public:
-    virtual ~PokemonEncountersRetrieveResponse() {}
-	void SetHttpResponseCode(EHttpResponseCodes::Type InHttpResponseCode) final;
-	bool FromJson(const TSharedPtr<FJsonValue>& JsonValue) final;
-
-    TArray<OpenAPIPokemonEncountersRetrieve200ResponseInner> Content;
 };
 
 }

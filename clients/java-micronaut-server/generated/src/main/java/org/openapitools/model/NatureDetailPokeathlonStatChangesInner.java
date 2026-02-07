@@ -32,7 +32,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   NatureDetailPokeathlonStatChangesInner.JSON_PROPERTY_POKEATHLON_STAT
 })
 @JsonTypeName("NatureDetail_pokeathlon_stat_changes_inner")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T04:16:54.641403954Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Introspected
 public class NatureDetailPokeathlonStatChangesInner {
     public static final String JSON_PROPERTY_MAX_CHANGE = "max_change";

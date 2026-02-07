@@ -112,7 +112,6 @@ Class | Method | HTTP request | Description
 *OpenAPIClient.APIs.EncountersApi* | [**EncounterConditionValueRetrieve**](EncountersApi.md#encounterconditionvalueretrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 *OpenAPIClient.APIs.EncountersApi* | [**EncounterMethodList**](EncountersApi.md#encountermethodlist) | **GET** /api/v2/encounter-method/ | List encounter methods
 *OpenAPIClient.APIs.EncountersApi* | [**EncounterMethodRetrieve**](EncountersApi.md#encountermethodretrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-*OpenAPIClient.APIs.EncountersApi* | [**PokemonEncountersRetrieve**](EncountersApi.md#pokemonencountersretrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 *OpenAPIClient.APIs.EvolutionApi* | [**EvolutionChainList**](EvolutionApi.md#evolutionchainlist) | **GET** /api/v2/evolution-chain/ | List evolution chains
 *OpenAPIClient.APIs.EvolutionApi* | [**EvolutionChainRetrieve**](EvolutionApi.md#evolutionchainretrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 *OpenAPIClient.APIs.EvolutionApi* | [**EvolutionTriggerList**](EvolutionApi.md#evolutiontriggerlist) | **GET** /api/v2/evolution-trigger/ | List evolution triggers
@@ -416,13 +415,6 @@ Class | Method | HTTP request | Description
  - [OpenAPIClient.Models.PokemonDetailSprites](PokemonDetailSprites.md)
  - [OpenAPIClient.Models.PokemonDetailTypesInner](PokemonDetailTypesInner.md)
  - [OpenAPIClient.Models.PokemonDexEntry](PokemonDexEntry.md)
- - [OpenAPIClient.Models.PokemonEncountersRetrieve200ResponseInner](PokemonEncountersRetrieve200ResponseInner.md)
- - [OpenAPIClient.Models.PokemonEncountersRetrieve200ResponseInnerLocationArea](PokemonEncountersRetrieve200ResponseInnerLocationArea.md)
- - [OpenAPIClient.Models.PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner](PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.md)
- - [OpenAPIClient.Models.PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner](PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.md)
- - [OpenAPIClient.Models.PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner](PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner.md)
- - [OpenAPIClient.Models.PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod](PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod.md)
- - [OpenAPIClient.Models.PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion](PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.md)
  - [OpenAPIClient.Models.PokemonFormDetail](PokemonFormDetail.md)
  - [OpenAPIClient.Models.PokemonFormDetailFormNamesInner](PokemonFormDetailFormNamesInner.md)
  - [OpenAPIClient.Models.PokemonFormDetailSprites](PokemonFormDetailSprites.md)

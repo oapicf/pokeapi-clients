@@ -29,7 +29,6 @@ import org.openapitools.model.ItemDetail;
 import org.openapitools.model.ItemFlingEffectDetail;
 import org.openapitools.model.ItemPocketDetail;
 import org.openapitools.model.LanguageDetail;
-import java.util.List;
 import org.openapitools.model.LocationAreaDetail;
 import org.openapitools.model.LocationDetail;
 import org.openapitools.model.MachineDetail;
@@ -94,7 +93,6 @@ import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
 import org.openapitools.model.PokemonDetail;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 import org.openapitools.model.PokemonFormDetail;
 import org.openapitools.model.PokemonHabitatDetail;
 import org.openapitools.model.PokemonShapeDetail;
@@ -123,7 +121,7 @@ import javax.ws.rs.*;
 
 
 @io.swagger.annotations.Api(description = "the api API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T04:17:01.559585484Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class ApiApi  {
    private final ApiApiService delegate = ApiApiServiceFactory.getApiApi();
 
@@ -1309,21 +1307,6 @@ public class ApiApi  {
 )
     throws NotFoundException {
         return delegate.pokemonColorRetrieve(id);
-    }
-    @GET
-    @Path("/pokemon/{pokemon_id}/encounters")
-    
-    @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Get pokemon encounter", notes = "Handles Pokemon Encounters as a sub-resource.", response = PokemonEncountersRetrieve200ResponseInner.class, responseContainer = "List", authorizations = {
-        @io.swagger.annotations.Authorization(value = "basicAuth"),
-        @io.swagger.annotations.Authorization(value = "cookieAuth")
-    }, tags={ "encounters", })
-    @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "", response = PokemonEncountersRetrieve200ResponseInner.class, responseContainer = "List") })
-    public Response pokemonEncountersRetrieve(@ApiParam(value = "",required=true) @PathParam("pokemon_id") String pokemonId
-)
-    throws NotFoundException {
-        return delegate.pokemonEncountersRetrieve(pokemonId);
     }
     @GET
     @Path("/pokemon-form/")

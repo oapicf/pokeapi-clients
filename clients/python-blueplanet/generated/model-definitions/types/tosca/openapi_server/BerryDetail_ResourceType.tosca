@@ -1,0 +1,95 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server BerryDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a BerryDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  BerryDetailFlavorsInner = openapi_server.resourceTypes.BerryDetailFlavorsInner
+  BerryFirmnessSummary = openapi_server.resourceTypes.BerryFirmnessSummary
+  ItemSummary = openapi_server.resourceTypes.ItemSummary
+  TypeSummary = openapi_server.resourceTypes.TypeSummary
+}
+resourceTypes {
+
+  BerryDetail {
+    title = BerryDetail
+    description = BerryDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        growth_time {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        max_harvest {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        natural_gift_power {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        size {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        smoothness {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        soil_dryness {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        firmness {
+          type = BerryFirmnessSummary
+          description = ""
+          optional = true
+        }
+        flavors {
+          type = array
+          items.type = BerryDetailFlavorsInner
+          description = ""
+          optional = true
+        }
+        item {
+          type = ItemSummary
+          description = ""
+          optional = true
+        }
+        natural_gift_type {
+          type = TypeSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  BerryDetail {
+    title = BerryDetail
+    description = BerryDetail
+    implements = openapi_server.resourceTypes.BerryDetail
+
+  }
+}

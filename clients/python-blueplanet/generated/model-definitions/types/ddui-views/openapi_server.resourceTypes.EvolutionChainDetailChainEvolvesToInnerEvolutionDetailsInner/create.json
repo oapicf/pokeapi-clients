@@ -1,0 +1,34 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "gender" },
+      {"model": "held_item" },
+      {"model": "item" },
+      {"model": "known_move" },
+      {"model": "known_move_type" },
+      {"model": "location" },
+      {"model": "min_affection" },
+      {"model": "min_beauty" },
+      {"model": "min_happiness" },
+      {"model": "min_level" },
+      {"model": "needs_overworld_rain" },
+      {"model": "party_species" },
+      {"model": "party_type" },
+      {"model": "relative_physical_stats" },
+      {"model": "time_of_day" },
+      {"model": "trade_species" },
+      {"model": "trigger" },
+      {"model": "turn_upside_down" },
+    ]
+  }]
+}

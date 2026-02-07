@@ -1,0 +1,74 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server RegionDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a RegionDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+  GenerationSummary = openapi_server.resourceTypes.GenerationSummary
+  LocationSummary = openapi_server.resourceTypes.LocationSummary
+  PokedexSummary = openapi_server.resourceTypes.PokedexSummary
+  RegionName = openapi_server.resourceTypes.RegionName
+}
+resourceTypes {
+
+  RegionDetail {
+    title = RegionDetail
+    description = RegionDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        locations {
+          type = array
+          items.type = LocationSummary
+          description = ""
+          optional = true
+        }
+        main_generation {
+          type = GenerationSummary
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = RegionName
+          description = ""
+          optional = true
+        }
+        pokedexes {
+          type = array
+          items.type = PokedexSummary
+          description = ""
+          optional = true
+        }
+        version_groups {
+          type = array
+          items.type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RegionDetail {
+    title = RegionDetail
+    description = RegionDetail
+    implements = openapi_server.resourceTypes.RegionDetail
+
+  }
+}

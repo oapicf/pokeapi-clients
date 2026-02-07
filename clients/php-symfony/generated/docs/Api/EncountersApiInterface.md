@@ -10,7 +10,6 @@ Method | HTTP request | Description
 [**encounterConditionValueRetrieve**](EncountersApiInterface.md#encounterConditionValueRetrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 [**encounterMethodList**](EncountersApiInterface.md#encounterMethodList) | **GET** /api/v2/encounter-method/ | List encounter methods
 [**encounterMethodRetrieve**](EncountersApiInterface.md#encounterMethodRetrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-[**pokemonEncountersRetrieve**](EncountersApiInterface.md#pokemonEncountersRetrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 
 
 ## Service Declaration
@@ -390,68 +389,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OpenAPI\Server\Model\EncounterMethodDetail**](../Model/EncounterMethodDetail.md)
-
-### Authorization
-
-[basicAuth](../../README.md#basicAuth), [cookieAuth](../../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-## **pokemonEncountersRetrieve**
-> OpenAPI\Server\Model\PokemonEncountersRetrieve200ResponseInner pokemonEncountersRetrieve($pokemonId)
-
-Get pokemon encounter
-
-Handles Pokemon Encounters as a sub-resource.
-
-### Example Implementation
-```php
-<?php
-// src/Acme/MyBundle/Api/EncountersApiInterface.php
-
-namespace Acme\MyBundle\Api;
-
-use OpenAPI\Server\Api\EncountersApiInterface;
-
-class EncountersApi implements EncountersApiInterface
-{
-
-    /**
-     * Configure API key authorization: cookieAuth
-     */
-    public function setcookieAuth($apiKey)
-    {
-        // Retrieve logged in user from $apiKey ...
-    }
-
-    // ...
-
-    /**
-     * Implementation of EncountersApiInterface#pokemonEncountersRetrieve
-     */
-    public function pokemonEncountersRetrieve(string $pokemonId, int &$responseCode, array &$responseHeaders): array|object|null
-    {
-        // Implement the operation ...
-    }
-
-    // ...
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pokemonId** | **string**|  |
-
-### Return type
-
-[**OpenAPI\Server\Model\PokemonEncountersRetrieve200ResponseInner**](../Model/PokemonEncountersRetrieve200ResponseInner.md)
 
 ### Authorization
 

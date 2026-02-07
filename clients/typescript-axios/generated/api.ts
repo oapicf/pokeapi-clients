@@ -1231,38 +1231,6 @@ export interface PokemonDexEntry {
     'entry_number': number;
     'pokedex': PokedexSummary;
 }
-export interface PokemonEncountersRetrieve200ResponseInner {
-    'location_area': PokemonEncountersRetrieve200ResponseInnerLocationArea;
-    'version_details': Array<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner>;
-}
-export interface PokemonEncountersRetrieve200ResponseInnerLocationArea {
-    'name': string;
-    'url': string;
-}
-export interface PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner {
-    'encounter_details': Array<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner>;
-    'max_chance': number;
-    'version': PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion;
-}
-export interface PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner {
-    'chance': number;
-    'condition_values': Array<PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner>;
-    'max_level': number;
-    'method': PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod;
-    'min_level': number;
-}
-export interface PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner {
-    'name': string;
-    'url': string;
-}
-export interface PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod {
-    'name': string;
-    'url': string;
-}
-export interface PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion {
-    'name': string;
-    'url': string;
-}
 export interface PokemonFormDetail {
     'id': number;
     'name': string;
@@ -2881,46 +2849,6 @@ export const EncountersApiAxiosParamCreator = function (configuration?: Configur
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * Handles Pokemon Encounters as a sub-resource.
-         * @summary Get pokemon encounter
-         * @param {string} pokemonId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        pokemonEncountersRetrieve: async (pokemonId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'pokemonId' is not null or undefined
-            assertParamExists('pokemonEncountersRetrieve', 'pokemonId', pokemonId)
-            const localVarPath = `/api/v2/pokemon/{pokemon_id}/encounters`
-                .replace(`{${"pokemon_id"}}`, encodeURIComponent(String(pokemonId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication basicAuth required
-            // http basic authentication required
-            setBasicAuthToObject(localVarRequestOptions, configuration)
-
-            // authentication cookieAuth required
-
-            localVarHeaderParameter['Accept'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -3014,19 +2942,6 @@ export const EncountersApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['EncountersApi.encounterMethodRetrieve']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
-        /**
-         * Handles Pokemon Encounters as a sub-resource.
-         * @summary Get pokemon encounter
-         * @param {string} pokemonId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async pokemonEncountersRetrieve(pokemonId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PokemonEncountersRetrieve200ResponseInner>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.pokemonEncountersRetrieve(pokemonId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EncountersApi.pokemonEncountersRetrieve']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
     }
 };
 
@@ -3101,16 +3016,6 @@ export const EncountersApiFactory = function (configuration?: Configuration, bas
          */
         encounterMethodRetrieve(id: string, options?: RawAxiosRequestConfig): AxiosPromise<EncounterMethodDetail> {
             return localVarFp.encounterMethodRetrieve(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Handles Pokemon Encounters as a sub-resource.
-         * @summary Get pokemon encounter
-         * @param {string} pokemonId 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        pokemonEncountersRetrieve(pokemonId: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<PokemonEncountersRetrieve200ResponseInner>> {
-            return localVarFp.pokemonEncountersRetrieve(pokemonId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3189,17 +3094,6 @@ export class EncountersApi extends BaseAPI {
      */
     public encounterMethodRetrieve(id: string, options?: RawAxiosRequestConfig) {
         return EncountersApiFp(this.configuration).encounterMethodRetrieve(id, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Handles Pokemon Encounters as a sub-resource.
-     * @summary Get pokemon encounter
-     * @param {string} pokemonId 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public pokemonEncountersRetrieve(pokemonId: string, options?: RawAxiosRequestConfig) {
-        return EncountersApiFp(this.configuration).pokemonEncountersRetrieve(pokemonId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

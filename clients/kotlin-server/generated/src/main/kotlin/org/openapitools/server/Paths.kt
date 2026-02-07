@@ -161,13 +161,6 @@ object Paths {
     @Resource("/api/v2/encounter-method/{id}/") class encounterMethodRetrieve(val id: kotlin.String)
 
     /**
-     * Get pokemon encounter
-     * Handles Pokemon Encounters as a sub-resource.
-     * @param pokemonId  
-     */
-    @Resource("/api/v2/pokemon/{pokemon_id}/encounters") class pokemonEncountersRetrieve(val pokemonId: kotlin.String)
-
-    /**
      * List evolution chains
      * Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
      * @param limit Number of results to return per page. (optional)

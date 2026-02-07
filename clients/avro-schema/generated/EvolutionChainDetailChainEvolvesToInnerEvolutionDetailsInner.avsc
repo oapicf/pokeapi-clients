@@ -21,12 +21,12 @@
     },
     {
       "name": "known_move",
-      "type": "model.Object",
+      "type": "model.object",
       "doc": ""
     },
     {
       "name": "known_move_type",
-      "type": "model.Object",
+      "type": "model.object",
       "doc": ""
     },
     {

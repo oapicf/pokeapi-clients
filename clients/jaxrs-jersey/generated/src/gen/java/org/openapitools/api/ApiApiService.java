@@ -90,7 +90,6 @@ import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
 import org.openapitools.model.PokemonDetail;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 import org.openapitools.model.PokemonFormDetail;
 import org.openapitools.model.PokemonHabitatDetail;
 import org.openapitools.model.PokemonShapeDetail;
@@ -111,7 +110,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T04:17:42.118739260Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T15:23:51.865177194Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public abstract class ApiApiService {
     public abstract Response abilityList(Integer limit,Integer offset,String q,SecurityContext securityContext) throws NotFoundException;
     public abstract Response abilityRetrieve(String id,SecurityContext securityContext) throws NotFoundException;
@@ -187,7 +186,6 @@ public abstract class ApiApiService {
     public abstract Response pokedexRetrieve(String id,SecurityContext securityContext) throws NotFoundException;
     public abstract Response pokemonColorList(Integer limit,Integer offset,String q,SecurityContext securityContext) throws NotFoundException;
     public abstract Response pokemonColorRetrieve(String id,SecurityContext securityContext) throws NotFoundException;
-    public abstract Response pokemonEncountersRetrieve( @Pattern(regexp="^\\d+$")String pokemonId,SecurityContext securityContext) throws NotFoundException;
     public abstract Response pokemonFormList(Integer limit,Integer offset,String q,SecurityContext securityContext) throws NotFoundException;
     public abstract Response pokemonFormRetrieve(String id,SecurityContext securityContext) throws NotFoundException;
     public abstract Response pokemonHabitatList(Integer limit,Integer offset,String q,SecurityContext securityContext) throws NotFoundException;

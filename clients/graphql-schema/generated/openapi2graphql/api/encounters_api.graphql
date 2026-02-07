@@ -55,11 +55,5 @@ type query {
   # @return [EncounterMethodDetail]
   EncounterMethodRetrieve(Id_: String!): EncounterMethodDetail
 
-  # Get pokemon encounter
-  # Handles Pokemon Encounters as a sub-resource.
-  # @param String! pokemonId 
-  # @return [[PokemonEncountersRetrieve200ResponseInner]]
-  PokemonEncountersRetrieve(pokemonId: String!): [PokemonEncountersRetrieve200ResponseInner]
-
 }
 

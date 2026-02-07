@@ -36,7 +36,6 @@ use OpenAPI\Server\Model\EncounterMethodDetail;
 use OpenAPI\Server\Model\PaginatedEncounterConditionSummaryList;
 use OpenAPI\Server\Model\PaginatedEncounterConditionValueSummaryList;
 use OpenAPI\Server\Model\PaginatedEncounterMethodSummaryList;
-use OpenAPI\Server\Model\PokemonEncountersRetrieve200ResponseInner;
 
 /**
  * EncountersApiInterface Interface Doc Comment
@@ -177,23 +176,6 @@ interface EncountersApiInterface
      */
     public function encounterMethodRetrieve(
         string $id,
-        int &$responseCode,
-        array &$responseHeaders
-    ): array|object|null;
-
-    /**
-     * Operation pokemonEncountersRetrieve
-     *
-     * Get pokemon encounter
-     *
-     * @param  string $pokemonId   (required)
-     * @param  int     &$responseCode    The HTTP Response Code
-     * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
-     *
-     * @return array|object|null
-     */
-    public function pokemonEncountersRetrieve(
-        string $pokemonId,
         int &$responseCode,
         array &$responseHeaders
     ): array|object|null;

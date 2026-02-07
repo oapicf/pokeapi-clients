@@ -132,7 +132,6 @@ operation_parameters_minimum_occurrences["encounterMethodList:::limit"]=0
 operation_parameters_minimum_occurrences["encounterMethodList:::offset"]=0
 operation_parameters_minimum_occurrences["encounterMethodList:::q"]=0
 operation_parameters_minimum_occurrences["encounterMethodRetrieve:::id"]=1
-operation_parameters_minimum_occurrences["pokemonEncountersRetrieve:::pokemon_id"]=1
 operation_parameters_minimum_occurrences["evolutionChainList:::limit"]=0
 operation_parameters_minimum_occurrences["evolutionChainList:::offset"]=0
 operation_parameters_minimum_occurrences["evolutionChainList:::q"]=0
@@ -332,7 +331,6 @@ operation_parameters_maximum_occurrences["encounterMethodList:::limit"]=0
 operation_parameters_maximum_occurrences["encounterMethodList:::offset"]=0
 operation_parameters_maximum_occurrences["encounterMethodList:::q"]=0
 operation_parameters_maximum_occurrences["encounterMethodRetrieve:::id"]=0
-operation_parameters_maximum_occurrences["pokemonEncountersRetrieve:::pokemon_id"]=0
 operation_parameters_maximum_occurrences["evolutionChainList:::limit"]=0
 operation_parameters_maximum_occurrences["evolutionChainList:::offset"]=0
 operation_parameters_maximum_occurrences["evolutionChainList:::q"]=0
@@ -529,7 +527,6 @@ operation_parameters_collection_type["encounterMethodList:::limit"]=""
 operation_parameters_collection_type["encounterMethodList:::offset"]=""
 operation_parameters_collection_type["encounterMethodList:::q"]=""
 operation_parameters_collection_type["encounterMethodRetrieve:::id"]=""
-operation_parameters_collection_type["pokemonEncountersRetrieve:::pokemon_id"]=""
 operation_parameters_collection_type["evolutionChainList:::limit"]=""
 operation_parameters_collection_type["evolutionChainList:::offset"]=""
 operation_parameters_collection_type["evolutionChainList:::q"]=""
@@ -1107,7 +1104,6 @@ read -r -d '' ops <<EOF
   ${CYAN}encounterConditionValueRetrieve${OFF};Get encounter condition value (AUTH) (AUTH)
   ${CYAN}encounterMethodList${OFF};List encounter methods (AUTH) (AUTH)
   ${CYAN}encounterMethodRetrieve${OFF};Get encounter method (AUTH) (AUTH)
-  ${CYAN}pokemonEncountersRetrieve${OFF};Get pokemon encounter (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -1666,24 +1662,6 @@ print_encounterMethodRetrieve_help() {
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for pokemonEncountersRetrieve operation
-#
-##############################################################################
-print_pokemonEncountersRetrieve_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}pokemonEncountersRetrieve - Get pokemon encounter${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "Handles Pokemon Encounters as a sub-resource." | paste -sd' ' - | fold -sw 80
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}pokemon_id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: pokemon_id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -3953,42 +3931,6 @@ call_encounterMethodRetrieve() {
     local path
 
     if ! path=$(build_request_path "/api/v2/encounter-method/{id}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call pokemonEncountersRetrieve operation
-#
-##############################################################################
-call_pokemonEncountersRetrieve() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(pokemon_id)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(    )
-    local path
-
-    if ! path=$(build_request_path "/api/v2/pokemon/{pokemon_id}/encounters" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6969,9 +6911,6 @@ case $key in
     encounterMethodRetrieve)
     operation="encounterMethodRetrieve"
     ;;
-    pokemonEncountersRetrieve)
-    operation="pokemonEncountersRetrieve"
-    ;;
     evolutionChainList)
     operation="evolutionChainList"
     ;;
@@ -7346,9 +7285,6 @@ case $operation in
     ;;
     encounterMethodRetrieve)
     call_encounterMethodRetrieve
-    ;;
-    pokemonEncountersRetrieve)
-    call_pokemonEncountersRetrieve
     ;;
     evolutionChainList)
     call_evolutionChainList

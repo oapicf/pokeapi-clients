@@ -1,0 +1,35 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server EvolutionChainSummary"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a EvolutionChainSummary"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  EvolutionChainSummary {
+    title = EvolutionChainSummary
+    description = EvolutionChainSummary
+    derivedFrom = Root
+    properties {
+        url {
+          type =  string
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  EvolutionChainSummary {
+    title = EvolutionChainSummary
+    description = EvolutionChainSummary
+    implements = openapi_server.resourceTypes.EvolutionChainSummary
+
+  }
+}

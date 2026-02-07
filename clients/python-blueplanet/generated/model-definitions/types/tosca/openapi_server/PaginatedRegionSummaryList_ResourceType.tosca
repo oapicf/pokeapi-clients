@@ -1,0 +1,52 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PaginatedRegionSummaryList"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PaginatedRegionSummaryList"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  RegionSummary = openapi_server.resourceTypes.RegionSummary
+}
+resourceTypes {
+
+  PaginatedRegionSummaryList {
+    title = PaginatedRegionSummaryList
+    description = PaginatedRegionSummaryList
+    derivedFrom = Root
+    properties {
+        count {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        next {
+          type =  string
+          description = ""
+          optional = false
+        }
+        previous {
+          type =  string
+          description = ""
+          optional = false
+        }
+        results {
+          type = array
+          items.type = RegionSummary
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PaginatedRegionSummaryList {
+    title = PaginatedRegionSummaryList
+    description = PaginatedRegionSummaryList
+    implements = openapi_server.resourceTypes.PaginatedRegionSummaryList
+
+  }
+}

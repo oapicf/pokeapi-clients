@@ -29,7 +29,7 @@ To see how to make this your own, look here:
 [README]((https://openapi-generator.tech))
 
 - API version: 2.7.0
-- Build date: 2026-02-07T04:21:39.648588338Z[Etc/UTC]
+- Build date: 2026-02-07T15:28:09.987889273Z[Etc/UTC]
 - Generator version: 7.18.0
 
 For more information, please visit [https://github.com/oapicf/pokeapi-clients](https://github.com/oapicf/pokeapi-clients)
@@ -120,7 +120,6 @@ cargo run --example client EncounterMethodList
 cargo run --example client EncounterConditionRetrieve
 cargo run --example client EncounterConditionValueRetrieve
 cargo run --example client EncounterMethodRetrieve
-cargo run --example client PokemonEncountersRetrieve
 cargo run --example client EvolutionChainList
 cargo run --example client EvolutionTriggerList
 cargo run --example client EvolutionChainRetrieve
@@ -255,7 +254,6 @@ Method | HTTP request | Description
 [**encounter_condition_retrieve**](docs/encounters_api.md#encounter_condition_retrieve) | **GET** /api/v2/encounter-condition/{id}/ | Get encounter condition
 [**encounter_condition_value_retrieve**](docs/encounters_api.md#encounter_condition_value_retrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 [**encounter_method_retrieve**](docs/encounters_api.md#encounter_method_retrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-[**pokemon_encounters_retrieve**](docs/encounters_api.md#pokemon_encounters_retrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 [**evolution_chain_list**](docs/evolution_api.md#evolution_chain_list) | **GET** /api/v2/evolution-chain/ | List evolution chains
 [**evolution_trigger_list**](docs/evolution_api.md#evolution_trigger_list) | **GET** /api/v2/evolution-trigger/ | List evolution triggers
 [**evolution_chain_retrieve**](docs/evolution_api.md#evolution_chain_retrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
@@ -559,13 +557,6 @@ Method | HTTP request | Description
  - [PokemonDetailSprites](docs/PokemonDetailSprites.md)
  - [PokemonDetailTypesInner](docs/PokemonDetailTypesInner.md)
  - [PokemonDexEntry](docs/PokemonDexEntry.md)
- - [PokemonEncountersRetrieve200ResponseInner](docs/PokemonEncountersRetrieve200ResponseInner.md)
- - [PokemonEncountersRetrieve200ResponseInnerLocationArea](docs/PokemonEncountersRetrieve200ResponseInnerLocationArea.md)
- - [PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner](docs/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.md)
- - [PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner](docs/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.md)
- - [PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner](docs/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner.md)
- - [PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod](docs/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod.md)
- - [PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion](docs/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.md)
  - [PokemonFormDetail](docs/PokemonFormDetail.md)
  - [PokemonFormDetailFormNamesInner](docs/PokemonFormDetailFormNamesInner.md)
  - [PokemonFormDetailSprites](docs/PokemonFormDetailSprites.md)

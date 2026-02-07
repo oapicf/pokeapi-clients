@@ -21,7 +21,6 @@ import type {
   PaginatedEncounterConditionSummaryList,
   PaginatedEncounterConditionValueSummaryList,
   PaginatedEncounterMethodSummaryList,
-  PokemonEncountersRetrieve200ResponseInner,
 } from '../models/index';
 import {
     EncounterConditionDetailFromJSON,
@@ -36,8 +35,6 @@ import {
     PaginatedEncounterConditionValueSummaryListToJSON,
     PaginatedEncounterMethodSummaryListFromJSON,
     PaginatedEncounterMethodSummaryListToJSON,
-    PokemonEncountersRetrieve200ResponseInnerFromJSON,
-    PokemonEncountersRetrieve200ResponseInnerToJSON,
 } from '../models/index';
 
 export interface EncounterConditionListRequest {
@@ -68,10 +65,6 @@ export interface EncounterMethodListRequest {
 
 export interface EncounterMethodRetrieveRequest {
     id: string;
-}
-
-export interface PokemonEncountersRetrieveRequest {
-    pokemonId: string;
 }
 
 /**
@@ -340,48 +333,6 @@ export class EncountersApi extends runtime.BaseAPI {
      */
     async encounterMethodRetrieve(requestParameters: EncounterMethodRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncounterMethodDetail> {
         const response = await this.encounterMethodRetrieveRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Handles Pokemon Encounters as a sub-resource.
-     * Get pokemon encounter
-     */
-    async pokemonEncountersRetrieveRaw(requestParameters: PokemonEncountersRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<PokemonEncountersRetrieve200ResponseInner>>> {
-        if (requestParameters['pokemonId'] == null) {
-            throw new runtime.RequiredError(
-                'pokemonId',
-                'Required parameter "pokemonId" was null or undefined when calling pokemonEncountersRetrieve().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
-            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
-        }
-
-        let urlPath = `/api/v2/pokemon/{pokemon_id}/encounters`;
-        urlPath = urlPath.replace(`{${"pokemon_id"}}`, encodeURIComponent(String(requestParameters['pokemonId'])));
-
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(PokemonEncountersRetrieve200ResponseInnerFromJSON));
-    }
-
-    /**
-     * Handles Pokemon Encounters as a sub-resource.
-     * Get pokemon encounter
-     */
-    async pokemonEncountersRetrieve(requestParameters: PokemonEncountersRetrieveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<PokemonEncountersRetrieve200ResponseInner>> {
-        const response = await this.pokemonEncountersRetrieveRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

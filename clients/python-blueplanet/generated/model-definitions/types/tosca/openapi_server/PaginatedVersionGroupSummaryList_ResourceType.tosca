@@ -1,0 +1,52 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PaginatedVersionGroupSummaryList"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PaginatedVersionGroupSummaryList"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  VersionGroupSummary = openapi_server.resourceTypes.VersionGroupSummary
+}
+resourceTypes {
+
+  PaginatedVersionGroupSummaryList {
+    title = PaginatedVersionGroupSummaryList
+    description = PaginatedVersionGroupSummaryList
+    derivedFrom = Root
+    properties {
+        count {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        next {
+          type =  string
+          description = ""
+          optional = false
+        }
+        previous {
+          type =  string
+          description = ""
+          optional = false
+        }
+        results {
+          type = array
+          items.type = VersionGroupSummary
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PaginatedVersionGroupSummaryList {
+    title = PaginatedVersionGroupSummaryList
+    description = PaginatedVersionGroupSummaryList
+    implements = openapi_server.resourceTypes.PaginatedVersionGroupSummaryList
+
+  }
+}

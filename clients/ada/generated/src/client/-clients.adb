@@ -377,24 +377,6 @@ package body .Clients is
       .Models.Deserialize (Reply, "", Result);
    end Encounter_Method_Retrieve;
 
-   --  Get pokemon encounter
-   --  Handles Pokemon Encounters as a sub-resource.
-   procedure Pokemon_Encounters_Retrieve
-      (Client : in out Client_Type;
-       Pokemon_Id : in Swagger.UString;
-       Result : out .Models.PokemonEncountersRetrieve200ResponseInner_Type_Vectors.Vector) is
-      URI   : Swagger.Clients.URI_Type;
-      Reply : Swagger.Value_Type;
-   begin
-      Client.Set_Accept (Media_List_1);
-
-
-      URI.Set_Path ("/api/v2/pokemon/{pokemon_id}/encounters");
-      URI.Set_Path_Param ("pokemon_id", Pokemon_Id);
-      Client.Call (Swagger.Clients.GET, URI, Reply);
-      .Models.Deserialize (Reply, "", Result);
-   end Pokemon_Encounters_Retrieve;
-
    --  List evolution chains
    --  Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
    procedure Evolution_Chain_List

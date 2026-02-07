@@ -86,7 +86,6 @@ import org.openapitools.model.PokeathlonStatDetail
 import org.openapitools.model.PokedexDetail
 import org.openapitools.model.PokemonColorDetail
 import org.openapitools.model.PokemonDetail
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner
 import org.openapitools.model.PokemonFormDetail
 import org.openapitools.model.PokemonHabitatDetail
 import org.openapitools.model.PokemonShapeDetail
@@ -1610,25 +1609,6 @@ class ApiApiController() {
     }
 
     @Operation(
-        summary = "Get pokemon encounter",
-        operationId = "pokemonEncountersRetrieve",
-        description = """Handles Pokemon Encounters as a sub-resource.""",
-        responses = [
-            ApiResponse(responseCode = "200", description = "", content = [Content(array = ArraySchema(schema = Schema(implementation = PokemonEncountersRetrieve200ResponseInner::class)))]) ],
-        security = [ SecurityRequirement(name = "basicAuth"),SecurityRequirement(name = "cookieAuth") ]
-    )
-    @RequestMapping(
-        method = [RequestMethod.GET],
-        value = [PATH_POKEMON_ENCOUNTERS_RETRIEVE /* "/api/v2/pokemon/{pokemon_id}/encounters" */],
-        produces = ["application/json"]
-    )
-    fun pokemonEncountersRetrieve(
-        @Pattern(regexp="^\\d+$") @Parameter(description = "", required = true) @PathVariable("pokemon_id") pokemonId: kotlin.String
-    ): ResponseEntity<List<PokemonEncountersRetrieve200ResponseInner>> {
-        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
-    }
-
-    @Operation(
         summary = "List pokemon forms",
         operationId = "pokemonFormList",
         description = """Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety.""",
@@ -2145,7 +2125,6 @@ class ApiApiController() {
         const val PATH_POKEDEX_RETRIEVE: String = "/api/v2/pokedex/{id}/"
         const val PATH_POKEMON_COLOR_LIST: String = "/api/v2/pokemon-color/"
         const val PATH_POKEMON_COLOR_RETRIEVE: String = "/api/v2/pokemon-color/{id}/"
-        const val PATH_POKEMON_ENCOUNTERS_RETRIEVE: String = "/api/v2/pokemon/{pokemon_id}/encounters"
         const val PATH_POKEMON_FORM_LIST: String = "/api/v2/pokemon-form/"
         const val PATH_POKEMON_FORM_RETRIEVE: String = "/api/v2/pokemon-form/{id}/"
         const val PATH_POKEMON_HABITAT_LIST: String = "/api/v2/pokemon-habitat/"

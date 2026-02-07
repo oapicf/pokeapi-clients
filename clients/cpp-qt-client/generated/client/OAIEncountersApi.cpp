@@ -48,8 +48,6 @@ void OAIEncountersApi::initializeServerConfigs() {
     _serverIndices.insert("encounterMethodList", 0);
     _serverConfigs.insert("encounterMethodRetrieve", defaultConf);
     _serverIndices.insert("encounterMethodRetrieve", 0);
-    _serverConfigs.insert("pokemonEncountersRetrieve", defaultConf);
-    _serverIndices.insert("pokemonEncountersRetrieve", 0);
 }
 
 /**
@@ -846,104 +844,6 @@ void OAIEncountersApi::encounterMethodRetrieveCallback(OAIHttpRequestWorker *wor
 
         Q_EMIT encounterMethodRetrieveSignalError(output, error_type, error_str);
         Q_EMIT encounterMethodRetrieveSignalErrorFull(worker, error_type, error_str);
-    }
-}
-
-void OAIEncountersApi::pokemonEncountersRetrieve(const QString &pokemon_id) {
-    QString fullPath = QString(_serverConfigs["pokemonEncountersRetrieve"][_serverIndices.value("pokemonEncountersRetrieve")].URL()+"/api/v2/pokemon/{pokemon_id}/encounters");
-    
-    if (!_username.isEmpty() && !_password.isEmpty()) {
-        QByteArray b64;
-        b64.append(_username.toUtf8() + ":" + _password.toUtf8());
-        addHeaders("Authorization","Basic " + b64.toBase64());
-    }
-    
-    {
-        QString pokemon_idPathParam("{");
-        pokemon_idPathParam.append("pokemon_id").append("}");
-        QString pathPrefix, pathSuffix, pathDelimiter;
-        QString pathStyle = "simple";
-        if (pathStyle == "")
-            pathStyle = "simple";
-        pathPrefix = getParamStylePrefix(pathStyle);
-        pathSuffix = getParamStyleSuffix(pathStyle);
-        pathDelimiter = getParamStyleDelimiter(pathStyle, "pokemon_id", false);
-        QString paramString = (pathStyle == "matrix") ? pathPrefix+"pokemon_id"+pathSuffix : pathPrefix;
-        fullPath.replace(pokemon_idPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(pokemon_id)));
-    }
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
-
-
-    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
-        input.headers.insert(keyValueIt->first, keyValueIt->second);
-    }
-
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIEncountersApi::pokemonEncountersRetrieveCallback);
-    connect(this, &OAIEncountersApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this] {
-        if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            Q_EMIT allPendingRequestsCompleted();
-        }
-    });
-
-    worker->execute(&input);
-}
-
-void OAIEncountersApi::pokemonEncountersRetrieveCallback(OAIHttpRequestWorker *worker) {
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type != QNetworkReply::NoError) {
-        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
-    }
-    QList<OAIPokemon_encounters_retrieve_200_response_inner> output;
-    QString json(worker->response);
-    QByteArray array(json.toStdString().c_str());
-    QJsonDocument doc = QJsonDocument::fromJson(array);
-    QJsonArray jsonArray = doc.array();
-    for (QJsonValue obj : jsonArray) {
-        OAIPokemon_encounters_retrieve_200_response_inner val;
-        ::OpenAPI::fromJsonValue(val, obj);
-        output.append(val);
-    }
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        Q_EMIT pokemonEncountersRetrieveSignal(output);
-        Q_EMIT pokemonEncountersRetrieveSignalFull(worker, output);
-    } else {
-
-#if defined(_MSC_VER)
-// For MSVC
-#pragma warning(push)
-#pragma warning(disable : 4996)
-#elif defined(__clang__)
-// For Clang
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#elif defined(__GNUC__)
-// For GCC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-        Q_EMIT pokemonEncountersRetrieveSignalE(output, error_type, error_str);
-        Q_EMIT pokemonEncountersRetrieveSignalEFull(worker, error_type, error_str);
-
-#if defined(_MSC_VER)
-#pragma warning(pop)
-#elif defined(__clang__)
-#pragma clang diagnostic pop
-#elif defined(__GNUC__)
-#pragma GCC diagnostic pop
-#endif
-
-        Q_EMIT pokemonEncountersRetrieveSignalError(output, error_type, error_str);
-        Q_EMIT pokemonEncountersRetrieveSignalErrorFull(worker, error_type, error_str);
     }
 }
 

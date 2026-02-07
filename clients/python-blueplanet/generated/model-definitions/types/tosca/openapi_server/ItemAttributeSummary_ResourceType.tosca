@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ItemAttributeSummary"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ItemAttributeSummary"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  ItemAttributeSummary {
+    title = ItemAttributeSummary
+    description = ItemAttributeSummary
+    derivedFrom = Root
+    properties {
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        url {
+          type =  string
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ItemAttributeSummary {
+    title = ItemAttributeSummary
+    description = ItemAttributeSummary
+    implements = openapi_server.resourceTypes.ItemAttributeSummary
+
+  }
+}

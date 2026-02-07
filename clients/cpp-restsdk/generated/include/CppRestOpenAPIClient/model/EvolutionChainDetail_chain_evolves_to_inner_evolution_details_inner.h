@@ -75,15 +75,15 @@ public:
     void unsetItem();
     void setItem(const std::shared_ptr<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender>& value);
 
-    Object getKnownMove() const;
+    std::shared_ptr<Object> getKnownMove() const;
     bool knownMoveIsSet() const;
     void unsetKnown_move();
-    void setKnownMove(const Object& value);
+    void setKnownMove(const std::shared_ptr<Object>& value);
 
-    Object getKnownMoveType() const;
+    std::shared_ptr<Object> getKnownMoveType() const;
     bool knownMoveTypeIsSet() const;
     void unsetKnown_move_type();
-    void setKnownMoveType(const Object& value);
+    void setKnownMoveType(const std::shared_ptr<Object>& value);
 
     std::shared_ptr<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender> getLocation() const;
     bool locationIsSet() const;
@@ -161,10 +161,10 @@ protected:
     std::shared_ptr<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender> m_Item;
     bool m_ItemIsSet;
 
-    Object m_Known_move;
+    std::shared_ptr<Object> m_Known_move;
     bool m_Known_moveIsSet;
 
-    Object m_Known_move_type;
+    std::shared_ptr<Object> m_Known_move_type;
     bool m_Known_move_typeIsSet;
 
     std::shared_ptr<EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender> m_Location;

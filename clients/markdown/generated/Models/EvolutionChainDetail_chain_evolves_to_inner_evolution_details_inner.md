@@ -6,8 +6,8 @@
 | **gender** | [**EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender**](EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.md) |  | [default to null] |
 | **held\_item** | [**EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender**](EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.md) |  | [default to null] |
 | **item** | [**EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender**](EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.md) |  | [default to null] |
-| **known\_move** | **Object** |  | [default to null] |
-| **known\_move\_type** | **Object** |  | [default to null] |
+| **known\_move** | [**Object**](.md) |  | [default to null] |
+| **known\_move\_type** | [**Object**](.md) |  | [default to null] |
 | **location** | [**EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender**](EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.md) |  | [default to null] |
 | **min\_affection** | **Integer** |  | [default to null] |
 | **min\_beauty** | **Integer** |  | [default to null] |

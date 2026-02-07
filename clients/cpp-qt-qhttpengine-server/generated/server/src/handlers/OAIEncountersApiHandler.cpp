@@ -89,15 +89,6 @@ void OAIEncountersApiHandler::encounterMethodRetrieve(QString id) {
         reqObj->encounterMethodRetrieveResponse(res);
     }
 }
-void OAIEncountersApiHandler::pokemonEncountersRetrieve(QString pokemon_id) {
-    Q_UNUSED(pokemon_id);
-    auto reqObj = qobject_cast<OAIEncountersApiRequest*>(sender());
-    if( reqObj != nullptr )
-    {
-        QList<OAIPokemon_encounters_retrieve_200_response_inner> res;
-        reqObj->pokemonEncountersRetrieveResponse(res);
-    }
-}
 
 
 }

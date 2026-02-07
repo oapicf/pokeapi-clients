@@ -10,7 +10,6 @@ All URIs are relative to *https://pokeapi.co*
 | [**encounter_condition_value_retrieve**](EncountersApi.md#encounter_condition_value_retrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value |
 | [**encounter_method_list**](EncountersApi.md#encounter_method_list) | **GET** /api/v2/encounter-method/ | List encounter methods |
 | [**encounter_method_retrieve**](EncountersApi.md#encounter_method_retrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method |
-| [**pokemon_encounters_retrieve**](EncountersApi.md#pokemon_encounters_retrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter |
 
 
 ## encounter_condition_list
@@ -470,81 +469,6 @@ end
 ### Return type
 
 [**EncounterMethodDetail**](EncounterMethodDetail.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## pokemon_encounters_retrieve
-
-> <Array<PokemonEncountersRetrieve200ResponseInner>> pokemon_encounters_retrieve(pokemon_id)
-
-Get pokemon encounter
-
-Handles Pokemon Encounters as a sub-resource.
-
-### Examples
-
-```ruby
-require 'time'
-require 'pokeapi_client'
-# setup authorization
-PokeApiClient.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-
-  # Configure API key authorization: cookieAuth
-  config.api_key['sessionid'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['sessionid'] = 'Bearer'
-end
-
-api_instance = PokeApiClient::EncountersApi.new
-pokemon_id = 'pokemon_id_example' # String | 
-
-begin
-  # Get pokemon encounter
-  result = api_instance.pokemon_encounters_retrieve(pokemon_id)
-  p result
-rescue PokeApiClient::ApiError => e
-  puts "Error when calling EncountersApi->pokemon_encounters_retrieve: #{e}"
-end
-```
-
-#### Using the pokemon_encounters_retrieve_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<Array<PokemonEncountersRetrieve200ResponseInner>>, Integer, Hash)> pokemon_encounters_retrieve_with_http_info(pokemon_id)
-
-```ruby
-begin
-  # Get pokemon encounter
-  data, status_code, headers = api_instance.pokemon_encounters_retrieve_with_http_info(pokemon_id)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <Array<PokemonEncountersRetrieve200ResponseInner>>
-rescue PokeApiClient::ApiError => e
-  puts "Error when calling EncountersApi->pokemon_encounters_retrieve_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **pokemon_id** | **String** |  |  |
-
-### Return type
-
-[**Array&lt;PokemonEncountersRetrieve200ResponseInner&gt;**](PokemonEncountersRetrieve200ResponseInner.md)
 
 ### Authorization
 

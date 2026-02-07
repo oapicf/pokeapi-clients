@@ -5,7 +5,6 @@
 #import "OAIPaginatedEncounterConditionSummaryList.h"
 #import "OAIPaginatedEncounterConditionValueSummaryList.h"
 #import "OAIPaginatedEncounterMethodSummaryList.h"
-#import "OAIPokemonEncountersRetrieve200ResponseInner.h"
 #import "OAIApi.h"
 
 /**
@@ -111,18 +110,6 @@ extern NSInteger kOAIEncountersApiMissingParamErrorCode;
 /// @return OAIEncounterMethodDetail*
 -(NSURLSessionTask*) encounterMethodRetrieveWithId: (NSString*) _id
     completionHandler: (void (^)(OAIEncounterMethodDetail* output, NSError* error)) handler;
-
-
-/// Get pokemon encounter
-/// Handles Pokemon Encounters as a sub-resource.
-///
-/// @param pokemonId 
-/// 
-///  code:200 message:""
-///
-/// @return NSArray<OAIPokemonEncountersRetrieve200ResponseInner>*
--(NSURLSessionTask*) pokemonEncountersRetrieveWithPokemonId: (NSString*) pokemonId
-    completionHandler: (void (^)(NSArray<OAIPokemonEncountersRetrieve200ResponseInner>* output, NSError* error)) handler;
 
 
 

@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server MoveSummary"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a MoveSummary"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  MoveSummary {
+    title = MoveSummary
+    description = MoveSummary
+    derivedFrom = Root
+    properties {
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        url {
+          type =  string
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  MoveSummary {
+    title = MoveSummary
+    description = MoveSummary
+    implements = openapi_server.resourceTypes.MoveSummary
+
+  }
+}

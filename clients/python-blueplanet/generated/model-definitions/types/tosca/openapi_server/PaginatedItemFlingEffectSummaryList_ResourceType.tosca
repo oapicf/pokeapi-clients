@@ -1,0 +1,52 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PaginatedItemFlingEffectSummaryList"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PaginatedItemFlingEffectSummaryList"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ItemFlingEffectSummary = openapi_server.resourceTypes.ItemFlingEffectSummary
+}
+resourceTypes {
+
+  PaginatedItemFlingEffectSummaryList {
+    title = PaginatedItemFlingEffectSummaryList
+    description = PaginatedItemFlingEffectSummaryList
+    derivedFrom = Root
+    properties {
+        count {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        next {
+          type =  string
+          description = ""
+          optional = false
+        }
+        previous {
+          type =  string
+          description = ""
+          optional = false
+        }
+        results {
+          type = array
+          items.type = ItemFlingEffectSummary
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PaginatedItemFlingEffectSummaryList {
+    title = PaginatedItemFlingEffectSummaryList
+    description = PaginatedItemFlingEffectSummaryList
+    implements = openapi_server.resourceTypes.PaginatedItemFlingEffectSummaryList
+
+  }
+}

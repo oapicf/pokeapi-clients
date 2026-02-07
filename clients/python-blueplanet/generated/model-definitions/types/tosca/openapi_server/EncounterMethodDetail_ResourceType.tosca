@@ -1,0 +1,52 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server EncounterMethodDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a EncounterMethodDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  EncounterMethodName = openapi_server.resourceTypes.EncounterMethodName
+}
+resourceTypes {
+
+  EncounterMethodDetail {
+    title = EncounterMethodDetail
+    description = EncounterMethodDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        order {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        names {
+          type = array
+          items.type = EncounterMethodName
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  EncounterMethodDetail {
+    title = EncounterMethodDetail
+    description = EncounterMethodDetail
+    implements = openapi_server.resourceTypes.EncounterMethodDetail
+
+  }
+}

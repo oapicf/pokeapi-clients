@@ -38,8 +38,6 @@
       <xs:element name="GetApiV2Encounter-method_ResponseMessage" type="schemas:GetApiV2Encounter-method_ResponseMessage" />
       <xs:element name="GetApiV2Encounter-methodById_RequestMessage" type="schemas:GetApiV2Encounter-methodById_RequestMessage" />
       <xs:element name="GetApiV2Encounter-methodById_ResponseMessage" type="schemas:GetApiV2Encounter-methodById_ResponseMessage" />
-      <xs:element name="GetApiV2PokemonEncountersByPokemon_id_RequestMessage" type="schemas:GetApiV2PokemonEncountersByPokemon_id_RequestMessage" />
-      <xs:element name="GetApiV2PokemonEncountersByPokemon_id_ResponseMessage" type="schemas:GetApiV2PokemonEncountersByPokemon_id_ResponseMessage" />
       <xs:element name="GetApiV2Evolution-chain_RequestMessage" type="schemas:GetApiV2Evolution-chain_RequestMessage" />
       <xs:element name="GetApiV2Evolution-chain_ResponseMessage" type="schemas:GetApiV2Evolution-chain_ResponseMessage" />
       <xs:element name="GetApiV2Evolution-chainById_RequestMessage" type="schemas:GetApiV2Evolution-chainById_RequestMessage" />
@@ -749,8 +747,8 @@
           <xs:element minOccurs="1" name="gender" type="schemas:EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender" />
           <xs:element minOccurs="1" name="held_item" type="schemas:EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender" />
           <xs:element minOccurs="1" name="item" type="schemas:EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender" />
-          <xs:element minOccurs="1" name="known_move" type="xs:object" />
-          <xs:element minOccurs="1" name="known_move_type" type="xs:object" />
+          <xs:element minOccurs="1" name="known_move" type="xs:anyType" />
+          <xs:element minOccurs="1" name="known_move_type" type="xs:anyType" />
           <xs:element minOccurs="1" name="location" type="schemas:EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender" />
           <xs:element minOccurs="1" name="min_affection" type="xs:integer" />
           <xs:element minOccurs="1" name="min_beauty" type="xs:integer" />
@@ -2552,52 +2550,6 @@
           <xs:element minOccurs="1" name="pokedex" type="schemas:PokedexSummary" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="PokemonEncountersRetrieve200ResponseInner">
-        <xs:sequence>
-          <xs:element minOccurs="1" name="location_area" type="schemas:pokemon_encounters_retrieve_200_response_inner_location_area" />
-          <xs:element minOccurs="1" maxOccurs="unbounded" name="version_details" type="schemas:pokemon_encounters_retrieve_200_response_inner_version_details_inner" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="PokemonEncountersRetrieve200ResponseInnerLocationArea">
-        <xs:sequence>
-          <xs:element minOccurs="1" name="name" type="xs:string" />
-          <xs:element minOccurs="1" name="url" type="xs:uRI" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner">
-        <xs:sequence>
-          <xs:element minOccurs="1" maxOccurs="unbounded" name="encounter_details" type="schemas:pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner" />
-          <xs:element minOccurs="1" name="max_chance" type="xs:double" />
-          <xs:element minOccurs="1" name="version" type="schemas:pokemon_encounters_retrieve_200_response_inner_version_details_inner_version" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner">
-        <xs:sequence>
-          <xs:element minOccurs="1" name="chance" type="xs:double" />
-          <xs:element minOccurs="1" maxOccurs="unbounded" name="condition_values" type="schemas:pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner" />
-          <xs:element minOccurs="1" name="max_level" type="xs:double" />
-          <xs:element minOccurs="1" name="method" type="schemas:pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method" />
-          <xs:element minOccurs="1" name="min_level" type="xs:double" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner">
-        <xs:sequence>
-          <xs:element minOccurs="1" name="name" type="xs:string" />
-          <xs:element minOccurs="1" name="url" type="xs:uRI" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod">
-        <xs:sequence>
-          <xs:element minOccurs="1" name="name" type="xs:string" />
-          <xs:element minOccurs="1" name="url" type="xs:uRI" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion">
-        <xs:sequence>
-          <xs:element minOccurs="1" name="name" type="xs:string" />
-          <xs:element minOccurs="1" name="url" type="xs:uRI" />
-        </xs:sequence>
-      </xs:complexType>
       <xs:complexType name="PokemonFormDetail">
         <xs:sequence>
           <xs:element minOccurs="1" name="id" type="xs:integer" />
@@ -3539,20 +3491,6 @@
       <xs:complexType name="GetApiV2Encounter-methodById_ResponseMessage">
         <xs:sequence>
           <xs:element minOccurs="1" name="EncounterMethodDetail" type="schemas:EncounterMethodDetail">
-            <xs:annotation>
-              <xs:documentation></xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="GetApiV2PokemonEncountersByPokemon_id_RequestMessage">
-        <xs:sequence>
-          <xs:element minOccurs="1" name="pokemonId" type="xs:string" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="GetApiV2PokemonEncountersByPokemon_id_ResponseMessage">
-        <xs:sequence>
-          <xs:element minOccurs="1" maxOccurs="unbounded" name="Pokemon_encounters_retrieve_200_response_inner" type="schemas:Pokemon_encounters_retrieve_200_response_inner">
             <xs:annotation>
               <xs:documentation></xs:documentation>
             </xs:annotation>
@@ -5458,12 +5396,6 @@
   <message name="GetApiV2Encounter-methodById_ResponseMessage">
     <part name="GetApiV2Encounter-methodById_ResponseMessage" element="schemas:GetApiV2Encounter-methodById_ResponseMessage" />
   </message>
-  <message name="GetApiV2PokemonEncountersByPokemon_id_RequestMessage">
-    <part name="GetApiV2PokemonEncountersByPokemon_id_RequestMessage" element="schemas:GetApiV2PokemonEncountersByPokemon_id_RequestMessage" />
-  </message>
-  <message name="GetApiV2PokemonEncountersByPokemon_id_ResponseMessage">
-    <part name="GetApiV2PokemonEncountersByPokemon_id_ResponseMessage" element="schemas:GetApiV2PokemonEncountersByPokemon_id_ResponseMessage" />
-  </message>
   <message name="GetApiV2Evolution-chain_RequestMessage">
     <part name="GetApiV2Evolution-chain_RequestMessage" element="schemas:GetApiV2Evolution-chain_RequestMessage" />
   </message>
@@ -6056,13 +5988,6 @@
       <documentation>Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.</documentation>
       <input message="wsdl:GetApiV2Encounter-methodById_RequestMessage" />
       <output message="wsdl:GetApiV2Encounter-methodById_ResponseMessage">
-        <documentation></documentation>
-      </output>
-    </operation>
-    <operation name="GetApiV2PokemonEncountersByPokemon_id">
-      <documentation>Handles Pokemon Encounters as a sub-resource.</documentation>
-      <input message="wsdl:GetApiV2PokemonEncountersByPokemon_id_RequestMessage" />
-      <output message="wsdl:GetApiV2PokemonEncountersByPokemon_id_ResponseMessage">
         <documentation></documentation>
       </output>
     </operation>
@@ -6770,15 +6695,6 @@
     </operation>
     <operation name="GetApiV2Encounter-methodById">
       <soap:operation soapAction="GetApiV2Encounter-methodById" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input>
-        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output>
-        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
-    <operation name="GetApiV2PokemonEncountersByPokemon_id">
-      <soap:operation soapAction="GetApiV2PokemonEncountersByPokemon_id" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input>
         <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>

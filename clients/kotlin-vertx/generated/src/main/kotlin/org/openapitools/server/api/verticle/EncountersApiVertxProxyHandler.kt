@@ -22,7 +22,6 @@ import org.openapitools.server.api.model.EncounterMethodDetail
 import org.openapitools.server.api.model.PaginatedEncounterConditionSummaryList
 import org.openapitools.server.api.model.PaginatedEncounterConditionValueSummaryList
 import org.openapitools.server.api.model.PaginatedEncounterMethodSummaryList
-import org.openapitools.server.api.model.PokemonEncountersRetrieve200ResponseInner
 
 class EncountersApiVertxProxyHandler(private val vertx: Vertx, private val service: EncountersApi, topLevel: Boolean, private val timeoutSeconds: Long) : ProxyHandler() {
     private lateinit var timerID: Long
@@ -156,22 +155,6 @@ class EncountersApiVertxProxyHandler(private val vertx: Vertx, private val servi
                     GlobalScope.launch(vertx.dispatcher()){
                         val result = service.encounterMethodRetrieve(id,context)
                         val payload = JsonObject(Json.encode(result.payload)).toBuffer()
-                        val res = OperationResponse(result.statusCode,result.statusMessage,payload,result.headers)
-                        msg.reply(res.toJson())
-                    }.invokeOnCompletion{
-                        it?.let{ throw it }
-                    }
-                }
-        
-                "pokemonEncountersRetrieve" -> {
-                    val params = context.params
-                    val pokemonId = ApiHandlerUtils.searchStringInJson(params,"pokemon_id")
-                    if(pokemonId == null){
-                        throw IllegalArgumentException("pokemonId is required")
-                    }
-                    GlobalScope.launch(vertx.dispatcher()){
-                        val result = service.pokemonEncountersRetrieve(pokemonId,context)
-                        val payload = JsonArray(Json.encode(result.payload)).toBuffer()
                         val res = OperationResponse(result.statusCode,result.statusMessage,payload,result.headers)
                         msg.reply(res.toJson())
                     }.invokeOnCompletion{

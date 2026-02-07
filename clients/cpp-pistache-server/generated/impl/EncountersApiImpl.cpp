@@ -105,9 +105,6 @@ void EncountersApiImpl::encounter_method_list(const HttpBasicCredentials &creden
 void EncountersApiImpl::encounter_method_retrieve(const HttpBasicCredentials &credentials, const std::string &id, Pistache::Http::ResponseWriter &response) {
     response.send(Pistache::Http::Code::Ok, "Do some magic\n");
 }
-void EncountersApiImpl::pokemon_encounters_retrieve(const HttpBasicCredentials &credentials, const std::string &pokemonId, Pistache::Http::ResponseWriter &response) {
-    response.send(Pistache::Http::Code::Ok, "Do some magic\n");
-}
 
 }
 }

@@ -252,13 +252,6 @@ src/main/java/com/prokarma/pkmst/model/PokemonDetailPastTypesInner.java
 src/main/java/com/prokarma/pkmst/model/PokemonDetailSprites.java
 src/main/java/com/prokarma/pkmst/model/PokemonDetailTypesInner.java
 src/main/java/com/prokarma/pkmst/model/PokemonDexEntry.java
-src/main/java/com/prokarma/pkmst/model/PokemonEncountersRetrieve200ResponseInner.java
-src/main/java/com/prokarma/pkmst/model/PokemonEncountersRetrieve200ResponseInnerLocationArea.java
-src/main/java/com/prokarma/pkmst/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.java
-src/main/java/com/prokarma/pkmst/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.java
-src/main/java/com/prokarma/pkmst/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner.java
-src/main/java/com/prokarma/pkmst/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod.java
-src/main/java/com/prokarma/pkmst/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.java
 src/main/java/com/prokarma/pkmst/model/PokemonFormDetail.java
 src/main/java/com/prokarma/pkmst/model/PokemonFormDetailFormNamesInner.java
 src/main/java/com/prokarma/pkmst/model/PokemonFormDetailSprites.java

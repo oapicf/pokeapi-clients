@@ -59,7 +59,6 @@ api_encounters | encounterConditionValueList | **GET** /api/v2/encounter-conditi
 api_encounters | encounterConditionValueRetrieve | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 api_encounters | encounterMethodList | **GET** /api/v2/encounter-method/ | List encounter methods
 api_encounters | encounterMethodRetrieve | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-api_encounters | pokemonEncountersRetrieve | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 api_evolution | evolutionChainList | **GET** /api/v2/evolution-chain/ | List evolution chains
 api_evolution | evolutionChainRetrieve | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 api_evolution | evolutionTriggerList | **GET** /api/v2/evolution-trigger/ | List evolution triggers

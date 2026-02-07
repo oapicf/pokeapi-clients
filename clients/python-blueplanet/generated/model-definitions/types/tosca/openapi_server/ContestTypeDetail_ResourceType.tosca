@@ -1,0 +1,53 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ContestTypeDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ContestTypeDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  BerryFlavorSummary = openapi_server.resourceTypes.BerryFlavorSummary
+  ContestTypeName = openapi_server.resourceTypes.ContestTypeName
+}
+resourceTypes {
+
+  ContestTypeDetail {
+    title = ContestTypeDetail
+    description = ContestTypeDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        berry_flavor {
+          type = BerryFlavorSummary
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = ContestTypeName
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ContestTypeDetail {
+    title = ContestTypeDetail
+    description = ContestTypeDetail
+    implements = openapi_server.resourceTypes.ContestTypeDetail
+
+  }
+}

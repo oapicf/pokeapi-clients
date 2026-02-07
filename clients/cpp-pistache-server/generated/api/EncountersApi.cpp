@@ -38,7 +38,6 @@ void EncountersApi::setupRoutes() {
     Routes::Get(*router, base + "/api/v2/encounter-condition-value/:id/", Routes::bind(&EncountersApi::encounter_condition_value_retrieve_handler, this));
     Routes::Get(*router, base + "/api/v2/encounter-method/", Routes::bind(&EncountersApi::encounter_method_list_handler, this));
     Routes::Get(*router, base + "/api/v2/encounter-method/:id/", Routes::bind(&EncountersApi::encounter_method_retrieve_handler, this));
-    Routes::Get(*router, base + "/api/v2/pokemon/:pokemon_id/encounters", Routes::bind(&EncountersApi::pokemon_encounters_retrieve_handler, this));
 
     // Default handler, called when a route is not found
     router->addCustomHandler(Routes::bind(&EncountersApi::encounters_api_default_handler, this));
@@ -602,85 +601,6 @@ void EncountersApi::encounter_method_retrieve_handler(const Pistache::Rest::Requ
 #define HTTP_BEARER_AUTH_DEFINED 0
 #endif
 #define REST_PATH "/api/v2/encounter-method/:id/" 
-    static_assert(HTTP_BASIC_AUTH_DEFINED + HTTP_BEARER_AUTH_DEFINED < 2, "Path '" REST_PATH "' has more than one security scheme specified, and the Pistache server generator does not support that.");
-#undef REST_PATH
-#ifdef HTTP_BEARER_AUTH_DEFINED
-#undef HTTP_BEARER_AUTH_DEFINED
-#endif
-#ifdef HTTP_BASIC_AUTH_DEFINED
-#undef HTTP_BASIC_AUTH_DEFINED
-#endif
-
-}
-
-void EncountersApi::pokemon_encounters_retrieve_handler(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response) {
-    try {
-
-        // Getting the path params
-        auto pokemonId = request.param(":pokemonId").as<std::string>();
-        
-        
-    
-
-
-        try {
-#ifndef HTTP_BASIC_AUTH_DEFINED
-#define HTTP_BASIC_AUTH_DEFINED 0
-#endif
-#ifndef HTTP_BEARER_AUTH_DEFINED
-#define HTTP_BEARER_AUTH_DEFINED 0
-#endif
-#ifndef HTTP_BASIC_AUTH_DEFINED
-#define HTTP_BASIC_AUTH_DEFINED 0
-#endif
-#ifndef HTTP_BEARER_AUTH_DEFINED
-#define HTTP_BEARER_AUTH_DEFINED 0
-#endif
-
-
-
-
-#undef HTTP_BASIC_AUTH_DEFINED
-#define HTTP_BASIC_AUTH_DEFINED 1
-
-            auto basicAuthHeader = request.headers().tryGet<Pistache::Http::Header::Authorization>();
-
-            if(!basicAuthHeader || (basicAuthHeader->getMethod() != Pistache::Http::Header::Authorization::Method::Basic))
-            {
-                response.send(Pistache::Http::Code::Unauthorized, "");
-                return;
-            }
-
-            HttpBasicCredentials credentials{basicAuthHeader->getBasicUser(), basicAuthHeader->getBasicPassword()};
-            
-            if (!this->basicCredentialsAuthenticator.has_value() || !this->basicCredentialsAuthenticator.value()(credentials))
-            {
-                response.send(Pistache::Http::Code::Unauthorized, "");
-                return;
-            }
-
-
-
-            this->pokemon_encounters_retrieve(credentials,pokemonId, response);
-            } catch (Pistache::Http::HttpError &e) {
-                response.send(static_cast<Pistache::Http::Code>(e.code()), e.what());
-                return;
-            } catch (std::exception &e) {
-                this->handleOperationException(e, response);
-                return;
-            }
-
-    } catch (std::exception &e) {
-        response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
-    }
-
-#ifndef HTTP_BASIC_AUTH_DEFINED
-#define HTTP_BASIC_AUTH_DEFINED 0
-#endif
-#ifndef HTTP_BEARER_AUTH_DEFINED
-#define HTTP_BEARER_AUTH_DEFINED 0
-#endif
-#define REST_PATH "/api/v2/pokemon/:pokemon_id/encounters" 
     static_assert(HTTP_BASIC_AUTH_DEFINED + HTTP_BEARER_AUTH_DEFINED < 2, "Path '" REST_PATH "' has more than one security scheme specified, and the Pistache server generator does not support that.");
 #undef REST_PATH
 #ifdef HTTP_BEARER_AUTH_DEFINED

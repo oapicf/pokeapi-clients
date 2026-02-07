@@ -1,0 +1,28 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "id" },
+      {"model": "name" },
+      {"model": "growth_time" },
+      {"model": "max_harvest" },
+      {"model": "natural_gift_power" },
+      {"model": "size" },
+      {"model": "smoothness" },
+      {"model": "soil_dryness" },
+      {"model": "firmness" },
+      {"model": "flavors" },
+      {"model": "item" },
+      {"model": "natural_gift_type" },
+    ]
+  }]
+}

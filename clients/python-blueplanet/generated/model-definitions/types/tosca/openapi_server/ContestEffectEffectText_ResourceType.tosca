@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ContestEffectEffectText"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ContestEffectEffectText"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  LanguageSummary = openapi_server.resourceTypes.LanguageSummary
+}
+resourceTypes {
+
+  ContestEffectEffectText {
+    title = ContestEffectEffectText
+    description = ContestEffectEffectText
+    derivedFrom = Root
+    properties {
+        effect {
+          type =  string
+          description = ""
+          optional = true
+        }
+        language {
+          type = LanguageSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ContestEffectEffectText {
+    title = ContestEffectEffectText
+    description = ContestEffectEffectText
+    implements = openapi_server.resourceTypes.ContestEffectEffectText
+
+  }
+}

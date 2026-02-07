@@ -1,0 +1,28 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "ailment" },
+      {"model": "category" },
+      {"model": "min_hits" },
+      {"model": "max_hits" },
+      {"model": "min_turns" },
+      {"model": "max_turns" },
+      {"model": "drain" },
+      {"model": "healing" },
+      {"model": "crit_rate" },
+      {"model": "ailment_chance" },
+      {"model": "flinch_chance" },
+      {"model": "stat_chance" },
+    ]
+  }]
+}

@@ -52,11 +52,3 @@ func (c *Container) EncounterMethodRetrieve(ctx echo.Context) error {
 	})
 }
 
-
-// PokemonEncountersRetrieve - Get pokemon encounter
-func (c *Container) PokemonEncountersRetrieve(ctx echo.Context) error {
-	return ctx.JSON(http.StatusOK, models.HelloWorld {
-		Message: "Hello World",
-	})
-}
-

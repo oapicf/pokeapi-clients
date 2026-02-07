@@ -5,7 +5,6 @@ const EncounterMethodDetail = require('../models/EncounterMethodDetail');
 const PaginatedEncounterConditionSummaryList = require('../models/PaginatedEncounterConditionSummaryList');
 const PaginatedEncounterConditionValueSummaryList = require('../models/PaginatedEncounterConditionValueSummaryList');
 const PaginatedEncounterMethodSummaryList = require('../models/PaginatedEncounterMethodSummaryList');
-const pokemon_encounters_retrieve_200_response_inner = require('../models/pokemon_encounters_retrieve_200_response_inner');
 const utils = require('../utils/utils');
 
 module.exports = {
@@ -301,48 +300,6 @@ module.exports = {
                 })
             },
             sample: samples['EncounterMethodDetailSample']
-        }
-    },
-    pokemonEncountersRetrieve: {
-        key: 'pokemonEncountersRetrieve',
-        noun: 'encounters',
-        display: {
-            label: 'Get pokemon encounter',
-            description: 'Handles Pokemon Encounters as a sub-resource.',
-            hidden: false,
-        },
-        operation: {
-            inputFields: [
-                {
-                    key: 'pokemon_id',
-                    label: '',
-                    type: 'string',
-                    required: true,
-                },
-            ],
-            outputFields: [
-            ],
-            perform: async (z, bundle) => {
-                const options = {
-                    url: utils.replacePathParameters('https://pokeapi.co/api/v2/pokemon/{pokemon_id}/encounters'),
-                    method: 'GET',
-                    removeMissingValuesFrom: { params: true, body: true },
-                    headers: {
-                        'Content-Type': '',
-                        'Accept': 'application/json',
-                    },
-                    params: {
-                    },
-                    body: {
-                    },
-                }
-                return z.request(utils.requestOptionsMiddleware(z, bundle, options)).then((response) => {
-                    response.throwForStatus();
-                    const results = utils.responseOptionsMiddleware(z, bundle, 'pokemonEncountersRetrieve', response.json);
-                    return results;
-                })
-            },
-            sample: samples['pokemon_encounters_retrieve_200_response_innerSample']
         }
     },
 }

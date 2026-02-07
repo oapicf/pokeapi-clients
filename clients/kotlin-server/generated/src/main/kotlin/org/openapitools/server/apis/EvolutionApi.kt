@@ -98,7 +98,7 @@ fun Route.EvolutionApi() {
                       "name" : "name",
                       "url" : "https://openapi-generator.tech"
                     },
-                    "known_move" : "",
+                    "known_move" : "{}",
                     "min_beauty" : 1,
                     "trade_species" : "trade_species",
                     "trigger" : {
@@ -108,7 +108,7 @@ fun Route.EvolutionApi() {
                     "needs_overworld_rain" : true,
                     "party_species" : "party_species",
                     "min_affection" : 6,
-                    "known_move_type" : "",
+                    "known_move_type" : "{}",
                     "time_of_day" : "time_of_day",
                     "location" : {
                       "name" : "name",
@@ -132,7 +132,7 @@ fun Route.EvolutionApi() {
                       "name" : "name",
                       "url" : "https://openapi-generator.tech"
                     },
-                    "known_move" : "",
+                    "known_move" : "{}",
                     "min_beauty" : 1,
                     "trade_species" : "trade_species",
                     "trigger" : {
@@ -142,7 +142,7 @@ fun Route.EvolutionApi() {
                     "needs_overworld_rain" : true,
                     "party_species" : "party_species",
                     "min_affection" : 6,
-                    "known_move_type" : "",
+                    "known_move_type" : "{}",
                     "time_of_day" : "time_of_day",
                     "location" : {
                       "name" : "name",
@@ -173,7 +173,7 @@ fun Route.EvolutionApi() {
                       "name" : "name",
                       "url" : "https://openapi-generator.tech"
                     },
-                    "known_move" : "",
+                    "known_move" : "{}",
                     "min_beauty" : 1,
                     "trade_species" : "trade_species",
                     "trigger" : {
@@ -183,7 +183,7 @@ fun Route.EvolutionApi() {
                     "needs_overworld_rain" : true,
                     "party_species" : "party_species",
                     "min_affection" : 6,
-                    "known_move_type" : "",
+                    "known_move_type" : "{}",
                     "time_of_day" : "time_of_day",
                     "location" : {
                       "name" : "name",
@@ -207,7 +207,7 @@ fun Route.EvolutionApi() {
                       "name" : "name",
                       "url" : "https://openapi-generator.tech"
                     },
-                    "known_move" : "",
+                    "known_move" : "{}",
                     "min_beauty" : 1,
                     "trade_species" : "trade_species",
                     "trigger" : {
@@ -217,7 +217,7 @@ fun Route.EvolutionApi() {
                     "needs_overworld_rain" : true,
                     "party_species" : "party_species",
                     "min_affection" : 6,
-                    "known_move_type" : "",
+                    "known_move_type" : "{}",
                     "time_of_day" : "time_of_day",
                     "location" : {
                       "name" : "name",

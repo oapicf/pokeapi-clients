@@ -27,7 +27,6 @@ import org.openapitools.client.api.EncounterMethodDetail
 import org.openapitools.client.api.PaginatedEncounterConditionSummaryList
 import org.openapitools.client.api.PaginatedEncounterConditionValueSummaryList
 import org.openapitools.client.api.PaginatedEncounterMethodSummaryList
-import org.openapitools.client.api.PokemonEncountersRetrieve200ResponseInner
 
 object EncountersApi {
 
@@ -161,27 +160,6 @@ object EncountersApi {
     } yield resp
   }
 
-  def pokemonEncountersRetrieve(host: String, pokemonId: String): Task[List[PokemonEncountersRetrieve200ResponseInner]] = {
-    implicit val returnTypeDecoder: EntityDecoder[List[PokemonEncountersRetrieve200ResponseInner]] = jsonOf[List[PokemonEncountersRetrieve200ResponseInner]]
-
-    val path = "/api/v2/pokemon/{pokemon_id}/encounters".replaceAll("\\{" + "pokemon_id" + "\\}",escape(pokemonId.toString))
-
-    val httpMethod = Method.GET
-    val contentType = `Content-Type`(MediaType.`application/json`)
-    val headers = Headers(
-      )
-    val queryParams = Query(
-      )
-
-    for {
-      uri           <- Task.fromDisjunction(Uri.fromString(host + path))
-      uriWithParams =  uri.copy(query = queryParams)
-      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
-      resp          <- client.expect[List[PokemonEncountersRetrieve200ResponseInner]](req)
-
-    } yield resp
-  }
-
 }
 
 class HttpServiceEncountersApi(service: HttpService) {
@@ -311,27 +289,6 @@ class HttpServiceEncountersApi(service: HttpService) {
       uriWithParams =  uri.copy(query = queryParams)
       req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
       resp          <- client.expect[EncounterMethodDetail](req)
-
-    } yield resp
-  }
-
-  def pokemonEncountersRetrieve(pokemonId: String): Task[List[PokemonEncountersRetrieve200ResponseInner]] = {
-    implicit val returnTypeDecoder: EntityDecoder[List[PokemonEncountersRetrieve200ResponseInner]] = jsonOf[List[PokemonEncountersRetrieve200ResponseInner]]
-
-    val path = "/api/v2/pokemon/{pokemon_id}/encounters".replaceAll("\\{" + "pokemon_id" + "\\}",escape(pokemonId.toString))
-
-    val httpMethod = Method.GET
-    val contentType = `Content-Type`(MediaType.`application/json`)
-    val headers = Headers(
-      )
-    val queryParams = Query(
-      )
-
-    for {
-      uri           <- Task.fromDisjunction(Uri.fromString(path))
-      uriWithParams =  uri.copy(query = queryParams)
-      req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
-      resp          <- client.expect[List[PokemonEncountersRetrieve200ResponseInner]](req)
 
     } yield resp
   }

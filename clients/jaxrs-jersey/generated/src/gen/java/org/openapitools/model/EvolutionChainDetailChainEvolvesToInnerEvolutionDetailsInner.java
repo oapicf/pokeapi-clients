@@ -48,7 +48,7 @@ import javax.validation.Valid;
   EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.JSON_PROPERTY_TRIGGER,
   EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.JSON_PROPERTY_TURN_UPSIDE_DOWN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T04:17:42.118739260Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T15:23:51.865177194Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
   public static final String JSON_PROPERTY_GENDER = "gender";
   @JsonProperty(JSON_PROPERTY_GENDER)
@@ -64,11 +64,11 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
 
   public static final String JSON_PROPERTY_KNOWN_MOVE = "known_move";
   @JsonProperty(JSON_PROPERTY_KNOWN_MOVE)
-  private Object knownMove = null;
+  private Object knownMove;
 
   public static final String JSON_PROPERTY_KNOWN_MOVE_TYPE = "known_move_type";
   @JsonProperty(JSON_PROPERTY_KNOWN_MOVE_TYPE)
-  private Object knownMoveType = null;
+  private Object knownMoveType;
 
   public static final String JSON_PROPERTY_LOCATION = "location";
   @JsonProperty(JSON_PROPERTY_LOCATION)

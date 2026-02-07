@@ -10,7 +10,6 @@ Method | HTTP request | Description
 [**EncountersAPI_encounterConditionValueRetrieve**](EncountersAPI.md#EncountersAPI_encounterConditionValueRetrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 [**EncountersAPI_encounterMethodList**](EncountersAPI.md#EncountersAPI_encounterMethodList) | **GET** /api/v2/encounter-method/ | List encounter methods
 [**EncountersAPI_encounterMethodRetrieve**](EncountersAPI.md#EncountersAPI_encounterMethodRetrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-[**EncountersAPI_pokemonEncountersRetrieve**](EncountersAPI.md#EncountersAPI_pokemonEncountersRetrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 
 
 # **EncountersAPI_encounterConditionList**
@@ -192,37 +191,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [encounter_method_detail_t](encounter_method_detail.md) *
-
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **EncountersAPI_pokemonEncountersRetrieve**
-```c
-// Get pokemon encounter
-//
-// Handles Pokemon Encounters as a sub-resource.
-//
-list_t* EncountersAPI_pokemonEncountersRetrieve(apiClient_t *apiClient, char *pokemon_id);
-```
-
-### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**apiClient** | **apiClient_t \*** | context containing the client configuration |
-**pokemon_id** | **char \*** |  | 
-
-### Return type
-
-[list_t](pokemon_encounters_retrieve_200_response_inner.md) *
 
 
 ### Authorization

@@ -5,7 +5,6 @@ open OpenAPI.Model.EncounterMethodDetail
 open OpenAPI.Model.PaginatedEncounterConditionSummaryList
 open OpenAPI.Model.PaginatedEncounterConditionValueSummaryList
 open OpenAPI.Model.PaginatedEncounterMethodSummaryList
-open OpenAPI.Model.PokemonEncountersRetrieve200ResponseInner
 open EncountersApiHandlerParams
 open EncountersApiServiceInterface
 open System.Collections.Generic
@@ -40,10 +39,6 @@ module EncountersApiServiceImplementation =
         member this.EncounterMethodRetrieve () =
             let content = "" :> obj :?> EncounterMethodDetail // this cast is obviously wrong, and is only intended to allow generated project to compile   
             EncounterMethodRetrieveStatusCode200 { content = content }
-
-        member this.PokemonEncountersRetrieve () =
-            let content = "" :> obj :?> PokemonEncountersRetrieve200ResponseInner[] // this cast is obviously wrong, and is only intended to allow generated project to compile   
-            PokemonEncountersRetrieveStatusCode200 { content = content }
 
       //#endregion
 

@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server NatureSummary"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a NatureSummary"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  NatureSummary {
+    title = NatureSummary
+    description = NatureSummary
+    derivedFrom = Root
+    properties {
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        url {
+          type =  string
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  NatureSummary {
+    title = NatureSummary
+    description = NatureSummary
+    implements = openapi_server.resourceTypes.NatureSummary
+
+  }
+}

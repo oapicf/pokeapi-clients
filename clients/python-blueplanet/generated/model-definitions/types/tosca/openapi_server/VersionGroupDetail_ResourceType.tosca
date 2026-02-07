@@ -1,0 +1,77 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server VersionGroupDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a VersionGroupDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+  GenerationSummary = openapi_server.resourceTypes.GenerationSummary
+  VersionSummary = openapi_server.resourceTypes.VersionSummary
+}
+resourceTypes {
+
+  VersionGroupDetail {
+    title = VersionGroupDetail
+    description = VersionGroupDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        order {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        generation {
+          type = GenerationSummary
+          description = ""
+          optional = true
+        }
+        move_learn_methods {
+          type = array
+          items.type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+        pokedexes {
+          type = array
+          items.type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+        regions {
+          type = array
+          items.type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+        versions {
+          type = array
+          items.type = VersionSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  VersionGroupDetail {
+    title = VersionGroupDetail
+    description = VersionGroupDetail
+    implements = openapi_server.resourceTypes.VersionGroupDetail
+
+  }
+}

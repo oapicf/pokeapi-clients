@@ -103,7 +103,6 @@ Class | Method | HTTP request | Description
 *EncountersApi* | [**encounterConditionValueRetrieve**](docs/EncountersApi.md#encounterConditionValueRetrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 *EncountersApi* | [**encounterMethodList**](docs/EncountersApi.md#encounterMethodList) | **GET** /api/v2/encounter-method/ | List encounter methods
 *EncountersApi* | [**encounterMethodRetrieve**](docs/EncountersApi.md#encounterMethodRetrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-*EncountersApi* | [**pokemonEncountersRetrieve**](docs/EncountersApi.md#pokemonEncountersRetrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 *EvolutionApi* | [**evolutionChainList**](docs/EvolutionApi.md#evolutionChainList) | **GET** /api/v2/evolution-chain/ | List evolution chains
 *EvolutionApi* | [**evolutionChainRetrieve**](docs/EvolutionApi.md#evolutionChainRetrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 *EvolutionApi* | [**evolutionTriggerList**](docs/EvolutionApi.md#evolutionTriggerList) | **GET** /api/v2/evolution-trigger/ | List evolution triggers
@@ -407,13 +406,6 @@ Class | Method | HTTP request | Description
  - [PokemonDetailSprites](docs/PokemonDetailSprites.md)
  - [PokemonDetailTypesInner](docs/PokemonDetailTypesInner.md)
  - [PokemonDexEntry](docs/PokemonDexEntry.md)
- - [PokemonEncountersRetrieve200ResponseInner](docs/PokemonEncountersRetrieve200ResponseInner.md)
- - [PokemonEncountersRetrieve200ResponseInnerLocationArea](docs/PokemonEncountersRetrieve200ResponseInnerLocationArea.md)
- - [PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner](docs/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.md)
- - [PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner](docs/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.md)
- - [PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner](docs/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner.md)
- - [PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod](docs/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod.md)
- - [PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion](docs/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.md)
  - [PokemonFormDetail](docs/PokemonFormDetail.md)
  - [PokemonFormDetailFormNamesInner](docs/PokemonFormDetailFormNamesInner.md)
  - [PokemonFormDetailSprites](docs/PokemonFormDetailSprites.md)

@@ -62,7 +62,6 @@ class EncountersApiSimulation extends Simulation {
     val encounterConditionValueRetrievePerSecond = config.getDouble("performance.operationsPerSecond.encounterConditionValueRetrieve") * rateMultiplier * instanceMultiplier
     val encounterMethodListPerSecond = config.getDouble("performance.operationsPerSecond.encounterMethodList") * rateMultiplier * instanceMultiplier
     val encounterMethodRetrievePerSecond = config.getDouble("performance.operationsPerSecond.encounterMethodRetrieve") * rateMultiplier * instanceMultiplier
-    val pokemonEncountersRetrievePerSecond = config.getDouble("performance.operationsPerSecond.pokemonEncountersRetrieve") * rateMultiplier * instanceMultiplier
 
     val scenarioBuilders: mutable.MutableList[PopulationBuilder] = new mutable.MutableList[PopulationBuilder]()
 
@@ -73,7 +72,6 @@ class EncountersApiSimulation extends Simulation {
     val encounter_condition_value_retrievePATHFeeder = csv(userDataDirectory + File.separator + "encounterConditionValueRetrieve-pathParams.csv").random
     val encounter_method_listQUERYFeeder = csv(userDataDirectory + File.separator + "encounterMethodList-queryParams.csv").random
     val encounter_method_retrievePATHFeeder = csv(userDataDirectory + File.separator + "encounterMethodRetrieve-pathParams.csv").random
-    val pokemon_encounters_retrievePATHFeeder = csv(userDataDirectory + File.separator + "pokemonEncountersRetrieve-pathParams.csv").random
 
     // Setup all scenarios
 
@@ -82,9 +80,9 @@ class EncountersApiSimulation extends Simulation {
         .feed(encounter_condition_listQUERYFeeder)
         .exec(http("encounterConditionList")
         .httpRequest("GET","/api/v2/encounter-condition/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnencounterConditionList with warm up and reach a constant rate for entire duration
@@ -113,9 +111,9 @@ class EncountersApiSimulation extends Simulation {
         .feed(encounter_condition_value_listQUERYFeeder)
         .exec(http("encounterConditionValueList")
         .httpRequest("GET","/api/v2/encounter-condition-value/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnencounterConditionValueList with warm up and reach a constant rate for entire duration
@@ -144,9 +142,9 @@ class EncountersApiSimulation extends Simulation {
         .feed(encounter_method_listQUERYFeeder)
         .exec(http("encounterMethodList")
         .httpRequest("GET","/api/v2/encounter-method/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnencounterMethodList with warm up and reach a constant rate for entire duration
@@ -168,20 +166,6 @@ class EncountersApiSimulation extends Simulation {
         rampUsersPerSec(1) to(encounterMethodRetrievePerSecond) during(rampUpSeconds),
         constantUsersPerSec(encounterMethodRetrievePerSecond) during(durationSeconds),
         rampUsersPerSec(encounterMethodRetrievePerSecond) to(1) during(rampDownSeconds)
-    )
-
-    
-    val scnpokemonEncountersRetrieve = scenario("pokemonEncountersRetrieveSimulation")
-        .feed(pokemon_encounters_retrievePATHFeeder)
-        .exec(http("pokemonEncountersRetrieve")
-        .httpRequest("GET","/api/v2/pokemon/${pokemon_id}/encounters")
-)
-
-    // Run scnpokemonEncountersRetrieve with warm up and reach a constant rate for entire duration
-    scenarioBuilders += scnpokemonEncountersRetrieve.inject(
-        rampUsersPerSec(1) to(pokemonEncountersRetrievePerSecond) during(rampUpSeconds),
-        constantUsersPerSec(pokemonEncountersRetrievePerSecond) during(durationSeconds),
-        rampUsersPerSec(pokemonEncountersRetrievePerSecond) to(1) during(rampDownSeconds)
     )
 
     setUp(

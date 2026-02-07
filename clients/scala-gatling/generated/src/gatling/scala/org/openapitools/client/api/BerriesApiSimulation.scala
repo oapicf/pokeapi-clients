@@ -80,9 +80,9 @@ class BerriesApiSimulation extends Simulation {
         .feed(berry_firmness_listQUERYFeeder)
         .exec(http("berryFirmnessList")
         .httpRequest("GET","/api/v2/berry-firmness/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnberryFirmnessList with warm up and reach a constant rate for entire duration
@@ -111,9 +111,9 @@ class BerriesApiSimulation extends Simulation {
         .feed(berry_flavor_listQUERYFeeder)
         .exec(http("berryFlavorList")
         .httpRequest("GET","/api/v2/berry-flavor/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnberryFlavorList with warm up and reach a constant rate for entire duration
@@ -142,9 +142,9 @@ class BerriesApiSimulation extends Simulation {
         .feed(berry_listQUERYFeeder)
         .exec(http("berryList")
         .httpRequest("GET","/api/v2/berry/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnberryList with warm up and reach a constant rate for entire duration

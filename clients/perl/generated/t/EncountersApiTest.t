@@ -77,12 +77,5 @@ isa_ok($api, 'WWW::OpenAPIClient::EncountersApi');
 #my $encounter_method_retrieve_id = undef; # replace NULL with a proper value
 #my $encounter_method_retrieve_result = $api->encounter_method_retrieve(id => $encounter_method_retrieve_id);
 
-#
-# pokemon_encounters_retrieve test
-#
-# uncomment below and update the test
-#my $pokemon_encounters_retrieve_pokemon_id = undef; # replace NULL with a proper value
-#my $pokemon_encounters_retrieve_result = $api->pokemon_encounters_retrieve(pokemon_id => $pokemon_encounters_retrieve_pokemon_id);
-
 
 done_testing();

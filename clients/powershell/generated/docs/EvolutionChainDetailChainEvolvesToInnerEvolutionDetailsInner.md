@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 **Gender** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **HeldItem** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **Item** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
-**KnownMove** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) |  | 
-**KnownMoveType** | [**SystemCollectionsHashtable**](SystemCollectionsHashtable.md) |  | 
+**KnownMove** | [**SystemCollectionsHashtable**](.md) |  | 
+**KnownMoveType** | [**SystemCollectionsHashtable**](.md) |  | 
 **Location** | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  | 
 **MinAffection** | **Int32** |  | 
 **MinBeauty** | **Int32** |  | 

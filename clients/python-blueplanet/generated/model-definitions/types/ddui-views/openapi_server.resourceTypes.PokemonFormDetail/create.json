@@ -1,0 +1,30 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "id" },
+      {"model": "name" },
+      {"model": "order" },
+      {"model": "form_order" },
+      {"model": "is_default" },
+      {"model": "is_battle_only" },
+      {"model": "is_mega" },
+      {"model": "form_name" },
+      {"model": "pokemon" },
+      {"model": "sprites" },
+      {"model": "version_group" },
+      {"model": "form_names" },
+      {"model": "names" },
+      {"model": "types" },
+    ]
+  }]
+}

@@ -9,8 +9,6 @@ import org.openapitools.models.EncounterMethodDetail
 import org.openapitools.models.PaginatedEncounterConditionSummaryList
 import org.openapitools.models.PaginatedEncounterConditionValueSummaryList
 import org.openapitools.models.PaginatedEncounterMethodSummaryList
-import org.openapitools.models.PokemonEncountersRetrieve200ResponseInner
-import scala.collection.immutable.Seq
 import io.finch.circe._
 import io.circe.generic.semiauto._
 import com.twitter.concurrent.AsyncStream
@@ -36,8 +34,7 @@ object EncountersApi {
         encounterConditionValueList(da) :+:
         encounterConditionValueRetrieve(da) :+:
         encounterMethodList(da) :+:
-        encounterMethodRetrieve(da) :+:
-        pokemonEncountersRetrieve(da)
+        encounterMethodRetrieve(da)
 
 
     private def checkError(e: CommonError) = e match {
@@ -137,20 +134,6 @@ object EncountersApi {
         private def encounterMethodRetrieve(da: DataAccessor): Endpoint[EncounterMethodDetail] =
         get("api" :: "v2" :: "encounter-method" :: string) { (id: String, authParamcookieAuth: String) =>
           da.Encounters_encounterMethodRetrieve(id, authParamcookieAuth) match {
-            case Left(error) => checkError(error)
-            case Right(data) => Ok(data)
-          }
-        } handle {
-          case e: Exception => BadRequest(e)
-        }
-
-        /**
-        * 
-        * @return An endpoint representing a Seq[PokemonEncountersRetrieve200ResponseInner]
-        */
-        private def pokemonEncountersRetrieve(da: DataAccessor): Endpoint[Seq[PokemonEncountersRetrieve200ResponseInner]] =
-        get("api" :: "v2" :: "pokemon" :: string :: "encounters") { (pokemonId: String, authParamcookieAuth: String) =>
-          da.Encounters_pokemonEncountersRetrieve(pokemonId, authParamcookieAuth) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }

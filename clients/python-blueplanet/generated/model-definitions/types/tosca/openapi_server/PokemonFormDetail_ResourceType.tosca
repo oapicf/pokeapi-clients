@@ -1,0 +1,108 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonFormDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonFormDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  PokemonDetailTypesInner = openapi_server.resourceTypes.PokemonDetailTypesInner
+  PokemonFormDetailFormNamesInner = openapi_server.resourceTypes.PokemonFormDetailFormNamesInner
+  PokemonFormDetailSprites = openapi_server.resourceTypes.PokemonFormDetailSprites
+  PokemonSummary = openapi_server.resourceTypes.PokemonSummary
+  VersionGroupSummary = openapi_server.resourceTypes.VersionGroupSummary
+}
+resourceTypes {
+
+  PokemonFormDetail {
+    title = PokemonFormDetail
+    description = PokemonFormDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        order {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        form_order {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        is_default {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        is_battle_only {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        is_mega {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        form_name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        pokemon {
+          type = PokemonSummary
+          description = ""
+          optional = true
+        }
+        sprites {
+          type = PokemonFormDetailSprites
+          description = ""
+          optional = true
+        }
+        version_group {
+          type = VersionGroupSummary
+          description = ""
+          optional = true
+        }
+        form_names {
+          type = array
+          items.type = PokemonFormDetailFormNamesInner
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = PokemonFormDetailFormNamesInner
+          description = ""
+          optional = true
+        }
+        types {
+          type = array
+          items.type = PokemonDetailTypesInner
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonFormDetail {
+    title = PokemonFormDetail
+    description = PokemonFormDetail
+    implements = openapi_server.resourceTypes.PokemonFormDetail
+
+  }
+}

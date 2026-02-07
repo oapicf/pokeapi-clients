@@ -1,0 +1,52 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PaginatedCharacteristicSummaryList"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PaginatedCharacteristicSummaryList"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  CharacteristicSummary = openapi_server.resourceTypes.CharacteristicSummary
+}
+resourceTypes {
+
+  PaginatedCharacteristicSummaryList {
+    title = PaginatedCharacteristicSummaryList
+    description = PaginatedCharacteristicSummaryList
+    derivedFrom = Root
+    properties {
+        count {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        next {
+          type =  string
+          description = ""
+          optional = false
+        }
+        previous {
+          type =  string
+          description = ""
+          optional = false
+        }
+        results {
+          type = array
+          items.type = CharacteristicSummary
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PaginatedCharacteristicSummaryList {
+    title = PaginatedCharacteristicSummaryList
+    description = PaginatedCharacteristicSummaryList
+    implements = openapi_server.resourceTypes.PaginatedCharacteristicSummaryList
+
+  }
+}

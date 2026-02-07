@@ -1,0 +1,123 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ItemDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ItemDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+  ItemCategorySummary = openapi_server.resourceTypes.ItemCategorySummary
+  ItemDetailBabyTriggerFor = openapi_server.resourceTypes.ItemDetailBabyTriggerFor
+  ItemDetailHeldByPokemonInner = openapi_server.resourceTypes.ItemDetailHeldByPokemonInner
+  ItemDetailMachinesInner = openapi_server.resourceTypes.ItemDetailMachinesInner
+  ItemDetailSprites = openapi_server.resourceTypes.ItemDetailSprites
+  ItemEffectText = openapi_server.resourceTypes.ItemEffectText
+  ItemFlavorText = openapi_server.resourceTypes.ItemFlavorText
+  ItemFlingEffectSummary = openapi_server.resourceTypes.ItemFlingEffectSummary
+  ItemGameIndex = openapi_server.resourceTypes.ItemGameIndex
+  ItemName = openapi_server.resourceTypes.ItemName
+}
+resourceTypes {
+
+  ItemDetail {
+    title = ItemDetail
+    description = ItemDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        cost {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        fling_power {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        fling_effect {
+          type = ItemFlingEffectSummary
+          description = ""
+          optional = true
+        }
+        attributes {
+          type = array
+          items.type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+        category {
+          type = ItemCategorySummary
+          description = ""
+          optional = true
+        }
+        effect_entries {
+          type = array
+          items.type = ItemEffectText
+          description = ""
+          optional = true
+        }
+        flavor_text_entries {
+          type = array
+          items.type = ItemFlavorText
+          description = ""
+          optional = true
+        }
+        game_indices {
+          type = array
+          items.type = ItemGameIndex
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = ItemName
+          description = ""
+          optional = true
+        }
+        held_by_pokemon {
+          type = array
+          items.type = ItemDetailHeldByPokemonInner
+          description = ""
+          optional = true
+        }
+        sprites {
+          type = ItemDetailSprites
+          description = ""
+          optional = true
+        }
+        baby_trigger_for {
+          type = ItemDetailBabyTriggerFor
+          description = ""
+          optional = true
+        }
+        machines {
+          type = array
+          items.type = ItemDetailMachinesInner
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ItemDetail {
+    title = ItemDetail
+    description = ItemDetail
+    implements = openapi_server.resourceTypes.ItemDetail
+
+  }
+}

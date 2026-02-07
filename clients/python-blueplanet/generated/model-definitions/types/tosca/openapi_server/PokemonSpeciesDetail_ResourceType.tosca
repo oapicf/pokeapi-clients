@@ -1,0 +1,188 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonSpeciesDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonSpeciesDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+  EvolutionChainSummary = openapi_server.resourceTypes.EvolutionChainSummary
+  GenerationSummary = openapi_server.resourceTypes.GenerationSummary
+  GrowthRateSummary = openapi_server.resourceTypes.GrowthRateSummary
+  PokemonColorSummary = openapi_server.resourceTypes.PokemonColorSummary
+  PokemonDexEntry = openapi_server.resourceTypes.PokemonDexEntry
+  PokemonFormDetailFormNamesInner = openapi_server.resourceTypes.PokemonFormDetailFormNamesInner
+  PokemonHabitatSummary = openapi_server.resourceTypes.PokemonHabitatSummary
+  PokemonShapeSummary = openapi_server.resourceTypes.PokemonShapeSummary
+  PokemonSpeciesDescription = openapi_server.resourceTypes.PokemonSpeciesDescription
+  PokemonSpeciesDetailGeneraInner = openapi_server.resourceTypes.PokemonSpeciesDetailGeneraInner
+  PokemonSpeciesDetailPalParkEncountersInner = openapi_server.resourceTypes.PokemonSpeciesDetailPalParkEncountersInner
+  PokemonSpeciesDetailVarietiesInner = openapi_server.resourceTypes.PokemonSpeciesDetailVarietiesInner
+  PokemonSpeciesFlavorText = openapi_server.resourceTypes.PokemonSpeciesFlavorText
+  PokemonSpeciesSummary = openapi_server.resourceTypes.PokemonSpeciesSummary
+}
+resourceTypes {
+
+  PokemonSpeciesDetail {
+    title = PokemonSpeciesDetail
+    description = PokemonSpeciesDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        order {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        gender_rate {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        capture_rate {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        base_happiness {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        is_baby {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        is_legendary {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        is_mythical {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        hatch_counter {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        has_gender_differences {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        forms_switchable {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        growth_rate {
+          type = GrowthRateSummary
+          description = ""
+          optional = true
+        }
+        pokedex_numbers {
+          type = array
+          items.type = PokemonDexEntry
+          description = ""
+          optional = true
+        }
+        egg_groups {
+          type = array
+          items.type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+        color {
+          type = PokemonColorSummary
+          description = ""
+          optional = true
+        }
+        shape {
+          type = PokemonShapeSummary
+          description = ""
+          optional = true
+        }
+        evolves_from_species {
+          type = PokemonSpeciesSummary
+          description = ""
+          optional = true
+        }
+        evolution_chain {
+          type = EvolutionChainSummary
+          description = ""
+          optional = true
+        }
+        habitat {
+          type = PokemonHabitatSummary
+          description = ""
+          optional = true
+        }
+        generation {
+          type = GenerationSummary
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = PokemonFormDetailFormNamesInner
+          description = ""
+          optional = true
+        }
+        pal_park_encounters {
+          type = array
+          items.type = PokemonSpeciesDetailPalParkEncountersInner
+          description = ""
+          optional = true
+        }
+        form_descriptions {
+          type = array
+          items.type = PokemonSpeciesDescription
+          description = ""
+          optional = true
+        }
+        flavor_text_entries {
+          type = array
+          items.type = PokemonSpeciesFlavorText
+          description = ""
+          optional = true
+        }
+        genera {
+          type = array
+          items.type = PokemonSpeciesDetailGeneraInner
+          description = ""
+          optional = true
+        }
+        varieties {
+          type = array
+          items.type = PokemonSpeciesDetailVarietiesInner
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonSpeciesDetail {
+    title = PokemonSpeciesDetail
+    description = PokemonSpeciesDetail
+    implements = openapi_server.resourceTypes.PokemonSpeciesDetail
+
+  }
+}

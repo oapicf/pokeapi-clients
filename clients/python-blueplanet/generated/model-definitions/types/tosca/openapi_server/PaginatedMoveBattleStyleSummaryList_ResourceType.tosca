@@ -1,0 +1,52 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PaginatedMoveBattleStyleSummaryList"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PaginatedMoveBattleStyleSummaryList"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  MoveBattleStyleSummary = openapi_server.resourceTypes.MoveBattleStyleSummary
+}
+resourceTypes {
+
+  PaginatedMoveBattleStyleSummaryList {
+    title = PaginatedMoveBattleStyleSummaryList
+    description = PaginatedMoveBattleStyleSummaryList
+    derivedFrom = Root
+    properties {
+        count {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        next {
+          type =  string
+          description = ""
+          optional = false
+        }
+        previous {
+          type =  string
+          description = ""
+          optional = false
+        }
+        results {
+          type = array
+          items.type = MoveBattleStyleSummary
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PaginatedMoveBattleStyleSummaryList {
+    title = PaginatedMoveBattleStyleSummaryList
+    description = PaginatedMoveBattleStyleSummaryList
+    implements = openapi_server.resourceTypes.PaginatedMoveBattleStyleSummaryList
+
+  }
+}

@@ -203,13 +203,13 @@ cJSON *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_con
     if (!evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move) {
         goto fail;
     }
-    cJSON *known_move_local_JSON = object_convertToJSON(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move);
-    if(known_move_local_JSON == NULL) {
-        goto fail; // custom
+    cJSON *known_move_object = object_convertToJSON(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move);
+    if(known_move_object == NULL) {
+    goto fail; //model
     }
-    cJSON_AddItemToObject(item, "known_move", known_move_local_JSON);
+    cJSON_AddItemToObject(item, "known_move", known_move_object);
     if(item->child == NULL) {
-        goto fail;
+    goto fail;
     }
 
 
@@ -217,13 +217,13 @@ cJSON *evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_con
     if (!evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move_type) {
         goto fail;
     }
-    cJSON *known_move_type_local_JSON = object_convertToJSON(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move_type);
-    if(known_move_type_local_JSON == NULL) {
-        goto fail; // custom
+    cJSON *known_move_type_object = object_convertToJSON(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move_type);
+    if(known_move_type_object == NULL) {
+    goto fail; //model
     }
-    cJSON_AddItemToObject(item, "known_move_type", known_move_type_local_JSON);
+    cJSON_AddItemToObject(item, "known_move_type", known_move_type_object);
     if(item->child == NULL) {
-        goto fail;
+    goto fail;
     }
 
 
@@ -374,12 +374,6 @@ evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *evoluti
     // define the local variable for evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->item
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *item_local_nonprim = NULL;
 
-    // define the local variable for evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move
-    object_t *known_move_local_nonprim = NULL;
-
-    // define the local variable for evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move_type
-    object_t *known_move_type_local_nonprim = NULL;
-
     // define the local variable for evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->location
     evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *location_local_nonprim = NULL;
 
@@ -431,8 +425,9 @@ evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *evoluti
         goto end;
     }
 
+    object_t *known_move_local_object = NULL;
     
-    known_move_local_nonprim = object_parseFromJSON(known_move); //custom
+    known_move_local_object = object_parseFromJSON(known_move); //object
 
     // evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->known_move_type
     cJSON *known_move_type = cJSON_GetObjectItemCaseSensitive(evolution_chain_detail_chain_evolves_to_inner_evolution_details_innerJSON, "known_move_type");
@@ -443,8 +438,9 @@ evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *evoluti
         goto end;
     }
 
+    object_t *known_move_type_local_object = NULL;
     
-    known_move_type_local_nonprim = object_parseFromJSON(known_move_type); //custom
+    known_move_type_local_object = object_parseFromJSON(known_move_type); //object
 
     // evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner->location
     cJSON *location = cJSON_GetObjectItemCaseSensitive(evolution_chain_detail_chain_evolves_to_inner_evolution_details_innerJSON, "location");
@@ -640,8 +636,8 @@ evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_t *evoluti
         gender_local_nonprim,
         held_item_local_nonprim,
         item_local_nonprim,
-        known_move_local_nonprim,
-        known_move_type_local_nonprim,
+        known_move_local_object,
+        known_move_type_local_object,
         location_local_nonprim,
         min_affection->valuedouble,
         min_beauty->valuedouble,
@@ -670,14 +666,6 @@ end:
     if (item_local_nonprim) {
         evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_free(item_local_nonprim);
         item_local_nonprim = NULL;
-    }
-    if (known_move_local_nonprim) {
-        object_free(known_move_local_nonprim);
-        known_move_local_nonprim = NULL;
-    }
-    if (known_move_type_local_nonprim) {
-        object_free(known_move_type_local_nonprim);
-        known_move_type_local_nonprim = NULL;
     }
     if (location_local_nonprim) {
         evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_free(location_local_nonprim);

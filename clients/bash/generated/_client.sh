@@ -312,8 +312,7 @@ case $state in
             "encounterConditionValueList[List encounter condition values]" \
             "encounterConditionValueRetrieve[Get encounter condition value]" \
             "encounterMethodList[List encounter methods]" \
-            "encounterMethodRetrieve[Get encounter method]" \
-            "pokemonEncountersRetrieve[Get pokemon encounter]"             "evolutionChainList[List evolution chains]" \
+            "encounterMethodRetrieve[Get encounter method]"             "evolutionChainList[List evolution chains]" \
             "evolutionChainRetrieve[Get evolution chain]" \
             "evolutionTriggerList[List evolution triggers]" \
             "evolutionTriggerRetrieve[Get evolution trigger]"             "generationList[List genrations]" \
@@ -541,13 +540,6 @@ Case-insensitive query applied on the &#39;name&#39; property."
         local -a _op_arguments
         _op_arguments=(
           "id=:[PATH] This parameter can be a string or an integer."
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      pokemonEncountersRetrieve)
-        local -a _op_arguments
-        _op_arguments=(
-          "pokemon_id=:[PATH] "
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;

@@ -10,7 +10,6 @@ Method | HTTP request | Description
 [**encounterConditionValueRetrieve**](EncountersApi.md#encounterConditionValueRetrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 [**encounterMethodList**](EncountersApi.md#encounterMethodList) | **GET** /api/v2/encounter-method/ | List encounter methods
 [**encounterMethodRetrieve**](EncountersApi.md#encounterMethodRetrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-[**pokemonEncountersRetrieve**](EncountersApi.md#pokemonEncountersRetrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 
 
 
@@ -291,52 +290,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EncounterMethodDetail**](EncounterMethodDetail.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## pokemonEncountersRetrieve
-
-> List&lt;PokemonEncountersRetrieve200ResponseInner&gt; pokemonEncountersRetrieve(pokemonId)
-
-Get pokemon encounter
-
-Handles Pokemon Encounters as a sub-resource.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.EncountersApi;
-
-EncountersApi apiInstance = new EncountersApi();
-String pokemonId = null; // String | 
-try {
-    List<PokemonEncountersRetrieve200ResponseInner> result = apiInstance.pokemonEncountersRetrieve(pokemonId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EncountersApi#pokemonEncountersRetrieve");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pokemonId** | **String**|  | [default to null]
-
-### Return type
-
-[**List&lt;PokemonEncountersRetrieve200ResponseInner&gt;**](PokemonEncountersRetrieve200ResponseInner.md)
 
 ### Authorization
 

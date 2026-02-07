@@ -48,7 +48,7 @@ import javax.annotation.Generated;
   EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner.JSON_PROPERTY_TURN_UPSIDE_DOWN
 })
 @JsonTypeName("EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T04:16:49.114765561Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Introspected
 public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     public static final String JSON_PROPERTY_GENDER = "gender";
@@ -61,10 +61,10 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
     private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item;
 
     public static final String JSON_PROPERTY_KNOWN_MOVE = "known_move";
-    private Object knownMove = null;
+    private Object knownMove;
 
     public static final String JSON_PROPERTY_KNOWN_MOVE_TYPE = "known_move_type";
-    private Object knownMoveType = null;
+    private Object knownMoveType;
 
     public static final String JSON_PROPERTY_LOCATION = "location";
     private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location;

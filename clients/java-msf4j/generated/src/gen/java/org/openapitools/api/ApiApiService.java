@@ -28,7 +28,6 @@ import org.openapitools.model.ItemDetail;
 import org.openapitools.model.ItemFlingEffectDetail;
 import org.openapitools.model.ItemPocketDetail;
 import org.openapitools.model.LanguageDetail;
-import java.util.List;
 import org.openapitools.model.LocationAreaDetail;
 import org.openapitools.model.LocationDetail;
 import org.openapitools.model.MachineDetail;
@@ -93,7 +92,6 @@ import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
 import org.openapitools.model.PokemonDetail;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 import org.openapitools.model.PokemonFormDetail;
 import org.openapitools.model.PokemonHabitatDetail;
 import org.openapitools.model.PokemonShapeDetail;
@@ -113,7 +111,7 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T04:17:01.559585484Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public abstract class ApiApiService {
     public abstract Response abilityList(Integer limit
  ,Integer offset
@@ -335,8 +333,6 @@ public abstract class ApiApiService {
  ,String q
  ) throws NotFoundException;
     public abstract Response pokemonColorRetrieve(String id
- ) throws NotFoundException;
-    public abstract Response pokemonEncountersRetrieve(String pokemonId
  ) throws NotFoundException;
     public abstract Response pokemonFormList(Integer limit
  ,Integer offset

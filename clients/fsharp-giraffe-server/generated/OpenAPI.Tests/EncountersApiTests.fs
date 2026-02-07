@@ -22,7 +22,6 @@ open OpenAPI.Model.EncounterMethodDetail
 open OpenAPI.Model.PaginatedEncounterConditionSummaryList
 open OpenAPI.Model.PaginatedEncounterConditionValueSummaryList
 open OpenAPI.Model.PaginatedEncounterMethodSummaryList
-open OpenAPI.Model.PokemonEncountersRetrieve200ResponseInner
 
 module EncountersApiHandlerTests =
 
@@ -124,23 +123,6 @@ module EncountersApiHandlerTests =
       // add your setup code here
 
       let path = "/api/v2/encounter-method/{id}/".Replace("id", "ADDME")
-
-      HttpGet client path
-        |> isStatus (enum<HttpStatusCode>(200))
-        |> readText
-        |> shouldEqual "TESTME"
-        |> ignore
-      }
-
-  [<Fact>]
-  let ``PokemonEncountersRetrieve - Get pokemon encounter returns 200 `` () =
-    task {
-      use server = new TestServer(createHost())
-      use client = server.CreateClient()
-
-      // add your setup code here
-
-      let path = "/api/v2/pokemon/{pokemon_id}/encounters".Replace("pokemonId", "ADDME")
 
       HttpGet client path
         |> isStatus (enum<HttpStatusCode>(200))

@@ -56,7 +56,6 @@ All URIs are relative to https://pokeapi.cohttps://pokeapi.co
 |*encounterConditionValueRetrieve* | *GET* /api/v2/encounter-condition-value/{id}/ | Get encounter condition value.|
 |*encounterMethodList* | *GET* /api/v2/encounter-method/ | List encounter methods.|
 |*encounterMethodRetrieve* | *GET* /api/v2/encounter-method/{id}/ | Get encounter method.|
-|*pokemonEncountersRetrieve* | *GET* /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter.|
 
 ### EvolutionApi
 |Method | HTTP request | Description|
@@ -414,13 +413,6 @@ All URIs are relative to https://pokeapi.cohttps://pokeapi.co
 |*PokemonSpeciesSummary* | |
 |*PokemonStat* | |
 |*PokemonSummary* | |
-|*Pokemon_encounters_retrieve_200_response_inner* | |
-|*Pokemon_encounters_retrieve_200_response_inner_location_area* | |
-|*Pokemon_encounters_retrieve_200_response_inner_version_details_inner* | |
-|*Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner* | |
-|*Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner* | |
-|*Pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method* | |
-|*Pokemon_encounters_retrieve_200_response_inner_version_details_inner_version* | |
 |*RegionDetail* | |
 |*RegionName* | |
 |*RegionSummary* | |

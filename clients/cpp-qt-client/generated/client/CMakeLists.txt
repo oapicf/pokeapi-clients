@@ -253,13 +253,6 @@ add_library(${PROJECT_NAME}
   OAIPokemonSpeciesSummary.h
   OAIPokemonStat.h
   OAIPokemonSummary.h
-  OAIPokemon_encounters_retrieve_200_response_inner.h
-  OAIPokemon_encounters_retrieve_200_response_inner_location_area.h
-  OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner.h
-  OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner.h
-  OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner.h
-  OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method.h
-  OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner_version.h
   OAIRegionDetail.h
   OAIRegionName.h
   OAIRegionSummary.h
@@ -547,13 +540,6 @@ add_library(${PROJECT_NAME}
   OAIPokemonSpeciesSummary.cpp
   OAIPokemonStat.cpp
   OAIPokemonSummary.cpp
-  OAIPokemon_encounters_retrieve_200_response_inner.cpp
-  OAIPokemon_encounters_retrieve_200_response_inner_location_area.cpp
-  OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner.cpp
-  OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner.cpp
-  OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner.cpp
-  OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method.cpp
-  OAIPokemon_encounters_retrieve_200_response_inner_version_details_inner_version.cpp
   OAIRegionDetail.cpp
   OAIRegionName.cpp
   OAIRegionSummary.cpp

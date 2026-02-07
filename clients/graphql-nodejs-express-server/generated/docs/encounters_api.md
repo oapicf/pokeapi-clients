@@ -10,7 +10,6 @@ Method | HTTP request | Description
 [**EncounterConditionValueRetrieve**](encounters_api.md#EncounterConditionValueRetrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 [**EncounterMethodList**](encounters_api.md#EncounterMethodList) | **GET** /api/v2/encounter-method/ | List encounter methods
 [**EncounterMethodRetrieve**](encounters_api.md#EncounterMethodRetrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-[**PokemonEncountersRetrieve**](encounters_api.md#PokemonEncountersRetrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 
 
 <a name="EncounterConditionList"></a>
@@ -55,10 +54,3 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 Get encounter method
 
 Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
-<a name="PokemonEncountersRetrieve"></a>
-# **PokemonEncountersRetrieve**
-> PokemonEncountersRetrieve200ResponseInner PokemonEncountersRetrieve(pokemonId)
-
-Get pokemon encounter
-
-Handles Pokemon Encounters as a sub-resource.

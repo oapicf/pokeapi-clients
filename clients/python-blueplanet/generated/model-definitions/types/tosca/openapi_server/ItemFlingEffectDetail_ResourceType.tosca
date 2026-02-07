@@ -1,0 +1,54 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ItemFlingEffectDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ItemFlingEffectDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ItemFlingEffectEffectText = openapi_server.resourceTypes.ItemFlingEffectEffectText
+  ItemSummary = openapi_server.resourceTypes.ItemSummary
+}
+resourceTypes {
+
+  ItemFlingEffectDetail {
+    title = ItemFlingEffectDetail
+    description = ItemFlingEffectDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        effect_entries {
+          type = array
+          items.type = ItemFlingEffectEffectText
+          description = ""
+          optional = true
+        }
+        items {
+          type = array
+          items.type = ItemSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ItemFlingEffectDetail {
+    title = ItemFlingEffectDetail
+    description = ItemFlingEffectDetail
+    implements = openapi_server.resourceTypes.ItemFlingEffectDetail
+
+  }
+}

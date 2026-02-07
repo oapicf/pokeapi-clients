@@ -55,12 +55,4 @@ Describe -tag 'PSOpenAPITools' -name 'EncountersApi' {
         }
     }
 
-    Context 'Invoke-PokemonEncountersRetrieve' {
-        It 'Test Invoke-PokemonEncountersRetrieve' {
-            #$TestResult = Invoke-PokemonEncountersRetrieve -PokemonId "TEST_VALUE"
-            #$TestResult | Should -BeOfType TODO
-            #$TestResult.property | Should -Be 0
-        }
-    }
-
 }

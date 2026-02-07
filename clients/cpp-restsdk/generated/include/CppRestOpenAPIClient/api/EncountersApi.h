@@ -29,8 +29,6 @@
 #include "CppRestOpenAPIClient/model/PaginatedEncounterConditionSummaryList.h"
 #include "CppRestOpenAPIClient/model/PaginatedEncounterConditionValueSummaryList.h"
 #include "CppRestOpenAPIClient/model/PaginatedEncounterMethodSummaryList.h"
-#include "CppRestOpenAPIClient/model/Pokemon_encounters_retrieve_200_response_inner.h"
-#include <vector>
 #include <cpprest/details/basic_types.h>
 #include <boost/optional.hpp>
 
@@ -122,16 +120,6 @@ public:
     /// <param name="id">This parameter can be a string or an integer.</param>
     pplx::task<std::shared_ptr<EncounterMethodDetail>> encounterMethodRetrieve(
         utility::string_t id
-    ) const;
-    /// <summary>
-    /// Get pokemon encounter
-    /// </summary>
-    /// <remarks>
-    /// Handles Pokemon Encounters as a sub-resource.
-    /// </remarks>
-    /// <param name="pokemonId"></param>
-    pplx::task<std::vector<std::shared_ptr<Pokemon_encounters_retrieve_200_response_inner>>> pokemonEncountersRetrieve(
-        utility::string_t pokemonId
     ) const;
 
 protected:

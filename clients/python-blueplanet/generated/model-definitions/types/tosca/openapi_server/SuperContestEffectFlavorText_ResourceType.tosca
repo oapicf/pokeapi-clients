@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server SuperContestEffectFlavorText"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a SuperContestEffectFlavorText"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  LanguageSummary = openapi_server.resourceTypes.LanguageSummary
+}
+resourceTypes {
+
+  SuperContestEffectFlavorText {
+    title = SuperContestEffectFlavorText
+    description = SuperContestEffectFlavorText
+    derivedFrom = Root
+    properties {
+        flavor_text {
+          type =  string
+          description = ""
+          optional = true
+        }
+        language {
+          type = LanguageSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  SuperContestEffectFlavorText {
+    title = SuperContestEffectFlavorText
+    description = SuperContestEffectFlavorText
+    implements = openapi_server.resourceTypes.SuperContestEffectFlavorText
+
+  }
+}

@@ -87,7 +87,7 @@ public class ContestsControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/contest-effect/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@60003305");
+            .accept("[Ljava.lang.String;@6ea0dfaa");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -137,7 +137,7 @@ public class ContestsControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@3f1dadeb");
+            .accept("[Ljava.lang.String;@5852605c");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, ContestEffectDetail.class);
@@ -182,7 +182,7 @@ public class ContestsControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/contest-type/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@72259917");
+            .accept("[Ljava.lang.String;@2acfd27b");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -232,7 +232,7 @@ public class ContestsControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@5e81b406");
+            .accept("[Ljava.lang.String;@5e8359da");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, ContestTypeDetail.class);
@@ -277,7 +277,7 @@ public class ContestsControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/super-contest-effect/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@3ff83cc8");
+            .accept("[Ljava.lang.String;@36b6802f");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -327,7 +327,7 @@ public class ContestsControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@6dd8ac29");
+            .accept("[Ljava.lang.String;@7d2d5625");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, SuperContestEffectDetail.class);

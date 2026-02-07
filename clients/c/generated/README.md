@@ -84,7 +84,6 @@ Category | Method | HTTP request | Description
 *EncountersAPI* | [**EncountersAPI_encounterConditionValueRetrieve**](docs/EncountersAPI.md#EncountersAPI_encounterConditionValueRetrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 *EncountersAPI* | [**EncountersAPI_encounterMethodList**](docs/EncountersAPI.md#EncountersAPI_encounterMethodList) | **GET** /api/v2/encounter-method/ | List encounter methods
 *EncountersAPI* | [**EncountersAPI_encounterMethodRetrieve**](docs/EncountersAPI.md#EncountersAPI_encounterMethodRetrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-*EncountersAPI* | [**EncountersAPI_pokemonEncountersRetrieve**](docs/EncountersAPI.md#EncountersAPI_pokemonEncountersRetrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 *EvolutionAPI* | [**EvolutionAPI_evolutionChainList**](docs/EvolutionAPI.md#EvolutionAPI_evolutionChainList) | **GET** /api/v2/evolution-chain/ | List evolution chains
 *EvolutionAPI* | [**EvolutionAPI_evolutionChainRetrieve**](docs/EvolutionAPI.md#EvolutionAPI_evolutionChainRetrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 *EvolutionAPI* | [**EvolutionAPI_evolutionTriggerList**](docs/EvolutionAPI.md#EvolutionAPI_evolutionTriggerList) | **GET** /api/v2/evolution-trigger/ | List evolution triggers
@@ -388,13 +387,6 @@ Category | Method | HTTP request | Description
  - [pokemon_detail_sprites_t](docs/pokemon_detail_sprites.md)
  - [pokemon_detail_types_inner_t](docs/pokemon_detail_types_inner.md)
  - [pokemon_dex_entry_t](docs/pokemon_dex_entry.md)
- - [pokemon_encounters_retrieve_200_response_inner_t](docs/pokemon_encounters_retrieve_200_response_inner.md)
- - [pokemon_encounters_retrieve_200_response_inner_location_area_t](docs/pokemon_encounters_retrieve_200_response_inner_location_area.md)
- - [pokemon_encounters_retrieve_200_response_inner_version_details_inner_t](docs/pokemon_encounters_retrieve_200_response_inner_version_details_inner.md)
- - [pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_t](docs/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner.md)
- - [pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner_t](docs/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner.md)
- - [pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method_t](docs/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method.md)
- - [pokemon_encounters_retrieve_200_response_inner_version_details_inner_version_t](docs/pokemon_encounters_retrieve_200_response_inner_version_details_inner_version.md)
  - [pokemon_form_detail_t](docs/pokemon_form_detail.md)
  - [pokemon_form_detail_form_names_inner_t](docs/pokemon_form_detail_form_names_inner.md)
  - [pokemon_form_detail_sprites_t](docs/pokemon_form_detail_sprites.md)

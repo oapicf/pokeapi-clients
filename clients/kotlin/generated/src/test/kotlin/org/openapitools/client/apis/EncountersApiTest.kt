@@ -25,7 +25,6 @@ import org.openapitools.client.models.EncounterMethodDetail
 import org.openapitools.client.models.PaginatedEncounterConditionSummaryList
 import org.openapitools.client.models.PaginatedEncounterConditionValueSummaryList
 import org.openapitools.client.models.PaginatedEncounterMethodSummaryList
-import org.openapitools.client.models.PokemonEncountersRetrieve200ResponseInner
 
 class EncountersApiTest : ShouldSpec() {
     init {
@@ -83,14 +82,6 @@ class EncountersApiTest : ShouldSpec() {
             // uncomment below to test encounterMethodRetrieve
             //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
             //val result : EncounterMethodDetail = apiInstance.encounterMethodRetrieve(id)
-            //result shouldBe ("TODO")
-        }
-
-        // to test pokemonEncountersRetrieve
-        should("test pokemonEncountersRetrieve") {
-            // uncomment below to test pokemonEncountersRetrieve
-            //val pokemonId : kotlin.String = pokemonId_example // kotlin.String | 
-            //val result : kotlin.collections.List<PokemonEncountersRetrieve200ResponseInner> = apiInstance.pokemonEncountersRetrieve(pokemonId)
             //result shouldBe ("TODO")
         }
 

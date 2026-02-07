@@ -224,13 +224,6 @@ import { PokemonDetailPastTypesInner } from '../models/PokemonDetailPastTypesInn
 import { PokemonDetailSprites } from '../models/PokemonDetailSprites';
 import { PokemonDetailTypesInner } from '../models/PokemonDetailTypesInner';
 import { PokemonDexEntry } from '../models/PokemonDexEntry';
-import { PokemonEncountersRetrieve200ResponseInner } from '../models/PokemonEncountersRetrieve200ResponseInner';
-import { PokemonEncountersRetrieve200ResponseInnerLocationArea } from '../models/PokemonEncountersRetrieve200ResponseInnerLocationArea';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner } from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner } from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner } from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod } from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion } from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion';
 import { PokemonFormDetail } from '../models/PokemonFormDetail';
 import { PokemonFormDetailFormNamesInner } from '../models/PokemonFormDetailFormNamesInner';
 import { PokemonFormDetailSprites } from '../models/PokemonFormDetailSprites';
@@ -977,40 +970,6 @@ export class ObservableEncountersApi {
      */
     public encounterMethodRetrieve(id: string, _options?: ConfigurationOptions): Observable<EncounterMethodDetail> {
         return this.encounterMethodRetrieveWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<EncounterMethodDetail>) => apiResponse.data));
-    }
-
-    /**
-     * Handles Pokemon Encounters as a sub-resource.
-     * Get pokemon encounter
-     * @param pokemonId
-     */
-    public pokemonEncountersRetrieveWithHttpInfo(pokemonId: string, _options?: ConfigurationOptions): Observable<HttpInfo<Array<PokemonEncountersRetrieve200ResponseInner>>> {
-        const _config = mergeConfiguration(this.configuration, _options);
-
-        const requestContextPromise = this.requestFactory.pokemonEncountersRetrieve(pokemonId, _config);
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (const middleware of _config.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (const middleware of _config.middleware.reverse()) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.pokemonEncountersRetrieveWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * Handles Pokemon Encounters as a sub-resource.
-     * Get pokemon encounter
-     * @param pokemonId
-     */
-    public pokemonEncountersRetrieve(pokemonId: string, _options?: ConfigurationOptions): Observable<Array<PokemonEncountersRetrieve200ResponseInner>> {
-        return this.pokemonEncountersRetrieveWithHttpInfo(pokemonId, _options).pipe(map((apiResponse: HttpInfo<Array<PokemonEncountersRetrieve200ResponseInner>>) => apiResponse.data));
     }
 
 }

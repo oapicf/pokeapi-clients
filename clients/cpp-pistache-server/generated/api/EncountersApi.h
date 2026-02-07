@@ -34,9 +34,7 @@
 #include "PaginatedEncounterConditionSummaryList.h"
 #include "PaginatedEncounterConditionValueSummaryList.h"
 #include "PaginatedEncounterMethodSummaryList.h"
-#include "Pokemon_encounters_retrieve_200_response_inner.h"
 #include <string>
-#include <vector>
 
 namespace org::openapitools::server::api
 {
@@ -58,7 +56,6 @@ private:
     void encounter_condition_value_retrieve_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
     void encounter_method_list_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
     void encounter_method_retrieve_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
-    void pokemon_encounters_retrieve_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
     void encounters_api_default_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response);
 
     /// <summary>
@@ -143,14 +140,6 @@ private:
     /// </remarks>
     /// <param name="id">This parameter can be a string or an integer.</param>
     virtual void encounter_method_retrieve(const HttpBasicCredentials &credentials,  const std::string &id, Pistache::Http::ResponseWriter &response) = 0;
-    /// <summary>
-    /// Get pokemon encounter
-    /// </summary>
-    /// <remarks>
-    /// Handles Pokemon Encounters as a sub-resource.
-    /// </remarks>
-    /// <param name="pokemonId"></param>
-    virtual void pokemon_encounters_retrieve(const HttpBasicCredentials &credentials,  const std::string &pokemonId, Pistache::Http::ResponseWriter &response) = 0;
 
 };
 

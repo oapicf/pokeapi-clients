@@ -257,13 +257,6 @@ src/main/java/org/openapitools/vertxweb/server/model/PokemonDetailPastTypesInner
 src/main/java/org/openapitools/vertxweb/server/model/PokemonDetailSprites.java
 src/main/java/org/openapitools/vertxweb/server/model/PokemonDetailTypesInner.java
 src/main/java/org/openapitools/vertxweb/server/model/PokemonDexEntry.java
-src/main/java/org/openapitools/vertxweb/server/model/PokemonEncountersRetrieve200ResponseInner.java
-src/main/java/org/openapitools/vertxweb/server/model/PokemonEncountersRetrieve200ResponseInnerLocationArea.java
-src/main/java/org/openapitools/vertxweb/server/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.java
-src/main/java/org/openapitools/vertxweb/server/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.java
-src/main/java/org/openapitools/vertxweb/server/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner.java
-src/main/java/org/openapitools/vertxweb/server/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod.java
-src/main/java/org/openapitools/vertxweb/server/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.java
 src/main/java/org/openapitools/vertxweb/server/model/PokemonFormDetail.java
 src/main/java/org/openapitools/vertxweb/server/model/PokemonFormDetailFormNamesInner.java
 src/main/java/org/openapitools/vertxweb/server/model/PokemonFormDetailSprites.java

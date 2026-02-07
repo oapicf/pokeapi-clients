@@ -147,13 +147,6 @@ Route::GET('/api/v2/encounter-method/', [\OpenAPI\Server\Http\Controllers\Encoun
 Route::GET('/api/v2/encounter-method/{id}/', [\OpenAPI\Server\Http\Controllers\EncountersController::class, 'encounterMethodRetrieve'])->name('encounters.encounter.method.retrieve');
 
 /**
- * GET pokemonEncountersRetrieve
- * Summary: Get pokemon encounter
- * Notes: Handles Pokemon Encounters as a sub-resource.
- */
-Route::GET('/api/v2/pokemon/{pokemon_id}/encounters', [\OpenAPI\Server\Http\Controllers\EncountersController::class, 'pokemonEncountersRetrieve'])->name('encounters.pokemon.encounters.retrieve');
-
-/**
  * GET evolutionChainList
  * Summary: List evolution chains
  * Notes: Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.

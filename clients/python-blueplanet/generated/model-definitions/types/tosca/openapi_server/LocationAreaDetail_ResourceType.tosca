@@ -1,0 +1,72 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server LocationAreaDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a LocationAreaDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  LocationAreaDetailEncounterMethodRatesInner = openapi_server.resourceTypes.LocationAreaDetailEncounterMethodRatesInner
+  LocationAreaDetailPokemonEncountersInner = openapi_server.resourceTypes.LocationAreaDetailPokemonEncountersInner
+  LocationAreaName = openapi_server.resourceTypes.LocationAreaName
+  LocationSummary = openapi_server.resourceTypes.LocationSummary
+}
+resourceTypes {
+
+  LocationAreaDetail {
+    title = LocationAreaDetail
+    description = LocationAreaDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        game_index {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        encounter_method_rates {
+          type = array
+          items.type = LocationAreaDetailEncounterMethodRatesInner
+          description = ""
+          optional = true
+        }
+        location {
+          type = LocationSummary
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = LocationAreaName
+          description = ""
+          optional = true
+        }
+        pokemon_encounters {
+          type = array
+          items.type = LocationAreaDetailPokemonEncountersInner
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  LocationAreaDetail {
+    title = LocationAreaDetail
+    description = LocationAreaDetail
+    implements = openapi_server.resourceTypes.LocationAreaDetail
+
+  }
+}

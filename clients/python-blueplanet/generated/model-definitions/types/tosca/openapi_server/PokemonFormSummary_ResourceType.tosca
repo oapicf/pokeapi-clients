@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonFormSummary"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonFormSummary"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  PokemonFormSummary {
+    title = PokemonFormSummary
+    description = PokemonFormSummary
+    derivedFrom = Root
+    properties {
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        url {
+          type =  string
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonFormSummary {
+    title = PokemonFormSummary
+    description = PokemonFormSummary
+    implements = openapi_server.resourceTypes.PokemonFormSummary
+
+  }
+}

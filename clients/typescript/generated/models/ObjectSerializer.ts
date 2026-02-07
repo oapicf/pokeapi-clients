@@ -219,13 +219,6 @@ export * from '../models/PokemonDetailPastTypesInner';
 export * from '../models/PokemonDetailSprites';
 export * from '../models/PokemonDetailTypesInner';
 export * from '../models/PokemonDexEntry';
-export * from '../models/PokemonEncountersRetrieve200ResponseInner';
-export * from '../models/PokemonEncountersRetrieve200ResponseInnerLocationArea';
-export * from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner';
-export * from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner';
-export * from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner';
-export * from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod';
-export * from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion';
 export * from '../models/PokemonFormDetail';
 export * from '../models/PokemonFormDetailFormNamesInner';
 export * from '../models/PokemonFormDetailSprites';
@@ -495,13 +488,6 @@ import { PokemonDetailPastTypesInner } from '../models/PokemonDetailPastTypesInn
 import { PokemonDetailSprites } from '../models/PokemonDetailSprites';
 import { PokemonDetailTypesInner } from '../models/PokemonDetailTypesInner';
 import { PokemonDexEntry } from '../models/PokemonDexEntry';
-import { PokemonEncountersRetrieve200ResponseInner } from '../models/PokemonEncountersRetrieve200ResponseInner';
-import { PokemonEncountersRetrieve200ResponseInnerLocationArea } from '../models/PokemonEncountersRetrieve200ResponseInnerLocationArea';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner } from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner } from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner } from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod } from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion } from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion';
 import { PokemonFormDetail } from '../models/PokemonFormDetail';
 import { PokemonFormDetailFormNamesInner } from '../models/PokemonFormDetailFormNamesInner';
 import { PokemonFormDetailSprites } from '../models/PokemonFormDetailSprites';
@@ -787,13 +773,6 @@ let typeMap: {[index: string]: any} = {
     "PokemonDetailSprites": PokemonDetailSprites,
     "PokemonDetailTypesInner": PokemonDetailTypesInner,
     "PokemonDexEntry": PokemonDexEntry,
-    "PokemonEncountersRetrieve200ResponseInner": PokemonEncountersRetrieve200ResponseInner,
-    "PokemonEncountersRetrieve200ResponseInnerLocationArea": PokemonEncountersRetrieve200ResponseInnerLocationArea,
-    "PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner": PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner,
-    "PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner": PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner,
-    "PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner": PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner,
-    "PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod": PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod,
-    "PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion": PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion,
     "PokemonFormDetail": PokemonFormDetail,
     "PokemonFormDetailFormNamesInner": PokemonFormDetailFormNamesInner,
     "PokemonFormDetailSprites": PokemonFormDetailSprites,

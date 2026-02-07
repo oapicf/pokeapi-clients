@@ -1,0 +1,52 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PaginatedSuperContestEffectSummaryList"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PaginatedSuperContestEffectSummaryList"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  SuperContestEffectSummary = openapi_server.resourceTypes.SuperContestEffectSummary
+}
+resourceTypes {
+
+  PaginatedSuperContestEffectSummaryList {
+    title = PaginatedSuperContestEffectSummaryList
+    description = PaginatedSuperContestEffectSummaryList
+    derivedFrom = Root
+    properties {
+        count {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        next {
+          type =  string
+          description = ""
+          optional = false
+        }
+        previous {
+          type =  string
+          description = ""
+          optional = false
+        }
+        results {
+          type = array
+          items.type = SuperContestEffectSummary
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PaginatedSuperContestEffectSummaryList {
+    title = PaginatedSuperContestEffectSummaryList
+    description = PaginatedSuperContestEffectSummaryList
+    implements = openapi_server.resourceTypes.PaginatedSuperContestEffectSummaryList
+
+  }
+}

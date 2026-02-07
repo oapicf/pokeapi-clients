@@ -1,0 +1,52 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PaginatedEvolutionChainSummaryList"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PaginatedEvolutionChainSummaryList"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  EvolutionChainSummary = openapi_server.resourceTypes.EvolutionChainSummary
+}
+resourceTypes {
+
+  PaginatedEvolutionChainSummaryList {
+    title = PaginatedEvolutionChainSummaryList
+    description = PaginatedEvolutionChainSummaryList
+    derivedFrom = Root
+    properties {
+        count {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        next {
+          type =  string
+          description = ""
+          optional = false
+        }
+        previous {
+          type =  string
+          description = ""
+          optional = false
+        }
+        results {
+          type = array
+          items.type = EvolutionChainSummary
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PaginatedEvolutionChainSummaryList {
+    title = PaginatedEvolutionChainSummaryList
+    description = PaginatedEvolutionChainSummaryList
+    implements = openapi_server.resourceTypes.PaginatedEvolutionChainSummaryList
+
+  }
+}

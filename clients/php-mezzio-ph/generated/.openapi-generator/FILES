@@ -171,11 +171,7 @@ src/App/DTO/Collection215.php
 src/App/DTO/Collection216.php
 src/App/DTO/Collection217.php
 src/App/DTO/Collection218.php
-src/App/DTO/Collection219.php
 src/App/DTO/Collection22.php
-src/App/DTO/Collection220.php
-src/App/DTO/Collection221.php
-src/App/DTO/Collection222.php
 src/App/DTO/Collection23.php
 src/App/DTO/Collection24.php
 src/App/DTO/Collection25.php
@@ -489,13 +485,6 @@ src/App/DTO/PokemonDetailPastTypesInner.php
 src/App/DTO/PokemonDetailSprites.php
 src/App/DTO/PokemonDetailTypesInner.php
 src/App/DTO/PokemonDexEntry.php
-src/App/DTO/PokemonEncountersRetrieve200ResponseInner.php
-src/App/DTO/PokemonEncountersRetrieve200ResponseInnerLocationArea.php
-src/App/DTO/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.php
-src/App/DTO/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.php
-src/App/DTO/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner.php
-src/App/DTO/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod.php
-src/App/DTO/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.php
 src/App/DTO/PokemonFormDetail.php
 src/App/DTO/PokemonFormDetailFormNamesInner.php
 src/App/DTO/PokemonFormDetailSprites.php
@@ -635,7 +624,6 @@ src/App/Handler/ApiV2PokemonFormId.php
 src/App/Handler/ApiV2PokemonHabitat.php
 src/App/Handler/ApiV2PokemonHabitatId.php
 src/App/Handler/ApiV2PokemonId.php
-src/App/Handler/ApiV2PokemonPokemonIdEncounters.php
 src/App/Handler/ApiV2PokemonShape.php
 src/App/Handler/ApiV2PokemonShapeId.php
 src/App/Handler/ApiV2PokemonSpecies.php

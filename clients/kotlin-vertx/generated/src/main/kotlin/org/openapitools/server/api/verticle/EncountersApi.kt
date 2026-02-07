@@ -6,7 +6,6 @@ import org.openapitools.server.api.model.EncounterMethodDetail
 import org.openapitools.server.api.model.PaginatedEncounterConditionSummaryList
 import org.openapitools.server.api.model.PaginatedEncounterConditionValueSummaryList
 import org.openapitools.server.api.model.PaginatedEncounterMethodSummaryList
-import org.openapitools.server.api.model.PokemonEncountersRetrieve200ResponseInner
 import io.vertx.core.Vertx
 import io.vertx.core.json.JsonObject
 import io.vertx.core.json.JsonArray
@@ -41,9 +40,6 @@ interface EncountersApi  {
     /* encounterMethodRetrieve
      * Get encounter method */
     suspend fun encounterMethodRetrieve(id:kotlin.String?,context:OperationRequest):Response<EncounterMethodDetail>
-    /* pokemonEncountersRetrieve
-     * Get pokemon encounter */
-    suspend fun pokemonEncountersRetrieve(pokemonId:kotlin.String?,context:OperationRequest):Response<kotlin.Array<PokemonEncountersRetrieve200ResponseInner>>
     companion object {
         const val address = "EncountersApi-service"
         suspend fun createRouterFactory(vertx: Vertx,path:String): io.vertx.ext.web.api.contract.openapi3.OpenAPI3RouterFactory {

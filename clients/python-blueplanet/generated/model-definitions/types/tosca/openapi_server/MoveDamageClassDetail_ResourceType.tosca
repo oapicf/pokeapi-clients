@@ -1,0 +1,61 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server MoveDamageClassDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a MoveDamageClassDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  MoveDamageClassDescription = openapi_server.resourceTypes.MoveDamageClassDescription
+  MoveDamageClassName = openapi_server.resourceTypes.MoveDamageClassName
+  MoveSummary = openapi_server.resourceTypes.MoveSummary
+}
+resourceTypes {
+
+  MoveDamageClassDetail {
+    title = MoveDamageClassDetail
+    description = MoveDamageClassDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        descriptions {
+          type = array
+          items.type = MoveDamageClassDescription
+          description = ""
+          optional = true
+        }
+        moves {
+          type = array
+          items.type = MoveSummary
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = MoveDamageClassName
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  MoveDamageClassDetail {
+    title = MoveDamageClassDetail
+    description = MoveDamageClassDetail
+    implements = openapi_server.resourceTypes.MoveDamageClassDetail
+
+  }
+}

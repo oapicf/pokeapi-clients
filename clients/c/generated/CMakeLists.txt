@@ -269,13 +269,6 @@ set(SRCS
     model/pokemon_detail_sprites.c
     model/pokemon_detail_types_inner.c
     model/pokemon_dex_entry.c
-    model/pokemon_encounters_retrieve_200_response_inner.c
-    model/pokemon_encounters_retrieve_200_response_inner_location_area.c
-    model/pokemon_encounters_retrieve_200_response_inner_version_details_inner.c
-    model/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner.c
-    model/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner.c
-    model/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method.c
-    model/pokemon_encounters_retrieve_200_response_inner_version_details_inner_version.c
     model/pokemon_form_detail.c
     model/pokemon_form_detail_form_names_inner.c
     model/pokemon_form_detail_sprites.c
@@ -566,13 +559,6 @@ set(HDRS
     model/pokemon_detail_sprites.h
     model/pokemon_detail_types_inner.h
     model/pokemon_dex_entry.h
-    model/pokemon_encounters_retrieve_200_response_inner.h
-    model/pokemon_encounters_retrieve_200_response_inner_location_area.h
-    model/pokemon_encounters_retrieve_200_response_inner_version_details_inner.h
-    model/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner.h
-    model/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner.h
-    model/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method.h
-    model/pokemon_encounters_retrieve_200_response_inner_version_details_inner_version.h
     model/pokemon_form_detail.h
     model/pokemon_form_detail_form_names_inner.h
     model/pokemon_form_detail_sprites.h

@@ -6,7 +6,6 @@ import org.openapitools.model.EncounterMethodDetail;
 import org.openapitools.model.PaginatedEncounterConditionSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionValueSummaryList;
 import org.openapitools.model.PaginatedEncounterMethodSummaryList;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import io.micronaut.http.client.HttpClient;
 import io.micronaut.http.client.annotation.Client;
@@ -88,7 +87,7 @@ public class EncountersControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/encounter-condition/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@6347ebbc");
+            .accept("[Ljava.lang.String;@2cc9a5a2");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -138,7 +137,7 @@ public class EncountersControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@b61aa50");
+            .accept("[Ljava.lang.String;@1ff35ee7");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, EncounterConditionDetail.class);
@@ -183,7 +182,7 @@ public class EncountersControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/encounter-condition-value/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@77c4aeb6");
+            .accept("[Ljava.lang.String;@4a9c188f");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -233,7 +232,7 @@ public class EncountersControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@54455c8d");
+            .accept("[Ljava.lang.String;@2e5dea22");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, EncounterConditionValueDetail.class);
@@ -278,7 +277,7 @@ public class EncountersControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/encounter-method/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@80347b2");
+            .accept("[Ljava.lang.String;@4fd8aefe");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -328,56 +327,10 @@ public class EncountersControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@eb65fc8");
+            .accept("[Ljava.lang.String;@4a59d584");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, EncounterMethodDetail.class);
-
-        // then
-        Assertions.assertEquals(HttpStatus.OK, response.status());
-    }
-
-    /**
-     * This test is used to validate the implementation of pokemonEncountersRetrieve() method
-     *
-     * The method should: Get pokemon encounter
-     *
-     * Handles Pokemon Encounters as a sub-resource.
-     *
-     * TODO fill in the parameters and test return value.
-     */
-    @Test
-    @Disabled("Not Implemented")
-    void pokemonEncountersRetrieveMethodTest() {
-        // given
-        String pokemonId = "example";
-
-        // when
-        List<PokemonEncountersRetrieve200ResponseInner> result = controller.pokemonEncountersRetrieve(pokemonId).block();
-
-        // then
-        Assertions.assertTrue(true);
-    }
-
-    /**
-     * This test is used to check that the api available to client through
-     * '/api/v2/pokemon/{pokemon_id}/encounters' to the features of pokemonEncountersRetrieve() works as desired.
-     *
-     * TODO fill in the request parameters and test response.
-     */
-    @Test
-    @Disabled("Not Implemented")
-    void pokemonEncountersRetrieveClientApiTest() throws IOException {
-        // given
-        String uri = UriTemplate.of("/api/v2/pokemon/{pokemon_id}/encounters").expand(new HashMap<String, Object>(){{
-            // Fill in the path variables
-            put("pokemon_id", "example");
-        }});
-        MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@5cd5e1b6");
-
-        // when
-        HttpResponse<?> response = client.toBlocking().exchange(request, Argument.of(List.class, PokemonEncountersRetrieve200ResponseInner.class));
 
         // then
         Assertions.assertEquals(HttpStatus.OK, response.status());

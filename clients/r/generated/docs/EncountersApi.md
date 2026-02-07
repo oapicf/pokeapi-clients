@@ -10,7 +10,6 @@ Method | HTTP request | Description
 [**EncounterConditionValueRetrieve**](EncountersApi.md#EncounterConditionValueRetrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 [**EncounterMethodList**](EncountersApi.md#EncounterMethodList) | **GET** /api/v2/encounter-method/ | List encounter methods
 [**EncounterMethodRetrieve**](EncountersApi.md#EncounterMethodRetrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-[**PokemonEncountersRetrieve**](EncountersApi.md#PokemonEncountersRetrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 
 
 # **EncounterConditionList**
@@ -322,58 +321,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EncounterMethodDetail**](EncounterMethodDetail.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** |  |  -  |
-
-# **PokemonEncountersRetrieve**
-> array[PokemonEncountersRetrieve200ResponseInner] PokemonEncountersRetrieve(pokemon_id)
-
-Get pokemon encounter
-
-Handles Pokemon Encounters as a sub-resource.
-
-### Example
-```R
-library(openapi)
-
-# Get pokemon encounter
-#
-# prepare function argument(s)
-var_pokemon_id <- "pokemon_id_example" # character | 
-
-api_instance <- EncountersApi$new()
-# Configure HTTP basic authorization: basicAuth
-api_instance$api_client$username <- Sys.getenv("USERNAME")
-api_instance$api_client$password <- Sys.getenv("PASSWORD")
-# Configure API key authorization: cookieAuth
-# api_instance$api_client$api_keys["sessionid"] <- Sys.getenv("API_KEY")
-# to save the result into a file, simply add the optional `data_file` parameter, e.g.
-# result <- api_instance$PokemonEncountersRetrieve(var_pokemon_iddata_file = "result.txt")
-result <- api_instance$PokemonEncountersRetrieve(var_pokemon_id)
-dput(result)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pokemon_id** | **character**|  | 
-
-### Return type
-
-[**array[PokemonEncountersRetrieve200ResponseInner]**](pokemon_encounters_retrieve_200_response_inner.md)
 
 ### Authorization
 

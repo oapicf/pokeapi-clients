@@ -87,12 +87,6 @@ func (c *EncountersAPIController) Routes() Routes {
 			"/api/v2/encounter-condition-value/{id}/",
 			c.EncounterConditionValueRetrieve,
 		},
-		"PokemonEncountersRetrieve": Route{
-			"PokemonEncountersRetrieve",
-			strings.ToUpper("Get"),
-			"/api/v2/pokemon/{pokemon_id}/encounters",
-			c.PokemonEncountersRetrieve,
-		},
 	}
 }
 
@@ -134,12 +128,6 @@ func (c *EncountersAPIController) OrderedRoutes() []Route {
 			strings.ToUpper("Get"),
 			"/api/v2/encounter-condition-value/{id}/",
 			c.EncounterConditionValueRetrieve,
-		},
-		Route{
-			"PokemonEncountersRetrieve",
-			strings.ToUpper("Get"),
-			"/api/v2/pokemon/{pokemon_id}/encounters",
-			c.PokemonEncountersRetrieve,
 		},
 	}
 }
@@ -347,24 +335,6 @@ func (c *EncountersAPIController) EncounterConditionValueRetrieve(w http.Respons
 		return
 	}
 	result, err := c.service.EncounterConditionValueRetrieve(r.Context(), idParam)
-	// If an error occurred, encode the error with the status code
-	if err != nil {
-		c.errorHandler(w, r, err, &result)
-		return
-	}
-	// If no error, encode the body and the result code
-	_ = EncodeJSONResponse(result.Body, &result.Code, w)
-}
-
-// PokemonEncountersRetrieve - Get pokemon encounter
-func (c *EncountersAPIController) PokemonEncountersRetrieve(w http.ResponseWriter, r *http.Request) {
-	params := mux.Vars(r)
-	pokemonIdParam := params["pokemon_id"]
-	if pokemonIdParam == "" {
-		c.errorHandler(w, r, &RequiredError{"pokemon_id"}, nil)
-		return
-	}
-	result, err := c.service.PokemonEncountersRetrieve(r.Context(), pokemonIdParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
 		c.errorHandler(w, r, err, &result)

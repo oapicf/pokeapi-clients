@@ -1,0 +1,99 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server TypeDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a TypeDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityName = openapi_server.resourceTypes.AbilityName
+  GenerationSummary = openapi_server.resourceTypes.GenerationSummary
+  MoveDamageClassSummary = openapi_server.resourceTypes.MoveDamageClassSummary
+  MoveSummary = openapi_server.resourceTypes.MoveSummary
+  TypeDetailDamageRelations = openapi_server.resourceTypes.TypeDetailDamageRelations
+  TypeDetailPastDamageRelationsInner = openapi_server.resourceTypes.TypeDetailPastDamageRelationsInner
+  TypeDetailPokemonInner = openapi_server.resourceTypes.TypeDetailPokemonInner
+  TypeDetailSpritesValueValue = openapi_server.resourceTypes.TypeDetailSpritesValueValue
+  TypeGameIndex = openapi_server.resourceTypes.TypeGameIndex
+}
+resourceTypes {
+
+  TypeDetail {
+    title = TypeDetail
+    description = TypeDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        damage_relations {
+          type = TypeDetailDamageRelations
+          description = ""
+          optional = true
+        }
+        past_damage_relations {
+          type = array
+          items.type = TypeDetailPastDamageRelationsInner
+          description = ""
+          optional = true
+        }
+        game_indices {
+          type = array
+          items.type = TypeGameIndex
+          description = ""
+          optional = true
+        }
+        generation {
+          type = GenerationSummary
+          description = ""
+          optional = true
+        }
+        move_damage_class {
+          type = MoveDamageClassSummary
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = AbilityName
+          description = ""
+          optional = true
+        }
+        pokemon {
+          type = array
+          items.type = TypeDetailPokemonInner
+          description = ""
+          optional = true
+        }
+        moves {
+          type = array
+          items.type = MoveSummary
+          description = ""
+          optional = true
+        }
+        sprites {
+          # TODO
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  TypeDetail {
+    title = TypeDetail
+    description = TypeDetail
+    implements = openapi_server.resourceTypes.TypeDetail
+
+  }
+}

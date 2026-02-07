@@ -317,13 +317,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.github.oapicf.pokeapiclient.model.PokemonDetailSprites.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.github.oapicf.pokeapiclient.model.PokemonDetailTypesInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.github.oapicf.pokeapiclient.model.PokemonDexEntry.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.github.oapicf.pokeapiclient.model.PokemonEncountersRetrieve200ResponseInner.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.github.oapicf.pokeapiclient.model.PokemonEncountersRetrieve200ResponseInnerLocationArea.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.github.oapicf.pokeapiclient.model.PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.github.oapicf.pokeapiclient.model.PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.github.oapicf.pokeapiclient.model.PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.github.oapicf.pokeapiclient.model.PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.github.oapicf.pokeapiclient.model.PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.github.oapicf.pokeapiclient.model.PokemonFormDetail.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.github.oapicf.pokeapiclient.model.PokemonFormDetailFormNamesInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.github.oapicf.pokeapiclient.model.PokemonFormDetailSprites.CustomTypeAdapterFactory());

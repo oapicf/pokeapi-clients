@@ -1,0 +1,23 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "id" },
+      {"model": "name" },
+      {"model": "game_index" },
+      {"model": "encounter_method_rates" },
+      {"model": "location" },
+      {"model": "names" },
+      {"model": "pokemon_encounters" },
+    ]
+  }]
+}

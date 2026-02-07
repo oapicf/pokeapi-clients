@@ -221,13 +221,6 @@ export * from './pokemonDetailPastTypesInner';
 export * from './pokemonDetailSprites';
 export * from './pokemonDetailTypesInner';
 export * from './pokemonDexEntry';
-export * from './pokemonEncountersRetrieve200ResponseInner';
-export * from './pokemonEncountersRetrieve200ResponseInnerLocationArea';
-export * from './pokemonEncountersRetrieve200ResponseInnerVersionDetailsInner';
-export * from './pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner';
-export * from './pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner';
-export * from './pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod';
-export * from './pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion';
 export * from './pokemonFormDetail';
 export * from './pokemonFormDetailFormNamesInner';
 export * from './pokemonFormDetailSprites';
@@ -510,13 +503,6 @@ import { PokemonDetailPastTypesInner } from './pokemonDetailPastTypesInner';
 import { PokemonDetailSprites } from './pokemonDetailSprites';
 import { PokemonDetailTypesInner } from './pokemonDetailTypesInner';
 import { PokemonDexEntry } from './pokemonDexEntry';
-import { PokemonEncountersRetrieve200ResponseInner } from './pokemonEncountersRetrieve200ResponseInner';
-import { PokemonEncountersRetrieve200ResponseInnerLocationArea } from './pokemonEncountersRetrieve200ResponseInnerLocationArea';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner } from './pokemonEncountersRetrieve200ResponseInnerVersionDetailsInner';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner } from './pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner } from './pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod } from './pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion } from './pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion';
 import { PokemonFormDetail } from './pokemonFormDetail';
 import { PokemonFormDetailFormNamesInner } from './pokemonFormDetailFormNamesInner';
 import { PokemonFormDetailSprites } from './pokemonFormDetailSprites';
@@ -802,13 +788,6 @@ let typeMap: {[index: string]: any} = {
     "PokemonDetailSprites": PokemonDetailSprites,
     "PokemonDetailTypesInner": PokemonDetailTypesInner,
     "PokemonDexEntry": PokemonDexEntry,
-    "PokemonEncountersRetrieve200ResponseInner": PokemonEncountersRetrieve200ResponseInner,
-    "PokemonEncountersRetrieve200ResponseInnerLocationArea": PokemonEncountersRetrieve200ResponseInnerLocationArea,
-    "PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner": PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner,
-    "PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner": PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner,
-    "PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner": PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner,
-    "PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod": PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod,
-    "PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion": PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion,
     "PokemonFormDetail": PokemonFormDetail,
     "PokemonFormDetailFormNamesInner": PokemonFormDetailFormNamesInner,
     "PokemonFormDetailSprites": PokemonFormDetailSprites,

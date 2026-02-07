@@ -86,7 +86,6 @@ import org.openapitools.model.PokeathlonStatDetail
 import org.openapitools.model.PokedexDetail
 import org.openapitools.model.PokemonColorDetail
 import org.openapitools.model.PokemonDetail
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner
 import org.openapitools.model.PokemonFormDetail
 import org.openapitools.model.PokemonHabitatDetail
 import org.openapitools.model.PokemonShapeDetail
@@ -1283,21 +1282,6 @@ class ApiApiTest {
         val id: kotlin.String = TODO()
         
         val response: ResponseEntity<PokemonColorDetail> = api.pokemonColorRetrieve(id)
-
-        // TODO: test validations
-    }
-
-    /**
-     * To test ApiApiController.pokemonEncountersRetrieve
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    fun pokemonEncountersRetrieveTest() {
-        val pokemonId: kotlin.String = TODO()
-        
-        val response: ResponseEntity<List<PokemonEncountersRetrieve200ResponseInner>> = api.pokemonEncountersRetrieve(pokemonId)
 
         // TODO: test validations
     }

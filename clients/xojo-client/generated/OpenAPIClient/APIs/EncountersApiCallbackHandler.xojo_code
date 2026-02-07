@@ -36,12 +36,6 @@ Protected Interface EncountersApiCallbackHandler
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub PokemonEncountersRetrieveCallback(status As OpenAPIClient.OpenAPIClientException, data() As OpenAPIClient.Models.PokemonEncountersRetrieve200ResponseInner)
-		  
-		End Sub
-	#tag EndMethod
-
 
 
 

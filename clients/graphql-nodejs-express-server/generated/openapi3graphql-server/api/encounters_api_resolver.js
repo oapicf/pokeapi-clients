@@ -65,13 +65,6 @@ export default {
             };
         },
 
-        // @return PokemonEncountersRetrieve200ResponseInner
-        PokemonEncountersRetrieve: ($pokemonId) => {
-            return {
-                "pokemonId": "pokemonId_example"
-            };
-        },
-
     },
 
     Mutation: {

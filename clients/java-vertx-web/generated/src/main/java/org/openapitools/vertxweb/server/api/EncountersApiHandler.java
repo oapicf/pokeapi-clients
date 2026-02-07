@@ -6,7 +6,6 @@ import org.openapitools.vertxweb.server.model.EncounterMethodDetail;
 import org.openapitools.vertxweb.server.model.PaginatedEncounterConditionSummaryList;
 import org.openapitools.vertxweb.server.model.PaginatedEncounterConditionValueSummaryList;
 import org.openapitools.vertxweb.server.model.PaginatedEncounterMethodSummaryList;
-import org.openapitools.vertxweb.server.model.PokemonEncountersRetrieve200ResponseInner;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import io.vertx.core.json.jackson.DatabindCodec;
@@ -44,7 +43,6 @@ public class EncountersApiHandler {
         builder.operation("encounterConditionValueRetrieve").handler(this::encounterConditionValueRetrieve);
         builder.operation("encounterMethodList").handler(this::encounterMethodList);
         builder.operation("encounterMethodRetrieve").handler(this::encounterMethodRetrieve);
-        builder.operation("pokemonEncountersRetrieve").handler(this::pokemonEncountersRetrieve);
     }
 
     private void encounterConditionList(RoutingContext routingContext) {
@@ -180,28 +178,6 @@ public class EncountersApiHandler {
         logger.debug("Parameter id is {}", id);
 
         api.encounterMethodRetrieve(id)
-            .onSuccess(apiResponse -> {
-                routingContext.response().setStatusCode(apiResponse.getStatusCode());
-                if (apiResponse.hasData()) {
-                    routingContext.json(apiResponse.getData());
-                } else {
-                    routingContext.response().end();
-                }
-            })
-            .onFailure(routingContext::fail);
-    }
-
-    private void pokemonEncountersRetrieve(RoutingContext routingContext) {
-        logger.info("pokemonEncountersRetrieve()");
-
-        // Param extraction
-        RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
-
-        String pokemonId = requestParameters.pathParameter("pokemon_id") != null ? requestParameters.pathParameter("pokemon_id").getString() : null;
-
-        logger.debug("Parameter pokemonId is {}", pokemonId);
-
-        api.pokemonEncountersRetrieve(pokemonId)
             .onSuccess(apiResponse -> {
                 routingContext.response().setStatusCode(apiResponse.getStatusCode());
                 if (apiResponse.hasData()) {

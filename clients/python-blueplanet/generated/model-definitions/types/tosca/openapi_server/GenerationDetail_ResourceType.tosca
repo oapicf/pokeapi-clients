@@ -1,0 +1,88 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server GenerationDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a GenerationDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilitySummary = openapi_server.resourceTypes.AbilitySummary
+  GenerationName = openapi_server.resourceTypes.GenerationName
+  MoveSummary = openapi_server.resourceTypes.MoveSummary
+  PokemonSpeciesSummary = openapi_server.resourceTypes.PokemonSpeciesSummary
+  RegionSummary = openapi_server.resourceTypes.RegionSummary
+  TypeSummary = openapi_server.resourceTypes.TypeSummary
+  VersionGroupSummary = openapi_server.resourceTypes.VersionGroupSummary
+}
+resourceTypes {
+
+  GenerationDetail {
+    title = GenerationDetail
+    description = GenerationDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        abilities {
+          type = array
+          items.type = AbilitySummary
+          description = ""
+          optional = true
+        }
+        main_region {
+          type = RegionSummary
+          description = ""
+          optional = true
+        }
+        moves {
+          type = array
+          items.type = MoveSummary
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = GenerationName
+          description = ""
+          optional = true
+        }
+        pokemon_species {
+          type = array
+          items.type = PokemonSpeciesSummary
+          description = ""
+          optional = true
+        }
+        types {
+          type = array
+          items.type = TypeSummary
+          description = ""
+          optional = true
+        }
+        version_groups {
+          type = array
+          items.type = VersionGroupSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  GenerationDetail {
+    title = GenerationDetail
+    description = GenerationDetail
+    implements = openapi_server.resourceTypes.GenerationDetail
+
+  }
+}

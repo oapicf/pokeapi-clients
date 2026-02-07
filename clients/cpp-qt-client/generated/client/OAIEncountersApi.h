@@ -24,7 +24,6 @@
 #include "OAIPaginatedEncounterConditionSummaryList.h"
 #include "OAIPaginatedEncounterConditionValueSummaryList.h"
 #include "OAIPaginatedEncounterMethodSummaryList.h"
-#include "OAIPokemon_encounters_retrieve_200_response_inner.h"
 #include <QString>
 
 #include <QObject>
@@ -99,11 +98,6 @@ public:
     */
     virtual void encounterMethodRetrieve(const QString &id);
 
-    /**
-    * @param[in]  pokemon_id QString [required]
-    */
-    virtual void pokemonEncountersRetrieve(const QString &pokemon_id);
-
 
 private:
     QMap<QString,int> _serverIndices;
@@ -133,7 +127,6 @@ private:
     void encounterConditionValueRetrieveCallback(OAIHttpRequestWorker *worker);
     void encounterMethodListCallback(OAIHttpRequestWorker *worker);
     void encounterMethodRetrieveCallback(OAIHttpRequestWorker *worker);
-    void pokemonEncountersRetrieveCallback(OAIHttpRequestWorker *worker);
 
 Q_SIGNALS:
 
@@ -143,7 +136,6 @@ Q_SIGNALS:
     void encounterConditionValueRetrieveSignal(OAIEncounterConditionValueDetail summary);
     void encounterMethodListSignal(OAIPaginatedEncounterMethodSummaryList summary);
     void encounterMethodRetrieveSignal(OAIEncounterMethodDetail summary);
-    void pokemonEncountersRetrieveSignal(QList<OAIPokemon_encounters_retrieve_200_response_inner> summary);
 
 
     void encounterConditionListSignalFull(OAIHttpRequestWorker *worker, OAIPaginatedEncounterConditionSummaryList summary);
@@ -152,7 +144,6 @@ Q_SIGNALS:
     void encounterConditionValueRetrieveSignalFull(OAIHttpRequestWorker *worker, OAIEncounterConditionValueDetail summary);
     void encounterMethodListSignalFull(OAIHttpRequestWorker *worker, OAIPaginatedEncounterMethodSummaryList summary);
     void encounterMethodRetrieveSignalFull(OAIHttpRequestWorker *worker, OAIEncounterMethodDetail summary);
-    void pokemonEncountersRetrieveSignalFull(OAIHttpRequestWorker *worker, QList<OAIPokemon_encounters_retrieve_200_response_inner> summary);
 
     Q_DECL_DEPRECATED_X("Use encounterConditionListSignalError() instead")
     void encounterConditionListSignalE(OAIPaginatedEncounterConditionSummaryList summary, QNetworkReply::NetworkError error_type, QString error_str);
@@ -172,9 +163,6 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use encounterMethodRetrieveSignalError() instead")
     void encounterMethodRetrieveSignalE(OAIEncounterMethodDetail summary, QNetworkReply::NetworkError error_type, QString error_str);
     void encounterMethodRetrieveSignalError(OAIEncounterMethodDetail summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonEncountersRetrieveSignalError() instead")
-    void pokemonEncountersRetrieveSignalE(QList<OAIPokemon_encounters_retrieve_200_response_inner> summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void pokemonEncountersRetrieveSignalError(QList<OAIPokemon_encounters_retrieve_200_response_inner> summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     Q_DECL_DEPRECATED_X("Use encounterConditionListSignalErrorFull() instead")
     void encounterConditionListSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
@@ -194,9 +182,6 @@ Q_SIGNALS:
     Q_DECL_DEPRECATED_X("Use encounterMethodRetrieveSignalErrorFull() instead")
     void encounterMethodRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void encounterMethodRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use pokemonEncountersRetrieveSignalErrorFull() instead")
-    void pokemonEncountersRetrieveSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void pokemonEncountersRetrieveSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

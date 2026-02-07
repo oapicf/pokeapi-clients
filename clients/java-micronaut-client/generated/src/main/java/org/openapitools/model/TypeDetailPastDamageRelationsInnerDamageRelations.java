@@ -38,7 +38,7 @@ import javax.annotation.Generated;
   TypeDetailPastDamageRelationsInnerDamageRelations.JSON_PROPERTY_DOUBLE_DAMAGE_FROM
 })
 @JsonTypeName("TypeDetail_past_damage_relations_inner_damage_relations")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T04:16:49.114765561Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Introspected
 public class TypeDetailPastDamageRelationsInnerDamageRelations {
     public static final String JSON_PROPERTY_NO_DAMAGE_TO = "no_damage_to";

@@ -12,7 +12,7 @@ import javax.validation.Valid;
 /**
  * EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-02-07T04:17:12.303882205Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-02-07T15:23:19.397731995Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
   @JsonProperty("gender")
@@ -36,12 +36,12 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
   @JsonProperty("known_move")
   @NotNull
 
-  private Object knownMove = null;
+  private Object knownMove;
 
   @JsonProperty("known_move_type")
   @NotNull
 
-  private Object knownMoveType = null;
+  private Object knownMoveType;
 
   @JsonProperty("location")
   @NotNull

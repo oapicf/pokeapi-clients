@@ -223,13 +223,6 @@ import { PokemonDetailPastTypesInner } from '../models/PokemonDetailPastTypesInn
 import { PokemonDetailSprites } from '../models/PokemonDetailSprites';
 import { PokemonDetailTypesInner } from '../models/PokemonDetailTypesInner';
 import { PokemonDexEntry } from '../models/PokemonDexEntry';
-import { PokemonEncountersRetrieve200ResponseInner } from '../models/PokemonEncountersRetrieve200ResponseInner';
-import { PokemonEncountersRetrieve200ResponseInnerLocationArea } from '../models/PokemonEncountersRetrieve200ResponseInnerLocationArea';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner } from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner } from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner } from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod } from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod';
-import { PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion } from '../models/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion';
 import { PokemonFormDetail } from '../models/PokemonFormDetail';
 import { PokemonFormDetailFormNamesInner } from '../models/PokemonFormDetailFormNamesInner';
 import { PokemonFormDetailSprites } from '../models/PokemonFormDetailSprites';
@@ -827,16 +820,6 @@ export interface EncountersApiEncounterMethodRetrieveRequest {
     id: string
 }
 
-export interface EncountersApiPokemonEncountersRetrieveRequest {
-    /**
-     * 
-     * Defaults to: undefined
-     * @type string
-     * @memberof EncountersApipokemonEncountersRetrieve
-     */
-    pokemonId: string
-}
-
 export class ObjectEncountersApi {
     private api: ObservableEncountersApi
 
@@ -950,24 +933,6 @@ export class ObjectEncountersApi {
      */
     public encounterMethodRetrieve(param: EncountersApiEncounterMethodRetrieveRequest, options?: ConfigurationOptions): Promise<EncounterMethodDetail> {
         return this.api.encounterMethodRetrieve(param.id,  options).toPromise();
-    }
-
-    /**
-     * Handles Pokemon Encounters as a sub-resource.
-     * Get pokemon encounter
-     * @param param the request object
-     */
-    public pokemonEncountersRetrieveWithHttpInfo(param: EncountersApiPokemonEncountersRetrieveRequest, options?: ConfigurationOptions): Promise<HttpInfo<Array<PokemonEncountersRetrieve200ResponseInner>>> {
-        return this.api.pokemonEncountersRetrieveWithHttpInfo(param.pokemonId,  options).toPromise();
-    }
-
-    /**
-     * Handles Pokemon Encounters as a sub-resource.
-     * Get pokemon encounter
-     * @param param the request object
-     */
-    public pokemonEncountersRetrieve(param: EncountersApiPokemonEncountersRetrieveRequest, options?: ConfigurationOptions): Promise<Array<PokemonEncountersRetrieve200ResponseInner>> {
-        return this.api.pokemonEncountersRetrieve(param.pokemonId,  options).toPromise();
     }
 
 }

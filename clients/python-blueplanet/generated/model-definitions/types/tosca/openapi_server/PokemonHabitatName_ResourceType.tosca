@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonHabitatName"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonHabitatName"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  LanguageSummary = openapi_server.resourceTypes.LanguageSummary
+}
+resourceTypes {
+
+  PokemonHabitatName {
+    title = PokemonHabitatName
+    description = PokemonHabitatName
+    derivedFrom = Root
+    properties {
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        language {
+          type = LanguageSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonHabitatName {
+    title = PokemonHabitatName
+    description = PokemonHabitatName
+    implements = openapi_server.resourceTypes.PokemonHabitatName
+
+  }
+}

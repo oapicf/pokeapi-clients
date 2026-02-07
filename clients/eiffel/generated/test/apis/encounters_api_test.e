@@ -106,21 +106,6 @@ feature -- Test routines
             assert ("not_implemented", False)
         end
 
-    test_pokemon_encounters_retrieve
-            -- Get pokemon encounter
-            --
-            -- Handles Pokemon Encounters as a sub-resource.
-        local
-            l_response: LIST [POKEMON_ENCOUNTERS_RETRIEVE_200_RESPONSE_INNER]
-            l_pokemon_id: STRING_32
-        do
-            -- TODO: Initialize required params.
-            -- l_pokemon_id
-
-            -- l_response := api.pokemon_encounters_retrieve(l_pokemon_id)
-            assert ("not_implemented", False)
-        end
-
 feature {NONE} -- Implementation
 
     api: ENCOUNTERS_API

@@ -1,0 +1,62 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server LanguageDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a LanguageDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  LanguageName = openapi_server.resourceTypes.LanguageName
+}
+resourceTypes {
+
+  LanguageDetail {
+    title = LanguageDetail
+    description = LanguageDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        official {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        iso639 {
+          type =  string
+          description = ""
+          optional = true
+        }
+        iso3166 {
+          type =  string
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = LanguageName
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  LanguageDetail {
+    title = LanguageDetail
+    description = LanguageDetail
+    implements = openapi_server.resourceTypes.LanguageDetail
+
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "id" },
+      {"model": "name" },
+      {"model": "accuracy" },
+      {"model": "effect_chance" },
+      {"model": "pp" },
+      {"model": "priority" },
+      {"model": "power" },
+      {"model": "contest_combos" },
+      {"model": "contest_type" },
+      {"model": "contest_effect" },
+      {"model": "damage_class" },
+      {"model": "effect_entries" },
+      {"model": "effect_changes" },
+      {"model": "generation" },
+      {"model": "meta" },
+      {"model": "names" },
+      {"model": "past_values" },
+      {"model": "stat_changes" },
+      {"model": "super_contest_effect" },
+      {"model": "target" },
+      {"model": "type" },
+      {"model": "machines" },
+      {"model": "flavor_text_entries" },
+      {"model": "learned_by_pokemon" },
+    ]
+  }]
+}

@@ -173,13 +173,6 @@ get_operations() ->
             method => <<"GET">>,
             handler => 'openapi_encounters_handler'
         },
-       'pokemon_encounters_retrieve' => #{
-            servers => [],
-            base_path => "",
-            path => "/api/v2/pokemon/:pokemon_id/encounters",
-            method => <<"GET">>,
-            handler => 'openapi_encounters_handler'
-        },
        'evolution_chain_list' => #{
             servers => [],
             base_path => "",

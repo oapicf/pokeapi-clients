@@ -1,0 +1,25 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "id" },
+      {"model": "name" },
+      {"model": "is_main_series" },
+      {"model": "generation" },
+      {"model": "names" },
+      {"model": "effect_entries" },
+      {"model": "effect_changes" },
+      {"model": "flavor_text_entries" },
+      {"model": "pokemon" },
+    ]
+  }]
+}

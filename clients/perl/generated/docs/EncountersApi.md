@@ -15,7 +15,6 @@ Method | HTTP request | Description
 [**encounter_condition_value_retrieve**](EncountersApi.md#encounter_condition_value_retrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 [**encounter_method_list**](EncountersApi.md#encounter_method_list) | **GET** /api/v2/encounter-method/ | List encounter methods
 [**encounter_method_retrieve**](EncountersApi.md#encounter_method_retrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-[**pokemon_encounters_retrieve**](EncountersApi.md#pokemon_encounters_retrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 
 
 # **encounter_condition_list**
@@ -348,61 +347,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EncounterMethodDetail**](EncounterMethodDetail.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **pokemon_encounters_retrieve**
-> ARRAY[PokemonEncountersRetrieve200ResponseInner] pokemon_encounters_retrieve(pokemon_id => $pokemon_id)
-
-Get pokemon encounter
-
-Handles Pokemon Encounters as a sub-resource.
-
-### Example
-```perl
-use Data::Dumper;
-use WWW::OpenAPIClient::EncountersApi;
-my $api_instance = WWW::OpenAPIClient::EncountersApi->new(
-
-    # Configure HTTP basic authorization: basicAuth
-    username => 'YOUR_USERNAME',
-    password => 'YOUR_PASSWORD',
-    
-    # Configure API key authorization: cookieAuth
-    api_key => {'sessionid' => 'YOUR_API_KEY'},
-    # uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-    #api_key_prefix => {'sessionid' => 'Bearer'},
-);
-
-my $pokemon_id = "pokemon_id_example"; # string | 
-
-eval {
-    my $result = $api_instance->pokemon_encounters_retrieve(pokemon_id => $pokemon_id);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling EncountersApi->pokemon_encounters_retrieve: $@\n";
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pokemon_id** | **string**|  | 
-
-### Return type
-
-[**ARRAY[PokemonEncountersRetrieve200ResponseInner]**](PokemonEncountersRetrieve200ResponseInner.md)
 
 ### Authorization
 

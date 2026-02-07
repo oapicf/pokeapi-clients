@@ -198,28 +198,5 @@ public class EncountersApi extends RouteBuilder {
                 .endParam()
                 .to("direct:encounterMethodRetrieve");
         
-
-        /**
-        GET /api/v2/pokemon/{pokemon_id}/encounters : Get pokemon encounter
-        **/
-        rest()
-            .securityDefinitions()
-                .basicAuth("basicAuth")
-                .apiKey("cookieAuth")
-                    .withCookie("cookieAuth").
-                
-            .endSecurityDefinition()
-            .get("/api/v2/pokemon/{pokemon_id}/encounters")
-                .description("Get pokemon encounter")
-                .id("pokemonEncountersRetrieveApi")
-                .produces("application/json")
-                .outType(PokemonEncountersRetrieve200ResponseInner[].class)
-                .param()
-                    .name("pokemonId")
-                    .type(RestParamType.path)
-                    .required(true)
-                .endParam()
-                .to("direct:pokemonEncountersRetrieve");
-        
     }
 }

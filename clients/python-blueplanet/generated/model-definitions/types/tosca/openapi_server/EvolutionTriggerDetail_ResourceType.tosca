@@ -1,0 +1,54 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server EvolutionTriggerDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a EvolutionTriggerDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+  EvolutionTriggerName = openapi_server.resourceTypes.EvolutionTriggerName
+}
+resourceTypes {
+
+  EvolutionTriggerDetail {
+    title = EvolutionTriggerDetail
+    description = EvolutionTriggerDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = EvolutionTriggerName
+          description = ""
+          optional = true
+        }
+        pokemon_species {
+          type = array
+          items.type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  EvolutionTriggerDetail {
+    title = EvolutionTriggerDetail
+    description = EvolutionTriggerDetail
+    implements = openapi_server.resourceTypes.EvolutionTriggerDetail
+
+  }
+}

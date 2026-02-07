@@ -59,10 +59,3 @@ func (api *EncountersAPI) EncounterMethodRetrieve(c *gin.Context) {
 	c.JSON(200, gin.H{"status": "OK"})
 }
 
-// Get /api/v2/pokemon/:pokemon_id/encounters
-// Get pokemon encounter 
-func (api *EncountersAPI) PokemonEncountersRetrieve(c *gin.Context) {
-	// Your handler implementation
-	c.JSON(200, gin.H{"status": "OK"})
-}
-

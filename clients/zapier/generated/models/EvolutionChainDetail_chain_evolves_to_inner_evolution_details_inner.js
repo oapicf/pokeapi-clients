@@ -13,13 +13,13 @@ module.exports = {
                 key: `${keyPrefix}known_move`,
                 label: `[${labelPrefix}known_move]`,
                 required: true,
-                type: 'object',
+                dict: true,
             },
             {
                 key: `${keyPrefix}known_move_type`,
                 label: `[${labelPrefix}known_move_type]`,
                 required: true,
-                type: 'object',
+                dict: true,
             },
             ...EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner_gender.fields(`${keyPrefix}location`, isInput),
             {

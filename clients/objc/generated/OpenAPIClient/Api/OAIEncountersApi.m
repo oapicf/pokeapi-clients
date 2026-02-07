@@ -7,7 +7,6 @@
 #import "OAIPaginatedEncounterConditionSummaryList.h"
 #import "OAIPaginatedEncounterConditionValueSummaryList.h"
 #import "OAIPaginatedEncounterMethodSummaryList.h"
-#import "OAIPokemonEncountersRetrieve200ResponseInner.h"
 
 
 @interface OAIEncountersApi ()
@@ -462,74 +461,6 @@ NSInteger kOAIEncountersApiMissingParamErrorCode = 234513;
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
                                     handler((OAIEncounterMethodDetail*)data, error);
-                                }
-                            }];
-}
-
-///
-/// Get pokemon encounter
-/// Handles Pokemon Encounters as a sub-resource.
-///  @param pokemonId  
-///
-///  @returns NSArray<OAIPokemonEncountersRetrieve200ResponseInner>*
-///
--(NSURLSessionTask*) pokemonEncountersRetrieveWithPokemonId: (NSString*) pokemonId
-    completionHandler: (void (^)(NSArray<OAIPokemonEncountersRetrieve200ResponseInner>* output, NSError* error)) handler {
-    // verify the required parameter 'pokemonId' is set
-    if (pokemonId == nil) {
-        NSParameterAssert(pokemonId);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"pokemonId"] };
-            NSError* error = [NSError errorWithDomain:kOAIEncountersApiErrorDomain code:kOAIEncountersApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/v2/pokemon/{pokemon_id}/encounters"];
-
-    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (pokemonId != nil) {
-        pathParams[@"pokemon_id"] = pokemonId;
-    }
-
-    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
-    [headerParams addEntriesFromDictionary:self.defaultHeaders];
-    // HTTP header `Accept`
-    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
-    if(acceptHeader.length > 0) {
-        headerParams[@"Accept"] = acceptHeader;
-    }
-
-    // response content type
-    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
-
-    // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
-
-    // Authentication setting
-    NSArray *authSettings = @[@"basicAuth", @"cookieAuth"];
-
-    id bodyParam = nil;
-    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-
-    return [self.apiClient requestWithPath: resourcePath
-                                    method: @"GET"
-                                pathParams: pathParams
-                               queryParams: queryParams
-                                formParams: formParams
-                                     files: localVarFiles
-                                      body: bodyParam
-                              headerParams: headerParams
-                              authSettings: authSettings
-                        requestContentType: requestContentType
-                       responseContentType: responseContentType
-                              responseType: @"NSArray<OAIPokemonEncountersRetrieve200ResponseInner>*"
-                           completionBlock: ^(id data, NSError *error) {
-                                if(handler) {
-                                    handler((NSArray<OAIPokemonEncountersRetrieve200ResponseInner>*)data, error);
                                 }
                             }];
 }

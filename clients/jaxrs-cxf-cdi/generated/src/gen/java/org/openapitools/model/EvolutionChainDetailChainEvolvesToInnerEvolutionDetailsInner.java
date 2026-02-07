@@ -24,9 +24,9 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
 
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item;
 
-  private Object knownMove = null;
+  private Object knownMove;
 
-  private Object knownMoveType = null;
+  private Object knownMoveType;
 
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location;
 

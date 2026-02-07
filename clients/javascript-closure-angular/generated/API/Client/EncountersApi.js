@@ -16,7 +16,6 @@ goog.require('API.Client.EncounterMethodDetail');
 goog.require('API.Client.PaginatedEncounterConditionSummaryList');
 goog.require('API.Client.PaginatedEncounterConditionValueSummaryList');
 goog.require('API.Client.PaginatedEncounterMethodSummaryList');
-goog.require('API.Client.pokemon_encounters_retrieve_200_response_inner');
 
 /**
  * @constructor
@@ -277,43 +276,6 @@ API.Client.EncountersApi.prototype.encounterMethodRetrieve = function(id, opt_ex
   // verify required parameter 'id' is set
   if (!id) {
     throw new Error('Missing required parameter id when calling encounterMethodRetrieve');
-  }
-  /** @type {!Object} */
-  var httpRequestParams = {
-    method: 'GET',
-    url: path,
-    json: true,
-            params: queryParameters,
-    headers: headerParams
-  };
-
-  if (opt_extraHttpRequestParams) {
-    httpRequestParams = angular.extend(httpRequestParams, opt_extraHttpRequestParams);
-  }
-
-  return (/** @type {?} */ (this.http_))(httpRequestParams);
-}
-
-/**
- * Get pokemon encounter
- * Handles Pokemon Encounters as a sub-resource.
- * @param {!string} pokemonId 
- * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
- * @return {!angular.$q.Promise<!Array<!API.Client.pokemon_encounters_retrieve_200_response_inner>>}
- */
-API.Client.EncountersApi.prototype.pokemonEncountersRetrieve = function(pokemonId, opt_extraHttpRequestParams) {
-  /** @const {string} */
-  var path = this.basePath_ + '/api/v2/pokemon/{pokemon_id}/encounters'
-      .replace('{' + 'pokemon_id' + '}', String(pokemonId));
-
-  /** @type {!Object} */
-  var queryParameters = {};
-
-  /** @type {!Object} */
-  var headerParams = angular.extend({}, this.defaultHeaders_);
-  // verify required parameter 'pokemonId' is set
-  if (!pokemonId) {
-    throw new Error('Missing required parameter pokemonId when calling pokemonEncountersRetrieve');
   }
   /** @type {!Object} */
   var httpRequestParams = {

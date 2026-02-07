@@ -19,7 +19,6 @@ import org.openapitools.model.EncounterMethodDetail;
 import org.openapitools.model.PaginatedEncounterConditionSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionValueSummaryList;
 import org.openapitools.model.PaginatedEncounterMethodSummaryList;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.*;
@@ -171,23 +170,6 @@ public class EncountersApiTest {
 
         // TODO: delete this line and uncomment the next
         // EncounterMethodDetail response = api.encounterMethodRetrieve(id);
-        // TODO: complete test assertions
-    }
-    
-    /**
-     * Get pokemon encounter
-     *
-     * Handles Pokemon Encounters as a sub-resource.
-     *
-     * @throws ApiException if the API call fails
-     */
-    @Test
-    public void pokemonEncountersRetrieveTest() throws Exception {
-        // TODO: assign appropriate parameter values
-        String pokemonId = null;
-
-        // TODO: delete this line and uncomment the next
-        // List<PokemonEncountersRetrieve200ResponseInner> response = api.pokemonEncountersRetrieve(pokemonId);
         // TODO: complete test assertions
     }
     

@@ -26,10 +26,6 @@ Methods by which the player might can encounter Pokémon in the wild, e.g., walk
 Get encounter method.
 Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
 
-- `GET` to `/api/v2/pokemon/:pokemon_id/encounters`, OperationId: `pokemon_encounters_retrieve`:
-Get pokemon encounter.
-Handles Pokemon Encounters as a sub-resource.
-
 """.
 
 -behaviour(cowboy_rest).
@@ -58,8 +54,7 @@ Handles Pokemon Encounters as a sub-resource.
     | 'encounter_condition_value_list' %% List encounter condition values
     | 'encounter_condition_value_retrieve' %% Get encounter condition value
     | 'encounter_method_list' %% List encounter methods
-    | 'encounter_method_retrieve' %% Get encounter method
-    | 'pokemon_encounters_retrieve'. %% Get pokemon encounter
+    | 'encounter_method_retrieve'. %% Get encounter method
 
 
 -record(state,
@@ -98,8 +93,6 @@ allowed_methods(Req, #state{operation_id = 'encounter_condition_value_retrieve'}
 allowed_methods(Req, #state{operation_id = 'encounter_method_list'} = State) ->
     {[<<"GET">>], Req, State};
 allowed_methods(Req, #state{operation_id = 'encounter_method_retrieve'} = State) ->
-    {[<<"GET">>], Req, State};
-allowed_methods(Req, #state{operation_id = 'pokemon_encounters_retrieve'} = State) ->
     {[<<"GET">>], Req, State};
 allowed_methods(Req, State) ->
     {[], Req, State}.
@@ -160,15 +153,6 @@ is_authorized(Req0,
         {false, AuthHeader, Req} ->
             {{false, AuthHeader}, Req, State}
     end;
-is_authorized(Req0,
-              #state{operation_id = 'pokemon_encounters_retrieve' = OperationID,
-                     api_key_callback = Handler} = State) ->
-    case openapi_auth:authorize_api_key(Handler, OperationID, header, <<"authorization">>, Req0) of
-        {true, Context, Req} ->
-            {true, Req, State#state{context = Context}};
-        {false, AuthHeader, Req} ->
-            {{false, AuthHeader}, Req, State}
-    end;
 is_authorized(Req, State) ->
     {true, Req, State}.
 
@@ -186,8 +170,6 @@ content_types_accepted(Req, #state{operation_id = 'encounter_method_list'} = Sta
     {[], Req, State};
 content_types_accepted(Req, #state{operation_id = 'encounter_method_retrieve'} = State) ->
     {[], Req, State};
-content_types_accepted(Req, #state{operation_id = 'pokemon_encounters_retrieve'} = State) ->
-    {[], Req, State};
 content_types_accepted(Req, State) ->
     {[], Req, State}.
 
@@ -204,8 +186,6 @@ valid_content_headers(Req, #state{operation_id = 'encounter_condition_value_retr
 valid_content_headers(Req, #state{operation_id = 'encounter_method_list'} = State) ->
     {true, Req, State};
 valid_content_headers(Req, #state{operation_id = 'encounter_method_retrieve'} = State) ->
-    {true, Req, State};
-valid_content_headers(Req, #state{operation_id = 'pokemon_encounters_retrieve'} = State) ->
     {true, Req, State};
 valid_content_headers(Req, State) ->
     {false, Req, State}.
@@ -233,10 +213,6 @@ content_types_provided(Req, #state{operation_id = 'encounter_method_list'} = Sta
       {<<"application/json">>, handle_type_provided}
      ], Req, State};
 content_types_provided(Req, #state{operation_id = 'encounter_method_retrieve'} = State) ->
-    {[
-      {<<"application/json">>, handle_type_provided}
-     ], Req, State};
-content_types_provided(Req, #state{operation_id = 'pokemon_encounters_retrieve'} = State) ->
     {[
       {<<"application/json">>, handle_type_provided}
      ], Req, State};

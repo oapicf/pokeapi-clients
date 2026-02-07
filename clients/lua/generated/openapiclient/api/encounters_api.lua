@@ -22,7 +22,6 @@ local openapiclient_encounter_method_detail = require "openapiclient.model.encou
 local openapiclient_paginated_encounter_condition_summary_list = require "openapiclient.model.paginated_encounter_condition_summary_list"
 local openapiclient_paginated_encounter_condition_value_summary_list = require "openapiclient.model.paginated_encounter_condition_value_summary_list"
 local openapiclient_paginated_encounter_method_summary_list = require "openapiclient.model.paginated_encounter_method_summary_list"
-local openapiclient_pokemon_encounters_retrieve_200_response_inner = require "openapiclient.model.pokemon_encounters_retrieve_200_response_inner"
 
 local encounters_api = {}
 local encounters_api_mt = {
@@ -327,57 +326,6 @@ function encounters_api:encounter_method_retrieve(id)
 			return nil, err3
 		end
 		return openapiclient_encounter_method_detail.cast(result), headers
-	else
-		local body, err, errno2 = stream:get_body_as_string()
-		if not body then
-			return nil, err, errno2
-		end
-		stream:shutdown()
-		-- return the error message (http body)
-		return nil, http_status, body
-	end
-end
-
-function encounters_api:pokemon_encounters_retrieve(pokemon_id)
-	local req = http_request.new_from_uri({
-		scheme = self.default_scheme;
-		host = self.host;
-		port = self.port;
-		path = string.format("%s/api/v2/pokemon/%s/encounters",
-			self.basePath, pokemon_id);
-	})
-
-	-- set HTTP verb
-	req.headers:upsert(":method", "GET")
-	-- TODO: create a function to select proper content-type
-	--local var_accept = { "application/json" }
-	req.headers:upsert("content-type", "application/json")
-
-	-- HTTP basic auth
-	req.readers:upsert("authorization", "Basic " .. basexx.to_base64(self.http_username .. " " .. self.http_password))
-
-	-- make the HTTP call
-	local headers, stream, errno = req:go()
-	if not headers then
-		return nil, stream, errno
-	end
-	local http_status = headers:get(":status")
-	if http_status:sub(1,1) == "2" then
-		local body, err, errno2 = stream:get_body_as_string()
-		-- exception when getting the HTTP body
-		if not body then
-			return nil, err, errno2
-		end
-		stream:shutdown()
-		local result, _, err3 = dkjson.decode(body)
-		-- exception when decoding the HTTP body
-		if result == nil then
-			return nil, err3
-		end
-		for _, ob in ipairs(result) do
-			openapiclient_pokemon_encounters_retrieve_200_response_inner.cast(ob)
-		end
-		return result, headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then

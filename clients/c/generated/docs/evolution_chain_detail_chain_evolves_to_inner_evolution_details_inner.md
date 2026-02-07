@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 **gender** | [**evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t**](evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.md) \* |  | 
 **held_item** | [**evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t**](evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.md) \* |  | 
 **item** | [**evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t**](evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.md) \* |  | 
-**known_move** | **object_t \*** |  | 
-**known_move_type** | **object_t \*** |  | 
+**known_move** | [**object_t**](.md) \* |  | 
+**known_move_type** | [**object_t**](.md) \* |  | 
 **location** | [**evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t**](evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.md) \* |  | 
 **min_affection** | **int** |  | 
 **min_beauty** | **int** |  | 

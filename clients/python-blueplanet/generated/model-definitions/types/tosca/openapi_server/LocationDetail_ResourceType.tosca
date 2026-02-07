@@ -1,0 +1,67 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server LocationDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a LocationDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  LocationAreaSummary = openapi_server.resourceTypes.LocationAreaSummary
+  LocationGameIndex = openapi_server.resourceTypes.LocationGameIndex
+  LocationName = openapi_server.resourceTypes.LocationName
+  RegionSummary = openapi_server.resourceTypes.RegionSummary
+}
+resourceTypes {
+
+  LocationDetail {
+    title = LocationDetail
+    description = LocationDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        region {
+          type = RegionSummary
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = LocationName
+          description = ""
+          optional = true
+        }
+        game_indices {
+          type = array
+          items.type = LocationGameIndex
+          description = ""
+          optional = true
+        }
+        areas {
+          type = array
+          items.type = LocationAreaSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  LocationDetail {
+    title = LocationDetail
+    description = LocationDetail
+    implements = openapi_server.resourceTypes.LocationDetail
+
+  }
+}

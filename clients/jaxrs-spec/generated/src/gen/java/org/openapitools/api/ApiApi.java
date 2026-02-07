@@ -86,7 +86,6 @@ import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
 import org.openapitools.model.PokemonDetail;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 import org.openapitools.model.PokemonFormDetail;
 import org.openapitools.model.PokemonHabitatDetail;
 import org.openapitools.model.PokemonShapeDetail;
@@ -114,7 +113,7 @@ import javax.validation.Valid;
 */
 @Path("/api/v2")
 @Api(description = "the api API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-02-07T04:17:57.915073257Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-02-07T15:24:06.001755207Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class ApiApi {
 
     @GET
@@ -1298,22 +1297,6 @@ public class ApiApi {
         @ApiResponse(code = 200, message = "", response = PokemonColorDetail.class)
     })
     public Response pokemonColorRetrieve(@PathParam("id") @ApiParam("This parameter can be a string or an integer.") String id) {
-        return Response.ok().entity("magic!").build();
-    }
-
-    @GET
-    @Path("/pokemon/{pokemon_id}/encounters")
-    @Produces({ "application/json" })
-    @ApiOperation(value = "Get pokemon encounter", notes = "Handles Pokemon Encounters as a sub-resource.", response = PokemonEncountersRetrieve200ResponseInner.class, responseContainer = "List", authorizations = {
-        
-        @Authorization(value = "basicAuth"),
-        
-        @Authorization(value = "cookieAuth")
-         }, tags={ "encounters" })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "", response = PokemonEncountersRetrieve200ResponseInner.class, responseContainer = "List")
-    })
-    public Response pokemonEncountersRetrieve(@PathParam("pokemon_id") @Pattern(regexp="^\\d+$") String pokemonId) {
         return Response.ok().entity("magic!").build();
     }
 

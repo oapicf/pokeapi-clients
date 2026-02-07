@@ -11,6 +11,4 @@ module.exports = {
         { data: {} },
     "EncounterMethodDetailSample": 
         { data: {} },
-    "pokemon_encounters_retrieve_200_response_innerSample": 
-        { data: {} },
 }

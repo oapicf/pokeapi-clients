@@ -163,11 +163,11 @@ func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) GetKnownM
 
 // GetKnownMoveOk returns a tuple with the KnownMove field value
 // and a boolean to check if the value has been set.
-func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) GetKnownMoveOk() (*map[string]interface{}, bool) {
+func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) GetKnownMoveOk() (map[string]interface{}, bool) {
 	if o == nil {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
-	return &o.KnownMove, true
+	return o.KnownMove, true
 }
 
 // SetKnownMove sets field value
@@ -187,11 +187,11 @@ func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) GetKnownM
 
 // GetKnownMoveTypeOk returns a tuple with the KnownMoveType field value
 // and a boolean to check if the value has been set.
-func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) GetKnownMoveTypeOk() (*map[string]interface{}, bool) {
+func (o *EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner) GetKnownMoveTypeOk() (map[string]interface{}, bool) {
 	if o == nil {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
-	return &o.KnownMoveType, true
+	return o.KnownMoveType, true
 }
 
 // SetKnownMoveType sets field value

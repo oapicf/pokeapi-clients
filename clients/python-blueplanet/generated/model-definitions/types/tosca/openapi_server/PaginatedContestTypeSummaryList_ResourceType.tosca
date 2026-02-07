@@ -1,0 +1,52 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PaginatedContestTypeSummaryList"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PaginatedContestTypeSummaryList"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ContestTypeSummary = openapi_server.resourceTypes.ContestTypeSummary
+}
+resourceTypes {
+
+  PaginatedContestTypeSummaryList {
+    title = PaginatedContestTypeSummaryList
+    description = PaginatedContestTypeSummaryList
+    derivedFrom = Root
+    properties {
+        count {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        next {
+          type =  string
+          description = ""
+          optional = false
+        }
+        previous {
+          type =  string
+          description = ""
+          optional = false
+        }
+        results {
+          type = array
+          items.type = ContestTypeSummary
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PaginatedContestTypeSummaryList {
+    title = PaginatedContestTypeSummaryList
+    description = PaginatedContestTypeSummaryList
+    implements = openapi_server.resourceTypes.PaginatedContestTypeSummaryList
+
+  }
+}

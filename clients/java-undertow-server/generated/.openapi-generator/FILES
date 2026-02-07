@@ -224,13 +224,6 @@ src/main/java/org/openapitools/model/PokemonDetailPastTypesInner.java
 src/main/java/org/openapitools/model/PokemonDetailSprites.java
 src/main/java/org/openapitools/model/PokemonDetailTypesInner.java
 src/main/java/org/openapitools/model/PokemonDexEntry.java
-src/main/java/org/openapitools/model/PokemonEncountersRetrieve200ResponseInner.java
-src/main/java/org/openapitools/model/PokemonEncountersRetrieve200ResponseInnerLocationArea.java
-src/main/java/org/openapitools/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.java
-src/main/java/org/openapitools/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.java
-src/main/java/org/openapitools/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner.java
-src/main/java/org/openapitools/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod.java
-src/main/java/org/openapitools/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.java
 src/main/java/org/openapitools/model/PokemonFormDetail.java
 src/main/java/org/openapitools/model/PokemonFormDetailFormNamesInner.java
 src/main/java/org/openapitools/model/PokemonFormDetailSprites.java

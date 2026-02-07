@@ -30,7 +30,7 @@ import javax.validation.Valid;
   PokemonDexEntry.JSON_PROPERTY_ENTRY_NUMBER,
   PokemonDexEntry.JSON_PROPERTY_POKEDEX
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T04:17:42.118739260Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T15:23:51.865177194Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class PokemonDexEntry   {
   public static final String JSON_PROPERTY_ENTRY_NUMBER = "entry_number";
   @JsonProperty(JSON_PROPERTY_ENTRY_NUMBER)

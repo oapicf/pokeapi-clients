@@ -17,11 +17,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.prokarma.pkmst.model.EncounterConditionDetail;
 import com.prokarma.pkmst.model.EncounterConditionValueDetail;
 import com.prokarma.pkmst.model.EncounterMethodDetail;
-import java.util.List;
 import com.prokarma.pkmst.model.PaginatedEncounterConditionSummaryList;
 import com.prokarma.pkmst.model.PaginatedEncounterConditionValueSummaryList;
 import com.prokarma.pkmst.model.PaginatedEncounterMethodSummaryList;
-import com.prokarma.pkmst.model.PokemonEncountersRetrieve200ResponseInner;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -144,22 +142,6 @@ public class EncountersApiTest {
     public void encounterMethodRetrieveTest() throws Exception {
         String id = null;
     ResponseEntity<EncounterMethodDetail> response = api.encounterMethodRetrieve(id , accept);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get pokemon encounter
-     *
-     * Handles Pokemon Encounters as a sub-resource.
-     *
-     * @throws Exception
-     *          if the Api call fails
-     */
-    @Test
-    public void pokemonEncountersRetrieveTest() throws Exception {
-        String pokemonId = null;
-    ResponseEntity<List<PokemonEncountersRetrieve200ResponseInner>> response = api.pokemonEncountersRetrieve(pokemonId , accept);
 
         // TODO: test validations
     }

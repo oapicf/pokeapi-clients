@@ -18,7 +18,6 @@ import org.openapitools.server.model.EncounterMethodDetail
 import org.openapitools.server.model.PaginatedEncounterConditionSummaryList
 import org.openapitools.server.model.PaginatedEncounterConditionValueSummaryList
 import org.openapitools.server.model.PaginatedEncounterMethodSummaryList
-import org.openapitools.server.model.PokemonEncountersRetrieve200ResponseInner
 
 import java.io.File
 
@@ -134,18 +133,6 @@ class EncountersApi(implicit val swagger: Swagger) extends ScalatraServlet
   get("/api/v2/encounter-method/:id/", operation(encounterMethodRetrieveOperation)) {
     val id = params.getOrElse("id", halt(400))
     //println("id: " + id)
-  }
-
-  
-
-  val pokemonEncountersRetrieveOperation = (apiOperation[List[PokemonEncountersRetrieve200ResponseInner]]("pokemonEncountersRetrieve")
-    summary "Get pokemon encounter"
-    parameters(pathParam[String]("pokemonId").description(""))
-  )
-
-  get("/api/v2/pokemon/:pokemon_id/encounters", operation(pokemonEncountersRetrieveOperation)) {
-    val pokemonId = params.getOrElse("pokemonId", halt(400))
-    //println("pokemonId: " + pokemonId)
   }
 
 }

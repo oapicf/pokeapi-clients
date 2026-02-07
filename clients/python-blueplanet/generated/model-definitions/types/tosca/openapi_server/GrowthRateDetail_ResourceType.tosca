@@ -1,0 +1,66 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server GrowthRateDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a GrowthRateDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  Experience = openapi_server.resourceTypes.Experience
+  GrowthRateDescription = openapi_server.resourceTypes.GrowthRateDescription
+  PokemonSpeciesSummary = openapi_server.resourceTypes.PokemonSpeciesSummary
+}
+resourceTypes {
+
+  GrowthRateDetail {
+    title = GrowthRateDetail
+    description = GrowthRateDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        formula {
+          type =  string
+          description = ""
+          optional = true
+        }
+        descriptions {
+          type = array
+          items.type = GrowthRateDescription
+          description = ""
+          optional = true
+        }
+        levels {
+          type = array
+          items.type = Experience
+          description = ""
+          optional = true
+        }
+        pokemon_species {
+          type = array
+          items.type = PokemonSpeciesSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  GrowthRateDetail {
+    title = GrowthRateDetail
+    description = GrowthRateDetail
+    implements = openapi_server.resourceTypes.GrowthRateDetail
+
+  }
+}

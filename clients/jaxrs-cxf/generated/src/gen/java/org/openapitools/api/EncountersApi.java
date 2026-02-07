@@ -6,7 +6,6 @@ import org.openapitools.model.EncounterMethodDetail;
 import org.openapitools.model.PaginatedEncounterConditionSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionValueSummaryList;
 import org.openapitools.model.PaginatedEncounterMethodSummaryList;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 
 import java.util.List;
 import java.util.Map;
@@ -114,18 +113,4 @@ public interface EncountersApi  {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "", response = EncounterMethodDetail.class) })
     public EncounterMethodDetail encounterMethodRetrieve(@PathParam("id") String id);
-
-    /**
-     * Get pokemon encounter
-     *
-     * Handles Pokemon Encounters as a sub-resource.
-     *
-     */
-    @GET
-    @Path("/pokemon/{pokemon_id}/encounters")
-    @Produces({ "application/json" })
-    @ApiOperation(value = "Get pokemon encounter", tags={ "encounters" })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "", response = PokemonEncountersRetrieve200ResponseInner.class, responseContainer = "List") })
-    public List<PokemonEncountersRetrieve200ResponseInner> pokemonEncountersRetrieve(@PathParam("pokemon_id") @Pattern(regexp="^\\d+$") String pokemonId);
 }

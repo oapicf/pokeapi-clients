@@ -6,7 +6,6 @@ import org.openapitools.vertxweb.server.model.EncounterMethodDetail;
 import org.openapitools.vertxweb.server.model.PaginatedEncounterConditionSummaryList;
 import org.openapitools.vertxweb.server.model.PaginatedEncounterConditionValueSummaryList;
 import org.openapitools.vertxweb.server.model.PaginatedEncounterMethodSummaryList;
-import org.openapitools.vertxweb.server.model.PokemonEncountersRetrieve200ResponseInner;
 
 import org.openapitools.vertxweb.server.ApiResponse;
 
@@ -23,5 +22,4 @@ public interface EncountersApi  {
     Future<ApiResponse<EncounterConditionValueDetail>> encounterConditionValueRetrieve(String id);
     Future<ApiResponse<PaginatedEncounterMethodSummaryList>> encounterMethodList(Integer limit, Integer offset, String q);
     Future<ApiResponse<EncounterMethodDetail>> encounterMethodRetrieve(String id);
-    Future<ApiResponse<List<PokemonEncountersRetrieve200ResponseInner>>> pokemonEncountersRetrieve(String pokemonId);
 }

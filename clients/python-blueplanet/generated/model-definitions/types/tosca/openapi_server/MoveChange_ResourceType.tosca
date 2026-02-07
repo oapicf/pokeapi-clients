@@ -1,0 +1,69 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server MoveChange"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a MoveChange"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  MoveChangeEffectEntriesInner = openapi_server.resourceTypes.MoveChangeEffectEntriesInner
+  TypeSummary = openapi_server.resourceTypes.TypeSummary
+  VersionGroupSummary = openapi_server.resourceTypes.VersionGroupSummary
+}
+resourceTypes {
+
+  MoveChange {
+    title = MoveChange
+    description = MoveChange
+    derivedFrom = Root
+    properties {
+        accuracy {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        power {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        pp {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        effect_chance {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        effect_entries {
+          type = array
+          items.type = MoveChangeEffectEntriesInner
+          description = ""
+          optional = true
+        }
+        type {
+          type = TypeSummary
+          description = ""
+          optional = true
+        }
+        version_group {
+          type = VersionGroupSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  MoveChange {
+    title = MoveChange
+    description = MoveChange
+    implements = openapi_server.resourceTypes.MoveChange
+
+  }
+}

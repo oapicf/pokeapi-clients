@@ -227,25 +227,3 @@ let encounter_method_retrieve ~id =
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as (JsonSupport.unwrap Encounter_method_detail.of_yojson) resp body
 
-let pokemon_encounters_retrieve ~pokemon_id =
-    let open Lwt.Infix in
-    let uri = Request.build_uri "/api/v2/pokemon/{pokemon_id}/encounters" in
-    let headers = Request.default_headers in
-    let uri = Request.replace_path_param uri "pokemon_id"     
-    
-    
-    
-    
-    
-    
-    
-    
-    (fun x -> x)
-    
-    
-        
-        
- pokemon_id in
-    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
-    Request.read_json_body_as_list_of (JsonSupport.unwrap Pokemon_encounters_retrieve_200_response_inner.of_yojson) resp body
-

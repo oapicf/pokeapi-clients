@@ -100,7 +100,6 @@ Class | Method | HTTP request | Description
 *EncountersApi* | **encounterConditionValueRetrieve** | **GET** /api/v2/encounter-condition-value/${id}/ | Get encounter condition value
 *EncountersApi* | **encounterMethodList** | **GET** /api/v2/encounter-method/ | List encounter methods
 *EncountersApi* | **encounterMethodRetrieve** | **GET** /api/v2/encounter-method/${id}/ | Get encounter method
-*EncountersApi* | **pokemonEncountersRetrieve** | **GET** /api/v2/pokemon/${pokemonId}/encounters | Get pokemon encounter
 *EvolutionApi* | **evolutionChainList** | **GET** /api/v2/evolution-chain/ | List evolution chains
 *EvolutionApi* | **evolutionChainRetrieve** | **GET** /api/v2/evolution-chain/${id}/ | Get evolution chain
 *EvolutionApi* | **evolutionTriggerList** | **GET** /api/v2/evolution-trigger/ | List evolution triggers
@@ -404,13 +403,6 @@ Class | Method | HTTP request | Description
  - [PokemonDetailSprites](PokemonDetailSprites.md)
  - [PokemonDetailTypesInner](PokemonDetailTypesInner.md)
  - [PokemonDexEntry](PokemonDexEntry.md)
- - [PokemonEncountersRetrieve200ResponseInner](PokemonEncountersRetrieve200ResponseInner.md)
- - [PokemonEncountersRetrieve200ResponseInnerLocationArea](PokemonEncountersRetrieve200ResponseInnerLocationArea.md)
- - [PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner](PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.md)
- - [PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner](PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.md)
- - [PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner](PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner.md)
- - [PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod](PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod.md)
- - [PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion](PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.md)
  - [PokemonFormDetail](PokemonFormDetail.md)
  - [PokemonFormDetailFormNamesInner](PokemonFormDetailFormNamesInner.md)
  - [PokemonFormDetailSprites](PokemonFormDetailSprites.md)

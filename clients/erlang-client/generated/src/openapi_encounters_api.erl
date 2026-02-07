@@ -5,8 +5,7 @@
          encounter_condition_value_list/1, encounter_condition_value_list/2,
          encounter_condition_value_retrieve/2, encounter_condition_value_retrieve/3,
          encounter_method_list/1, encounter_method_list/2,
-         encounter_method_retrieve/2, encounter_method_retrieve/3,
-         pokemon_encounters_retrieve/2, pokemon_encounters_retrieve/3]).
+         encounter_method_retrieve/2, encounter_method_retrieve/3]).
 
 -define(BASE_URL, <<"">>).
 
@@ -128,27 +127,6 @@ encounter_method_retrieve(Ctx, Id, Optional) ->
 
     Method = get,
     Path = [?BASE_URL, "/api/v2/encounter-method/", Id, "/"],
-    QS = [],
-    Headers = [],
-    Body1 = [],
-    ContentTypeHeader = openapi_utils:select_header_content_type([]),
-    Opts = maps:get(hackney_opts, Optional, []),
-
-    openapi_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
-
-%% @doc Get pokemon encounter
-%% Handles Pokemon Encounters as a sub-resource.
--spec pokemon_encounters_retrieve(ctx:ctx(), binary()) -> {ok, [openapi_pokemon_encounters_retrieve_200_response_inner:openapi_pokemon_encounters_retrieve_200_response_inner()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
-pokemon_encounters_retrieve(Ctx, PokemonId) ->
-    pokemon_encounters_retrieve(Ctx, PokemonId, #{}).
-
--spec pokemon_encounters_retrieve(ctx:ctx(), binary(), maps:map()) -> {ok, [openapi_pokemon_encounters_retrieve_200_response_inner:openapi_pokemon_encounters_retrieve_200_response_inner()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
-pokemon_encounters_retrieve(Ctx, PokemonId, Optional) ->
-    _OptionalParams = maps:get(params, Optional, #{}),
-    Cfg = maps:get(cfg, Optional, application:get_env(openapi_api, config, #{})),
-
-    Method = get,
-    Path = [?BASE_URL, "/api/v2/pokemon/", PokemonId, "/encounters"],
     QS = [],
     Headers = [],
     Body1 = [],

@@ -84,8 +84,8 @@ class LocationApiSimulation extends Simulation {
         .feed(location_area_listQUERYFeeder)
         .exec(http("locationAreaList")
         .httpRequest("GET","/api/v2/location-area/")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
 )
 
     // Run scnlocationAreaList with warm up and reach a constant rate for entire duration
@@ -114,9 +114,9 @@ class LocationApiSimulation extends Simulation {
         .feed(location_listQUERYFeeder)
         .exec(http("locationList")
         .httpRequest("GET","/api/v2/location/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnlocationList with warm up and reach a constant rate for entire duration
@@ -145,9 +145,9 @@ class LocationApiSimulation extends Simulation {
         .feed(pal_park_area_listQUERYFeeder)
         .exec(http("palParkAreaList")
         .httpRequest("GET","/api/v2/pal-park-area/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnpalParkAreaList with warm up and reach a constant rate for entire duration
@@ -176,9 +176,9 @@ class LocationApiSimulation extends Simulation {
         .feed(region_listQUERYFeeder)
         .exec(http("regionList")
         .httpRequest("GET","/api/v2/region/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnregionList with warm up and reach a constant rate for entire duration

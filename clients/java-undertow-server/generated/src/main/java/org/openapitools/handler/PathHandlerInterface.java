@@ -739,36 +739,6 @@ public interface PathHandlerInterface {
     HttpHandler encounterMethodRetrieve();
 
     /**
-     * <p>Get pokemon encounter</p>
-     *
-     * <p>Handles Pokemon Encounters as a sub-resource.</p>
-     *
-     * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/v2/pokemon/{pokemon_id}/encounters" (<i>privileged: true</i>)</p>
-     *
-     * <p><b>Request parameters</b>:</p>
-     * <ul>
-     * <li>
-     * <p>"<b>pokemon_id</b>"
-     * <p>
-     * - Parameter type: <b>{@link String}</b><br/>
-     * - Appears in: <b>{@link HttpServerExchange#getPathParameters Path}</b><br/>
-     * - Required: <b>true</b>
-     * </p>
-     * </li>
-     * </ul>
-     *
-     * <p><b>Produces</b>: [{isJson=true, mediaType=application/json}]</p>
-     * <p><b>Returns</b>: {@link java.util.List List} of {@link PokemonEncountersRetrieve200ResponseInner}</p>
-     *
-     * <p><b>Responses</b>:</p>
-     * <ul>
-     * <li><b>200 (success)</b>: </li>
-     * </ul>
-     */
-    @javax.annotation.Nonnull
-    HttpHandler pokemonEncountersRetrieve();
-
-    /**
      * <p>List evolution chains</p>
      *
      * <p>Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.</p>

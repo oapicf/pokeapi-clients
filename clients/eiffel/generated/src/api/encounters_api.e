@@ -258,41 +258,5 @@ feature -- API Access
 			end
 		end
 
-	pokemon_encounters_retrieve (pokemon_id: STRING_32): detachable LIST [POKEMON_ENCOUNTERS_RETRIEVE_200_RESPONSE_INNER]
-			-- Get pokemon encounter
-			-- Handles Pokemon Encounters as a sub-resource.
-			-- 
-			-- argument: pokemon_id  (required)
-			-- 
-			-- 
-			-- Result LIST [POKEMON_ENCOUNTERS_RETRIEVE_200_RESPONSE_INNER]
-		require
-		local
-  			l_path: STRING
-  			l_request: API_CLIENT_REQUEST
-  			l_response: API_CLIENT_RESPONSE
-		do
-			reset_error
-			create l_request
-			
-			l_path := "/api/v2/pokemon/{pokemon_id}/encounters"
-			l_path.replace_substring_all ("{"+"pokemon_id"+"}", api_client.url_encode (pokemon_id.out))
-
-
-			if attached {STRING} api_client.select_header_accept ({ARRAY [STRING]}<<"application/json">>)  as l_accept then
-				l_request.add_header(l_accept,"Accept");
-			end
-			l_request.add_header(api_client.select_header_content_type ({ARRAY [STRING]}<<>>),"Content-Type")
-			l_request.set_auth_names ({ARRAY [STRING]}<<"basicAuth", "cookieAuth">>)
-			l_response := api_client.call_api (l_path, "Get", l_request, Void, agent deserializer)
-			if l_response.has_error then
-				last_error := l_response.error
-			elseif attached { LIST [POKEMON_ENCOUNTERS_RETRIEVE_200_RESPONSE_INNER] } l_response.data ({ LIST [POKEMON_ENCOUNTERS_RETRIEVE_200_RESPONSE_INNER] }) as l_data then
-				Result := l_data
-			else
-				create last_error.make ("Unknown error: Status response [ " + l_response.status.out + "]")
-			end
-		end
-
 
 end

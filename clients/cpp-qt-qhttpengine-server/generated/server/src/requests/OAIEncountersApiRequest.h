@@ -26,8 +26,6 @@
 #include "OAIPaginatedEncounterConditionSummaryList.h"
 #include "OAIPaginatedEncounterConditionValueSummaryList.h"
 #include "OAIPaginatedEncounterMethodSummaryList.h"
-#include "OAIPokemon_encounters_retrieve_200_response_inner.h"
-#include <QList>
 #include <QString>
 #include "OAIEncountersApiHandler.h"
 
@@ -47,7 +45,6 @@ public:
     void encounterConditionValueRetrieveRequest(const QString& id);
     void encounterMethodListRequest();
     void encounterMethodRetrieveRequest(const QString& id);
-    void pokemonEncountersRetrieveRequest(const QString& pokemon_id);
     
 
     void encounterConditionListResponse(const OAIPaginatedEncounterConditionSummaryList& res);
@@ -56,7 +53,6 @@ public:
     void encounterConditionValueRetrieveResponse(const OAIEncounterConditionValueDetail& res);
     void encounterMethodListResponse(const OAIPaginatedEncounterMethodSummaryList& res);
     void encounterMethodRetrieveResponse(const OAIEncounterMethodDetail& res);
-    void pokemonEncountersRetrieveResponse(const QList<OAIPokemon_encounters_retrieve_200_response_inner>& res);
     
 
     void encounterConditionListError(const OAIPaginatedEncounterConditionSummaryList& res, QNetworkReply::NetworkError error_type, QString& error_str);
@@ -65,7 +61,6 @@ public:
     void encounterConditionValueRetrieveError(const OAIEncounterConditionValueDetail& res, QNetworkReply::NetworkError error_type, QString& error_str);
     void encounterMethodListError(const OAIPaginatedEncounterMethodSummaryList& res, QNetworkReply::NetworkError error_type, QString& error_str);
     void encounterMethodRetrieveError(const OAIEncounterMethodDetail& res, QNetworkReply::NetworkError error_type, QString& error_str);
-    void pokemonEncountersRetrieveError(const QList<OAIPokemon_encounters_retrieve_200_response_inner>& res, QNetworkReply::NetworkError error_type, QString& error_str);
     
 
     void sendCustomResponse(QByteArray & res, QNetworkReply::NetworkError error_type);
@@ -85,7 +80,6 @@ Q_SIGNALS:
     void encounterConditionValueRetrieve(QString id);
     void encounterMethodList(qint32 limit, qint32 offset, QString q);
     void encounterMethodRetrieve(QString id);
-    void pokemonEncountersRetrieve(QString pokemon_id);
     
 
 private:

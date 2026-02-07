@@ -23,7 +23,6 @@ import org.openapitools.model.EncounterMethodDetail;
 import org.openapitools.model.PaginatedEncounterConditionSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionValueSummaryList;
 import org.openapitools.model.PaginatedEncounterMethodSummaryList;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 import javax.annotation.Generated;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +31,7 @@ import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T04:16:49.114765561Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-02-07T15:22:54.857535619Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Client("${openapi-micronaut-client-base-path}")
 public interface EncountersApi {
     /**
@@ -123,19 +122,6 @@ public interface EncountersApi {
     @Consumes({"application/json"})
     Mono<EncounterMethodDetail> encounterMethodRetrieve(
         @PathVariable(name="id") @NotNull String id
-    );
-
-    /**
-     * Get pokemon encounter
-     * Handles Pokemon Encounters as a sub-resource.
-     *
-     * @param pokemonId  (required)
-     * @return List&lt;PokemonEncountersRetrieve200ResponseInner&gt;
-     */
-    @Get(uri="/api/v2/pokemon/{pokemon_id}/encounters")
-    @Consumes({"application/json"})
-    Mono<List<PokemonEncountersRetrieve200ResponseInner>> pokemonEncountersRetrieve(
-        @PathVariable(name="pokemon_id") @NotNull @Pattern(regexp="^\\d+$") String pokemonId
     );
 
 }

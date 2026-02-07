@@ -419,18 +419,6 @@ bool OAIApiRouter::handleRequestAndExtractPathParam(QHttpEngine::Socket *socket)
         }
     }
     {
-        auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/pokemon/{pokemon_id}/encounters").toLower();
-        if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
-            QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );
-            if ( match.hasMatch() ){
-                QString pokemon_id = match.captured(QString("pokemon_id").toLower());
-                auto reqObj = new OAIEncountersApiRequest(socket, mOAIEncountersApiHandler);
-                reqObj->pokemonEncountersRetrieveRequest(pokemon_id);
-                return true;
-            }
-        }
-    }
-    {
         auto completePath = QString("%1 %2").arg("GET").arg("/api/v2/evolution-chain/{id}/").toLower();
         if ( reqPath.startsWith(completePath.leftRef( completePath.indexOf(QString("/{")))) ) {
             QRegularExpressionMatch match = getRequestMatch( completePath, reqPath );

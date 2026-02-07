@@ -1,0 +1,79 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokedexDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokedexDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+  PokedexDescription = openapi_server.resourceTypes.PokedexDescription
+  PokedexDetailPokemonEntriesInner = openapi_server.resourceTypes.PokedexDetailPokemonEntriesInner
+  PokedexName = openapi_server.resourceTypes.PokedexName
+  RegionSummary = openapi_server.resourceTypes.RegionSummary
+}
+resourceTypes {
+
+  PokedexDetail {
+    title = PokedexDetail
+    description = PokedexDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        is_main_series {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+        descriptions {
+          type = array
+          items.type = PokedexDescription
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = PokedexName
+          description = ""
+          optional = true
+        }
+        pokemon_entries {
+          type = array
+          items.type = PokedexDetailPokemonEntriesInner
+          description = ""
+          optional = true
+        }
+        region {
+          type = RegionSummary
+          description = ""
+          optional = true
+        }
+        version_groups {
+          type = array
+          items.type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokedexDetail {
+    title = PokedexDetail
+    description = PokedexDetail
+    implements = openapi_server.resourceTypes.PokedexDetail
+
+  }
+}

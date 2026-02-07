@@ -241,13 +241,6 @@ src/main/scala/org/openapitools/server/model/PokemonDetailPastTypesInner.scala
 src/main/scala/org/openapitools/server/model/PokemonDetailSprites.scala
 src/main/scala/org/openapitools/server/model/PokemonDetailTypesInner.scala
 src/main/scala/org/openapitools/server/model/PokemonDexEntry.scala
-src/main/scala/org/openapitools/server/model/PokemonEncountersRetrieve200ResponseInner.scala
-src/main/scala/org/openapitools/server/model/PokemonEncountersRetrieve200ResponseInnerLocationArea.scala
-src/main/scala/org/openapitools/server/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.scala
-src/main/scala/org/openapitools/server/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.scala
-src/main/scala/org/openapitools/server/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner.scala
-src/main/scala/org/openapitools/server/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod.scala
-src/main/scala/org/openapitools/server/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.scala
 src/main/scala/org/openapitools/server/model/PokemonFormDetail.scala
 src/main/scala/org/openapitools/server/model/PokemonFormDetailFormNamesInner.scala
 src/main/scala/org/openapitools/server/model/PokemonFormDetailSprites.scala

@@ -37,7 +37,7 @@ import org.openapitools.model.TypeGameIndex;
  */
 
 @ApiModel(description = "Serializer for the Type resource")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-02-07T04:17:17.108399996Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-02-07T15:23:23.550757203Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class TypeDetail   {
   
   private Integer id;

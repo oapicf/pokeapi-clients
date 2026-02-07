@@ -6,7 +6,6 @@ import org.openapitools.model.EncounterMethodDetail;
 import org.openapitools.model.PaginatedEncounterConditionSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionValueSummaryList;
 import org.openapitools.model.PaginatedEncounterMethodSummaryList;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
@@ -146,25 +145,6 @@ public class EncountersApiTest {
 
         // then
         // TODO implement the encounterMethodRetrieveTest()
-    }
-
-    
-    /**
-     * Get pokemon encounter
-     *
-     * Handles Pokemon Encounters as a sub-resource.
-     */
-    @Test
-    @Disabled("Not Implemented")
-    public void pokemonEncountersRetrieveTest() {
-        // given
-        String pokemonId = "example";
-
-        // when
-        List<PokemonEncountersRetrieve200ResponseInner> body = api.pokemonEncountersRetrieve(pokemonId).block();
-
-        // then
-        // TODO implement the pokemonEncountersRetrieveTest()
     }
 
     

@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server MoveLearnMethodName"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a MoveLearnMethodName"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  LanguageSummary = openapi_server.resourceTypes.LanguageSummary
+}
+resourceTypes {
+
+  MoveLearnMethodName {
+    title = MoveLearnMethodName
+    description = MoveLearnMethodName
+    derivedFrom = Root
+    properties {
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        language {
+          type = LanguageSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  MoveLearnMethodName {
+    title = MoveLearnMethodName
+    description = MoveLearnMethodName
+    implements = openapi_server.resourceTypes.MoveLearnMethodName
+
+  }
+}

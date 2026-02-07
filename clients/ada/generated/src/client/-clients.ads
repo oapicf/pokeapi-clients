@@ -159,13 +159,6 @@ package .Clients is
        Id : in Swagger.UString;
        Result : out .Models.EncounterMethodDetail_Type);
 
-   --  Get pokemon encounter
-   --  Handles Pokemon Encounters as a sub-resource.
-   procedure Pokemon_Encounters_Retrieve
-      (Client : in out Client_Type;
-       Pokemon_Id : in Swagger.UString;
-       Result : out .Models.PokemonEncountersRetrieve200ResponseInner_Type_Vectors.Vector);
-
    --  List evolution chains
    --  Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
    procedure Evolution_Chain_List

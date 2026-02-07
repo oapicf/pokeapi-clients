@@ -1,0 +1,61 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server MoveTargetDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a MoveTargetDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  MoveSummary = openapi_server.resourceTypes.MoveSummary
+  MoveTargetDescription = openapi_server.resourceTypes.MoveTargetDescription
+  MoveTargetName = openapi_server.resourceTypes.MoveTargetName
+}
+resourceTypes {
+
+  MoveTargetDetail {
+    title = MoveTargetDetail
+    description = MoveTargetDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        descriptions {
+          type = array
+          items.type = MoveTargetDescription
+          description = ""
+          optional = true
+        }
+        moves {
+          type = array
+          items.type = MoveSummary
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = MoveTargetName
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  MoveTargetDetail {
+    title = MoveTargetDetail
+    description = MoveTargetDetail
+    implements = openapi_server.resourceTypes.MoveTargetDetail
+
+  }
+}

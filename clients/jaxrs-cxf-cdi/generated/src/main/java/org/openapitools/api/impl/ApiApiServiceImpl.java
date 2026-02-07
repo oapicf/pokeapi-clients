@@ -91,7 +91,6 @@ import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
 import org.openapitools.model.PokemonDetail;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 import org.openapitools.model.PokemonFormDetail;
 import org.openapitools.model.PokemonHabitatDetail;
 import org.openapitools.model.PokemonShapeDetail;
@@ -115,7 +114,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2026-02-07T04:17:37.250579205Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2026-02-07T15:23:48.055342879Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class ApiApiServiceImpl implements ApiApiService {
       @Override
       public Response abilityList(Integer limit, Integer offset, String q, SecurityContext securityContext) {
@@ -484,11 +483,6 @@ public class ApiApiServiceImpl implements ApiApiService {
   }
       @Override
       public Response pokemonColorRetrieve(String id, SecurityContext securityContext) {
-      // do some magic!
-      return Response.ok().entity("magic!").build();
-  }
-      @Override
-      public Response pokemonEncountersRetrieve(String pokemonId, SecurityContext securityContext) {
       // do some magic!
       return Response.ok().entity("magic!").build();
   }

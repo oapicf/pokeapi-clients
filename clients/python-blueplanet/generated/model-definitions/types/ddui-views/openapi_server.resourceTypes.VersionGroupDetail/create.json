@@ -1,0 +1,24 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "id" },
+      {"model": "name" },
+      {"model": "order" },
+      {"model": "generation" },
+      {"model": "move_learn_methods" },
+      {"model": "pokedexes" },
+      {"model": "regions" },
+      {"model": "versions" },
+    ]
+  }]
+}

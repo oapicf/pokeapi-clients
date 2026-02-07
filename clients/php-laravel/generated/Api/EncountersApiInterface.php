@@ -119,18 +119,4 @@ interface EncountersApiInterface {
         \OpenAPI\Server\Model\EncounterMethodDetail
     ;
 
-
-    /**
-     * Operation pokemonEncountersRetrieve
-     *
-     * Get pokemon encounter
-     * @param string $pokemonId
-     * @return \OpenAPI\Server\Model\PokemonEncountersRetrieve200ResponseInner[]
-     */
-    public function pokemonEncountersRetrieve(
-            string $pokemonId,
-    ):
-        array
-    ;
-
 }

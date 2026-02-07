@@ -19,7 +19,6 @@ import EncounterMethodDetail from '../model/EncounterMethodDetail';
 import PaginatedEncounterConditionSummaryList from '../model/PaginatedEncounterConditionSummaryList';
 import PaginatedEncounterConditionValueSummaryList from '../model/PaginatedEncounterConditionValueSummaryList';
 import PaginatedEncounterMethodSummaryList from '../model/PaginatedEncounterMethodSummaryList';
-import PokemonEncountersRetrieve200ResponseInner from '../model/PokemonEncountersRetrieve200ResponseInner';
 
 /**
 * Encounters service.
@@ -299,49 +298,6 @@ export default class EncountersApi {
       let returnType = EncounterMethodDetail;
       return this.apiClient.callApi(
         '/api/v2/encounter-method/{id}/', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the pokemonEncountersRetrieve operation.
-     * @callback module:api/EncountersApi~pokemonEncountersRetrieveCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/PokemonEncountersRetrieve200ResponseInner>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get pokemon encounter
-     * Handles Pokemon Encounters as a sub-resource.
-     * @param {String} pokemonId 
-     * @param {module:api/EncountersApi~pokemonEncountersRetrieveCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/PokemonEncountersRetrieve200ResponseInner>}
-     */
-    pokemonEncountersRetrieve(pokemonId, callback) {
-      let postBody = null;
-      // verify the required parameter 'pokemonId' is set
-      if (pokemonId === undefined || pokemonId === null) {
-        throw new Error("Missing the required parameter 'pokemonId' when calling pokemonEncountersRetrieve");
-      }
-
-      let pathParams = {
-        'pokemon_id': pokemonId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['basicAuth', 'cookieAuth'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = [PokemonEncountersRetrieve200ResponseInner];
-      return this.apiClient.callApi(
-        '/api/v2/pokemon/{pokemon_id}/encounters', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

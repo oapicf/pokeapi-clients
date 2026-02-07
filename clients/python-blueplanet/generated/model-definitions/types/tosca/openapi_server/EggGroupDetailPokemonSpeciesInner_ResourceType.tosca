@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server EggGroupDetailPokemonSpeciesInner"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a EggGroupDetailPokemonSpeciesInner"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  EggGroupDetailPokemonSpeciesInner {
+    title = EggGroupDetailPokemonSpeciesInner
+    description = EggGroupDetailPokemonSpeciesInner
+    derivedFrom = Root
+    properties {
+        name {
+          type =  string
+          description = "Pokemon species name."
+          optional = false
+        }
+        url {
+          type =  string
+          description = "The URL to get more information about the species"
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  EggGroupDetailPokemonSpeciesInner {
+    title = EggGroupDetailPokemonSpeciesInner
+    description = EggGroupDetailPokemonSpeciesInner
+    implements = openapi_server.resourceTypes.EggGroupDetailPokemonSpeciesInner
+
+  }
+}

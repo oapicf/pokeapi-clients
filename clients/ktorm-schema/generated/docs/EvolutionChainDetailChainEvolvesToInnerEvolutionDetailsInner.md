@@ -8,8 +8,8 @@ Name | Mapping | SQL Type | Default | Type | Description | Notes
 **gender** | gender | long NOT NULL |  | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  |  [foreignkey]
 **heldItem** | held_item | long NOT NULL |  | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  |  [foreignkey]
 **item** | item | long NOT NULL |  | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  |  [foreignkey]
-**knownMove** | known_move | blob NOT NULL |  | [**kotlin.Any**](kotlin.Any.md) |  | 
-**knownMoveType** | known_move_type | blob NOT NULL |  | [**kotlin.Any**](kotlin.Any.md) |  | 
+**knownMove** | known_move | blob NOT NULL |  | [**kotlin.Any**](.md) |  | 
+**knownMoveType** | known_move_type | blob NOT NULL |  | [**kotlin.Any**](.md) |  | 
 **location** | location | long NOT NULL |  | [**EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender**](EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender.md) |  |  [foreignkey]
 **minAffection** | min_affection | int NOT NULL |  | **kotlin.Int** |  | 
 **minBeauty** | min_beauty | int NOT NULL |  | **kotlin.Int** |  | 

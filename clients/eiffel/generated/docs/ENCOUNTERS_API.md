@@ -10,7 +10,6 @@ Feature | HTTP request | Description
 [**encounter_condition_value_retrieve**](ENCOUNTERS_API.md#encounter_condition_value_retrieve) | **Get** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 [**encounter_method_list**](ENCOUNTERS_API.md#encounter_method_list) | **Get** /api/v2/encounter-method/ | List encounter methods
 [**encounter_method_retrieve**](ENCOUNTERS_API.md#encounter_method_retrieve) | **Get** /api/v2/encounter-method/{id}/ | Get encounter method
-[**pokemon_encounters_retrieve**](ENCOUNTERS_API.md#pokemon_encounters_retrieve) | **Get** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 
 
 # **encounter_condition_list**
@@ -187,36 +186,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ENCOUNTER_METHOD_DETAIL**](EncounterMethodDetail.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **pokemon_encounters_retrieve**
-> pokemon_encounters_retrieve (pokemon_id: STRING_32 ): detachable LIST [POKEMON_ENCOUNTERS_RETRIEVE_200_RESPONSE_INNER]
-
-
-Get pokemon encounter
-
-Handles Pokemon Encounters as a sub-resource.
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pokemon_id** | **STRING_32**|  | [default to null]
-
-### Return type
-
-[**LIST [POKEMON_ENCOUNTERS_RETRIEVE_200_RESPONSE_INNER]**](pokemon_encounters_retrieve_200_response_inner.md)
 
 ### Authorization
 

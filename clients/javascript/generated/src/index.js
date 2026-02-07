@@ -234,13 +234,6 @@ import PokemonDetailPastTypesInner from './model/PokemonDetailPastTypesInner';
 import PokemonDetailSprites from './model/PokemonDetailSprites';
 import PokemonDetailTypesInner from './model/PokemonDetailTypesInner';
 import PokemonDexEntry from './model/PokemonDexEntry';
-import PokemonEncountersRetrieve200ResponseInner from './model/PokemonEncountersRetrieve200ResponseInner';
-import PokemonEncountersRetrieve200ResponseInnerLocationArea from './model/PokemonEncountersRetrieve200ResponseInnerLocationArea';
-import PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner from './model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner';
-import PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner from './model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner';
-import PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner from './model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner';
-import PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod from './model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod';
-import PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion from './model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion';
 import PokemonFormDetail from './model/PokemonFormDetail';
 import PokemonFormDetailFormNamesInner from './model/PokemonFormDetailFormNamesInner';
 import PokemonFormDetailSprites from './model/PokemonFormDetailSprites';
@@ -1664,48 +1657,6 @@ export {
      * @property {module:model/PokemonDexEntry}
      */
     PokemonDexEntry,
-
-    /**
-     * The PokemonEncountersRetrieve200ResponseInner model constructor.
-     * @property {module:model/PokemonEncountersRetrieve200ResponseInner}
-     */
-    PokemonEncountersRetrieve200ResponseInner,
-
-    /**
-     * The PokemonEncountersRetrieve200ResponseInnerLocationArea model constructor.
-     * @property {module:model/PokemonEncountersRetrieve200ResponseInnerLocationArea}
-     */
-    PokemonEncountersRetrieve200ResponseInnerLocationArea,
-
-    /**
-     * The PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner model constructor.
-     * @property {module:model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner}
-     */
-    PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner,
-
-    /**
-     * The PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner model constructor.
-     * @property {module:model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner}
-     */
-    PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner,
-
-    /**
-     * The PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner model constructor.
-     * @property {module:model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner}
-     */
-    PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner,
-
-    /**
-     * The PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod model constructor.
-     * @property {module:model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod}
-     */
-    PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod,
-
-    /**
-     * The PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion model constructor.
-     * @property {module:model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion}
-     */
-    PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion,
 
     /**
      * The PokemonFormDetail model constructor.

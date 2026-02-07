@@ -1,0 +1,36 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "id" },
+      {"model": "name" },
+      {"model": "base_experience" },
+      {"model": "height" },
+      {"model": "is_default" },
+      {"model": "order" },
+      {"model": "weight" },
+      {"model": "abilities" },
+      {"model": "past_abilities" },
+      {"model": "forms" },
+      {"model": "game_indices" },
+      {"model": "held_items" },
+      {"model": "location_area_encounters" },
+      {"model": "moves" },
+      {"model": "species" },
+      {"model": "sprites" },
+      {"model": "cries" },
+      {"model": "stats" },
+      {"model": "types" },
+      {"model": "past_types" },
+    ]
+  }]
+}

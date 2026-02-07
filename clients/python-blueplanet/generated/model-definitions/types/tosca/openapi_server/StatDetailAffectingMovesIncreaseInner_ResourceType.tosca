@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server StatDetailAffectingMovesIncreaseInner"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a StatDetailAffectingMovesIncreaseInner"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+}
+resourceTypes {
+
+  StatDetailAffectingMovesIncreaseInner {
+    title = StatDetailAffectingMovesIncreaseInner
+    description = StatDetailAffectingMovesIncreaseInner
+    derivedFrom = Root
+    properties {
+        change {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        move {
+          type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  StatDetailAffectingMovesIncreaseInner {
+    title = StatDetailAffectingMovesIncreaseInner
+    description = StatDetailAffectingMovesIncreaseInner
+    implements = openapi_server.resourceTypes.StatDetailAffectingMovesIncreaseInner
+
+  }
+}

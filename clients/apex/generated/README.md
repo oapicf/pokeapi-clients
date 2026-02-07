@@ -85,7 +85,6 @@ Class | Method | HTTP request | Description
 *OASEncountersApi* | [**encounterConditionValueRetrieve**](OASEncountersApi.md#encounterConditionValueRetrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 *OASEncountersApi* | [**encounterMethodList**](OASEncountersApi.md#encounterMethodList) | **GET** /api/v2/encounter-method/ | List encounter methods
 *OASEncountersApi* | [**encounterMethodRetrieve**](OASEncountersApi.md#encounterMethodRetrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-*OASEncountersApi* | [**pokemonEncountersRetrieve**](OASEncountersApi.md#pokemonEncountersRetrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 *OASEvolutionApi* | [**evolutionChainList**](OASEvolutionApi.md#evolutionChainList) | **GET** /api/v2/evolution-chain/ | List evolution chains
 *OASEvolutionApi* | [**evolutionChainRetrieve**](OASEvolutionApi.md#evolutionChainRetrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
 *OASEvolutionApi* | [**evolutionTriggerList**](OASEvolutionApi.md#evolutionTriggerList) | **GET** /api/v2/evolution-trigger/ | List evolution triggers
@@ -382,7 +381,6 @@ Class | Method | HTTP request | Description
  - [OASPokemonDetailSprites](OASPokemonDetailSprites.md)
  - [OASPokemonDetailTypesInner](OASPokemonDetailTypesInner.md)
  - [OASPokemonDexEntry](OASPokemonDexEntry.md)
- - [OASPokemonEncountersRetrieve200Respo](OASPokemonEncountersRetrieve200Respo.md)
  - [OASPokemonFormDetail](OASPokemonFormDetail.md)
  - [OASPokemonFormDetailFormNamesInner](OASPokemonFormDetailFormNamesInner.md)
  - [OASPokemonFormDetailSprites](OASPokemonFormDetailSprites.md)

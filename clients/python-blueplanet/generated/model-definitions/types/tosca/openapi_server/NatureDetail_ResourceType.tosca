@@ -1,0 +1,90 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server NatureDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a NatureDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  BerryFlavorSummary = openapi_server.resourceTypes.BerryFlavorSummary
+  BerrySummary = openapi_server.resourceTypes.BerrySummary
+  NatureBattleStylePreference = openapi_server.resourceTypes.NatureBattleStylePreference
+  NatureDetailPokeathlonStatChangesInner = openapi_server.resourceTypes.NatureDetailPokeathlonStatChangesInner
+  NatureName = openapi_server.resourceTypes.NatureName
+  StatSummary = openapi_server.resourceTypes.StatSummary
+}
+resourceTypes {
+
+  NatureDetail {
+    title = NatureDetail
+    description = NatureDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        decreased_stat {
+          type = StatSummary
+          description = ""
+          optional = true
+        }
+        increased_stat {
+          type = StatSummary
+          description = ""
+          optional = true
+        }
+        likes_flavor {
+          type = BerryFlavorSummary
+          description = ""
+          optional = true
+        }
+        hates_flavor {
+          type = BerryFlavorSummary
+          description = ""
+          optional = true
+        }
+        berries {
+          type = array
+          items.type = BerrySummary
+          description = ""
+          optional = true
+        }
+        pokeathlon_stat_changes {
+          type = array
+          items.type = NatureDetailPokeathlonStatChangesInner
+          description = ""
+          optional = true
+        }
+        move_battle_style_preferences {
+          type = array
+          items.type = NatureBattleStylePreference
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = NatureName
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  NatureDetail {
+    title = NatureDetail
+    description = NatureDetail
+    implements = openapi_server.resourceTypes.NatureDetail
+
+  }
+}

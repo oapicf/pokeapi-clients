@@ -22,14 +22,14 @@ import org.openapitools.model.EvolutionChainDetailChainEvolvesToInnerEvolutionDe
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-02-07T04:17:17.108399996Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-02-07T15:23:23.550757203Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner   {
   
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender gender;
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender heldItem;
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item;
-  private Object knownMove = null;
-  private Object knownMoveType = null;
+  private Object knownMove;
+  private Object knownMoveType;
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location;
   private Integer minAffection;
   private Integer minBeauty;

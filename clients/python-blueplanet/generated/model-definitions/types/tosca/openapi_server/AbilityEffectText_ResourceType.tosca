@@ -1,0 +1,46 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server AbilityEffectText"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a AbilityEffectText"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  LanguageSummary = openapi_server.resourceTypes.LanguageSummary
+}
+resourceTypes {
+
+  AbilityEffectText {
+    title = AbilityEffectText
+    description = AbilityEffectText
+    derivedFrom = Root
+    properties {
+        effect {
+          type =  string
+          description = ""
+          optional = true
+        }
+        short_effect {
+          type =  string
+          description = ""
+          optional = true
+        }
+        language {
+          type = LanguageSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  AbilityEffectText {
+    title = AbilityEffectText
+    description = AbilityEffectText
+    implements = openapi_server.resourceTypes.AbilityEffectText
+
+  }
+}

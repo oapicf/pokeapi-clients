@@ -26,7 +26,6 @@ import { EncounterMethodDetail } from '../model/encounterMethodDetail';
 import { PaginatedEncounterConditionSummaryList } from '../model/paginatedEncounterConditionSummaryList';
 import { PaginatedEncounterConditionValueSummaryList } from '../model/paginatedEncounterConditionValueSummaryList';
 import { PaginatedEncounterMethodSummaryList } from '../model/paginatedEncounterMethodSummaryList';
-import { PokemonEncountersRetrieve200ResponseInner } from '../model/pokemonEncountersRetrieve200ResponseInner';
 
 import { COLLECTION_FORMATS }  from '../variables';
 
@@ -243,36 +242,6 @@ export class EncountersService {
         if (observe === 'body') {
                return response.pipe(
                    map((httpResponse: HttpResponse) => <EncounterMethodDetail>(httpResponse.response))
-               );
-        }
-        return response;
-    }
-
-
-    /**
-     * Get pokemon encounter
-     * Handles Pokemon Encounters as a sub-resource.
-     * @param pokemonId 
-     
-     */
-    public pokemonEncountersRetrieve(pokemonId: string, observe?: 'body', headers?: Headers): Observable<Array<PokemonEncountersRetrieve200ResponseInner>>;
-    public pokemonEncountersRetrieve(pokemonId: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<PokemonEncountersRetrieve200ResponseInner>>>;
-    public pokemonEncountersRetrieve(pokemonId: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        if (pokemonId === null || pokemonId === undefined){
-            throw new Error('Required parameter pokemonId was null or undefined when calling pokemonEncountersRetrieve.');
-        }
-
-        // authentication (basicAuth) required
-        if (this.APIConfiguration.username || this.APIConfiguration.password) {
-            headers['Authorization'] = btoa(this.APIConfiguration.username + ':' + this.APIConfiguration.password);
-        }
-        // authentication (cookieAuth) required
-        headers['Accept'] = 'application/json';
-
-        const response: Observable<HttpResponse<Array<PokemonEncountersRetrieve200ResponseInner>>> = this.httpClient.get(`${this.basePath}/api/v2/pokemon/${encodeURIComponent(String(pokemonId))}/encounters`, headers);
-        if (observe === 'body') {
-               return response.pipe(
-                   map((httpResponse: HttpResponse) => <Array<PokemonEncountersRetrieve200ResponseInner>>(httpResponse.response))
                );
         }
         return response;

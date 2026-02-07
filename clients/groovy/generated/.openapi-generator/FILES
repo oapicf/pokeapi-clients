@@ -234,13 +234,6 @@ src/main/groovy/org/openapitools/model/PokemonDetailPastTypesInner.groovy
 src/main/groovy/org/openapitools/model/PokemonDetailSprites.groovy
 src/main/groovy/org/openapitools/model/PokemonDetailTypesInner.groovy
 src/main/groovy/org/openapitools/model/PokemonDexEntry.groovy
-src/main/groovy/org/openapitools/model/PokemonEncountersRetrieve200ResponseInner.groovy
-src/main/groovy/org/openapitools/model/PokemonEncountersRetrieve200ResponseInnerLocationArea.groovy
-src/main/groovy/org/openapitools/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.groovy
-src/main/groovy/org/openapitools/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.groovy
-src/main/groovy/org/openapitools/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner.groovy
-src/main/groovy/org/openapitools/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod.groovy
-src/main/groovy/org/openapitools/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.groovy
 src/main/groovy/org/openapitools/model/PokemonFormDetail.groovy
 src/main/groovy/org/openapitools/model/PokemonFormDetailFormNamesInner.groovy
 src/main/groovy/org/openapitools/model/PokemonFormDetailSprites.groovy

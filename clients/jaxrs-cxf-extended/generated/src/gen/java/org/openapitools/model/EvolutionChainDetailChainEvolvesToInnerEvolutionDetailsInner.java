@@ -26,10 +26,10 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner  {
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item;
 
   @ApiModelProperty(required = true, value = "")
-  private Object knownMove = null;
+  private Object knownMove;
 
   @ApiModelProperty(required = true, value = "")
-  private Object knownMoveType = null;
+  private Object knownMoveType;
 
   @ApiModelProperty(required = true, value = "")
   @Valid

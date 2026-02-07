@@ -171,10 +171,10 @@ QJsonObject OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inn
     if (item.isSet()) {
         obj.insert(QString("item"), ::OpenAPI::toJsonValue(item));
     }
-    if (known_move.isSet()) {
+    if (m_known_move_isSet) {
         obj.insert(QString("known_move"), ::OpenAPI::toJsonValue(known_move));
     }
-    if (known_move_type.isSet()) {
+    if (m_known_move_type_isSet) {
         obj.insert(QString("known_move_type"), ::OpenAPI::toJsonValue(known_move_type));
     }
     if (location.isSet()) {
@@ -525,12 +525,12 @@ bool OAIEvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::isS
             break;
         }
 
-        if (known_move.isSet()) {
+        if (m_known_move_isSet) {
             isObjectUpdated = true;
             break;
         }
 
-        if (known_move_type.isSet()) {
+        if (m_known_move_type_isSet) {
             isObjectUpdated = true;
             break;
         }

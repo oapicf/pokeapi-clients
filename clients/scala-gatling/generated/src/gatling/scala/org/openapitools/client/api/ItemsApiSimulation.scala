@@ -88,9 +88,9 @@ class ItemsApiSimulation extends Simulation {
         .feed(item_attribute_listQUERYFeeder)
         .exec(http("itemAttributeList")
         .httpRequest("GET","/api/v2/item-attribute/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnitemAttributeList with warm up and reach a constant rate for entire duration
@@ -119,9 +119,9 @@ class ItemsApiSimulation extends Simulation {
         .feed(item_category_listQUERYFeeder)
         .exec(http("itemCategoryList")
         .httpRequest("GET","/api/v2/item-category/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnitemCategoryList with warm up and reach a constant rate for entire duration
@@ -150,9 +150,9 @@ class ItemsApiSimulation extends Simulation {
         .feed(item_fling_effect_listQUERYFeeder)
         .exec(http("itemFlingEffectList")
         .httpRequest("GET","/api/v2/item-fling-effect/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnitemFlingEffectList with warm up and reach a constant rate for entire duration
@@ -181,9 +181,9 @@ class ItemsApiSimulation extends Simulation {
         .feed(item_listQUERYFeeder)
         .exec(http("itemList")
         .httpRequest("GET","/api/v2/item/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnitemList with warm up and reach a constant rate for entire duration
@@ -198,9 +198,9 @@ class ItemsApiSimulation extends Simulation {
         .feed(item_pocket_listQUERYFeeder)
         .exec(http("itemPocketList")
         .httpRequest("GET","/api/v2/item-pocket/")
-        .queryParam("q","${q}")
-        .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
+        .queryParam("offset","${offset}")
+        .queryParam("q","${q}")
 )
 
     // Run scnitemPocketList with warm up and reach a constant rate for entire duration

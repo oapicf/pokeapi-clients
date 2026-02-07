@@ -1,0 +1,43 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server MoveDetailContestCombosNormal"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a MoveDetailContestCombosNormal"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+}
+resourceTypes {
+
+  MoveDetailContestCombosNormal {
+    title = MoveDetailContestCombosNormal
+    description = MoveDetailContestCombosNormal
+    derivedFrom = Root
+    properties {
+        use_before {
+          type = array
+          items.type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+        use_after {
+          type = array
+          items.type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  MoveDetailContestCombosNormal {
+    title = MoveDetailContestCombosNormal
+    description = MoveDetailContestCombosNormal
+    implements = openapi_server.resourceTypes.MoveDetailContestCombosNormal
+
+  }
+}

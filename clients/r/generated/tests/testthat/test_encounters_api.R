@@ -82,15 +82,3 @@ test_that("EncounterMethodRetrieve", {
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
-
-test_that("PokemonEncountersRetrieve", {
-  # tests for PokemonEncountersRetrieve
-  # base path: https://pokeapi.co
-  # Get pokemon encounter
-  # Handles Pokemon Encounters as a sub-resource.
-  # @param pokemon_id character 
-  # @return [array[PokemonEncountersRetrieve200ResponseInner]]
-
-  # uncomment below to test the operation
-  #expect_equal(result, "EXPECTED_RESULT")
-})

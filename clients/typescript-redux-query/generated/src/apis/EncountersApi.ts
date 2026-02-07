@@ -33,9 +33,6 @@ import {
     PaginatedEncounterMethodSummaryList,
     PaginatedEncounterMethodSummaryListFromJSON,
     PaginatedEncounterMethodSummaryListToJSON,
-    PokemonEncountersRetrieve200ResponseInner,
-    PokemonEncountersRetrieve200ResponseInnerFromJSON,
-    PokemonEncountersRetrieve200ResponseInnerToJSON,
 } from '../models';
 
 export interface EncounterConditionListRequest {
@@ -66,10 +63,6 @@ export interface EncounterMethodListRequest {
 
 export interface EncounterMethodRetrieveRequest {
     id: string;
-}
-
-export interface PokemonEncountersRetrieveRequest {
-    pokemonId: string;
 }
 
 
@@ -401,54 +394,5 @@ function encounterMethodRetrieveRaw<T>(requestParameters: EncounterMethodRetriev
 */
 export function encounterMethodRetrieve<T>(requestParameters: EncounterMethodRetrieveRequest, requestConfig?: runtime.TypedQueryConfig<T, EncounterMethodDetail>): QueryConfig<T> {
     return encounterMethodRetrieveRaw(requestParameters, requestConfig);
-}
-
-/**
- * Handles Pokemon Encounters as a sub-resource.
- * Get pokemon encounter
- */
-function pokemonEncountersRetrieveRaw<T>(requestParameters: PokemonEncountersRetrieveRequest, requestConfig: runtime.TypedQueryConfig<T, Array<PokemonEncountersRetrieve200ResponseInner>> = {}): QueryConfig<T> {
-    if (requestParameters.pokemonId === null || requestParameters.pokemonId === undefined) {
-        throw new runtime.RequiredError('pokemonId','Required parameter requestParameters.pokemonId was null or undefined when calling pokemonEncountersRetrieve.');
-    }
-
-    let queryParameters = null;
-
-
-    const headerParameters : runtime.HttpHeaders = {};
-
-
-    const { meta = {} } = requestConfig;
-
-    meta.authType = ['basic'];
-    const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/v2/pokemon/{pokemon_id}/encounters`.replace(`{${"pokemon_id"}}`, encodeURIComponent(String(requestParameters.pokemonId))),
-        meta,
-        update: requestConfig.update,
-        queryKey: requestConfig.queryKey,
-        optimisticUpdate: requestConfig.optimisticUpdate,
-        force: requestConfig.force,
-        rollback: requestConfig.rollback,
-        options: {
-            method: 'GET',
-            headers: headerParameters,
-        },
-        body: queryParameters,
-    };
-
-    const { transform: requestTransform } = requestConfig;
-    if (requestTransform) {
-        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(PokemonEncountersRetrieve200ResponseInnerFromJSON), text);
-    }
-
-    return config;
-}
-
-/**
-* Handles Pokemon Encounters as a sub-resource.
-* Get pokemon encounter
-*/
-export function pokemonEncountersRetrieve<T>(requestParameters: PokemonEncountersRetrieveRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<PokemonEncountersRetrieve200ResponseInner>>): QueryConfig<T> {
-    return pokemonEncountersRetrieveRaw(requestParameters, requestConfig);
 }
 

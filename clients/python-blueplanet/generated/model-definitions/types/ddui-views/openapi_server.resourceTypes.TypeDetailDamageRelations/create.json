@@ -1,0 +1,22 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "no_damage_to" },
+      {"model": "half_damage_to" },
+      {"model": "double_damage_to" },
+      {"model": "no_damage_from" },
+      {"model": "half_damage_from" },
+      {"model": "double_damage_from" },
+    ]
+  }]
+}

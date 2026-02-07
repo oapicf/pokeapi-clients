@@ -10,7 +10,6 @@ Method | HTTP request | Description
 [**encounterConditionValueRetrieve**](EncountersAPI.md#encounterconditionvalueretrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 [**encounterMethodList**](EncountersAPI.md#encountermethodlist) | **GET** /api/v2/encounter-method/ | List encounter methods
 [**encounterMethodRetrieve**](EncountersAPI.md#encountermethodretrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-[**pokemonEncountersRetrieve**](EncountersAPI.md#pokemonencountersretrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 
 
 # **encounterConditionList**
@@ -313,56 +312,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EncounterMethodDetail**](EncounterMethodDetail.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **pokemonEncountersRetrieve**
-```swift
-    open class func pokemonEncountersRetrieve(pokemonId: String, completion: @escaping (_ data: [PokemonEncountersRetrieve200ResponseInner]?, _ error: Error?) -> Void)
-```
-
-Get pokemon encounter
-
-Handles Pokemon Encounters as a sub-resource.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let pokemonId = "pokemonId_example" // String | 
-
-// Get pokemon encounter
-EncountersAPI.pokemonEncountersRetrieve(pokemonId: pokemonId) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pokemonId** | **String** |  | 
-
-### Return type
-
-[**[PokemonEncountersRetrieve200ResponseInner]**](PokemonEncountersRetrieve200ResponseInner.md)
 
 ### Authorization
 

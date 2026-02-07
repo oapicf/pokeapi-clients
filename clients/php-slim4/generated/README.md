@@ -180,7 +180,6 @@ Class | Method | HTTP request | Description
 *AbstractEncountersApi* | **encounterConditionRetrieve** | **GET** /api/v2/encounter-condition/{id}/ | Get encounter condition
 *AbstractEncountersApi* | **encounterConditionValueRetrieve** | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 *AbstractEncountersApi* | **encounterMethodRetrieve** | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-*AbstractEncountersApi* | **pokemonEncountersRetrieve** | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 *AbstractEvolutionApi* | **evolutionChainList** | **GET** /api/v2/evolution-chain/ | List evolution chains
 *AbstractEvolutionApi* | **evolutionTriggerList** | **GET** /api/v2/evolution-trigger/ | List evolution triggers
 *AbstractEvolutionApi* | **evolutionChainRetrieve** | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
@@ -484,13 +483,6 @@ Class | Method | HTTP request | Description
 * OpenAPIServer\Model\PokemonDetailSprites
 * OpenAPIServer\Model\PokemonDetailTypesInner
 * OpenAPIServer\Model\PokemonDexEntry
-* OpenAPIServer\Model\PokemonEncountersRetrieve200ResponseInner
-* OpenAPIServer\Model\PokemonEncountersRetrieve200ResponseInnerLocationArea
-* OpenAPIServer\Model\PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner
-* OpenAPIServer\Model\PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner
-* OpenAPIServer\Model\PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner
-* OpenAPIServer\Model\PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod
-* OpenAPIServer\Model\PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion
 * OpenAPIServer\Model\PokemonFormDetail
 * OpenAPIServer\Model\PokemonFormDetailFormNamesInner
 * OpenAPIServer\Model\PokemonFormDetailSprites

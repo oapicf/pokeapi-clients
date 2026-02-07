@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server TypeSummary"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a TypeSummary"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  TypeSummary {
+    title = TypeSummary
+    description = TypeSummary
+    derivedFrom = Root
+    properties {
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        url {
+          type =  string
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  TypeSummary {
+    title = TypeSummary
+    description = TypeSummary
+    implements = openapi_server.resourceTypes.TypeSummary
+
+  }
+}

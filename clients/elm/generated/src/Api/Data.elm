@@ -236,13 +236,6 @@ module Api.Data exposing
     , PokemonDetailSprites
     , PokemonDetailTypesInner
     , PokemonDexEntry
-    , PokemonEncountersRetrieve200ResponseInner
-    , PokemonEncountersRetrieve200ResponseInnerLocationArea
-    , PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner
-    , PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner
-    , PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner
-    , PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod
-    , PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion
     , PokemonFormDetail
     , PokemonFormDetailFormNamesInner
     , PokemonFormDetailSprites
@@ -511,13 +504,6 @@ module Api.Data exposing
     , encodePokemonDetailSprites
     , encodePokemonDetailTypesInner
     , encodePokemonDexEntry
-    , encodePokemonEncountersRetrieve200ResponseInner
-    , encodePokemonEncountersRetrieve200ResponseInnerLocationArea
-    , encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInner
-    , encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner
-    , encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner
-    , encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod
-    , encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion
     , encodePokemonFormDetail
     , encodePokemonFormDetailFormNamesInner
     , encodePokemonFormDetailSprites
@@ -786,13 +772,6 @@ module Api.Data exposing
     , pokemonDetailSpritesDecoder
     , pokemonDetailTypesInnerDecoder
     , pokemonDexEntryDecoder
-    , pokemonEncountersRetrieve200ResponseInnerDecoder
-    , pokemonEncountersRetrieve200ResponseInnerLocationAreaDecoder
-    , pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerDecoder
-    , pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerDecoder
-    , pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInnerDecoder
-    , pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethodDecoder
-    , pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersionDecoder
     , pokemonFormDetailDecoder
     , pokemonFormDetailFormNamesInnerDecoder
     , pokemonFormDetailSpritesDecoder
@@ -2478,52 +2457,6 @@ type alias PokemonDetailTypesInner =
 type alias PokemonDexEntry =
     { entryNumber : Int
     , pokedex : PokedexSummary
-    }
-
-
-type alias PokemonEncountersRetrieve200ResponseInner =
-    { locationArea : PokemonEncountersRetrieve200ResponseInnerLocationArea
-    , versionDetails : List PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner
-    }
-
-
-type alias PokemonEncountersRetrieve200ResponseInnerLocationArea =
-    { name : String
-    , url : String
-    }
-
-
-type alias PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner =
-    { encounterDetails : List PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner
-    , maxChance : Float
-    , version : PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion
-    }
-
-
-type alias PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner =
-    { chance : Float
-    , conditionValues : List PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner
-    , maxLevel : Float
-    , method : PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod
-    , minLevel : Float
-    }
-
-
-type alias PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner =
-    { name : String
-    , url : String
-    }
-
-
-type alias PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod =
-    { name : String
-    , url : String
-    }
-
-
-type alias PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion =
-    { name : String
-    , url : String
     }
 
 
@@ -7842,157 +7775,6 @@ encodePokemonDexEntryPairs model =
     pairs
 
 
-encodePokemonEncountersRetrieve200ResponseInner : PokemonEncountersRetrieve200ResponseInner -> Json.Encode.Value
-encodePokemonEncountersRetrieve200ResponseInner =
-    encodeObject << encodePokemonEncountersRetrieve200ResponseInnerPairs
-
-
-encodePokemonEncountersRetrieve200ResponseInnerWithTag : ( String, String ) -> PokemonEncountersRetrieve200ResponseInner -> Json.Encode.Value
-encodePokemonEncountersRetrieve200ResponseInnerWithTag (tagField, tag) model =
-    encodeObject (encodePokemonEncountersRetrieve200ResponseInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodePokemonEncountersRetrieve200ResponseInnerPairs : PokemonEncountersRetrieve200ResponseInner -> List EncodedField
-encodePokemonEncountersRetrieve200ResponseInnerPairs model =
-    let
-        pairs =
-            [ encode "location_area" encodePokemonEncountersRetrieve200ResponseInnerLocationArea model.locationArea
-            , encode "version_details" (Json.Encode.list encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInner) model.versionDetails
-            ]
-    in
-    pairs
-
-
-encodePokemonEncountersRetrieve200ResponseInnerLocationArea : PokemonEncountersRetrieve200ResponseInnerLocationArea -> Json.Encode.Value
-encodePokemonEncountersRetrieve200ResponseInnerLocationArea =
-    encodeObject << encodePokemonEncountersRetrieve200ResponseInnerLocationAreaPairs
-
-
-encodePokemonEncountersRetrieve200ResponseInnerLocationAreaWithTag : ( String, String ) -> PokemonEncountersRetrieve200ResponseInnerLocationArea -> Json.Encode.Value
-encodePokemonEncountersRetrieve200ResponseInnerLocationAreaWithTag (tagField, tag) model =
-    encodeObject (encodePokemonEncountersRetrieve200ResponseInnerLocationAreaPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodePokemonEncountersRetrieve200ResponseInnerLocationAreaPairs : PokemonEncountersRetrieve200ResponseInnerLocationArea -> List EncodedField
-encodePokemonEncountersRetrieve200ResponseInnerLocationAreaPairs model =
-    let
-        pairs =
-            [ encode "name" Json.Encode.string model.name
-            , encode "url" Json.Encode.string model.url
-            ]
-    in
-    pairs
-
-
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInner : PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner -> Json.Encode.Value
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInner =
-    encodeObject << encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerPairs
-
-
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerWithTag : ( String, String ) -> PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner -> Json.Encode.Value
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerWithTag (tagField, tag) model =
-    encodeObject (encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerPairs : PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner -> List EncodedField
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerPairs model =
-    let
-        pairs =
-            [ encode "encounter_details" (Json.Encode.list encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner) model.encounterDetails
-            , encode "max_chance" Json.Encode.float model.maxChance
-            , encode "version" encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion model.version
-            ]
-    in
-    pairs
-
-
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner : PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner -> Json.Encode.Value
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner =
-    encodeObject << encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerPairs
-
-
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerWithTag : ( String, String ) -> PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner -> Json.Encode.Value
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerWithTag (tagField, tag) model =
-    encodeObject (encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerPairs : PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner -> List EncodedField
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerPairs model =
-    let
-        pairs =
-            [ encode "chance" Json.Encode.float model.chance
-            , encode "condition_values" (Json.Encode.list encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner) model.conditionValues
-            , encode "max_level" Json.Encode.float model.maxLevel
-            , encode "method" encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod model.method
-            , encode "min_level" Json.Encode.float model.minLevel
-            ]
-    in
-    pairs
-
-
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner : PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner -> Json.Encode.Value
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner =
-    encodeObject << encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInnerPairs
-
-
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInnerWithTag : ( String, String ) -> PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner -> Json.Encode.Value
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInnerWithTag (tagField, tag) model =
-    encodeObject (encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInnerPairs : PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner -> List EncodedField
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInnerPairs model =
-    let
-        pairs =
-            [ encode "name" Json.Encode.string model.name
-            , encode "url" Json.Encode.string model.url
-            ]
-    in
-    pairs
-
-
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod : PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod -> Json.Encode.Value
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod =
-    encodeObject << encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethodPairs
-
-
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethodWithTag : ( String, String ) -> PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod -> Json.Encode.Value
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethodWithTag (tagField, tag) model =
-    encodeObject (encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethodPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethodPairs : PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod -> List EncodedField
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethodPairs model =
-    let
-        pairs =
-            [ encode "name" Json.Encode.string model.name
-            , encode "url" Json.Encode.string model.url
-            ]
-    in
-    pairs
-
-
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion : PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion -> Json.Encode.Value
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion =
-    encodeObject << encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersionPairs
-
-
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersionWithTag : ( String, String ) -> PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion -> Json.Encode.Value
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersionWithTag (tagField, tag) model =
-    encodeObject (encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersionPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersionPairs : PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion -> List EncodedField
-encodePokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersionPairs model =
-    let
-        pairs =
-            [ encode "name" Json.Encode.string model.name
-            , encode "url" Json.Encode.string model.url
-            ]
-    in
-    pairs
-
-
 encodePokemonFormDetail : PokemonFormDetail -> Json.Encode.Value
 encodePokemonFormDetail =
     encodeObject << encodePokemonFormDetailPairs
@@ -10913,59 +10695,6 @@ pokemonDexEntryDecoder =
     Json.Decode.succeed PokemonDexEntry
         |> decode "entry_number" Json.Decode.int 
         |> decode "pokedex" pokedexSummaryDecoder 
-
-
-pokemonEncountersRetrieve200ResponseInnerDecoder : Json.Decode.Decoder PokemonEncountersRetrieve200ResponseInner
-pokemonEncountersRetrieve200ResponseInnerDecoder =
-    Json.Decode.succeed PokemonEncountersRetrieve200ResponseInner
-        |> decode "location_area" pokemonEncountersRetrieve200ResponseInnerLocationAreaDecoder 
-        |> decode "version_details" (Json.Decode.list pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerDecoder) 
-
-
-pokemonEncountersRetrieve200ResponseInnerLocationAreaDecoder : Json.Decode.Decoder PokemonEncountersRetrieve200ResponseInnerLocationArea
-pokemonEncountersRetrieve200ResponseInnerLocationAreaDecoder =
-    Json.Decode.succeed PokemonEncountersRetrieve200ResponseInnerLocationArea
-        |> decode "name" Json.Decode.string 
-        |> decode "url" Json.Decode.string 
-
-
-pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerDecoder : Json.Decode.Decoder PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner
-pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerDecoder =
-    Json.Decode.succeed PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner
-        |> decode "encounter_details" (Json.Decode.list pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerDecoder) 
-        |> decode "max_chance" Json.Decode.float 
-        |> decode "version" pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersionDecoder 
-
-
-pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerDecoder : Json.Decode.Decoder PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner
-pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerDecoder =
-    Json.Decode.succeed PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner
-        |> decode "chance" Json.Decode.float 
-        |> decode "condition_values" (Json.Decode.list pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInnerDecoder) 
-        |> decode "max_level" Json.Decode.float 
-        |> decode "method" pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethodDecoder 
-        |> decode "min_level" Json.Decode.float 
-
-
-pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInnerDecoder : Json.Decode.Decoder PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner
-pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInnerDecoder =
-    Json.Decode.succeed PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner
-        |> decode "name" Json.Decode.string 
-        |> decode "url" Json.Decode.string 
-
-
-pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethodDecoder : Json.Decode.Decoder PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod
-pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethodDecoder =
-    Json.Decode.succeed PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod
-        |> decode "name" Json.Decode.string 
-        |> decode "url" Json.Decode.string 
-
-
-pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersionDecoder : Json.Decode.Decoder PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion
-pokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersionDecoder =
-    Json.Decode.succeed PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion
-        |> decode "name" Json.Decode.string 
-        |> decode "url" Json.Decode.string 
 
 
 pokemonFormDetailDecoder : Json.Decode.Decoder PokemonFormDetail

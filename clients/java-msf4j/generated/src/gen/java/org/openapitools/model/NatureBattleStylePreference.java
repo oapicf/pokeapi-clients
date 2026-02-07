@@ -10,7 +10,7 @@ import org.openapitools.model.MoveBattleStyleSummary;
 /**
  * NatureBattleStylePreference
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T04:17:01.559585484Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-02-07T15:23:10.683633502Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class NatureBattleStylePreference   {
   @JsonProperty("low_hp_preference")
   private Integer lowHpPreference;

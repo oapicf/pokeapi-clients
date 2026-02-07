@@ -222,13 +222,6 @@ src/main/kotlin/org/openapitools/server/api/model/PokemonDetailPastTypesInner.kt
 src/main/kotlin/org/openapitools/server/api/model/PokemonDetailSprites.kt
 src/main/kotlin/org/openapitools/server/api/model/PokemonDetailTypesInner.kt
 src/main/kotlin/org/openapitools/server/api/model/PokemonDexEntry.kt
-src/main/kotlin/org/openapitools/server/api/model/PokemonEncountersRetrieve200ResponseInner.kt
-src/main/kotlin/org/openapitools/server/api/model/PokemonEncountersRetrieve200ResponseInnerLocationArea.kt
-src/main/kotlin/org/openapitools/server/api/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.kt
-src/main/kotlin/org/openapitools/server/api/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.kt
-src/main/kotlin/org/openapitools/server/api/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner.kt
-src/main/kotlin/org/openapitools/server/api/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod.kt
-src/main/kotlin/org/openapitools/server/api/model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.kt
 src/main/kotlin/org/openapitools/server/api/model/PokemonFormDetail.kt
 src/main/kotlin/org/openapitools/server/api/model/PokemonFormDetailFormNamesInner.kt
 src/main/kotlin/org/openapitools/server/api/model/PokemonFormDetailSprites.kt

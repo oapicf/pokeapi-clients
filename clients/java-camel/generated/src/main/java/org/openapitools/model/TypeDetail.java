@@ -33,7 +33,7 @@ import javax.annotation.Generated;
  */
 
 @Schema(name = "TypeDetail", description = "Serializer for the Type resource")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T04:17:25.266083787Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-02-07T15:23:32.871052804Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class TypeDetail {
 
   private Integer id;

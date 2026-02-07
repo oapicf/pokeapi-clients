@@ -1,0 +1,175 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server MoveDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a MoveDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+  ContestEffectSummary = openapi_server.resourceTypes.ContestEffectSummary
+  ContestTypeSummary = openapi_server.resourceTypes.ContestTypeSummary
+  GenerationSummary = openapi_server.resourceTypes.GenerationSummary
+  MoveChange = openapi_server.resourceTypes.MoveChange
+  MoveChangeEffectEntriesInner = openapi_server.resourceTypes.MoveChangeEffectEntriesInner
+  MoveDamageClassSummary = openapi_server.resourceTypes.MoveDamageClassSummary
+  MoveDetailContestCombos = openapi_server.resourceTypes.MoveDetailContestCombos
+  MoveDetailEffectChangesInner = openapi_server.resourceTypes.MoveDetailEffectChangesInner
+  MoveDetailMachinesInner = openapi_server.resourceTypes.MoveDetailMachinesInner
+  MoveDetailStatChangesInner = openapi_server.resourceTypes.MoveDetailStatChangesInner
+  MoveFlavorText = openapi_server.resourceTypes.MoveFlavorText
+  MoveMeta = openapi_server.resourceTypes.MoveMeta
+  MoveName = openapi_server.resourceTypes.MoveName
+  MoveTargetSummary = openapi_server.resourceTypes.MoveTargetSummary
+  SuperContestEffectSummary = openapi_server.resourceTypes.SuperContestEffectSummary
+  TypeSummary = openapi_server.resourceTypes.TypeSummary
+}
+resourceTypes {
+
+  MoveDetail {
+    title = MoveDetail
+    description = MoveDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        accuracy {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        effect_chance {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        pp {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        priority {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        power {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        contest_combos {
+          type = MoveDetailContestCombos
+          description = ""
+          optional = true
+        }
+        contest_type {
+          type = ContestTypeSummary
+          description = ""
+          optional = true
+        }
+        contest_effect {
+          type = ContestEffectSummary
+          description = ""
+          optional = true
+        }
+        damage_class {
+          type = MoveDamageClassSummary
+          description = ""
+          optional = true
+        }
+        effect_entries {
+          type = array
+          items.type = MoveChangeEffectEntriesInner
+          description = ""
+          optional = true
+        }
+        effect_changes {
+          type = array
+          items.type = MoveDetailEffectChangesInner
+          description = ""
+          optional = true
+        }
+        generation {
+          type = GenerationSummary
+          description = ""
+          optional = true
+        }
+        meta {
+          type = MoveMeta
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = MoveName
+          description = ""
+          optional = true
+        }
+        past_values {
+          type = array
+          items.type = MoveChange
+          description = ""
+          optional = true
+        }
+        stat_changes {
+          type = array
+          items.type = MoveDetailStatChangesInner
+          description = ""
+          optional = true
+        }
+        super_contest_effect {
+          type = SuperContestEffectSummary
+          description = ""
+          optional = true
+        }
+        target {
+          type = MoveTargetSummary
+          description = ""
+          optional = true
+        }
+        type {
+          type = TypeSummary
+          description = ""
+          optional = true
+        }
+        machines {
+          type = array
+          items.type = MoveDetailMachinesInner
+          description = ""
+          optional = true
+        }
+        flavor_text_entries {
+          type = array
+          items.type = MoveFlavorText
+          description = ""
+          optional = true
+        }
+        learned_by_pokemon {
+          type = array
+          items.type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  MoveDetail {
+    title = MoveDetail
+    description = MoveDetail
+    implements = openapi_server.resourceTypes.MoveDetail
+
+  }
+}

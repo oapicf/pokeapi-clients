@@ -108,16 +108,6 @@
         done();
       });
     });
-    describe('pokemonEncountersRetrieve', function() {
-      it('should call pokemonEncountersRetrieve successfully', function(done) {
-        //uncomment below and update the code to test pokemonEncountersRetrieve
-        //instance.pokemonEncountersRetrieve(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
   });
 
 }));

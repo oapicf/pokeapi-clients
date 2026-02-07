@@ -85,7 +85,7 @@ public class EvolutionControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/evolution-chain/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@349504d5");
+            .accept("[Ljava.lang.String;@24df4805");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -135,7 +135,7 @@ public class EvolutionControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@347770a9");
+            .accept("[Ljava.lang.String;@3bbc8c82");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, EvolutionChainDetail.class);
@@ -180,7 +180,7 @@ public class EvolutionControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/evolution-trigger/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@218e28d9");
+            .accept("[Ljava.lang.String;@5545137d");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -230,7 +230,7 @@ public class EvolutionControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@34438b38");
+            .accept("[Ljava.lang.String;@ca31ad7");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, EvolutionTriggerDetail.class);

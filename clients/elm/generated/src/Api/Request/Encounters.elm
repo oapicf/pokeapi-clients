@@ -21,7 +21,6 @@ module Api.Request.Encounters exposing
     , encounterConditionValueRetrieve
     , encounterMethodList
     , encounterMethodRetrieve
-    , pokemonEncountersRetrieve
     )
 
 import Api
@@ -132,21 +131,4 @@ encounterMethodRetrieve id_path =
         []
         Nothing
         Api.Data.encounterMethodDetailDecoder
-
-
-{-| Get pokemon encounter
-
-Handles Pokemon Encounters as a sub-resource.
-
--}
-pokemonEncountersRetrieve : String -> Api.Request (List Api.Data.PokemonEncountersRetrieve200ResponseInner)
-pokemonEncountersRetrieve pokemonId_path =
-    Api.request
-        "GET"
-        "/api/v2/pokemon/{pokemon_id}/encounters"
-        [ ( "pokemon_id", identity pokemonId_path ) ]
-        []
-        []
-        Nothing
-        (Json.Decode.list Api.Data.pokemonEncountersRetrieve200ResponseInnerDecoder)
 

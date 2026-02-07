@@ -50,8 +50,6 @@ public:
 	class EncounterMethodListResponse;
 	class EncounterMethodRetrieveRequest;
 	class EncounterMethodRetrieveResponse;
-	class PokemonEncountersRetrieveRequest;
-	class PokemonEncountersRetrieveResponse;
 	
     DECLARE_DELEGATE_OneParam(FEncounterConditionListDelegate, const EncounterConditionListResponse&);
     DECLARE_DELEGATE_OneParam(FEncounterConditionRetrieveDelegate, const EncounterConditionRetrieveResponse&);
@@ -59,7 +57,6 @@ public:
     DECLARE_DELEGATE_OneParam(FEncounterConditionValueRetrieveDelegate, const EncounterConditionValueRetrieveResponse&);
     DECLARE_DELEGATE_OneParam(FEncounterMethodListDelegate, const EncounterMethodListResponse&);
     DECLARE_DELEGATE_OneParam(FEncounterMethodRetrieveDelegate, const EncounterMethodRetrieveResponse&);
-    DECLARE_DELEGATE_OneParam(FPokemonEncountersRetrieveDelegate, const PokemonEncountersRetrieveResponse&);
     
     FHttpRequestPtr EncounterConditionList(const EncounterConditionListRequest& Request, const FEncounterConditionListDelegate& Delegate = FEncounterConditionListDelegate()) const;
     FHttpRequestPtr EncounterConditionRetrieve(const EncounterConditionRetrieveRequest& Request, const FEncounterConditionRetrieveDelegate& Delegate = FEncounterConditionRetrieveDelegate()) const;
@@ -67,7 +64,6 @@ public:
     FHttpRequestPtr EncounterConditionValueRetrieve(const EncounterConditionValueRetrieveRequest& Request, const FEncounterConditionValueRetrieveDelegate& Delegate = FEncounterConditionValueRetrieveDelegate()) const;
     FHttpRequestPtr EncounterMethodList(const EncounterMethodListRequest& Request, const FEncounterMethodListDelegate& Delegate = FEncounterMethodListDelegate()) const;
     FHttpRequestPtr EncounterMethodRetrieve(const EncounterMethodRetrieveRequest& Request, const FEncounterMethodRetrieveDelegate& Delegate = FEncounterMethodRetrieveDelegate()) const;
-    FHttpRequestPtr PokemonEncountersRetrieve(const PokemonEncountersRetrieveRequest& Request, const FPokemonEncountersRetrieveDelegate& Delegate = FPokemonEncountersRetrieveDelegate()) const;
     
 private:
     void OnEncounterConditionListResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FEncounterConditionListDelegate Delegate) const;
@@ -76,7 +72,6 @@ private:
     void OnEncounterConditionValueRetrieveResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FEncounterConditionValueRetrieveDelegate Delegate) const;
     void OnEncounterMethodListResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FEncounterMethodListDelegate Delegate) const;
     void OnEncounterMethodRetrieveResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FEncounterMethodRetrieveDelegate Delegate) const;
-    void OnPokemonEncountersRetrieveResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FPokemonEncountersRetrieveDelegate Delegate) const;
     
 	FHttpRequestRef CreateHttpRequest(const Request& Request) const;
 	bool IsValid() const;

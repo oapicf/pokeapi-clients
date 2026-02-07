@@ -26,7 +26,6 @@ import org.openapitools.model.EncounterMethodDetail;
 import org.openapitools.model.PaginatedEncounterConditionSummaryList;
 import org.openapitools.model.PaginatedEncounterConditionValueSummaryList;
 import org.openapitools.model.PaginatedEncounterMethodSummaryList;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 import javax.annotation.Generated;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,7 +42,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T04:16:54.641403954Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-02-07T15:23:03.167972722Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Controller
 @Tag(name = "Encounters", description = "The Encounters API")
 public class EncountersController {
@@ -265,40 +264,6 @@ public class EncountersController {
         @PathVariable(value="id") @NotNull String id
     ) {
         // TODO implement encounterMethodRetrieve();
-        return Mono.error(new HttpStatusException(HttpStatus.NOT_IMPLEMENTED, null));
-    }
-
-
-    /**
-     * Get pokemon encounter
-     * Handles Pokemon Encounters as a sub-resource.
-     *
-     * @param pokemonId  (required)
-     * @return List&lt;PokemonEncountersRetrieve200ResponseInner&gt;
-     */
-    @Operation(
-        operationId = "pokemonEncountersRetrieve",
-        summary = "Get pokemon encounter",
-        responses = {
-            @ApiResponse(responseCode = "200", description = "", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = PokemonEncountersRetrieve200ResponseInner.class))
-            })
-        },
-        parameters = {
-            @Parameter(name = "pokemonId", required = true)
-        },
-        security = {
-            @SecurityRequirement(name = "basicAuth"),
-            @SecurityRequirement(name = "cookieAuth")
-        }
-    )
-    @Get(uri="/api/v2/pokemon/{pokemon_id}/encounters")
-    @Produces(value = {"application/json"})
-    @Secured({SecurityRule.IS_AUTHENTICATED})
-    public Mono<List<PokemonEncountersRetrieve200ResponseInner>> pokemonEncountersRetrieve(
-        @PathVariable(value="pokemon_id") @NotNull @Pattern(regexp="^\\d+$") String pokemonId
-    ) {
-        // TODO implement pokemonEncountersRetrieve();
         return Mono.error(new HttpStatusException(HttpStatus.NOT_IMPLEMENTED, null));
     }
 

@@ -38,7 +38,7 @@ import javax.validation.Valid;
   TypeDetailDamageRelations.JSON_PROPERTY_HALF_DAMAGE_FROM,
   TypeDetailDamageRelations.JSON_PROPERTY_DOUBLE_DAMAGE_FROM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T04:17:42.118739260Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-02-07T15:23:51.865177194Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class TypeDetailDamageRelations   {
   public static final String JSON_PROPERTY_NO_DAMAGE_TO = "no_damage_to";
   @JsonProperty(JSON_PROPERTY_NO_DAMAGE_TO)

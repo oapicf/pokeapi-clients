@@ -199,7 +199,7 @@ bool EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::fromJs
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("known_move")));
         if(!fieldValue.is_null())
         {
-            Object refVal_setKnownMove;
+            std::shared_ptr<Object> refVal_setKnownMove;
             ok &= ModelBase::fromJson(fieldValue, refVal_setKnownMove);
             setKnownMove(refVal_setKnownMove);
             
@@ -210,7 +210,7 @@ bool EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::fromJs
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("known_move_type")));
         if(!fieldValue.is_null())
         {
-            Object refVal_setKnownMoveType;
+            std::shared_ptr<Object> refVal_setKnownMoveType;
             ok &= ModelBase::fromJson(fieldValue, refVal_setKnownMoveType);
             setKnownMoveType(refVal_setKnownMoveType);
             
@@ -472,13 +472,13 @@ bool EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::fromMu
     }
     if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("known_move"))))
     {
-        Object refVal_setKnownMove;
+        std::shared_ptr<Object> refVal_setKnownMove;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("known_move"))), refVal_setKnownMove );
         setKnownMove(refVal_setKnownMove);
     }
     if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("known_move_type"))))
     {
-        Object refVal_setKnownMoveType;
+        std::shared_ptr<Object> refVal_setKnownMoveType;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("known_move_type"))), refVal_setKnownMoveType );
         setKnownMoveType(refVal_setKnownMoveType);
     }
@@ -627,13 +627,13 @@ void EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::unsetI
 {
     m_ItemIsSet = false;
 }
-Object EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getKnownMove() const
+std::shared_ptr<Object> EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getKnownMove() const
 {
     return m_Known_move;
 }
 
 
-void EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMove(const Object& value)
+void EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMove(const std::shared_ptr<Object>& value)
 {
     m_Known_move = value;
     m_Known_moveIsSet = true;
@@ -648,13 +648,13 @@ void EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::unsetK
 {
     m_Known_moveIsSet = false;
 }
-Object EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getKnownMoveType() const
+std::shared_ptr<Object> EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::getKnownMoveType() const
 {
     return m_Known_move_type;
 }
 
 
-void EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMoveType(const Object& value)
+void EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner::setKnownMoveType(const std::shared_ptr<Object>& value)
 {
     m_Known_move_type = value;
     m_Known_move_typeIsSet = true;

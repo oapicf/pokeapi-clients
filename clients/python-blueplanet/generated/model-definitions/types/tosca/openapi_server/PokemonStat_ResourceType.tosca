@@ -1,0 +1,46 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokemonStat"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokemonStat"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  StatSummary = openapi_server.resourceTypes.StatSummary
+}
+resourceTypes {
+
+  PokemonStat {
+    title = PokemonStat
+    description = PokemonStat
+    derivedFrom = Root
+    properties {
+        base_stat {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        effort {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        stat {
+          type = StatSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokemonStat {
+    title = PokemonStat
+    description = PokemonStat
+    implements = openapi_server.resourceTypes.PokemonStat
+
+  }
+}

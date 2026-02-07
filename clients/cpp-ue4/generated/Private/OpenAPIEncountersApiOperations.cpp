@@ -269,39 +269,4 @@ bool OpenAPIEncountersApi::EncounterMethodRetrieveResponse::FromJson(const TShar
 	return TryGetJsonValue(JsonValue, Content);
 }
 
-FString OpenAPIEncountersApi::PokemonEncountersRetrieveRequest::ComputePath() const
-{
-	TMap<FString, FStringFormatArg> PathParams = { 
-	{ TEXT("pokemon_id"), FStringFormatArg(ToUrlString(PokemonId)) } };
-
-	FString Path = FString::Format(TEXT("/api/v2/pokemon/{pokemon_id}/encounters"), PathParams);
-
-	return Path;
-}
-
-void OpenAPIEncountersApi::PokemonEncountersRetrieveRequest::SetupHttpRequest(const FHttpRequestRef& HttpRequest) const
-{
-	static const TArray<FString> Consumes = {  };
-	//static const TArray<FString> Produces = { TEXT("application/json") };
-
-	HttpRequest->SetVerb(TEXT("GET"));
-
-}
-
-void OpenAPIEncountersApi::PokemonEncountersRetrieveResponse::SetHttpResponseCode(EHttpResponseCodes::Type InHttpResponseCode)
-{
-	Response::SetHttpResponseCode(InHttpResponseCode);
-	switch ((int)InHttpResponseCode)
-	{
-	case 200:
-		SetResponseString(TEXT(""));
-		break;
-	}
-}
-
-bool OpenAPIEncountersApi::PokemonEncountersRetrieveResponse::FromJson(const TSharedPtr<FJsonValue>& JsonValue)
-{
-	return TryGetJsonValue(JsonValue, Content);
-}
-
 }

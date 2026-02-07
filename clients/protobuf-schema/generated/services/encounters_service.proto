@@ -21,7 +21,6 @@ import public "models/encounter_method_detail.proto";
 import public "models/paginated_encounter_condition_summary_list.proto";
 import public "models/paginated_encounter_condition_value_summary_list.proto";
 import public "models/paginated_encounter_method_summary_list.proto";
-import public "models/pokemon_encounters_retrieve200_response_inner.proto";
 
 service EncountersService {
   rpc EncounterConditionList (EncounterConditionListRequest) returns (EncounterConditionListResponse);
@@ -35,8 +34,6 @@ service EncountersService {
   rpc EncounterMethodList (EncounterMethodListRequest) returns (EncounterMethodListResponse);
 
   rpc EncounterMethodRetrieve (EncounterMethodRetrieveRequest) returns (EncounterMethodRetrieveResponse);
-
-  rpc PokemonEncountersRetrieve (PokemonEncountersRetrieveRequest) returns (PokemonEncountersRetrieveResponse);
 
 }
 
@@ -116,15 +113,5 @@ message EncounterMethodRetrieveRequest {
 message EncounterMethodRetrieveResponse {
     oneof response {
         EncounterMethodDetail encounter_method_detail_200 = 1;
-    }
-}
-message PokemonEncountersRetrieveRequest {
-  string pokemon_id = 1;
-
-}
-
-message PokemonEncountersRetrieveResponse {
-    oneof response {
-        PokemonEncountersRetrieve200ResponseInner pokemon_encounters_retrieve200_response_inner_200 = 1;
     }
 }

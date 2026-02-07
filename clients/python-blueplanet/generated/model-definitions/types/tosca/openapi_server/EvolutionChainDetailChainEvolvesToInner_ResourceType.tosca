@@ -1,0 +1,48 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server EvolutionChainDetailChainEvolvesToInner"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a EvolutionChainDetailChainEvolvesToInner"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+  EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner = openapi_server.resourceTypes.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
+}
+resourceTypes {
+
+  EvolutionChainDetailChainEvolvesToInner {
+    title = EvolutionChainDetailChainEvolvesToInner
+    description = EvolutionChainDetailChainEvolvesToInner
+    derivedFrom = Root
+    properties {
+        evolution_details {
+          type = array
+          items.type = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
+          description = ""
+          optional = true
+        }
+        is_baby {
+          type =  boolean
+          description = ""
+          optional = true
+        }
+        species {
+          type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  EvolutionChainDetailChainEvolvesToInner {
+    title = EvolutionChainDetailChainEvolvesToInner
+    description = EvolutionChainDetailChainEvolvesToInner
+    implements = openapi_server.resourceTypes.EvolutionChainDetailChainEvolvesToInner
+
+  }
+}

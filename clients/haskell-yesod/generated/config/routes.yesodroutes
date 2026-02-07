@@ -99,4 +99,3 @@
 /api/v2/version/#Text ApiV2VersionByTextR GET
 /api/v2/version-group ApiV2VersionGroupR GET
 /api/v2/version-group/#Text ApiV2VersionGroupByTextR GET
-/api/v2/pokemon/#Text/encounters ApiV2PokemonByTextEncountersR GET

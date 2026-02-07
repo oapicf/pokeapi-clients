@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PokedexSummary"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PokedexSummary"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  PokedexSummary {
+    title = PokedexSummary
+    description = PokedexSummary
+    derivedFrom = Root
+    properties {
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        url {
+          type =  string
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PokedexSummary {
+    title = PokedexSummary
+    description = PokedexSummary
+    implements = openapi_server.resourceTypes.PokedexSummary
+
+  }
+}

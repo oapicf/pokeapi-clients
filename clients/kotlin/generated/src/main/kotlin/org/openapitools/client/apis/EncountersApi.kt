@@ -25,7 +25,6 @@ import org.openapitools.client.models.EncounterMethodDetail
 import org.openapitools.client.models.PaginatedEncounterConditionSummaryList
 import org.openapitools.client.models.PaginatedEncounterConditionValueSummaryList
 import org.openapitools.client.models.PaginatedEncounterMethodSummaryList
-import org.openapitools.client.models.PokemonEncountersRetrieve200ResponseInner
 
 import com.squareup.moshi.Json
 
@@ -533,79 +532,6 @@ open class EncountersApi(basePath: kotlin.String = defaultBasePath, client: Call
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/encounter-method/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * GET /api/v2/pokemon/{pokemon_id}/encounters
-     * Get pokemon encounter
-     * Handles Pokemon Encounters as a sub-resource.
-     * @param pokemonId 
-     * @return kotlin.collections.List<PokemonEncountersRetrieve200ResponseInner>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun pokemonEncountersRetrieve(pokemonId: kotlin.String) : kotlin.collections.List<PokemonEncountersRetrieve200ResponseInner> {
-        val localVarResponse = pokemonEncountersRetrieveWithHttpInfo(pokemonId = pokemonId)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<PokemonEncountersRetrieve200ResponseInner>
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * GET /api/v2/pokemon/{pokemon_id}/encounters
-     * Get pokemon encounter
-     * Handles Pokemon Encounters as a sub-resource.
-     * @param pokemonId 
-     * @return ApiResponse<kotlin.collections.List<PokemonEncountersRetrieve200ResponseInner>?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun pokemonEncountersRetrieveWithHttpInfo(pokemonId: kotlin.String) : ApiResponse<kotlin.collections.List<PokemonEncountersRetrieve200ResponseInner>?> {
-        val localVariableConfig = pokemonEncountersRetrieveRequestConfig(pokemonId = pokemonId)
-
-        return request<Unit, kotlin.collections.List<PokemonEncountersRetrieve200ResponseInner>>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation pokemonEncountersRetrieve
-     *
-     * @param pokemonId 
-     * @return RequestConfig
-     */
-    fun pokemonEncountersRetrieveRequestConfig(pokemonId: kotlin.String) : RequestConfig<Unit> {
-        val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.GET,
-            path = "/api/v2/pokemon/{pokemon_id}/encounters".replace("{"+"pokemon_id"+"}", encodeURIComponent(pokemonId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,

@@ -1,0 +1,42 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server TypeDetailPastDamageRelationsInner"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a TypeDetailPastDamageRelationsInner"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+  TypeDetailPastDamageRelationsInnerDamageRelations = openapi_server.resourceTypes.TypeDetailPastDamageRelationsInnerDamageRelations
+}
+resourceTypes {
+
+  TypeDetailPastDamageRelationsInner {
+    title = TypeDetailPastDamageRelationsInner
+    description = TypeDetailPastDamageRelationsInner
+    derivedFrom = Root
+    properties {
+        generation {
+          type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+        damage_relations {
+          type = TypeDetailPastDamageRelationsInnerDamageRelations
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  TypeDetailPastDamageRelationsInner {
+    title = TypeDetailPastDamageRelationsInner
+    description = TypeDetailPastDamageRelationsInner
+    implements = openapi_server.resourceTypes.TypeDetailPastDamageRelationsInner
+
+  }
+}

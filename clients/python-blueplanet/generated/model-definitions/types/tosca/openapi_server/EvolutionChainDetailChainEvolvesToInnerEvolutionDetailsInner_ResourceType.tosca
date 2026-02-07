@@ -1,0 +1,122 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  AbilityDetailPokemonInnerPokemon = openapi_server.resourceTypes.AbilityDetailPokemonInnerPokemon
+  EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender = openapi_server.resourceTypes.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
+}
+resourceTypes {
+
+  EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
+    title = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
+    description = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
+    derivedFrom = Root
+    properties {
+        gender {
+          type = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
+          description = ""
+          optional = true
+        }
+        held_item {
+          type = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
+          description = ""
+          optional = true
+        }
+        item {
+          type = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
+          description = ""
+          optional = true
+        }
+        known_move {
+          type =  
+          description = ""
+          optional = true
+        }
+        known_move_type {
+          type =  
+          description = ""
+          optional = true
+        }
+        location {
+          type = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
+          description = ""
+          optional = true
+        }
+        min_affection {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        min_beauty {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        min_happiness {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        min_level {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        needs_overworld_rain {
+          type =  boolean
+          description = ""
+          optional = true
+        }
+        party_species {
+          type =  string
+          description = ""
+          optional = true
+        }
+        party_type {
+          type =  string
+          description = ""
+          optional = true
+        }
+        relative_physical_stats {
+          type =  string
+          description = ""
+          optional = true
+        }
+        time_of_day {
+          type =  string
+          description = ""
+          optional = true
+        }
+        trade_species {
+          type =  string
+          description = ""
+          optional = true
+        }
+        trigger {
+          type = AbilityDetailPokemonInnerPokemon
+          description = ""
+          optional = true
+        }
+        turn_upside_down {
+          type =  boolean
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
+    title = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
+    description = EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
+    implements = openapi_server.resourceTypes.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
+
+  }
+}

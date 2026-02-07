@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ItemGameIndex"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ItemGameIndex"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  GenerationSummary = openapi_server.resourceTypes.GenerationSummary
+}
+resourceTypes {
+
+  ItemGameIndex {
+    title = ItemGameIndex
+    description = ItemGameIndex
+    derivedFrom = Root
+    properties {
+        game_index {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        generation {
+          type = GenerationSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ItemGameIndex {
+    title = ItemGameIndex
+    description = ItemGameIndex
+    implements = openapi_server.resourceTypes.ItemGameIndex
+
+  }
+}

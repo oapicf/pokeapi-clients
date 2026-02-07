@@ -99,16 +99,4 @@ Spectator.describe "EncountersApi" do
     end
   end
 
-  # unit tests for pokemon_encounters_retrieve
-  # Get pokemon encounter
-  # Handles Pokemon Encounters as a sub-resource.
-  # @param pokemon_id 
-  # @param [Hash] opts the optional parameters
-  # @return [Array(PokemonEncountersRetrieve200ResponseInner)]
-  describe "pokemon_encounters_retrieve test" do
-    skip "should work" do
-      # assertion here. ref: https://crystal-lang.org/reference/guides/testing.html
-    end
-  end
-
 end

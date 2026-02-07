@@ -77,7 +77,6 @@ accept_callback(Class, OperationID, Req0, Context0) ->
     'encounter_condition_value_retrieve' | %% Get encounter condition value
     'encounter_method_list' | %% List encounter methods
     'encounter_method_retrieve' | %% Get encounter method
-    'pokemon_encounters_retrieve' | %% Get pokemon encounter
     'evolution_chain_list' | %% List evolution chains
     'evolution_chain_retrieve' | %% Get evolution chain
     'evolution_trigger_list' | %% List evolution triggers
@@ -264,8 +263,6 @@ validate_response('encounter_method_list', 200, Body, ValidatorState) ->
     validate_response_body('PaginatedEncounterMethodSummaryList', 'PaginatedEncounterMethodSummaryList', Body, ValidatorState);
 validate_response('encounter_method_retrieve', 200, Body, ValidatorState) ->
     validate_response_body('EncounterMethodDetail', 'EncounterMethodDetail', Body, ValidatorState);
-validate_response('pokemon_encounters_retrieve', 200, Body, ValidatorState) ->
-    validate_response_body('list', 'pokemon_encounters_retrieve_200_response_inner', Body, ValidatorState);
 validate_response('evolution_chain_list', 200, Body, ValidatorState) ->
     validate_response_body('PaginatedEvolutionChainSummaryList', 'PaginatedEvolutionChainSummaryList', Body, ValidatorState);
 validate_response('evolution_chain_retrieve', 200, Body, ValidatorState) ->
@@ -516,10 +513,6 @@ request_params('encounter_method_list') ->
 request_params('encounter_method_retrieve') ->
     [
         'id'
-    ];
-request_params('pokemon_encounters_retrieve') ->
-    [
-        'pokemon_id'
     ];
 request_params('evolution_chain_list') ->
     [
@@ -1200,15 +1193,6 @@ request_param_info('encounter_method_retrieve', 'id') ->
         source => binding,
         rules => [
             {type, binary},
-            required
-        ]
-    };
-request_param_info('pokemon_encounters_retrieve', 'pokemon_id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, binary},
-            {pattern, "^\\d+$"},
             required
         ]
     };

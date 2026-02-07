@@ -3,7 +3,6 @@ package org.openapitools.server.api
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import akka.http.scaladsl.model.StatusCodes
-import akka.http.scaladsl.server.{PathMatcher, PathMatcher1}
 import akka.http.scaladsl.marshalling.ToEntityMarshaller
 import akka.http.scaladsl.unmarshalling.FromEntityUnmarshaller
 import akka.http.scaladsl.unmarshalling.FromStringUnmarshaller
@@ -14,7 +13,6 @@ import org.openapitools.server.model.EncounterMethodDetail
 import org.openapitools.server.model.PaginatedEncounterConditionSummaryList
 import org.openapitools.server.model.PaginatedEncounterConditionValueSummaryList
 import org.openapitools.server.model.PaginatedEncounterMethodSummaryList
-import org.openapitools.server.model.PokemonEncountersRetrieve200ResponseInner
 
 
 class EncountersApi(
@@ -22,8 +20,7 @@ class EncountersApi(
     encountersMarshaller: EncountersApiMarshaller
 ) {
 
-  import EncountersApiPatterns.pokemonIdPattern
-
+  
   import encountersMarshaller._
 
   lazy val route: Route =
@@ -62,18 +59,9 @@ class EncountersApi(
       get {  
             encountersService.encounterMethodRetrieve(id = id)
       }
-    } ~
-    path("api" / "v2" / "pokemon" / pokemonIdPattern / "encounters") { (pokemonId) => 
-      get {  
-            encountersService.pokemonEncountersRetrieve(pokemonId = pokemonId)
-      }
     }
 }
 
-object EncountersApiPatterns {
-
-    val pokemonIdPattern: PathMatcher1[String] = PathMatcher("^\\d+$".r)
-}
 
 trait EncountersApiService {
 
@@ -125,14 +113,6 @@ trait EncountersApiService {
   def encounterMethodRetrieve(id: String)
       (implicit toEntityMarshallerEncounterMethodDetail: ToEntityMarshaller[EncounterMethodDetail]): Route
 
-  def pokemonEncountersRetrieve200(responsePokemonEncountersRetrieve200ResponseInnerarray: Seq[PokemonEncountersRetrieve200ResponseInner])(implicit toEntityMarshallerPokemonEncountersRetrieve200ResponseInnerarray: ToEntityMarshaller[Seq[PokemonEncountersRetrieve200ResponseInner]]): Route =
-    complete((200, responsePokemonEncountersRetrieve200ResponseInnerarray))
-  /**
-   * Code: 200, Message: , DataType: Seq[PokemonEncountersRetrieve200ResponseInner]
-   */
-  def pokemonEncountersRetrieve(pokemonId: String)
-      (implicit toEntityMarshallerPokemonEncountersRetrieve200ResponseInnerarray: ToEntityMarshaller[Seq[PokemonEncountersRetrieve200ResponseInner]]): Route
-
 }
 
 trait EncountersApiMarshaller {
@@ -141,8 +121,6 @@ trait EncountersApiMarshaller {
   implicit def toEntityMarshallerPaginatedEncounterConditionValueSummaryList: ToEntityMarshaller[PaginatedEncounterConditionValueSummaryList]
 
   implicit def toEntityMarshallerEncounterMethodDetail: ToEntityMarshaller[EncounterMethodDetail]
-
-  implicit def toEntityMarshallerPokemonEncountersRetrieve200ResponseInnerarray: ToEntityMarshaller[Seq[PokemonEncountersRetrieve200ResponseInner]]
 
   implicit def toEntityMarshallerEncounterConditionValueDetail: ToEntityMarshaller[EncounterConditionValueDetail]
 

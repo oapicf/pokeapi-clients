@@ -42,7 +42,6 @@ use OpenAPI\Server\Model\EncounterMethodDetail;
 use OpenAPI\Server\Model\PaginatedEncounterConditionSummaryList;
 use OpenAPI\Server\Model\PaginatedEncounterConditionValueSummaryList;
 use OpenAPI\Server\Model\PaginatedEncounterMethodSummaryList;
-use OpenAPI\Server\Model\PokemonEncountersRetrieve200ResponseInner;
 
 /**
  * EncountersController Class Doc Comment
@@ -579,90 +578,6 @@ class EncountersController extends Controller
             $responseHeaders = [];
 
             $result = $handler->encounterMethodRetrieve($id, $responseCode, $responseHeaders);
-
-            $message = match($responseCode) {
-                200 => '',
-                default => '',
-            };
-
-            return new Response(
-                $result !== null ?$this->serialize($result, $responseFormat):'',
-                $responseCode,
-                array_merge(
-                    $responseHeaders,
-                    [
-                        'Content-Type' => $responseFormat,
-                        'X-OpenAPI-Message' => $message
-                    ]
-                )
-            );
-        } catch (\Throwable $fallthrough) {
-            return $this->createErrorResponse(new HttpException(500, 'An unsuspected error occurred.', $fallthrough));
-        }
-    }
-
-    /**
-     * Operation pokemonEncountersRetrieve
-     *
-     * Get pokemon encounter
-     *
-     * @param Request $request The Symfony request to handle.
-     * @return Response The Symfony response.
-     */
-    public function pokemonEncountersRetrieveAction(Request $request, $pokemonId)
-    {
-        // Figure out what data format to return to the client
-        $produces = ['application/json'];
-        // Figure out what the client accepts
-        $clientAccepts = $request->headers->has('Accept')?$request->headers->get('Accept'):'*/*';
-        $responseFormat = $this->getOutputFormat($clientAccepts, $produces);
-        if ($responseFormat === null) {
-            return new Response('', 406);
-        }
-
-        // Handle authentication
-        // Authentication 'basicAuth' required
-        // HTTP basic authentication required
-        $securitybasicAuth = $request->headers->get('authorization');
-        // Authentication 'cookieAuth' required
-        // Set key with prefix in cookies
-        $securitycookieAuth = $request->cookies->get('sessionid');
-
-        // Read out all input parameter values into variables
-
-        // Use the default value if no value was provided
-
-        // Deserialize the input values that needs it
-        try {
-            $pokemonId = $this->deserialize($pokemonId, 'string', 'string');
-        } catch (SerializerRuntimeException $exception) {
-            return $this->createBadRequestResponse($exception->getMessage());
-        }
-
-        // Validate the input values
-        $asserts = [];
-        $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
-        $asserts[] = new Assert\Regex("/^\\d+$/");
-        $response = $this->validate($pokemonId, $asserts);
-        if ($response instanceof Response) {
-            return $response;
-        }
-
-
-        try {
-            $handler = $this->getApiHandler();
-
-            // Set authentication method 'basicAuth'
-            $handler->setbasicAuth($securitybasicAuth);
-            // Set authentication method 'cookieAuth'
-            $handler->setcookieAuth($securitycookieAuth);
-
-            // Make the call to the business logic
-            $responseCode = 200;
-            $responseHeaders = [];
-
-            $result = $handler->pokemonEncountersRetrieve($pokemonId, $responseCode, $responseHeaders);
 
             $message = match($responseCode) {
                 200 => '',

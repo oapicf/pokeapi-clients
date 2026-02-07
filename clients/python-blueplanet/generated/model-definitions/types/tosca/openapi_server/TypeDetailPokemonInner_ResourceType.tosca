@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server TypeDetailPokemonInner"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a TypeDetailPokemonInner"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  TypeDetailPokemonInnerPokemon = openapi_server.resourceTypes.TypeDetailPokemonInnerPokemon
+}
+resourceTypes {
+
+  TypeDetailPokemonInner {
+    title = TypeDetailPokemonInner
+    description = TypeDetailPokemonInner
+    derivedFrom = Root
+    properties {
+        slot {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        pokemon {
+          type = TypeDetailPokemonInnerPokemon
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  TypeDetailPokemonInner {
+    title = TypeDetailPokemonInner
+    description = TypeDetailPokemonInner
+    implements = openapi_server.resourceTypes.TypeDetailPokemonInner
+
+  }
+}

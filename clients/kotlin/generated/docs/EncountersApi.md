@@ -10,7 +10,6 @@ All URIs are relative to *https://pokeapi.co*
 | [**encounterConditionValueRetrieve**](EncountersApi.md#encounterConditionValueRetrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value |
 | [**encounterMethodList**](EncountersApi.md#encounterMethodList) | **GET** /api/v2/encounter-method/ | List encounter methods |
 | [**encounterMethodRetrieve**](EncountersApi.md#encounterMethodRetrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method |
-| [**pokemonEncountersRetrieve**](EncountersApi.md#pokemonEncountersRetrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter |
 
 
 <a id="encounterConditionList"></a>
@@ -321,58 +320,6 @@ try {
 ### Return type
 
 [**EncounterMethodDetail**](EncounterMethodDetail.md)
-
-### Authorization
-
-
-Configure basicAuth:
-    ApiClient.username = ""
-    ApiClient.password = ""
-Configure cookieAuth:
-    ApiClient.apiKey["sessionid"] = ""
-    ApiClient.apiKeyPrefix["sessionid"] = ""
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="pokemonEncountersRetrieve"></a>
-# **pokemonEncountersRetrieve**
-> kotlin.collections.List&lt;PokemonEncountersRetrieve200ResponseInner&gt; pokemonEncountersRetrieve(pokemonId)
-
-Get pokemon encounter
-
-Handles Pokemon Encounters as a sub-resource.
-
-### Example
-```kotlin
-// Import classes:
-//import org.openapitools.client.infrastructure.*
-//import org.openapitools.client.models.*
-
-val apiInstance = EncountersApi()
-val pokemonId : kotlin.String = pokemonId_example // kotlin.String | 
-try {
-    val result : kotlin.collections.List<PokemonEncountersRetrieve200ResponseInner> = apiInstance.pokemonEncountersRetrieve(pokemonId)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling EncountersApi#pokemonEncountersRetrieve")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling EncountersApi#pokemonEncountersRetrieve")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **pokemonId** | **kotlin.String**|  | |
-
-### Return type
-
-[**kotlin.collections.List&lt;PokemonEncountersRetrieve200ResponseInner&gt;**](PokemonEncountersRetrieve200ResponseInner.md)
 
 ### Authorization
 

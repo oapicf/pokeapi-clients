@@ -202,12 +202,6 @@ abstract public class PathHandlerProvider implements HandlerProvider, PathHandle
                     encounterMethodRetrieve().handleRequest(exchange);
                 }
             })
-            .add(Methods.GET, basePath + "/api/v2/pokemon/{pokemon_id}/encounters", new HttpHandler() {
-                @Override
-                public void handleRequest(HttpServerExchange exchange) throws Exception {
-                    pokemonEncountersRetrieve().handleRequest(exchange);
-                }
-            })
             .add(Methods.GET, basePath + "/api/v2/evolution-chain/", new HttpHandler() {
                 @Override
                 public void handleRequest(HttpServerExchange exchange) throws Exception {
@@ -742,7 +736,6 @@ abstract public class PathHandlerProvider implements HandlerProvider, PathHandle
             .add(Methods.GET, basePath + "/api/v2/encounter-condition-value/{id}/", encounterConditionValueRetrieve())
             .add(Methods.GET, basePath + "/api/v2/encounter-method/", encounterMethodList())
             .add(Methods.GET, basePath + "/api/v2/encounter-method/{id}/", encounterMethodRetrieve())
-            .add(Methods.GET, basePath + "/api/v2/pokemon/{pokemon_id}/encounters", pokemonEncountersRetrieve())
             .add(Methods.GET, basePath + "/api/v2/evolution-chain/", evolutionChainList())
             .add(Methods.GET, basePath + "/api/v2/evolution-chain/{id}/", evolutionChainRetrieve())
             .add(Methods.GET, basePath + "/api/v2/evolution-trigger/", evolutionTriggerList())

@@ -10,7 +10,6 @@ Method | HTTP request | Description
 [**encounterConditionValueRetrieve**](EncountersApi.md#encounterConditionValueRetrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
 [**encounterMethodList**](EncountersApi.md#encounterMethodList) | **GET** /api/v2/encounter-method/ | List encounter methods
 [**encounterMethodRetrieve**](EncountersApi.md#encounterMethodRetrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
-[**pokemonEncountersRetrieve**](EncountersApi.md#pokemonEncountersRetrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
 
 
 # **encounterConditionList**
@@ -331,59 +330,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 **EncounterMethodDetail**
-
-### Authorization
-
-[basicAuth](README.md#basicAuth), [cookieAuth](README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **pokemonEncountersRetrieve**
-> Array<PokemonEncountersRetrieve200ResponseInner> pokemonEncountersRetrieve()
-
-Handles Pokemon Encounters as a sub-resource.
-
-### Example
-
-
-```typescript
-import { createConfiguration, EncountersApi } from '';
-import type { EncountersApiPokemonEncountersRetrieveRequest } from '';
-
-const configuration = createConfiguration();
-const apiInstance = new EncountersApi(configuration);
-
-const request: EncountersApiPokemonEncountersRetrieveRequest = {
-  
-  pokemonId: "4",
-};
-
-const data = await apiInstance.pokemonEncountersRetrieve(request);
-console.log('API called successfully. Returned data:', data);
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pokemonId** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**Array<PokemonEncountersRetrieve200ResponseInner>**
 
 ### Authorization
 

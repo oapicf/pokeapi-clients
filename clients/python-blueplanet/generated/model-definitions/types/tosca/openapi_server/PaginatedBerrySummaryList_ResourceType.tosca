@@ -1,0 +1,52 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PaginatedBerrySummaryList"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PaginatedBerrySummaryList"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  BerrySummary = openapi_server.resourceTypes.BerrySummary
+}
+resourceTypes {
+
+  PaginatedBerrySummaryList {
+    title = PaginatedBerrySummaryList
+    description = PaginatedBerrySummaryList
+    derivedFrom = Root
+    properties {
+        count {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        next {
+          type =  string
+          description = ""
+          optional = false
+        }
+        previous {
+          type =  string
+          description = ""
+          optional = false
+        }
+        results {
+          type = array
+          items.type = BerrySummary
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PaginatedBerrySummaryList {
+    title = PaginatedBerrySummaryList
+    description = PaginatedBerrySummaryList
+    implements = openapi_server.resourceTypes.PaginatedBerrySummaryList
+
+  }
+}

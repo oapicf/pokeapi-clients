@@ -92,7 +92,6 @@ import org.openapitools.model.PokeathlonStatDetail;
 import org.openapitools.model.PokedexDetail;
 import org.openapitools.model.PokemonColorDetail;
 import org.openapitools.model.PokemonDetail;
-import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
 import org.openapitools.model.PokemonFormDetail;
 import org.openapitools.model.PokemonHabitatDetail;
 import org.openapitools.model.PokemonShapeDetail;
@@ -123,7 +122,7 @@ import javax.validation.Valid;
 
 
 @io.swagger.annotations.Api(description = "the api API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-02-07T04:17:47.675703185Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-02-07T15:23:57.425124504Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class ApiApi  {
 
     @Inject ApiApiService service;
@@ -1163,20 +1162,6 @@ public class ApiApi  {
     public Response pokemonColorRetrieve( @PathParam("id") String id,@Context SecurityContext securityContext)
     throws NotFoundException {
         return service.pokemonColorRetrieve(id,securityContext);
-    }
-    @GET
-    @Path("/pokemon/{pokemon_id}/encounters")
-    
-    @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Get pokemon encounter", notes = "Handles Pokemon Encounters as a sub-resource.", response = PokemonEncountersRetrieve200ResponseInner.class, responseContainer = "List", authorizations = {
-        @io.swagger.annotations.Authorization(value = "basicAuth"),
-        @io.swagger.annotations.Authorization(value = "cookieAuth")
-    }, tags={ "encounters", })
-    @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "", response = PokemonEncountersRetrieve200ResponseInner.class, responseContainer = "List") })
-    public Response pokemonEncountersRetrieve( @Pattern(regexp="^\\d+$") @PathParam("pokemon_id") String pokemonId,@Context SecurityContext securityContext)
-    throws NotFoundException {
-        return service.pokemonEncountersRetrieve(pokemonId,securityContext);
     }
     @GET
     @Path("/pokemon-form/")

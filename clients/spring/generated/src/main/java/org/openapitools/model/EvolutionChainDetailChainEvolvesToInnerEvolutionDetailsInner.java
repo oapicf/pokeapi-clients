@@ -23,7 +23,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("EvolutionChainDetail_chain_evolves_to_inner_evolution_details_inner")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T04:22:27.168374474Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T15:29:13.146999890Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
 
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender gender;
@@ -32,9 +32,9 @@ public class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
 
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender item;
 
-  private Object knownMove = null;
+  private Object knownMove;
 
-  private Object knownMoveType = null;
+  private Object knownMoveType;
 
   private EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender location;
 

@@ -11,7 +11,6 @@
 #include "../model/paginated_encounter_condition_summary_list.h"
 #include "../model/paginated_encounter_condition_value_summary_list.h"
 #include "../model/paginated_encounter_method_summary_list.h"
-#include "../model/pokemon_encounters_retrieve_200_response_inner.h"
 
 
 // List encounter conditions
@@ -60,13 +59,5 @@ EncountersAPI_encounterMethodList(apiClient_t *apiClient, int *limit, int *offse
 //
 encounter_method_detail_t*
 EncountersAPI_encounterMethodRetrieve(apiClient_t *apiClient, char *id);
-
-
-// Get pokemon encounter
-//
-// Handles Pokemon Encounters as a sub-resource.
-//
-list_t*
-EncountersAPI_pokemonEncountersRetrieve(apiClient_t *apiClient, char *pokemon_id);
 
 

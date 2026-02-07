@@ -17,7 +17,6 @@ import org.openapitools.client.model.EncounterMethodDetail
 import org.openapitools.client.model.PaginatedEncounterConditionSummaryList
 import org.openapitools.client.model.PaginatedEncounterConditionValueSummaryList
 import org.openapitools.client.model.PaginatedEncounterMethodSummaryList
-import org.openapitools.client.model.PokemonEncountersRetrieve200ResponseInner
 import org.openapitools.client.core.JsonSupport._
 import sttp.client3._
 import sttp.model.Method
@@ -159,26 +158,5 @@ class EncountersApi(baseUrl: String) {
       .auth.basic(username, password)
       .cookie("sessionid", apiKeyCookie)
       .response(asJson[EncounterMethodDetail])
-
-  /**
-   * Handles Pokemon Encounters as a sub-resource.
-   * 
-   * Expected answers:
-   *   code 200 : Seq[PokemonEncountersRetrieve200ResponseInner] ()
-   * 
-   * Available security schemes:
-   *   basicAuth (http)
-   *   cookieAuth (apiKey)
-   * 
-   * @param pokemonId 
-   */
-  def pokemonEncountersRetrieve(username: String, password: String, apiKeyCookie: String)(pokemonId: String
-): Request[Either[ResponseException[String, Exception], Seq[PokemonEncountersRetrieve200ResponseInner]], Any] =
-    basicRequest
-      .method(Method.GET, uri"$baseUrl/api/v2/pokemon/${pokemonId}/encounters")
-      .contentType("application/json")
-      .auth.basic(username, password)
-      .cookie("sessionid", apiKeyCookie)
-      .response(asJson[Seq[PokemonEncountersRetrieve200ResponseInner]])
 
 }

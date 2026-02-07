@@ -91,7 +91,7 @@ public class ItemsControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/item-attribute/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@ae4a043");
+            .accept("[Ljava.lang.String;@521e34d4");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -141,7 +141,7 @@ public class ItemsControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@50c9b080");
+            .accept("[Ljava.lang.String;@49c74506");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, ItemAttributeDetail.class);
@@ -186,7 +186,7 @@ public class ItemsControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/item-category/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@2ea8f277");
+            .accept("[Ljava.lang.String;@2be9add0");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -236,7 +236,7 @@ public class ItemsControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@7244b40e");
+            .accept("[Ljava.lang.String;@2252dc5d");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, ItemCategoryDetail.class);
@@ -281,7 +281,7 @@ public class ItemsControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/item-fling-effect/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@5d8de4bd");
+            .accept("[Ljava.lang.String;@149e457");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -331,7 +331,7 @@ public class ItemsControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@405d123c");
+            .accept("[Ljava.lang.String;@72557e0d");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, ItemFlingEffectDetail.class);
@@ -376,7 +376,7 @@ public class ItemsControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/item/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@298f7b0a");
+            .accept("[Ljava.lang.String;@14b4caba");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -425,7 +425,7 @@ public class ItemsControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/item-pocket/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@7e3c5ef1");
+            .accept("[Ljava.lang.String;@20305c45");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -475,7 +475,7 @@ public class ItemsControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@4ca6f587");
+            .accept("[Ljava.lang.String;@6e157f48");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, ItemPocketDetail.class);
@@ -521,7 +521,7 @@ public class ItemsControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@6442c2dd");
+            .accept("[Ljava.lang.String;@37e9d191");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, ItemDetail.class);

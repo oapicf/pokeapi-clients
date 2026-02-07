@@ -21,8 +21,6 @@
 #include "OAIPaginatedEncounterConditionSummaryList.h"
 #include "OAIPaginatedEncounterConditionValueSummaryList.h"
 #include "OAIPaginatedEncounterMethodSummaryList.h"
-#include "OAIPokemon_encounters_retrieve_200_response_inner.h"
-#include <QList>
 #include <QString>
 
 namespace OpenAPI {
@@ -43,7 +41,6 @@ public Q_SLOTS:
     virtual void encounterConditionValueRetrieve(QString id);
     virtual void encounterMethodList(qint32 limit, qint32 offset, QString q);
     virtual void encounterMethodRetrieve(QString id);
-    virtual void pokemonEncountersRetrieve(QString pokemon_id);
     
 
 };

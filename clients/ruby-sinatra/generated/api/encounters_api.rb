@@ -177,25 +177,3 @@ MyApp.add_route('GET', '/api/v2/encounter-method/{id}/', {
   {"message" => "yes, it worked"}.to_json
 end
 
-
-MyApp.add_route('GET', '/api/v2/pokemon/{pokemon_id}/encounters', {
-  "resourcePath" => "/Encounters",
-  "summary" => "Get pokemon encounter",
-  "nickname" => "pokemon_encounters_retrieve",
-  "responseClass" => "Array<pokemon_encounters_retrieve_200_response_inner>",
-  "endpoint" => "/api/v2/pokemon/{pokemon_id}/encounters",
-  "notes" => "Handles Pokemon Encounters as a sub-resource.",
-  "parameters" => [
-    {
-      "name" => "pokemon_id",
-      "description" => "",
-      "dataType" => "String",
-      "paramType" => "path",
-    },
-    ]}) do
-  cross_origin
-  # the guts live here
-
-  {"message" => "yes, it worked"}.to_json
-end
-

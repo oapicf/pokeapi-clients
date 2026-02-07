@@ -1,0 +1,53 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server VersionDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a VersionDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  VersionGroupSummary = openapi_server.resourceTypes.VersionGroupSummary
+  VersionName = openapi_server.resourceTypes.VersionName
+}
+resourceTypes {
+
+  VersionDetail {
+    title = VersionDetail
+    description = VersionDetail
+    derivedFrom = Root
+    properties {
+        id {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        names {
+          type = array
+          items.type = VersionName
+          description = ""
+          optional = true
+        }
+        version_group {
+          type = VersionGroupSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  VersionDetail {
+    title = VersionDetail
+    description = VersionDetail
+    implements = openapi_server.resourceTypes.VersionDetail
+
+  }
+}

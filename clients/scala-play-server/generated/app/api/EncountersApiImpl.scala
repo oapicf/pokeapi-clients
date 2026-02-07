@@ -6,12 +6,11 @@ import model.EncounterMethodDetail
 import model.PaginatedEncounterConditionSummaryList
 import model.PaginatedEncounterConditionValueSummaryList
 import model.PaginatedEncounterMethodSummaryList
-import model.PokemonEncountersRetrieve200ResponseInner
 
 /**
   * Provides a default implementation for [[EncountersApi]].
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-02-07T04:22:15.008485676Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-02-07T15:28:57.811621661Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 class EncountersApiImpl extends EncountersApi {
   /**
     * @inheritdoc
@@ -65,14 +64,5 @@ class EncountersApiImpl extends EncountersApi {
     // TODO: Implement better logic
 
     EncounterMethodDetail(0, "", None, List.empty[EncounterMethodName])
-  }
-
-  /**
-    * @inheritdoc
-    */
-  override def pokemonEncountersRetrieve(pokemonId: String): List[PokemonEncountersRetrieve200ResponseInner] = {
-    // TODO: Implement better logic
-
-    List.empty[PokemonEncountersRetrieve200ResponseInner]
   }
 }

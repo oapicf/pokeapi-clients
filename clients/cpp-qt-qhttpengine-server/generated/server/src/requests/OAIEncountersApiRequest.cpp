@@ -167,19 +167,6 @@ void OAIEncountersApiRequest::encounterMethodRetrieveRequest(const QString& idst
 }
 
 
-void OAIEncountersApiRequest::pokemonEncountersRetrieveRequest(const QString& pokemon_idstr){
-    qDebug() << "/api/v2/pokemon/{pokemon_id}/encounters";
-    connect(this, &OAIEncountersApiRequest::pokemonEncountersRetrieve, handler.data(), &OAIEncountersApiHandler::pokemonEncountersRetrieve);
-
-    
-    QString pokemon_id;
-    fromStringValue(pokemon_idstr, pokemon_id);
-    
-
-    Q_EMIT pokemonEncountersRetrieve(pokemon_id);
-}
-
-
 
 void OAIEncountersApiRequest::encounterConditionListResponse(const OAIPaginatedEncounterConditionSummaryList& res){
     setSocketResponseHeaders();
@@ -229,15 +216,6 @@ void OAIEncountersApiRequest::encounterMethodListResponse(const OAIPaginatedEnco
 void OAIEncountersApiRequest::encounterMethodRetrieveResponse(const OAIEncounterMethodDetail& res){
     setSocketResponseHeaders();
     QJsonDocument resDoc(::OpenAPI::toJsonValue(res).toObject());
-    socket->writeJson(resDoc);
-    if(socket->isOpen()){
-        socket->close();
-    }
-}
-
-void OAIEncountersApiRequest::pokemonEncountersRetrieveResponse(const QList<OAIPokemon_encounters_retrieve_200_response_inner>& res){
-    setSocketResponseHeaders();
-    QJsonDocument resDoc(::OpenAPI::toJsonValue(res).toArray());
     socket->writeJson(resDoc);
     if(socket->isOpen()){
         socket->close();
@@ -305,17 +283,6 @@ void OAIEncountersApiRequest::encounterMethodRetrieveError(const OAIEncounterMet
     setSocketResponseHeaders();
     Q_UNUSED(error_str);  // response will be used instead of error string
     QJsonDocument resDoc(::OpenAPI::toJsonValue(res).toObject());
-    socket->writeJson(resDoc);
-    if(socket->isOpen()){
-        socket->close();
-    }
-}
-
-void OAIEncountersApiRequest::pokemonEncountersRetrieveError(const QList<OAIPokemon_encounters_retrieve_200_response_inner>& res, QNetworkReply::NetworkError error_type, QString& error_str){
-    Q_UNUSED(error_type); // TODO: Remap error_type to QHttpEngine::Socket errors
-    setSocketResponseHeaders();
-    Q_UNUSED(error_str);  // response will be used instead of error string
-    QJsonDocument resDoc(::OpenAPI::toJsonValue(res).toArray());
     socket->writeJson(resDoc);
     if(socket->isOpen()){
         socket->close();

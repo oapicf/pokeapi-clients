@@ -25,7 +25,6 @@ All URIs are relative to *https://pokeapi.co*
 *EncountersApi* | [**encounterConditionValueRetrieve**](Apis/EncountersApi.md#encounterConditionValueRetrieve) | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value |
 *EncountersApi* | [**encounterMethodList**](Apis/EncountersApi.md#encounterMethodList) | **GET** /api/v2/encounter-method/ | List encounter methods |
 *EncountersApi* | [**encounterMethodRetrieve**](Apis/EncountersApi.md#encounterMethodRetrieve) | **GET** /api/v2/encounter-method/{id}/ | Get encounter method |
-*EncountersApi* | [**pokemonEncountersRetrieve**](Apis/EncountersApi.md#pokemonEncountersRetrieve) | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter |
 | *EvolutionApi* | [**evolutionChainList**](Apis/EvolutionApi.md#evolutionChainList) | **GET** /api/v2/evolution-chain/ | List evolution chains |
 *EvolutionApi* | [**evolutionChainRetrieve**](Apis/EvolutionApi.md#evolutionChainRetrieve) | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain |
 *EvolutionApi* | [**evolutionTriggerList**](Apis/EvolutionApi.md#evolutionTriggerList) | **GET** /api/v2/evolution-trigger/ | List evolution triggers |
@@ -377,13 +376,6 @@ All URIs are relative to *https://pokeapi.co*
  - [VersionGroupSummary](./Models/VersionGroupSummary.md)
  - [VersionName](./Models/VersionName.md)
  - [VersionSummary](./Models/VersionSummary.md)
- - [pokemon_encounters_retrieve_200_response_inner](./Models/pokemon_encounters_retrieve_200_response_inner.md)
- - [pokemon_encounters_retrieve_200_response_inner_location_area](./Models/pokemon_encounters_retrieve_200_response_inner_location_area.md)
- - [pokemon_encounters_retrieve_200_response_inner_version_details_inner](./Models/pokemon_encounters_retrieve_200_response_inner_version_details_inner.md)
- - [pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner](./Models/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner.md)
- - [pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner](./Models/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner.md)
- - [pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method](./Models/pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method.md)
- - [pokemon_encounters_retrieve_200_response_inner_version_details_inner_version](./Models/pokemon_encounters_retrieve_200_response_inner_version_details_inner_version.md)
 
 
 <a name="documentation-for-authorization"></a>

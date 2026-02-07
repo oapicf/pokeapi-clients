@@ -22,7 +22,6 @@ import type {
     PaginatedEncounterConditionSummaryList,
     PaginatedEncounterConditionValueSummaryList,
     PaginatedEncounterMethodSummaryList,
-    PokemonEncountersRetrieve200ResponseInner,
 } from '../models';
 
 export interface EncounterConditionListRequest {
@@ -53,10 +52,6 @@ export interface EncounterMethodListRequest {
 
 export interface EncounterMethodRetrieveRequest {
     id: string;
-}
-
-export interface PokemonEncountersRetrieveRequest {
-    pokemonId: string;
 }
 
 /**
@@ -197,26 +192,6 @@ export class EncountersApi extends BaseAPI {
 
         return this.request<EncounterMethodDetail>({
             url: '/api/v2/encounter-method/{id}/'.replace('{id}', encodeURI(id)),
-            method: 'GET',
-            headers,
-        }, opts?.responseOpts);
-    };
-
-    /**
-     * Handles Pokemon Encounters as a sub-resource.
-     * Get pokemon encounter
-     */
-    pokemonEncountersRetrieve({ pokemonId }: PokemonEncountersRetrieveRequest): Observable<Array<PokemonEncountersRetrieve200ResponseInner>>
-    pokemonEncountersRetrieve({ pokemonId }: PokemonEncountersRetrieveRequest, opts?: OperationOpts): Observable<AjaxResponse<Array<PokemonEncountersRetrieve200ResponseInner>>>
-    pokemonEncountersRetrieve({ pokemonId }: PokemonEncountersRetrieveRequest, opts?: OperationOpts): Observable<Array<PokemonEncountersRetrieve200ResponseInner> | AjaxResponse<Array<PokemonEncountersRetrieve200ResponseInner>>> {
-        throwIfNullOrUndefined(pokemonId, 'pokemonId', 'pokemonEncountersRetrieve');
-
-        const headers: HttpHeaders = {
-            ...(this.configuration.username != null && this.configuration.password != null ? { Authorization: `Basic ${btoa(this.configuration.username + ':' + this.configuration.password)}` } : undefined),
-        };
-
-        return this.request<Array<PokemonEncountersRetrieve200ResponseInner>>({
-            url: '/api/v2/pokemon/{pokemon_id}/encounters'.replace('{pokemon_id}', encodeURI(pokemonId)),
             method: 'GET',
             headers,
         }, opts?.responseOpts);

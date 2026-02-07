@@ -88,7 +88,7 @@ public class LocationControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/location-area/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@4eb313ed");
+            .accept("[Ljava.lang.String;@1c0f32ad");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)); // The query parameter format should be 
@@ -137,7 +137,7 @@ public class LocationControllerTest {
             put("id", 56);
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@3fc92211");
+            .accept("[Ljava.lang.String;@5a4833ab");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, LocationAreaDetail.class);
@@ -182,7 +182,7 @@ public class LocationControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/location/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@63d8590c");
+            .accept("[Ljava.lang.String;@1a920154");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -232,7 +232,7 @@ public class LocationControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@117bfeb8");
+            .accept("[Ljava.lang.String;@e870ac9");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, LocationDetail.class);
@@ -277,7 +277,7 @@ public class LocationControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/pal-park-area/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@4781bb01");
+            .accept("[Ljava.lang.String;@6b78cbee");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -327,7 +327,7 @@ public class LocationControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@31aec04a");
+            .accept("[Ljava.lang.String;@70b67841");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, PalParkAreaDetail.class);
@@ -372,7 +372,7 @@ public class LocationControllerTest {
         // given
         String uri = UriTemplate.of("/api/v2/region/").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@109fff4a");
+            .accept("[Ljava.lang.String;@7aa44fa2");
         request.getParameters()
             .add("limit", String.valueOf(56)) // The query parameter format should be 
             .add("offset", String.valueOf(56)) // The query parameter format should be 
@@ -422,7 +422,7 @@ public class LocationControllerTest {
             put("id", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@5e5f5ddf");
+            .accept("[Ljava.lang.String;@4c43c37d");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, RegionDetail.class);

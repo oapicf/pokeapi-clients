@@ -1,0 +1,52 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server PaginatedNatureSummaryList"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a PaginatedNatureSummaryList"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  NatureSummary = openapi_server.resourceTypes.NatureSummary
+}
+resourceTypes {
+
+  PaginatedNatureSummaryList {
+    title = PaginatedNatureSummaryList
+    description = PaginatedNatureSummaryList
+    derivedFrom = Root
+    properties {
+        count {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        next {
+          type =  string
+          description = ""
+          optional = false
+        }
+        previous {
+          type =  string
+          description = ""
+          optional = false
+        }
+        results {
+          type = array
+          items.type = NatureSummary
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  PaginatedNatureSummaryList {
+    title = PaginatedNatureSummaryList
+    description = PaginatedNatureSummaryList
+    implements = openapi_server.resourceTypes.PaginatedNatureSummaryList
+
+  }
+}

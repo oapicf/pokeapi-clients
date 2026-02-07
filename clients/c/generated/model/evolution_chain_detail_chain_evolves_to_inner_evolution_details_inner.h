@@ -25,8 +25,8 @@ typedef struct evolution_chain_detail_chain_evolves_to_inner_evolution_details_i
     struct evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *gender; //model
     struct evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *held_item; //model
     struct evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *item; //model
-    object_t *known_move; // custom
-    object_t *known_move_type; // custom
+    object_t *known_move; //object
+    object_t *known_move_type; //object
     struct evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t *location; //model
     int min_affection; //numeric
     int min_beauty; //numeric

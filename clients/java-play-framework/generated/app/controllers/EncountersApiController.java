@@ -6,7 +6,6 @@ import apimodels.EncounterMethodDetail;
 import apimodels.PaginatedEncounterConditionSummaryList;
 import apimodels.PaginatedEncounterConditionValueSummaryList;
 import apimodels.PaginatedEncounterMethodSummaryList;
-import apimodels.PokemonEncountersRetrieve200ResponseInner;
 
 import com.typesafe.config.Config;
 import play.mvc.Controller;
@@ -30,7 +29,7 @@ import com.typesafe.config.Config;
 
 import openapitools.OpenAPIUtils.ApiAction;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-02-07T04:17:12.303882205Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-02-07T15:23:19.397731995Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class EncountersApiController extends Controller {
     private final EncountersApiControllerImpInterface imp;
     private final ObjectMapper mapper;
@@ -134,11 +133,6 @@ public class EncountersApiController extends Controller {
     @ApiAction
     public Result encounterMethodRetrieve(Http.Request request, String id) throws Exception {
         return imp.encounterMethodRetrieveHttp(request, id);
-    }
-
-    @ApiAction
-    public Result pokemonEncountersRetrieve(Http.Request request,  @Pattern(regexp="^\\d+$")String pokemonId) throws Exception {
-        return imp.pokemonEncountersRetrieveHttp(request, pokemonId);
     }
 
 }

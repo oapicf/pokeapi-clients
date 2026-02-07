@@ -3,11 +3,9 @@ package com.prokarma.pkmst.controller;
 import com.prokarma.pkmst.model.EncounterConditionDetail;
 import com.prokarma.pkmst.model.EncounterConditionValueDetail;
 import com.prokarma.pkmst.model.EncounterMethodDetail;
-import java.util.List;
 import com.prokarma.pkmst.model.PaginatedEncounterConditionSummaryList;
 import com.prokarma.pkmst.model.PaginatedEncounterConditionValueSummaryList;
 import com.prokarma.pkmst.model.PaginatedEncounterMethodSummaryList;
-import com.prokarma.pkmst.model.PokemonEncountersRetrieve200ResponseInner;
 
 import io.swagger.annotations.*;
 
@@ -30,7 +28,7 @@ import java.io.IOException;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-02-07T04:17:07.396624034Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-02-07T15:23:15.032724200Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Controller
 public class EncountersApiController implements EncountersApi {
     private final ObjectMapper objectMapper;
@@ -109,17 +107,6 @@ public class EncountersApiController implements EncountersApi {
         }
 
         return new ResponseEntity<EncounterMethodDetail>(HttpStatus.OK);
-    }
-
-    public ResponseEntity<List<PokemonEncountersRetrieve200ResponseInner>> pokemonEncountersRetrieve(@ApiParam(value = "",required=true ) @PathVariable("pokemon_id") String pokemonId,
-        @RequestHeader(value = "Accept", required = false) String accept) throws Exception {
-        // do some magic!
-
-        if (accept != null && accept.contains("application/json")) {
-            return new ResponseEntity<List<PokemonEncountersRetrieve200ResponseInner>>(objectMapper.readValue("", List.class), HttpStatus.OK);
-        }
-
-        return new ResponseEntity<List<PokemonEncountersRetrieve200ResponseInner>>(HttpStatus.OK);
     }
 
 }

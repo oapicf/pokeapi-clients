@@ -45,10 +45,4 @@ class EncountersController < ApplicationController
 
     render json: {"message" => "yes, it worked"}
   end
-
-  def pokemon_encounters_retrieve
-    # Your code here
-
-    render json: {"message" => "yes, it worked"}
-  end
 end

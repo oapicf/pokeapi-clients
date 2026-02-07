@@ -1,0 +1,46 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server NatureBattleStylePreference"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a NatureBattleStylePreference"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  MoveBattleStyleSummary = openapi_server.resourceTypes.MoveBattleStyleSummary
+}
+resourceTypes {
+
+  NatureBattleStylePreference {
+    title = NatureBattleStylePreference
+    description = NatureBattleStylePreference
+    derivedFrom = Root
+    properties {
+        low_hp_preference {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        high_hp_preference {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        move_battle_style {
+          type = MoveBattleStyleSummary
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  NatureBattleStylePreference {
+    title = NatureBattleStylePreference
+    description = NatureBattleStylePreference
+    implements = openapi_server.resourceTypes.NatureBattleStylePreference
+
+  }
+}

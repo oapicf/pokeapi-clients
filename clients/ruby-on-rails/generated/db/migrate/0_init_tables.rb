@@ -1862,59 +1862,6 @@ class InitTables < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table "pokemon_encounters_retrieve_200_response_inner".pluralize.to_sym, id: false do |t|
-      t.string :location_area
-      t.string :version_details
-
-      t.timestamps
-    end
-
-    create_table "pokemon_encounters_retrieve_200_response_inner_location_area".pluralize.to_sym, id: false do |t|
-      t.string :name
-      t.String :url
-
-      t.timestamps
-    end
-
-    create_table "pokemon_encounters_retrieve_200_response_inner_version_details_inner".pluralize.to_sym, id: false do |t|
-      t.string :encounter_details
-      t.Float :max_chance
-      t.string :version
-
-      t.timestamps
-    end
-
-    create_table "pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner".pluralize.to_sym, id: false do |t|
-      t.Float :chance
-      t.string :condition_values
-      t.Float :max_level
-      t.string :method
-      t.Float :min_level
-
-      t.timestamps
-    end
-
-    create_table "pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_condition_values_inner".pluralize.to_sym, id: false do |t|
-      t.string :name
-      t.String :url
-
-      t.timestamps
-    end
-
-    create_table "pokemon_encounters_retrieve_200_response_inner_version_details_inner_encounter_details_inner_method".pluralize.to_sym, id: false do |t|
-      t.string :name
-      t.String :url
-
-      t.timestamps
-    end
-
-    create_table "pokemon_encounters_retrieve_200_response_inner_version_details_inner_version".pluralize.to_sym, id: false do |t|
-      t.string :name
-      t.String :url
-
-      t.timestamps
-    end
-
     create_table "pokemon_form_detail".pluralize.to_sym, id: false do |t|
       t.integer :id
       t.string :name

@@ -68,13 +68,6 @@
     <Compile Include="model/PokemonFormDetailSprites.fs" />
     <Compile Include="model/PokemonShapeDetail.fs" />
     <Compile Include="model/PokemonFormDetailFormNamesInner.fs" />
-    <Compile Include="model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.fs" />
-    <Compile Include="model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod.fs" />
-    <Compile Include="model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner.fs" />
-    <Compile Include="model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.fs" />
-    <Compile Include="model/PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.fs" />
-    <Compile Include="model/PokemonEncountersRetrieve200ResponseInnerLocationArea.fs" />
-    <Compile Include="model/PokemonEncountersRetrieve200ResponseInner.fs" />
     <Compile Include="model/PokedexSummary.fs" />
     <Compile Include="model/PokemonDetailTypesInner.fs" />
     <Compile Include="model/PokemonDetailSprites.fs" />

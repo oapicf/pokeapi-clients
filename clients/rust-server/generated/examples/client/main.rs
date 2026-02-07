@@ -23,7 +23,6 @@ use openapi_client::{Api, ApiNoContext, Claims, Client, ContextWrapperExt, model
                       EncounterConditionRetrieveResponse,
                       EncounterConditionValueRetrieveResponse,
                       EncounterMethodRetrieveResponse,
-                      PokemonEncountersRetrieveResponse,
                       EvolutionChainListResponse,
                       EvolutionTriggerListResponse,
                       EvolutionChainRetrieveResponse,
@@ -148,7 +147,6 @@ fn main() {
                 "EncounterConditionRetrieve",
                 "EncounterConditionValueRetrieve",
                 "EncounterMethodRetrieve",
-                "PokemonEncountersRetrieve",
                 "EvolutionChainList",
                 "EvolutionTriggerList",
                 "EvolutionChainRetrieve",
@@ -416,12 +414,6 @@ fn main() {
         Some("EncounterMethodRetrieve") => {
             let result = rt.block_on(client.encounter_method_retrieve(
                   "id_example".to_string()
-            ));
-            info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
-        },
-        Some("PokemonEncountersRetrieve") => {
-            let result = rt.block_on(client.pokemon_encounters_retrieve(
-                  "pokemon_id_example".to_string()
             ));
             info!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         },

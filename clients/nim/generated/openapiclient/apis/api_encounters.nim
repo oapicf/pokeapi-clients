@@ -24,7 +24,6 @@ import ../models/model_encounter_method_detail
 import ../models/model_paginated_encounter_condition_summary_list
 import ../models/model_paginated_encounter_condition_value_summary_list
 import ../models/model_paginated_encounter_method_summary_list
-import ../models/model_pokemon_encounters_retrieve200response_inner
 
 const basepath = "https://pokeapi.co"
 
@@ -105,11 +104,4 @@ proc encounterMethodRetrieve*(httpClient: HttpClient, id: string): (Option[Encou
 
   let response = httpClient.get(basepath & fmt"/api/v2/encounter-method/{id}/")
   constructResult[EncounterMethodDetail](response)
-
-
-proc pokemonEncountersRetrieve*(httpClient: HttpClient, pokemonId: string): (Option[seq[pokemon_encounters_retrieve_200_response_inner]], Response) =
-  ## Get pokemon encounter
-
-  let response = httpClient.get(basepath & fmt"/api/v2/pokemon/{pokemon_id}/encounters")
-  constructResult[seq[pokemon_encounters_retrieve_200_response_inner]](response)
 
