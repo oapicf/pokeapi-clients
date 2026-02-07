@@ -1,0 +1,24 @@
+package org.openapitools.client.api
+
+import argonaut._
+import argonaut.EncodeJson._
+import argonaut.DecodeJson._
+
+import org.http4s.{EntityDecoder, EntityEncoder}
+import org.http4s.argonaut._
+import org.joda.time.DateTime
+
+
+import LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner._
+
+case class LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner (
+  rate: Integer,
+version: AbilityDetailPokemonInnerPokemon)
+
+object LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner {
+  import DateTimeCodecs._
+
+  implicit val LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerCodecJson: CodecJson[LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner] = CodecJson.derive[LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner]
+  implicit val LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerDecoder: EntityDecoder[LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner] = jsonOf[LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner]
+  implicit val LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInnerEncoder: EntityEncoder[LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner] = jsonEncoderOf[LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner]
+}

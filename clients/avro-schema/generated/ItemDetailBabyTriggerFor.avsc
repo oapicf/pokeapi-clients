@@ -1,0 +1,14 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ItemDetailBabyTriggerFor",
+  "fields": [
+    {
+      "name": "url",
+      "type": "model.URI",
+      "doc": ""
+    }
+  ]
+
+}

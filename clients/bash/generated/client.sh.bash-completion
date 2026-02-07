@@ -69,202 +69,204 @@ _()
     # The list of available operation in the REST service
     # It's modelled as an associative array for efficient key lookup
     declare -A operations
-    operations["abilityList"]=1
-    operations["abilityRead"]=1
-    operations["berryList"]=1
-    operations["berryRead"]=1
     operations["berryFirmnessList"]=1
-    operations["berryFirmnessRead"]=1
+    operations["berryFirmnessRetrieve"]=1
     operations["berryFlavorList"]=1
-    operations["berryFlavorRead"]=1
-    operations["characteristicList"]=1
-    operations["characteristicRead"]=1
+    operations["berryFlavorRetrieve"]=1
+    operations["berryList"]=1
+    operations["berryRetrieve"]=1
     operations["contestEffectList"]=1
-    operations["contestEffectRead"]=1
+    operations["contestEffectRetrieve"]=1
     operations["contestTypeList"]=1
-    operations["contestTypeRead"]=1
-    operations["eggGroupList"]=1
-    operations["eggGroupRead"]=1
-    operations["encounterConditionList"]=1
-    operations["encounterConditionRead"]=1
-    operations["encounterConditionValueList"]=1
-    operations["encounterConditionValueRead"]=1
-    operations["encounterMethodList"]=1
-    operations["encounterMethodRead"]=1
-    operations["evolutionChainList"]=1
-    operations["evolutionChainRead"]=1
-    operations["evolutionTriggerList"]=1
-    operations["evolutionTriggerRead"]=1
-    operations["genderList"]=1
-    operations["genderRead"]=1
-    operations["generationList"]=1
-    operations["generationRead"]=1
-    operations["growthRateList"]=1
-    operations["growthRateRead"]=1
-    operations["itemList"]=1
-    operations["itemRead"]=1
-    operations["itemAttributeList"]=1
-    operations["itemAttributeRead"]=1
-    operations["itemCategoryList"]=1
-    operations["itemCategoryRead"]=1
-    operations["itemFlingEffectList"]=1
-    operations["itemFlingEffectRead"]=1
-    operations["itemPocketList"]=1
-    operations["itemPocketRead"]=1
-    operations["languageList"]=1
-    operations["languageRead"]=1
-    operations["locationList"]=1
-    operations["locationRead"]=1
-    operations["locationAreaList"]=1
-    operations["locationAreaRead"]=1
-    operations["machineList"]=1
-    operations["machineRead"]=1
-    operations["moveList"]=1
-    operations["moveRead"]=1
-    operations["moveAilmentList"]=1
-    operations["moveAilmentRead"]=1
-    operations["moveBattleStyleList"]=1
-    operations["moveBattleStyleRead"]=1
-    operations["moveCategoryList"]=1
-    operations["moveCategoryRead"]=1
-    operations["moveDamageClassList"]=1
-    operations["moveDamageClassRead"]=1
-    operations["moveLearnMethodList"]=1
-    operations["moveLearnMethodRead"]=1
-    operations["moveTargetList"]=1
-    operations["moveTargetRead"]=1
-    operations["natureList"]=1
-    operations["natureRead"]=1
-    operations["palParkAreaList"]=1
-    operations["palParkAreaRead"]=1
-    operations["pokeathlonStatList"]=1
-    operations["pokeathlonStatRead"]=1
-    operations["pokedexList"]=1
-    operations["pokedexRead"]=1
-    operations["pokemonList"]=1
-    operations["pokemonRead"]=1
-    operations["pokemonColorList"]=1
-    operations["pokemonColorRead"]=1
-    operations["pokemonFormList"]=1
-    operations["pokemonFormRead"]=1
-    operations["pokemonHabitatList"]=1
-    operations["pokemonHabitatRead"]=1
-    operations["pokemonShapeList"]=1
-    operations["pokemonShapeRead"]=1
-    operations["pokemonSpeciesList"]=1
-    operations["pokemonSpeciesRead"]=1
-    operations["regionList"]=1
-    operations["regionRead"]=1
-    operations["statList"]=1
-    operations["statRead"]=1
+    operations["contestTypeRetrieve"]=1
     operations["superContestEffectList"]=1
-    operations["superContestEffectRead"]=1
-    operations["typeList"]=1
-    operations["typeRead"]=1
-    operations["versionList"]=1
-    operations["versionRead"]=1
+    operations["superContestEffectRetrieve"]=1
+    operations["encounterConditionList"]=1
+    operations["encounterConditionRetrieve"]=1
+    operations["encounterConditionValueList"]=1
+    operations["encounterConditionValueRetrieve"]=1
+    operations["encounterMethodList"]=1
+    operations["encounterMethodRetrieve"]=1
+    operations["pokemonEncountersRetrieve"]=1
+    operations["evolutionChainList"]=1
+    operations["evolutionChainRetrieve"]=1
+    operations["evolutionTriggerList"]=1
+    operations["evolutionTriggerRetrieve"]=1
+    operations["generationList"]=1
+    operations["generationRetrieve"]=1
+    operations["pokedexList"]=1
+    operations["pokedexRetrieve"]=1
     operations["versionGroupList"]=1
-    operations["versionGroupRead"]=1
+    operations["versionGroupRetrieve"]=1
+    operations["versionList"]=1
+    operations["versionRetrieve"]=1
+    operations["itemAttributeList"]=1
+    operations["itemAttributeRetrieve"]=1
+    operations["itemCategoryList"]=1
+    operations["itemCategoryRetrieve"]=1
+    operations["itemFlingEffectList"]=1
+    operations["itemFlingEffectRetrieve"]=1
+    operations["itemList"]=1
+    operations["itemPocketList"]=1
+    operations["itemPocketRetrieve"]=1
+    operations["itemRetrieve"]=1
+    operations["locationAreaList"]=1
+    operations["locationAreaRetrieve"]=1
+    operations["locationList"]=1
+    operations["locationRetrieve"]=1
+    operations["palParkAreaList"]=1
+    operations["palParkAreaRetrieve"]=1
+    operations["regionList"]=1
+    operations["regionRetrieve"]=1
+    operations["machineList"]=1
+    operations["machineRetrieve"]=1
+    operations["moveAilmentList"]=1
+    operations["moveAilmentRetrieve"]=1
+    operations["moveBattleStyleList"]=1
+    operations["moveBattleStyleRetrieve"]=1
+    operations["moveCategoryList"]=1
+    operations["moveCategoryRetrieve"]=1
+    operations["moveLearnMethodList"]=1
+    operations["moveLearnMethodRetrieve"]=1
+    operations["moveList"]=1
+    operations["moveRetrieve"]=1
+    operations["moveTargetList"]=1
+    operations["moveTargetRetrieve"]=1
+    operations["abilityList"]=1
+    operations["abilityRetrieve"]=1
+    operations["characteristicList"]=1
+    operations["characteristicRetrieve"]=1
+    operations["eggGroupList"]=1
+    operations["eggGroupRetrieve"]=1
+    operations["genderList"]=1
+    operations["genderRetrieve"]=1
+    operations["growthRateList"]=1
+    operations["growthRateRetrieve"]=1
+    operations["moveDamageClassList"]=1
+    operations["moveDamageClassRetrieve"]=1
+    operations["natureList"]=1
+    operations["natureRetrieve"]=1
+    operations["pokeathlonStatList"]=1
+    operations["pokeathlonStatRetrieve"]=1
+    operations["pokemonColorList"]=1
+    operations["pokemonColorRetrieve"]=1
+    operations["pokemonFormList"]=1
+    operations["pokemonFormRetrieve"]=1
+    operations["pokemonHabitatList"]=1
+    operations["pokemonHabitatRetrieve"]=1
+    operations["pokemonList"]=1
+    operations["pokemonRetrieve"]=1
+    operations["pokemonShapeList"]=1
+    operations["pokemonShapeRetrieve"]=1
+    operations["pokemonSpeciesList"]=1
+    operations["pokemonSpeciesRetrieve"]=1
+    operations["statList"]=1
+    operations["statRetrieve"]=1
+    operations["typeList"]=1
+    operations["typeRetrieve"]=1
+    operations["languageList"]=1
+    operations["languageRetrieve"]=1
 
     # An associative array of operations to their parameters
     # Only include path, query and header parameters
     declare -A operation_parameters
-    operation_parameters["abilityList"]="limit= offset= "
-    operation_parameters["abilityRead"]="id= "
-    operation_parameters["berryList"]="limit= offset= "
-    operation_parameters["berryRead"]="id= "
-    operation_parameters["berryFirmnessList"]="limit= offset= "
-    operation_parameters["berryFirmnessRead"]="id= "
-    operation_parameters["berryFlavorList"]="limit= offset= "
-    operation_parameters["berryFlavorRead"]="id= "
-    operation_parameters["characteristicList"]="limit= offset= "
-    operation_parameters["characteristicRead"]="id= "
-    operation_parameters["contestEffectList"]="limit= offset= "
-    operation_parameters["contestEffectRead"]="id= "
-    operation_parameters["contestTypeList"]="limit= offset= "
-    operation_parameters["contestTypeRead"]="id= "
-    operation_parameters["eggGroupList"]="limit= offset= "
-    operation_parameters["eggGroupRead"]="id= "
-    operation_parameters["encounterConditionList"]="limit= offset= "
-    operation_parameters["encounterConditionRead"]="id= "
-    operation_parameters["encounterConditionValueList"]="limit= offset= "
-    operation_parameters["encounterConditionValueRead"]="id= "
-    operation_parameters["encounterMethodList"]="limit= offset= "
-    operation_parameters["encounterMethodRead"]="id= "
-    operation_parameters["evolutionChainList"]="limit= offset= "
-    operation_parameters["evolutionChainRead"]="id= "
-    operation_parameters["evolutionTriggerList"]="limit= offset= "
-    operation_parameters["evolutionTriggerRead"]="id= "
-    operation_parameters["genderList"]="limit= offset= "
-    operation_parameters["genderRead"]="id= "
-    operation_parameters["generationList"]="limit= offset= "
-    operation_parameters["generationRead"]="id= "
-    operation_parameters["growthRateList"]="limit= offset= "
-    operation_parameters["growthRateRead"]="id= "
-    operation_parameters["itemList"]="limit= offset= "
-    operation_parameters["itemRead"]="id= "
-    operation_parameters["itemAttributeList"]="limit= offset= "
-    operation_parameters["itemAttributeRead"]="id= "
-    operation_parameters["itemCategoryList"]="limit= offset= "
-    operation_parameters["itemCategoryRead"]="id= "
-    operation_parameters["itemFlingEffectList"]="limit= offset= "
-    operation_parameters["itemFlingEffectRead"]="id= "
-    operation_parameters["itemPocketList"]="limit= offset= "
-    operation_parameters["itemPocketRead"]="id= "
-    operation_parameters["languageList"]="limit= offset= "
-    operation_parameters["languageRead"]="id= "
-    operation_parameters["locationList"]="limit= offset= "
-    operation_parameters["locationRead"]="id= "
+    operation_parameters["berryFirmnessList"]="limit= offset= q= "
+    operation_parameters["berryFirmnessRetrieve"]="id= "
+    operation_parameters["berryFlavorList"]="limit= offset= q= "
+    operation_parameters["berryFlavorRetrieve"]="id= "
+    operation_parameters["berryList"]="limit= offset= q= "
+    operation_parameters["berryRetrieve"]="id= "
+    operation_parameters["contestEffectList"]="limit= offset= q= "
+    operation_parameters["contestEffectRetrieve"]="id= "
+    operation_parameters["contestTypeList"]="limit= offset= q= "
+    operation_parameters["contestTypeRetrieve"]="id= "
+    operation_parameters["superContestEffectList"]="limit= offset= q= "
+    operation_parameters["superContestEffectRetrieve"]="id= "
+    operation_parameters["encounterConditionList"]="limit= offset= q= "
+    operation_parameters["encounterConditionRetrieve"]="id= "
+    operation_parameters["encounterConditionValueList"]="limit= offset= q= "
+    operation_parameters["encounterConditionValueRetrieve"]="id= "
+    operation_parameters["encounterMethodList"]="limit= offset= q= "
+    operation_parameters["encounterMethodRetrieve"]="id= "
+    operation_parameters["pokemonEncountersRetrieve"]="pokemon_id= "
+    operation_parameters["evolutionChainList"]="limit= offset= q= "
+    operation_parameters["evolutionChainRetrieve"]="id= "
+    operation_parameters["evolutionTriggerList"]="limit= offset= q= "
+    operation_parameters["evolutionTriggerRetrieve"]="id= "
+    operation_parameters["generationList"]="limit= offset= q= "
+    operation_parameters["generationRetrieve"]="id= "
+    operation_parameters["pokedexList"]="limit= offset= q= "
+    operation_parameters["pokedexRetrieve"]="id= "
+    operation_parameters["versionGroupList"]="limit= offset= q= "
+    operation_parameters["versionGroupRetrieve"]="id= "
+    operation_parameters["versionList"]="limit= offset= q= "
+    operation_parameters["versionRetrieve"]="id= "
+    operation_parameters["itemAttributeList"]="limit= offset= q= "
+    operation_parameters["itemAttributeRetrieve"]="id= "
+    operation_parameters["itemCategoryList"]="limit= offset= q= "
+    operation_parameters["itemCategoryRetrieve"]="id= "
+    operation_parameters["itemFlingEffectList"]="limit= offset= q= "
+    operation_parameters["itemFlingEffectRetrieve"]="id= "
+    operation_parameters["itemList"]="limit= offset= q= "
+    operation_parameters["itemPocketList"]="limit= offset= q= "
+    operation_parameters["itemPocketRetrieve"]="id= "
+    operation_parameters["itemRetrieve"]="id= "
     operation_parameters["locationAreaList"]="limit= offset= "
-    operation_parameters["locationAreaRead"]="id= "
-    operation_parameters["machineList"]="limit= offset= "
-    operation_parameters["machineRead"]="id= "
-    operation_parameters["moveList"]="limit= offset= "
-    operation_parameters["moveRead"]="id= "
-    operation_parameters["moveAilmentList"]="limit= offset= "
-    operation_parameters["moveAilmentRead"]="id= "
-    operation_parameters["moveBattleStyleList"]="limit= offset= "
-    operation_parameters["moveBattleStyleRead"]="id= "
-    operation_parameters["moveCategoryList"]="limit= offset= "
-    operation_parameters["moveCategoryRead"]="id= "
-    operation_parameters["moveDamageClassList"]="limit= offset= "
-    operation_parameters["moveDamageClassRead"]="id= "
-    operation_parameters["moveLearnMethodList"]="limit= offset= "
-    operation_parameters["moveLearnMethodRead"]="id= "
-    operation_parameters["moveTargetList"]="limit= offset= "
-    operation_parameters["moveTargetRead"]="id= "
-    operation_parameters["natureList"]="limit= offset= "
-    operation_parameters["natureRead"]="id= "
-    operation_parameters["palParkAreaList"]="limit= offset= "
-    operation_parameters["palParkAreaRead"]="id= "
-    operation_parameters["pokeathlonStatList"]="limit= offset= "
-    operation_parameters["pokeathlonStatRead"]="id= "
-    operation_parameters["pokedexList"]="limit= offset= "
-    operation_parameters["pokedexRead"]="id= "
-    operation_parameters["pokemonList"]="limit= offset= "
-    operation_parameters["pokemonRead"]="id= "
-    operation_parameters["pokemonColorList"]="limit= offset= "
-    operation_parameters["pokemonColorRead"]="id= "
-    operation_parameters["pokemonFormList"]="limit= offset= "
-    operation_parameters["pokemonFormRead"]="id= "
-    operation_parameters["pokemonHabitatList"]="limit= offset= "
-    operation_parameters["pokemonHabitatRead"]="id= "
-    operation_parameters["pokemonShapeList"]="limit= offset= "
-    operation_parameters["pokemonShapeRead"]="id= "
-    operation_parameters["pokemonSpeciesList"]="limit= offset= "
-    operation_parameters["pokemonSpeciesRead"]="id= "
-    operation_parameters["regionList"]="limit= offset= "
-    operation_parameters["regionRead"]="id= "
-    operation_parameters["statList"]="limit= offset= "
-    operation_parameters["statRead"]="id= "
-    operation_parameters["superContestEffectList"]="limit= offset= "
-    operation_parameters["superContestEffectRead"]="id= "
-    operation_parameters["typeList"]="limit= offset= "
-    operation_parameters["typeRead"]="id= "
-    operation_parameters["versionList"]="limit= offset= "
-    operation_parameters["versionRead"]="id= "
-    operation_parameters["versionGroupList"]="limit= offset= "
-    operation_parameters["versionGroupRead"]="id= "
+    operation_parameters["locationAreaRetrieve"]="id= "
+    operation_parameters["locationList"]="limit= offset= q= "
+    operation_parameters["locationRetrieve"]="id= "
+    operation_parameters["palParkAreaList"]="limit= offset= q= "
+    operation_parameters["palParkAreaRetrieve"]="id= "
+    operation_parameters["regionList"]="limit= offset= q= "
+    operation_parameters["regionRetrieve"]="id= "
+    operation_parameters["machineList"]="limit= offset= q= "
+    operation_parameters["machineRetrieve"]="id= "
+    operation_parameters["moveAilmentList"]="limit= offset= q= "
+    operation_parameters["moveAilmentRetrieve"]="id= "
+    operation_parameters["moveBattleStyleList"]="limit= offset= q= "
+    operation_parameters["moveBattleStyleRetrieve"]="id= "
+    operation_parameters["moveCategoryList"]="limit= offset= q= "
+    operation_parameters["moveCategoryRetrieve"]="id= "
+    operation_parameters["moveLearnMethodList"]="limit= offset= q= "
+    operation_parameters["moveLearnMethodRetrieve"]="id= "
+    operation_parameters["moveList"]="limit= offset= q= "
+    operation_parameters["moveRetrieve"]="id= "
+    operation_parameters["moveTargetList"]="limit= offset= q= "
+    operation_parameters["moveTargetRetrieve"]="id= "
+    operation_parameters["abilityList"]="limit= offset= q= "
+    operation_parameters["abilityRetrieve"]="id= "
+    operation_parameters["characteristicList"]="limit= offset= q= "
+    operation_parameters["characteristicRetrieve"]="id= "
+    operation_parameters["eggGroupList"]="limit= offset= q= "
+    operation_parameters["eggGroupRetrieve"]="id= "
+    operation_parameters["genderList"]="limit= offset= q= "
+    operation_parameters["genderRetrieve"]="id= "
+    operation_parameters["growthRateList"]="limit= offset= q= "
+    operation_parameters["growthRateRetrieve"]="id= "
+    operation_parameters["moveDamageClassList"]="limit= offset= q= "
+    operation_parameters["moveDamageClassRetrieve"]="id= "
+    operation_parameters["natureList"]="limit= offset= q= "
+    operation_parameters["natureRetrieve"]="id= "
+    operation_parameters["pokeathlonStatList"]="limit= offset= q= "
+    operation_parameters["pokeathlonStatRetrieve"]="id= "
+    operation_parameters["pokemonColorList"]="limit= offset= q= "
+    operation_parameters["pokemonColorRetrieve"]="id= "
+    operation_parameters["pokemonFormList"]="limit= offset= q= "
+    operation_parameters["pokemonFormRetrieve"]="id= "
+    operation_parameters["pokemonHabitatList"]="limit= offset= q= "
+    operation_parameters["pokemonHabitatRetrieve"]="id= "
+    operation_parameters["pokemonList"]="limit= offset= q= "
+    operation_parameters["pokemonRetrieve"]="id= "
+    operation_parameters["pokemonShapeList"]="limit= offset= q= "
+    operation_parameters["pokemonShapeRetrieve"]="id= "
+    operation_parameters["pokemonSpeciesList"]="limit= offset= q= "
+    operation_parameters["pokemonSpeciesRetrieve"]="id= "
+    operation_parameters["statList"]="limit= offset= q= "
+    operation_parameters["statRetrieve"]="id= "
+    operation_parameters["typeList"]="limit= offset= q= "
+    operation_parameters["typeRetrieve"]="id= "
+    operation_parameters["languageList"]="limit= offset= q= "
+    operation_parameters["languageRetrieve"]="id= "
 
     # An associative array of possible values for enum parameters
     declare -A operation_parameters_enum_values

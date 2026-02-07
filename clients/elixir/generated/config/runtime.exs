@@ -7,6 +7,6 @@ import Config
 # any compile-time configuration in here, as it won't be applied.
 # The block below contains prod specific runtime configuration.
 
-if base_url = System.get_env("_BASE_URI") do
-  config :"", base_url: base_url
+if base_url = System.get_env("POKÉAPI_BASE_URI") do
+  config :"pokéapi", base_url: base_url
 end

@@ -19,7 +19,7 @@ info:
   app:
     name: Pkmst
     description: Microservice developed by PKMST
-    version: 20220523
+    version: 2.7.0
 
 security:
   basic:

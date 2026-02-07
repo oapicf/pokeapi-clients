@@ -1,0 +1,32 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "Should have a link to Version Group info but the Circular dependency and compilation order fight eachother and I'm not sure how to add anything other than a hyperlink",
+  "name": "VersionDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.VersionName"
+      },
+      "doc": ""
+    },
+    {
+      "name": "version_group",
+      "type": "model.VersionGroupSummary",
+      "doc": ""
+    }
+  ]
+
+}

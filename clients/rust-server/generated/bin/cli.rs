@@ -6,102 +6,103 @@ use log::{debug, info};
 #[allow(unused_imports)]
 use openapi_client::{
     models, ApiNoContext, Client, ContextWrapperExt,
-    AbilityListResponse,
-    AbilityReadResponse,
-    BerryListResponse,
-    BerryReadResponse,
     BerryFirmnessListResponse,
-    BerryFirmnessReadResponse,
     BerryFlavorListResponse,
-    BerryFlavorReadResponse,
-    CharacteristicListResponse,
-    CharacteristicReadResponse,
+    BerryListResponse,
+    BerryFirmnessRetrieveResponse,
+    BerryFlavorRetrieveResponse,
+    BerryRetrieveResponse,
     ContestEffectListResponse,
-    ContestEffectReadResponse,
     ContestTypeListResponse,
-    ContestTypeReadResponse,
-    EggGroupListResponse,
-    EggGroupReadResponse,
-    EncounterConditionListResponse,
-    EncounterConditionReadResponse,
-    EncounterConditionValueListResponse,
-    EncounterConditionValueReadResponse,
-    EncounterMethodListResponse,
-    EncounterMethodReadResponse,
-    EvolutionChainListResponse,
-    EvolutionChainReadResponse,
-    EvolutionTriggerListResponse,
-    EvolutionTriggerReadResponse,
-    GenderListResponse,
-    GenderReadResponse,
-    GenerationListResponse,
-    GenerationReadResponse,
-    GrowthRateListResponse,
-    GrowthRateReadResponse,
-    ItemListResponse,
-    ItemReadResponse,
-    ItemAttributeListResponse,
-    ItemAttributeReadResponse,
-    ItemCategoryListResponse,
-    ItemCategoryReadResponse,
-    ItemFlingEffectListResponse,
-    ItemFlingEffectReadResponse,
-    ItemPocketListResponse,
-    ItemPocketReadResponse,
-    LanguageListResponse,
-    LanguageReadResponse,
-    LocationListResponse,
-    LocationReadResponse,
-    LocationAreaListResponse,
-    LocationAreaReadResponse,
-    MachineListResponse,
-    MachineReadResponse,
-    MoveListResponse,
-    MoveReadResponse,
-    MoveAilmentListResponse,
-    MoveAilmentReadResponse,
-    MoveBattleStyleListResponse,
-    MoveBattleStyleReadResponse,
-    MoveCategoryListResponse,
-    MoveCategoryReadResponse,
-    MoveDamageClassListResponse,
-    MoveDamageClassReadResponse,
-    MoveLearnMethodListResponse,
-    MoveLearnMethodReadResponse,
-    MoveTargetListResponse,
-    MoveTargetReadResponse,
-    NatureListResponse,
-    NatureReadResponse,
-    PalParkAreaListResponse,
-    PalParkAreaReadResponse,
-    PokeathlonStatListResponse,
-    PokeathlonStatReadResponse,
-    PokedexListResponse,
-    PokedexReadResponse,
-    PokemonListResponse,
-    PokemonReadResponse,
-    PokemonColorListResponse,
-    PokemonColorReadResponse,
-    PokemonFormListResponse,
-    PokemonFormReadResponse,
-    PokemonHabitatListResponse,
-    PokemonHabitatReadResponse,
-    PokemonShapeListResponse,
-    PokemonShapeReadResponse,
-    PokemonSpeciesListResponse,
-    PokemonSpeciesReadResponse,
-    RegionListResponse,
-    RegionReadResponse,
-    StatListResponse,
-    StatReadResponse,
     SuperContestEffectListResponse,
-    SuperContestEffectReadResponse,
-    TypeListResponse,
-    TypeReadResponse,
-    VersionListResponse,
-    VersionReadResponse,
+    ContestEffectRetrieveResponse,
+    ContestTypeRetrieveResponse,
+    SuperContestEffectRetrieveResponse,
+    EncounterConditionListResponse,
+    EncounterConditionValueListResponse,
+    EncounterMethodListResponse,
+    EncounterConditionRetrieveResponse,
+    EncounterConditionValueRetrieveResponse,
+    EncounterMethodRetrieveResponse,
+    PokemonEncountersRetrieveResponse,
+    EvolutionChainListResponse,
+    EvolutionTriggerListResponse,
+    EvolutionChainRetrieveResponse,
+    EvolutionTriggerRetrieveResponse,
+    GenerationListResponse,
+    PokedexListResponse,
     VersionGroupListResponse,
-    VersionGroupReadResponse,
+    VersionListResponse,
+    GenerationRetrieveResponse,
+    PokedexRetrieveResponse,
+    VersionGroupRetrieveResponse,
+    VersionRetrieveResponse,
+    ItemAttributeListResponse,
+    ItemCategoryListResponse,
+    ItemFlingEffectListResponse,
+    ItemListResponse,
+    ItemPocketListResponse,
+    ItemAttributeRetrieveResponse,
+    ItemCategoryRetrieveResponse,
+    ItemFlingEffectRetrieveResponse,
+    ItemPocketRetrieveResponse,
+    ItemRetrieveResponse,
+    LocationAreaListResponse,
+    LocationListResponse,
+    PalParkAreaListResponse,
+    RegionListResponse,
+    LocationAreaRetrieveResponse,
+    LocationRetrieveResponse,
+    PalParkAreaRetrieveResponse,
+    RegionRetrieveResponse,
+    MachineListResponse,
+    MachineRetrieveResponse,
+    MoveAilmentListResponse,
+    MoveBattleStyleListResponse,
+    MoveCategoryListResponse,
+    MoveLearnMethodListResponse,
+    MoveListResponse,
+    MoveTargetListResponse,
+    MoveAilmentRetrieveResponse,
+    MoveBattleStyleRetrieveResponse,
+    MoveCategoryRetrieveResponse,
+    MoveLearnMethodRetrieveResponse,
+    MoveRetrieveResponse,
+    MoveTargetRetrieveResponse,
+    AbilityListResponse,
+    CharacteristicListResponse,
+    EggGroupListResponse,
+    GenderListResponse,
+    GrowthRateListResponse,
+    MoveDamageClassListResponse,
+    NatureListResponse,
+    PokeathlonStatListResponse,
+    PokemonColorListResponse,
+    PokemonFormListResponse,
+    PokemonHabitatListResponse,
+    PokemonListResponse,
+    PokemonShapeListResponse,
+    PokemonSpeciesListResponse,
+    StatListResponse,
+    TypeListResponse,
+    AbilityRetrieveResponse,
+    CharacteristicRetrieveResponse,
+    EggGroupRetrieveResponse,
+    GenderRetrieveResponse,
+    GrowthRateRetrieveResponse,
+    MoveDamageClassRetrieveResponse,
+    NatureRetrieveResponse,
+    PokeathlonStatRetrieveResponse,
+    PokemonColorRetrieveResponse,
+    PokemonFormRetrieveResponse,
+    PokemonHabitatRetrieveResponse,
+    PokemonRetrieveResponse,
+    PokemonShapeRetrieveResponse,
+    PokemonSpeciesRetrieveResponse,
+    StatRetrieveResponse,
+    TypeRetrieveResponse,
+    LanguageListResponse,
+    LanguageRetrieveResponse,
 };
 use simple_logger::SimpleLogger;
 use swagger::{AuthData, ContextBuilder, EmptyContext, Push, XSpanIdString};
@@ -115,9 +116,9 @@ type ClientContext = swagger::make_context_ty!(
 
 #[derive(Parser, Debug)]
 #[clap(
-    name = "",
-    version = "20220523",
-    about = "CLI access to "
+    name = "PokéAPI",
+    version = "2.7.0",
+    about = "CLI access to PokéAPI"
 )]
 struct Cli {
     #[clap(subcommand)]
@@ -152,341 +153,677 @@ struct Cli {
 
 #[derive(Parser, Debug)]
 enum Operation {
-    AbilityList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    AbilityRead {
-        id: i32,
-    },
-    BerryList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    BerryRead {
-        id: i32,
-    },
+    /// List berry firmness
     BerryFirmnessList {
+        /// Number of results to return per page.
         limit: Option<i32>,
+        /// The initial index from which to return the results.
         offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
     },
-    BerryFirmnessRead {
-        id: i32,
-    },
+    /// List berry flavors
     BerryFlavorList {
+        /// Number of results to return per page.
         limit: Option<i32>,
+        /// The initial index from which to return the results.
         offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
     },
-    BerryFlavorRead {
-        id: i32,
-    },
-    CharacteristicList {
+    /// List berries
+    BerryList {
+        /// Number of results to return per page.
         limit: Option<i32>,
+        /// The initial index from which to return the results.
         offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
     },
-    CharacteristicRead {
-        id: i32,
+    /// Get berry by firmness
+    BerryFirmnessRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
     },
+    /// Get berries by flavor
+    BerryFlavorRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get a berry
+    BerryRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// List contest effects
     ContestEffectList {
+        /// Number of results to return per page.
         limit: Option<i32>,
+        /// The initial index from which to return the results.
         offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
     },
-    ContestEffectRead {
-        id: i32,
-    },
+    /// List contest types
     ContestTypeList {
+        /// Number of results to return per page.
         limit: Option<i32>,
+        /// The initial index from which to return the results.
         offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
     },
-    ContestTypeRead {
-        id: i32,
-    },
-    EggGroupList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    EggGroupRead {
-        id: i32,
-    },
-    EncounterConditionList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    EncounterConditionRead {
-        id: i32,
-    },
-    EncounterConditionValueList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    EncounterConditionValueRead {
-        id: i32,
-    },
-    EncounterMethodList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    EncounterMethodRead {
-        id: i32,
-    },
-    EvolutionChainList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    EvolutionChainRead {
-        id: i32,
-    },
-    EvolutionTriggerList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    EvolutionTriggerRead {
-        id: i32,
-    },
-    GenderList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    GenderRead {
-        id: i32,
-    },
-    GenerationList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    GenerationRead {
-        id: i32,
-    },
-    GrowthRateList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    GrowthRateRead {
-        id: i32,
-    },
-    ItemList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    ItemRead {
-        id: i32,
-    },
-    ItemAttributeList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    ItemAttributeRead {
-        id: i32,
-    },
-    ItemCategoryList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    ItemCategoryRead {
-        id: i32,
-    },
-    ItemFlingEffectList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    ItemFlingEffectRead {
-        id: i32,
-    },
-    ItemPocketList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    ItemPocketRead {
-        id: i32,
-    },
-    LanguageList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    LanguageRead {
-        id: i32,
-    },
-    LocationList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    LocationRead {
-        id: i32,
-    },
-    LocationAreaList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    LocationAreaRead {
-        id: i32,
-    },
-    MachineList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    MachineRead {
-        id: i32,
-    },
-    MoveList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    MoveRead {
-        id: i32,
-    },
-    MoveAilmentList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    MoveAilmentRead {
-        id: i32,
-    },
-    MoveBattleStyleList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    MoveBattleStyleRead {
-        id: i32,
-    },
-    MoveCategoryList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    MoveCategoryRead {
-        id: i32,
-    },
-    MoveDamageClassList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    MoveDamageClassRead {
-        id: i32,
-    },
-    MoveLearnMethodList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    MoveLearnMethodRead {
-        id: i32,
-    },
-    MoveTargetList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    MoveTargetRead {
-        id: i32,
-    },
-    NatureList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    NatureRead {
-        id: i32,
-    },
-    PalParkAreaList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    PalParkAreaRead {
-        id: i32,
-    },
-    PokeathlonStatList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    PokeathlonStatRead {
-        id: i32,
-    },
-    PokedexList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    PokedexRead {
-        id: i32,
-    },
-    PokemonList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    PokemonRead {
-        id: i32,
-    },
-    PokemonColorList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    PokemonColorRead {
-        id: i32,
-    },
-    PokemonFormList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    PokemonFormRead {
-        id: i32,
-    },
-    PokemonHabitatList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    PokemonHabitatRead {
-        id: i32,
-    },
-    PokemonShapeList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    PokemonShapeRead {
-        id: i32,
-    },
-    PokemonSpeciesList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    PokemonSpeciesRead {
-        id: i32,
-    },
-    RegionList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    RegionRead {
-        id: i32,
-    },
-    StatList {
-        limit: Option<i32>,
-        offset: Option<i32>,
-    },
-    StatRead {
-        id: i32,
-    },
+    /// List super contest effects
     SuperContestEffectList {
+        /// Number of results to return per page.
         limit: Option<i32>,
+        /// The initial index from which to return the results.
         offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
     },
-    SuperContestEffectRead {
-        id: i32,
+    /// Get contest effect
+    ContestEffectRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
     },
-    TypeList {
+    /// Get contest type
+    ContestTypeRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get super contest effect
+    SuperContestEffectRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// List encounter conditions
+    EncounterConditionList {
+        /// Number of results to return per page.
         limit: Option<i32>,
+        /// The initial index from which to return the results.
         offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
     },
-    TypeRead {
-        id: i32,
-    },
-    VersionList {
+    /// List encounter condition values
+    EncounterConditionValueList {
+        /// Number of results to return per page.
         limit: Option<i32>,
+        /// The initial index from which to return the results.
         offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
     },
-    VersionRead {
-        id: i32,
+    /// List encounter methods
+    EncounterMethodList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
     },
+    /// Get encounter condition
+    EncounterConditionRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get encounter condition value
+    EncounterConditionValueRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get encounter method
+    EncounterMethodRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get pokemon encounter
+    PokemonEncountersRetrieve {
+        pokemon_id: String,
+    },
+    /// List evolution chains
+    EvolutionChainList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List evolution triggers
+    EvolutionTriggerList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// Get evolution chain
+    EvolutionChainRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get evolution trigger
+    EvolutionTriggerRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// List genrations
+    GenerationList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List pokedex
+    PokedexList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List version groups
     VersionGroupList {
+        /// Number of results to return per page.
         limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List versions
+    VersionList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// Get genration
+    GenerationRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get pokedex
+    PokedexRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get version group
+    VersionGroupRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get version
+    VersionRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// List item attributes
+    ItemAttributeList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List item categories
+    ItemCategoryList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List item fling effects
+    ItemFlingEffectList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List items
+    ItemList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List item pockets
+    ItemPocketList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// Get item attribute
+    ItemAttributeRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get item category
+    ItemCategoryRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get item fling effect
+    ItemFlingEffectRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get item pocket
+    ItemPocketRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get item
+    ItemRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// List location areas
+    LocationAreaList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
         offset: Option<i32>,
     },
-    VersionGroupRead {
+    /// List locations
+    LocationList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List pal park areas
+    PalParkAreaList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List regions
+    RegionList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// Get location area
+    LocationAreaRetrieve {
+        /// A unique integer value identifying this location area.
         id: i32,
+    },
+    /// Get location
+    LocationRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get pal park area
+    PalParkAreaRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get region
+    RegionRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// List machines
+    MachineList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// Get machine
+    MachineRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// List move meta ailments
+    MoveAilmentList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List move battle styles
+    MoveBattleStyleList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List move meta categories
+    MoveCategoryList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List move learn methods
+    MoveLearnMethodList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List moves
+    MoveList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List move targets
+    MoveTargetList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// Get move meta ailment
+    MoveAilmentRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get move battle style
+    MoveBattleStyleRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get move meta category
+    MoveCategoryRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get move learn method
+    MoveLearnMethodRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get move
+    MoveRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get move target
+    MoveTargetRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    AbilityList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List charecterictics
+    CharacteristicList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List egg groups
+    EggGroupList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List genders
+    GenderList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List growth rates
+    GrowthRateList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List move damage classes
+    MoveDamageClassList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List natures
+    NatureList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List pokeathlon stats
+    PokeathlonStatList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List pokemon colors
+    PokemonColorList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List pokemon forms
+    PokemonFormList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List pokemom habitas
+    PokemonHabitatList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List pokemon
+    PokemonList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List pokemon shapes
+    PokemonShapeList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List pokemon species
+    PokemonSpeciesList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List stats
+    StatList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// List types
+    TypeList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    AbilityRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get characteristic
+    CharacteristicRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get egg group
+    EggGroupRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get gender
+    GenderRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get growth rate
+    GrowthRateRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get move damage class
+    MoveDamageClassRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get nature
+    NatureRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get pokeathlon stat
+    PokeathlonStatRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get pokemon color
+    PokemonColorRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get pokemon form
+    PokemonFormRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get pokemom habita
+    PokemonHabitatRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get pokemon
+    PokemonRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get pokemon shape
+    PokemonShapeRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get pokemon species
+    PokemonSpeciesRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get stat
+    StatRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// Get types
+    TypeRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
+    },
+    /// List languages
+    LanguageList {
+        /// Number of results to return per page.
+        limit: Option<i32>,
+        /// The initial index from which to return the results.
+        offset: Option<i32>,
+        /// > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+        q: Option<String>,
+    },
+    /// Get language
+    LanguageRetrieve {
+        /// This parameter can be a string or an integer.
+        id: String,
     },
 }
 
@@ -545,122 +882,24 @@ async fn main() -> Result<()> {
     let client = create_client(&args, context)?;
 
     let result = match args.operation {
-        Operation::AbilityList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a AbilityList request");
-
-            let result = client.ability_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                AbilityListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::AbilityRead {
-            id,
-        } => {
-            info!("Performing a AbilityRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.ability_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                AbilityReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::BerryList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a BerryList request");
-
-            let result = client.berry_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                BerryListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::BerryRead {
-            id,
-        } => {
-            info!("Performing a BerryRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.berry_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                BerryReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
         Operation::BerryFirmnessList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a BerryFirmnessList request");
 
             let result = client.berry_firmness_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                BerryFirmnessListResponse::DefaultResponse
+                BerryFirmnessListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::BerryFirmnessRead {
-            id,
-        } => {
-            info!("Performing a BerryFirmnessRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.berry_firmness_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                BerryFirmnessReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -668,79 +907,103 @@ async fn main() -> Result<()> {
         Operation::BerryFlavorList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a BerryFlavorList request");
 
             let result = client.berry_flavor_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                BerryFlavorListResponse::DefaultResponse
+                BerryFlavorListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::BerryFlavorRead {
-            id,
-        } => {
-            info!("Performing a BerryFlavorRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.berry_flavor_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                BerryFlavorReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::CharacteristicList {
+        Operation::BerryList {
             limit,
             offset,
+            q,
         } => {
-            info!("Performing a CharacteristicList request");
+            info!("Performing a BerryList request");
 
-            let result = client.characteristic_list(
+            let result = client.berry_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                CharacteristicListResponse::DefaultResponse
+                BerryListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::CharacteristicRead {
+        Operation::BerryFirmnessRetrieve {
             id,
         } => {
-            info!("Performing a CharacteristicRead request on {:?}", (
+            info!("Performing a BerryFirmnessRetrieve request on {:?}", (
                 &id
             ));
 
-            let result = client.characteristic_read(
+            let result = client.berry_firmness_retrieve(
                 id,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                CharacteristicReadResponse::DefaultResponse
+                BerryFirmnessRetrieveResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::BerryFlavorRetrieve {
+            id,
+        } => {
+            info!("Performing a BerryFlavorRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.berry_flavor_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                BerryFlavorRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::BerryRetrieve {
+            id,
+        } => {
+            info!("Performing a BerryRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.berry_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                BerryRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -748,39 +1011,21 @@ async fn main() -> Result<()> {
         Operation::ContestEffectList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a ContestEffectList request");
 
             let result = client.contest_effect_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                ContestEffectListResponse::DefaultResponse
+                ContestEffectListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::ContestEffectRead {
-            id,
-        } => {
-            info!("Performing a ContestEffectRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.contest_effect_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                ContestEffectReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -788,79 +1033,103 @@ async fn main() -> Result<()> {
         Operation::ContestTypeList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a ContestTypeList request");
 
             let result = client.contest_type_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                ContestTypeListResponse::DefaultResponse
+                ContestTypeListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::ContestTypeRead {
-            id,
-        } => {
-            info!("Performing a ContestTypeRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.contest_type_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                ContestTypeReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::EggGroupList {
+        Operation::SuperContestEffectList {
             limit,
             offset,
+            q,
         } => {
-            info!("Performing a EggGroupList request");
+            info!("Performing a SuperContestEffectList request");
 
-            let result = client.egg_group_list(
+            let result = client.super_contest_effect_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                EggGroupListResponse::DefaultResponse
+                SuperContestEffectListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::EggGroupRead {
+        Operation::ContestEffectRetrieve {
             id,
         } => {
-            info!("Performing a EggGroupRead request on {:?}", (
+            info!("Performing a ContestEffectRetrieve request on {:?}", (
                 &id
             ));
 
-            let result = client.egg_group_read(
+            let result = client.contest_effect_retrieve(
                 id,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                EggGroupReadResponse::DefaultResponse
+                ContestEffectRetrieveResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::ContestTypeRetrieve {
+            id,
+        } => {
+            info!("Performing a ContestTypeRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.contest_type_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                ContestTypeRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::SuperContestEffectRetrieve {
+            id,
+        } => {
+            info!("Performing a SuperContestEffectRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.super_contest_effect_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                SuperContestEffectRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -868,39 +1137,21 @@ async fn main() -> Result<()> {
         Operation::EncounterConditionList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a EncounterConditionList request");
 
             let result = client.encounter_condition_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                EncounterConditionListResponse::DefaultResponse
+                EncounterConditionListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::EncounterConditionRead {
-            id,
-        } => {
-            info!("Performing a EncounterConditionRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.encounter_condition_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                EncounterConditionReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -908,39 +1159,21 @@ async fn main() -> Result<()> {
         Operation::EncounterConditionValueList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a EncounterConditionValueList request");
 
             let result = client.encounter_condition_value_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                EncounterConditionValueListResponse::DefaultResponse
+                EncounterConditionValueListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::EncounterConditionValueRead {
-            id,
-        } => {
-            info!("Performing a EncounterConditionValueRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.encounter_condition_value_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                EncounterConditionValueReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -948,39 +1181,101 @@ async fn main() -> Result<()> {
         Operation::EncounterMethodList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a EncounterMethodList request");
 
             let result = client.encounter_method_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                EncounterMethodListResponse::DefaultResponse
+                EncounterMethodListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::EncounterMethodRead {
+        Operation::EncounterConditionRetrieve {
             id,
         } => {
-            info!("Performing a EncounterMethodRead request on {:?}", (
+            info!("Performing a EncounterConditionRetrieve request on {:?}", (
                 &id
             ));
 
-            let result = client.encounter_method_read(
+            let result = client.encounter_condition_retrieve(
                 id,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                EncounterMethodReadResponse::DefaultResponse
+                EncounterConditionRetrieveResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::EncounterConditionValueRetrieve {
+            id,
+        } => {
+            info!("Performing a EncounterConditionValueRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.encounter_condition_value_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                EncounterConditionValueRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::EncounterMethodRetrieve {
+            id,
+        } => {
+            info!("Performing a EncounterMethodRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.encounter_method_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                EncounterMethodRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::PokemonEncountersRetrieve {
+            pokemon_id,
+        } => {
+            info!("Performing a PokemonEncountersRetrieve request on {:?}", (
+                &pokemon_id
+            ));
+
+            let result = client.pokemon_encounters_retrieve(
+                pokemon_id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                PokemonEncountersRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -988,39 +1283,21 @@ async fn main() -> Result<()> {
         Operation::EvolutionChainList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a EvolutionChainList request");
 
             let result = client.evolution_chain_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                EvolutionChainListResponse::DefaultResponse
+                EvolutionChainListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::EvolutionChainRead {
-            id,
-        } => {
-            info!("Performing a EvolutionChainRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.evolution_chain_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                EvolutionChainReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -1028,79 +1305,61 @@ async fn main() -> Result<()> {
         Operation::EvolutionTriggerList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a EvolutionTriggerList request");
 
             let result = client.evolution_trigger_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                EvolutionTriggerListResponse::DefaultResponse
+                EvolutionTriggerListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::EvolutionTriggerRead {
+        Operation::EvolutionChainRetrieve {
             id,
         } => {
-            info!("Performing a EvolutionTriggerRead request on {:?}", (
+            info!("Performing a EvolutionChainRetrieve request on {:?}", (
                 &id
             ));
 
-            let result = client.evolution_trigger_read(
+            let result = client.evolution_chain_retrieve(
                 id,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                EvolutionTriggerReadResponse::DefaultResponse
+                EvolutionChainRetrieveResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::GenderList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a GenderList request");
-
-            let result = client.gender_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                GenderListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::GenderRead {
+        Operation::EvolutionTriggerRetrieve {
             id,
         } => {
-            info!("Performing a GenderRead request on {:?}", (
+            info!("Performing a EvolutionTriggerRetrieve request on {:?}", (
                 &id
             ));
 
-            let result = client.gender_read(
+            let result = client.evolution_trigger_retrieve(
                 id,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                GenderReadResponse::DefaultResponse
+                EvolutionTriggerRetrieveResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -1108,119 +1367,167 @@ async fn main() -> Result<()> {
         Operation::GenerationList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a GenerationList request");
 
             let result = client.generation_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                GenerationListResponse::DefaultResponse
+                GenerationListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::GenerationRead {
-            id,
-        } => {
-            info!("Performing a GenerationRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.generation_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                GenerationReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::GrowthRateList {
+        Operation::PokedexList {
             limit,
             offset,
+            q,
         } => {
-            info!("Performing a GrowthRateList request");
+            info!("Performing a PokedexList request");
 
-            let result = client.growth_rate_list(
+            let result = client.pokedex_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                GrowthRateListResponse::DefaultResponse
+                PokedexListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::GrowthRateRead {
-            id,
-        } => {
-            info!("Performing a GrowthRateRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.growth_rate_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                GrowthRateReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::ItemList {
+        Operation::VersionGroupList {
             limit,
             offset,
+            q,
         } => {
-            info!("Performing a ItemList request");
+            info!("Performing a VersionGroupList request");
 
-            let result = client.item_list(
+            let result = client.version_group_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                ItemListResponse::DefaultResponse
+                VersionGroupListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::ItemRead {
+        Operation::VersionList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a VersionList request");
+
+            let result = client.version_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                VersionListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::GenerationRetrieve {
             id,
         } => {
-            info!("Performing a ItemRead request on {:?}", (
+            info!("Performing a GenerationRetrieve request on {:?}", (
                 &id
             ));
 
-            let result = client.item_read(
+            let result = client.generation_retrieve(
                 id,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                ItemReadResponse::DefaultResponse
+                GenerationRetrieveResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::PokedexRetrieve {
+            id,
+        } => {
+            info!("Performing a PokedexRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.pokedex_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                PokedexRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::VersionGroupRetrieve {
+            id,
+        } => {
+            info!("Performing a VersionGroupRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.version_group_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                VersionGroupRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::VersionRetrieve {
+            id,
+        } => {
+            info!("Performing a VersionRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.version_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                VersionRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -1228,39 +1535,21 @@ async fn main() -> Result<()> {
         Operation::ItemAttributeList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a ItemAttributeList request");
 
             let result = client.item_attribute_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                ItemAttributeListResponse::DefaultResponse
+                ItemAttributeListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::ItemAttributeRead {
-            id,
-        } => {
-            info!("Performing a ItemAttributeRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.item_attribute_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                ItemAttributeReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -1268,39 +1557,21 @@ async fn main() -> Result<()> {
         Operation::ItemCategoryList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a ItemCategoryList request");
 
             let result = client.item_category_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                ItemCategoryListResponse::DefaultResponse
+                ItemCategoryListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::ItemCategoryRead {
-            id,
-        } => {
-            info!("Performing a ItemCategoryRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.item_category_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                ItemCategoryReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -1308,39 +1579,43 @@ async fn main() -> Result<()> {
         Operation::ItemFlingEffectList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a ItemFlingEffectList request");
 
             let result = client.item_fling_effect_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                ItemFlingEffectListResponse::DefaultResponse
+                ItemFlingEffectListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::ItemFlingEffectRead {
-            id,
+        Operation::ItemList {
+            limit,
+            offset,
+            q,
         } => {
-            info!("Performing a ItemFlingEffectRead request on {:?}", (
-                &id
-            ));
+            info!("Performing a ItemList request");
 
-            let result = client.item_fling_effect_read(
-                id,
+            let result = client.item_list(
+                limit,
+                offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                ItemFlingEffectReadResponse::DefaultResponse
+                ItemListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -1348,119 +1623,121 @@ async fn main() -> Result<()> {
         Operation::ItemPocketList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a ItemPocketList request");
 
             let result = client.item_pocket_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                ItemPocketListResponse::DefaultResponse
+                ItemPocketListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::ItemPocketRead {
+        Operation::ItemAttributeRetrieve {
             id,
         } => {
-            info!("Performing a ItemPocketRead request on {:?}", (
+            info!("Performing a ItemAttributeRetrieve request on {:?}", (
                 &id
             ));
 
-            let result = client.item_pocket_read(
+            let result = client.item_attribute_retrieve(
                 id,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                ItemPocketReadResponse::DefaultResponse
+                ItemAttributeRetrieveResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::LanguageList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a LanguageList request");
-
-            let result = client.language_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                LanguageListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::LanguageRead {
+        Operation::ItemCategoryRetrieve {
             id,
         } => {
-            info!("Performing a LanguageRead request on {:?}", (
+            info!("Performing a ItemCategoryRetrieve request on {:?}", (
                 &id
             ));
 
-            let result = client.language_read(
+            let result = client.item_category_retrieve(
                 id,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                LanguageReadResponse::DefaultResponse
+                ItemCategoryRetrieveResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::LocationList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a LocationList request");
-
-            let result = client.location_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                LocationListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::LocationRead {
+        Operation::ItemFlingEffectRetrieve {
             id,
         } => {
-            info!("Performing a LocationRead request on {:?}", (
+            info!("Performing a ItemFlingEffectRetrieve request on {:?}", (
                 &id
             ));
 
-            let result = client.location_read(
+            let result = client.item_fling_effect_retrieve(
                 id,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                LocationReadResponse::DefaultResponse
+                ItemFlingEffectRetrieveResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::ItemPocketRetrieve {
+            id,
+        } => {
+            info!("Performing a ItemPocketRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.item_pocket_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                ItemPocketRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::ItemRetrieve {
+            id,
+        } => {
+            info!("Performing a ItemRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.item_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                ItemRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -1478,389 +1755,31 @@ async fn main() -> Result<()> {
             debug!("Result: {:?}", result);
 
             match result {
-                LocationAreaListResponse::DefaultResponse
+                LocationAreaListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::LocationAreaRead {
-            id,
-        } => {
-            info!("Performing a LocationAreaRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.location_area_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                LocationAreaReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::MachineList {
+        Operation::LocationList {
             limit,
             offset,
+            q,
         } => {
-            info!("Performing a MachineList request");
+            info!("Performing a LocationList request");
 
-            let result = client.machine_list(
+            let result = client.location_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                MachineListResponse::DefaultResponse
+                LocationListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::MachineRead {
-            id,
-        } => {
-            info!("Performing a MachineRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.machine_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                MachineReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::MoveList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a MoveList request");
-
-            let result = client.move_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                MoveListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::MoveRead {
-            id,
-        } => {
-            info!("Performing a MoveRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.move_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                MoveReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::MoveAilmentList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a MoveAilmentList request");
-
-            let result = client.move_ailment_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                MoveAilmentListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::MoveAilmentRead {
-            id,
-        } => {
-            info!("Performing a MoveAilmentRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.move_ailment_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                MoveAilmentReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::MoveBattleStyleList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a MoveBattleStyleList request");
-
-            let result = client.move_battle_style_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                MoveBattleStyleListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::MoveBattleStyleRead {
-            id,
-        } => {
-            info!("Performing a MoveBattleStyleRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.move_battle_style_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                MoveBattleStyleReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::MoveCategoryList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a MoveCategoryList request");
-
-            let result = client.move_category_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                MoveCategoryListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::MoveCategoryRead {
-            id,
-        } => {
-            info!("Performing a MoveCategoryRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.move_category_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                MoveCategoryReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::MoveDamageClassList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a MoveDamageClassList request");
-
-            let result = client.move_damage_class_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                MoveDamageClassListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::MoveDamageClassRead {
-            id,
-        } => {
-            info!("Performing a MoveDamageClassRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.move_damage_class_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                MoveDamageClassReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::MoveLearnMethodList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a MoveLearnMethodList request");
-
-            let result = client.move_learn_method_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                MoveLearnMethodListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::MoveLearnMethodRead {
-            id,
-        } => {
-            info!("Performing a MoveLearnMethodRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.move_learn_method_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                MoveLearnMethodReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::MoveTargetList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a MoveTargetList request");
-
-            let result = client.move_target_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                MoveTargetListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::MoveTargetRead {
-            id,
-        } => {
-            info!("Performing a MoveTargetRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.move_target_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                MoveTargetReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::NatureList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a NatureList request");
-
-            let result = client.nature_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                NatureListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::NatureRead {
-            id,
-        } => {
-            info!("Performing a NatureRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.nature_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                NatureReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -1868,359 +1787,21 @@ async fn main() -> Result<()> {
         Operation::PalParkAreaList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a PalParkAreaList request");
 
             let result = client.pal_park_area_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                PalParkAreaListResponse::DefaultResponse
+                PalParkAreaListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PalParkAreaRead {
-            id,
-        } => {
-            info!("Performing a PalParkAreaRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.pal_park_area_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PalParkAreaReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PokeathlonStatList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a PokeathlonStatList request");
-
-            let result = client.pokeathlon_stat_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PokeathlonStatListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PokeathlonStatRead {
-            id,
-        } => {
-            info!("Performing a PokeathlonStatRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.pokeathlon_stat_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PokeathlonStatReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PokedexList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a PokedexList request");
-
-            let result = client.pokedex_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PokedexListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PokedexRead {
-            id,
-        } => {
-            info!("Performing a PokedexRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.pokedex_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PokedexReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PokemonList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a PokemonList request");
-
-            let result = client.pokemon_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PokemonListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PokemonRead {
-            id,
-        } => {
-            info!("Performing a PokemonRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.pokemon_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PokemonReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PokemonColorList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a PokemonColorList request");
-
-            let result = client.pokemon_color_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PokemonColorListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PokemonColorRead {
-            id,
-        } => {
-            info!("Performing a PokemonColorRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.pokemon_color_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PokemonColorReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PokemonFormList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a PokemonFormList request");
-
-            let result = client.pokemon_form_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PokemonFormListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PokemonFormRead {
-            id,
-        } => {
-            info!("Performing a PokemonFormRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.pokemon_form_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PokemonFormReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PokemonHabitatList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a PokemonHabitatList request");
-
-            let result = client.pokemon_habitat_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PokemonHabitatListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PokemonHabitatRead {
-            id,
-        } => {
-            info!("Performing a PokemonHabitatRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.pokemon_habitat_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PokemonHabitatReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PokemonShapeList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a PokemonShapeList request");
-
-            let result = client.pokemon_shape_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PokemonShapeListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PokemonShapeRead {
-            id,
-        } => {
-            info!("Performing a PokemonShapeRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.pokemon_shape_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PokemonShapeReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PokemonSpeciesList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a PokemonSpeciesList request");
-
-            let result = client.pokemon_species_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PokemonSpeciesListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::PokemonSpeciesRead {
-            id,
-        } => {
-            info!("Performing a PokemonSpeciesRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.pokemon_species_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                PokemonSpeciesReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -2228,39 +1809,703 @@ async fn main() -> Result<()> {
         Operation::RegionList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a RegionList request");
 
             let result = client.region_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                RegionListResponse::DefaultResponse
+                RegionListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::RegionRead {
+        Operation::LocationAreaRetrieve {
             id,
         } => {
-            info!("Performing a RegionRead request on {:?}", (
+            info!("Performing a LocationAreaRetrieve request on {:?}", (
                 &id
             ));
 
-            let result = client.region_read(
+            let result = client.location_area_retrieve(
                 id,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                RegionReadResponse::DefaultResponse
+                LocationAreaRetrieveResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::LocationRetrieve {
+            id,
+        } => {
+            info!("Performing a LocationRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.location_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                LocationRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::PalParkAreaRetrieve {
+            id,
+        } => {
+            info!("Performing a PalParkAreaRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.pal_park_area_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                PalParkAreaRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::RegionRetrieve {
+            id,
+        } => {
+            info!("Performing a RegionRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.region_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                RegionRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::MachineList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a MachineList request");
+
+            let result = client.machine_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                MachineListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::MachineRetrieve {
+            id,
+        } => {
+            info!("Performing a MachineRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.machine_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                MachineRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::MoveAilmentList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a MoveAilmentList request");
+
+            let result = client.move_ailment_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                MoveAilmentListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::MoveBattleStyleList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a MoveBattleStyleList request");
+
+            let result = client.move_battle_style_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                MoveBattleStyleListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::MoveCategoryList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a MoveCategoryList request");
+
+            let result = client.move_category_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                MoveCategoryListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::MoveLearnMethodList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a MoveLearnMethodList request");
+
+            let result = client.move_learn_method_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                MoveLearnMethodListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::MoveList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a MoveList request");
+
+            let result = client.move_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                MoveListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::MoveTargetList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a MoveTargetList request");
+
+            let result = client.move_target_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                MoveTargetListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::MoveAilmentRetrieve {
+            id,
+        } => {
+            info!("Performing a MoveAilmentRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.move_ailment_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                MoveAilmentRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::MoveBattleStyleRetrieve {
+            id,
+        } => {
+            info!("Performing a MoveBattleStyleRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.move_battle_style_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                MoveBattleStyleRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::MoveCategoryRetrieve {
+            id,
+        } => {
+            info!("Performing a MoveCategoryRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.move_category_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                MoveCategoryRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::MoveLearnMethodRetrieve {
+            id,
+        } => {
+            info!("Performing a MoveLearnMethodRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.move_learn_method_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                MoveLearnMethodRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::MoveRetrieve {
+            id,
+        } => {
+            info!("Performing a MoveRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.move_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                MoveRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::MoveTargetRetrieve {
+            id,
+        } => {
+            info!("Performing a MoveTargetRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.move_target_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                MoveTargetRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::AbilityList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a AbilityList request");
+
+            let result = client.ability_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                AbilityListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::CharacteristicList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a CharacteristicList request");
+
+            let result = client.characteristic_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                CharacteristicListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::EggGroupList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a EggGroupList request");
+
+            let result = client.egg_group_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                EggGroupListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::GenderList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a GenderList request");
+
+            let result = client.gender_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                GenderListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::GrowthRateList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a GrowthRateList request");
+
+            let result = client.growth_rate_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                GrowthRateListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::MoveDamageClassList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a MoveDamageClassList request");
+
+            let result = client.move_damage_class_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                MoveDamageClassListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::NatureList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a NatureList request");
+
+            let result = client.nature_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                NatureListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::PokeathlonStatList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a PokeathlonStatList request");
+
+            let result = client.pokeathlon_stat_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                PokeathlonStatListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::PokemonColorList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a PokemonColorList request");
+
+            let result = client.pokemon_color_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                PokemonColorListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::PokemonFormList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a PokemonFormList request");
+
+            let result = client.pokemon_form_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                PokemonFormListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::PokemonHabitatList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a PokemonHabitatList request");
+
+            let result = client.pokemon_habitat_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                PokemonHabitatListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::PokemonList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a PokemonList request");
+
+            let result = client.pokemon_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                PokemonListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::PokemonShapeList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a PokemonShapeList request");
+
+            let result = client.pokemon_shape_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                PokemonShapeListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::PokemonSpeciesList {
+            limit,
+            offset,
+            q,
+        } => {
+            info!("Performing a PokemonSpeciesList request");
+
+            let result = client.pokemon_species_list(
+                limit,
+                offset,
+                q,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                PokemonSpeciesListResponse::Status200
+                (body)
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -2268,79 +2513,21 @@ async fn main() -> Result<()> {
         Operation::StatList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a StatList request");
 
             let result = client.stat_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                StatListResponse::DefaultResponse
+                StatListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::StatRead {
-            id,
-        } => {
-            info!("Performing a StatRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.stat_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                StatReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::SuperContestEffectList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a SuperContestEffectList request");
-
-            let result = client.super_contest_effect_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                SuperContestEffectListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::SuperContestEffectRead {
-            id,
-        } => {
-            info!("Performing a SuperContestEffectRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.super_contest_effect_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                SuperContestEffectReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
@@ -2348,119 +2535,383 @@ async fn main() -> Result<()> {
         Operation::TypeList {
             limit,
             offset,
+            q,
         } => {
             info!("Performing a TypeList request");
 
             let result = client.type_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                TypeListResponse::DefaultResponse
+                TypeListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::TypeRead {
+        Operation::AbilityRetrieve {
             id,
         } => {
-            info!("Performing a TypeRead request on {:?}", (
+            info!("Performing a AbilityRetrieve request on {:?}", (
                 &id
             ));
 
-            let result = client.type_read(
+            let result = client.ability_retrieve(
                 id,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                TypeReadResponse::DefaultResponse
+                AbilityRetrieveResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::VersionList {
+        Operation::CharacteristicRetrieve {
+            id,
+        } => {
+            info!("Performing a CharacteristicRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.characteristic_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                CharacteristicRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::EggGroupRetrieve {
+            id,
+        } => {
+            info!("Performing a EggGroupRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.egg_group_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                EggGroupRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::GenderRetrieve {
+            id,
+        } => {
+            info!("Performing a GenderRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.gender_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                GenderRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::GrowthRateRetrieve {
+            id,
+        } => {
+            info!("Performing a GrowthRateRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.growth_rate_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                GrowthRateRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::MoveDamageClassRetrieve {
+            id,
+        } => {
+            info!("Performing a MoveDamageClassRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.move_damage_class_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                MoveDamageClassRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::NatureRetrieve {
+            id,
+        } => {
+            info!("Performing a NatureRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.nature_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                NatureRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::PokeathlonStatRetrieve {
+            id,
+        } => {
+            info!("Performing a PokeathlonStatRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.pokeathlon_stat_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                PokeathlonStatRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::PokemonColorRetrieve {
+            id,
+        } => {
+            info!("Performing a PokemonColorRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.pokemon_color_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                PokemonColorRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::PokemonFormRetrieve {
+            id,
+        } => {
+            info!("Performing a PokemonFormRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.pokemon_form_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                PokemonFormRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::PokemonHabitatRetrieve {
+            id,
+        } => {
+            info!("Performing a PokemonHabitatRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.pokemon_habitat_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                PokemonHabitatRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::PokemonRetrieve {
+            id,
+        } => {
+            info!("Performing a PokemonRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.pokemon_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                PokemonRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::PokemonShapeRetrieve {
+            id,
+        } => {
+            info!("Performing a PokemonShapeRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.pokemon_shape_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                PokemonShapeRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::PokemonSpeciesRetrieve {
+            id,
+        } => {
+            info!("Performing a PokemonSpeciesRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.pokemon_species_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                PokemonSpeciesRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::StatRetrieve {
+            id,
+        } => {
+            info!("Performing a StatRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.stat_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                StatRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::TypeRetrieve {
+            id,
+        } => {
+            info!("Performing a TypeRetrieve request on {:?}", (
+                &id
+            ));
+
+            let result = client.type_retrieve(
+                id,
+            ).await?;
+            debug!("Result: {:?}", result);
+
+            match result {
+                TypeRetrieveResponse::Status200
+                (body)
+                => "Status200\n".to_string()
+                   +
+                    &serde_json::to_string_pretty(&body)?,
+            }
+        }
+        Operation::LanguageList {
             limit,
             offset,
+            q,
         } => {
-            info!("Performing a VersionList request");
+            info!("Performing a LanguageList request");
 
-            let result = client.version_list(
+            let result = client.language_list(
                 limit,
                 offset,
+                q,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                VersionListResponse::DefaultResponse
+                LanguageListResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::VersionRead {
+        Operation::LanguageRetrieve {
             id,
         } => {
-            info!("Performing a VersionRead request on {:?}", (
+            info!("Performing a LanguageRetrieve request on {:?}", (
                 &id
             ));
 
-            let result = client.version_read(
+            let result = client.language_retrieve(
                 id,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                VersionReadResponse::DefaultResponse
+                LanguageRetrieveResponse::Status200
                 (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::VersionGroupList {
-            limit,
-            offset,
-        } => {
-            info!("Performing a VersionGroupList request");
-
-            let result = client.version_group_list(
-                limit,
-                offset,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                VersionGroupListResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
-                   +
-                    &serde_json::to_string_pretty(&body)?,
-            }
-        }
-        Operation::VersionGroupRead {
-            id,
-        } => {
-            info!("Performing a VersionGroupRead request on {:?}", (
-                &id
-            ));
-
-            let result = client.version_group_read(
-                id,
-            ).await?;
-            debug!("Result: {:?}", result);
-
-            match result {
-                VersionGroupReadResponse::DefaultResponse
-                (body)
-                => "DefaultResponse\n".to_string()
+                => "Status200\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }

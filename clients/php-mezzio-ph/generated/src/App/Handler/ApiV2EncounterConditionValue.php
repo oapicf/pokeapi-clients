@@ -16,6 +16,7 @@ use Psr\Http\Message\ServerRequestInterface;
 class ApiV2EncounterConditionValue
 {
     /**
+     * List encounter condition values
      * @PHA\Get()
      * @PHA\Attribute(name=PHAttribute\Transfer::class, options={
      *     "type":\App\DTO\EncounterConditionValueListQueryData::class,
@@ -23,14 +24,14 @@ class ApiV2EncounterConditionValue
      *     "source": PHAttribute\Transfer::SOURCE_GET
      * })
      * TODO check if producer is valid, if it has correct priority and if it can be moved to class annotation
-     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="text/plain")
+     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="application/json")
      * @param ServerRequestInterface $request
      *
      * @throws PHException\HttpCode 501 if the method is not implemented
      *
-     * @return string
+     * @return \App\DTO\PaginatedEncounterConditionValueSummaryList
      */
-    public function encounterConditionValueList(ServerRequestInterface $request): string
+    public function encounterConditionValueList(ServerRequestInterface $request): \App\DTO\PaginatedEncounterConditionValueSummaryList
     {
         //TODO implement method
         /** @var \App\DTO\EncounterConditionValueListQueryData $queryData */

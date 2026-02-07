@@ -1,0 +1,12 @@
+package org.openapitools.server.model
+
+
+/**
+ * @param description  for example: ''null''
+ * @param language  for example: ''null''
+*/
+final case class PokemonSpeciesDescription (
+  description: Option[String] = None,
+  language: LanguageSummary
+)
+

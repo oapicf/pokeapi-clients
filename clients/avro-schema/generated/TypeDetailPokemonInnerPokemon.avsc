@@ -1,0 +1,21 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "TypeDetailPokemonInnerPokemon",
+  "fields": [
+    {
+      "name": "name",
+      "type": ["null", "string"],
+      "doc": "The name of the pokemon",
+      "default": null
+    },
+    {
+      "name": "url",
+      "type": ["null", "model.URI"],
+      "doc": "The URL to get more information about the pokemon",
+      "default": null
+    }
+  ]
+
+}

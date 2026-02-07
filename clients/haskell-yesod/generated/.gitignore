@@ -19,4 +19,4 @@ cabal.sandbox.config
 *.keter
 *~
 \#*
-openapi-haskell-yesod-server.cabal
+pok-api.cabal

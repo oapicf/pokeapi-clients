@@ -1,0 +1,22 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonDetailMovesInner",
+  "fields": [
+    {
+      "name": "move",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    },
+    {
+      "name": "version_group_details",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonDetailMovesInnerVersionGroupDetailsInner"
+      },
+      "doc": ""
+    }
+  ]
+
+}

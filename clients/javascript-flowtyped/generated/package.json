@@ -1,14 +1,14 @@
 {
-  "name": "openapi-js-client",
+  "name": "pokapi",
   "version": "1.0.0",
-  "description": "OpenAPI Client for openapi-js-client",
+  "description": "OpenAPI Client for pokapi",
   "author": "OpenAPI-Generator Contributors",
   "keywords": [
     "fetch",
     "flow",
     "openapi",
     "openapi-generator",
-    "openapi-js-client"
+    "pokapi"
   ],
   "license": "Unlicense",
   "main": "./lib/index.js",

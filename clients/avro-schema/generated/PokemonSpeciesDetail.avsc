@@ -1,0 +1,178 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonSpeciesDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "order",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "gender_rate",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "capture_rate",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "base_happiness",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "is_baby",
+      "type": ["null", "boolean"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "is_legendary",
+      "type": ["null", "boolean"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "is_mythical",
+      "type": ["null", "boolean"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "hatch_counter",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "has_gender_differences",
+      "type": ["null", "boolean"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "forms_switchable",
+      "type": ["null", "boolean"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "growth_rate",
+      "type": "model.GrowthRateSummary",
+      "doc": ""
+    },
+    {
+      "name": "pokedex_numbers",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonDexEntry"
+      },
+      "doc": ""
+    },
+    {
+      "name": "egg_groups",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityDetailPokemonInnerPokemon"
+      },
+      "doc": ""
+    },
+    {
+      "name": "color",
+      "type": "model.PokemonColorSummary",
+      "doc": ""
+    },
+    {
+      "name": "shape",
+      "type": "model.PokemonShapeSummary",
+      "doc": ""
+    },
+    {
+      "name": "evolves_from_species",
+      "type": "model.PokemonSpeciesSummary",
+      "doc": ""
+    },
+    {
+      "name": "evolution_chain",
+      "type": "model.EvolutionChainSummary",
+      "doc": ""
+    },
+    {
+      "name": "habitat",
+      "type": "model.PokemonHabitatSummary",
+      "doc": ""
+    },
+    {
+      "name": "generation",
+      "type": "model.GenerationSummary",
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonFormDetailFormNamesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "pal_park_encounters",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonSpeciesDetailPalParkEncountersInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "form_descriptions",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonSpeciesDescription"
+      },
+      "doc": ""
+    },
+    {
+      "name": "flavor_text_entries",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonSpeciesFlavorText"
+      },
+      "doc": ""
+    },
+    {
+      "name": "genera",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonSpeciesDetailGeneraInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "varieties",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonSpeciesDetailVarietiesInner"
+      },
+      "doc": ""
+    }
+  ]
+
+}

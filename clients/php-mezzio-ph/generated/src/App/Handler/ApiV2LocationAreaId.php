@@ -16,16 +16,17 @@ use Psr\Http\Message\ServerRequestInterface;
 class ApiV2LocationAreaId
 {
     /**
+     * Get location area
      * @PHA\Get()
      * TODO check if producer is valid, if it has correct priority and if it can be moved to class annotation
-     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="text/plain")
+     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="application/json")
      * @param ServerRequestInterface $request
      *
      * @throws PHException\HttpCode 501 if the method is not implemented
      *
-     * @return string
+     * @return \App\DTO\LocationAreaDetail
      */
-    public function locationAreaRead(ServerRequestInterface $request): string
+    public function locationAreaRetrieve(ServerRequestInterface $request): \App\DTO\LocationAreaDetail
     {
         //TODO implement method
         throw new PHException\HttpCode(501, "Not implemented");

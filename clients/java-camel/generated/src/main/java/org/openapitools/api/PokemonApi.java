@@ -20,46 +20,963 @@ public class PokemonApi extends RouteBuilder {
         
 
         /**
-        GET /api/v2/pokemon/
+        GET /api/v2/ability/
         **/
         rest()
-            .get("/api/v2/pokemon/")
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/ability/")
                 .description("")
-                .id("pokemonListApi")
-                .clientRequestValidation(false)
-                .bindingMode(RestBindingMode.off)
-                .produces("text/plain")
-                .outType(String.class)
+                .id("abilityListApi")
+                .produces("application/json")
+                .outType(PaginatedAbilitySummaryList.class)
                 .param()
                     .name("limit")
                     .type(RestParamType.query)
                     .required(false)
+                    .description("Number of results to return per page.")
                 .endParam()
                 .param()
                     .name("offset")
                     .type(RestParamType.query)
                     .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:abilityList");
+        
+
+        /**
+        GET /api/v2/ability/{id}/
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/ability/{id}/")
+                .description("")
+                .id("abilityRetrieveApi")
+                .produces("application/json")
+                .outType(AbilityDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:abilityRetrieve");
+        
+
+        /**
+        GET /api/v2/characteristic/ : List charecterictics
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/characteristic/")
+                .description("List charecterictics")
+                .id("characteristicListApi")
+                .produces("application/json")
+                .outType(PaginatedCharacteristicSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:characteristicList");
+        
+
+        /**
+        GET /api/v2/characteristic/{id}/ : Get characteristic
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/characteristic/{id}/")
+                .description("Get characteristic")
+                .id("characteristicRetrieveApi")
+                .produces("application/json")
+                .outType(CharacteristicDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:characteristicRetrieve");
+        
+
+        /**
+        GET /api/v2/egg-group/ : List egg groups
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/egg-group/")
+                .description("List egg groups")
+                .id("eggGroupListApi")
+                .produces("application/json")
+                .outType(PaginatedEggGroupSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:eggGroupList");
+        
+
+        /**
+        GET /api/v2/egg-group/{id}/ : Get egg group
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/egg-group/{id}/")
+                .description("Get egg group")
+                .id("eggGroupRetrieveApi")
+                .produces("application/json")
+                .outType(EggGroupDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:eggGroupRetrieve");
+        
+
+        /**
+        GET /api/v2/gender/ : List genders
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/gender/")
+                .description("List genders")
+                .id("genderListApi")
+                .produces("application/json")
+                .outType(PaginatedGenderSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:genderList");
+        
+
+        /**
+        GET /api/v2/gender/{id}/ : Get gender
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/gender/{id}/")
+                .description("Get gender")
+                .id("genderRetrieveApi")
+                .produces("application/json")
+                .outType(GenderDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:genderRetrieve");
+        
+
+        /**
+        GET /api/v2/growth-rate/ : List growth rates
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/growth-rate/")
+                .description("List growth rates")
+                .id("growthRateListApi")
+                .produces("application/json")
+                .outType(PaginatedGrowthRateSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:growthRateList");
+        
+
+        /**
+        GET /api/v2/growth-rate/{id}/ : Get growth rate
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/growth-rate/{id}/")
+                .description("Get growth rate")
+                .id("growthRateRetrieveApi")
+                .produces("application/json")
+                .outType(GrowthRateDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:growthRateRetrieve");
+        
+
+        /**
+        GET /api/v2/move-damage-class/ : List move damage classes
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/move-damage-class/")
+                .description("List move damage classes")
+                .id("moveDamageClassListApi")
+                .produces("application/json")
+                .outType(PaginatedMoveDamageClassSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:moveDamageClassList");
+        
+
+        /**
+        GET /api/v2/move-damage-class/{id}/ : Get move damage class
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/move-damage-class/{id}/")
+                .description("Get move damage class")
+                .id("moveDamageClassRetrieveApi")
+                .produces("application/json")
+                .outType(MoveDamageClassDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:moveDamageClassRetrieve");
+        
+
+        /**
+        GET /api/v2/nature/ : List natures
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/nature/")
+                .description("List natures")
+                .id("natureListApi")
+                .produces("application/json")
+                .outType(PaginatedNatureSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:natureList");
+        
+
+        /**
+        GET /api/v2/nature/{id}/ : Get nature
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/nature/{id}/")
+                .description("Get nature")
+                .id("natureRetrieveApi")
+                .produces("application/json")
+                .outType(NatureDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:natureRetrieve");
+        
+
+        /**
+        GET /api/v2/pokeathlon-stat/ : List pokeathlon stats
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/pokeathlon-stat/")
+                .description("List pokeathlon stats")
+                .id("pokeathlonStatListApi")
+                .produces("application/json")
+                .outType(PaginatedPokeathlonStatSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:pokeathlonStatList");
+        
+
+        /**
+        GET /api/v2/pokeathlon-stat/{id}/ : Get pokeathlon stat
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/pokeathlon-stat/{id}/")
+                .description("Get pokeathlon stat")
+                .id("pokeathlonStatRetrieveApi")
+                .produces("application/json")
+                .outType(PokeathlonStatDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:pokeathlonStatRetrieve");
+        
+
+        /**
+        GET /api/v2/pokemon-color/ : List pokemon colors
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/pokemon-color/")
+                .description("List pokemon colors")
+                .id("pokemonColorListApi")
+                .produces("application/json")
+                .outType(PaginatedPokemonColorSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:pokemonColorList");
+        
+
+        /**
+        GET /api/v2/pokemon-color/{id}/ : Get pokemon color
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/pokemon-color/{id}/")
+                .description("Get pokemon color")
+                .id("pokemonColorRetrieveApi")
+                .produces("application/json")
+                .outType(PokemonColorDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:pokemonColorRetrieve");
+        
+
+        /**
+        GET /api/v2/pokemon-form/ : List pokemon forms
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/pokemon-form/")
+                .description("List pokemon forms")
+                .id("pokemonFormListApi")
+                .produces("application/json")
+                .outType(PaginatedPokemonFormSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:pokemonFormList");
+        
+
+        /**
+        GET /api/v2/pokemon-form/{id}/ : Get pokemon form
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/pokemon-form/{id}/")
+                .description("Get pokemon form")
+                .id("pokemonFormRetrieveApi")
+                .produces("application/json")
+                .outType(PokemonFormDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:pokemonFormRetrieve");
+        
+
+        /**
+        GET /api/v2/pokemon-habitat/ : List pokemom habitas
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/pokemon-habitat/")
+                .description("List pokemom habitas")
+                .id("pokemonHabitatListApi")
+                .produces("application/json")
+                .outType(PaginatedPokemonHabitatSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:pokemonHabitatList");
+        
+
+        /**
+        GET /api/v2/pokemon-habitat/{id}/ : Get pokemom habita
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/pokemon-habitat/{id}/")
+                .description("Get pokemom habita")
+                .id("pokemonHabitatRetrieveApi")
+                .produces("application/json")
+                .outType(PokemonHabitatDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:pokemonHabitatRetrieve");
+        
+
+        /**
+        GET /api/v2/pokemon/ : List pokemon
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/pokemon/")
+                .description("List pokemon")
+                .id("pokemonListApi")
+                .produces("application/json")
+                .outType(PaginatedPokemonSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
                 .endParam()
                 .to("direct:pokemonList");
         
 
         /**
-        GET /api/v2/pokemon/{id}/
+        GET /api/v2/pokemon/{id}/ : Get pokemon
         **/
         rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
             .get("/api/v2/pokemon/{id}/")
-                .description("")
-                .id("pokemonReadApi")
-                .clientRequestValidation(false)
-                .bindingMode(RestBindingMode.off)
-                .produces("text/plain")
-                .outType(String.class)
+                .description("Get pokemon")
+                .id("pokemonRetrieveApi")
+                .produces("application/json")
+                .outType(PokemonDetail.class)
                 .param()
                     .name("id")
                     .type(RestParamType.path)
                     .required(true)
+                    .description("This parameter can be a string or an integer.")
                 .endParam()
-                .to("direct:pokemonRead");
+                .to("direct:pokemonRetrieve");
+        
+
+        /**
+        GET /api/v2/pokemon-shape/ : List pokemon shapes
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/pokemon-shape/")
+                .description("List pokemon shapes")
+                .id("pokemonShapeListApi")
+                .produces("application/json")
+                .outType(PaginatedPokemonShapeSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:pokemonShapeList");
+        
+
+        /**
+        GET /api/v2/pokemon-shape/{id}/ : Get pokemon shape
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/pokemon-shape/{id}/")
+                .description("Get pokemon shape")
+                .id("pokemonShapeRetrieveApi")
+                .produces("application/json")
+                .outType(PokemonShapeDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:pokemonShapeRetrieve");
+        
+
+        /**
+        GET /api/v2/pokemon-species/ : List pokemon species
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/pokemon-species/")
+                .description("List pokemon species")
+                .id("pokemonSpeciesListApi")
+                .produces("application/json")
+                .outType(PaginatedPokemonSpeciesSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:pokemonSpeciesList");
+        
+
+        /**
+        GET /api/v2/pokemon-species/{id}/ : Get pokemon species
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/pokemon-species/{id}/")
+                .description("Get pokemon species")
+                .id("pokemonSpeciesRetrieveApi")
+                .produces("application/json")
+                .outType(PokemonSpeciesDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:pokemonSpeciesRetrieve");
+        
+
+        /**
+        GET /api/v2/stat/ : List stats
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/stat/")
+                .description("List stats")
+                .id("statListApi")
+                .produces("application/json")
+                .outType(PaginatedStatSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:statList");
+        
+
+        /**
+        GET /api/v2/stat/{id}/ : Get stat
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/stat/{id}/")
+                .description("Get stat")
+                .id("statRetrieveApi")
+                .produces("application/json")
+                .outType(StatDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:statRetrieve");
+        
+
+        /**
+        GET /api/v2/type/ : List types
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/type/")
+                .description("List types")
+                .id("typeListApi")
+                .produces("application/json")
+                .outType(PaginatedTypeSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:typeList");
+        
+
+        /**
+        GET /api/v2/type/{id}/ : Get types
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/type/{id}/")
+                .description("Get types")
+                .id("typeRetrieveApi")
+                .produces("application/json")
+                .outType(TypeDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:typeRetrieve");
         
     }
 }

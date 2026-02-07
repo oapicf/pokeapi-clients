@@ -10,8 +10,106 @@ import java.util.List;
 
 import org.openapitools.model.*;
 
+import org.openapitools.model.AbilityDetail;
+import org.openapitools.model.BerryDetail;
+import org.openapitools.model.BerryFirmnessDetail;
+import org.openapitools.model.BerryFlavorDetail;
+import org.openapitools.model.CharacteristicDetail;
+import org.openapitools.model.ContestEffectDetail;
+import org.openapitools.model.ContestTypeDetail;
+import org.openapitools.model.EggGroupDetail;
+import org.openapitools.model.EncounterConditionDetail;
+import org.openapitools.model.EncounterConditionValueDetail;
+import org.openapitools.model.EncounterMethodDetail;
+import org.openapitools.model.EvolutionChainDetail;
+import org.openapitools.model.EvolutionTriggerDetail;
+import org.openapitools.model.GenderDetail;
+import org.openapitools.model.GenerationDetail;
+import org.openapitools.model.GrowthRateDetail;
+import org.openapitools.model.ItemAttributeDetail;
+import org.openapitools.model.ItemCategoryDetail;
+import org.openapitools.model.ItemDetail;
+import org.openapitools.model.ItemFlingEffectDetail;
+import org.openapitools.model.ItemPocketDetail;
+import org.openapitools.model.LanguageDetail;
+import java.util.List;
+import org.openapitools.model.LocationAreaDetail;
+import org.openapitools.model.LocationDetail;
+import org.openapitools.model.MachineDetail;
+import org.openapitools.model.MoveBattleStyleDetail;
+import org.openapitools.model.MoveDamageClassDetail;
+import org.openapitools.model.MoveDetail;
+import org.openapitools.model.MoveLearnMethodDetail;
+import org.openapitools.model.MoveMetaAilmentDetail;
+import org.openapitools.model.MoveMetaCategoryDetail;
+import org.openapitools.model.MoveTargetDetail;
+import org.openapitools.model.NatureDetail;
+import org.openapitools.model.PaginatedAbilitySummaryList;
+import org.openapitools.model.PaginatedBerryFirmnessSummaryList;
+import org.openapitools.model.PaginatedBerryFlavorSummaryList;
+import org.openapitools.model.PaginatedBerrySummaryList;
+import org.openapitools.model.PaginatedCharacteristicSummaryList;
+import org.openapitools.model.PaginatedContestEffectSummaryList;
+import org.openapitools.model.PaginatedContestTypeSummaryList;
+import org.openapitools.model.PaginatedEggGroupSummaryList;
+import org.openapitools.model.PaginatedEncounterConditionSummaryList;
+import org.openapitools.model.PaginatedEncounterConditionValueSummaryList;
+import org.openapitools.model.PaginatedEncounterMethodSummaryList;
+import org.openapitools.model.PaginatedEvolutionChainSummaryList;
+import org.openapitools.model.PaginatedEvolutionTriggerSummaryList;
+import org.openapitools.model.PaginatedGenderSummaryList;
+import org.openapitools.model.PaginatedGenerationSummaryList;
+import org.openapitools.model.PaginatedGrowthRateSummaryList;
+import org.openapitools.model.PaginatedItemAttributeSummaryList;
+import org.openapitools.model.PaginatedItemCategorySummaryList;
+import org.openapitools.model.PaginatedItemFlingEffectSummaryList;
+import org.openapitools.model.PaginatedItemPocketSummaryList;
+import org.openapitools.model.PaginatedItemSummaryList;
+import org.openapitools.model.PaginatedLanguageSummaryList;
+import org.openapitools.model.PaginatedLocationAreaSummaryList;
+import org.openapitools.model.PaginatedLocationSummaryList;
+import org.openapitools.model.PaginatedMachineSummaryList;
+import org.openapitools.model.PaginatedMoveBattleStyleSummaryList;
+import org.openapitools.model.PaginatedMoveDamageClassSummaryList;
+import org.openapitools.model.PaginatedMoveLearnMethodSummaryList;
+import org.openapitools.model.PaginatedMoveMetaAilmentSummaryList;
+import org.openapitools.model.PaginatedMoveMetaCategorySummaryList;
+import org.openapitools.model.PaginatedMoveSummaryList;
+import org.openapitools.model.PaginatedMoveTargetSummaryList;
+import org.openapitools.model.PaginatedNatureSummaryList;
+import org.openapitools.model.PaginatedPalParkAreaSummaryList;
+import org.openapitools.model.PaginatedPokeathlonStatSummaryList;
+import org.openapitools.model.PaginatedPokedexSummaryList;
+import org.openapitools.model.PaginatedPokemonColorSummaryList;
+import org.openapitools.model.PaginatedPokemonFormSummaryList;
+import org.openapitools.model.PaginatedPokemonHabitatSummaryList;
+import org.openapitools.model.PaginatedPokemonShapeSummaryList;
+import org.openapitools.model.PaginatedPokemonSpeciesSummaryList;
+import org.openapitools.model.PaginatedPokemonSummaryList;
+import org.openapitools.model.PaginatedRegionSummaryList;
+import org.openapitools.model.PaginatedStatSummaryList;
+import org.openapitools.model.PaginatedSuperContestEffectSummaryList;
+import org.openapitools.model.PaginatedTypeSummaryList;
+import org.openapitools.model.PaginatedVersionGroupSummaryList;
+import org.openapitools.model.PaginatedVersionSummaryList;
+import org.openapitools.model.PalParkAreaDetail;
+import org.openapitools.model.PokeathlonStatDetail;
+import org.openapitools.model.PokedexDetail;
+import org.openapitools.model.PokemonColorDetail;
+import org.openapitools.model.PokemonDetail;
+import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
+import org.openapitools.model.PokemonFormDetail;
+import org.openapitools.model.PokemonHabitatDetail;
+import org.openapitools.model.PokemonShapeDetail;
+import org.openapitools.model.PokemonSpeciesDetail;
+import org.openapitools.model.RegionDetail;
+import org.openapitools.model.StatDetail;
+import org.openapitools.model.SuperContestEffectDetail;
+import org.openapitools.model.TypeDetail;
+import org.openapitools.model.VersionDetail;
+import org.openapitools.model.VersionGroupDetail;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-01-25T00:36:07.241649336Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-02-07T04:16:44.910526458Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class ApiController  {
   /**
    * Uncomment and implement as you see fit.  These operations will map
@@ -20,265 +118,265 @@ public class ApiController  {
    **/
 
   /*
-    public ResponseContext abilityList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext abilityList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext abilityRead(RequestContext request , Integer id) {
+    public ResponseContext abilityRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext berryFirmnessList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext berryFirmnessList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext berryFirmnessRead(RequestContext request , Integer id) {
+    public ResponseContext berryFirmnessRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext berryFlavorList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext berryFlavorList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext berryFlavorRead(RequestContext request , Integer id) {
+    public ResponseContext berryFlavorRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext berryList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext berryList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext berryRead(RequestContext request , Integer id) {
+    public ResponseContext berryRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext characteristicList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext characteristicList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext characteristicRead(RequestContext request , Integer id) {
+    public ResponseContext characteristicRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext contestEffectList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext contestEffectList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext contestEffectRead(RequestContext request , Integer id) {
+    public ResponseContext contestEffectRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext contestTypeList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext contestTypeList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext contestTypeRead(RequestContext request , Integer id) {
+    public ResponseContext contestTypeRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext eggGroupList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext eggGroupList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext eggGroupRead(RequestContext request , Integer id) {
+    public ResponseContext eggGroupRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext encounterConditionList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext encounterConditionList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext encounterConditionRead(RequestContext request , Integer id) {
+    public ResponseContext encounterConditionRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext encounterConditionValueList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext encounterConditionValueList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext encounterConditionValueRead(RequestContext request , Integer id) {
+    public ResponseContext encounterConditionValueRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext encounterMethodList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext encounterMethodList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext encounterMethodRead(RequestContext request , Integer id) {
+    public ResponseContext encounterMethodRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext evolutionChainList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext evolutionChainList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext evolutionChainRead(RequestContext request , Integer id) {
+    public ResponseContext evolutionChainRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext evolutionTriggerList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext evolutionTriggerList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext evolutionTriggerRead(RequestContext request , Integer id) {
+    public ResponseContext evolutionTriggerRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext genderList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext genderList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext genderRead(RequestContext request , Integer id) {
+    public ResponseContext genderRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext generationList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext generationList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext generationRead(RequestContext request , Integer id) {
+    public ResponseContext generationRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext growthRateList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext growthRateList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext growthRateRead(RequestContext request , Integer id) {
+    public ResponseContext growthRateRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext itemAttributeList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext itemAttributeList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext itemAttributeRead(RequestContext request , Integer id) {
+    public ResponseContext itemAttributeRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext itemCategoryList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext itemCategoryList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext itemCategoryRead(RequestContext request , Integer id) {
+    public ResponseContext itemCategoryRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext itemFlingEffectList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext itemFlingEffectList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext itemFlingEffectRead(RequestContext request , Integer id) {
+    public ResponseContext itemFlingEffectRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext itemList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext itemList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext itemPocketList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext itemPocketList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext itemPocketRead(RequestContext request , Integer id) {
+    public ResponseContext itemPocketRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext itemRead(RequestContext request , Integer id) {
+    public ResponseContext itemRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext languageList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext languageList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext languageRead(RequestContext request , Integer id) {
+    public ResponseContext languageRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
@@ -290,307 +388,313 @@ public class ApiController  {
   */
 
   /*
-    public ResponseContext locationAreaRead(RequestContext request , Integer id) {
+    public ResponseContext locationAreaRetrieve(RequestContext request , Integer id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext locationList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext locationList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext locationRead(RequestContext request , Integer id) {
+    public ResponseContext locationRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext machineList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext machineList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext machineRead(RequestContext request , Integer id) {
+    public ResponseContext machineRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext moveAilmentList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext moveAilmentList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext moveAilmentRead(RequestContext request , Integer id) {
+    public ResponseContext moveAilmentRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext moveBattleStyleList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext moveBattleStyleList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext moveBattleStyleRead(RequestContext request , Integer id) {
+    public ResponseContext moveBattleStyleRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext moveCategoryList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext moveCategoryList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext moveCategoryRead(RequestContext request , Integer id) {
+    public ResponseContext moveCategoryRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext moveDamageClassList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext moveDamageClassList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext moveDamageClassRead(RequestContext request , Integer id) {
+    public ResponseContext moveDamageClassRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext moveLearnMethodList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext moveLearnMethodList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext moveLearnMethodRead(RequestContext request , Integer id) {
+    public ResponseContext moveLearnMethodRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext moveList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext moveList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext moveRead(RequestContext request , Integer id) {
+    public ResponseContext moveRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext moveTargetList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext moveTargetList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext moveTargetRead(RequestContext request , Integer id) {
+    public ResponseContext moveTargetRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext natureList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext natureList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext natureRead(RequestContext request , Integer id) {
+    public ResponseContext natureRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext palParkAreaList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext palParkAreaList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext palParkAreaRead(RequestContext request , Integer id) {
+    public ResponseContext palParkAreaRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext pokeathlonStatList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext pokeathlonStatList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext pokeathlonStatRead(RequestContext request , Integer id) {
+    public ResponseContext pokeathlonStatRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext pokedexList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext pokedexList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext pokedexRead(RequestContext request , Integer id) {
+    public ResponseContext pokedexRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext pokemonColorList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext pokemonColorList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext pokemonColorRead(RequestContext request , Integer id) {
+    public ResponseContext pokemonColorRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext pokemonFormList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext pokemonEncountersRetrieve(RequestContext request , String pokemonId) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext pokemonFormRead(RequestContext request , Integer id) {
+    public ResponseContext pokemonFormList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext pokemonHabitatList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext pokemonFormRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext pokemonHabitatRead(RequestContext request , Integer id) {
+    public ResponseContext pokemonHabitatList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext pokemonList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext pokemonHabitatRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext pokemonRead(RequestContext request , Integer id) {
+    public ResponseContext pokemonList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext pokemonShapeList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext pokemonRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext pokemonShapeRead(RequestContext request , Integer id) {
+    public ResponseContext pokemonShapeList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext pokemonSpeciesList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext pokemonShapeRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext pokemonSpeciesRead(RequestContext request , Integer id) {
+    public ResponseContext pokemonSpeciesList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext regionList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext pokemonSpeciesRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext regionRead(RequestContext request , Integer id) {
+    public ResponseContext regionList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext statList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext regionRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext statRead(RequestContext request , Integer id) {
+    public ResponseContext statList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext superContestEffectList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext statRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext superContestEffectRead(RequestContext request , Integer id) {
+    public ResponseContext superContestEffectList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext typeList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext superContestEffectRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext typeRead(RequestContext request , Integer id) {
+    public ResponseContext typeList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext versionGroupList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext typeRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext versionGroupRead(RequestContext request , Integer id) {
+    public ResponseContext versionGroupList(RequestContext request , Integer limit, Integer offset, String q) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext versionList(RequestContext request , Integer limit, Integer offset) {
+    public ResponseContext versionGroupRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext versionRead(RequestContext request , Integer id) {
+    public ResponseContext versionList(RequestContext request , Integer limit, Integer offset, String q) {
+        return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
+    }
+  */
+
+  /*
+    public ResponseContext versionRetrieve(RequestContext request , String id) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */

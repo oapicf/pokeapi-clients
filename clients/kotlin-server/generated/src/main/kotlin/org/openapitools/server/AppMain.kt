@@ -12,54 +12,24 @@ import com.codahale.metrics.Slf4jReporter
 import io.ktor.server.metrics.dropwizard.*
 import java.util.concurrent.TimeUnit
 import io.ktor.server.routing.*
-import org.openapitools.server.apis.AbilityApi
-import org.openapitools.server.apis.BerryApi
-import org.openapitools.server.apis.BerryFirmnessApi
-import org.openapitools.server.apis.BerryFlavorApi
-import org.openapitools.server.apis.CharacteristicApi
-import org.openapitools.server.apis.ContestEffectApi
-import org.openapitools.server.apis.ContestTypeApi
-import org.openapitools.server.apis.EggGroupApi
-import org.openapitools.server.apis.EncounterConditionApi
-import org.openapitools.server.apis.EncounterConditionValueApi
-import org.openapitools.server.apis.EncounterMethodApi
-import org.openapitools.server.apis.EvolutionChainApi
-import org.openapitools.server.apis.EvolutionTriggerApi
-import org.openapitools.server.apis.GenderApi
-import org.openapitools.server.apis.GenerationApi
-import org.openapitools.server.apis.GrowthRateApi
-import org.openapitools.server.apis.ItemApi
-import org.openapitools.server.apis.ItemAttributeApi
-import org.openapitools.server.apis.ItemCategoryApi
-import org.openapitools.server.apis.ItemFlingEffectApi
-import org.openapitools.server.apis.ItemPocketApi
-import org.openapitools.server.apis.LanguageApi
+import io.ktor.serialization.kotlinx.json.json
+import com.typesafe.config.ConfigFactory
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.apache.Apache
+import io.ktor.server.config.HoconApplicationConfig
+import io.ktor.server.auth.*
+import org.openapitools.server.infrastructure.*
+import org.openapitools.server.apis.BerriesApi
+import org.openapitools.server.apis.ContestsApi
+import org.openapitools.server.apis.EncountersApi
+import org.openapitools.server.apis.EvolutionApi
+import org.openapitools.server.apis.GamesApi
+import org.openapitools.server.apis.ItemsApi
 import org.openapitools.server.apis.LocationApi
-import org.openapitools.server.apis.LocationAreaApi
-import org.openapitools.server.apis.MachineApi
-import org.openapitools.server.apis.MoveApi
-import org.openapitools.server.apis.MoveAilmentApi
-import org.openapitools.server.apis.MoveBattleStyleApi
-import org.openapitools.server.apis.MoveCategoryApi
-import org.openapitools.server.apis.MoveDamageClassApi
-import org.openapitools.server.apis.MoveLearnMethodApi
-import org.openapitools.server.apis.MoveTargetApi
-import org.openapitools.server.apis.NatureApi
-import org.openapitools.server.apis.PalParkAreaApi
-import org.openapitools.server.apis.PokeathlonStatApi
-import org.openapitools.server.apis.PokedexApi
+import org.openapitools.server.apis.MachinesApi
+import org.openapitools.server.apis.MovesApi
 import org.openapitools.server.apis.PokemonApi
-import org.openapitools.server.apis.PokemonColorApi
-import org.openapitools.server.apis.PokemonFormApi
-import org.openapitools.server.apis.PokemonHabitatApi
-import org.openapitools.server.apis.PokemonShapeApi
-import org.openapitools.server.apis.PokemonSpeciesApi
-import org.openapitools.server.apis.RegionApi
-import org.openapitools.server.apis.StatApi
-import org.openapitools.server.apis.SuperContestEffectApi
-import org.openapitools.server.apis.TypeApi
-import org.openapitools.server.apis.VersionApi
-import org.openapitools.server.apis.VersionGroupApi
+import org.openapitools.server.apis.UtilityApi
 
 
 fun Application.main() {
@@ -79,54 +49,38 @@ fun Application.main() {
     install(Compression, ApplicationCompressionConfiguration()) // see https://ktor.io/docs/compression.html
     install(HSTS, ApplicationHstsConfiguration()) // see https://ktor.io/docs/hsts.html
     install(Resources)
+    install(Authentication) {
+        basic("basicAuth") {
+        validate { credentials ->
+            // TODO: "Apply your basic authentication functionality."
+            // Accessible in-method via call.principal<UserIdPrincipal>()
+            if (credentials.name == "Swagger" && "Codegen" == credentials.password) {
+                UserIdPrincipal(credentials.name)
+            } else {
+                null
+            }
+        }
+        // "Implement API key auth (cookieAuth) for parameter name 'sessionid'."
+        apiKeyAuth("cookieAuth") {
+            validate { apikeyCredential: ApiKeyCredential ->
+                when {
+                    apikeyCredential.value == "keyboardcat" -> ApiPrincipal(apikeyCredential)
+                    else -> null
+                }
+            }
+        }
+    }
     routing {
-        AbilityApi()
-        BerryApi()
-        BerryFirmnessApi()
-        BerryFlavorApi()
-        CharacteristicApi()
-        ContestEffectApi()
-        ContestTypeApi()
-        EggGroupApi()
-        EncounterConditionApi()
-        EncounterConditionValueApi()
-        EncounterMethodApi()
-        EvolutionChainApi()
-        EvolutionTriggerApi()
-        GenderApi()
-        GenerationApi()
-        GrowthRateApi()
-        ItemApi()
-        ItemAttributeApi()
-        ItemCategoryApi()
-        ItemFlingEffectApi()
-        ItemPocketApi()
-        LanguageApi()
+        BerriesApi()
+        ContestsApi()
+        EncountersApi()
+        EvolutionApi()
+        GamesApi()
+        ItemsApi()
         LocationApi()
-        LocationAreaApi()
-        MachineApi()
-        MoveApi()
-        MoveAilmentApi()
-        MoveBattleStyleApi()
-        MoveCategoryApi()
-        MoveDamageClassApi()
-        MoveLearnMethodApi()
-        MoveTargetApi()
-        NatureApi()
-        PalParkAreaApi()
-        PokeathlonStatApi()
-        PokedexApi()
+        MachinesApi()
+        MovesApi()
         PokemonApi()
-        PokemonColorApi()
-        PokemonFormApi()
-        PokemonHabitatApi()
-        PokemonShapeApi()
-        PokemonSpeciesApi()
-        RegionApi()
-        StatApi()
-        SuperContestEffectApi()
-        TypeApi()
-        VersionApi()
-        VersionGroupApi()
+        UtilityApi()
     }
 }

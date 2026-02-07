@@ -19,26 +19,88 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.apis.LocationApi
+import org.openapitools.client.models.LocationAreaDetail
+import org.openapitools.client.models.LocationDetail
+import org.openapitools.client.models.PaginatedLocationAreaSummaryList
+import org.openapitools.client.models.PaginatedLocationSummaryList
+import org.openapitools.client.models.PaginatedPalParkAreaSummaryList
+import org.openapitools.client.models.PaginatedRegionSummaryList
+import org.openapitools.client.models.PalParkAreaDetail
+import org.openapitools.client.models.RegionDetail
 
 class LocationApiTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of LocationApi
         //val apiInstance = LocationApi()
 
-        // to test locationList
-        should("test locationList") {
-            // uncomment below to test locationList
-            //val limit : kotlin.Int = 56 // kotlin.Int | 
-            //val offset : kotlin.Int = 56 // kotlin.Int | 
-            //val result : kotlin.String = apiInstance.locationList(limit, offset)
+        // to test locationAreaList
+        should("test locationAreaList") {
+            // uncomment below to test locationAreaList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val result : PaginatedLocationAreaSummaryList = apiInstance.locationAreaList(limit, offset)
             //result shouldBe ("TODO")
         }
 
-        // to test locationRead
-        should("test locationRead") {
-            // uncomment below to test locationRead
-            //val id : kotlin.Int = 56 // kotlin.Int | 
-            //val result : kotlin.String = apiInstance.locationRead(id)
+        // to test locationAreaRetrieve
+        should("test locationAreaRetrieve") {
+            // uncomment below to test locationAreaRetrieve
+            //val id : kotlin.Int = 56 // kotlin.Int | A unique integer value identifying this location area.
+            //val result : LocationAreaDetail = apiInstance.locationAreaRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test locationList
+        should("test locationList") {
+            // uncomment below to test locationList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedLocationSummaryList = apiInstance.locationList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test locationRetrieve
+        should("test locationRetrieve") {
+            // uncomment below to test locationRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : LocationDetail = apiInstance.locationRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test palParkAreaList
+        should("test palParkAreaList") {
+            // uncomment below to test palParkAreaList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedPalParkAreaSummaryList = apiInstance.palParkAreaList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test palParkAreaRetrieve
+        should("test palParkAreaRetrieve") {
+            // uncomment below to test palParkAreaRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : PalParkAreaDetail = apiInstance.palParkAreaRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test regionList
+        should("test regionList") {
+            // uncomment below to test regionList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedRegionSummaryList = apiInstance.regionList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test regionRetrieve
+        should("test regionRetrieve") {
+            // uncomment below to test regionRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : RegionDetail = apiInstance.regionRetrieve(id)
             //result shouldBe ("TODO")
         }
 

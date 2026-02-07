@@ -5,6 +5,14 @@
  */
 package com.prokarma.pkmst.controller;
 
+import com.prokarma.pkmst.model.LocationAreaDetail;
+import com.prokarma.pkmst.model.LocationDetail;
+import com.prokarma.pkmst.model.PaginatedLocationAreaSummaryList;
+import com.prokarma.pkmst.model.PaginatedLocationSummaryList;
+import com.prokarma.pkmst.model.PaginatedPalParkAreaSummaryList;
+import com.prokarma.pkmst.model.PaginatedRegionSummaryList;
+import com.prokarma.pkmst.model.PalParkAreaDetail;
+import com.prokarma.pkmst.model.RegionDetail;
 
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
@@ -18,29 +26,135 @@ import java.util.List;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-01-25T00:36:17.588509332Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2026-02-07T04:17:07.396624034Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Api(value = "Location", description = "the Location API")
 public interface LocationApi {
 
-    @ApiOperation(value = "", notes = "", response = String.class, tags={ "location", })
+    @ApiOperation(value = "List location areas", notes = "Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.", response = PaginatedLocationAreaSummaryList.class, authorizations = {
+        
+        @Authorization(value = "basicAuth"),
+        
+        @Authorization(value = "cookieAuth")
+         }, tags={ "location", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Default response", response = String.class) })
+        @ApiResponse(code = 200, message = "", response = PaginatedLocationAreaSummaryList.class) })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/api/v2/location-area/",
+        produces = { "application/json" }
+    )
+    ResponseEntity<PaginatedLocationAreaSummaryList> locationAreaList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+
+
+    @ApiOperation(value = "Get location area", notes = "Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.", response = LocationAreaDetail.class, authorizations = {
+        
+        @Authorization(value = "basicAuth"),
+        
+        @Authorization(value = "cookieAuth")
+         }, tags={ "location", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "", response = LocationAreaDetail.class) })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/api/v2/location-area/{id}/",
+        produces = { "application/json" }
+    )
+    ResponseEntity<LocationAreaDetail> locationAreaRetrieve(@ApiParam(value = "A unique integer value identifying this location area.",required=true ) @PathVariable("id") Integer id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+
+
+    @ApiOperation(value = "List locations", notes = "Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.", response = PaginatedLocationSummaryList.class, authorizations = {
+        
+        @Authorization(value = "basicAuth"),
+        
+        @Authorization(value = "cookieAuth")
+         }, tags={ "location", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "", response = PaginatedLocationSummaryList.class) })
     @RequestMapping(
         method = RequestMethod.GET,
         value = "/api/v2/location/",
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    ResponseEntity<String> locationList(@ApiParam(value = "")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "")  @RequestParam(value = "offset", required = false) Integer offset, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+    ResponseEntity<PaginatedLocationSummaryList> locationList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 
-    @ApiOperation(value = "", notes = "", response = String.class, tags={ "location", })
+    @ApiOperation(value = "Get location", notes = "Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.", response = LocationDetail.class, authorizations = {
+        
+        @Authorization(value = "basicAuth"),
+        
+        @Authorization(value = "cookieAuth")
+         }, tags={ "location", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Default response", response = String.class) })
+        @ApiResponse(code = 200, message = "", response = LocationDetail.class) })
     @RequestMapping(
         method = RequestMethod.GET,
         value = "/api/v2/location/{id}/",
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    ResponseEntity<String> locationRead(@ApiParam(value = "",required=true ) @PathVariable("id") Integer id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+    ResponseEntity<LocationDetail> locationRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+
+
+    @ApiOperation(value = "List pal park areas", notes = "Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.", response = PaginatedPalParkAreaSummaryList.class, authorizations = {
+        
+        @Authorization(value = "basicAuth"),
+        
+        @Authorization(value = "cookieAuth")
+         }, tags={ "location", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "", response = PaginatedPalParkAreaSummaryList.class) })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/api/v2/pal-park-area/",
+        produces = { "application/json" }
+    )
+    ResponseEntity<PaginatedPalParkAreaSummaryList> palParkAreaList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+
+
+    @ApiOperation(value = "Get pal park area", notes = "Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.", response = PalParkAreaDetail.class, authorizations = {
+        
+        @Authorization(value = "basicAuth"),
+        
+        @Authorization(value = "cookieAuth")
+         }, tags={ "location", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "", response = PalParkAreaDetail.class) })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/api/v2/pal-park-area/{id}/",
+        produces = { "application/json" }
+    )
+    ResponseEntity<PalParkAreaDetail> palParkAreaRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+
+
+    @ApiOperation(value = "List regions", notes = "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.", response = PaginatedRegionSummaryList.class, authorizations = {
+        
+        @Authorization(value = "basicAuth"),
+        
+        @Authorization(value = "cookieAuth")
+         }, tags={ "location", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "", response = PaginatedRegionSummaryList.class) })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/api/v2/region/",
+        produces = { "application/json" }
+    )
+    ResponseEntity<PaginatedRegionSummaryList> regionList(@ApiParam(value = "Number of results to return per page.")  @RequestParam(value = "limit", required = false) Integer limit,@ApiParam(value = "The initial index from which to return the results.")  @RequestParam(value = "offset", required = false) Integer offset,@ApiParam(value = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")  @RequestParam(value = "q", required = false) String q, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
+
+
+    @ApiOperation(value = "Get region", notes = "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.", response = RegionDetail.class, authorizations = {
+        
+        @Authorization(value = "basicAuth"),
+        
+        @Authorization(value = "cookieAuth")
+         }, tags={ "location", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "", response = RegionDetail.class) })
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/api/v2/region/{id}/",
+        produces = { "application/json" }
+    )
+    ResponseEntity<RegionDetail> regionRetrieve(@ApiParam(value = "This parameter can be a string or an integer.",required=true ) @PathVariable("id") String id, @RequestHeader(value = "Accept", required = false) String accept) throws Exception;
 
 }

@@ -1,0 +1,12 @@
+
+# PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner
+
+## Properties
+| Name | Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+| **encounterDetails** | [**kotlin.collections.List&lt;PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner&gt;**](PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner.md) |  |  |
+| **maxChance** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  |
+| **version** | [**PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion**](PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion.md) |  |  |
+
+
+

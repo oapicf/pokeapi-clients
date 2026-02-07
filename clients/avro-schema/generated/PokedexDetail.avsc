@@ -1,0 +1,62 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokedexDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "is_main_series",
+      "type": ["null", "boolean"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "descriptions",
+      "type": {
+        "type": "array",
+        "items": "model.PokedexDescription"
+      },
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.PokedexName"
+      },
+      "doc": ""
+    },
+    {
+      "name": "pokemon_entries",
+      "type": {
+        "type": "array",
+        "items": "model.PokedexDetailPokemonEntriesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "region",
+      "type": "model.RegionSummary",
+      "doc": ""
+    },
+    {
+      "name": "version_groups",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityDetailPokemonInnerPokemon"
+      },
+      "doc": ""
+    }
+  ]
+
+}

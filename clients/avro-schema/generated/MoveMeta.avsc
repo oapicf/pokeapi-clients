@@ -1,0 +1,79 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "MoveMeta",
+  "fields": [
+    {
+      "name": "ailment",
+      "type": "model.MoveMetaAilmentSummary",
+      "doc": ""
+    },
+    {
+      "name": "category",
+      "type": "model.MoveMetaCategorySummary",
+      "doc": ""
+    },
+    {
+      "name": "min_hits",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "max_hits",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "min_turns",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "max_turns",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "drain",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "healing",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "crit_rate",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "ailment_chance",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "flinch_chance",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "stat_chance",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    }
+  ]
+
+}

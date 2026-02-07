@@ -16,578 +16,584 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedBerryFirmnessSummaryList
         */
-        def Ability_abilityList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Berries_berryFirmnessList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedBerryFirmnessSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A BerryFirmnessDetail
         */
-        def Ability_abilityRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Berries_berryFirmnessRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,BerryFirmnessDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedBerryFlavorSummaryList
         */
-        def Berry_berryList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Berries_berryFlavorList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedBerryFlavorSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A BerryFlavorDetail
         */
-        def Berry_berryRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Berries_berryFlavorRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,BerryFlavorDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedBerrySummaryList
         */
-        def BerryFirmness_berryFirmnessList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Berries_berryList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedBerrySummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A BerryDetail
         */
-        def BerryFirmness_berryFirmnessRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Berries_berryRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,BerryDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedContestEffectSummaryList
         */
-        def BerryFlavor_berryFlavorList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Contests_contestEffectList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedContestEffectSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A ContestEffectDetail
         */
-        def BerryFlavor_berryFlavorRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Contests_contestEffectRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,ContestEffectDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedContestTypeSummaryList
         */
-        def Characteristic_characteristicList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Contests_contestTypeList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedContestTypeSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A ContestTypeDetail
         */
-        def Characteristic_characteristicRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Contests_contestTypeRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,ContestTypeDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedSuperContestEffectSummaryList
         */
-        def ContestEffect_contestEffectList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Contests_superContestEffectList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedSuperContestEffectSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A SuperContestEffectDetail
         */
-        def ContestEffect_contestEffectRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Contests_superContestEffectRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,SuperContestEffectDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedEncounterConditionSummaryList
         */
-        def ContestType_contestTypeList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Encounters_encounterConditionList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedEncounterConditionSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A EncounterConditionDetail
         */
-        def ContestType_contestTypeRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Encounters_encounterConditionRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,EncounterConditionDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedEncounterConditionValueSummaryList
         */
-        def EggGroup_eggGroupList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Encounters_encounterConditionValueList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedEncounterConditionValueSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A EncounterConditionValueDetail
         */
-        def EggGroup_eggGroupRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Encounters_encounterConditionValueRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,EncounterConditionValueDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedEncounterMethodSummaryList
         */
-        def EncounterCondition_encounterConditionList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Encounters_encounterMethodList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedEncounterMethodSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A EncounterMethodDetail
         */
-        def EncounterCondition_encounterConditionRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Encounters_encounterMethodRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,EncounterMethodDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A Seq[PokemonEncountersRetrieve200ResponseInner]
         */
-        def EncounterConditionValue_encounterConditionValueList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Encounters_pokemonEncountersRetrieve(pokemonId: String, authParamcookieAuth: String): Either[CommonError,Seq[PokemonEncountersRetrieve200ResponseInner]] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedEvolutionChainSummaryList
         */
-        def EncounterConditionValue_encounterConditionValueRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Evolution_evolutionChainList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedEvolutionChainSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A EvolutionChainDetail
         */
-        def EncounterMethod_encounterMethodList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Evolution_evolutionChainRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,EvolutionChainDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedEvolutionTriggerSummaryList
         */
-        def EncounterMethod_encounterMethodRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Evolution_evolutionTriggerList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedEvolutionTriggerSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A EvolutionTriggerDetail
         */
-        def EvolutionChain_evolutionChainList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Evolution_evolutionTriggerRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,EvolutionTriggerDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedGenerationSummaryList
         */
-        def EvolutionChain_evolutionChainRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Games_generationList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedGenerationSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A GenerationDetail
         */
-        def EvolutionTrigger_evolutionTriggerList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Games_generationRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,GenerationDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedPokedexSummaryList
         */
-        def EvolutionTrigger_evolutionTriggerRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Games_pokedexList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedPokedexSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PokedexDetail
         */
-        def Gender_genderList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Games_pokedexRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,PokedexDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedVersionGroupSummaryList
         */
-        def Gender_genderRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Games_versionGroupList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedVersionGroupSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A VersionGroupDetail
         */
-        def Generation_generationList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Games_versionGroupRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,VersionGroupDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedVersionSummaryList
         */
-        def Generation_generationRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Games_versionList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedVersionSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A VersionDetail
         */
-        def GrowthRate_growthRateList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Games_versionRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,VersionDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedItemAttributeSummaryList
         */
-        def GrowthRate_growthRateRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Items_itemAttributeList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedItemAttributeSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A ItemAttributeDetail
         */
-        def Item_itemList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Items_itemAttributeRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,ItemAttributeDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedItemCategorySummaryList
         */
-        def Item_itemRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Items_itemCategoryList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedItemCategorySummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A ItemCategoryDetail
         */
-        def ItemAttribute_itemAttributeList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Items_itemCategoryRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,ItemCategoryDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedItemFlingEffectSummaryList
         */
-        def ItemAttribute_itemAttributeRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Items_itemFlingEffectList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedItemFlingEffectSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A ItemFlingEffectDetail
         */
-        def ItemCategory_itemCategoryList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Items_itemFlingEffectRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,ItemFlingEffectDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedItemSummaryList
         */
-        def ItemCategory_itemCategoryRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Items_itemList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedItemSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedItemPocketSummaryList
         */
-        def ItemFlingEffect_itemFlingEffectList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Items_itemPocketList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedItemPocketSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A ItemPocketDetail
         */
-        def ItemFlingEffect_itemFlingEffectRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Items_itemPocketRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,ItemPocketDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A ItemDetail
         */
-        def ItemPocket_itemPocketList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Items_itemRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,ItemDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedLocationAreaSummaryList
         */
-        def ItemPocket_itemPocketRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Location_locationAreaList(limit: Option[Int], offset: Option[Int], authParamcookieAuth: String): Either[CommonError,PaginatedLocationAreaSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A LocationAreaDetail
         */
-        def Language_languageList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Location_locationAreaRetrieve(id: Int, authParamcookieAuth: String): Either[CommonError,LocationAreaDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedLocationSummaryList
         */
-        def Language_languageRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Location_locationList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedLocationSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A LocationDetail
         */
-        def Location_locationList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Location_locationRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,LocationDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedPalParkAreaSummaryList
         */
-        def Location_locationRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Location_palParkAreaList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedPalParkAreaSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PalParkAreaDetail
         */
-        def LocationArea_locationAreaList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Location_palParkAreaRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,PalParkAreaDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedRegionSummaryList
         */
-        def LocationArea_locationAreaRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Location_regionList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedRegionSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A RegionDetail
         */
-        def Machine_machineList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Location_regionRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,RegionDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedMachineSummaryList
         */
-        def Machine_machineRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Machines_machineList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedMachineSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A MachineDetail
         */
-        def Move_moveList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Machines_machineRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,MachineDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedMoveMetaAilmentSummaryList
         */
-        def Move_moveRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Moves_moveAilmentList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedMoveMetaAilmentSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A MoveMetaAilmentDetail
         */
-        def MoveAilment_moveAilmentList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Moves_moveAilmentRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,MoveMetaAilmentDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedMoveBattleStyleSummaryList
         */
-        def MoveAilment_moveAilmentRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Moves_moveBattleStyleList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedMoveBattleStyleSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A MoveBattleStyleDetail
         */
-        def MoveBattleStyle_moveBattleStyleList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Moves_moveBattleStyleRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,MoveBattleStyleDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedMoveMetaCategorySummaryList
         */
-        def MoveBattleStyle_moveBattleStyleRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Moves_moveCategoryList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedMoveMetaCategorySummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A MoveMetaCategoryDetail
         */
-        def MoveCategory_moveCategoryList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Moves_moveCategoryRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,MoveMetaCategoryDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedMoveLearnMethodSummaryList
         */
-        def MoveCategory_moveCategoryRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Moves_moveLearnMethodList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedMoveLearnMethodSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A MoveLearnMethodDetail
         */
-        def MoveDamageClass_moveDamageClassList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Moves_moveLearnMethodRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,MoveLearnMethodDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedMoveSummaryList
         */
-        def MoveDamageClass_moveDamageClassRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Moves_moveList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedMoveSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A MoveDetail
         */
-        def MoveLearnMethod_moveLearnMethodList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Moves_moveRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,MoveDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedMoveTargetSummaryList
         */
-        def MoveLearnMethod_moveLearnMethodRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Moves_moveTargetList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedMoveTargetSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A MoveTargetDetail
         */
-        def MoveTarget_moveTargetList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Moves_moveTargetRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,MoveTargetDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedAbilitySummaryList
         */
-        def MoveTarget_moveTargetRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Pokemon_abilityList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedAbilitySummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A AbilityDetail
         */
-        def Nature_natureList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Pokemon_abilityRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,AbilityDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedCharacteristicSummaryList
         */
-        def Nature_natureRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Pokemon_characteristicList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedCharacteristicSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A CharacteristicDetail
         */
-        def PalParkArea_palParkAreaList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Pokemon_characteristicRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,CharacteristicDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedEggGroupSummaryList
         */
-        def PalParkArea_palParkAreaRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Pokemon_eggGroupList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedEggGroupSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A EggGroupDetail
         */
-        def PokeathlonStat_pokeathlonStatList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Pokemon_eggGroupRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,EggGroupDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedGenderSummaryList
         */
-        def PokeathlonStat_pokeathlonStatRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Pokemon_genderList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedGenderSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A GenderDetail
         */
-        def Pokedex_pokedexList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Pokemon_genderRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,GenderDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedGrowthRateSummaryList
         */
-        def Pokedex_pokedexRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Pokemon_growthRateList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedGrowthRateSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A GrowthRateDetail
         */
-        def Pokemon_pokemonList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Pokemon_growthRateRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,GrowthRateDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedMoveDamageClassSummaryList
         */
-        def Pokemon_pokemonRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Pokemon_moveDamageClassList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedMoveDamageClassSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A MoveDamageClassDetail
         */
-        def PokemonColor_pokemonColorList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Pokemon_moveDamageClassRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,MoveDamageClassDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedNatureSummaryList
         */
-        def PokemonColor_pokemonColorRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Pokemon_natureList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedNatureSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A NatureDetail
         */
-        def PokemonForm_pokemonFormList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Pokemon_natureRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,NatureDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedPokeathlonStatSummaryList
         */
-        def PokemonForm_pokemonFormRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Pokemon_pokeathlonStatList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedPokeathlonStatSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PokeathlonStatDetail
         */
-        def PokemonHabitat_pokemonHabitatList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Pokemon_pokeathlonStatRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,PokeathlonStatDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedPokemonColorSummaryList
         */
-        def PokemonHabitat_pokemonHabitatRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Pokemon_pokemonColorList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedPokemonColorSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PokemonColorDetail
         */
-        def PokemonShape_pokemonShapeList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Pokemon_pokemonColorRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,PokemonColorDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedPokemonFormSummaryList
         */
-        def PokemonShape_pokemonShapeRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Pokemon_pokemonFormList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedPokemonFormSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PokemonFormDetail
         */
-        def PokemonSpecies_pokemonSpeciesList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Pokemon_pokemonFormRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,PokemonFormDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedPokemonHabitatSummaryList
         */
-        def PokemonSpecies_pokemonSpeciesRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Pokemon_pokemonHabitatList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedPokemonHabitatSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PokemonHabitatDetail
         */
-        def Region_regionList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Pokemon_pokemonHabitatRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,PokemonHabitatDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedPokemonSummaryList
         */
-        def Region_regionRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Pokemon_pokemonList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedPokemonSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PokemonDetail
         */
-        def Stat_statList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Pokemon_pokemonRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,PokemonDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedPokemonShapeSummaryList
         */
-        def Stat_statRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Pokemon_pokemonShapeList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedPokemonShapeSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PokemonShapeDetail
         */
-        def SuperContestEffect_superContestEffectList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Pokemon_pokemonShapeRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,PokemonShapeDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedPokemonSpeciesSummaryList
         */
-        def SuperContestEffect_superContestEffectRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Pokemon_pokemonSpeciesList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedPokemonSpeciesSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PokemonSpeciesDetail
         */
-        def Type_typeList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Pokemon_pokemonSpeciesRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,PokemonSpeciesDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedStatSummaryList
         */
-        def Type_typeRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Pokemon_statList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedStatSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A StatDetail
         */
-        def Version_versionList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Pokemon_statRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,StatDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedTypeSummaryList
         */
-        def Version_versionRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Pokemon_typeList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedTypeSummaryList] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A TypeDetail
         */
-        def VersionGroup_versionGroupList(limit: Option[Int], offset: Option[Int]): Either[CommonError,String] = Left(TODO)
+        def Pokemon_typeRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,TypeDetail] = Left(TODO)
 
         /**
         * 
-        * @return A String
+        * @return A PaginatedLanguageSummaryList
         */
-        def VersionGroup_versionGroupRead(id: Int): Either[CommonError,String] = Left(TODO)
+        def Utility_languageList(limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String): Either[CommonError,PaginatedLanguageSummaryList] = Left(TODO)
+
+        /**
+        * 
+        * @return A LanguageDetail
+        */
+        def Utility_languageRetrieve(id: String, authParamcookieAuth: String): Either[CommonError,LanguageDetail] = Left(TODO)
 
 }

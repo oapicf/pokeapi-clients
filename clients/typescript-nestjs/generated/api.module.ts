@@ -2,157 +2,46 @@ import { DynamicModule, Module, Global, Provider } from '@nestjs/common';
 import { HttpModule, HttpService } from '@nestjs/axios';
 import { AsyncConfiguration, Configuration, ConfigurationFactory } from './configuration';
 
-import { AbilityService } from './api/ability.service';
-import { BerryService } from './api/berry.service';
-import { BerryFirmnessService } from './api/berryFirmness.service';
-import { BerryFlavorService } from './api/berryFlavor.service';
-import { CharacteristicService } from './api/characteristic.service';
-import { ContestEffectService } from './api/contestEffect.service';
-import { ContestTypeService } from './api/contestType.service';
-import { EggGroupService } from './api/eggGroup.service';
-import { EncounterConditionService } from './api/encounterCondition.service';
-import { EncounterConditionValueService } from './api/encounterConditionValue.service';
-import { EncounterMethodService } from './api/encounterMethod.service';
-import { EvolutionChainService } from './api/evolutionChain.service';
-import { EvolutionTriggerService } from './api/evolutionTrigger.service';
-import { GenderService } from './api/gender.service';
-import { GenerationService } from './api/generation.service';
-import { GrowthRateService } from './api/growthRate.service';
-import { ItemService } from './api/item.service';
-import { ItemAttributeService } from './api/itemAttribute.service';
-import { ItemCategoryService } from './api/itemCategory.service';
-import { ItemFlingEffectService } from './api/itemFlingEffect.service';
-import { ItemPocketService } from './api/itemPocket.service';
-import { LanguageService } from './api/language.service';
+import { BerriesService } from './api/berries.service';
+import { ContestsService } from './api/contests.service';
+import { EncountersService } from './api/encounters.service';
+import { EvolutionService } from './api/evolution.service';
+import { GamesService } from './api/games.service';
+import { ItemsService } from './api/items.service';
 import { LocationService } from './api/location.service';
-import { LocationAreaService } from './api/locationArea.service';
-import { MachineService } from './api/machine.service';
-import { MoveService } from './api/move.service';
-import { MoveAilmentService } from './api/moveAilment.service';
-import { MoveBattleStyleService } from './api/moveBattleStyle.service';
-import { MoveCategoryService } from './api/moveCategory.service';
-import { MoveDamageClassService } from './api/moveDamageClass.service';
-import { MoveLearnMethodService } from './api/moveLearnMethod.service';
-import { MoveTargetService } from './api/moveTarget.service';
-import { NatureService } from './api/nature.service';
-import { PalParkAreaService } from './api/palParkArea.service';
-import { PokeathlonStatService } from './api/pokeathlonStat.service';
-import { PokedexService } from './api/pokedex.service';
+import { MachinesService } from './api/machines.service';
+import { MovesService } from './api/moves.service';
 import { PokemonService } from './api/pokemon.service';
-import { PokemonColorService } from './api/pokemonColor.service';
-import { PokemonFormService } from './api/pokemonForm.service';
-import { PokemonHabitatService } from './api/pokemonHabitat.service';
-import { PokemonShapeService } from './api/pokemonShape.service';
-import { PokemonSpeciesService } from './api/pokemonSpecies.service';
-import { RegionService } from './api/region.service';
-import { StatService } from './api/stat.service';
-import { SuperContestEffectService } from './api/superContestEffect.service';
-import { TypeService } from './api/type.service';
-import { VersionService } from './api/version.service';
-import { VersionGroupService } from './api/versionGroup.service';
+import { UtilityService } from './api/utility.service';
 
 @Global()
 @Module({
   imports:      [ HttpModule ],
   exports:      [
-    AbilityService,
-    BerryService,
-    BerryFirmnessService,
-    BerryFlavorService,
-    CharacteristicService,
-    ContestEffectService,
-    ContestTypeService,
-    EggGroupService,
-    EncounterConditionService,
-    EncounterConditionValueService,
-    EncounterMethodService,
-    EvolutionChainService,
-    EvolutionTriggerService,
-    GenderService,
-    GenerationService,
-    GrowthRateService,
-    ItemService,
-    ItemAttributeService,
-    ItemCategoryService,
-    ItemFlingEffectService,
-    ItemPocketService,
-    LanguageService,
+    BerriesService,
+    ContestsService,
+    EncountersService,
+    EvolutionService,
+    GamesService,
+    ItemsService,
     LocationService,
-    LocationAreaService,
-    MachineService,
-    MoveService,
-    MoveAilmentService,
-    MoveBattleStyleService,
-    MoveCategoryService,
-    MoveDamageClassService,
-    MoveLearnMethodService,
-    MoveTargetService,
-    NatureService,
-    PalParkAreaService,
-    PokeathlonStatService,
-    PokedexService,
+    MachinesService,
+    MovesService,
     PokemonService,
-    PokemonColorService,
-    PokemonFormService,
-    PokemonHabitatService,
-    PokemonShapeService,
-    PokemonSpeciesService,
-    RegionService,
-    StatService,
-    SuperContestEffectService,
-    TypeService,
-    VersionService,
-    VersionGroupService
+    UtilityService
   ],
   providers: [
-    AbilityService,
-    BerryService,
-    BerryFirmnessService,
-    BerryFlavorService,
-    CharacteristicService,
-    ContestEffectService,
-    ContestTypeService,
-    EggGroupService,
-    EncounterConditionService,
-    EncounterConditionValueService,
-    EncounterMethodService,
-    EvolutionChainService,
-    EvolutionTriggerService,
-    GenderService,
-    GenerationService,
-    GrowthRateService,
-    ItemService,
-    ItemAttributeService,
-    ItemCategoryService,
-    ItemFlingEffectService,
-    ItemPocketService,
-    LanguageService,
+    BerriesService,
+    ContestsService,
+    EncountersService,
+    EvolutionService,
+    GamesService,
+    ItemsService,
     LocationService,
-    LocationAreaService,
-    MachineService,
-    MoveService,
-    MoveAilmentService,
-    MoveBattleStyleService,
-    MoveCategoryService,
-    MoveDamageClassService,
-    MoveLearnMethodService,
-    MoveTargetService,
-    NatureService,
-    PalParkAreaService,
-    PokeathlonStatService,
-    PokedexService,
+    MachinesService,
+    MovesService,
     PokemonService,
-    PokemonColorService,
-    PokemonFormService,
-    PokemonHabitatService,
-    PokemonShapeService,
-    PokemonSpeciesService,
-    RegionService,
-    StatService,
-    SuperContestEffectService,
-    TypeService,
-    VersionService,
-    VersionGroupService
+    UtilityService
   ]
 })
 export class ApiModule {

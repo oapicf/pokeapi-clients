@@ -1,4 +1,4 @@
-name:    openapi-haskell-yesod-server
+name:    pok-api
 version: "0.0.0"
 
 dependencies:
@@ -44,7 +44,7 @@ library:
 
 # Runnable executable for our application
 executables:
-  openapi-haskell-yesod-server:
+  pok-api:
     main: main.hs
     source-dirs: app
     ghc-options:
@@ -52,19 +52,19 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - openapi-haskell-yesod-server
+    - pok-api
     when:
     - condition: flag(library-only)
       buildable: false
 
 # Test suite
 tests:
-  openapi-haskell-yesod-server-test:
+  pok-api-test:
     main: Spec.hs
     source-dirs: test
     ghc-options: -Wall
     dependencies:
-    - openapi-haskell-yesod-server
+    - pok-api
     - hspec >=2.0.0
     - yesod-test
 

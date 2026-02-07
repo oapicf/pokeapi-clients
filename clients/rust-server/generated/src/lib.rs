@@ -15,682 +15,689 @@ use serde::{Serialize, Deserialize};
 type ServiceError = Box<dyn Error + Send + Sync + 'static>;
 
 pub const BASE_PATH: &str = "";
-pub const API_VERSION: &str = "20220523";
+pub const API_VERSION: &str = "2.7.0";
 
 mod auth;
 pub use auth::{AuthenticationApi, Claims};
 
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum AbilityListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum AbilityReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum BerryListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum BerryReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub enum BerryFirmnessListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum BerryFirmnessReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
+    /// 
+    Status200
+    (models::PaginatedBerryFirmnessSummaryList)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub enum BerryFlavorListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
+    /// 
+    Status200
+    (models::PaginatedBerryFlavorSummaryList)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum BerryFlavorReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
+pub enum BerryListResponse {
+    /// 
+    Status200
+    (models::PaginatedBerrySummaryList)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum CharacteristicListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
+pub enum BerryFirmnessRetrieveResponse {
+    /// 
+    Status200
+    (models::BerryFirmnessDetail)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum CharacteristicReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
+pub enum BerryFlavorRetrieveResponse {
+    /// 
+    Status200
+    (models::BerryFlavorDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum BerryRetrieveResponse {
+    /// 
+    Status200
+    (models::BerryDetail)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub enum ContestEffectListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum ContestEffectReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
+    /// 
+    Status200
+    (models::PaginatedContestEffectSummaryList)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub enum ContestTypeListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum ContestTypeReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum EggGroupListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum EggGroupReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum EncounterConditionListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum EncounterConditionReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum EncounterConditionValueListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum EncounterConditionValueReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum EncounterMethodListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum EncounterMethodReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum EvolutionChainListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum EvolutionChainReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum EvolutionTriggerListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum EvolutionTriggerReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum GenderListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum GenderReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum GenerationListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum GenerationReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum GrowthRateListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum GrowthRateReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum ItemListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum ItemReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum ItemAttributeListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum ItemAttributeReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum ItemCategoryListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum ItemCategoryReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum ItemFlingEffectListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum ItemFlingEffectReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum ItemPocketListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum ItemPocketReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum LanguageListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum LanguageReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum LocationListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum LocationReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum LocationAreaListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum LocationAreaReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum MachineListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum MachineReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum MoveListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum MoveReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum MoveAilmentListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum MoveAilmentReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum MoveBattleStyleListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum MoveBattleStyleReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum MoveCategoryListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum MoveCategoryReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum MoveDamageClassListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum MoveDamageClassReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum MoveLearnMethodListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum MoveLearnMethodReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum MoveTargetListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum MoveTargetReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum NatureListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum NatureReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PalParkAreaListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PalParkAreaReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PokeathlonStatListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PokeathlonStatReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PokedexListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PokedexReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PokemonListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PokemonReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PokemonColorListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PokemonColorReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PokemonFormListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PokemonFormReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PokemonHabitatListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PokemonHabitatReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PokemonShapeListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PokemonShapeReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PokemonSpeciesListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum PokemonSpeciesReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum RegionListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum RegionReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum StatListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
-}
-
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum StatReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
+    /// 
+    Status200
+    (models::PaginatedContestTypeSummaryList)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub enum SuperContestEffectListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
+    /// 
+    Status200
+    (models::PaginatedSuperContestEffectSummaryList)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum SuperContestEffectReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
+pub enum ContestEffectRetrieveResponse {
+    /// 
+    Status200
+    (models::ContestEffectDetail)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum TypeListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
+pub enum ContestTypeRetrieveResponse {
+    /// 
+    Status200
+    (models::ContestTypeDetail)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum TypeReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
+pub enum SuperContestEffectRetrieveResponse {
+    /// 
+    Status200
+    (models::SuperContestEffectDetail)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum VersionListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
+pub enum EncounterConditionListResponse {
+    /// 
+    Status200
+    (models::PaginatedEncounterConditionSummaryList)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum VersionReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
+pub enum EncounterConditionValueListResponse {
+    /// 
+    Status200
+    (models::PaginatedEncounterConditionValueSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum EncounterMethodListResponse {
+    /// 
+    Status200
+    (models::PaginatedEncounterMethodSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum EncounterConditionRetrieveResponse {
+    /// 
+    Status200
+    (models::EncounterConditionDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum EncounterConditionValueRetrieveResponse {
+    /// 
+    Status200
+    (models::EncounterConditionValueDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum EncounterMethodRetrieveResponse {
+    /// 
+    Status200
+    (models::EncounterMethodDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PokemonEncountersRetrieveResponse {
+    /// 
+    Status200
+    (Vec<models::PokemonEncountersRetrieve200ResponseInner>)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum EvolutionChainListResponse {
+    /// 
+    Status200
+    (models::PaginatedEvolutionChainSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum EvolutionTriggerListResponse {
+    /// 
+    Status200
+    (models::PaginatedEvolutionTriggerSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum EvolutionChainRetrieveResponse {
+    /// 
+    Status200
+    (models::EvolutionChainDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum EvolutionTriggerRetrieveResponse {
+    /// 
+    Status200
+    (models::EvolutionTriggerDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum GenerationListResponse {
+    /// 
+    Status200
+    (models::PaginatedGenerationSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PokedexListResponse {
+    /// 
+    Status200
+    (models::PaginatedPokedexSummaryList)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub enum VersionGroupListResponse {
-    /// Default response
-    DefaultResponse
-    (String)
+    /// 
+    Status200
+    (models::PaginatedVersionGroupSummaryList)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum VersionGroupReadResponse {
-    /// Default response
-    DefaultResponse
-    (String)
+pub enum VersionListResponse {
+    /// 
+    Status200
+    (models::PaginatedVersionSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum GenerationRetrieveResponse {
+    /// 
+    Status200
+    (models::GenerationDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PokedexRetrieveResponse {
+    /// 
+    Status200
+    (models::PokedexDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum VersionGroupRetrieveResponse {
+    /// 
+    Status200
+    (models::VersionGroupDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum VersionRetrieveResponse {
+    /// 
+    Status200
+    (models::VersionDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum ItemAttributeListResponse {
+    /// 
+    Status200
+    (models::PaginatedItemAttributeSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum ItemCategoryListResponse {
+    /// 
+    Status200
+    (models::PaginatedItemCategorySummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum ItemFlingEffectListResponse {
+    /// 
+    Status200
+    (models::PaginatedItemFlingEffectSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum ItemListResponse {
+    /// 
+    Status200
+    (models::PaginatedItemSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum ItemPocketListResponse {
+    /// 
+    Status200
+    (models::PaginatedItemPocketSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum ItemAttributeRetrieveResponse {
+    /// 
+    Status200
+    (models::ItemAttributeDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum ItemCategoryRetrieveResponse {
+    /// 
+    Status200
+    (models::ItemCategoryDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum ItemFlingEffectRetrieveResponse {
+    /// 
+    Status200
+    (models::ItemFlingEffectDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum ItemPocketRetrieveResponse {
+    /// 
+    Status200
+    (models::ItemPocketDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum ItemRetrieveResponse {
+    /// 
+    Status200
+    (models::ItemDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum LocationAreaListResponse {
+    /// 
+    Status200
+    (models::PaginatedLocationAreaSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum LocationListResponse {
+    /// 
+    Status200
+    (models::PaginatedLocationSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PalParkAreaListResponse {
+    /// 
+    Status200
+    (models::PaginatedPalParkAreaSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum RegionListResponse {
+    /// 
+    Status200
+    (models::PaginatedRegionSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum LocationAreaRetrieveResponse {
+    /// 
+    Status200
+    (models::LocationAreaDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum LocationRetrieveResponse {
+    /// 
+    Status200
+    (models::LocationDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PalParkAreaRetrieveResponse {
+    /// 
+    Status200
+    (models::PalParkAreaDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum RegionRetrieveResponse {
+    /// 
+    Status200
+    (models::RegionDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum MachineListResponse {
+    /// 
+    Status200
+    (models::PaginatedMachineSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum MachineRetrieveResponse {
+    /// 
+    Status200
+    (models::MachineDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum MoveAilmentListResponse {
+    /// 
+    Status200
+    (models::PaginatedMoveMetaAilmentSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum MoveBattleStyleListResponse {
+    /// 
+    Status200
+    (models::PaginatedMoveBattleStyleSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum MoveCategoryListResponse {
+    /// 
+    Status200
+    (models::PaginatedMoveMetaCategorySummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum MoveLearnMethodListResponse {
+    /// 
+    Status200
+    (models::PaginatedMoveLearnMethodSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum MoveListResponse {
+    /// 
+    Status200
+    (models::PaginatedMoveSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum MoveTargetListResponse {
+    /// 
+    Status200
+    (models::PaginatedMoveTargetSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum MoveAilmentRetrieveResponse {
+    /// 
+    Status200
+    (models::MoveMetaAilmentDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum MoveBattleStyleRetrieveResponse {
+    /// 
+    Status200
+    (models::MoveBattleStyleDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum MoveCategoryRetrieveResponse {
+    /// 
+    Status200
+    (models::MoveMetaCategoryDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum MoveLearnMethodRetrieveResponse {
+    /// 
+    Status200
+    (models::MoveLearnMethodDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum MoveRetrieveResponse {
+    /// 
+    Status200
+    (models::MoveDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum MoveTargetRetrieveResponse {
+    /// 
+    Status200
+    (models::MoveTargetDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum AbilityListResponse {
+    /// 
+    Status200
+    (models::PaginatedAbilitySummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum CharacteristicListResponse {
+    /// 
+    Status200
+    (models::PaginatedCharacteristicSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum EggGroupListResponse {
+    /// 
+    Status200
+    (models::PaginatedEggGroupSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum GenderListResponse {
+    /// 
+    Status200
+    (models::PaginatedGenderSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum GrowthRateListResponse {
+    /// 
+    Status200
+    (models::PaginatedGrowthRateSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum MoveDamageClassListResponse {
+    /// 
+    Status200
+    (models::PaginatedMoveDamageClassSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum NatureListResponse {
+    /// 
+    Status200
+    (models::PaginatedNatureSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PokeathlonStatListResponse {
+    /// 
+    Status200
+    (models::PaginatedPokeathlonStatSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PokemonColorListResponse {
+    /// 
+    Status200
+    (models::PaginatedPokemonColorSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PokemonFormListResponse {
+    /// 
+    Status200
+    (models::PaginatedPokemonFormSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PokemonHabitatListResponse {
+    /// 
+    Status200
+    (models::PaginatedPokemonHabitatSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PokemonListResponse {
+    /// 
+    Status200
+    (models::PaginatedPokemonSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PokemonShapeListResponse {
+    /// 
+    Status200
+    (models::PaginatedPokemonShapeSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PokemonSpeciesListResponse {
+    /// 
+    Status200
+    (models::PaginatedPokemonSpeciesSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum StatListResponse {
+    /// 
+    Status200
+    (models::PaginatedStatSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum TypeListResponse {
+    /// 
+    Status200
+    (models::PaginatedTypeSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum AbilityRetrieveResponse {
+    /// 
+    Status200
+    (models::AbilityDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum CharacteristicRetrieveResponse {
+    /// 
+    Status200
+    (models::CharacteristicDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum EggGroupRetrieveResponse {
+    /// 
+    Status200
+    (models::EggGroupDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum GenderRetrieveResponse {
+    /// 
+    Status200
+    (models::GenderDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum GrowthRateRetrieveResponse {
+    /// 
+    Status200
+    (models::GrowthRateDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum MoveDamageClassRetrieveResponse {
+    /// 
+    Status200
+    (models::MoveDamageClassDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum NatureRetrieveResponse {
+    /// 
+    Status200
+    (models::NatureDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PokeathlonStatRetrieveResponse {
+    /// 
+    Status200
+    (models::PokeathlonStatDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PokemonColorRetrieveResponse {
+    /// 
+    Status200
+    (models::PokemonColorDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PokemonFormRetrieveResponse {
+    /// 
+    Status200
+    (models::PokemonFormDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PokemonHabitatRetrieveResponse {
+    /// 
+    Status200
+    (models::PokemonHabitatDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PokemonRetrieveResponse {
+    /// 
+    Status200
+    (models::PokemonDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PokemonShapeRetrieveResponse {
+    /// 
+    Status200
+    (models::PokemonShapeDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum PokemonSpeciesRetrieveResponse {
+    /// 
+    Status200
+    (models::PokemonSpeciesDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum StatRetrieveResponse {
+    /// 
+    Status200
+    (models::StatDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum TypeRetrieveResponse {
+    /// 
+    Status200
+    (models::TypeDetail)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum LanguageListResponse {
+    /// 
+    Status200
+    (models::PaginatedLanguageSummaryList)
+}
+
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub enum LanguageRetrieveResponse {
+    /// 
+    Status200
+    (models::LanguageDetail)
 }
 
 /// API
@@ -698,533 +705,680 @@ pub enum VersionGroupReadResponse {
 #[async_trait]
 #[allow(clippy::too_many_arguments, clippy::ptr_arg)]
 pub trait Api<C: Send + Sync> {
-    async fn ability_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<AbilityListResponse, ApiError>;
-
-    async fn ability_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<AbilityReadResponse, ApiError>;
-
-    async fn berry_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<BerryListResponse, ApiError>;
-
-    async fn berry_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<BerryReadResponse, ApiError>;
-
+    /// List berry firmness
     async fn berry_firmness_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<BerryFirmnessListResponse, ApiError>;
 
-    async fn berry_firmness_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<BerryFirmnessReadResponse, ApiError>;
-
+    /// List berry flavors
     async fn berry_flavor_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<BerryFlavorListResponse, ApiError>;
 
-    async fn berry_flavor_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<BerryFlavorReadResponse, ApiError>;
-
-    async fn characteristic_list(
+    /// List berries
+    async fn berry_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        context: &C) -> Result<CharacteristicListResponse, ApiError>;
+        q: Option<String>,
+        context: &C) -> Result<BerryListResponse, ApiError>;
 
-    async fn characteristic_read(
+    /// Get berry by firmness
+    async fn berry_firmness_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<CharacteristicReadResponse, ApiError>;
+        id: String,
+        context: &C) -> Result<BerryFirmnessRetrieveResponse, ApiError>;
 
+    /// Get berries by flavor
+    async fn berry_flavor_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<BerryFlavorRetrieveResponse, ApiError>;
+
+    /// Get a berry
+    async fn berry_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<BerryRetrieveResponse, ApiError>;
+
+    /// List contest effects
     async fn contest_effect_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<ContestEffectListResponse, ApiError>;
 
-    async fn contest_effect_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<ContestEffectReadResponse, ApiError>;
-
+    /// List contest types
     async fn contest_type_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<ContestTypeListResponse, ApiError>;
 
-    async fn contest_type_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<ContestTypeReadResponse, ApiError>;
-
-    async fn egg_group_list(
+    /// List super contest effects
+    async fn super_contest_effect_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        context: &C) -> Result<EggGroupListResponse, ApiError>;
+        q: Option<String>,
+        context: &C) -> Result<SuperContestEffectListResponse, ApiError>;
 
-    async fn egg_group_read(
+    /// Get contest effect
+    async fn contest_effect_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<EggGroupReadResponse, ApiError>;
+        id: String,
+        context: &C) -> Result<ContestEffectRetrieveResponse, ApiError>;
 
+    /// Get contest type
+    async fn contest_type_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<ContestTypeRetrieveResponse, ApiError>;
+
+    /// Get super contest effect
+    async fn super_contest_effect_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<SuperContestEffectRetrieveResponse, ApiError>;
+
+    /// List encounter conditions
     async fn encounter_condition_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<EncounterConditionListResponse, ApiError>;
 
-    async fn encounter_condition_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<EncounterConditionReadResponse, ApiError>;
-
+    /// List encounter condition values
     async fn encounter_condition_value_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<EncounterConditionValueListResponse, ApiError>;
 
-    async fn encounter_condition_value_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<EncounterConditionValueReadResponse, ApiError>;
-
+    /// List encounter methods
     async fn encounter_method_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<EncounterMethodListResponse, ApiError>;
 
-    async fn encounter_method_read(
+    /// Get encounter condition
+    async fn encounter_condition_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<EncounterMethodReadResponse, ApiError>;
+        id: String,
+        context: &C) -> Result<EncounterConditionRetrieveResponse, ApiError>;
 
+    /// Get encounter condition value
+    async fn encounter_condition_value_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<EncounterConditionValueRetrieveResponse, ApiError>;
+
+    /// Get encounter method
+    async fn encounter_method_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<EncounterMethodRetrieveResponse, ApiError>;
+
+    /// Get pokemon encounter
+    async fn pokemon_encounters_retrieve(
+        &self,
+        pokemon_id: String,
+        context: &C) -> Result<PokemonEncountersRetrieveResponse, ApiError>;
+
+    /// List evolution chains
     async fn evolution_chain_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<EvolutionChainListResponse, ApiError>;
 
-    async fn evolution_chain_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<EvolutionChainReadResponse, ApiError>;
-
+    /// List evolution triggers
     async fn evolution_trigger_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<EvolutionTriggerListResponse, ApiError>;
 
-    async fn evolution_trigger_read(
+    /// Get evolution chain
+    async fn evolution_chain_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<EvolutionTriggerReadResponse, ApiError>;
+        id: String,
+        context: &C) -> Result<EvolutionChainRetrieveResponse, ApiError>;
 
-    async fn gender_list(
+    /// Get evolution trigger
+    async fn evolution_trigger_retrieve(
         &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<GenderListResponse, ApiError>;
+        id: String,
+        context: &C) -> Result<EvolutionTriggerRetrieveResponse, ApiError>;
 
-    async fn gender_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<GenderReadResponse, ApiError>;
-
+    /// List genrations
     async fn generation_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<GenerationListResponse, ApiError>;
 
-    async fn generation_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<GenerationReadResponse, ApiError>;
-
-    async fn growth_rate_list(
+    /// List pokedex
+    async fn pokedex_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        context: &C) -> Result<GrowthRateListResponse, ApiError>;
+        q: Option<String>,
+        context: &C) -> Result<PokedexListResponse, ApiError>;
 
-    async fn growth_rate_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<GrowthRateReadResponse, ApiError>;
-
-    async fn item_list(
+    /// List version groups
+    async fn version_group_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        context: &C) -> Result<ItemListResponse, ApiError>;
+        q: Option<String>,
+        context: &C) -> Result<VersionGroupListResponse, ApiError>;
 
-    async fn item_read(
+    /// List versions
+    async fn version_list(
         &self,
-        id: i32,
-        context: &C) -> Result<ItemReadResponse, ApiError>;
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<VersionListResponse, ApiError>;
 
+    /// Get genration
+    async fn generation_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<GenerationRetrieveResponse, ApiError>;
+
+    /// Get pokedex
+    async fn pokedex_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PokedexRetrieveResponse, ApiError>;
+
+    /// Get version group
+    async fn version_group_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<VersionGroupRetrieveResponse, ApiError>;
+
+    /// Get version
+    async fn version_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<VersionRetrieveResponse, ApiError>;
+
+    /// List item attributes
     async fn item_attribute_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<ItemAttributeListResponse, ApiError>;
 
-    async fn item_attribute_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<ItemAttributeReadResponse, ApiError>;
-
+    /// List item categories
     async fn item_category_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<ItemCategoryListResponse, ApiError>;
 
-    async fn item_category_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<ItemCategoryReadResponse, ApiError>;
-
+    /// List item fling effects
     async fn item_fling_effect_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<ItemFlingEffectListResponse, ApiError>;
 
-    async fn item_fling_effect_read(
+    /// List items
+    async fn item_list(
         &self,
-        id: i32,
-        context: &C) -> Result<ItemFlingEffectReadResponse, ApiError>;
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<ItemListResponse, ApiError>;
 
+    /// List item pockets
     async fn item_pocket_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<ItemPocketListResponse, ApiError>;
 
-    async fn item_pocket_read(
+    /// Get item attribute
+    async fn item_attribute_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<ItemPocketReadResponse, ApiError>;
+        id: String,
+        context: &C) -> Result<ItemAttributeRetrieveResponse, ApiError>;
 
-    async fn language_list(
+    /// Get item category
+    async fn item_category_retrieve(
         &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<LanguageListResponse, ApiError>;
+        id: String,
+        context: &C) -> Result<ItemCategoryRetrieveResponse, ApiError>;
 
-    async fn language_read(
+    /// Get item fling effect
+    async fn item_fling_effect_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<LanguageReadResponse, ApiError>;
+        id: String,
+        context: &C) -> Result<ItemFlingEffectRetrieveResponse, ApiError>;
 
-    async fn location_list(
+    /// Get item pocket
+    async fn item_pocket_retrieve(
         &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<LocationListResponse, ApiError>;
+        id: String,
+        context: &C) -> Result<ItemPocketRetrieveResponse, ApiError>;
 
-    async fn location_read(
+    /// Get item
+    async fn item_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<LocationReadResponse, ApiError>;
+        id: String,
+        context: &C) -> Result<ItemRetrieveResponse, ApiError>;
 
+    /// List location areas
     async fn location_area_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
         context: &C) -> Result<LocationAreaListResponse, ApiError>;
 
-    async fn location_area_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<LocationAreaReadResponse, ApiError>;
-
-    async fn machine_list(
+    /// List locations
+    async fn location_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        context: &C) -> Result<MachineListResponse, ApiError>;
+        q: Option<String>,
+        context: &C) -> Result<LocationListResponse, ApiError>;
 
-    async fn machine_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<MachineReadResponse, ApiError>;
-
-    async fn move_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<MoveListResponse, ApiError>;
-
-    async fn move_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<MoveReadResponse, ApiError>;
-
-    async fn move_ailment_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<MoveAilmentListResponse, ApiError>;
-
-    async fn move_ailment_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<MoveAilmentReadResponse, ApiError>;
-
-    async fn move_battle_style_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<MoveBattleStyleListResponse, ApiError>;
-
-    async fn move_battle_style_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<MoveBattleStyleReadResponse, ApiError>;
-
-    async fn move_category_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<MoveCategoryListResponse, ApiError>;
-
-    async fn move_category_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<MoveCategoryReadResponse, ApiError>;
-
-    async fn move_damage_class_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<MoveDamageClassListResponse, ApiError>;
-
-    async fn move_damage_class_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<MoveDamageClassReadResponse, ApiError>;
-
-    async fn move_learn_method_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<MoveLearnMethodListResponse, ApiError>;
-
-    async fn move_learn_method_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<MoveLearnMethodReadResponse, ApiError>;
-
-    async fn move_target_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<MoveTargetListResponse, ApiError>;
-
-    async fn move_target_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<MoveTargetReadResponse, ApiError>;
-
-    async fn nature_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<NatureListResponse, ApiError>;
-
-    async fn nature_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<NatureReadResponse, ApiError>;
-
+    /// List pal park areas
     async fn pal_park_area_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<PalParkAreaListResponse, ApiError>;
 
-    async fn pal_park_area_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PalParkAreaReadResponse, ApiError>;
-
-    async fn pokeathlon_stat_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<PokeathlonStatListResponse, ApiError>;
-
-    async fn pokeathlon_stat_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PokeathlonStatReadResponse, ApiError>;
-
-    async fn pokedex_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<PokedexListResponse, ApiError>;
-
-    async fn pokedex_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PokedexReadResponse, ApiError>;
-
-    async fn pokemon_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<PokemonListResponse, ApiError>;
-
-    async fn pokemon_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PokemonReadResponse, ApiError>;
-
-    async fn pokemon_color_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<PokemonColorListResponse, ApiError>;
-
-    async fn pokemon_color_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PokemonColorReadResponse, ApiError>;
-
-    async fn pokemon_form_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<PokemonFormListResponse, ApiError>;
-
-    async fn pokemon_form_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PokemonFormReadResponse, ApiError>;
-
-    async fn pokemon_habitat_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<PokemonHabitatListResponse, ApiError>;
-
-    async fn pokemon_habitat_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PokemonHabitatReadResponse, ApiError>;
-
-    async fn pokemon_shape_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<PokemonShapeListResponse, ApiError>;
-
-    async fn pokemon_shape_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PokemonShapeReadResponse, ApiError>;
-
-    async fn pokemon_species_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<PokemonSpeciesListResponse, ApiError>;
-
-    async fn pokemon_species_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PokemonSpeciesReadResponse, ApiError>;
-
+    /// List regions
     async fn region_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<RegionListResponse, ApiError>;
 
-    async fn region_read(
+    /// Get location area
+    async fn location_area_retrieve(
         &self,
         id: i32,
-        context: &C) -> Result<RegionReadResponse, ApiError>;
+        context: &C) -> Result<LocationAreaRetrieveResponse, ApiError>;
 
+    /// Get location
+    async fn location_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<LocationRetrieveResponse, ApiError>;
+
+    /// Get pal park area
+    async fn pal_park_area_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PalParkAreaRetrieveResponse, ApiError>;
+
+    /// Get region
+    async fn region_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<RegionRetrieveResponse, ApiError>;
+
+    /// List machines
+    async fn machine_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<MachineListResponse, ApiError>;
+
+    /// Get machine
+    async fn machine_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<MachineRetrieveResponse, ApiError>;
+
+    /// List move meta ailments
+    async fn move_ailment_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<MoveAilmentListResponse, ApiError>;
+
+    /// List move battle styles
+    async fn move_battle_style_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<MoveBattleStyleListResponse, ApiError>;
+
+    /// List move meta categories
+    async fn move_category_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<MoveCategoryListResponse, ApiError>;
+
+    /// List move learn methods
+    async fn move_learn_method_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<MoveLearnMethodListResponse, ApiError>;
+
+    /// List moves
+    async fn move_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<MoveListResponse, ApiError>;
+
+    /// List move targets
+    async fn move_target_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<MoveTargetListResponse, ApiError>;
+
+    /// Get move meta ailment
+    async fn move_ailment_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<MoveAilmentRetrieveResponse, ApiError>;
+
+    /// Get move battle style
+    async fn move_battle_style_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<MoveBattleStyleRetrieveResponse, ApiError>;
+
+    /// Get move meta category
+    async fn move_category_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<MoveCategoryRetrieveResponse, ApiError>;
+
+    /// Get move learn method
+    async fn move_learn_method_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<MoveLearnMethodRetrieveResponse, ApiError>;
+
+    /// Get move
+    async fn move_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<MoveRetrieveResponse, ApiError>;
+
+    /// Get move target
+    async fn move_target_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<MoveTargetRetrieveResponse, ApiError>;
+
+    async fn ability_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<AbilityListResponse, ApiError>;
+
+    /// List charecterictics
+    async fn characteristic_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<CharacteristicListResponse, ApiError>;
+
+    /// List egg groups
+    async fn egg_group_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<EggGroupListResponse, ApiError>;
+
+    /// List genders
+    async fn gender_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<GenderListResponse, ApiError>;
+
+    /// List growth rates
+    async fn growth_rate_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<GrowthRateListResponse, ApiError>;
+
+    /// List move damage classes
+    async fn move_damage_class_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<MoveDamageClassListResponse, ApiError>;
+
+    /// List natures
+    async fn nature_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<NatureListResponse, ApiError>;
+
+    /// List pokeathlon stats
+    async fn pokeathlon_stat_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<PokeathlonStatListResponse, ApiError>;
+
+    /// List pokemon colors
+    async fn pokemon_color_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<PokemonColorListResponse, ApiError>;
+
+    /// List pokemon forms
+    async fn pokemon_form_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<PokemonFormListResponse, ApiError>;
+
+    /// List pokemom habitas
+    async fn pokemon_habitat_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<PokemonHabitatListResponse, ApiError>;
+
+    /// List pokemon
+    async fn pokemon_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<PokemonListResponse, ApiError>;
+
+    /// List pokemon shapes
+    async fn pokemon_shape_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<PokemonShapeListResponse, ApiError>;
+
+    /// List pokemon species
+    async fn pokemon_species_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<PokemonSpeciesListResponse, ApiError>;
+
+    /// List stats
     async fn stat_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<StatListResponse, ApiError>;
 
-    async fn stat_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<StatReadResponse, ApiError>;
-
-    async fn super_contest_effect_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<SuperContestEffectListResponse, ApiError>;
-
-    async fn super_contest_effect_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<SuperContestEffectReadResponse, ApiError>;
-
+    /// List types
     async fn type_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<TypeListResponse, ApiError>;
 
-    async fn type_read(
+    async fn ability_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<TypeReadResponse, ApiError>;
+        id: String,
+        context: &C) -> Result<AbilityRetrieveResponse, ApiError>;
 
-    async fn version_list(
+    /// Get characteristic
+    async fn characteristic_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<CharacteristicRetrieveResponse, ApiError>;
+
+    /// Get egg group
+    async fn egg_group_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<EggGroupRetrieveResponse, ApiError>;
+
+    /// Get gender
+    async fn gender_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<GenderRetrieveResponse, ApiError>;
+
+    /// Get growth rate
+    async fn growth_rate_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<GrowthRateRetrieveResponse, ApiError>;
+
+    /// Get move damage class
+    async fn move_damage_class_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<MoveDamageClassRetrieveResponse, ApiError>;
+
+    /// Get nature
+    async fn nature_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<NatureRetrieveResponse, ApiError>;
+
+    /// Get pokeathlon stat
+    async fn pokeathlon_stat_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PokeathlonStatRetrieveResponse, ApiError>;
+
+    /// Get pokemon color
+    async fn pokemon_color_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PokemonColorRetrieveResponse, ApiError>;
+
+    /// Get pokemon form
+    async fn pokemon_form_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PokemonFormRetrieveResponse, ApiError>;
+
+    /// Get pokemom habita
+    async fn pokemon_habitat_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PokemonHabitatRetrieveResponse, ApiError>;
+
+    /// Get pokemon
+    async fn pokemon_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PokemonRetrieveResponse, ApiError>;
+
+    /// Get pokemon shape
+    async fn pokemon_shape_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PokemonShapeRetrieveResponse, ApiError>;
+
+    /// Get pokemon species
+    async fn pokemon_species_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PokemonSpeciesRetrieveResponse, ApiError>;
+
+    /// Get stat
+    async fn stat_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<StatRetrieveResponse, ApiError>;
+
+    /// Get types
+    async fn type_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<TypeRetrieveResponse, ApiError>;
+
+    /// List languages
+    async fn language_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        context: &C) -> Result<VersionListResponse, ApiError>;
+        q: Option<String>,
+        context: &C) -> Result<LanguageListResponse, ApiError>;
 
-    async fn version_read(
+    /// Get language
+    async fn language_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<VersionReadResponse, ApiError>;
-
-    async fn version_group_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<VersionGroupListResponse, ApiError>;
-
-    async fn version_group_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<VersionGroupReadResponse, ApiError>;
+        id: String,
+        context: &C) -> Result<LanguageRetrieveResponse, ApiError>;
 
 }
 
@@ -1240,533 +1394,680 @@ pub trait ApiNoContext<C: Send + Sync> {
 
     fn context(&self) -> &C;
 
-    async fn ability_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<AbilityListResponse, ApiError>;
-
-    async fn ability_read(
-        &self,
-        id: i32,
-        ) -> Result<AbilityReadResponse, ApiError>;
-
-    async fn berry_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<BerryListResponse, ApiError>;
-
-    async fn berry_read(
-        &self,
-        id: i32,
-        ) -> Result<BerryReadResponse, ApiError>;
-
+    /// List berry firmness
     async fn berry_firmness_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<BerryFirmnessListResponse, ApiError>;
 
-    async fn berry_firmness_read(
-        &self,
-        id: i32,
-        ) -> Result<BerryFirmnessReadResponse, ApiError>;
-
+    /// List berry flavors
     async fn berry_flavor_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<BerryFlavorListResponse, ApiError>;
 
-    async fn berry_flavor_read(
-        &self,
-        id: i32,
-        ) -> Result<BerryFlavorReadResponse, ApiError>;
-
-    async fn characteristic_list(
+    /// List berries
+    async fn berry_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        ) -> Result<CharacteristicListResponse, ApiError>;
+        q: Option<String>,
+        ) -> Result<BerryListResponse, ApiError>;
 
-    async fn characteristic_read(
+    /// Get berry by firmness
+    async fn berry_firmness_retrieve(
         &self,
-        id: i32,
-        ) -> Result<CharacteristicReadResponse, ApiError>;
+        id: String,
+        ) -> Result<BerryFirmnessRetrieveResponse, ApiError>;
 
+    /// Get berries by flavor
+    async fn berry_flavor_retrieve(
+        &self,
+        id: String,
+        ) -> Result<BerryFlavorRetrieveResponse, ApiError>;
+
+    /// Get a berry
+    async fn berry_retrieve(
+        &self,
+        id: String,
+        ) -> Result<BerryRetrieveResponse, ApiError>;
+
+    /// List contest effects
     async fn contest_effect_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<ContestEffectListResponse, ApiError>;
 
-    async fn contest_effect_read(
-        &self,
-        id: i32,
-        ) -> Result<ContestEffectReadResponse, ApiError>;
-
+    /// List contest types
     async fn contest_type_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<ContestTypeListResponse, ApiError>;
 
-    async fn contest_type_read(
-        &self,
-        id: i32,
-        ) -> Result<ContestTypeReadResponse, ApiError>;
-
-    async fn egg_group_list(
+    /// List super contest effects
+    async fn super_contest_effect_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        ) -> Result<EggGroupListResponse, ApiError>;
+        q: Option<String>,
+        ) -> Result<SuperContestEffectListResponse, ApiError>;
 
-    async fn egg_group_read(
+    /// Get contest effect
+    async fn contest_effect_retrieve(
         &self,
-        id: i32,
-        ) -> Result<EggGroupReadResponse, ApiError>;
+        id: String,
+        ) -> Result<ContestEffectRetrieveResponse, ApiError>;
 
+    /// Get contest type
+    async fn contest_type_retrieve(
+        &self,
+        id: String,
+        ) -> Result<ContestTypeRetrieveResponse, ApiError>;
+
+    /// Get super contest effect
+    async fn super_contest_effect_retrieve(
+        &self,
+        id: String,
+        ) -> Result<SuperContestEffectRetrieveResponse, ApiError>;
+
+    /// List encounter conditions
     async fn encounter_condition_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<EncounterConditionListResponse, ApiError>;
 
-    async fn encounter_condition_read(
-        &self,
-        id: i32,
-        ) -> Result<EncounterConditionReadResponse, ApiError>;
-
+    /// List encounter condition values
     async fn encounter_condition_value_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<EncounterConditionValueListResponse, ApiError>;
 
-    async fn encounter_condition_value_read(
-        &self,
-        id: i32,
-        ) -> Result<EncounterConditionValueReadResponse, ApiError>;
-
+    /// List encounter methods
     async fn encounter_method_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<EncounterMethodListResponse, ApiError>;
 
-    async fn encounter_method_read(
+    /// Get encounter condition
+    async fn encounter_condition_retrieve(
         &self,
-        id: i32,
-        ) -> Result<EncounterMethodReadResponse, ApiError>;
+        id: String,
+        ) -> Result<EncounterConditionRetrieveResponse, ApiError>;
 
+    /// Get encounter condition value
+    async fn encounter_condition_value_retrieve(
+        &self,
+        id: String,
+        ) -> Result<EncounterConditionValueRetrieveResponse, ApiError>;
+
+    /// Get encounter method
+    async fn encounter_method_retrieve(
+        &self,
+        id: String,
+        ) -> Result<EncounterMethodRetrieveResponse, ApiError>;
+
+    /// Get pokemon encounter
+    async fn pokemon_encounters_retrieve(
+        &self,
+        pokemon_id: String,
+        ) -> Result<PokemonEncountersRetrieveResponse, ApiError>;
+
+    /// List evolution chains
     async fn evolution_chain_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<EvolutionChainListResponse, ApiError>;
 
-    async fn evolution_chain_read(
-        &self,
-        id: i32,
-        ) -> Result<EvolutionChainReadResponse, ApiError>;
-
+    /// List evolution triggers
     async fn evolution_trigger_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<EvolutionTriggerListResponse, ApiError>;
 
-    async fn evolution_trigger_read(
+    /// Get evolution chain
+    async fn evolution_chain_retrieve(
         &self,
-        id: i32,
-        ) -> Result<EvolutionTriggerReadResponse, ApiError>;
+        id: String,
+        ) -> Result<EvolutionChainRetrieveResponse, ApiError>;
 
-    async fn gender_list(
+    /// Get evolution trigger
+    async fn evolution_trigger_retrieve(
         &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<GenderListResponse, ApiError>;
+        id: String,
+        ) -> Result<EvolutionTriggerRetrieveResponse, ApiError>;
 
-    async fn gender_read(
-        &self,
-        id: i32,
-        ) -> Result<GenderReadResponse, ApiError>;
-
+    /// List genrations
     async fn generation_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<GenerationListResponse, ApiError>;
 
-    async fn generation_read(
-        &self,
-        id: i32,
-        ) -> Result<GenerationReadResponse, ApiError>;
-
-    async fn growth_rate_list(
+    /// List pokedex
+    async fn pokedex_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        ) -> Result<GrowthRateListResponse, ApiError>;
+        q: Option<String>,
+        ) -> Result<PokedexListResponse, ApiError>;
 
-    async fn growth_rate_read(
-        &self,
-        id: i32,
-        ) -> Result<GrowthRateReadResponse, ApiError>;
-
-    async fn item_list(
+    /// List version groups
+    async fn version_group_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        ) -> Result<ItemListResponse, ApiError>;
+        q: Option<String>,
+        ) -> Result<VersionGroupListResponse, ApiError>;
 
-    async fn item_read(
+    /// List versions
+    async fn version_list(
         &self,
-        id: i32,
-        ) -> Result<ItemReadResponse, ApiError>;
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<VersionListResponse, ApiError>;
 
+    /// Get genration
+    async fn generation_retrieve(
+        &self,
+        id: String,
+        ) -> Result<GenerationRetrieveResponse, ApiError>;
+
+    /// Get pokedex
+    async fn pokedex_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PokedexRetrieveResponse, ApiError>;
+
+    /// Get version group
+    async fn version_group_retrieve(
+        &self,
+        id: String,
+        ) -> Result<VersionGroupRetrieveResponse, ApiError>;
+
+    /// Get version
+    async fn version_retrieve(
+        &self,
+        id: String,
+        ) -> Result<VersionRetrieveResponse, ApiError>;
+
+    /// List item attributes
     async fn item_attribute_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<ItemAttributeListResponse, ApiError>;
 
-    async fn item_attribute_read(
-        &self,
-        id: i32,
-        ) -> Result<ItemAttributeReadResponse, ApiError>;
-
+    /// List item categories
     async fn item_category_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<ItemCategoryListResponse, ApiError>;
 
-    async fn item_category_read(
-        &self,
-        id: i32,
-        ) -> Result<ItemCategoryReadResponse, ApiError>;
-
+    /// List item fling effects
     async fn item_fling_effect_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<ItemFlingEffectListResponse, ApiError>;
 
-    async fn item_fling_effect_read(
+    /// List items
+    async fn item_list(
         &self,
-        id: i32,
-        ) -> Result<ItemFlingEffectReadResponse, ApiError>;
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<ItemListResponse, ApiError>;
 
+    /// List item pockets
     async fn item_pocket_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<ItemPocketListResponse, ApiError>;
 
-    async fn item_pocket_read(
+    /// Get item attribute
+    async fn item_attribute_retrieve(
         &self,
-        id: i32,
-        ) -> Result<ItemPocketReadResponse, ApiError>;
+        id: String,
+        ) -> Result<ItemAttributeRetrieveResponse, ApiError>;
 
-    async fn language_list(
+    /// Get item category
+    async fn item_category_retrieve(
         &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<LanguageListResponse, ApiError>;
+        id: String,
+        ) -> Result<ItemCategoryRetrieveResponse, ApiError>;
 
-    async fn language_read(
+    /// Get item fling effect
+    async fn item_fling_effect_retrieve(
         &self,
-        id: i32,
-        ) -> Result<LanguageReadResponse, ApiError>;
+        id: String,
+        ) -> Result<ItemFlingEffectRetrieveResponse, ApiError>;
 
-    async fn location_list(
+    /// Get item pocket
+    async fn item_pocket_retrieve(
         &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<LocationListResponse, ApiError>;
+        id: String,
+        ) -> Result<ItemPocketRetrieveResponse, ApiError>;
 
-    async fn location_read(
+    /// Get item
+    async fn item_retrieve(
         &self,
-        id: i32,
-        ) -> Result<LocationReadResponse, ApiError>;
+        id: String,
+        ) -> Result<ItemRetrieveResponse, ApiError>;
 
+    /// List location areas
     async fn location_area_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
         ) -> Result<LocationAreaListResponse, ApiError>;
 
-    async fn location_area_read(
-        &self,
-        id: i32,
-        ) -> Result<LocationAreaReadResponse, ApiError>;
-
-    async fn machine_list(
+    /// List locations
+    async fn location_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        ) -> Result<MachineListResponse, ApiError>;
+        q: Option<String>,
+        ) -> Result<LocationListResponse, ApiError>;
 
-    async fn machine_read(
-        &self,
-        id: i32,
-        ) -> Result<MachineReadResponse, ApiError>;
-
-    async fn move_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<MoveListResponse, ApiError>;
-
-    async fn move_read(
-        &self,
-        id: i32,
-        ) -> Result<MoveReadResponse, ApiError>;
-
-    async fn move_ailment_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<MoveAilmentListResponse, ApiError>;
-
-    async fn move_ailment_read(
-        &self,
-        id: i32,
-        ) -> Result<MoveAilmentReadResponse, ApiError>;
-
-    async fn move_battle_style_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<MoveBattleStyleListResponse, ApiError>;
-
-    async fn move_battle_style_read(
-        &self,
-        id: i32,
-        ) -> Result<MoveBattleStyleReadResponse, ApiError>;
-
-    async fn move_category_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<MoveCategoryListResponse, ApiError>;
-
-    async fn move_category_read(
-        &self,
-        id: i32,
-        ) -> Result<MoveCategoryReadResponse, ApiError>;
-
-    async fn move_damage_class_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<MoveDamageClassListResponse, ApiError>;
-
-    async fn move_damage_class_read(
-        &self,
-        id: i32,
-        ) -> Result<MoveDamageClassReadResponse, ApiError>;
-
-    async fn move_learn_method_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<MoveLearnMethodListResponse, ApiError>;
-
-    async fn move_learn_method_read(
-        &self,
-        id: i32,
-        ) -> Result<MoveLearnMethodReadResponse, ApiError>;
-
-    async fn move_target_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<MoveTargetListResponse, ApiError>;
-
-    async fn move_target_read(
-        &self,
-        id: i32,
-        ) -> Result<MoveTargetReadResponse, ApiError>;
-
-    async fn nature_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<NatureListResponse, ApiError>;
-
-    async fn nature_read(
-        &self,
-        id: i32,
-        ) -> Result<NatureReadResponse, ApiError>;
-
+    /// List pal park areas
     async fn pal_park_area_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<PalParkAreaListResponse, ApiError>;
 
-    async fn pal_park_area_read(
-        &self,
-        id: i32,
-        ) -> Result<PalParkAreaReadResponse, ApiError>;
-
-    async fn pokeathlon_stat_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<PokeathlonStatListResponse, ApiError>;
-
-    async fn pokeathlon_stat_read(
-        &self,
-        id: i32,
-        ) -> Result<PokeathlonStatReadResponse, ApiError>;
-
-    async fn pokedex_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<PokedexListResponse, ApiError>;
-
-    async fn pokedex_read(
-        &self,
-        id: i32,
-        ) -> Result<PokedexReadResponse, ApiError>;
-
-    async fn pokemon_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<PokemonListResponse, ApiError>;
-
-    async fn pokemon_read(
-        &self,
-        id: i32,
-        ) -> Result<PokemonReadResponse, ApiError>;
-
-    async fn pokemon_color_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<PokemonColorListResponse, ApiError>;
-
-    async fn pokemon_color_read(
-        &self,
-        id: i32,
-        ) -> Result<PokemonColorReadResponse, ApiError>;
-
-    async fn pokemon_form_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<PokemonFormListResponse, ApiError>;
-
-    async fn pokemon_form_read(
-        &self,
-        id: i32,
-        ) -> Result<PokemonFormReadResponse, ApiError>;
-
-    async fn pokemon_habitat_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<PokemonHabitatListResponse, ApiError>;
-
-    async fn pokemon_habitat_read(
-        &self,
-        id: i32,
-        ) -> Result<PokemonHabitatReadResponse, ApiError>;
-
-    async fn pokemon_shape_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<PokemonShapeListResponse, ApiError>;
-
-    async fn pokemon_shape_read(
-        &self,
-        id: i32,
-        ) -> Result<PokemonShapeReadResponse, ApiError>;
-
-    async fn pokemon_species_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<PokemonSpeciesListResponse, ApiError>;
-
-    async fn pokemon_species_read(
-        &self,
-        id: i32,
-        ) -> Result<PokemonSpeciesReadResponse, ApiError>;
-
+    /// List regions
     async fn region_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<RegionListResponse, ApiError>;
 
-    async fn region_read(
+    /// Get location area
+    async fn location_area_retrieve(
         &self,
         id: i32,
-        ) -> Result<RegionReadResponse, ApiError>;
+        ) -> Result<LocationAreaRetrieveResponse, ApiError>;
 
+    /// Get location
+    async fn location_retrieve(
+        &self,
+        id: String,
+        ) -> Result<LocationRetrieveResponse, ApiError>;
+
+    /// Get pal park area
+    async fn pal_park_area_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PalParkAreaRetrieveResponse, ApiError>;
+
+    /// Get region
+    async fn region_retrieve(
+        &self,
+        id: String,
+        ) -> Result<RegionRetrieveResponse, ApiError>;
+
+    /// List machines
+    async fn machine_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<MachineListResponse, ApiError>;
+
+    /// Get machine
+    async fn machine_retrieve(
+        &self,
+        id: String,
+        ) -> Result<MachineRetrieveResponse, ApiError>;
+
+    /// List move meta ailments
+    async fn move_ailment_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<MoveAilmentListResponse, ApiError>;
+
+    /// List move battle styles
+    async fn move_battle_style_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<MoveBattleStyleListResponse, ApiError>;
+
+    /// List move meta categories
+    async fn move_category_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<MoveCategoryListResponse, ApiError>;
+
+    /// List move learn methods
+    async fn move_learn_method_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<MoveLearnMethodListResponse, ApiError>;
+
+    /// List moves
+    async fn move_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<MoveListResponse, ApiError>;
+
+    /// List move targets
+    async fn move_target_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<MoveTargetListResponse, ApiError>;
+
+    /// Get move meta ailment
+    async fn move_ailment_retrieve(
+        &self,
+        id: String,
+        ) -> Result<MoveAilmentRetrieveResponse, ApiError>;
+
+    /// Get move battle style
+    async fn move_battle_style_retrieve(
+        &self,
+        id: String,
+        ) -> Result<MoveBattleStyleRetrieveResponse, ApiError>;
+
+    /// Get move meta category
+    async fn move_category_retrieve(
+        &self,
+        id: String,
+        ) -> Result<MoveCategoryRetrieveResponse, ApiError>;
+
+    /// Get move learn method
+    async fn move_learn_method_retrieve(
+        &self,
+        id: String,
+        ) -> Result<MoveLearnMethodRetrieveResponse, ApiError>;
+
+    /// Get move
+    async fn move_retrieve(
+        &self,
+        id: String,
+        ) -> Result<MoveRetrieveResponse, ApiError>;
+
+    /// Get move target
+    async fn move_target_retrieve(
+        &self,
+        id: String,
+        ) -> Result<MoveTargetRetrieveResponse, ApiError>;
+
+    async fn ability_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<AbilityListResponse, ApiError>;
+
+    /// List charecterictics
+    async fn characteristic_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<CharacteristicListResponse, ApiError>;
+
+    /// List egg groups
+    async fn egg_group_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<EggGroupListResponse, ApiError>;
+
+    /// List genders
+    async fn gender_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<GenderListResponse, ApiError>;
+
+    /// List growth rates
+    async fn growth_rate_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<GrowthRateListResponse, ApiError>;
+
+    /// List move damage classes
+    async fn move_damage_class_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<MoveDamageClassListResponse, ApiError>;
+
+    /// List natures
+    async fn nature_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<NatureListResponse, ApiError>;
+
+    /// List pokeathlon stats
+    async fn pokeathlon_stat_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<PokeathlonStatListResponse, ApiError>;
+
+    /// List pokemon colors
+    async fn pokemon_color_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<PokemonColorListResponse, ApiError>;
+
+    /// List pokemon forms
+    async fn pokemon_form_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<PokemonFormListResponse, ApiError>;
+
+    /// List pokemom habitas
+    async fn pokemon_habitat_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<PokemonHabitatListResponse, ApiError>;
+
+    /// List pokemon
+    async fn pokemon_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<PokemonListResponse, ApiError>;
+
+    /// List pokemon shapes
+    async fn pokemon_shape_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<PokemonShapeListResponse, ApiError>;
+
+    /// List pokemon species
+    async fn pokemon_species_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<PokemonSpeciesListResponse, ApiError>;
+
+    /// List stats
     async fn stat_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<StatListResponse, ApiError>;
 
-    async fn stat_read(
-        &self,
-        id: i32,
-        ) -> Result<StatReadResponse, ApiError>;
-
-    async fn super_contest_effect_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<SuperContestEffectListResponse, ApiError>;
-
-    async fn super_contest_effect_read(
-        &self,
-        id: i32,
-        ) -> Result<SuperContestEffectReadResponse, ApiError>;
-
+    /// List types
     async fn type_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<TypeListResponse, ApiError>;
 
-    async fn type_read(
+    async fn ability_retrieve(
         &self,
-        id: i32,
-        ) -> Result<TypeReadResponse, ApiError>;
+        id: String,
+        ) -> Result<AbilityRetrieveResponse, ApiError>;
 
-    async fn version_list(
+    /// Get characteristic
+    async fn characteristic_retrieve(
+        &self,
+        id: String,
+        ) -> Result<CharacteristicRetrieveResponse, ApiError>;
+
+    /// Get egg group
+    async fn egg_group_retrieve(
+        &self,
+        id: String,
+        ) -> Result<EggGroupRetrieveResponse, ApiError>;
+
+    /// Get gender
+    async fn gender_retrieve(
+        &self,
+        id: String,
+        ) -> Result<GenderRetrieveResponse, ApiError>;
+
+    /// Get growth rate
+    async fn growth_rate_retrieve(
+        &self,
+        id: String,
+        ) -> Result<GrowthRateRetrieveResponse, ApiError>;
+
+    /// Get move damage class
+    async fn move_damage_class_retrieve(
+        &self,
+        id: String,
+        ) -> Result<MoveDamageClassRetrieveResponse, ApiError>;
+
+    /// Get nature
+    async fn nature_retrieve(
+        &self,
+        id: String,
+        ) -> Result<NatureRetrieveResponse, ApiError>;
+
+    /// Get pokeathlon stat
+    async fn pokeathlon_stat_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PokeathlonStatRetrieveResponse, ApiError>;
+
+    /// Get pokemon color
+    async fn pokemon_color_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PokemonColorRetrieveResponse, ApiError>;
+
+    /// Get pokemon form
+    async fn pokemon_form_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PokemonFormRetrieveResponse, ApiError>;
+
+    /// Get pokemom habita
+    async fn pokemon_habitat_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PokemonHabitatRetrieveResponse, ApiError>;
+
+    /// Get pokemon
+    async fn pokemon_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PokemonRetrieveResponse, ApiError>;
+
+    /// Get pokemon shape
+    async fn pokemon_shape_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PokemonShapeRetrieveResponse, ApiError>;
+
+    /// Get pokemon species
+    async fn pokemon_species_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PokemonSpeciesRetrieveResponse, ApiError>;
+
+    /// Get stat
+    async fn stat_retrieve(
+        &self,
+        id: String,
+        ) -> Result<StatRetrieveResponse, ApiError>;
+
+    /// Get types
+    async fn type_retrieve(
+        &self,
+        id: String,
+        ) -> Result<TypeRetrieveResponse, ApiError>;
+
+    /// List languages
+    async fn language_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        ) -> Result<VersionListResponse, ApiError>;
+        q: Option<String>,
+        ) -> Result<LanguageListResponse, ApiError>;
 
-    async fn version_read(
+    /// Get language
+    async fn language_retrieve(
         &self,
-        id: i32,
-        ) -> Result<VersionReadResponse, ApiError>;
-
-    async fn version_group_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<VersionGroupListResponse, ApiError>;
-
-    async fn version_group_read(
-        &self,
-        id: i32,
-        ) -> Result<VersionGroupReadResponse, ApiError>;
+        id: String,
+        ) -> Result<LanguageRetrieveResponse, ApiError>;
 
 }
 
@@ -1789,443 +2090,457 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
         ContextWrapper::context(self)
     }
 
-    async fn ability_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<AbilityListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().ability_list(limit, offset, &context).await
-    }
-
-    async fn ability_read(
-        &self,
-        id: i32,
-        ) -> Result<AbilityReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().ability_read(id, &context).await
-    }
-
-    async fn berry_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<BerryListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().berry_list(limit, offset, &context).await
-    }
-
-    async fn berry_read(
-        &self,
-        id: i32,
-        ) -> Result<BerryReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().berry_read(id, &context).await
-    }
-
+    /// List berry firmness
     async fn berry_firmness_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<BerryFirmnessListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().berry_firmness_list(limit, offset, &context).await
+        self.api().berry_firmness_list(limit, offset, q, &context).await
     }
 
-    async fn berry_firmness_read(
-        &self,
-        id: i32,
-        ) -> Result<BerryFirmnessReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().berry_firmness_read(id, &context).await
-    }
-
+    /// List berry flavors
     async fn berry_flavor_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<BerryFlavorListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().berry_flavor_list(limit, offset, &context).await
+        self.api().berry_flavor_list(limit, offset, q, &context).await
     }
 
-    async fn berry_flavor_read(
-        &self,
-        id: i32,
-        ) -> Result<BerryFlavorReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().berry_flavor_read(id, &context).await
-    }
-
-    async fn characteristic_list(
+    /// List berries
+    async fn berry_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        ) -> Result<CharacteristicListResponse, ApiError>
+        q: Option<String>,
+        ) -> Result<BerryListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().characteristic_list(limit, offset, &context).await
+        self.api().berry_list(limit, offset, q, &context).await
     }
 
-    async fn characteristic_read(
+    /// Get berry by firmness
+    async fn berry_firmness_retrieve(
         &self,
-        id: i32,
-        ) -> Result<CharacteristicReadResponse, ApiError>
+        id: String,
+        ) -> Result<BerryFirmnessRetrieveResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().characteristic_read(id, &context).await
+        self.api().berry_firmness_retrieve(id, &context).await
     }
 
+    /// Get berries by flavor
+    async fn berry_flavor_retrieve(
+        &self,
+        id: String,
+        ) -> Result<BerryFlavorRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().berry_flavor_retrieve(id, &context).await
+    }
+
+    /// Get a berry
+    async fn berry_retrieve(
+        &self,
+        id: String,
+        ) -> Result<BerryRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().berry_retrieve(id, &context).await
+    }
+
+    /// List contest effects
     async fn contest_effect_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<ContestEffectListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().contest_effect_list(limit, offset, &context).await
+        self.api().contest_effect_list(limit, offset, q, &context).await
     }
 
-    async fn contest_effect_read(
-        &self,
-        id: i32,
-        ) -> Result<ContestEffectReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().contest_effect_read(id, &context).await
-    }
-
+    /// List contest types
     async fn contest_type_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<ContestTypeListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().contest_type_list(limit, offset, &context).await
+        self.api().contest_type_list(limit, offset, q, &context).await
     }
 
-    async fn contest_type_read(
-        &self,
-        id: i32,
-        ) -> Result<ContestTypeReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().contest_type_read(id, &context).await
-    }
-
-    async fn egg_group_list(
+    /// List super contest effects
+    async fn super_contest_effect_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        ) -> Result<EggGroupListResponse, ApiError>
+        q: Option<String>,
+        ) -> Result<SuperContestEffectListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().egg_group_list(limit, offset, &context).await
+        self.api().super_contest_effect_list(limit, offset, q, &context).await
     }
 
-    async fn egg_group_read(
+    /// Get contest effect
+    async fn contest_effect_retrieve(
         &self,
-        id: i32,
-        ) -> Result<EggGroupReadResponse, ApiError>
+        id: String,
+        ) -> Result<ContestEffectRetrieveResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().egg_group_read(id, &context).await
+        self.api().contest_effect_retrieve(id, &context).await
     }
 
+    /// Get contest type
+    async fn contest_type_retrieve(
+        &self,
+        id: String,
+        ) -> Result<ContestTypeRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().contest_type_retrieve(id, &context).await
+    }
+
+    /// Get super contest effect
+    async fn super_contest_effect_retrieve(
+        &self,
+        id: String,
+        ) -> Result<SuperContestEffectRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().super_contest_effect_retrieve(id, &context).await
+    }
+
+    /// List encounter conditions
     async fn encounter_condition_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<EncounterConditionListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().encounter_condition_list(limit, offset, &context).await
+        self.api().encounter_condition_list(limit, offset, q, &context).await
     }
 
-    async fn encounter_condition_read(
-        &self,
-        id: i32,
-        ) -> Result<EncounterConditionReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().encounter_condition_read(id, &context).await
-    }
-
+    /// List encounter condition values
     async fn encounter_condition_value_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<EncounterConditionValueListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().encounter_condition_value_list(limit, offset, &context).await
+        self.api().encounter_condition_value_list(limit, offset, q, &context).await
     }
 
-    async fn encounter_condition_value_read(
-        &self,
-        id: i32,
-        ) -> Result<EncounterConditionValueReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().encounter_condition_value_read(id, &context).await
-    }
-
+    /// List encounter methods
     async fn encounter_method_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<EncounterMethodListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().encounter_method_list(limit, offset, &context).await
+        self.api().encounter_method_list(limit, offset, q, &context).await
     }
 
-    async fn encounter_method_read(
+    /// Get encounter condition
+    async fn encounter_condition_retrieve(
         &self,
-        id: i32,
-        ) -> Result<EncounterMethodReadResponse, ApiError>
+        id: String,
+        ) -> Result<EncounterConditionRetrieveResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().encounter_method_read(id, &context).await
+        self.api().encounter_condition_retrieve(id, &context).await
     }
 
+    /// Get encounter condition value
+    async fn encounter_condition_value_retrieve(
+        &self,
+        id: String,
+        ) -> Result<EncounterConditionValueRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().encounter_condition_value_retrieve(id, &context).await
+    }
+
+    /// Get encounter method
+    async fn encounter_method_retrieve(
+        &self,
+        id: String,
+        ) -> Result<EncounterMethodRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().encounter_method_retrieve(id, &context).await
+    }
+
+    /// Get pokemon encounter
+    async fn pokemon_encounters_retrieve(
+        &self,
+        pokemon_id: String,
+        ) -> Result<PokemonEncountersRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().pokemon_encounters_retrieve(pokemon_id, &context).await
+    }
+
+    /// List evolution chains
     async fn evolution_chain_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<EvolutionChainListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().evolution_chain_list(limit, offset, &context).await
+        self.api().evolution_chain_list(limit, offset, q, &context).await
     }
 
-    async fn evolution_chain_read(
-        &self,
-        id: i32,
-        ) -> Result<EvolutionChainReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().evolution_chain_read(id, &context).await
-    }
-
+    /// List evolution triggers
     async fn evolution_trigger_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<EvolutionTriggerListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().evolution_trigger_list(limit, offset, &context).await
+        self.api().evolution_trigger_list(limit, offset, q, &context).await
     }
 
-    async fn evolution_trigger_read(
+    /// Get evolution chain
+    async fn evolution_chain_retrieve(
         &self,
-        id: i32,
-        ) -> Result<EvolutionTriggerReadResponse, ApiError>
+        id: String,
+        ) -> Result<EvolutionChainRetrieveResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().evolution_trigger_read(id, &context).await
+        self.api().evolution_chain_retrieve(id, &context).await
     }
 
-    async fn gender_list(
+    /// Get evolution trigger
+    async fn evolution_trigger_retrieve(
         &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<GenderListResponse, ApiError>
+        id: String,
+        ) -> Result<EvolutionTriggerRetrieveResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().gender_list(limit, offset, &context).await
+        self.api().evolution_trigger_retrieve(id, &context).await
     }
 
-    async fn gender_read(
-        &self,
-        id: i32,
-        ) -> Result<GenderReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().gender_read(id, &context).await
-    }
-
+    /// List genrations
     async fn generation_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<GenerationListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().generation_list(limit, offset, &context).await
+        self.api().generation_list(limit, offset, q, &context).await
     }
 
-    async fn generation_read(
-        &self,
-        id: i32,
-        ) -> Result<GenerationReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().generation_read(id, &context).await
-    }
-
-    async fn growth_rate_list(
+    /// List pokedex
+    async fn pokedex_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        ) -> Result<GrowthRateListResponse, ApiError>
+        q: Option<String>,
+        ) -> Result<PokedexListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().growth_rate_list(limit, offset, &context).await
+        self.api().pokedex_list(limit, offset, q, &context).await
     }
 
-    async fn growth_rate_read(
-        &self,
-        id: i32,
-        ) -> Result<GrowthRateReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().growth_rate_read(id, &context).await
-    }
-
-    async fn item_list(
+    /// List version groups
+    async fn version_group_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        ) -> Result<ItemListResponse, ApiError>
+        q: Option<String>,
+        ) -> Result<VersionGroupListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().item_list(limit, offset, &context).await
+        self.api().version_group_list(limit, offset, q, &context).await
     }
 
-    async fn item_read(
+    /// List versions
+    async fn version_list(
         &self,
-        id: i32,
-        ) -> Result<ItemReadResponse, ApiError>
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<VersionListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().item_read(id, &context).await
+        self.api().version_list(limit, offset, q, &context).await
     }
 
+    /// Get genration
+    async fn generation_retrieve(
+        &self,
+        id: String,
+        ) -> Result<GenerationRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().generation_retrieve(id, &context).await
+    }
+
+    /// Get pokedex
+    async fn pokedex_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PokedexRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().pokedex_retrieve(id, &context).await
+    }
+
+    /// Get version group
+    async fn version_group_retrieve(
+        &self,
+        id: String,
+        ) -> Result<VersionGroupRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().version_group_retrieve(id, &context).await
+    }
+
+    /// Get version
+    async fn version_retrieve(
+        &self,
+        id: String,
+        ) -> Result<VersionRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().version_retrieve(id, &context).await
+    }
+
+    /// List item attributes
     async fn item_attribute_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<ItemAttributeListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().item_attribute_list(limit, offset, &context).await
+        self.api().item_attribute_list(limit, offset, q, &context).await
     }
 
-    async fn item_attribute_read(
-        &self,
-        id: i32,
-        ) -> Result<ItemAttributeReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().item_attribute_read(id, &context).await
-    }
-
+    /// List item categories
     async fn item_category_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<ItemCategoryListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().item_category_list(limit, offset, &context).await
+        self.api().item_category_list(limit, offset, q, &context).await
     }
 
-    async fn item_category_read(
-        &self,
-        id: i32,
-        ) -> Result<ItemCategoryReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().item_category_read(id, &context).await
-    }
-
+    /// List item fling effects
     async fn item_fling_effect_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<ItemFlingEffectListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().item_fling_effect_list(limit, offset, &context).await
+        self.api().item_fling_effect_list(limit, offset, q, &context).await
     }
 
-    async fn item_fling_effect_read(
+    /// List items
+    async fn item_list(
         &self,
-        id: i32,
-        ) -> Result<ItemFlingEffectReadResponse, ApiError>
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<ItemListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().item_fling_effect_read(id, &context).await
+        self.api().item_list(limit, offset, q, &context).await
     }
 
+    /// List item pockets
     async fn item_pocket_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<ItemPocketListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().item_pocket_list(limit, offset, &context).await
+        self.api().item_pocket_list(limit, offset, q, &context).await
     }
 
-    async fn item_pocket_read(
+    /// Get item attribute
+    async fn item_attribute_retrieve(
         &self,
-        id: i32,
-        ) -> Result<ItemPocketReadResponse, ApiError>
+        id: String,
+        ) -> Result<ItemAttributeRetrieveResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().item_pocket_read(id, &context).await
+        self.api().item_attribute_retrieve(id, &context).await
     }
 
-    async fn language_list(
+    /// Get item category
+    async fn item_category_retrieve(
         &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<LanguageListResponse, ApiError>
+        id: String,
+        ) -> Result<ItemCategoryRetrieveResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().language_list(limit, offset, &context).await
+        self.api().item_category_retrieve(id, &context).await
     }
 
-    async fn language_read(
+    /// Get item fling effect
+    async fn item_fling_effect_retrieve(
         &self,
-        id: i32,
-        ) -> Result<LanguageReadResponse, ApiError>
+        id: String,
+        ) -> Result<ItemFlingEffectRetrieveResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().language_read(id, &context).await
+        self.api().item_fling_effect_retrieve(id, &context).await
     }
 
-    async fn location_list(
+    /// Get item pocket
+    async fn item_pocket_retrieve(
         &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<LocationListResponse, ApiError>
+        id: String,
+        ) -> Result<ItemPocketRetrieveResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().location_list(limit, offset, &context).await
+        self.api().item_pocket_retrieve(id, &context).await
     }
 
-    async fn location_read(
+    /// Get item
+    async fn item_retrieve(
         &self,
-        id: i32,
-        ) -> Result<LocationReadResponse, ApiError>
+        id: String,
+        ) -> Result<ItemRetrieveResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().location_read(id, &context).await
+        self.api().item_retrieve(id, &context).await
     }
 
+    /// List location areas
     async fn location_area_list(
         &self,
         limit: Option<i32>,
@@ -2236,469 +2551,606 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
         self.api().location_area_list(limit, offset, &context).await
     }
 
-    async fn location_area_read(
-        &self,
-        id: i32,
-        ) -> Result<LocationAreaReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().location_area_read(id, &context).await
-    }
-
-    async fn machine_list(
+    /// List locations
+    async fn location_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        ) -> Result<MachineListResponse, ApiError>
+        q: Option<String>,
+        ) -> Result<LocationListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().machine_list(limit, offset, &context).await
+        self.api().location_list(limit, offset, q, &context).await
     }
 
-    async fn machine_read(
-        &self,
-        id: i32,
-        ) -> Result<MachineReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().machine_read(id, &context).await
-    }
-
-    async fn move_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<MoveListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().move_list(limit, offset, &context).await
-    }
-
-    async fn move_read(
-        &self,
-        id: i32,
-        ) -> Result<MoveReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().move_read(id, &context).await
-    }
-
-    async fn move_ailment_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<MoveAilmentListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().move_ailment_list(limit, offset, &context).await
-    }
-
-    async fn move_ailment_read(
-        &self,
-        id: i32,
-        ) -> Result<MoveAilmentReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().move_ailment_read(id, &context).await
-    }
-
-    async fn move_battle_style_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<MoveBattleStyleListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().move_battle_style_list(limit, offset, &context).await
-    }
-
-    async fn move_battle_style_read(
-        &self,
-        id: i32,
-        ) -> Result<MoveBattleStyleReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().move_battle_style_read(id, &context).await
-    }
-
-    async fn move_category_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<MoveCategoryListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().move_category_list(limit, offset, &context).await
-    }
-
-    async fn move_category_read(
-        &self,
-        id: i32,
-        ) -> Result<MoveCategoryReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().move_category_read(id, &context).await
-    }
-
-    async fn move_damage_class_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<MoveDamageClassListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().move_damage_class_list(limit, offset, &context).await
-    }
-
-    async fn move_damage_class_read(
-        &self,
-        id: i32,
-        ) -> Result<MoveDamageClassReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().move_damage_class_read(id, &context).await
-    }
-
-    async fn move_learn_method_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<MoveLearnMethodListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().move_learn_method_list(limit, offset, &context).await
-    }
-
-    async fn move_learn_method_read(
-        &self,
-        id: i32,
-        ) -> Result<MoveLearnMethodReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().move_learn_method_read(id, &context).await
-    }
-
-    async fn move_target_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<MoveTargetListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().move_target_list(limit, offset, &context).await
-    }
-
-    async fn move_target_read(
-        &self,
-        id: i32,
-        ) -> Result<MoveTargetReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().move_target_read(id, &context).await
-    }
-
-    async fn nature_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<NatureListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().nature_list(limit, offset, &context).await
-    }
-
-    async fn nature_read(
-        &self,
-        id: i32,
-        ) -> Result<NatureReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().nature_read(id, &context).await
-    }
-
+    /// List pal park areas
     async fn pal_park_area_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<PalParkAreaListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().pal_park_area_list(limit, offset, &context).await
+        self.api().pal_park_area_list(limit, offset, q, &context).await
     }
 
-    async fn pal_park_area_read(
-        &self,
-        id: i32,
-        ) -> Result<PalParkAreaReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pal_park_area_read(id, &context).await
-    }
-
-    async fn pokeathlon_stat_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<PokeathlonStatListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pokeathlon_stat_list(limit, offset, &context).await
-    }
-
-    async fn pokeathlon_stat_read(
-        &self,
-        id: i32,
-        ) -> Result<PokeathlonStatReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pokeathlon_stat_read(id, &context).await
-    }
-
-    async fn pokedex_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<PokedexListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pokedex_list(limit, offset, &context).await
-    }
-
-    async fn pokedex_read(
-        &self,
-        id: i32,
-        ) -> Result<PokedexReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pokedex_read(id, &context).await
-    }
-
-    async fn pokemon_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<PokemonListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pokemon_list(limit, offset, &context).await
-    }
-
-    async fn pokemon_read(
-        &self,
-        id: i32,
-        ) -> Result<PokemonReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pokemon_read(id, &context).await
-    }
-
-    async fn pokemon_color_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<PokemonColorListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pokemon_color_list(limit, offset, &context).await
-    }
-
-    async fn pokemon_color_read(
-        &self,
-        id: i32,
-        ) -> Result<PokemonColorReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pokemon_color_read(id, &context).await
-    }
-
-    async fn pokemon_form_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<PokemonFormListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pokemon_form_list(limit, offset, &context).await
-    }
-
-    async fn pokemon_form_read(
-        &self,
-        id: i32,
-        ) -> Result<PokemonFormReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pokemon_form_read(id, &context).await
-    }
-
-    async fn pokemon_habitat_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<PokemonHabitatListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pokemon_habitat_list(limit, offset, &context).await
-    }
-
-    async fn pokemon_habitat_read(
-        &self,
-        id: i32,
-        ) -> Result<PokemonHabitatReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pokemon_habitat_read(id, &context).await
-    }
-
-    async fn pokemon_shape_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<PokemonShapeListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pokemon_shape_list(limit, offset, &context).await
-    }
-
-    async fn pokemon_shape_read(
-        &self,
-        id: i32,
-        ) -> Result<PokemonShapeReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pokemon_shape_read(id, &context).await
-    }
-
-    async fn pokemon_species_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<PokemonSpeciesListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pokemon_species_list(limit, offset, &context).await
-    }
-
-    async fn pokemon_species_read(
-        &self,
-        id: i32,
-        ) -> Result<PokemonSpeciesReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().pokemon_species_read(id, &context).await
-    }
-
+    /// List regions
     async fn region_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<RegionListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().region_list(limit, offset, &context).await
+        self.api().region_list(limit, offset, q, &context).await
     }
 
-    async fn region_read(
+    /// Get location area
+    async fn location_area_retrieve(
         &self,
         id: i32,
-        ) -> Result<RegionReadResponse, ApiError>
+        ) -> Result<LocationAreaRetrieveResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().region_read(id, &context).await
+        self.api().location_area_retrieve(id, &context).await
     }
 
+    /// Get location
+    async fn location_retrieve(
+        &self,
+        id: String,
+        ) -> Result<LocationRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().location_retrieve(id, &context).await
+    }
+
+    /// Get pal park area
+    async fn pal_park_area_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PalParkAreaRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().pal_park_area_retrieve(id, &context).await
+    }
+
+    /// Get region
+    async fn region_retrieve(
+        &self,
+        id: String,
+        ) -> Result<RegionRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().region_retrieve(id, &context).await
+    }
+
+    /// List machines
+    async fn machine_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<MachineListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().machine_list(limit, offset, q, &context).await
+    }
+
+    /// Get machine
+    async fn machine_retrieve(
+        &self,
+        id: String,
+        ) -> Result<MachineRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().machine_retrieve(id, &context).await
+    }
+
+    /// List move meta ailments
+    async fn move_ailment_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<MoveAilmentListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().move_ailment_list(limit, offset, q, &context).await
+    }
+
+    /// List move battle styles
+    async fn move_battle_style_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<MoveBattleStyleListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().move_battle_style_list(limit, offset, q, &context).await
+    }
+
+    /// List move meta categories
+    async fn move_category_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<MoveCategoryListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().move_category_list(limit, offset, q, &context).await
+    }
+
+    /// List move learn methods
+    async fn move_learn_method_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<MoveLearnMethodListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().move_learn_method_list(limit, offset, q, &context).await
+    }
+
+    /// List moves
+    async fn move_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<MoveListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().move_list(limit, offset, q, &context).await
+    }
+
+    /// List move targets
+    async fn move_target_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<MoveTargetListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().move_target_list(limit, offset, q, &context).await
+    }
+
+    /// Get move meta ailment
+    async fn move_ailment_retrieve(
+        &self,
+        id: String,
+        ) -> Result<MoveAilmentRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().move_ailment_retrieve(id, &context).await
+    }
+
+    /// Get move battle style
+    async fn move_battle_style_retrieve(
+        &self,
+        id: String,
+        ) -> Result<MoveBattleStyleRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().move_battle_style_retrieve(id, &context).await
+    }
+
+    /// Get move meta category
+    async fn move_category_retrieve(
+        &self,
+        id: String,
+        ) -> Result<MoveCategoryRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().move_category_retrieve(id, &context).await
+    }
+
+    /// Get move learn method
+    async fn move_learn_method_retrieve(
+        &self,
+        id: String,
+        ) -> Result<MoveLearnMethodRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().move_learn_method_retrieve(id, &context).await
+    }
+
+    /// Get move
+    async fn move_retrieve(
+        &self,
+        id: String,
+        ) -> Result<MoveRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().move_retrieve(id, &context).await
+    }
+
+    /// Get move target
+    async fn move_target_retrieve(
+        &self,
+        id: String,
+        ) -> Result<MoveTargetRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().move_target_retrieve(id, &context).await
+    }
+
+    async fn ability_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<AbilityListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().ability_list(limit, offset, q, &context).await
+    }
+
+    /// List charecterictics
+    async fn characteristic_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<CharacteristicListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().characteristic_list(limit, offset, q, &context).await
+    }
+
+    /// List egg groups
+    async fn egg_group_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<EggGroupListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().egg_group_list(limit, offset, q, &context).await
+    }
+
+    /// List genders
+    async fn gender_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<GenderListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().gender_list(limit, offset, q, &context).await
+    }
+
+    /// List growth rates
+    async fn growth_rate_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<GrowthRateListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().growth_rate_list(limit, offset, q, &context).await
+    }
+
+    /// List move damage classes
+    async fn move_damage_class_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<MoveDamageClassListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().move_damage_class_list(limit, offset, q, &context).await
+    }
+
+    /// List natures
+    async fn nature_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<NatureListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().nature_list(limit, offset, q, &context).await
+    }
+
+    /// List pokeathlon stats
+    async fn pokeathlon_stat_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<PokeathlonStatListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().pokeathlon_stat_list(limit, offset, q, &context).await
+    }
+
+    /// List pokemon colors
+    async fn pokemon_color_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<PokemonColorListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().pokemon_color_list(limit, offset, q, &context).await
+    }
+
+    /// List pokemon forms
+    async fn pokemon_form_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<PokemonFormListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().pokemon_form_list(limit, offset, q, &context).await
+    }
+
+    /// List pokemom habitas
+    async fn pokemon_habitat_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<PokemonHabitatListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().pokemon_habitat_list(limit, offset, q, &context).await
+    }
+
+    /// List pokemon
+    async fn pokemon_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<PokemonListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().pokemon_list(limit, offset, q, &context).await
+    }
+
+    /// List pokemon shapes
+    async fn pokemon_shape_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<PokemonShapeListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().pokemon_shape_list(limit, offset, q, &context).await
+    }
+
+    /// List pokemon species
+    async fn pokemon_species_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        ) -> Result<PokemonSpeciesListResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().pokemon_species_list(limit, offset, q, &context).await
+    }
+
+    /// List stats
     async fn stat_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<StatListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().stat_list(limit, offset, &context).await
+        self.api().stat_list(limit, offset, q, &context).await
     }
 
-    async fn stat_read(
-        &self,
-        id: i32,
-        ) -> Result<StatReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().stat_read(id, &context).await
-    }
-
-    async fn super_contest_effect_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<SuperContestEffectListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().super_contest_effect_list(limit, offset, &context).await
-    }
-
-    async fn super_contest_effect_read(
-        &self,
-        id: i32,
-        ) -> Result<SuperContestEffectReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().super_contest_effect_read(id, &context).await
-    }
-
+    /// List types
     async fn type_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         ) -> Result<TypeListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().type_list(limit, offset, &context).await
+        self.api().type_list(limit, offset, q, &context).await
     }
 
-    async fn type_read(
+    async fn ability_retrieve(
         &self,
-        id: i32,
-        ) -> Result<TypeReadResponse, ApiError>
+        id: String,
+        ) -> Result<AbilityRetrieveResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().type_read(id, &context).await
+        self.api().ability_retrieve(id, &context).await
     }
 
-    async fn version_list(
+    /// Get characteristic
+    async fn characteristic_retrieve(
+        &self,
+        id: String,
+        ) -> Result<CharacteristicRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().characteristic_retrieve(id, &context).await
+    }
+
+    /// Get egg group
+    async fn egg_group_retrieve(
+        &self,
+        id: String,
+        ) -> Result<EggGroupRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().egg_group_retrieve(id, &context).await
+    }
+
+    /// Get gender
+    async fn gender_retrieve(
+        &self,
+        id: String,
+        ) -> Result<GenderRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().gender_retrieve(id, &context).await
+    }
+
+    /// Get growth rate
+    async fn growth_rate_retrieve(
+        &self,
+        id: String,
+        ) -> Result<GrowthRateRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().growth_rate_retrieve(id, &context).await
+    }
+
+    /// Get move damage class
+    async fn move_damage_class_retrieve(
+        &self,
+        id: String,
+        ) -> Result<MoveDamageClassRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().move_damage_class_retrieve(id, &context).await
+    }
+
+    /// Get nature
+    async fn nature_retrieve(
+        &self,
+        id: String,
+        ) -> Result<NatureRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().nature_retrieve(id, &context).await
+    }
+
+    /// Get pokeathlon stat
+    async fn pokeathlon_stat_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PokeathlonStatRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().pokeathlon_stat_retrieve(id, &context).await
+    }
+
+    /// Get pokemon color
+    async fn pokemon_color_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PokemonColorRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().pokemon_color_retrieve(id, &context).await
+    }
+
+    /// Get pokemon form
+    async fn pokemon_form_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PokemonFormRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().pokemon_form_retrieve(id, &context).await
+    }
+
+    /// Get pokemom habita
+    async fn pokemon_habitat_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PokemonHabitatRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().pokemon_habitat_retrieve(id, &context).await
+    }
+
+    /// Get pokemon
+    async fn pokemon_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PokemonRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().pokemon_retrieve(id, &context).await
+    }
+
+    /// Get pokemon shape
+    async fn pokemon_shape_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PokemonShapeRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().pokemon_shape_retrieve(id, &context).await
+    }
+
+    /// Get pokemon species
+    async fn pokemon_species_retrieve(
+        &self,
+        id: String,
+        ) -> Result<PokemonSpeciesRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().pokemon_species_retrieve(id, &context).await
+    }
+
+    /// Get stat
+    async fn stat_retrieve(
+        &self,
+        id: String,
+        ) -> Result<StatRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().stat_retrieve(id, &context).await
+    }
+
+    /// Get types
+    async fn type_retrieve(
+        &self,
+        id: String,
+        ) -> Result<TypeRetrieveResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().type_retrieve(id, &context).await
+    }
+
+    /// List languages
+    async fn language_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        ) -> Result<VersionListResponse, ApiError>
+        q: Option<String>,
+        ) -> Result<LanguageListResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().version_list(limit, offset, &context).await
+        self.api().language_list(limit, offset, q, &context).await
     }
 
-    async fn version_read(
+    /// Get language
+    async fn language_retrieve(
         &self,
-        id: i32,
-        ) -> Result<VersionReadResponse, ApiError>
+        id: String,
+        ) -> Result<LanguageRetrieveResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().version_read(id, &context).await
-    }
-
-    async fn version_group_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        ) -> Result<VersionGroupListResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().version_group_list(limit, offset, &context).await
-    }
-
-    async fn version_group_read(
-        &self,
-        id: i32,
-        ) -> Result<VersionGroupReadResponse, ApiError>
-    {
-        let context = self.context().clone();
-        self.api().version_group_read(id, &context).await
+        self.api().language_retrieve(id, &context).await
     }
 
 }

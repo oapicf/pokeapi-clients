@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonSpeciesDetailGeneraInner",
+  "fields": [
+    {
+      "name": "genus",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "language",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    }
+  ]
+
+}

@@ -21,3 +21,15 @@ module LocationApiHandlerTestsHelper =
 
   ()
 
+  ()
+
+  ()
+
+  ()
+
+  ()
+
+  ()
+
+  ()
+

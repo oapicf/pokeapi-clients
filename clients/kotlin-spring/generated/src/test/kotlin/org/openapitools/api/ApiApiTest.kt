@@ -1,5 +1,102 @@
 package org.openapitools.api
 
+import org.openapitools.model.AbilityDetail
+import org.openapitools.model.BerryDetail
+import org.openapitools.model.BerryFirmnessDetail
+import org.openapitools.model.BerryFlavorDetail
+import org.openapitools.model.CharacteristicDetail
+import org.openapitools.model.ContestEffectDetail
+import org.openapitools.model.ContestTypeDetail
+import org.openapitools.model.EggGroupDetail
+import org.openapitools.model.EncounterConditionDetail
+import org.openapitools.model.EncounterConditionValueDetail
+import org.openapitools.model.EncounterMethodDetail
+import org.openapitools.model.EvolutionChainDetail
+import org.openapitools.model.EvolutionTriggerDetail
+import org.openapitools.model.GenderDetail
+import org.openapitools.model.GenerationDetail
+import org.openapitools.model.GrowthRateDetail
+import org.openapitools.model.ItemAttributeDetail
+import org.openapitools.model.ItemCategoryDetail
+import org.openapitools.model.ItemDetail
+import org.openapitools.model.ItemFlingEffectDetail
+import org.openapitools.model.ItemPocketDetail
+import org.openapitools.model.LanguageDetail
+import org.openapitools.model.LocationAreaDetail
+import org.openapitools.model.LocationDetail
+import org.openapitools.model.MachineDetail
+import org.openapitools.model.MoveBattleStyleDetail
+import org.openapitools.model.MoveDamageClassDetail
+import org.openapitools.model.MoveDetail
+import org.openapitools.model.MoveLearnMethodDetail
+import org.openapitools.model.MoveMetaAilmentDetail
+import org.openapitools.model.MoveMetaCategoryDetail
+import org.openapitools.model.MoveTargetDetail
+import org.openapitools.model.NatureDetail
+import org.openapitools.model.PaginatedAbilitySummaryList
+import org.openapitools.model.PaginatedBerryFirmnessSummaryList
+import org.openapitools.model.PaginatedBerryFlavorSummaryList
+import org.openapitools.model.PaginatedBerrySummaryList
+import org.openapitools.model.PaginatedCharacteristicSummaryList
+import org.openapitools.model.PaginatedContestEffectSummaryList
+import org.openapitools.model.PaginatedContestTypeSummaryList
+import org.openapitools.model.PaginatedEggGroupSummaryList
+import org.openapitools.model.PaginatedEncounterConditionSummaryList
+import org.openapitools.model.PaginatedEncounterConditionValueSummaryList
+import org.openapitools.model.PaginatedEncounterMethodSummaryList
+import org.openapitools.model.PaginatedEvolutionChainSummaryList
+import org.openapitools.model.PaginatedEvolutionTriggerSummaryList
+import org.openapitools.model.PaginatedGenderSummaryList
+import org.openapitools.model.PaginatedGenerationSummaryList
+import org.openapitools.model.PaginatedGrowthRateSummaryList
+import org.openapitools.model.PaginatedItemAttributeSummaryList
+import org.openapitools.model.PaginatedItemCategorySummaryList
+import org.openapitools.model.PaginatedItemFlingEffectSummaryList
+import org.openapitools.model.PaginatedItemPocketSummaryList
+import org.openapitools.model.PaginatedItemSummaryList
+import org.openapitools.model.PaginatedLanguageSummaryList
+import org.openapitools.model.PaginatedLocationAreaSummaryList
+import org.openapitools.model.PaginatedLocationSummaryList
+import org.openapitools.model.PaginatedMachineSummaryList
+import org.openapitools.model.PaginatedMoveBattleStyleSummaryList
+import org.openapitools.model.PaginatedMoveDamageClassSummaryList
+import org.openapitools.model.PaginatedMoveLearnMethodSummaryList
+import org.openapitools.model.PaginatedMoveMetaAilmentSummaryList
+import org.openapitools.model.PaginatedMoveMetaCategorySummaryList
+import org.openapitools.model.PaginatedMoveSummaryList
+import org.openapitools.model.PaginatedMoveTargetSummaryList
+import org.openapitools.model.PaginatedNatureSummaryList
+import org.openapitools.model.PaginatedPalParkAreaSummaryList
+import org.openapitools.model.PaginatedPokeathlonStatSummaryList
+import org.openapitools.model.PaginatedPokedexSummaryList
+import org.openapitools.model.PaginatedPokemonColorSummaryList
+import org.openapitools.model.PaginatedPokemonFormSummaryList
+import org.openapitools.model.PaginatedPokemonHabitatSummaryList
+import org.openapitools.model.PaginatedPokemonShapeSummaryList
+import org.openapitools.model.PaginatedPokemonSpeciesSummaryList
+import org.openapitools.model.PaginatedPokemonSummaryList
+import org.openapitools.model.PaginatedRegionSummaryList
+import org.openapitools.model.PaginatedStatSummaryList
+import org.openapitools.model.PaginatedSuperContestEffectSummaryList
+import org.openapitools.model.PaginatedTypeSummaryList
+import org.openapitools.model.PaginatedVersionGroupSummaryList
+import org.openapitools.model.PaginatedVersionSummaryList
+import org.openapitools.model.PalParkAreaDetail
+import org.openapitools.model.PokeathlonStatDetail
+import org.openapitools.model.PokedexDetail
+import org.openapitools.model.PokemonColorDetail
+import org.openapitools.model.PokemonDetail
+import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner
+import org.openapitools.model.PokemonFormDetail
+import org.openapitools.model.PokemonHabitatDetail
+import org.openapitools.model.PokemonShapeDetail
+import org.openapitools.model.PokemonSpeciesDetail
+import org.openapitools.model.RegionDetail
+import org.openapitools.model.StatDetail
+import org.openapitools.model.SuperContestEffectDetail
+import org.openapitools.model.TypeDetail
+import org.openapitools.model.VersionDetail
+import org.openapitools.model.VersionGroupDetail
 import org.junit.jupiter.api.Test
 import org.springframework.http.ResponseEntity
 
@@ -17,23 +114,24 @@ class ApiApiTest {
     fun abilityListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.abilityList(limit, offset)
+        val response: ResponseEntity<PaginatedAbilitySummaryList> = api.abilityList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.abilityRead
+     * To test ApiApiController.abilityRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun abilityReadTest() {
-        val id: kotlin.Int = TODO()
+    fun abilityRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.abilityRead(id)
+        val response: ResponseEntity<AbilityDetail> = api.abilityRetrieve(id)
 
         // TODO: test validations
     }
@@ -48,23 +146,24 @@ class ApiApiTest {
     fun berryFirmnessListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.berryFirmnessList(limit, offset)
+        val response: ResponseEntity<PaginatedBerryFirmnessSummaryList> = api.berryFirmnessList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.berryFirmnessRead
+     * To test ApiApiController.berryFirmnessRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun berryFirmnessReadTest() {
-        val id: kotlin.Int = TODO()
+    fun berryFirmnessRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.berryFirmnessRead(id)
+        val response: ResponseEntity<BerryFirmnessDetail> = api.berryFirmnessRetrieve(id)
 
         // TODO: test validations
     }
@@ -79,23 +178,24 @@ class ApiApiTest {
     fun berryFlavorListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.berryFlavorList(limit, offset)
+        val response: ResponseEntity<PaginatedBerryFlavorSummaryList> = api.berryFlavorList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.berryFlavorRead
+     * To test ApiApiController.berryFlavorRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun berryFlavorReadTest() {
-        val id: kotlin.Int = TODO()
+    fun berryFlavorRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.berryFlavorRead(id)
+        val response: ResponseEntity<BerryFlavorDetail> = api.berryFlavorRetrieve(id)
 
         // TODO: test validations
     }
@@ -110,23 +210,24 @@ class ApiApiTest {
     fun berryListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.berryList(limit, offset)
+        val response: ResponseEntity<PaginatedBerrySummaryList> = api.berryList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.berryRead
+     * To test ApiApiController.berryRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun berryReadTest() {
-        val id: kotlin.Int = TODO()
+    fun berryRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.berryRead(id)
+        val response: ResponseEntity<BerryDetail> = api.berryRetrieve(id)
 
         // TODO: test validations
     }
@@ -141,23 +242,24 @@ class ApiApiTest {
     fun characteristicListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.characteristicList(limit, offset)
+        val response: ResponseEntity<PaginatedCharacteristicSummaryList> = api.characteristicList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.characteristicRead
+     * To test ApiApiController.characteristicRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun characteristicReadTest() {
-        val id: kotlin.Int = TODO()
+    fun characteristicRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.characteristicRead(id)
+        val response: ResponseEntity<CharacteristicDetail> = api.characteristicRetrieve(id)
 
         // TODO: test validations
     }
@@ -172,23 +274,24 @@ class ApiApiTest {
     fun contestEffectListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.contestEffectList(limit, offset)
+        val response: ResponseEntity<PaginatedContestEffectSummaryList> = api.contestEffectList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.contestEffectRead
+     * To test ApiApiController.contestEffectRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun contestEffectReadTest() {
-        val id: kotlin.Int = TODO()
+    fun contestEffectRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.contestEffectRead(id)
+        val response: ResponseEntity<ContestEffectDetail> = api.contestEffectRetrieve(id)
 
         // TODO: test validations
     }
@@ -203,23 +306,24 @@ class ApiApiTest {
     fun contestTypeListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.contestTypeList(limit, offset)
+        val response: ResponseEntity<PaginatedContestTypeSummaryList> = api.contestTypeList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.contestTypeRead
+     * To test ApiApiController.contestTypeRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun contestTypeReadTest() {
-        val id: kotlin.Int = TODO()
+    fun contestTypeRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.contestTypeRead(id)
+        val response: ResponseEntity<ContestTypeDetail> = api.contestTypeRetrieve(id)
 
         // TODO: test validations
     }
@@ -234,23 +338,24 @@ class ApiApiTest {
     fun eggGroupListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.eggGroupList(limit, offset)
+        val response: ResponseEntity<PaginatedEggGroupSummaryList> = api.eggGroupList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.eggGroupRead
+     * To test ApiApiController.eggGroupRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun eggGroupReadTest() {
-        val id: kotlin.Int = TODO()
+    fun eggGroupRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.eggGroupRead(id)
+        val response: ResponseEntity<EggGroupDetail> = api.eggGroupRetrieve(id)
 
         // TODO: test validations
     }
@@ -265,23 +370,24 @@ class ApiApiTest {
     fun encounterConditionListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.encounterConditionList(limit, offset)
+        val response: ResponseEntity<PaginatedEncounterConditionSummaryList> = api.encounterConditionList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.encounterConditionRead
+     * To test ApiApiController.encounterConditionRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun encounterConditionReadTest() {
-        val id: kotlin.Int = TODO()
+    fun encounterConditionRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.encounterConditionRead(id)
+        val response: ResponseEntity<EncounterConditionDetail> = api.encounterConditionRetrieve(id)
 
         // TODO: test validations
     }
@@ -296,23 +402,24 @@ class ApiApiTest {
     fun encounterConditionValueListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.encounterConditionValueList(limit, offset)
+        val response: ResponseEntity<PaginatedEncounterConditionValueSummaryList> = api.encounterConditionValueList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.encounterConditionValueRead
+     * To test ApiApiController.encounterConditionValueRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun encounterConditionValueReadTest() {
-        val id: kotlin.Int = TODO()
+    fun encounterConditionValueRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.encounterConditionValueRead(id)
+        val response: ResponseEntity<EncounterConditionValueDetail> = api.encounterConditionValueRetrieve(id)
 
         // TODO: test validations
     }
@@ -327,23 +434,24 @@ class ApiApiTest {
     fun encounterMethodListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.encounterMethodList(limit, offset)
+        val response: ResponseEntity<PaginatedEncounterMethodSummaryList> = api.encounterMethodList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.encounterMethodRead
+     * To test ApiApiController.encounterMethodRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun encounterMethodReadTest() {
-        val id: kotlin.Int = TODO()
+    fun encounterMethodRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.encounterMethodRead(id)
+        val response: ResponseEntity<EncounterMethodDetail> = api.encounterMethodRetrieve(id)
 
         // TODO: test validations
     }
@@ -358,23 +466,24 @@ class ApiApiTest {
     fun evolutionChainListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.evolutionChainList(limit, offset)
+        val response: ResponseEntity<PaginatedEvolutionChainSummaryList> = api.evolutionChainList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.evolutionChainRead
+     * To test ApiApiController.evolutionChainRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun evolutionChainReadTest() {
-        val id: kotlin.Int = TODO()
+    fun evolutionChainRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.evolutionChainRead(id)
+        val response: ResponseEntity<EvolutionChainDetail> = api.evolutionChainRetrieve(id)
 
         // TODO: test validations
     }
@@ -389,23 +498,24 @@ class ApiApiTest {
     fun evolutionTriggerListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.evolutionTriggerList(limit, offset)
+        val response: ResponseEntity<PaginatedEvolutionTriggerSummaryList> = api.evolutionTriggerList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.evolutionTriggerRead
+     * To test ApiApiController.evolutionTriggerRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun evolutionTriggerReadTest() {
-        val id: kotlin.Int = TODO()
+    fun evolutionTriggerRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.evolutionTriggerRead(id)
+        val response: ResponseEntity<EvolutionTriggerDetail> = api.evolutionTriggerRetrieve(id)
 
         // TODO: test validations
     }
@@ -420,23 +530,24 @@ class ApiApiTest {
     fun genderListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.genderList(limit, offset)
+        val response: ResponseEntity<PaginatedGenderSummaryList> = api.genderList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.genderRead
+     * To test ApiApiController.genderRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun genderReadTest() {
-        val id: kotlin.Int = TODO()
+    fun genderRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.genderRead(id)
+        val response: ResponseEntity<GenderDetail> = api.genderRetrieve(id)
 
         // TODO: test validations
     }
@@ -451,23 +562,24 @@ class ApiApiTest {
     fun generationListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.generationList(limit, offset)
+        val response: ResponseEntity<PaginatedGenerationSummaryList> = api.generationList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.generationRead
+     * To test ApiApiController.generationRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun generationReadTest() {
-        val id: kotlin.Int = TODO()
+    fun generationRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.generationRead(id)
+        val response: ResponseEntity<GenerationDetail> = api.generationRetrieve(id)
 
         // TODO: test validations
     }
@@ -482,23 +594,24 @@ class ApiApiTest {
     fun growthRateListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.growthRateList(limit, offset)
+        val response: ResponseEntity<PaginatedGrowthRateSummaryList> = api.growthRateList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.growthRateRead
+     * To test ApiApiController.growthRateRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun growthRateReadTest() {
-        val id: kotlin.Int = TODO()
+    fun growthRateRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.growthRateRead(id)
+        val response: ResponseEntity<GrowthRateDetail> = api.growthRateRetrieve(id)
 
         // TODO: test validations
     }
@@ -513,23 +626,24 @@ class ApiApiTest {
     fun itemAttributeListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.itemAttributeList(limit, offset)
+        val response: ResponseEntity<PaginatedItemAttributeSummaryList> = api.itemAttributeList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.itemAttributeRead
+     * To test ApiApiController.itemAttributeRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun itemAttributeReadTest() {
-        val id: kotlin.Int = TODO()
+    fun itemAttributeRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.itemAttributeRead(id)
+        val response: ResponseEntity<ItemAttributeDetail> = api.itemAttributeRetrieve(id)
 
         // TODO: test validations
     }
@@ -544,23 +658,24 @@ class ApiApiTest {
     fun itemCategoryListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.itemCategoryList(limit, offset)
+        val response: ResponseEntity<PaginatedItemCategorySummaryList> = api.itemCategoryList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.itemCategoryRead
+     * To test ApiApiController.itemCategoryRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun itemCategoryReadTest() {
-        val id: kotlin.Int = TODO()
+    fun itemCategoryRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.itemCategoryRead(id)
+        val response: ResponseEntity<ItemCategoryDetail> = api.itemCategoryRetrieve(id)
 
         // TODO: test validations
     }
@@ -575,23 +690,24 @@ class ApiApiTest {
     fun itemFlingEffectListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.itemFlingEffectList(limit, offset)
+        val response: ResponseEntity<PaginatedItemFlingEffectSummaryList> = api.itemFlingEffectList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.itemFlingEffectRead
+     * To test ApiApiController.itemFlingEffectRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun itemFlingEffectReadTest() {
-        val id: kotlin.Int = TODO()
+    fun itemFlingEffectRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.itemFlingEffectRead(id)
+        val response: ResponseEntity<ItemFlingEffectDetail> = api.itemFlingEffectRetrieve(id)
 
         // TODO: test validations
     }
@@ -606,8 +722,9 @@ class ApiApiTest {
     fun itemListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.itemList(limit, offset)
+        val response: ResponseEntity<PaginatedItemSummaryList> = api.itemList(limit, offset, q)
 
         // TODO: test validations
     }
@@ -622,38 +739,39 @@ class ApiApiTest {
     fun itemPocketListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.itemPocketList(limit, offset)
+        val response: ResponseEntity<PaginatedItemPocketSummaryList> = api.itemPocketList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.itemPocketRead
+     * To test ApiApiController.itemPocketRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun itemPocketReadTest() {
-        val id: kotlin.Int = TODO()
+    fun itemPocketRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.itemPocketRead(id)
+        val response: ResponseEntity<ItemPocketDetail> = api.itemPocketRetrieve(id)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.itemRead
+     * To test ApiApiController.itemRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun itemReadTest() {
-        val id: kotlin.Int = TODO()
+    fun itemRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.itemRead(id)
+        val response: ResponseEntity<ItemDetail> = api.itemRetrieve(id)
 
         // TODO: test validations
     }
@@ -668,23 +786,24 @@ class ApiApiTest {
     fun languageListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.languageList(limit, offset)
+        val response: ResponseEntity<PaginatedLanguageSummaryList> = api.languageList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.languageRead
+     * To test ApiApiController.languageRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun languageReadTest() {
-        val id: kotlin.Int = TODO()
+    fun languageRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.languageRead(id)
+        val response: ResponseEntity<LanguageDetail> = api.languageRetrieve(id)
 
         // TODO: test validations
     }
@@ -700,22 +819,22 @@ class ApiApiTest {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.locationAreaList(limit, offset)
+        val response: ResponseEntity<PaginatedLocationAreaSummaryList> = api.locationAreaList(limit, offset)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.locationAreaRead
+     * To test ApiApiController.locationAreaRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun locationAreaReadTest() {
+    fun locationAreaRetrieveTest() {
         val id: kotlin.Int = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.locationAreaRead(id)
+        val response: ResponseEntity<LocationAreaDetail> = api.locationAreaRetrieve(id)
 
         // TODO: test validations
     }
@@ -730,23 +849,24 @@ class ApiApiTest {
     fun locationListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.locationList(limit, offset)
+        val response: ResponseEntity<PaginatedLocationSummaryList> = api.locationList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.locationRead
+     * To test ApiApiController.locationRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun locationReadTest() {
-        val id: kotlin.Int = TODO()
+    fun locationRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.locationRead(id)
+        val response: ResponseEntity<LocationDetail> = api.locationRetrieve(id)
 
         // TODO: test validations
     }
@@ -761,23 +881,24 @@ class ApiApiTest {
     fun machineListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.machineList(limit, offset)
+        val response: ResponseEntity<PaginatedMachineSummaryList> = api.machineList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.machineRead
+     * To test ApiApiController.machineRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun machineReadTest() {
-        val id: kotlin.Int = TODO()
+    fun machineRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.machineRead(id)
+        val response: ResponseEntity<MachineDetail> = api.machineRetrieve(id)
 
         // TODO: test validations
     }
@@ -792,23 +913,24 @@ class ApiApiTest {
     fun moveAilmentListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.moveAilmentList(limit, offset)
+        val response: ResponseEntity<PaginatedMoveMetaAilmentSummaryList> = api.moveAilmentList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.moveAilmentRead
+     * To test ApiApiController.moveAilmentRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun moveAilmentReadTest() {
-        val id: kotlin.Int = TODO()
+    fun moveAilmentRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.moveAilmentRead(id)
+        val response: ResponseEntity<MoveMetaAilmentDetail> = api.moveAilmentRetrieve(id)
 
         // TODO: test validations
     }
@@ -823,23 +945,24 @@ class ApiApiTest {
     fun moveBattleStyleListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.moveBattleStyleList(limit, offset)
+        val response: ResponseEntity<PaginatedMoveBattleStyleSummaryList> = api.moveBattleStyleList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.moveBattleStyleRead
+     * To test ApiApiController.moveBattleStyleRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun moveBattleStyleReadTest() {
-        val id: kotlin.Int = TODO()
+    fun moveBattleStyleRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.moveBattleStyleRead(id)
+        val response: ResponseEntity<MoveBattleStyleDetail> = api.moveBattleStyleRetrieve(id)
 
         // TODO: test validations
     }
@@ -854,23 +977,24 @@ class ApiApiTest {
     fun moveCategoryListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.moveCategoryList(limit, offset)
+        val response: ResponseEntity<PaginatedMoveMetaCategorySummaryList> = api.moveCategoryList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.moveCategoryRead
+     * To test ApiApiController.moveCategoryRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun moveCategoryReadTest() {
-        val id: kotlin.Int = TODO()
+    fun moveCategoryRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.moveCategoryRead(id)
+        val response: ResponseEntity<MoveMetaCategoryDetail> = api.moveCategoryRetrieve(id)
 
         // TODO: test validations
     }
@@ -885,23 +1009,24 @@ class ApiApiTest {
     fun moveDamageClassListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.moveDamageClassList(limit, offset)
+        val response: ResponseEntity<PaginatedMoveDamageClassSummaryList> = api.moveDamageClassList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.moveDamageClassRead
+     * To test ApiApiController.moveDamageClassRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun moveDamageClassReadTest() {
-        val id: kotlin.Int = TODO()
+    fun moveDamageClassRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.moveDamageClassRead(id)
+        val response: ResponseEntity<MoveDamageClassDetail> = api.moveDamageClassRetrieve(id)
 
         // TODO: test validations
     }
@@ -916,23 +1041,24 @@ class ApiApiTest {
     fun moveLearnMethodListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.moveLearnMethodList(limit, offset)
+        val response: ResponseEntity<PaginatedMoveLearnMethodSummaryList> = api.moveLearnMethodList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.moveLearnMethodRead
+     * To test ApiApiController.moveLearnMethodRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun moveLearnMethodReadTest() {
-        val id: kotlin.Int = TODO()
+    fun moveLearnMethodRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.moveLearnMethodRead(id)
+        val response: ResponseEntity<MoveLearnMethodDetail> = api.moveLearnMethodRetrieve(id)
 
         // TODO: test validations
     }
@@ -947,23 +1073,24 @@ class ApiApiTest {
     fun moveListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.moveList(limit, offset)
+        val response: ResponseEntity<PaginatedMoveSummaryList> = api.moveList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.moveRead
+     * To test ApiApiController.moveRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun moveReadTest() {
-        val id: kotlin.Int = TODO()
+    fun moveRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.moveRead(id)
+        val response: ResponseEntity<MoveDetail> = api.moveRetrieve(id)
 
         // TODO: test validations
     }
@@ -978,23 +1105,24 @@ class ApiApiTest {
     fun moveTargetListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.moveTargetList(limit, offset)
+        val response: ResponseEntity<PaginatedMoveTargetSummaryList> = api.moveTargetList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.moveTargetRead
+     * To test ApiApiController.moveTargetRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun moveTargetReadTest() {
-        val id: kotlin.Int = TODO()
+    fun moveTargetRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.moveTargetRead(id)
+        val response: ResponseEntity<MoveTargetDetail> = api.moveTargetRetrieve(id)
 
         // TODO: test validations
     }
@@ -1009,23 +1137,24 @@ class ApiApiTest {
     fun natureListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.natureList(limit, offset)
+        val response: ResponseEntity<PaginatedNatureSummaryList> = api.natureList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.natureRead
+     * To test ApiApiController.natureRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun natureReadTest() {
-        val id: kotlin.Int = TODO()
+    fun natureRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.natureRead(id)
+        val response: ResponseEntity<NatureDetail> = api.natureRetrieve(id)
 
         // TODO: test validations
     }
@@ -1040,23 +1169,24 @@ class ApiApiTest {
     fun palParkAreaListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.palParkAreaList(limit, offset)
+        val response: ResponseEntity<PaginatedPalParkAreaSummaryList> = api.palParkAreaList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.palParkAreaRead
+     * To test ApiApiController.palParkAreaRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun palParkAreaReadTest() {
-        val id: kotlin.Int = TODO()
+    fun palParkAreaRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.palParkAreaRead(id)
+        val response: ResponseEntity<PalParkAreaDetail> = api.palParkAreaRetrieve(id)
 
         // TODO: test validations
     }
@@ -1071,23 +1201,24 @@ class ApiApiTest {
     fun pokeathlonStatListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.pokeathlonStatList(limit, offset)
+        val response: ResponseEntity<PaginatedPokeathlonStatSummaryList> = api.pokeathlonStatList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.pokeathlonStatRead
+     * To test ApiApiController.pokeathlonStatRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun pokeathlonStatReadTest() {
-        val id: kotlin.Int = TODO()
+    fun pokeathlonStatRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.pokeathlonStatRead(id)
+        val response: ResponseEntity<PokeathlonStatDetail> = api.pokeathlonStatRetrieve(id)
 
         // TODO: test validations
     }
@@ -1102,23 +1233,24 @@ class ApiApiTest {
     fun pokedexListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.pokedexList(limit, offset)
+        val response: ResponseEntity<PaginatedPokedexSummaryList> = api.pokedexList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.pokedexRead
+     * To test ApiApiController.pokedexRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun pokedexReadTest() {
-        val id: kotlin.Int = TODO()
+    fun pokedexRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.pokedexRead(id)
+        val response: ResponseEntity<PokedexDetail> = api.pokedexRetrieve(id)
 
         // TODO: test validations
     }
@@ -1133,23 +1265,39 @@ class ApiApiTest {
     fun pokemonColorListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.pokemonColorList(limit, offset)
+        val response: ResponseEntity<PaginatedPokemonColorSummaryList> = api.pokemonColorList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.pokemonColorRead
+     * To test ApiApiController.pokemonColorRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun pokemonColorReadTest() {
-        val id: kotlin.Int = TODO()
+    fun pokemonColorRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.pokemonColorRead(id)
+        val response: ResponseEntity<PokemonColorDetail> = api.pokemonColorRetrieve(id)
+
+        // TODO: test validations
+    }
+
+    /**
+     * To test ApiApiController.pokemonEncountersRetrieve
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    fun pokemonEncountersRetrieveTest() {
+        val pokemonId: kotlin.String = TODO()
+        
+        val response: ResponseEntity<List<PokemonEncountersRetrieve200ResponseInner>> = api.pokemonEncountersRetrieve(pokemonId)
 
         // TODO: test validations
     }
@@ -1164,23 +1312,24 @@ class ApiApiTest {
     fun pokemonFormListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.pokemonFormList(limit, offset)
+        val response: ResponseEntity<PaginatedPokemonFormSummaryList> = api.pokemonFormList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.pokemonFormRead
+     * To test ApiApiController.pokemonFormRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun pokemonFormReadTest() {
-        val id: kotlin.Int = TODO()
+    fun pokemonFormRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.pokemonFormRead(id)
+        val response: ResponseEntity<PokemonFormDetail> = api.pokemonFormRetrieve(id)
 
         // TODO: test validations
     }
@@ -1195,23 +1344,24 @@ class ApiApiTest {
     fun pokemonHabitatListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.pokemonHabitatList(limit, offset)
+        val response: ResponseEntity<PaginatedPokemonHabitatSummaryList> = api.pokemonHabitatList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.pokemonHabitatRead
+     * To test ApiApiController.pokemonHabitatRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun pokemonHabitatReadTest() {
-        val id: kotlin.Int = TODO()
+    fun pokemonHabitatRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.pokemonHabitatRead(id)
+        val response: ResponseEntity<PokemonHabitatDetail> = api.pokemonHabitatRetrieve(id)
 
         // TODO: test validations
     }
@@ -1226,23 +1376,24 @@ class ApiApiTest {
     fun pokemonListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.pokemonList(limit, offset)
+        val response: ResponseEntity<PaginatedPokemonSummaryList> = api.pokemonList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.pokemonRead
+     * To test ApiApiController.pokemonRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun pokemonReadTest() {
-        val id: kotlin.Int = TODO()
+    fun pokemonRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.pokemonRead(id)
+        val response: ResponseEntity<PokemonDetail> = api.pokemonRetrieve(id)
 
         // TODO: test validations
     }
@@ -1257,23 +1408,24 @@ class ApiApiTest {
     fun pokemonShapeListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.pokemonShapeList(limit, offset)
+        val response: ResponseEntity<PaginatedPokemonShapeSummaryList> = api.pokemonShapeList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.pokemonShapeRead
+     * To test ApiApiController.pokemonShapeRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun pokemonShapeReadTest() {
-        val id: kotlin.Int = TODO()
+    fun pokemonShapeRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.pokemonShapeRead(id)
+        val response: ResponseEntity<PokemonShapeDetail> = api.pokemonShapeRetrieve(id)
 
         // TODO: test validations
     }
@@ -1288,23 +1440,24 @@ class ApiApiTest {
     fun pokemonSpeciesListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.pokemonSpeciesList(limit, offset)
+        val response: ResponseEntity<PaginatedPokemonSpeciesSummaryList> = api.pokemonSpeciesList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.pokemonSpeciesRead
+     * To test ApiApiController.pokemonSpeciesRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun pokemonSpeciesReadTest() {
-        val id: kotlin.Int = TODO()
+    fun pokemonSpeciesRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.pokemonSpeciesRead(id)
+        val response: ResponseEntity<PokemonSpeciesDetail> = api.pokemonSpeciesRetrieve(id)
 
         // TODO: test validations
     }
@@ -1319,23 +1472,24 @@ class ApiApiTest {
     fun regionListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.regionList(limit, offset)
+        val response: ResponseEntity<PaginatedRegionSummaryList> = api.regionList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.regionRead
+     * To test ApiApiController.regionRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun regionReadTest() {
-        val id: kotlin.Int = TODO()
+    fun regionRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.regionRead(id)
+        val response: ResponseEntity<RegionDetail> = api.regionRetrieve(id)
 
         // TODO: test validations
     }
@@ -1350,23 +1504,24 @@ class ApiApiTest {
     fun statListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.statList(limit, offset)
+        val response: ResponseEntity<PaginatedStatSummaryList> = api.statList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.statRead
+     * To test ApiApiController.statRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun statReadTest() {
-        val id: kotlin.Int = TODO()
+    fun statRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.statRead(id)
+        val response: ResponseEntity<StatDetail> = api.statRetrieve(id)
 
         // TODO: test validations
     }
@@ -1381,23 +1536,24 @@ class ApiApiTest {
     fun superContestEffectListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.superContestEffectList(limit, offset)
+        val response: ResponseEntity<PaginatedSuperContestEffectSummaryList> = api.superContestEffectList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.superContestEffectRead
+     * To test ApiApiController.superContestEffectRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun superContestEffectReadTest() {
-        val id: kotlin.Int = TODO()
+    fun superContestEffectRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.superContestEffectRead(id)
+        val response: ResponseEntity<SuperContestEffectDetail> = api.superContestEffectRetrieve(id)
 
         // TODO: test validations
     }
@@ -1412,23 +1568,24 @@ class ApiApiTest {
     fun typeListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.typeList(limit, offset)
+        val response: ResponseEntity<PaginatedTypeSummaryList> = api.typeList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.typeRead
+     * To test ApiApiController.typeRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun typeReadTest() {
-        val id: kotlin.Int = TODO()
+    fun typeRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.typeRead(id)
+        val response: ResponseEntity<TypeDetail> = api.typeRetrieve(id)
 
         // TODO: test validations
     }
@@ -1443,23 +1600,24 @@ class ApiApiTest {
     fun versionGroupListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.versionGroupList(limit, offset)
+        val response: ResponseEntity<PaginatedVersionGroupSummaryList> = api.versionGroupList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.versionGroupRead
+     * To test ApiApiController.versionGroupRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun versionGroupReadTest() {
-        val id: kotlin.Int = TODO()
+    fun versionGroupRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.versionGroupRead(id)
+        val response: ResponseEntity<VersionGroupDetail> = api.versionGroupRetrieve(id)
 
         // TODO: test validations
     }
@@ -1474,23 +1632,24 @@ class ApiApiTest {
     fun versionListTest() {
         val limit: kotlin.Int? = TODO()
         val offset: kotlin.Int? = TODO()
+        val q: kotlin.String? = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.versionList(limit, offset)
+        val response: ResponseEntity<PaginatedVersionSummaryList> = api.versionList(limit, offset, q)
 
         // TODO: test validations
     }
 
     /**
-     * To test ApiApiController.versionRead
+     * To test ApiApiController.versionRetrieve
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    fun versionReadTest() {
-        val id: kotlin.Int = TODO()
+    fun versionRetrieveTest() {
+        val id: kotlin.String = TODO()
         
-        val response: ResponseEntity<kotlin.String> = api.versionRead(id)
+        val response: ResponseEntity<VersionDetail> = api.versionRetrieve(id)
 
         // TODO: test validations
     }

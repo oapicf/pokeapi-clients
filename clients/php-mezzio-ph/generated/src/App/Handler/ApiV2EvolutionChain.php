@@ -16,6 +16,7 @@ use Psr\Http\Message\ServerRequestInterface;
 class ApiV2EvolutionChain
 {
     /**
+     * List evolution chains
      * @PHA\Get()
      * @PHA\Attribute(name=PHAttribute\Transfer::class, options={
      *     "type":\App\DTO\EvolutionChainListQueryData::class,
@@ -23,14 +24,14 @@ class ApiV2EvolutionChain
      *     "source": PHAttribute\Transfer::SOURCE_GET
      * })
      * TODO check if producer is valid, if it has correct priority and if it can be moved to class annotation
-     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="text/plain")
+     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="application/json")
      * @param ServerRequestInterface $request
      *
      * @throws PHException\HttpCode 501 if the method is not implemented
      *
-     * @return string
+     * @return \App\DTO\PaginatedEvolutionChainSummaryList
      */
-    public function evolutionChainList(ServerRequestInterface $request): string
+    public function evolutionChainList(ServerRequestInterface $request): \App\DTO\PaginatedEvolutionChainSummaryList
     {
         //TODO implement method
         /** @var \App\DTO\EvolutionChainListQueryData $queryData */

@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonGameIndex",
+  "fields": [
+    {
+      "name": "game_index",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "version",
+      "type": "model.VersionSummary",
+      "doc": ""
+    }
+  ]
+
+}

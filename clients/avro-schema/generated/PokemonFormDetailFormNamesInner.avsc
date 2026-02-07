@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonFormDetailFormNamesInner",
+  "fields": [
+    {
+      "name": "language",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    }
+  ]
+
+}

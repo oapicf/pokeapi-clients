@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonDetailCries",
+  "fields": [
+    {
+      "name": "latest",
+      "type": "model.URI",
+      "doc": ""
+    },
+    {
+      "name": "legacy",
+      "type": "model.URI",
+      "doc": ""
+    }
+  ]
+
+}

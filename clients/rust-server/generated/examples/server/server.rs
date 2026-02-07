@@ -137,102 +137,103 @@ use crate::server_auth;
 
 use openapi_client::{
     Api,
-    AbilityListResponse,
-    AbilityReadResponse,
-    BerryListResponse,
-    BerryReadResponse,
     BerryFirmnessListResponse,
-    BerryFirmnessReadResponse,
     BerryFlavorListResponse,
-    BerryFlavorReadResponse,
-    CharacteristicListResponse,
-    CharacteristicReadResponse,
+    BerryListResponse,
+    BerryFirmnessRetrieveResponse,
+    BerryFlavorRetrieveResponse,
+    BerryRetrieveResponse,
     ContestEffectListResponse,
-    ContestEffectReadResponse,
     ContestTypeListResponse,
-    ContestTypeReadResponse,
-    EggGroupListResponse,
-    EggGroupReadResponse,
-    EncounterConditionListResponse,
-    EncounterConditionReadResponse,
-    EncounterConditionValueListResponse,
-    EncounterConditionValueReadResponse,
-    EncounterMethodListResponse,
-    EncounterMethodReadResponse,
-    EvolutionChainListResponse,
-    EvolutionChainReadResponse,
-    EvolutionTriggerListResponse,
-    EvolutionTriggerReadResponse,
-    GenderListResponse,
-    GenderReadResponse,
-    GenerationListResponse,
-    GenerationReadResponse,
-    GrowthRateListResponse,
-    GrowthRateReadResponse,
-    ItemListResponse,
-    ItemReadResponse,
-    ItemAttributeListResponse,
-    ItemAttributeReadResponse,
-    ItemCategoryListResponse,
-    ItemCategoryReadResponse,
-    ItemFlingEffectListResponse,
-    ItemFlingEffectReadResponse,
-    ItemPocketListResponse,
-    ItemPocketReadResponse,
-    LanguageListResponse,
-    LanguageReadResponse,
-    LocationListResponse,
-    LocationReadResponse,
-    LocationAreaListResponse,
-    LocationAreaReadResponse,
-    MachineListResponse,
-    MachineReadResponse,
-    MoveListResponse,
-    MoveReadResponse,
-    MoveAilmentListResponse,
-    MoveAilmentReadResponse,
-    MoveBattleStyleListResponse,
-    MoveBattleStyleReadResponse,
-    MoveCategoryListResponse,
-    MoveCategoryReadResponse,
-    MoveDamageClassListResponse,
-    MoveDamageClassReadResponse,
-    MoveLearnMethodListResponse,
-    MoveLearnMethodReadResponse,
-    MoveTargetListResponse,
-    MoveTargetReadResponse,
-    NatureListResponse,
-    NatureReadResponse,
-    PalParkAreaListResponse,
-    PalParkAreaReadResponse,
-    PokeathlonStatListResponse,
-    PokeathlonStatReadResponse,
-    PokedexListResponse,
-    PokedexReadResponse,
-    PokemonListResponse,
-    PokemonReadResponse,
-    PokemonColorListResponse,
-    PokemonColorReadResponse,
-    PokemonFormListResponse,
-    PokemonFormReadResponse,
-    PokemonHabitatListResponse,
-    PokemonHabitatReadResponse,
-    PokemonShapeListResponse,
-    PokemonShapeReadResponse,
-    PokemonSpeciesListResponse,
-    PokemonSpeciesReadResponse,
-    RegionListResponse,
-    RegionReadResponse,
-    StatListResponse,
-    StatReadResponse,
     SuperContestEffectListResponse,
-    SuperContestEffectReadResponse,
-    TypeListResponse,
-    TypeReadResponse,
-    VersionListResponse,
-    VersionReadResponse,
+    ContestEffectRetrieveResponse,
+    ContestTypeRetrieveResponse,
+    SuperContestEffectRetrieveResponse,
+    EncounterConditionListResponse,
+    EncounterConditionValueListResponse,
+    EncounterMethodListResponse,
+    EncounterConditionRetrieveResponse,
+    EncounterConditionValueRetrieveResponse,
+    EncounterMethodRetrieveResponse,
+    PokemonEncountersRetrieveResponse,
+    EvolutionChainListResponse,
+    EvolutionTriggerListResponse,
+    EvolutionChainRetrieveResponse,
+    EvolutionTriggerRetrieveResponse,
+    GenerationListResponse,
+    PokedexListResponse,
     VersionGroupListResponse,
-    VersionGroupReadResponse,
+    VersionListResponse,
+    GenerationRetrieveResponse,
+    PokedexRetrieveResponse,
+    VersionGroupRetrieveResponse,
+    VersionRetrieveResponse,
+    ItemAttributeListResponse,
+    ItemCategoryListResponse,
+    ItemFlingEffectListResponse,
+    ItemListResponse,
+    ItemPocketListResponse,
+    ItemAttributeRetrieveResponse,
+    ItemCategoryRetrieveResponse,
+    ItemFlingEffectRetrieveResponse,
+    ItemPocketRetrieveResponse,
+    ItemRetrieveResponse,
+    LocationAreaListResponse,
+    LocationListResponse,
+    PalParkAreaListResponse,
+    RegionListResponse,
+    LocationAreaRetrieveResponse,
+    LocationRetrieveResponse,
+    PalParkAreaRetrieveResponse,
+    RegionRetrieveResponse,
+    MachineListResponse,
+    MachineRetrieveResponse,
+    MoveAilmentListResponse,
+    MoveBattleStyleListResponse,
+    MoveCategoryListResponse,
+    MoveLearnMethodListResponse,
+    MoveListResponse,
+    MoveTargetListResponse,
+    MoveAilmentRetrieveResponse,
+    MoveBattleStyleRetrieveResponse,
+    MoveCategoryRetrieveResponse,
+    MoveLearnMethodRetrieveResponse,
+    MoveRetrieveResponse,
+    MoveTargetRetrieveResponse,
+    AbilityListResponse,
+    CharacteristicListResponse,
+    EggGroupListResponse,
+    GenderListResponse,
+    GrowthRateListResponse,
+    MoveDamageClassListResponse,
+    NatureListResponse,
+    PokeathlonStatListResponse,
+    PokemonColorListResponse,
+    PokemonFormListResponse,
+    PokemonHabitatListResponse,
+    PokemonListResponse,
+    PokemonShapeListResponse,
+    PokemonSpeciesListResponse,
+    StatListResponse,
+    TypeListResponse,
+    AbilityRetrieveResponse,
+    CharacteristicRetrieveResponse,
+    EggGroupRetrieveResponse,
+    GenderRetrieveResponse,
+    GrowthRateRetrieveResponse,
+    MoveDamageClassRetrieveResponse,
+    NatureRetrieveResponse,
+    PokeathlonStatRetrieveResponse,
+    PokemonColorRetrieveResponse,
+    PokemonFormRetrieveResponse,
+    PokemonHabitatRetrieveResponse,
+    PokemonRetrieveResponse,
+    PokemonShapeRetrieveResponse,
+    PokemonSpeciesRetrieveResponse,
+    StatRetrieveResponse,
+    TypeRetrieveResponse,
+    LanguageListResponse,
+    LanguageRetrieveResponse,
 };
 use openapi_client::server::MakeService;
 use std::error::Error;
@@ -241,443 +242,457 @@ use swagger::ApiError;
 #[async_trait]
 impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
 {
-    async fn ability_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<AbilityListResponse, ApiError>
-    {
-        info!("ability_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn ability_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<AbilityReadResponse, ApiError>
-    {
-        info!("ability_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn berry_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<BerryListResponse, ApiError>
-    {
-        info!("berry_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn berry_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<BerryReadResponse, ApiError>
-    {
-        info!("berry_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
+    /// List berry firmness
     async fn berry_firmness_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<BerryFirmnessListResponse, ApiError>
     {
-        info!("berry_firmness_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("berry_firmness_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn berry_firmness_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<BerryFirmnessReadResponse, ApiError>
-    {
-        info!("berry_firmness_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
+    /// List berry flavors
     async fn berry_flavor_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<BerryFlavorListResponse, ApiError>
     {
-        info!("berry_flavor_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("berry_flavor_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn berry_flavor_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<BerryFlavorReadResponse, ApiError>
-    {
-        info!("berry_flavor_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn characteristic_list(
+    /// List berries
+    async fn berry_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        context: &C) -> Result<CharacteristicListResponse, ApiError>
+        q: Option<String>,
+        context: &C) -> Result<BerryListResponse, ApiError>
     {
-        info!("characteristic_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("berry_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn characteristic_read(
+    /// Get berry by firmness
+    async fn berry_firmness_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<CharacteristicReadResponse, ApiError>
+        id: String,
+        context: &C) -> Result<BerryFirmnessRetrieveResponse, ApiError>
     {
-        info!("characteristic_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("berry_firmness_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
+    /// Get berries by flavor
+    async fn berry_flavor_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<BerryFlavorRetrieveResponse, ApiError>
+    {
+        info!("berry_flavor_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get a berry
+    async fn berry_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<BerryRetrieveResponse, ApiError>
+    {
+        info!("berry_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List contest effects
     async fn contest_effect_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<ContestEffectListResponse, ApiError>
     {
-        info!("contest_effect_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("contest_effect_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn contest_effect_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<ContestEffectReadResponse, ApiError>
-    {
-        info!("contest_effect_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
+    /// List contest types
     async fn contest_type_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<ContestTypeListResponse, ApiError>
     {
-        info!("contest_type_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("contest_type_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn contest_type_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<ContestTypeReadResponse, ApiError>
-    {
-        info!("contest_type_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn egg_group_list(
+    /// List super contest effects
+    async fn super_contest_effect_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        context: &C) -> Result<EggGroupListResponse, ApiError>
+        q: Option<String>,
+        context: &C) -> Result<SuperContestEffectListResponse, ApiError>
     {
-        info!("egg_group_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("super_contest_effect_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn egg_group_read(
+    /// Get contest effect
+    async fn contest_effect_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<EggGroupReadResponse, ApiError>
+        id: String,
+        context: &C) -> Result<ContestEffectRetrieveResponse, ApiError>
     {
-        info!("egg_group_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("contest_effect_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
+    /// Get contest type
+    async fn contest_type_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<ContestTypeRetrieveResponse, ApiError>
+    {
+        info!("contest_type_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get super contest effect
+    async fn super_contest_effect_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<SuperContestEffectRetrieveResponse, ApiError>
+    {
+        info!("super_contest_effect_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List encounter conditions
     async fn encounter_condition_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<EncounterConditionListResponse, ApiError>
     {
-        info!("encounter_condition_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("encounter_condition_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn encounter_condition_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<EncounterConditionReadResponse, ApiError>
-    {
-        info!("encounter_condition_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
+    /// List encounter condition values
     async fn encounter_condition_value_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<EncounterConditionValueListResponse, ApiError>
     {
-        info!("encounter_condition_value_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("encounter_condition_value_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn encounter_condition_value_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<EncounterConditionValueReadResponse, ApiError>
-    {
-        info!("encounter_condition_value_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
+    /// List encounter methods
     async fn encounter_method_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<EncounterMethodListResponse, ApiError>
     {
-        info!("encounter_method_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("encounter_method_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn encounter_method_read(
+    /// Get encounter condition
+    async fn encounter_condition_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<EncounterMethodReadResponse, ApiError>
+        id: String,
+        context: &C) -> Result<EncounterConditionRetrieveResponse, ApiError>
     {
-        info!("encounter_method_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("encounter_condition_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
+    /// Get encounter condition value
+    async fn encounter_condition_value_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<EncounterConditionValueRetrieveResponse, ApiError>
+    {
+        info!("encounter_condition_value_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get encounter method
+    async fn encounter_method_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<EncounterMethodRetrieveResponse, ApiError>
+    {
+        info!("encounter_method_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get pokemon encounter
+    async fn pokemon_encounters_retrieve(
+        &self,
+        pokemon_id: String,
+        context: &C) -> Result<PokemonEncountersRetrieveResponse, ApiError>
+    {
+        info!("pokemon_encounters_retrieve(\"{}\") - X-Span-ID: {:?}", pokemon_id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List evolution chains
     async fn evolution_chain_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<EvolutionChainListResponse, ApiError>
     {
-        info!("evolution_chain_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("evolution_chain_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn evolution_chain_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<EvolutionChainReadResponse, ApiError>
-    {
-        info!("evolution_chain_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
+    /// List evolution triggers
     async fn evolution_trigger_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<EvolutionTriggerListResponse, ApiError>
     {
-        info!("evolution_trigger_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("evolution_trigger_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn evolution_trigger_read(
+    /// Get evolution chain
+    async fn evolution_chain_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<EvolutionTriggerReadResponse, ApiError>
+        id: String,
+        context: &C) -> Result<EvolutionChainRetrieveResponse, ApiError>
     {
-        info!("evolution_trigger_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("evolution_chain_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn gender_list(
+    /// Get evolution trigger
+    async fn evolution_trigger_retrieve(
         &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<GenderListResponse, ApiError>
+        id: String,
+        context: &C) -> Result<EvolutionTriggerRetrieveResponse, ApiError>
     {
-        info!("gender_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("evolution_trigger_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn gender_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<GenderReadResponse, ApiError>
-    {
-        info!("gender_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
+    /// List genrations
     async fn generation_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<GenerationListResponse, ApiError>
     {
-        info!("generation_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("generation_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn generation_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<GenerationReadResponse, ApiError>
-    {
-        info!("generation_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn growth_rate_list(
+    /// List pokedex
+    async fn pokedex_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        context: &C) -> Result<GrowthRateListResponse, ApiError>
+        q: Option<String>,
+        context: &C) -> Result<PokedexListResponse, ApiError>
     {
-        info!("growth_rate_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("pokedex_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn growth_rate_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<GrowthRateReadResponse, ApiError>
-    {
-        info!("growth_rate_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn item_list(
+    /// List version groups
+    async fn version_group_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        context: &C) -> Result<ItemListResponse, ApiError>
+        q: Option<String>,
+        context: &C) -> Result<VersionGroupListResponse, ApiError>
     {
-        info!("item_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("version_group_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn item_read(
+    /// List versions
+    async fn version_list(
         &self,
-        id: i32,
-        context: &C) -> Result<ItemReadResponse, ApiError>
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<VersionListResponse, ApiError>
     {
-        info!("item_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("version_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
+    /// Get genration
+    async fn generation_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<GenerationRetrieveResponse, ApiError>
+    {
+        info!("generation_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get pokedex
+    async fn pokedex_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PokedexRetrieveResponse, ApiError>
+    {
+        info!("pokedex_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get version group
+    async fn version_group_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<VersionGroupRetrieveResponse, ApiError>
+    {
+        info!("version_group_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get version
+    async fn version_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<VersionRetrieveResponse, ApiError>
+    {
+        info!("version_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List item attributes
     async fn item_attribute_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<ItemAttributeListResponse, ApiError>
     {
-        info!("item_attribute_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("item_attribute_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn item_attribute_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<ItemAttributeReadResponse, ApiError>
-    {
-        info!("item_attribute_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
+    /// List item categories
     async fn item_category_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<ItemCategoryListResponse, ApiError>
     {
-        info!("item_category_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("item_category_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn item_category_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<ItemCategoryReadResponse, ApiError>
-    {
-        info!("item_category_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
+    /// List item fling effects
     async fn item_fling_effect_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<ItemFlingEffectListResponse, ApiError>
     {
-        info!("item_fling_effect_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("item_fling_effect_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn item_fling_effect_read(
+    /// List items
+    async fn item_list(
         &self,
-        id: i32,
-        context: &C) -> Result<ItemFlingEffectReadResponse, ApiError>
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<ItemListResponse, ApiError>
     {
-        info!("item_fling_effect_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("item_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
+    /// List item pockets
     async fn item_pocket_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<ItemPocketListResponse, ApiError>
     {
-        info!("item_pocket_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("item_pocket_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn item_pocket_read(
+    /// Get item attribute
+    async fn item_attribute_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<ItemPocketReadResponse, ApiError>
+        id: String,
+        context: &C) -> Result<ItemAttributeRetrieveResponse, ApiError>
     {
-        info!("item_pocket_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("item_attribute_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn language_list(
+    /// Get item category
+    async fn item_category_retrieve(
         &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<LanguageListResponse, ApiError>
+        id: String,
+        context: &C) -> Result<ItemCategoryRetrieveResponse, ApiError>
     {
-        info!("language_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("item_category_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn language_read(
+    /// Get item fling effect
+    async fn item_fling_effect_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<LanguageReadResponse, ApiError>
+        id: String,
+        context: &C) -> Result<ItemFlingEffectRetrieveResponse, ApiError>
     {
-        info!("language_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("item_fling_effect_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn location_list(
+    /// Get item pocket
+    async fn item_pocket_retrieve(
         &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<LocationListResponse, ApiError>
+        id: String,
+        context: &C) -> Result<ItemPocketRetrieveResponse, ApiError>
     {
-        info!("location_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("item_pocket_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn location_read(
+    /// Get item
+    async fn item_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<LocationReadResponse, ApiError>
+        id: String,
+        context: &C) -> Result<ItemRetrieveResponse, ApiError>
     {
-        info!("location_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("item_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
+    /// List location areas
     async fn location_area_list(
         &self,
         limit: Option<i32>,
@@ -688,468 +703,605 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn location_area_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<LocationAreaReadResponse, ApiError>
-    {
-        info!("location_area_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn machine_list(
+    /// List locations
+    async fn location_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        context: &C) -> Result<MachineListResponse, ApiError>
+        q: Option<String>,
+        context: &C) -> Result<LocationListResponse, ApiError>
     {
-        info!("machine_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("location_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn machine_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<MachineReadResponse, ApiError>
-    {
-        info!("machine_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn move_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<MoveListResponse, ApiError>
-    {
-        info!("move_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn move_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<MoveReadResponse, ApiError>
-    {
-        info!("move_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn move_ailment_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<MoveAilmentListResponse, ApiError>
-    {
-        info!("move_ailment_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn move_ailment_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<MoveAilmentReadResponse, ApiError>
-    {
-        info!("move_ailment_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn move_battle_style_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<MoveBattleStyleListResponse, ApiError>
-    {
-        info!("move_battle_style_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn move_battle_style_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<MoveBattleStyleReadResponse, ApiError>
-    {
-        info!("move_battle_style_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn move_category_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<MoveCategoryListResponse, ApiError>
-    {
-        info!("move_category_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn move_category_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<MoveCategoryReadResponse, ApiError>
-    {
-        info!("move_category_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn move_damage_class_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<MoveDamageClassListResponse, ApiError>
-    {
-        info!("move_damage_class_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn move_damage_class_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<MoveDamageClassReadResponse, ApiError>
-    {
-        info!("move_damage_class_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn move_learn_method_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<MoveLearnMethodListResponse, ApiError>
-    {
-        info!("move_learn_method_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn move_learn_method_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<MoveLearnMethodReadResponse, ApiError>
-    {
-        info!("move_learn_method_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn move_target_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<MoveTargetListResponse, ApiError>
-    {
-        info!("move_target_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn move_target_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<MoveTargetReadResponse, ApiError>
-    {
-        info!("move_target_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn nature_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<NatureListResponse, ApiError>
-    {
-        info!("nature_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn nature_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<NatureReadResponse, ApiError>
-    {
-        info!("nature_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
+    /// List pal park areas
     async fn pal_park_area_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<PalParkAreaListResponse, ApiError>
     {
-        info!("pal_park_area_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("pal_park_area_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn pal_park_area_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PalParkAreaReadResponse, ApiError>
-    {
-        info!("pal_park_area_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn pokeathlon_stat_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<PokeathlonStatListResponse, ApiError>
-    {
-        info!("pokeathlon_stat_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn pokeathlon_stat_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PokeathlonStatReadResponse, ApiError>
-    {
-        info!("pokeathlon_stat_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn pokedex_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<PokedexListResponse, ApiError>
-    {
-        info!("pokedex_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn pokedex_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PokedexReadResponse, ApiError>
-    {
-        info!("pokedex_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn pokemon_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<PokemonListResponse, ApiError>
-    {
-        info!("pokemon_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn pokemon_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PokemonReadResponse, ApiError>
-    {
-        info!("pokemon_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn pokemon_color_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<PokemonColorListResponse, ApiError>
-    {
-        info!("pokemon_color_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn pokemon_color_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PokemonColorReadResponse, ApiError>
-    {
-        info!("pokemon_color_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn pokemon_form_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<PokemonFormListResponse, ApiError>
-    {
-        info!("pokemon_form_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn pokemon_form_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PokemonFormReadResponse, ApiError>
-    {
-        info!("pokemon_form_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn pokemon_habitat_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<PokemonHabitatListResponse, ApiError>
-    {
-        info!("pokemon_habitat_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn pokemon_habitat_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PokemonHabitatReadResponse, ApiError>
-    {
-        info!("pokemon_habitat_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn pokemon_shape_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<PokemonShapeListResponse, ApiError>
-    {
-        info!("pokemon_shape_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn pokemon_shape_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PokemonShapeReadResponse, ApiError>
-    {
-        info!("pokemon_shape_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn pokemon_species_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<PokemonSpeciesListResponse, ApiError>
-    {
-        info!("pokemon_species_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn pokemon_species_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<PokemonSpeciesReadResponse, ApiError>
-    {
-        info!("pokemon_species_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
+    /// List regions
     async fn region_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<RegionListResponse, ApiError>
     {
-        info!("region_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("region_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn region_read(
+    /// Get location area
+    async fn location_area_retrieve(
         &self,
         id: i32,
-        context: &C) -> Result<RegionReadResponse, ApiError>
+        context: &C) -> Result<LocationAreaRetrieveResponse, ApiError>
     {
-        info!("region_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("location_area_retrieve({}) - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
+    /// Get location
+    async fn location_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<LocationRetrieveResponse, ApiError>
+    {
+        info!("location_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get pal park area
+    async fn pal_park_area_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PalParkAreaRetrieveResponse, ApiError>
+    {
+        info!("pal_park_area_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get region
+    async fn region_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<RegionRetrieveResponse, ApiError>
+    {
+        info!("region_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List machines
+    async fn machine_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<MachineListResponse, ApiError>
+    {
+        info!("machine_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get machine
+    async fn machine_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<MachineRetrieveResponse, ApiError>
+    {
+        info!("machine_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List move meta ailments
+    async fn move_ailment_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<MoveAilmentListResponse, ApiError>
+    {
+        info!("move_ailment_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List move battle styles
+    async fn move_battle_style_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<MoveBattleStyleListResponse, ApiError>
+    {
+        info!("move_battle_style_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List move meta categories
+    async fn move_category_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<MoveCategoryListResponse, ApiError>
+    {
+        info!("move_category_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List move learn methods
+    async fn move_learn_method_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<MoveLearnMethodListResponse, ApiError>
+    {
+        info!("move_learn_method_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List moves
+    async fn move_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<MoveListResponse, ApiError>
+    {
+        info!("move_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List move targets
+    async fn move_target_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<MoveTargetListResponse, ApiError>
+    {
+        info!("move_target_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get move meta ailment
+    async fn move_ailment_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<MoveAilmentRetrieveResponse, ApiError>
+    {
+        info!("move_ailment_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get move battle style
+    async fn move_battle_style_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<MoveBattleStyleRetrieveResponse, ApiError>
+    {
+        info!("move_battle_style_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get move meta category
+    async fn move_category_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<MoveCategoryRetrieveResponse, ApiError>
+    {
+        info!("move_category_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get move learn method
+    async fn move_learn_method_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<MoveLearnMethodRetrieveResponse, ApiError>
+    {
+        info!("move_learn_method_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get move
+    async fn move_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<MoveRetrieveResponse, ApiError>
+    {
+        info!("move_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get move target
+    async fn move_target_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<MoveTargetRetrieveResponse, ApiError>
+    {
+        info!("move_target_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    async fn ability_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<AbilityListResponse, ApiError>
+    {
+        info!("ability_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List charecterictics
+    async fn characteristic_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<CharacteristicListResponse, ApiError>
+    {
+        info!("characteristic_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List egg groups
+    async fn egg_group_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<EggGroupListResponse, ApiError>
+    {
+        info!("egg_group_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List genders
+    async fn gender_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<GenderListResponse, ApiError>
+    {
+        info!("gender_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List growth rates
+    async fn growth_rate_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<GrowthRateListResponse, ApiError>
+    {
+        info!("growth_rate_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List move damage classes
+    async fn move_damage_class_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<MoveDamageClassListResponse, ApiError>
+    {
+        info!("move_damage_class_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List natures
+    async fn nature_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<NatureListResponse, ApiError>
+    {
+        info!("nature_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List pokeathlon stats
+    async fn pokeathlon_stat_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<PokeathlonStatListResponse, ApiError>
+    {
+        info!("pokeathlon_stat_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List pokemon colors
+    async fn pokemon_color_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<PokemonColorListResponse, ApiError>
+    {
+        info!("pokemon_color_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List pokemon forms
+    async fn pokemon_form_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<PokemonFormListResponse, ApiError>
+    {
+        info!("pokemon_form_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List pokemom habitas
+    async fn pokemon_habitat_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<PokemonHabitatListResponse, ApiError>
+    {
+        info!("pokemon_habitat_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List pokemon
+    async fn pokemon_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<PokemonListResponse, ApiError>
+    {
+        info!("pokemon_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List pokemon shapes
+    async fn pokemon_shape_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<PokemonShapeListResponse, ApiError>
+    {
+        info!("pokemon_shape_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List pokemon species
+    async fn pokemon_species_list(
+        &self,
+        limit: Option<i32>,
+        offset: Option<i32>,
+        q: Option<String>,
+        context: &C) -> Result<PokemonSpeciesListResponse, ApiError>
+    {
+        info!("pokemon_species_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List stats
     async fn stat_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<StatListResponse, ApiError>
     {
-        info!("stat_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("stat_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn stat_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<StatReadResponse, ApiError>
-    {
-        info!("stat_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn super_contest_effect_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<SuperContestEffectListResponse, ApiError>
-    {
-        info!("super_contest_effect_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn super_contest_effect_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<SuperContestEffectReadResponse, ApiError>
-    {
-        info!("super_contest_effect_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
+    /// List types
     async fn type_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
+        q: Option<String>,
         context: &C) -> Result<TypeListResponse, ApiError>
     {
-        info!("type_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("type_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn type_read(
+    async fn ability_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<TypeReadResponse, ApiError>
+        id: String,
+        context: &C) -> Result<AbilityRetrieveResponse, ApiError>
     {
-        info!("type_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("ability_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn version_list(
+    /// Get characteristic
+    async fn characteristic_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<CharacteristicRetrieveResponse, ApiError>
+    {
+        info!("characteristic_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get egg group
+    async fn egg_group_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<EggGroupRetrieveResponse, ApiError>
+    {
+        info!("egg_group_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get gender
+    async fn gender_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<GenderRetrieveResponse, ApiError>
+    {
+        info!("gender_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get growth rate
+    async fn growth_rate_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<GrowthRateRetrieveResponse, ApiError>
+    {
+        info!("growth_rate_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get move damage class
+    async fn move_damage_class_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<MoveDamageClassRetrieveResponse, ApiError>
+    {
+        info!("move_damage_class_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get nature
+    async fn nature_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<NatureRetrieveResponse, ApiError>
+    {
+        info!("nature_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get pokeathlon stat
+    async fn pokeathlon_stat_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PokeathlonStatRetrieveResponse, ApiError>
+    {
+        info!("pokeathlon_stat_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get pokemon color
+    async fn pokemon_color_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PokemonColorRetrieveResponse, ApiError>
+    {
+        info!("pokemon_color_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get pokemon form
+    async fn pokemon_form_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PokemonFormRetrieveResponse, ApiError>
+    {
+        info!("pokemon_form_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get pokemom habita
+    async fn pokemon_habitat_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PokemonHabitatRetrieveResponse, ApiError>
+    {
+        info!("pokemon_habitat_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get pokemon
+    async fn pokemon_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PokemonRetrieveResponse, ApiError>
+    {
+        info!("pokemon_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get pokemon shape
+    async fn pokemon_shape_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PokemonShapeRetrieveResponse, ApiError>
+    {
+        info!("pokemon_shape_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get pokemon species
+    async fn pokemon_species_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<PokemonSpeciesRetrieveResponse, ApiError>
+    {
+        info!("pokemon_species_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get stat
+    async fn stat_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<StatRetrieveResponse, ApiError>
+    {
+        info!("stat_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// Get types
+    async fn type_retrieve(
+        &self,
+        id: String,
+        context: &C) -> Result<TypeRetrieveResponse, ApiError>
+    {
+        info!("type_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
+        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
+    }
+
+    /// List languages
+    async fn language_list(
         &self,
         limit: Option<i32>,
         offset: Option<i32>,
-        context: &C) -> Result<VersionListResponse, ApiError>
+        q: Option<String>,
+        context: &C) -> Result<LanguageListResponse, ApiError>
     {
-        info!("version_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
+        info!("language_list({:?}, {:?}, {:?}) - X-Span-ID: {:?}", limit, offset, q, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
-    async fn version_read(
+    /// Get language
+    async fn language_retrieve(
         &self,
-        id: i32,
-        context: &C) -> Result<VersionReadResponse, ApiError>
+        id: String,
+        context: &C) -> Result<LanguageRetrieveResponse, ApiError>
     {
-        info!("version_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn version_group_list(
-        &self,
-        limit: Option<i32>,
-        offset: Option<i32>,
-        context: &C) -> Result<VersionGroupListResponse, ApiError>
-    {
-        info!("version_group_list({:?}, {:?}) - X-Span-ID: {:?}", limit, offset, context.get().0.clone());
-        Err(ApiError("Api-Error: Operation is NOT implemented".into()))
-    }
-
-    async fn version_group_read(
-        &self,
-        id: i32,
-        context: &C) -> Result<VersionGroupReadResponse, ApiError>
-    {
-        info!("version_group_read({}) - X-Span-ID: {:?}", id, context.get().0.clone());
+        info!("language_retrieve(\"{}\") - X-Span-ID: {:?}", id, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 

@@ -37,54 +37,17 @@ import System.Log.FastLogger                (defaultBufSize, newStdoutLoggerSet,
 
 -- Import all relevant handler modules here.
 -- Don't forget to add new modules to your cabal file!
-import Handler.Ability
-import Handler.Berry
-import Handler.BerryFirmness
-import Handler.BerryFlavor
-import Handler.Characteristic
-import Handler.ContestEffect
-import Handler.ContestType
-import Handler.EggGroup
-import Handler.EncounterCondition
-import Handler.EncounterConditionValue
-import Handler.EncounterMethod
-import Handler.EvolutionChain
-import Handler.EvolutionTrigger
-import Handler.Gender
-import Handler.Generation
-import Handler.GrowthRate
-import Handler.Item
-import Handler.ItemAttribute
-import Handler.ItemCategory
-import Handler.ItemFlingEffect
-import Handler.ItemPocket
-import Handler.Language
+import Handler.Berries
+import Handler.Contests
+import Handler.Encounters
+import Handler.Evolution
+import Handler.Games
+import Handler.Items
 import Handler.Location
-import Handler.LocationArea
-import Handler.Machine
-import Handler.Move
-import Handler.MoveAilment
-import Handler.MoveBattleStyle
-import Handler.MoveCategory
-import Handler.MoveDamageClass
-import Handler.MoveLearnMethod
-import Handler.MoveTarget
-import Handler.Nature
-import Handler.PalParkArea
-import Handler.PokeathlonStat
-import Handler.Pokedex
+import Handler.Machines
+import Handler.Moves
 import Handler.Pokemon
-import Handler.PokemonColor
-import Handler.PokemonForm
-import Handler.PokemonHabitat
-import Handler.PokemonShape
-import Handler.PokemonSpecies
-import Handler.Region
-import Handler.Stat
-import Handler.SuperContestEffect
-import Handler.Type
-import Handler.Version
-import Handler.VersionGroup
+import Handler.Utility
 
 -- This line actually creates our YesodDispatch instance. It is the second half
 -- of the call to mkYesodData which occurs in Foundation.hs. Please see the

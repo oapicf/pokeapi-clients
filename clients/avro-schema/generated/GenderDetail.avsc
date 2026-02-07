@@ -1,0 +1,35 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "GenderDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "pokemon_species_details",
+      "type": {
+        "type": "array",
+        "items": "model.GenderDetailPokemonSpeciesDetailsInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "required_for_evolution",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityDetailPokemonInnerPokemon"
+      },
+      "doc": ""
+    }
+  ]
+
+}

@@ -1,0 +1,29 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "MachineDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "item",
+      "type": "model.ItemSummary",
+      "doc": ""
+    },
+    {
+      "name": "version_group",
+      "type": "model.VersionGroupSummary",
+      "doc": ""
+    },
+    {
+      "name": "move",
+      "type": "model.MoveSummary",
+      "doc": ""
+    }
+  ]
+
+}

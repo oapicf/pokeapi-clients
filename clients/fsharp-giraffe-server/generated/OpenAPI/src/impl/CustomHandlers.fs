@@ -78,6 +78,8 @@ module CustomHandlers =
         ]
         body [] [
             h1 [] [ str "Welcome" ]
+            a [_href "/login-with-basicAuth"] [ str "Login with basicAuth" ]
+            a [_href "/login-with-cookieAuth"] [ str "Login with cookieAuth" ]
         ]
     ]
 
@@ -89,6 +91,8 @@ module CustomHandlers =
     GET >=>
       choose [
         route "/login" >=> redirectToLogin
+        route "/login-with-basicAuth" >=> challenge "basicAuth"
+        route "/login-with-cookieAuth" >=> challenge "cookieAuth"
         route "/logout" >=> logout
       ]
   ]

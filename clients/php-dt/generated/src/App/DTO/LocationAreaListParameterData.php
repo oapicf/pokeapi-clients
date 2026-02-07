@@ -11,6 +11,7 @@ use Articus\DataTransfer\Annotation as DTA;
 class LocationAreaListParameterData
 {
     /**
+     * The initial index from which to return the results.
      * @DTA\Data(subset="query", field="offset", nullable=true)
      * @DTA\Strategy(subset="query", name="QueryStringScalar", options={"type":"int"})
      * @DTA\Validator(subset="query", name="QueryStringScalar", options={"type":"int"})
@@ -18,6 +19,7 @@ class LocationAreaListParameterData
     public ?int $offset = null;
 
     /**
+     * Number of results to return per page.
      * @DTA\Data(subset="query", field="limit", nullable=true)
      * @DTA\Strategy(subset="query", name="QueryStringScalar", options={"type":"int"})
      * @DTA\Validator(subset="query", name="QueryStringScalar", options={"type":"int"})

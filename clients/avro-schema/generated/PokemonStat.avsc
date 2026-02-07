@@ -1,0 +1,24 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonStat",
+  "fields": [
+    {
+      "name": "base_stat",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "effort",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "stat",
+      "type": "model.StatSummary",
+      "doc": ""
+    }
+  ]
+
+}

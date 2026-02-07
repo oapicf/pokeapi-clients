@@ -1,31 +1,31 @@
 -module(openapi_api).
 
--export([ version_group_list/0
-        , version_group_read/1
+-export([ language_list/0
+        , language_retrieve/1
         ]).
 
 -define(BASE_URL, "").
 
-%% @doc 
-%% 
--spec version_group_list() ->
+%% @doc List languages
+%% Languages for translations of API resource information.
+-spec language_list() ->
   openapi_utils:response().
-version_group_list() ->
+language_list() ->
   Method      = get,
   Host        = application:get_env(openapi, host, "http://localhost:8080"),
-  Path        = ["/api/v2/version-group/"],
-  QueryString = [<<"limit=">>, Limit, <<"&">>, <<"offset=">>, Offset, <<"&">>],
+  Path        = ["/api/v2/language/"],
+  QueryString = [<<"limit=">>, Limit, <<"&">>, <<"offset=">>, Offset, <<"&">>, <<"q=">>, Q, <<"&">>],
 
   openapi_utils:request(Method, [Host, ?BASE_URL, Path, <<"?">>, QueryString]).
 
-%% @doc 
-%% 
--spec version_group_read(integer()) ->
+%% @doc Get language
+%% Languages for translations of API resource information.
+-spec language_retrieve(binary()) ->
   openapi_utils:response().
-version_group_read(Id) ->
+language_retrieve(Id) ->
   Method      = get,
   Host        = application:get_env(openapi, host, "http://localhost:8080"),
-  Path        = ["/api/v2/version-group/", Id, "/"],
+  Path        = ["/api/v2/language/", Id, "/"],
 
   openapi_utils:request(Method, [Host, ?BASE_URL, Path]).
 

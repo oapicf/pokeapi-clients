@@ -16,6 +16,7 @@ use Psr\Http\Message\ServerRequestInterface;
 class ApiV2MoveBattleStyle
 {
     /**
+     * List move battle styles
      * @PHA\Get()
      * @PHA\Attribute(name=PHAttribute\Transfer::class, options={
      *     "type":\App\DTO\MoveBattleStyleListQueryData::class,
@@ -23,14 +24,14 @@ class ApiV2MoveBattleStyle
      *     "source": PHAttribute\Transfer::SOURCE_GET
      * })
      * TODO check if producer is valid, if it has correct priority and if it can be moved to class annotation
-     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="text/plain")
+     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="application/json")
      * @param ServerRequestInterface $request
      *
      * @throws PHException\HttpCode 501 if the method is not implemented
      *
-     * @return string
+     * @return \App\DTO\PaginatedMoveBattleStyleSummaryList
      */
-    public function moveBattleStyleList(ServerRequestInterface $request): string
+    public function moveBattleStyleList(ServerRequestInterface $request): \App\DTO\PaginatedMoveBattleStyleSummaryList
     {
         //TODO implement method
         /** @var \App\DTO\MoveBattleStyleListQueryData $queryData */

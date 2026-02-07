@@ -1,0 +1,43 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ItemAttributeDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "descriptions",
+      "type": {
+        "type": "array",
+        "items": "model.ItemAttributeDescription"
+      },
+      "doc": ""
+    },
+    {
+      "name": "items",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityDetailPokemonInnerPokemon"
+      },
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.ItemAttributeName"
+      },
+      "doc": ""
+    }
+  ]
+
+}

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name=" Config" xsi:noNamespaceSchemaLocation="phpcs.xsd">
-    <description>PHP_CodeSniffer config for </description>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="PokéAPI Config" xsi:noNamespaceSchemaLocation="phpcs.xsd">
+    <description>PHP_CodeSniffer config for PokéAPI</description>
 
     <!-- Path to inspected files -->
     <file>./</file>

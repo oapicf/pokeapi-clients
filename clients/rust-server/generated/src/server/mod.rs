@@ -25,102 +25,103 @@ pub use crate::context;
 type ServiceFuture = BoxFuture<'static, Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>>;
 
 use crate::{Api,
-     AbilityListResponse,
-     AbilityReadResponse,
-     BerryListResponse,
-     BerryReadResponse,
      BerryFirmnessListResponse,
-     BerryFirmnessReadResponse,
      BerryFlavorListResponse,
-     BerryFlavorReadResponse,
-     CharacteristicListResponse,
-     CharacteristicReadResponse,
+     BerryListResponse,
+     BerryFirmnessRetrieveResponse,
+     BerryFlavorRetrieveResponse,
+     BerryRetrieveResponse,
      ContestEffectListResponse,
-     ContestEffectReadResponse,
      ContestTypeListResponse,
-     ContestTypeReadResponse,
-     EggGroupListResponse,
-     EggGroupReadResponse,
-     EncounterConditionListResponse,
-     EncounterConditionReadResponse,
-     EncounterConditionValueListResponse,
-     EncounterConditionValueReadResponse,
-     EncounterMethodListResponse,
-     EncounterMethodReadResponse,
-     EvolutionChainListResponse,
-     EvolutionChainReadResponse,
-     EvolutionTriggerListResponse,
-     EvolutionTriggerReadResponse,
-     GenderListResponse,
-     GenderReadResponse,
-     GenerationListResponse,
-     GenerationReadResponse,
-     GrowthRateListResponse,
-     GrowthRateReadResponse,
-     ItemListResponse,
-     ItemReadResponse,
-     ItemAttributeListResponse,
-     ItemAttributeReadResponse,
-     ItemCategoryListResponse,
-     ItemCategoryReadResponse,
-     ItemFlingEffectListResponse,
-     ItemFlingEffectReadResponse,
-     ItemPocketListResponse,
-     ItemPocketReadResponse,
-     LanguageListResponse,
-     LanguageReadResponse,
-     LocationListResponse,
-     LocationReadResponse,
-     LocationAreaListResponse,
-     LocationAreaReadResponse,
-     MachineListResponse,
-     MachineReadResponse,
-     MoveListResponse,
-     MoveReadResponse,
-     MoveAilmentListResponse,
-     MoveAilmentReadResponse,
-     MoveBattleStyleListResponse,
-     MoveBattleStyleReadResponse,
-     MoveCategoryListResponse,
-     MoveCategoryReadResponse,
-     MoveDamageClassListResponse,
-     MoveDamageClassReadResponse,
-     MoveLearnMethodListResponse,
-     MoveLearnMethodReadResponse,
-     MoveTargetListResponse,
-     MoveTargetReadResponse,
-     NatureListResponse,
-     NatureReadResponse,
-     PalParkAreaListResponse,
-     PalParkAreaReadResponse,
-     PokeathlonStatListResponse,
-     PokeathlonStatReadResponse,
-     PokedexListResponse,
-     PokedexReadResponse,
-     PokemonListResponse,
-     PokemonReadResponse,
-     PokemonColorListResponse,
-     PokemonColorReadResponse,
-     PokemonFormListResponse,
-     PokemonFormReadResponse,
-     PokemonHabitatListResponse,
-     PokemonHabitatReadResponse,
-     PokemonShapeListResponse,
-     PokemonShapeReadResponse,
-     PokemonSpeciesListResponse,
-     PokemonSpeciesReadResponse,
-     RegionListResponse,
-     RegionReadResponse,
-     StatListResponse,
-     StatReadResponse,
      SuperContestEffectListResponse,
-     SuperContestEffectReadResponse,
-     TypeListResponse,
-     TypeReadResponse,
-     VersionListResponse,
-     VersionReadResponse,
+     ContestEffectRetrieveResponse,
+     ContestTypeRetrieveResponse,
+     SuperContestEffectRetrieveResponse,
+     EncounterConditionListResponse,
+     EncounterConditionValueListResponse,
+     EncounterMethodListResponse,
+     EncounterConditionRetrieveResponse,
+     EncounterConditionValueRetrieveResponse,
+     EncounterMethodRetrieveResponse,
+     PokemonEncountersRetrieveResponse,
+     EvolutionChainListResponse,
+     EvolutionTriggerListResponse,
+     EvolutionChainRetrieveResponse,
+     EvolutionTriggerRetrieveResponse,
+     GenerationListResponse,
+     PokedexListResponse,
      VersionGroupListResponse,
-     VersionGroupReadResponse
+     VersionListResponse,
+     GenerationRetrieveResponse,
+     PokedexRetrieveResponse,
+     VersionGroupRetrieveResponse,
+     VersionRetrieveResponse,
+     ItemAttributeListResponse,
+     ItemCategoryListResponse,
+     ItemFlingEffectListResponse,
+     ItemListResponse,
+     ItemPocketListResponse,
+     ItemAttributeRetrieveResponse,
+     ItemCategoryRetrieveResponse,
+     ItemFlingEffectRetrieveResponse,
+     ItemPocketRetrieveResponse,
+     ItemRetrieveResponse,
+     LocationAreaListResponse,
+     LocationListResponse,
+     PalParkAreaListResponse,
+     RegionListResponse,
+     LocationAreaRetrieveResponse,
+     LocationRetrieveResponse,
+     PalParkAreaRetrieveResponse,
+     RegionRetrieveResponse,
+     MachineListResponse,
+     MachineRetrieveResponse,
+     MoveAilmentListResponse,
+     MoveBattleStyleListResponse,
+     MoveCategoryListResponse,
+     MoveLearnMethodListResponse,
+     MoveListResponse,
+     MoveTargetListResponse,
+     MoveAilmentRetrieveResponse,
+     MoveBattleStyleRetrieveResponse,
+     MoveCategoryRetrieveResponse,
+     MoveLearnMethodRetrieveResponse,
+     MoveRetrieveResponse,
+     MoveTargetRetrieveResponse,
+     AbilityListResponse,
+     CharacteristicListResponse,
+     EggGroupListResponse,
+     GenderListResponse,
+     GrowthRateListResponse,
+     MoveDamageClassListResponse,
+     NatureListResponse,
+     PokeathlonStatListResponse,
+     PokemonColorListResponse,
+     PokemonFormListResponse,
+     PokemonHabitatListResponse,
+     PokemonListResponse,
+     PokemonShapeListResponse,
+     PokemonSpeciesListResponse,
+     StatListResponse,
+     TypeListResponse,
+     AbilityRetrieveResponse,
+     CharacteristicRetrieveResponse,
+     EggGroupRetrieveResponse,
+     GenderRetrieveResponse,
+     GrowthRateRetrieveResponse,
+     MoveDamageClassRetrieveResponse,
+     NatureRetrieveResponse,
+     PokeathlonStatRetrieveResponse,
+     PokemonColorRetrieveResponse,
+     PokemonFormRetrieveResponse,
+     PokemonHabitatRetrieveResponse,
+     PokemonRetrieveResponse,
+     PokemonShapeRetrieveResponse,
+     PokemonSpeciesRetrieveResponse,
+     StatRetrieveResponse,
+     TypeRetrieveResponse,
+     LanguageListResponse,
+     LanguageRetrieveResponse
 };
 
 mod server_auth;
@@ -214,6 +215,7 @@ mod paths {
             r"^/api/v2/pokemon-species/(?P<id>[^/?#]*)/$",
             r"^/api/v2/pokemon/$",
             r"^/api/v2/pokemon/(?P<id>[^/?#]*)/$",
+            r"^/api/v2/pokemon/(?P<pokemon_id>[^/?#]*)/encounters$",
             r"^/api/v2/region/$",
             r"^/api/v2/region/(?P<id>[^/?#]*)/$",
             r"^/api/v2/stat/$",
@@ -565,48 +567,55 @@ mod paths {
             regex::Regex::new(r"^/api/v2/pokemon/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_POKEMON_ID_");
     }
-    pub(crate) static ID_API_V2_REGION_: usize = 84;
-    pub(crate) static ID_API_V2_REGION_ID_: usize = 85;
+    pub(crate) static ID_API_V2_POKEMON_POKEMON_ID_ENCOUNTERS: usize = 84;
+    lazy_static! {
+        pub static ref REGEX_API_V2_POKEMON_POKEMON_ID_ENCOUNTERS: regex::Regex =
+            #[allow(clippy::invalid_regex)]
+            regex::Regex::new(r"^/api/v2/pokemon/(?P<pokemon_id>[^/?#]*)/encounters$")
+                .expect("Unable to create regex for API_V2_POKEMON_POKEMON_ID_ENCOUNTERS");
+    }
+    pub(crate) static ID_API_V2_REGION_: usize = 85;
+    pub(crate) static ID_API_V2_REGION_ID_: usize = 86;
     lazy_static! {
         pub static ref REGEX_API_V2_REGION_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/region/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_REGION_ID_");
     }
-    pub(crate) static ID_API_V2_STAT_: usize = 86;
-    pub(crate) static ID_API_V2_STAT_ID_: usize = 87;
+    pub(crate) static ID_API_V2_STAT_: usize = 87;
+    pub(crate) static ID_API_V2_STAT_ID_: usize = 88;
     lazy_static! {
         pub static ref REGEX_API_V2_STAT_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/stat/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_STAT_ID_");
     }
-    pub(crate) static ID_API_V2_SUPER_CONTEST_EFFECT_: usize = 88;
-    pub(crate) static ID_API_V2_SUPER_CONTEST_EFFECT_ID_: usize = 89;
+    pub(crate) static ID_API_V2_SUPER_CONTEST_EFFECT_: usize = 89;
+    pub(crate) static ID_API_V2_SUPER_CONTEST_EFFECT_ID_: usize = 90;
     lazy_static! {
         pub static ref REGEX_API_V2_SUPER_CONTEST_EFFECT_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/super-contest-effect/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_SUPER_CONTEST_EFFECT_ID_");
     }
-    pub(crate) static ID_API_V2_TYPE_: usize = 90;
-    pub(crate) static ID_API_V2_TYPE_ID_: usize = 91;
+    pub(crate) static ID_API_V2_TYPE_: usize = 91;
+    pub(crate) static ID_API_V2_TYPE_ID_: usize = 92;
     lazy_static! {
         pub static ref REGEX_API_V2_TYPE_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/type/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_TYPE_ID_");
     }
-    pub(crate) static ID_API_V2_VERSION_GROUP_: usize = 92;
-    pub(crate) static ID_API_V2_VERSION_GROUP_ID_: usize = 93;
+    pub(crate) static ID_API_V2_VERSION_GROUP_: usize = 93;
+    pub(crate) static ID_API_V2_VERSION_GROUP_ID_: usize = 94;
     lazy_static! {
         pub static ref REGEX_API_V2_VERSION_GROUP_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
             regex::Regex::new(r"^/api/v2/version-group/(?P<id>[^/?#]*)/$")
                 .expect("Unable to create regex for API_V2_VERSION_GROUP_ID_");
     }
-    pub(crate) static ID_API_V2_VERSION_: usize = 94;
-    pub(crate) static ID_API_V2_VERSION_ID_: usize = 95;
+    pub(crate) static ID_API_V2_VERSION_: usize = 95;
+    pub(crate) static ID_API_V2_VERSION_ID_: usize = 96;
     lazy_static! {
         pub static ref REGEX_API_V2_VERSION_ID_: regex::Regex =
             #[allow(clippy::invalid_regex)]
@@ -619,7 +628,7 @@ mod paths {
 pub struct MakeService<T, C>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString>  + Send + Sync + 'static
+    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static
 {
     api_impl: T,
     marker: PhantomData<C>,
@@ -629,7 +638,7 @@ where
 impl<T, C> MakeService<T, C>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString>  + Send + Sync + 'static
+    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static
 {
     pub fn new(api_impl: T) -> Self {
         MakeService {
@@ -649,7 +658,7 @@ where
 impl<T, C> Clone for MakeService<T, C>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString>   + Send + Sync + 'static
+    C: Has<XSpanIdString>  + Has<Option<Authorization>> + Send + Sync + 'static
 {
     fn clone(&self) -> Self {
         Self {
@@ -663,7 +672,7 @@ where
 impl<T, C, Target> hyper::service::Service<Target> for MakeService<T, C>
 where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString>  + Send + Sync + 'static
+    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static
 {
     type Response = Service<T, C>;
     type Error = crate::ServiceError;
@@ -711,7 +720,7 @@ macro_rules! run_validation {
 
 pub struct Service<T, C> where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString>  + Send + Sync + 'static
+    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static
 {
     api_impl: T,
     marker: PhantomData<C>,
@@ -721,7 +730,7 @@ pub struct Service<T, C> where
 
 impl<T, C> Service<T, C> where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString>  + Send + Sync + 'static
+    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static
 {
     pub fn new(api_impl: T, validation: bool) -> Self {
         Service {
@@ -739,7 +748,7 @@ impl<T, C> Service<T, C> where
 
 impl<T, C> Clone for Service<T, C> where
     T: Api<C> + Clone + Send + 'static,
-    C: Has<XSpanIdString>  + Send + Sync + 'static
+    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static
 {
     fn clone(&self) -> Self {
         Service {
@@ -761,7 +770,7 @@ fn body_from_str(s: &str) -> BoxBody<Bytes, Infallible> {
 
 impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T, C> where
     T: Api<C> + Clone + Send + Sync + 'static,
-    C: Has<XSpanIdString>  + Send + Sync + 'static,
+    C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
     ReqBody: Body + Send + 'static,
     ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
     ReqBody::Data: Send,
@@ -778,7 +787,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
         ) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
         where
             T: Api<C> + Clone + Send + 'static,
-            C: Has<XSpanIdString>  + Send + Sync + 'static,
+            C: Has<XSpanIdString> + Has<Option<Authorization>> + Send + Sync + 'static,
             ReqBody: Body + Send + 'static,
             ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
             ReqBody::Data: Send,
@@ -790,278 +799,18 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             match method {
 
-            // AbilityList - GET /api/v2/ability/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_) => {
-                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
-                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
-                    .next();
-                let param_limit = match param_limit {
-                    Some(param_limit) => {
-                        let param_limit =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_limit);
-                        match param_limit {
-                            Ok(param_limit) => Some(param_limit),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
-                        }
-                    },
-                    None => None,
-                };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
-                    .next();
-                let param_offset = match param_offset {
-                    Some(param_offset) => {
-                        let param_offset =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_offset);
-                        match param_offset {
-                            Ok(param_offset) => Some(param_offset),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
-                        }
-                    },
-                    None => None,
-                };
-
-                                let result = api_impl.ability_list(
-                                            param_limit,
-                                            param_offset,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                AbilityListResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // AbilityRead - GET /api/v2/ability/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_ABILITY_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_ABILITY_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ABILITY_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.ability_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                AbilityReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // BerryList - GET /api/v2/berry/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_) => {
-                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
-                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
-                    .next();
-                let param_limit = match param_limit {
-                    Some(param_limit) => {
-                        let param_limit =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_limit);
-                        match param_limit {
-                            Ok(param_limit) => Some(param_limit),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
-                        }
-                    },
-                    None => None,
-                };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
-                    .next();
-                let param_offset = match param_offset {
-                    Some(param_offset) => {
-                        let param_offset =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_offset);
-                        match param_offset {
-                            Ok(param_offset) => Some(param_offset),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
-                        }
-                    },
-                    None => None,
-                };
-
-                                let result = api_impl.berry_list(
-                                            param_limit,
-                                            param_offset,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                BerryListResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // BerryRead - GET /api/v2/berry/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_BERRY_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_BERRY_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_BERRY_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.berry_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                BerryReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
             // BerryFirmnessList - GET /api/v2/berry-firmness/
             hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FIRMNESS_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -1094,6 +843,23 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                 .status(StatusCode::BAD_REQUEST)
                                 .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
                                 .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
                         }
                     },
                     None => None,
@@ -1102,6 +868,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                 let result = api_impl.berry_firmness_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -1112,74 +879,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                BerryFirmnessListResponse::DefaultResponse
+                                                BerryFirmnessListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // BerryFirmnessRead - GET /api/v2/berry-firmness/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FIRMNESS_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_BERRY_FIRMNESS_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_BERRY_FIRMNESS_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_BERRY_FIRMNESS_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.berry_firmness_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                BerryFirmnessReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -1197,6 +905,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // BerryFlavorList - GET /api/v2/berry-flavor/
             hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FLAVOR_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -1233,10 +951,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.berry_flavor_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -1247,14 +983,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                BerryFlavorListResponse::DefaultResponse
+                                                BerryFlavorListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -1270,8 +1007,193 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // BerryFlavorRead - GET /api/v2/berry-flavor/{id}/
+            // BerryList - GET /api/v2/berry/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
+
+                                let result = api_impl.berry_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                BerryListResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // BerryFirmnessRetrieve - GET /api/v2/berry-firmness/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FIRMNESS_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_BERRY_FIRMNESS_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_BERRY_FIRMNESS_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_BERRY_FIRMNESS_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.berry_firmness_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                BerryFirmnessRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // BerryFlavorRetrieve - GET /api/v2/berry-flavor/{id}/
             hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FLAVOR_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -1282,7 +1204,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     );
 
                 let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
+                    Ok(param_id) => match param_id.parse::<String>() {
                         Ok(param_id) => param_id,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -1295,7 +1217,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         .expect("Unable to create Bad Request response for invalid percent decode"))
                 };
 
-                                let result = api_impl.berry_flavor_read(
+                                let result = api_impl.berry_flavor_retrieve(
                                             param_id,
                                         &context
                                     ).await;
@@ -1307,14 +1229,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                BerryFlavorReadResponse::DefaultResponse
+                                                BerryFlavorRetrieveResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -1330,94 +1253,29 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // CharacteristicList - GET /api/v2/characteristic/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_CHARACTERISTIC_) => {
-                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
-                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
-                    .next();
-                let param_limit = match param_limit {
-                    Some(param_limit) => {
-                        let param_limit =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_limit);
-                        match param_limit {
-                            Ok(param_limit) => Some(param_limit),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
-                        }
-                    },
-                    None => None,
-                };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
-                    .next();
-                let param_offset = match param_offset {
-                    Some(param_offset) => {
-                        let param_offset =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_offset);
-                        match param_offset {
-                            Ok(param_offset) => Some(param_offset),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
-                        }
-                    },
-                    None => None,
-                };
+            // BerryRetrieve - GET /api/v2/berry/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
 
-                                let result = api_impl.characteristic_list(
-                                            param_limit,
-                                            param_offset,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                CharacteristicListResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // CharacteristicRead - GET /api/v2/characteristic/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_CHARACTERISTIC_ID_) => {
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
-                    paths::REGEX_API_V2_CHARACTERISTIC_ID_
+                    paths::REGEX_API_V2_BERRY_ID_
                     .captures(path)
                     .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_CHARACTERISTIC_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_CHARACTERISTIC_ID_.as_str())
+                        panic!("Path {} matched RE API_V2_BERRY_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_BERRY_ID_.as_str())
                     );
 
                 let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
+                    Ok(param_id) => match param_id.parse::<String>() {
                         Ok(param_id) => param_id,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -1430,7 +1288,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         .expect("Unable to create Bad Request response for invalid percent decode"))
                 };
 
-                                let result = api_impl.characteristic_read(
+                                let result = api_impl.berry_retrieve(
                                             param_id,
                                         &context
                                     ).await;
@@ -1442,14 +1300,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                CharacteristicReadResponse::DefaultResponse
+                                                BerryRetrieveResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -1467,6 +1326,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // ContestEffectList - GET /api/v2/contest-effect/
             hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_EFFECT_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -1503,10 +1372,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.contest_effect_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -1517,74 +1404,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                ContestEffectListResponse::DefaultResponse
+                                                ContestEffectListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // ContestEffectRead - GET /api/v2/contest-effect/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_EFFECT_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_CONTEST_EFFECT_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_CONTEST_EFFECT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_CONTEST_EFFECT_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.contest_effect_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                ContestEffectReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -1602,6 +1430,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // ContestTypeList - GET /api/v2/contest-type/
             hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_TYPE_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -1638,10 +1476,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.contest_type_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -1652,14 +1508,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                ContestTypeListResponse::DefaultResponse
+                                                ContestTypeListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -1675,8 +1532,193 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // ContestTypeRead - GET /api/v2/contest-type/{id}/
+            // SuperContestEffectList - GET /api/v2/super-contest-effect/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_SUPER_CONTEST_EFFECT_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
+
+                                let result = api_impl.super_contest_effect_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                SuperContestEffectListResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // ContestEffectRetrieve - GET /api/v2/contest-effect/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_EFFECT_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_CONTEST_EFFECT_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_CONTEST_EFFECT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_CONTEST_EFFECT_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.contest_effect_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                ContestEffectRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // ContestTypeRetrieve - GET /api/v2/contest-type/{id}/
             hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_TYPE_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -1687,7 +1729,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     );
 
                 let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
+                    Ok(param_id) => match param_id.parse::<String>() {
                         Ok(param_id) => param_id,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -1700,7 +1742,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         .expect("Unable to create Bad Request response for invalid percent decode"))
                 };
 
-                                let result = api_impl.contest_type_read(
+                                let result = api_impl.contest_type_retrieve(
                                             param_id,
                                         &context
                                     ).await;
@@ -1712,14 +1754,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                ContestTypeReadResponse::DefaultResponse
+                                                ContestTypeRetrieveResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -1735,94 +1778,29 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // EggGroupList - GET /api/v2/egg-group/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_EGG_GROUP_) => {
-                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
-                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
-                    .next();
-                let param_limit = match param_limit {
-                    Some(param_limit) => {
-                        let param_limit =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_limit);
-                        match param_limit {
-                            Ok(param_limit) => Some(param_limit),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
-                        }
-                    },
-                    None => None,
-                };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
-                    .next();
-                let param_offset = match param_offset {
-                    Some(param_offset) => {
-                        let param_offset =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_offset);
-                        match param_offset {
-                            Ok(param_offset) => Some(param_offset),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
-                        }
-                    },
-                    None => None,
-                };
+            // SuperContestEffectRetrieve - GET /api/v2/super-contest-effect/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_SUPER_CONTEST_EFFECT_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
 
-                                let result = api_impl.egg_group_list(
-                                            param_limit,
-                                            param_offset,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                EggGroupListResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // EggGroupRead - GET /api/v2/egg-group/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_EGG_GROUP_ID_) => {
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
-                    paths::REGEX_API_V2_EGG_GROUP_ID_
+                    paths::REGEX_API_V2_SUPER_CONTEST_EFFECT_ID_
                     .captures(path)
                     .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_EGG_GROUP_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_EGG_GROUP_ID_.as_str())
+                        panic!("Path {} matched RE API_V2_SUPER_CONTEST_EFFECT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_SUPER_CONTEST_EFFECT_ID_.as_str())
                     );
 
                 let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
+                    Ok(param_id) => match param_id.parse::<String>() {
                         Ok(param_id) => param_id,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -1835,7 +1813,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         .expect("Unable to create Bad Request response for invalid percent decode"))
                 };
 
-                                let result = api_impl.egg_group_read(
+                                let result = api_impl.super_contest_effect_retrieve(
                                             param_id,
                                         &context
                                     ).await;
@@ -1847,14 +1825,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                EggGroupReadResponse::DefaultResponse
+                                                SuperContestEffectRetrieveResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -1872,6 +1851,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // EncounterConditionList - GET /api/v2/encounter-condition/
             hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -1908,10 +1897,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.encounter_condition_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -1922,74 +1929,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                EncounterConditionListResponse::DefaultResponse
+                                                EncounterConditionListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // EncounterConditionRead - GET /api/v2/encounter-condition/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_ENCOUNTER_CONDITION_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_ENCOUNTER_CONDITION_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ENCOUNTER_CONDITION_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.encounter_condition_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                EncounterConditionReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -2007,6 +1955,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // EncounterConditionValueList - GET /api/v2/encounter-condition-value/
             hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -2043,10 +2001,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.encounter_condition_value_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -2057,74 +2033,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                EncounterConditionValueListResponse::DefaultResponse
+                                                EncounterConditionValueListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // EncounterConditionValueRead - GET /api/v2/encounter-condition-value/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_ENCOUNTER_CONDITION_VALUE_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_ENCOUNTER_CONDITION_VALUE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ENCOUNTER_CONDITION_VALUE_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.encounter_condition_value_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                EncounterConditionValueReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -2142,6 +2059,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // EncounterMethodList - GET /api/v2/encounter-method/
             hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_METHOD_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -2178,10 +2105,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.encounter_method_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -2192,14 +2137,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                EncounterMethodListResponse::DefaultResponse
+                                                EncounterMethodListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -2215,19 +2161,29 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // EncounterMethodRead - GET /api/v2/encounter-method/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_METHOD_ID_) => {
+            // EncounterConditionRetrieve - GET /api/v2/encounter-condition/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
-                    paths::REGEX_API_V2_ENCOUNTER_METHOD_ID_
+                    paths::REGEX_API_V2_ENCOUNTER_CONDITION_ID_
                     .captures(path)
                     .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_ENCOUNTER_METHOD_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ENCOUNTER_METHOD_ID_.as_str())
+                        panic!("Path {} matched RE API_V2_ENCOUNTER_CONDITION_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ENCOUNTER_CONDITION_ID_.as_str())
                     );
 
                 let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
+                    Ok(param_id) => match param_id.parse::<String>() {
                         Ok(param_id) => param_id,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -2240,7 +2196,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         .expect("Unable to create Bad Request response for invalid percent decode"))
                 };
 
-                                let result = api_impl.encounter_method_read(
+                                let result = api_impl.encounter_condition_retrieve(
                                             param_id,
                                         &context
                                     ).await;
@@ -2252,14 +2208,228 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                EncounterMethodReadResponse::DefaultResponse
+                                                EncounterConditionRetrieveResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // EncounterConditionValueRetrieve - GET /api/v2/encounter-condition-value/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_ENCOUNTER_CONDITION_VALUE_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_ENCOUNTER_CONDITION_VALUE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ENCOUNTER_CONDITION_VALUE_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.encounter_condition_value_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                EncounterConditionValueRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // EncounterMethodRetrieve - GET /api/v2/encounter-method/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_METHOD_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_ENCOUNTER_METHOD_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_ENCOUNTER_METHOD_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ENCOUNTER_METHOD_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.encounter_method_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                EncounterMethodRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // PokemonEncountersRetrieve - GET /api/v2/pokemon/{pokemon_id}/encounters
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_POKEMON_ID_ENCOUNTERS) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_POKEMON_POKEMON_ID_ENCOUNTERS
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_POKEMON_POKEMON_ID_ENCOUNTERS in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_POKEMON_ID_ENCOUNTERS.as_str())
+                    );
+
+                let param_pokemon_id = match percent_encoding::percent_decode(path_params["pokemon_id"].as_bytes()).decode_utf8() {
+                    Ok(param_pokemon_id) => match param_pokemon_id.parse::<String>() {
+                        Ok(param_pokemon_id) => param_pokemon_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter pokemon_id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["pokemon_id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.pokemon_encounters_retrieve(
+                                            param_pokemon_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                PokemonEncountersRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -2277,6 +2447,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // EvolutionChainList - GET /api/v2/evolution-chain/
             hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -2313,10 +2493,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.evolution_chain_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -2327,74 +2525,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                EvolutionChainListResponse::DefaultResponse
+                                                EvolutionChainListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // EvolutionChainRead - GET /api/v2/evolution-chain/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_EVOLUTION_CHAIN_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_EVOLUTION_CHAIN_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_EVOLUTION_CHAIN_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.evolution_chain_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                EvolutionChainReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -2412,6 +2551,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // EvolutionTriggerList - GET /api/v2/evolution-trigger/
             hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -2448,10 +2597,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.evolution_trigger_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -2462,14 +2629,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                EvolutionTriggerListResponse::DefaultResponse
+                                                EvolutionTriggerListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -2485,8 +2653,89 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // EvolutionTriggerRead - GET /api/v2/evolution-trigger/{id}/
+            // EvolutionChainRetrieve - GET /api/v2/evolution-chain/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_EVOLUTION_CHAIN_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_EVOLUTION_CHAIN_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_EVOLUTION_CHAIN_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.evolution_chain_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                EvolutionChainRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // EvolutionTriggerRetrieve - GET /api/v2/evolution-trigger/{id}/
             hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -2497,7 +2746,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     );
 
                 let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
+                    Ok(param_id) => match param_id.parse::<String>() {
                         Ok(param_id) => param_id,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -2510,7 +2759,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         .expect("Unable to create Bad Request response for invalid percent decode"))
                 };
 
-                                let result = api_impl.evolution_trigger_read(
+                                let result = api_impl.evolution_trigger_retrieve(
                                             param_id,
                                         &context
                                     ).await;
@@ -2522,149 +2771,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                EvolutionTriggerReadResponse::DefaultResponse
+                                                EvolutionTriggerRetrieveResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // GenderList - GET /api/v2/gender/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_GENDER_) => {
-                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
-                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
-                    .next();
-                let param_limit = match param_limit {
-                    Some(param_limit) => {
-                        let param_limit =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_limit);
-                        match param_limit {
-                            Ok(param_limit) => Some(param_limit),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
-                        }
-                    },
-                    None => None,
-                };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
-                    .next();
-                let param_offset = match param_offset {
-                    Some(param_offset) => {
-                        let param_offset =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_offset);
-                        match param_offset {
-                            Ok(param_offset) => Some(param_offset),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
-                        }
-                    },
-                    None => None,
-                };
-
-                                let result = api_impl.gender_list(
-                                            param_limit,
-                                            param_offset,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                GenderListResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // GenderRead - GET /api/v2/gender/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_GENDER_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_GENDER_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_GENDER_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_GENDER_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.gender_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                GenderReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -2682,6 +2797,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // GenerationList - GET /api/v2/generation/
             hyper::Method::GET if path.matched(paths::ID_API_V2_GENERATION_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -2718,10 +2843,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.generation_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -2732,14 +2875,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                GenerationListResponse::DefaultResponse
+                                                GenerationListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -2755,8 +2899,330 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // GenerationRead - GET /api/v2/generation/{id}/
+            // PokedexList - GET /api/v2/pokedex/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEDEX_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
+
+                                let result = api_impl.pokedex_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                PokedexListResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // VersionGroupList - GET /api/v2/version-group/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_GROUP_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
+
+                                let result = api_impl.version_group_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                VersionGroupListResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // VersionList - GET /api/v2/version/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
+
+                                let result = api_impl.version_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                VersionListResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // GenerationRetrieve - GET /api/v2/generation/{id}/
             hyper::Method::GET if path.matched(paths::ID_API_V2_GENERATION_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -2767,7 +3233,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     );
 
                 let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
+                    Ok(param_id) => match param_id.parse::<String>() {
                         Ok(param_id) => param_id,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -2780,7 +3246,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         .expect("Unable to create Bad Request response for invalid percent decode"))
                 };
 
-                                let result = api_impl.generation_read(
+                                let result = api_impl.generation_retrieve(
                                             param_id,
                                         &context
                                     ).await;
@@ -2792,14 +3258,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                GenerationReadResponse::DefaultResponse
+                                                GenerationRetrieveResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -2815,94 +3282,29 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // GrowthRateList - GET /api/v2/growth-rate/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_GROWTH_RATE_) => {
-                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
-                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
-                    .next();
-                let param_limit = match param_limit {
-                    Some(param_limit) => {
-                        let param_limit =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_limit);
-                        match param_limit {
-                            Ok(param_limit) => Some(param_limit),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
-                        }
-                    },
-                    None => None,
-                };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
-                    .next();
-                let param_offset = match param_offset {
-                    Some(param_offset) => {
-                        let param_offset =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_offset);
-                        match param_offset {
-                            Ok(param_offset) => Some(param_offset),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
-                        }
-                    },
-                    None => None,
-                };
+            // PokedexRetrieve - GET /api/v2/pokedex/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEDEX_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
 
-                                let result = api_impl.growth_rate_list(
-                                            param_limit,
-                                            param_offset,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                GrowthRateListResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // GrowthRateRead - GET /api/v2/growth-rate/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_GROWTH_RATE_ID_) => {
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
-                    paths::REGEX_API_V2_GROWTH_RATE_ID_
+                    paths::REGEX_API_V2_POKEDEX_ID_
                     .captures(path)
                     .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_GROWTH_RATE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_GROWTH_RATE_ID_.as_str())
+                        panic!("Path {} matched RE API_V2_POKEDEX_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEDEX_ID_.as_str())
                     );
 
                 let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
+                    Ok(param_id) => match param_id.parse::<String>() {
                         Ok(param_id) => param_id,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -2915,7 +3317,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         .expect("Unable to create Bad Request response for invalid percent decode"))
                 };
 
-                                let result = api_impl.growth_rate_read(
+                                let result = api_impl.pokedex_retrieve(
                                             param_id,
                                         &context
                                     ).await;
@@ -2927,14 +3329,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                GrowthRateReadResponse::DefaultResponse
+                                                PokedexRetrieveResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -2950,94 +3353,29 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // ItemList - GET /api/v2/item/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_) => {
-                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
-                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
-                    .next();
-                let param_limit = match param_limit {
-                    Some(param_limit) => {
-                        let param_limit =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_limit);
-                        match param_limit {
-                            Ok(param_limit) => Some(param_limit),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
-                        }
-                    },
-                    None => None,
-                };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
-                    .next();
-                let param_offset = match param_offset {
-                    Some(param_offset) => {
-                        let param_offset =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_offset);
-                        match param_offset {
-                            Ok(param_offset) => Some(param_offset),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
-                        }
-                    },
-                    None => None,
-                };
+            // VersionGroupRetrieve - GET /api/v2/version-group/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_GROUP_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
 
-                                let result = api_impl.item_list(
-                                            param_limit,
-                                            param_offset,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                ItemListResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // ItemRead - GET /api/v2/item/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ID_) => {
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
-                    paths::REGEX_API_V2_ITEM_ID_
+                    paths::REGEX_API_V2_VERSION_GROUP_ID_
                     .captures(path)
                     .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_ITEM_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ITEM_ID_.as_str())
+                        panic!("Path {} matched RE API_V2_VERSION_GROUP_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_VERSION_GROUP_ID_.as_str())
                     );
 
                 let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
+                    Ok(param_id) => match param_id.parse::<String>() {
                         Ok(param_id) => param_id,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -3050,7 +3388,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         .expect("Unable to create Bad Request response for invalid percent decode"))
                 };
 
-                                let result = api_impl.item_read(
+                                let result = api_impl.version_group_retrieve(
                                             param_id,
                                         &context
                                     ).await;
@@ -3062,14 +3400,86 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                ItemReadResponse::DefaultResponse
+                                                VersionGroupRetrieveResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // VersionRetrieve - GET /api/v2/version/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_VERSION_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_VERSION_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_VERSION_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.version_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                VersionRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -3087,6 +3497,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // ItemAttributeList - GET /api/v2/item-attribute/
             hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -3123,10 +3543,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.item_attribute_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -3137,74 +3575,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                ItemAttributeListResponse::DefaultResponse
+                                                ItemAttributeListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // ItemAttributeRead - GET /api/v2/item-attribute/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_ITEM_ATTRIBUTE_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_ITEM_ATTRIBUTE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ITEM_ATTRIBUTE_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.item_attribute_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                ItemAttributeReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -3222,6 +3601,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // ItemCategoryList - GET /api/v2/item-category/
             hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_CATEGORY_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -3258,10 +3647,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.item_category_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -3272,74 +3679,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                ItemCategoryListResponse::DefaultResponse
+                                                ItemCategoryListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // ItemCategoryRead - GET /api/v2/item-category/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_CATEGORY_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_ITEM_CATEGORY_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_ITEM_CATEGORY_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ITEM_CATEGORY_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.item_category_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                ItemCategoryReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -3357,6 +3705,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // ItemFlingEffectList - GET /api/v2/item-fling-effect/
             hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_FLING_EFFECT_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -3393,10 +3751,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.item_fling_effect_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -3407,14 +3783,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                ItemFlingEffectListResponse::DefaultResponse
+                                                ItemFlingEffectListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -3430,33 +3807,76 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // ItemFlingEffectRead - GET /api/v2/item-fling-effect/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_FLING_EFFECT_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_ITEM_FLING_EFFECT_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_ITEM_FLING_EFFECT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ITEM_FLING_EFFECT_ID_.as_str())
-                    );
+            // ItemList - GET /api/v2/item/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
 
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
                     },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
                 };
 
-                                let result = api_impl.item_fling_effect_read(
-                                            param_id,
+                                let result = api_impl.item_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -3467,14 +3887,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                ItemFlingEffectReadResponse::DefaultResponse
+                                                ItemListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -3492,6 +3913,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // ItemPocketList - GET /api/v2/item-pocket/
             hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_POCKET_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -3528,10 +3959,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.item_pocket_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -3542,14 +3991,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                ItemPocketListResponse::DefaultResponse
+                                                ItemPocketListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -3565,8 +4015,231 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // ItemPocketRead - GET /api/v2/item-pocket/{id}/
+            // ItemAttributeRetrieve - GET /api/v2/item-attribute/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_ITEM_ATTRIBUTE_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_ITEM_ATTRIBUTE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ITEM_ATTRIBUTE_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.item_attribute_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                ItemAttributeRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // ItemCategoryRetrieve - GET /api/v2/item-category/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_CATEGORY_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_ITEM_CATEGORY_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_ITEM_CATEGORY_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ITEM_CATEGORY_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.item_category_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                ItemCategoryRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // ItemFlingEffectRetrieve - GET /api/v2/item-fling-effect/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_FLING_EFFECT_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_ITEM_FLING_EFFECT_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_ITEM_FLING_EFFECT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ITEM_FLING_EFFECT_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.item_fling_effect_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                ItemFlingEffectRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // ItemPocketRetrieve - GET /api/v2/item-pocket/{id}/
             hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_POCKET_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -3577,7 +4250,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     );
 
                 let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
+                    Ok(param_id) => match param_id.parse::<String>() {
                         Ok(param_id) => param_id,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -3590,7 +4263,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         .expect("Unable to create Bad Request response for invalid percent decode"))
                 };
 
-                                let result = api_impl.item_pocket_read(
+                                let result = api_impl.item_pocket_retrieve(
                                             param_id,
                                         &context
                                     ).await;
@@ -3602,14 +4275,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                ItemPocketReadResponse::DefaultResponse
+                                                ItemPocketRetrieveResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -3625,94 +4299,29 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // LanguageList - GET /api/v2/language/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_) => {
-                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
-                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
-                    .next();
-                let param_limit = match param_limit {
-                    Some(param_limit) => {
-                        let param_limit =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_limit);
-                        match param_limit {
-                            Ok(param_limit) => Some(param_limit),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
-                        }
-                    },
-                    None => None,
-                };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
-                    .next();
-                let param_offset = match param_offset {
-                    Some(param_offset) => {
-                        let param_offset =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_offset);
-                        match param_offset {
-                            Ok(param_offset) => Some(param_offset),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
-                        }
-                    },
-                    None => None,
-                };
+            // ItemRetrieve - GET /api/v2/item/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
 
-                                let result = api_impl.language_list(
-                                            param_limit,
-                                            param_offset,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                LanguageListResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // LanguageRead - GET /api/v2/language/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_ID_) => {
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
-                    paths::REGEX_API_V2_LANGUAGE_ID_
+                    paths::REGEX_API_V2_ITEM_ID_
                     .captures(path)
                     .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_LANGUAGE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_LANGUAGE_ID_.as_str())
+                        panic!("Path {} matched RE API_V2_ITEM_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ITEM_ID_.as_str())
                     );
 
                 let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
+                    Ok(param_id) => match param_id.parse::<String>() {
                         Ok(param_id) => param_id,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -3725,7 +4334,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         .expect("Unable to create Bad Request response for invalid percent decode"))
                 };
 
-                                let result = api_impl.language_read(
+                                let result = api_impl.item_retrieve(
                                             param_id,
                                         &context
                                     ).await;
@@ -3737,149 +4346,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                LanguageReadResponse::DefaultResponse
+                                                ItemRetrieveResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // LocationList - GET /api/v2/location/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_) => {
-                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
-                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
-                    .next();
-                let param_limit = match param_limit {
-                    Some(param_limit) => {
-                        let param_limit =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_limit);
-                        match param_limit {
-                            Ok(param_limit) => Some(param_limit),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
-                        }
-                    },
-                    None => None,
-                };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
-                    .next();
-                let param_offset = match param_offset {
-                    Some(param_offset) => {
-                        let param_offset =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_offset);
-                        match param_offset {
-                            Ok(param_offset) => Some(param_offset),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
-                        }
-                    },
-                    None => None,
-                };
-
-                                let result = api_impl.location_list(
-                                            param_limit,
-                                            param_offset,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                LocationListResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // LocationRead - GET /api/v2/location/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_LOCATION_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_LOCATION_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_LOCATION_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.location_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                LocationReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -3897,6 +4372,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // LocationAreaList - GET /api/v2/location-area/
             hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_AREA_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -3947,14 +4432,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                LocationAreaListResponse::DefaultResponse
+                                                LocationAreaListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -3970,8 +4456,330 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // LocationAreaRead - GET /api/v2/location-area/{id}/
+            // LocationList - GET /api/v2/location/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
+
+                                let result = api_impl.location_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                LocationListResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // PalParkAreaList - GET /api/v2/pal-park-area/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_PAL_PARK_AREA_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
+
+                                let result = api_impl.pal_park_area_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                PalParkAreaListResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // RegionList - GET /api/v2/region/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_REGION_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
+
+                                let result = api_impl.region_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                RegionListResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // LocationAreaRetrieve - GET /api/v2/location-area/{id}/
             hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_AREA_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -3995,7 +4803,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         .expect("Unable to create Bad Request response for invalid percent decode"))
                 };
 
-                                let result = api_impl.location_area_read(
+                                let result = api_impl.location_area_retrieve(
                                             param_id,
                                         &context
                                     ).await;
@@ -4007,14 +4815,228 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                LocationAreaReadResponse::DefaultResponse
+                                                LocationAreaRetrieveResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // LocationRetrieve - GET /api/v2/location/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_LOCATION_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_LOCATION_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_LOCATION_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.location_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                LocationRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // PalParkAreaRetrieve - GET /api/v2/pal-park-area/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_PAL_PARK_AREA_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_PAL_PARK_AREA_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_PAL_PARK_AREA_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_PAL_PARK_AREA_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.pal_park_area_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                PalParkAreaRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // RegionRetrieve - GET /api/v2/region/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_REGION_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_REGION_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_REGION_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_REGION_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.region_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                RegionRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -4032,6 +5054,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // MachineList - GET /api/v2/machine/
             hyper::Method::GET if path.matched(paths::ID_API_V2_MACHINE_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -4068,10 +5100,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.machine_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -4082,14 +5132,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                MachineListResponse::DefaultResponse
+                                                MachineListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -4105,8 +5156,18 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // MachineRead - GET /api/v2/machine/{id}/
+            // MachineRetrieve - GET /api/v2/machine/{id}/
             hyper::Method::GET if path.matched(paths::ID_API_V2_MACHINE_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -4117,7 +5178,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     );
 
                 let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
+                    Ok(param_id) => match param_id.parse::<String>() {
                         Ok(param_id) => param_id,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -4130,7 +5191,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         .expect("Unable to create Bad Request response for invalid percent decode"))
                 };
 
-                                let result = api_impl.machine_read(
+                                let result = api_impl.machine_retrieve(
                                             param_id,
                                         &context
                                     ).await;
@@ -4142,149 +5203,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                MachineReadResponse::DefaultResponse
+                                                MachineRetrieveResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // MoveList - GET /api/v2/move/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_) => {
-                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
-                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
-                    .next();
-                let param_limit = match param_limit {
-                    Some(param_limit) => {
-                        let param_limit =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_limit);
-                        match param_limit {
-                            Ok(param_limit) => Some(param_limit),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
-                        }
-                    },
-                    None => None,
-                };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
-                    .next();
-                let param_offset = match param_offset {
-                    Some(param_offset) => {
-                        let param_offset =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_offset);
-                        match param_offset {
-                            Ok(param_offset) => Some(param_offset),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
-                        }
-                    },
-                    None => None,
-                };
-
-                                let result = api_impl.move_list(
-                                            param_limit,
-                                            param_offset,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                MoveListResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // MoveRead - GET /api/v2/move/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_MOVE_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_MOVE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.move_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                MoveReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -4302,6 +5229,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // MoveAilmentList - GET /api/v2/move-ailment/
             hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_AILMENT_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -4338,10 +5275,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.move_ailment_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -4352,74 +5307,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                MoveAilmentListResponse::DefaultResponse
+                                                MoveAilmentListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // MoveAilmentRead - GET /api/v2/move-ailment/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_AILMENT_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_MOVE_AILMENT_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_MOVE_AILMENT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_AILMENT_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.move_ailment_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                MoveAilmentReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -4437,6 +5333,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // MoveBattleStyleList - GET /api/v2/move-battle-style/
             hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_BATTLE_STYLE_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -4473,10 +5379,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.move_battle_style_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -4487,74 +5411,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                MoveBattleStyleListResponse::DefaultResponse
+                                                MoveBattleStyleListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // MoveBattleStyleRead - GET /api/v2/move-battle-style/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_BATTLE_STYLE_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_MOVE_BATTLE_STYLE_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_MOVE_BATTLE_STYLE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_BATTLE_STYLE_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.move_battle_style_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                MoveBattleStyleReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -4572,6 +5437,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // MoveCategoryList - GET /api/v2/move-category/
             hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_CATEGORY_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -4604,6 +5479,23 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                 .status(StatusCode::BAD_REQUEST)
                                 .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
                                 .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
                         }
                     },
                     None => None,
@@ -4612,6 +5504,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                 let result = api_impl.move_category_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -4622,209 +5515,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                MoveCategoryListResponse::DefaultResponse
+                                                MoveCategoryListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // MoveCategoryRead - GET /api/v2/move-category/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_CATEGORY_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_MOVE_CATEGORY_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_MOVE_CATEGORY_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_CATEGORY_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.move_category_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                MoveCategoryReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // MoveDamageClassList - GET /api/v2/move-damage-class/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_DAMAGE_CLASS_) => {
-                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
-                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
-                    .next();
-                let param_limit = match param_limit {
-                    Some(param_limit) => {
-                        let param_limit =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_limit);
-                        match param_limit {
-                            Ok(param_limit) => Some(param_limit),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
-                        }
-                    },
-                    None => None,
-                };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
-                    .next();
-                let param_offset = match param_offset {
-                    Some(param_offset) => {
-                        let param_offset =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_offset);
-                        match param_offset {
-                            Ok(param_offset) => Some(param_offset),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
-                        }
-                    },
-                    None => None,
-                };
-
-                                let result = api_impl.move_damage_class_list(
-                                            param_limit,
-                                            param_offset,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                MoveDamageClassListResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // MoveDamageClassRead - GET /api/v2/move-damage-class/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_DAMAGE_CLASS_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_MOVE_DAMAGE_CLASS_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_MOVE_DAMAGE_CLASS_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_DAMAGE_CLASS_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.move_damage_class_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                MoveDamageClassReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -4842,6 +5541,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // MoveLearnMethodList - GET /api/v2/move-learn-method/
             hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_LEARN_METHOD_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -4878,10 +5587,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.move_learn_method_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -4892,14 +5619,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                MoveLearnMethodListResponse::DefaultResponse
+                                                MoveLearnMethodListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -4915,33 +5643,76 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // MoveLearnMethodRead - GET /api/v2/move-learn-method/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_LEARN_METHOD_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_MOVE_LEARN_METHOD_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_MOVE_LEARN_METHOD_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_LEARN_METHOD_ID_.as_str())
-                    );
+            // MoveList - GET /api/v2/move/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
 
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
                     },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
                 };
 
-                                let result = api_impl.move_learn_method_read(
-                                            param_id,
+                                let result = api_impl.move_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -4952,14 +5723,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                MoveLearnMethodReadResponse::DefaultResponse
+                                                MoveListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -4977,6 +5749,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // MoveTargetList - GET /api/v2/move-target/
             hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_TARGET_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -5013,10 +5795,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.move_target_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -5027,14 +5827,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                MoveTargetListResponse::DefaultResponse
+                                                MoveTargetListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -5050,19 +5851,29 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // MoveTargetRead - GET /api/v2/move-target/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_TARGET_ID_) => {
+            // MoveAilmentRetrieve - GET /api/v2/move-ailment/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_AILMENT_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
-                    paths::REGEX_API_V2_MOVE_TARGET_ID_
+                    paths::REGEX_API_V2_MOVE_AILMENT_ID_
                     .captures(path)
                     .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_MOVE_TARGET_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_TARGET_ID_.as_str())
+                        panic!("Path {} matched RE API_V2_MOVE_AILMENT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_AILMENT_ID_.as_str())
                     );
 
                 let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
+                    Ok(param_id) => match param_id.parse::<String>() {
                         Ok(param_id) => param_id,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -5075,7 +5886,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         .expect("Unable to create Bad Request response for invalid percent decode"))
                 };
 
-                                let result = api_impl.move_target_read(
+                                let result = api_impl.move_ailment_retrieve(
                                             param_id,
                                         &context
                                     ).await;
@@ -5087,14 +5898,994 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                MoveTargetReadResponse::DefaultResponse
+                                                MoveAilmentRetrieveResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // MoveBattleStyleRetrieve - GET /api/v2/move-battle-style/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_BATTLE_STYLE_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_MOVE_BATTLE_STYLE_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_MOVE_BATTLE_STYLE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_BATTLE_STYLE_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.move_battle_style_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                MoveBattleStyleRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // MoveCategoryRetrieve - GET /api/v2/move-category/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_CATEGORY_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_MOVE_CATEGORY_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_MOVE_CATEGORY_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_CATEGORY_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.move_category_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                MoveCategoryRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // MoveLearnMethodRetrieve - GET /api/v2/move-learn-method/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_LEARN_METHOD_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_MOVE_LEARN_METHOD_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_MOVE_LEARN_METHOD_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_LEARN_METHOD_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.move_learn_method_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                MoveLearnMethodRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // MoveRetrieve - GET /api/v2/move/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_MOVE_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_MOVE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.move_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                MoveRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // MoveTargetRetrieve - GET /api/v2/move-target/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_TARGET_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_MOVE_TARGET_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_MOVE_TARGET_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_TARGET_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.move_target_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                MoveTargetRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // AbilityList - GET /api/v2/ability/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
+
+                                let result = api_impl.ability_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                AbilityListResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // CharacteristicList - GET /api/v2/characteristic/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CHARACTERISTIC_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
+
+                                let result = api_impl.characteristic_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                CharacteristicListResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // EggGroupList - GET /api/v2/egg-group/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EGG_GROUP_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
+
+                                let result = api_impl.egg_group_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                EggGroupListResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // GenderList - GET /api/v2/gender/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GENDER_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
+
+                                let result = api_impl.gender_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                GenderListResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // GrowthRateList - GET /api/v2/growth-rate/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GROWTH_RATE_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
+
+                                let result = api_impl.growth_rate_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                GrowthRateListResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // MoveDamageClassList - GET /api/v2/move-damage-class/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_DAMAGE_CLASS_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
+
+                                let result = api_impl.move_damage_class_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                MoveDamageClassListResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -5112,6 +6903,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // NatureList - GET /api/v2/nature/
             hyper::Method::GET if path.matched(paths::ID_API_V2_NATURE_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -5144,6 +6945,23 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                 .status(StatusCode::BAD_REQUEST)
                                 .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
                                 .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
                         }
                     },
                     None => None,
@@ -5152,6 +6970,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                 let result = api_impl.nature_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -5162,209 +6981,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                NatureListResponse::DefaultResponse
+                                                NatureListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // NatureRead - GET /api/v2/nature/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_NATURE_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_NATURE_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_NATURE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_NATURE_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.nature_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                NatureReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // PalParkAreaList - GET /api/v2/pal-park-area/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_PAL_PARK_AREA_) => {
-                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
-                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
-                    .next();
-                let param_limit = match param_limit {
-                    Some(param_limit) => {
-                        let param_limit =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_limit);
-                        match param_limit {
-                            Ok(param_limit) => Some(param_limit),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
-                        }
-                    },
-                    None => None,
-                };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
-                    .next();
-                let param_offset = match param_offset {
-                    Some(param_offset) => {
-                        let param_offset =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_offset);
-                        match param_offset {
-                            Ok(param_offset) => Some(param_offset),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
-                        }
-                    },
-                    None => None,
-                };
-
-                                let result = api_impl.pal_park_area_list(
-                                            param_limit,
-                                            param_offset,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                PalParkAreaListResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // PalParkAreaRead - GET /api/v2/pal-park-area/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_PAL_PARK_AREA_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_PAL_PARK_AREA_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_PAL_PARK_AREA_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_PAL_PARK_AREA_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.pal_park_area_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                PalParkAreaReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -5382,6 +7007,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // PokeathlonStatList - GET /api/v2/pokeathlon-stat/
             hyper::Method::GET if path.matched(paths::ID_API_V2_POKEATHLON_STAT_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -5414,6 +7049,23 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                 .status(StatusCode::BAD_REQUEST)
                                 .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
                                 .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
                         }
                     },
                     None => None,
@@ -5422,6 +7074,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                 let result = api_impl.pokeathlon_stat_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -5432,344 +7085,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                PokeathlonStatListResponse::DefaultResponse
+                                                PokeathlonStatListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // PokeathlonStatRead - GET /api/v2/pokeathlon-stat/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEATHLON_STAT_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_POKEATHLON_STAT_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_POKEATHLON_STAT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEATHLON_STAT_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.pokeathlon_stat_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                PokeathlonStatReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // PokedexList - GET /api/v2/pokedex/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEDEX_) => {
-                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
-                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
-                    .next();
-                let param_limit = match param_limit {
-                    Some(param_limit) => {
-                        let param_limit =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_limit);
-                        match param_limit {
-                            Ok(param_limit) => Some(param_limit),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
-                        }
-                    },
-                    None => None,
-                };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
-                    .next();
-                let param_offset = match param_offset {
-                    Some(param_offset) => {
-                        let param_offset =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_offset);
-                        match param_offset {
-                            Ok(param_offset) => Some(param_offset),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
-                        }
-                    },
-                    None => None,
-                };
-
-                                let result = api_impl.pokedex_list(
-                                            param_limit,
-                                            param_offset,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                PokedexListResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // PokedexRead - GET /api/v2/pokedex/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEDEX_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_POKEDEX_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_POKEDEX_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEDEX_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.pokedex_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                PokedexReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // PokemonList - GET /api/v2/pokemon/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_) => {
-                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
-                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
-                    .next();
-                let param_limit = match param_limit {
-                    Some(param_limit) => {
-                        let param_limit =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_limit);
-                        match param_limit {
-                            Ok(param_limit) => Some(param_limit),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
-                        }
-                    },
-                    None => None,
-                };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
-                    .next();
-                let param_offset = match param_offset {
-                    Some(param_offset) => {
-                        let param_offset =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_offset);
-                        match param_offset {
-                            Ok(param_offset) => Some(param_offset),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
-                        }
-                    },
-                    None => None,
-                };
-
-                                let result = api_impl.pokemon_list(
-                                            param_limit,
-                                            param_offset,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                PokemonListResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // PokemonRead - GET /api/v2/pokemon/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_POKEMON_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_POKEMON_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.pokemon_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                PokemonReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -5787,6 +7111,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // PokemonColorList - GET /api/v2/pokemon-color/
             hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_COLOR_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -5823,10 +7157,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.pokemon_color_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -5837,74 +7189,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonColorListResponse::DefaultResponse
+                                                PokemonColorListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // PokemonColorRead - GET /api/v2/pokemon-color/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_COLOR_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_POKEMON_COLOR_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_POKEMON_COLOR_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_COLOR_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.pokemon_color_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                PokemonColorReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -5922,6 +7215,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // PokemonFormList - GET /api/v2/pokemon-form/
             hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_FORM_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -5958,10 +7261,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.pokemon_form_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -5972,74 +7293,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonFormListResponse::DefaultResponse
+                                                PokemonFormListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // PokemonFormRead - GET /api/v2/pokemon-form/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_FORM_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_POKEMON_FORM_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_POKEMON_FORM_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_FORM_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.pokemon_form_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                PokemonFormReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -6057,6 +7319,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // PokemonHabitatList - GET /api/v2/pokemon-habitat/
             hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_HABITAT_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -6093,10 +7365,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.pokemon_habitat_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -6107,14 +7397,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonHabitatListResponse::DefaultResponse
+                                                PokemonHabitatListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -6130,33 +7421,76 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // PokemonHabitatRead - GET /api/v2/pokemon-habitat/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_HABITAT_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_POKEMON_HABITAT_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_POKEMON_HABITAT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_HABITAT_ID_.as_str())
-                    );
+            // PokemonList - GET /api/v2/pokemon/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
 
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
+                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
+                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
+                    .next();
+                let param_limit = match param_limit {
+                    Some(param_limit) => {
+                        let param_limit =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_limit);
+                        match param_limit {
+                            Ok(param_limit) => Some(param_limit),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
+                        }
                     },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                    None => None,
+                };
+                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
+                    .next();
+                let param_offset = match param_offset {
+                    Some(param_offset) => {
+                        let param_offset =
+                            <i32 as std::str::FromStr>::from_str
+                                (&param_offset);
+                        match param_offset {
+                            Ok(param_offset) => Some(param_offset),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
                 };
 
-                                let result = api_impl.pokemon_habitat_read(
-                                            param_id,
+                                let result = api_impl.pokemon_list(
+                                            param_limit,
+                                            param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -6167,14 +7501,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonHabitatReadResponse::DefaultResponse
+                                                PokemonListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -6192,6 +7527,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // PokemonShapeList - GET /api/v2/pokemon-shape/
             hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SHAPE_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -6228,10 +7573,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.pokemon_shape_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -6242,74 +7605,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonShapeListResponse::DefaultResponse
+                                                PokemonShapeListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // PokemonShapeRead - GET /api/v2/pokemon-shape/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SHAPE_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_POKEMON_SHAPE_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_POKEMON_SHAPE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_SHAPE_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.pokemon_shape_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                PokemonShapeReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -6327,6 +7631,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // PokemonSpeciesList - GET /api/v2/pokemon-species/
             hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SPECIES_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -6359,6 +7673,23 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                 .status(StatusCode::BAD_REQUEST)
                                 .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
                                 .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
                         }
                     },
                     None => None,
@@ -6367,6 +7698,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                 let result = api_impl.pokemon_species_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -6377,209 +7709,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                PokemonSpeciesListResponse::DefaultResponse
+                                                PokemonSpeciesListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // PokemonSpeciesRead - GET /api/v2/pokemon-species/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SPECIES_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_POKEMON_SPECIES_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_POKEMON_SPECIES_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_SPECIES_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.pokemon_species_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                PokemonSpeciesReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // RegionList - GET /api/v2/region/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_REGION_) => {
-                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
-                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
-                    .next();
-                let param_limit = match param_limit {
-                    Some(param_limit) => {
-                        let param_limit =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_limit);
-                        match param_limit {
-                            Ok(param_limit) => Some(param_limit),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
-                        }
-                    },
-                    None => None,
-                };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
-                    .next();
-                let param_offset = match param_offset {
-                    Some(param_offset) => {
-                        let param_offset =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_offset);
-                        match param_offset {
-                            Ok(param_offset) => Some(param_offset),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
-                        }
-                    },
-                    None => None,
-                };
-
-                                let result = api_impl.region_list(
-                                            param_limit,
-                                            param_offset,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                RegionListResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // RegionRead - GET /api/v2/region/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_REGION_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_REGION_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_REGION_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_REGION_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.region_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                RegionReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -6597,6 +7735,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // StatList - GET /api/v2/stat/
             hyper::Method::GET if path.matched(paths::ID_API_V2_STAT_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -6629,6 +7777,23 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                 .status(StatusCode::BAD_REQUEST)
                                 .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
                                 .expect("Unable to create Bad Request response for invalid query parameter offset")),
+                        }
+                    },
+                    None => None,
+                };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
                         }
                     },
                     None => None,
@@ -6637,6 +7802,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                 let result = api_impl.stat_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -6647,209 +7813,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                StatListResponse::DefaultResponse
+                                                StatListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // StatRead - GET /api/v2/stat/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_STAT_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_STAT_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_STAT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_STAT_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.stat_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                StatReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // SuperContestEffectList - GET /api/v2/super-contest-effect/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_SUPER_CONTEST_EFFECT_) => {
-                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
-                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
-                    .next();
-                let param_limit = match param_limit {
-                    Some(param_limit) => {
-                        let param_limit =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_limit);
-                        match param_limit {
-                            Ok(param_limit) => Some(param_limit),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
-                        }
-                    },
-                    None => None,
-                };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
-                    .next();
-                let param_offset = match param_offset {
-                    Some(param_offset) => {
-                        let param_offset =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_offset);
-                        match param_offset {
-                            Ok(param_offset) => Some(param_offset),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
-                        }
-                    },
-                    None => None,
-                };
-
-                                let result = api_impl.super_contest_effect_list(
-                                            param_limit,
-                                            param_offset,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                SuperContestEffectListResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // SuperContestEffectRead - GET /api/v2/super-contest-effect/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_SUPER_CONTEST_EFFECT_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_SUPER_CONTEST_EFFECT_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_SUPER_CONTEST_EFFECT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_SUPER_CONTEST_EFFECT_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.super_contest_effect_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                SuperContestEffectReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -6867,6 +7839,16 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // TypeList - GET /api/v2/type/
             hyper::Method::GET if path.matched(paths::ID_API_V2_TYPE_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -6903,10 +7885,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
                                 let result = api_impl.type_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -6917,14 +7917,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                TypeListResponse::DefaultResponse
+                                                TypeListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -6940,8 +7941,1083 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // TypeRead - GET /api/v2/type/{id}/
+            // AbilityRetrieve - GET /api/v2/ability/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_ABILITY_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_ABILITY_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_ABILITY_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.ability_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                AbilityRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // CharacteristicRetrieve - GET /api/v2/characteristic/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CHARACTERISTIC_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_CHARACTERISTIC_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_CHARACTERISTIC_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_CHARACTERISTIC_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.characteristic_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                CharacteristicRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // EggGroupRetrieve - GET /api/v2/egg-group/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EGG_GROUP_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_EGG_GROUP_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_EGG_GROUP_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_EGG_GROUP_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.egg_group_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                EggGroupRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // GenderRetrieve - GET /api/v2/gender/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GENDER_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_GENDER_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_GENDER_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_GENDER_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.gender_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                GenderRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // GrowthRateRetrieve - GET /api/v2/growth-rate/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GROWTH_RATE_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_GROWTH_RATE_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_GROWTH_RATE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_GROWTH_RATE_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.growth_rate_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                GrowthRateRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // MoveDamageClassRetrieve - GET /api/v2/move-damage-class/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_DAMAGE_CLASS_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_MOVE_DAMAGE_CLASS_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_MOVE_DAMAGE_CLASS_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_MOVE_DAMAGE_CLASS_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.move_damage_class_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                MoveDamageClassRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // NatureRetrieve - GET /api/v2/nature/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_NATURE_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_NATURE_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_NATURE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_NATURE_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.nature_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                NatureRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // PokeathlonStatRetrieve - GET /api/v2/pokeathlon-stat/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEATHLON_STAT_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_POKEATHLON_STAT_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_POKEATHLON_STAT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEATHLON_STAT_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.pokeathlon_stat_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                PokeathlonStatRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // PokemonColorRetrieve - GET /api/v2/pokemon-color/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_COLOR_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_POKEMON_COLOR_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_POKEMON_COLOR_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_COLOR_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.pokemon_color_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                PokemonColorRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // PokemonFormRetrieve - GET /api/v2/pokemon-form/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_FORM_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_POKEMON_FORM_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_POKEMON_FORM_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_FORM_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.pokemon_form_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                PokemonFormRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // PokemonHabitatRetrieve - GET /api/v2/pokemon-habitat/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_HABITAT_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_POKEMON_HABITAT_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_POKEMON_HABITAT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_HABITAT_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.pokemon_habitat_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                PokemonHabitatRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // PokemonRetrieve - GET /api/v2/pokemon/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_POKEMON_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_POKEMON_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.pokemon_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                PokemonRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // PokemonShapeRetrieve - GET /api/v2/pokemon-shape/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SHAPE_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_POKEMON_SHAPE_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_POKEMON_SHAPE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_SHAPE_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.pokemon_shape_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                PokemonShapeRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // PokemonSpeciesRetrieve - GET /api/v2/pokemon-species/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SPECIES_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_POKEMON_SPECIES_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_POKEMON_SPECIES_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_POKEMON_SPECIES_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.pokemon_species_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                PokemonSpeciesRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // StatRetrieve - GET /api/v2/stat/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_STAT_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
+                // Path parameters
+                let path: &str = uri.path();
+                let path_params =
+                    paths::REGEX_API_V2_STAT_ID_
+                    .captures(path)
+                    .unwrap_or_else(||
+                        panic!("Path {} matched RE API_V2_STAT_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_STAT_ID_.as_str())
+                    );
+
+                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
+                    Ok(param_id) => match param_id.parse::<String>() {
+                        Ok(param_id) => param_id,
+                        Err(e) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
+                                        .expect("Unable to create Bad Request response for invalid path parameter")),
+                    },
+                    Err(_) => return Ok(Response::builder()
+                                        .status(StatusCode::BAD_REQUEST)
+                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
+                                        .expect("Unable to create Bad Request response for invalid percent decode"))
+                };
+
+                                let result = api_impl.stat_retrieve(
+                                            param_id,
+                                        &context
+                                    ).await;
+                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
+                                response.headers_mut().insert(
+                                            HeaderName::from_static("x-span-id"),
+                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
+                                                .expect("Unable to create X-Span-ID header value"));
+
+                                        match result {
+                                            Ok(rsp) => match rsp {
+                                                StatRetrieveResponse::Status200
+                                                    (body)
+                                                => {
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
+                                                    response.headers_mut().insert(
+                                                        CONTENT_TYPE,
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = body_from_string(body);
+
+                                                },
+                                            },
+                                            Err(_) => {
+                                                // Application code returned an error. This should not happen, as the implementation should
+                                                // return a valid response.
+                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
+                                                *response.body_mut() = body_from_str("An internal error occurred");
+                                            },
+                                        }
+
+                                        Ok(response)
+            },
+
+            // TypeRetrieve - GET /api/v2/type/{id}/
             hyper::Method::GET if path.matched(paths::ID_API_V2_TYPE_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -6952,7 +9028,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     );
 
                 let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
+                    Ok(param_id) => match param_id.parse::<String>() {
                         Ok(param_id) => param_id,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -6965,7 +9041,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         .expect("Unable to create Bad Request response for invalid percent decode"))
                 };
 
-                                let result = api_impl.type_read(
+                                let result = api_impl.type_retrieve(
                                             param_id,
                                         &context
                                     ).await;
@@ -6977,14 +9053,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                TypeReadResponse::DefaultResponse
+                                                TypeRetrieveResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -7000,8 +9077,18 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // VersionList - GET /api/v2/version/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_) => {
+            // LanguageList - GET /api/v2/language/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
@@ -7038,10 +9125,28 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                     },
                     None => None,
                 };
+                let param_q = query_params.iter().filter(|e| e.0 == "q").map(|e| e.1.clone())
+                    .next();
+                let param_q = match param_q {
+                    Some(param_q) => {
+                        let param_q =
+                            <String as std::str::FromStr>::from_str
+                                (&param_q);
+                        match param_q {
+                            Ok(param_q) => Some(param_q),
+                            Err(e) => return Ok(Response::builder()
+                                .status(StatusCode::BAD_REQUEST)
+                                .body(body_from_string(format!("Couldn't parse query parameter q - doesn't match schema: {e}")))
+                                .expect("Unable to create Bad Request response for invalid query parameter q")),
+                        }
+                    },
+                    None => None,
+                };
 
-                                let result = api_impl.version_list(
+                                let result = api_impl.language_list(
                                             param_limit,
                                             param_offset,
+                                            param_q,
                                         &context
                                     ).await;
                                 let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
@@ -7052,14 +9157,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                VersionListResponse::DefaultResponse
+                                                LanguageListResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -7075,19 +9181,29 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         Ok(response)
             },
 
-            // VersionRead - GET /api/v2/version/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_ID_) => {
+            // LanguageRetrieve - GET /api/v2/language/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_ID_) => {
+                {
+                    let authorization = match *(&context as &dyn Has<Option<Authorization>>).get() {
+                        Some(ref authorization) => authorization,
+                        None => return Ok(Response::builder()
+                                                .status(StatusCode::FORBIDDEN)
+                                                .body(body_from_str("Unauthenticated"))
+                                                .expect("Unable to create Authentication Forbidden response")),
+                    };
+                }
+
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
-                    paths::REGEX_API_V2_VERSION_ID_
+                    paths::REGEX_API_V2_LANGUAGE_ID_
                     .captures(path)
                     .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_VERSION_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_VERSION_ID_.as_str())
+                        panic!("Path {} matched RE API_V2_LANGUAGE_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_LANGUAGE_ID_.as_str())
                     );
 
                 let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
+                    Ok(param_id) => match param_id.parse::<String>() {
                         Ok(param_id) => param_id,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -7100,7 +9216,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         .expect("Unable to create Bad Request response for invalid percent decode"))
                 };
 
-                                let result = api_impl.version_read(
+                                let result = api_impl.language_retrieve(
                                             param_id,
                                         &context
                                     ).await;
@@ -7112,149 +9228,15 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
                                         match result {
                                             Ok(rsp) => match rsp {
-                                                VersionReadResponse::DefaultResponse
+                                                LanguageRetrieveResponse::Status200
                                                     (body)
                                                 => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
+                                                    *response.status_mut() = StatusCode::from_u16(200).expect("Unable to turn 200 into a StatusCode");
                                                     response.headers_mut().insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // VersionGroupList - GET /api/v2/version-group/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_GROUP_) => {
-                // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
-                let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_limit = query_params.iter().filter(|e| e.0 == "limit").map(|e| e.1.clone())
-                    .next();
-                let param_limit = match param_limit {
-                    Some(param_limit) => {
-                        let param_limit =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_limit);
-                        match param_limit {
-                            Ok(param_limit) => Some(param_limit),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter limit - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter limit")),
-                        }
-                    },
-                    None => None,
-                };
-                let param_offset = query_params.iter().filter(|e| e.0 == "offset").map(|e| e.1.clone())
-                    .next();
-                let param_offset = match param_offset {
-                    Some(param_offset) => {
-                        let param_offset =
-                            <i32 as std::str::FromStr>::from_str
-                                (&param_offset);
-                        match param_offset {
-                            Ok(param_offset) => Some(param_offset),
-                            Err(e) => return Ok(Response::builder()
-                                .status(StatusCode::BAD_REQUEST)
-                                .body(body_from_string(format!("Couldn't parse query parameter offset - doesn't match schema: {e}")))
-                                .expect("Unable to create Bad Request response for invalid query parameter offset")),
-                        }
-                    },
-                    None => None,
-                };
-
-                                let result = api_impl.version_group_list(
-                                            param_limit,
-                                            param_offset,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                VersionGroupListResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
-                                                    *response.body_mut() = body_from_string(body);
-
-                                                },
-                                            },
-                                            Err(_) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                *response.status_mut() = StatusCode::INTERNAL_SERVER_ERROR;
-                                                *response.body_mut() = body_from_str("An internal error occurred");
-                                            },
-                                        }
-
-                                        Ok(response)
-            },
-
-            // VersionGroupRead - GET /api/v2/version-group/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_GROUP_ID_) => {
-                // Path parameters
-                let path: &str = uri.path();
-                let path_params =
-                    paths::REGEX_API_V2_VERSION_GROUP_ID_
-                    .captures(path)
-                    .unwrap_or_else(||
-                        panic!("Path {} matched RE API_V2_VERSION_GROUP_ID_ in set but failed match against \"{}\"", path, paths::REGEX_API_V2_VERSION_GROUP_ID_.as_str())
-                    );
-
-                let param_id = match percent_encoding::percent_decode(path_params["id"].as_bytes()).decode_utf8() {
-                    Ok(param_id) => match param_id.parse::<i32>() {
-                        Ok(param_id) => param_id,
-                        Err(e) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't parse path parameter id: {e}")))
-                                        .expect("Unable to create Bad Request response for invalid path parameter")),
-                    },
-                    Err(_) => return Ok(Response::builder()
-                                        .status(StatusCode::BAD_REQUEST)
-                                        .body(body_from_string(format!("Couldn't percent-decode path parameter as UTF-8: {}", &path_params["id"])))
-                                        .expect("Unable to create Bad Request response for invalid percent decode"))
-                };
-
-                                let result = api_impl.version_group_read(
-                                            param_id,
-                                        &context
-                                    ).await;
-                                let mut response = Response::new(BoxBody::new(http_body_util::Empty::new()));
-                                response.headers_mut().insert(
-                                            HeaderName::from_static("x-span-id"),
-                                            HeaderValue::from_str((&context as &dyn Has<XSpanIdString>).get().0.clone().as_str())
-                                                .expect("Unable to create X-Span-ID header value"));
-
-                                        match result {
-                                            Ok(rsp) => match rsp {
-                                                VersionGroupReadResponse::DefaultResponse
-                                                    (body)
-                                                => {
-                                                    *response.status_mut() = StatusCode::from_u16(0).expect("Unable to turn 0 into a StatusCode");
-                                                    response.headers_mut().insert(
-                                                        CONTENT_TYPE,
-                                                        HeaderValue::from_static("text/plain"));
-                                                    // Plain text Body
+                                                        HeaderValue::from_static("application/json"));
+                                                    // JSON Body
+                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
                                                     *response.body_mut() = body_from_string(body);
 
                                                 },
@@ -7354,6 +9336,7 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
             _ if path.matched(paths::ID_API_V2_POKEMON_SPECIES_ID_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_POKEMON_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_POKEMON_ID_) => method_not_allowed(),
+            _ if path.matched(paths::ID_API_V2_POKEMON_POKEMON_ID_ENCOUNTERS) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_REGION_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_REGION_ID_) => method_not_allowed(),
             _ if path.matched(paths::ID_API_V2_STAT_) => method_not_allowed(),
@@ -7385,198 +9368,200 @@ impl<T> RequestParser<T> for ApiRequestParser {
     fn parse_operation_id(request: &Request<T>) -> Option<&'static str> {
         let path = paths::GLOBAL_REGEX_SET.matches(request.uri().path());
         match *request.method() {
-            // AbilityList - GET /api/v2/ability/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_) => Some("AbilityList"),
-            // AbilityRead - GET /api/v2/ability/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_ID_) => Some("AbilityRead"),
-            // BerryList - GET /api/v2/berry/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_) => Some("BerryList"),
-            // BerryRead - GET /api/v2/berry/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_ID_) => Some("BerryRead"),
             // BerryFirmnessList - GET /api/v2/berry-firmness/
             hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FIRMNESS_) => Some("BerryFirmnessList"),
-            // BerryFirmnessRead - GET /api/v2/berry-firmness/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FIRMNESS_ID_) => Some("BerryFirmnessRead"),
             // BerryFlavorList - GET /api/v2/berry-flavor/
             hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FLAVOR_) => Some("BerryFlavorList"),
-            // BerryFlavorRead - GET /api/v2/berry-flavor/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FLAVOR_ID_) => Some("BerryFlavorRead"),
-            // CharacteristicList - GET /api/v2/characteristic/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_CHARACTERISTIC_) => Some("CharacteristicList"),
-            // CharacteristicRead - GET /api/v2/characteristic/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_CHARACTERISTIC_ID_) => Some("CharacteristicRead"),
+            // BerryList - GET /api/v2/berry/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_) => Some("BerryList"),
+            // BerryFirmnessRetrieve - GET /api/v2/berry-firmness/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FIRMNESS_ID_) => Some("BerryFirmnessRetrieve"),
+            // BerryFlavorRetrieve - GET /api/v2/berry-flavor/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_FLAVOR_ID_) => Some("BerryFlavorRetrieve"),
+            // BerryRetrieve - GET /api/v2/berry/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_BERRY_ID_) => Some("BerryRetrieve"),
             // ContestEffectList - GET /api/v2/contest-effect/
             hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_EFFECT_) => Some("ContestEffectList"),
-            // ContestEffectRead - GET /api/v2/contest-effect/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_EFFECT_ID_) => Some("ContestEffectRead"),
             // ContestTypeList - GET /api/v2/contest-type/
             hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_TYPE_) => Some("ContestTypeList"),
-            // ContestTypeRead - GET /api/v2/contest-type/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_TYPE_ID_) => Some("ContestTypeRead"),
-            // EggGroupList - GET /api/v2/egg-group/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_EGG_GROUP_) => Some("EggGroupList"),
-            // EggGroupRead - GET /api/v2/egg-group/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_EGG_GROUP_ID_) => Some("EggGroupRead"),
-            // EncounterConditionList - GET /api/v2/encounter-condition/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_) => Some("EncounterConditionList"),
-            // EncounterConditionRead - GET /api/v2/encounter-condition/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_ID_) => Some("EncounterConditionRead"),
-            // EncounterConditionValueList - GET /api/v2/encounter-condition-value/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_) => Some("EncounterConditionValueList"),
-            // EncounterConditionValueRead - GET /api/v2/encounter-condition-value/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_ID_) => Some("EncounterConditionValueRead"),
-            // EncounterMethodList - GET /api/v2/encounter-method/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_METHOD_) => Some("EncounterMethodList"),
-            // EncounterMethodRead - GET /api/v2/encounter-method/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_METHOD_ID_) => Some("EncounterMethodRead"),
-            // EvolutionChainList - GET /api/v2/evolution-chain/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_) => Some("EvolutionChainList"),
-            // EvolutionChainRead - GET /api/v2/evolution-chain/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_ID_) => Some("EvolutionChainRead"),
-            // EvolutionTriggerList - GET /api/v2/evolution-trigger/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_) => Some("EvolutionTriggerList"),
-            // EvolutionTriggerRead - GET /api/v2/evolution-trigger/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_ID_) => Some("EvolutionTriggerRead"),
-            // GenderList - GET /api/v2/gender/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_GENDER_) => Some("GenderList"),
-            // GenderRead - GET /api/v2/gender/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_GENDER_ID_) => Some("GenderRead"),
-            // GenerationList - GET /api/v2/generation/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_GENERATION_) => Some("GenerationList"),
-            // GenerationRead - GET /api/v2/generation/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_GENERATION_ID_) => Some("GenerationRead"),
-            // GrowthRateList - GET /api/v2/growth-rate/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_GROWTH_RATE_) => Some("GrowthRateList"),
-            // GrowthRateRead - GET /api/v2/growth-rate/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_GROWTH_RATE_ID_) => Some("GrowthRateRead"),
-            // ItemList - GET /api/v2/item/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_) => Some("ItemList"),
-            // ItemRead - GET /api/v2/item/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ID_) => Some("ItemRead"),
-            // ItemAttributeList - GET /api/v2/item-attribute/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_) => Some("ItemAttributeList"),
-            // ItemAttributeRead - GET /api/v2/item-attribute/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_ID_) => Some("ItemAttributeRead"),
-            // ItemCategoryList - GET /api/v2/item-category/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_CATEGORY_) => Some("ItemCategoryList"),
-            // ItemCategoryRead - GET /api/v2/item-category/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_CATEGORY_ID_) => Some("ItemCategoryRead"),
-            // ItemFlingEffectList - GET /api/v2/item-fling-effect/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_FLING_EFFECT_) => Some("ItemFlingEffectList"),
-            // ItemFlingEffectRead - GET /api/v2/item-fling-effect/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_FLING_EFFECT_ID_) => Some("ItemFlingEffectRead"),
-            // ItemPocketList - GET /api/v2/item-pocket/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_POCKET_) => Some("ItemPocketList"),
-            // ItemPocketRead - GET /api/v2/item-pocket/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_POCKET_ID_) => Some("ItemPocketRead"),
-            // LanguageList - GET /api/v2/language/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_) => Some("LanguageList"),
-            // LanguageRead - GET /api/v2/language/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_ID_) => Some("LanguageRead"),
-            // LocationList - GET /api/v2/location/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_) => Some("LocationList"),
-            // LocationRead - GET /api/v2/location/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_ID_) => Some("LocationRead"),
-            // LocationAreaList - GET /api/v2/location-area/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_AREA_) => Some("LocationAreaList"),
-            // LocationAreaRead - GET /api/v2/location-area/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_AREA_ID_) => Some("LocationAreaRead"),
-            // MachineList - GET /api/v2/machine/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MACHINE_) => Some("MachineList"),
-            // MachineRead - GET /api/v2/machine/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MACHINE_ID_) => Some("MachineRead"),
-            // MoveList - GET /api/v2/move/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_) => Some("MoveList"),
-            // MoveRead - GET /api/v2/move/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_ID_) => Some("MoveRead"),
-            // MoveAilmentList - GET /api/v2/move-ailment/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_AILMENT_) => Some("MoveAilmentList"),
-            // MoveAilmentRead - GET /api/v2/move-ailment/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_AILMENT_ID_) => Some("MoveAilmentRead"),
-            // MoveBattleStyleList - GET /api/v2/move-battle-style/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_BATTLE_STYLE_) => Some("MoveBattleStyleList"),
-            // MoveBattleStyleRead - GET /api/v2/move-battle-style/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_BATTLE_STYLE_ID_) => Some("MoveBattleStyleRead"),
-            // MoveCategoryList - GET /api/v2/move-category/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_CATEGORY_) => Some("MoveCategoryList"),
-            // MoveCategoryRead - GET /api/v2/move-category/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_CATEGORY_ID_) => Some("MoveCategoryRead"),
-            // MoveDamageClassList - GET /api/v2/move-damage-class/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_DAMAGE_CLASS_) => Some("MoveDamageClassList"),
-            // MoveDamageClassRead - GET /api/v2/move-damage-class/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_DAMAGE_CLASS_ID_) => Some("MoveDamageClassRead"),
-            // MoveLearnMethodList - GET /api/v2/move-learn-method/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_LEARN_METHOD_) => Some("MoveLearnMethodList"),
-            // MoveLearnMethodRead - GET /api/v2/move-learn-method/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_LEARN_METHOD_ID_) => Some("MoveLearnMethodRead"),
-            // MoveTargetList - GET /api/v2/move-target/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_TARGET_) => Some("MoveTargetList"),
-            // MoveTargetRead - GET /api/v2/move-target/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_TARGET_ID_) => Some("MoveTargetRead"),
-            // NatureList - GET /api/v2/nature/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_NATURE_) => Some("NatureList"),
-            // NatureRead - GET /api/v2/nature/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_NATURE_ID_) => Some("NatureRead"),
-            // PalParkAreaList - GET /api/v2/pal-park-area/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_PAL_PARK_AREA_) => Some("PalParkAreaList"),
-            // PalParkAreaRead - GET /api/v2/pal-park-area/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_PAL_PARK_AREA_ID_) => Some("PalParkAreaRead"),
-            // PokeathlonStatList - GET /api/v2/pokeathlon-stat/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEATHLON_STAT_) => Some("PokeathlonStatList"),
-            // PokeathlonStatRead - GET /api/v2/pokeathlon-stat/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEATHLON_STAT_ID_) => Some("PokeathlonStatRead"),
-            // PokedexList - GET /api/v2/pokedex/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEDEX_) => Some("PokedexList"),
-            // PokedexRead - GET /api/v2/pokedex/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEDEX_ID_) => Some("PokedexRead"),
-            // PokemonList - GET /api/v2/pokemon/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_) => Some("PokemonList"),
-            // PokemonRead - GET /api/v2/pokemon/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_ID_) => Some("PokemonRead"),
-            // PokemonColorList - GET /api/v2/pokemon-color/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_COLOR_) => Some("PokemonColorList"),
-            // PokemonColorRead - GET /api/v2/pokemon-color/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_COLOR_ID_) => Some("PokemonColorRead"),
-            // PokemonFormList - GET /api/v2/pokemon-form/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_FORM_) => Some("PokemonFormList"),
-            // PokemonFormRead - GET /api/v2/pokemon-form/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_FORM_ID_) => Some("PokemonFormRead"),
-            // PokemonHabitatList - GET /api/v2/pokemon-habitat/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_HABITAT_) => Some("PokemonHabitatList"),
-            // PokemonHabitatRead - GET /api/v2/pokemon-habitat/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_HABITAT_ID_) => Some("PokemonHabitatRead"),
-            // PokemonShapeList - GET /api/v2/pokemon-shape/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SHAPE_) => Some("PokemonShapeList"),
-            // PokemonShapeRead - GET /api/v2/pokemon-shape/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SHAPE_ID_) => Some("PokemonShapeRead"),
-            // PokemonSpeciesList - GET /api/v2/pokemon-species/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SPECIES_) => Some("PokemonSpeciesList"),
-            // PokemonSpeciesRead - GET /api/v2/pokemon-species/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SPECIES_ID_) => Some("PokemonSpeciesRead"),
-            // RegionList - GET /api/v2/region/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_REGION_) => Some("RegionList"),
-            // RegionRead - GET /api/v2/region/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_REGION_ID_) => Some("RegionRead"),
-            // StatList - GET /api/v2/stat/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_STAT_) => Some("StatList"),
-            // StatRead - GET /api/v2/stat/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_STAT_ID_) => Some("StatRead"),
             // SuperContestEffectList - GET /api/v2/super-contest-effect/
             hyper::Method::GET if path.matched(paths::ID_API_V2_SUPER_CONTEST_EFFECT_) => Some("SuperContestEffectList"),
-            // SuperContestEffectRead - GET /api/v2/super-contest-effect/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_SUPER_CONTEST_EFFECT_ID_) => Some("SuperContestEffectRead"),
-            // TypeList - GET /api/v2/type/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_TYPE_) => Some("TypeList"),
-            // TypeRead - GET /api/v2/type/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_TYPE_ID_) => Some("TypeRead"),
-            // VersionList - GET /api/v2/version/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_) => Some("VersionList"),
-            // VersionRead - GET /api/v2/version/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_ID_) => Some("VersionRead"),
+            // ContestEffectRetrieve - GET /api/v2/contest-effect/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_EFFECT_ID_) => Some("ContestEffectRetrieve"),
+            // ContestTypeRetrieve - GET /api/v2/contest-type/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CONTEST_TYPE_ID_) => Some("ContestTypeRetrieve"),
+            // SuperContestEffectRetrieve - GET /api/v2/super-contest-effect/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_SUPER_CONTEST_EFFECT_ID_) => Some("SuperContestEffectRetrieve"),
+            // EncounterConditionList - GET /api/v2/encounter-condition/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_) => Some("EncounterConditionList"),
+            // EncounterConditionValueList - GET /api/v2/encounter-condition-value/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_) => Some("EncounterConditionValueList"),
+            // EncounterMethodList - GET /api/v2/encounter-method/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_METHOD_) => Some("EncounterMethodList"),
+            // EncounterConditionRetrieve - GET /api/v2/encounter-condition/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_ID_) => Some("EncounterConditionRetrieve"),
+            // EncounterConditionValueRetrieve - GET /api/v2/encounter-condition-value/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_CONDITION_VALUE_ID_) => Some("EncounterConditionValueRetrieve"),
+            // EncounterMethodRetrieve - GET /api/v2/encounter-method/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ENCOUNTER_METHOD_ID_) => Some("EncounterMethodRetrieve"),
+            // PokemonEncountersRetrieve - GET /api/v2/pokemon/{pokemon_id}/encounters
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_POKEMON_ID_ENCOUNTERS) => Some("PokemonEncountersRetrieve"),
+            // EvolutionChainList - GET /api/v2/evolution-chain/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_) => Some("EvolutionChainList"),
+            // EvolutionTriggerList - GET /api/v2/evolution-trigger/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_) => Some("EvolutionTriggerList"),
+            // EvolutionChainRetrieve - GET /api/v2/evolution-chain/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_CHAIN_ID_) => Some("EvolutionChainRetrieve"),
+            // EvolutionTriggerRetrieve - GET /api/v2/evolution-trigger/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EVOLUTION_TRIGGER_ID_) => Some("EvolutionTriggerRetrieve"),
+            // GenerationList - GET /api/v2/generation/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GENERATION_) => Some("GenerationList"),
+            // PokedexList - GET /api/v2/pokedex/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEDEX_) => Some("PokedexList"),
             // VersionGroupList - GET /api/v2/version-group/
             hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_GROUP_) => Some("VersionGroupList"),
-            // VersionGroupRead - GET /api/v2/version-group/{id}/
-            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_GROUP_ID_) => Some("VersionGroupRead"),
+            // VersionList - GET /api/v2/version/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_) => Some("VersionList"),
+            // GenerationRetrieve - GET /api/v2/generation/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GENERATION_ID_) => Some("GenerationRetrieve"),
+            // PokedexRetrieve - GET /api/v2/pokedex/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEDEX_ID_) => Some("PokedexRetrieve"),
+            // VersionGroupRetrieve - GET /api/v2/version-group/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_GROUP_ID_) => Some("VersionGroupRetrieve"),
+            // VersionRetrieve - GET /api/v2/version/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_VERSION_ID_) => Some("VersionRetrieve"),
+            // ItemAttributeList - GET /api/v2/item-attribute/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_) => Some("ItemAttributeList"),
+            // ItemCategoryList - GET /api/v2/item-category/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_CATEGORY_) => Some("ItemCategoryList"),
+            // ItemFlingEffectList - GET /api/v2/item-fling-effect/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_FLING_EFFECT_) => Some("ItemFlingEffectList"),
+            // ItemList - GET /api/v2/item/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_) => Some("ItemList"),
+            // ItemPocketList - GET /api/v2/item-pocket/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_POCKET_) => Some("ItemPocketList"),
+            // ItemAttributeRetrieve - GET /api/v2/item-attribute/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ATTRIBUTE_ID_) => Some("ItemAttributeRetrieve"),
+            // ItemCategoryRetrieve - GET /api/v2/item-category/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_CATEGORY_ID_) => Some("ItemCategoryRetrieve"),
+            // ItemFlingEffectRetrieve - GET /api/v2/item-fling-effect/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_FLING_EFFECT_ID_) => Some("ItemFlingEffectRetrieve"),
+            // ItemPocketRetrieve - GET /api/v2/item-pocket/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_POCKET_ID_) => Some("ItemPocketRetrieve"),
+            // ItemRetrieve - GET /api/v2/item/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ITEM_ID_) => Some("ItemRetrieve"),
+            // LocationAreaList - GET /api/v2/location-area/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_AREA_) => Some("LocationAreaList"),
+            // LocationList - GET /api/v2/location/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_) => Some("LocationList"),
+            // PalParkAreaList - GET /api/v2/pal-park-area/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_PAL_PARK_AREA_) => Some("PalParkAreaList"),
+            // RegionList - GET /api/v2/region/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_REGION_) => Some("RegionList"),
+            // LocationAreaRetrieve - GET /api/v2/location-area/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_AREA_ID_) => Some("LocationAreaRetrieve"),
+            // LocationRetrieve - GET /api/v2/location/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LOCATION_ID_) => Some("LocationRetrieve"),
+            // PalParkAreaRetrieve - GET /api/v2/pal-park-area/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_PAL_PARK_AREA_ID_) => Some("PalParkAreaRetrieve"),
+            // RegionRetrieve - GET /api/v2/region/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_REGION_ID_) => Some("RegionRetrieve"),
+            // MachineList - GET /api/v2/machine/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MACHINE_) => Some("MachineList"),
+            // MachineRetrieve - GET /api/v2/machine/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MACHINE_ID_) => Some("MachineRetrieve"),
+            // MoveAilmentList - GET /api/v2/move-ailment/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_AILMENT_) => Some("MoveAilmentList"),
+            // MoveBattleStyleList - GET /api/v2/move-battle-style/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_BATTLE_STYLE_) => Some("MoveBattleStyleList"),
+            // MoveCategoryList - GET /api/v2/move-category/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_CATEGORY_) => Some("MoveCategoryList"),
+            // MoveLearnMethodList - GET /api/v2/move-learn-method/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_LEARN_METHOD_) => Some("MoveLearnMethodList"),
+            // MoveList - GET /api/v2/move/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_) => Some("MoveList"),
+            // MoveTargetList - GET /api/v2/move-target/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_TARGET_) => Some("MoveTargetList"),
+            // MoveAilmentRetrieve - GET /api/v2/move-ailment/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_AILMENT_ID_) => Some("MoveAilmentRetrieve"),
+            // MoveBattleStyleRetrieve - GET /api/v2/move-battle-style/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_BATTLE_STYLE_ID_) => Some("MoveBattleStyleRetrieve"),
+            // MoveCategoryRetrieve - GET /api/v2/move-category/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_CATEGORY_ID_) => Some("MoveCategoryRetrieve"),
+            // MoveLearnMethodRetrieve - GET /api/v2/move-learn-method/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_LEARN_METHOD_ID_) => Some("MoveLearnMethodRetrieve"),
+            // MoveRetrieve - GET /api/v2/move/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_ID_) => Some("MoveRetrieve"),
+            // MoveTargetRetrieve - GET /api/v2/move-target/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_TARGET_ID_) => Some("MoveTargetRetrieve"),
+            // AbilityList - GET /api/v2/ability/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_) => Some("AbilityList"),
+            // CharacteristicList - GET /api/v2/characteristic/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CHARACTERISTIC_) => Some("CharacteristicList"),
+            // EggGroupList - GET /api/v2/egg-group/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EGG_GROUP_) => Some("EggGroupList"),
+            // GenderList - GET /api/v2/gender/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GENDER_) => Some("GenderList"),
+            // GrowthRateList - GET /api/v2/growth-rate/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GROWTH_RATE_) => Some("GrowthRateList"),
+            // MoveDamageClassList - GET /api/v2/move-damage-class/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_DAMAGE_CLASS_) => Some("MoveDamageClassList"),
+            // NatureList - GET /api/v2/nature/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_NATURE_) => Some("NatureList"),
+            // PokeathlonStatList - GET /api/v2/pokeathlon-stat/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEATHLON_STAT_) => Some("PokeathlonStatList"),
+            // PokemonColorList - GET /api/v2/pokemon-color/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_COLOR_) => Some("PokemonColorList"),
+            // PokemonFormList - GET /api/v2/pokemon-form/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_FORM_) => Some("PokemonFormList"),
+            // PokemonHabitatList - GET /api/v2/pokemon-habitat/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_HABITAT_) => Some("PokemonHabitatList"),
+            // PokemonList - GET /api/v2/pokemon/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_) => Some("PokemonList"),
+            // PokemonShapeList - GET /api/v2/pokemon-shape/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SHAPE_) => Some("PokemonShapeList"),
+            // PokemonSpeciesList - GET /api/v2/pokemon-species/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SPECIES_) => Some("PokemonSpeciesList"),
+            // StatList - GET /api/v2/stat/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_STAT_) => Some("StatList"),
+            // TypeList - GET /api/v2/type/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_TYPE_) => Some("TypeList"),
+            // AbilityRetrieve - GET /api/v2/ability/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_ABILITY_ID_) => Some("AbilityRetrieve"),
+            // CharacteristicRetrieve - GET /api/v2/characteristic/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_CHARACTERISTIC_ID_) => Some("CharacteristicRetrieve"),
+            // EggGroupRetrieve - GET /api/v2/egg-group/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_EGG_GROUP_ID_) => Some("EggGroupRetrieve"),
+            // GenderRetrieve - GET /api/v2/gender/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GENDER_ID_) => Some("GenderRetrieve"),
+            // GrowthRateRetrieve - GET /api/v2/growth-rate/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_GROWTH_RATE_ID_) => Some("GrowthRateRetrieve"),
+            // MoveDamageClassRetrieve - GET /api/v2/move-damage-class/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_MOVE_DAMAGE_CLASS_ID_) => Some("MoveDamageClassRetrieve"),
+            // NatureRetrieve - GET /api/v2/nature/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_NATURE_ID_) => Some("NatureRetrieve"),
+            // PokeathlonStatRetrieve - GET /api/v2/pokeathlon-stat/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEATHLON_STAT_ID_) => Some("PokeathlonStatRetrieve"),
+            // PokemonColorRetrieve - GET /api/v2/pokemon-color/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_COLOR_ID_) => Some("PokemonColorRetrieve"),
+            // PokemonFormRetrieve - GET /api/v2/pokemon-form/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_FORM_ID_) => Some("PokemonFormRetrieve"),
+            // PokemonHabitatRetrieve - GET /api/v2/pokemon-habitat/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_HABITAT_ID_) => Some("PokemonHabitatRetrieve"),
+            // PokemonRetrieve - GET /api/v2/pokemon/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_ID_) => Some("PokemonRetrieve"),
+            // PokemonShapeRetrieve - GET /api/v2/pokemon-shape/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SHAPE_ID_) => Some("PokemonShapeRetrieve"),
+            // PokemonSpeciesRetrieve - GET /api/v2/pokemon-species/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_POKEMON_SPECIES_ID_) => Some("PokemonSpeciesRetrieve"),
+            // StatRetrieve - GET /api/v2/stat/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_STAT_ID_) => Some("StatRetrieve"),
+            // TypeRetrieve - GET /api/v2/type/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_TYPE_ID_) => Some("TypeRetrieve"),
+            // LanguageList - GET /api/v2/language/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_) => Some("LanguageList"),
+            // LanguageRetrieve - GET /api/v2/language/{id}/
+            hyper::Method::GET if path.matched(paths::ID_API_V2_LANGUAGE_ID_) => Some("LanguageRetrieve"),
             _ => None,
         }
     }

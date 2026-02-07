@@ -1,0 +1,44 @@
+/*
+ * location_area_detail_pokemon_encounters_inner_version_details_inner.h
+ *
+ * 
+ */
+
+#ifndef _location_area_detail_pokemon_encounters_inner_version_details_inner_H_
+#define _location_area_detail_pokemon_encounters_inner_version_details_inner_H_
+
+#include <string.h>
+#include "../external/cJSON.h"
+#include "../include/list.h"
+#include "../include/keyValuePair.h"
+#include "../include/binary.h"
+
+typedef struct location_area_detail_pokemon_encounters_inner_version_details_inner_t location_area_detail_pokemon_encounters_inner_version_details_inner_t;
+
+#include "ability_detail_pokemon_inner_pokemon.h"
+#include "location_area_detail_pokemon_encounters_inner_version_details_inner_encounter_details.h"
+
+
+
+typedef struct location_area_detail_pokemon_encounters_inner_version_details_inner_t {
+    struct ability_detail_pokemon_inner_pokemon_t *version; //model
+    int max_chance; //numeric
+    struct location_area_detail_pokemon_encounters_inner_version_details_inner_encounter_details_t *encounter_details; //model
+
+    int _library_owned; // Is the library responsible for freeing this object?
+} location_area_detail_pokemon_encounters_inner_version_details_inner_t;
+
+__attribute__((deprecated)) location_area_detail_pokemon_encounters_inner_version_details_inner_t *location_area_detail_pokemon_encounters_inner_version_details_inner_create(
+    ability_detail_pokemon_inner_pokemon_t *version,
+    int max_chance,
+    location_area_detail_pokemon_encounters_inner_version_details_inner_encounter_details_t *encounter_details
+);
+
+void location_area_detail_pokemon_encounters_inner_version_details_inner_free(location_area_detail_pokemon_encounters_inner_version_details_inner_t *location_area_detail_pokemon_encounters_inner_version_details_inner);
+
+location_area_detail_pokemon_encounters_inner_version_details_inner_t *location_area_detail_pokemon_encounters_inner_version_details_inner_parseFromJSON(cJSON *location_area_detail_pokemon_encounters_inner_version_details_innerJSON);
+
+cJSON *location_area_detail_pokemon_encounters_inner_version_details_inner_convertToJSON(location_area_detail_pokemon_encounters_inner_version_details_inner_t *location_area_detail_pokemon_encounters_inner_version_details_inner);
+
+#endif /* _location_area_detail_pokemon_encounters_inner_version_details_inner_H_ */
+

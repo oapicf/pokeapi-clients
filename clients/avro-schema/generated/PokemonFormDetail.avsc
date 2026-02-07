@@ -1,0 +1,93 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonFormDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "order",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "form_order",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "is_default",
+      "type": ["null", "boolean"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "is_battle_only",
+      "type": ["null", "boolean"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "is_mega",
+      "type": ["null", "boolean"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "form_name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "pokemon",
+      "type": "model.PokemonSummary",
+      "doc": ""
+    },
+    {
+      "name": "sprites",
+      "type": "model.PokemonFormDetailSprites",
+      "doc": ""
+    },
+    {
+      "name": "version_group",
+      "type": "model.VersionGroupSummary",
+      "doc": ""
+    },
+    {
+      "name": "form_names",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonFormDetailFormNamesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonFormDetailFormNamesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "types",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonDetailTypesInner"
+      },
+      "doc": ""
+    }
+  ]
+
+}

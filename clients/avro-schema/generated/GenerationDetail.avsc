@@ -1,0 +1,72 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "GenerationDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "abilities",
+      "type": {
+        "type": "array",
+        "items": "model.AbilitySummary"
+      },
+      "doc": ""
+    },
+    {
+      "name": "main_region",
+      "type": "model.RegionSummary",
+      "doc": ""
+    },
+    {
+      "name": "moves",
+      "type": {
+        "type": "array",
+        "items": "model.MoveSummary"
+      },
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.GenerationName"
+      },
+      "doc": ""
+    },
+    {
+      "name": "pokemon_species",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonSpeciesSummary"
+      },
+      "doc": ""
+    },
+    {
+      "name": "types",
+      "type": {
+        "type": "array",
+        "items": "model.TypeSummary"
+      },
+      "doc": ""
+    },
+    {
+      "name": "version_groups",
+      "type": {
+        "type": "array",
+        "items": "model.VersionGroupSummary"
+      },
+      "doc": ""
+    }
+  ]
+
+}

@@ -1,0 +1,20 @@
+
+
+# PaginatedLocationAreaSummaryList
+
+The class is defined in **[PaginatedLocationAreaSummaryList.java](../../src/main/java/org/openapitools/model/PaginatedLocationAreaSummaryList.java)**
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**count** | `Integer` |  |  [optional property]
+**next** | `URI` |  |  [optional property]
+**previous** | `URI` |  |  [optional property]
+**results** | [`List&lt;LocationAreaSummary&gt;`](LocationAreaSummary.md) |  |  [optional property]
+
+
+
+
+
+

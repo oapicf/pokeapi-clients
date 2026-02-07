@@ -1,0 +1,82 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "Serializer for the Type resource",
+  "name": "TypeDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "damage_relations",
+      "type": "model.TypeDetailDamageRelations",
+      "doc": ""
+    },
+    {
+      "name": "past_damage_relations",
+      "type": {
+        "type": "array",
+        "items": "model.TypeDetailPastDamageRelationsInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "game_indices",
+      "type": {
+        "type": "array",
+        "items": "model.TypeGameIndex"
+      },
+      "doc": ""
+    },
+    {
+      "name": "generation",
+      "type": "model.GenerationSummary",
+      "doc": ""
+    },
+    {
+      "name": "move_damage_class",
+      "type": "model.MoveDamageClassSummary",
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityName"
+      },
+      "doc": ""
+    },
+    {
+      "name": "pokemon",
+      "type": {
+        "type": "array",
+        "items": "model.TypeDetailPokemonInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "moves",
+      "type": {
+        "type": "array",
+        "items": "model.MoveSummary"
+      },
+      "doc": ""
+    },
+    {
+      "name": "sprites",
+      "type": {
+        "type": "map",
+        "items": "model.map"
+      },
+      "doc": ""
+    }
+  ]
+
+}

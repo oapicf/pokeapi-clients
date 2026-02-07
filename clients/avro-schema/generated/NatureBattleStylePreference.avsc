@@ -1,0 +1,24 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "NatureBattleStylePreference",
+  "fields": [
+    {
+      "name": "low_hp_preference",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "high_hp_preference",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "move_battle_style",
+      "type": "model.MoveBattleStyleSummary",
+      "doc": ""
+    }
+  ]
+
+}

@@ -1,150 +1,114 @@
-const AbilityApi = require('../apis/AbilityApi');
-const BerryApi = require('../apis/BerryApi');
-const BerryFirmnessApi = require('../apis/BerryFirmnessApi');
-const BerryFlavorApi = require('../apis/BerryFlavorApi');
-const CharacteristicApi = require('../apis/CharacteristicApi');
-const ContestEffectApi = require('../apis/ContestEffectApi');
-const ContestTypeApi = require('../apis/ContestTypeApi');
-const EggGroupApi = require('../apis/EggGroupApi');
-const EncounterConditionApi = require('../apis/EncounterConditionApi');
-const EncounterConditionValueApi = require('../apis/EncounterConditionValueApi');
-const EncounterMethodApi = require('../apis/EncounterMethodApi');
-const EvolutionChainApi = require('../apis/EvolutionChainApi');
-const EvolutionTriggerApi = require('../apis/EvolutionTriggerApi');
-const GenderApi = require('../apis/GenderApi');
-const GenerationApi = require('../apis/GenerationApi');
-const GrowthRateApi = require('../apis/GrowthRateApi');
-const ItemApi = require('../apis/ItemApi');
-const ItemAttributeApi = require('../apis/ItemAttributeApi');
-const ItemCategoryApi = require('../apis/ItemCategoryApi');
-const ItemFlingEffectApi = require('../apis/ItemFlingEffectApi');
-const ItemPocketApi = require('../apis/ItemPocketApi');
-const LanguageApi = require('../apis/LanguageApi');
+const BerriesApi = require('../apis/BerriesApi');
+const ContestsApi = require('../apis/ContestsApi');
+const EncountersApi = require('../apis/EncountersApi');
+const EvolutionApi = require('../apis/EvolutionApi');
+const GamesApi = require('../apis/GamesApi');
+const ItemsApi = require('../apis/ItemsApi');
 const LocationApi = require('../apis/LocationApi');
-const LocationAreaApi = require('../apis/LocationAreaApi');
-const MachineApi = require('../apis/MachineApi');
-const MoveApi = require('../apis/MoveApi');
-const MoveAilmentApi = require('../apis/MoveAilmentApi');
-const MoveBattleStyleApi = require('../apis/MoveBattleStyleApi');
-const MoveCategoryApi = require('../apis/MoveCategoryApi');
-const MoveDamageClassApi = require('../apis/MoveDamageClassApi');
-const MoveLearnMethodApi = require('../apis/MoveLearnMethodApi');
-const MoveTargetApi = require('../apis/MoveTargetApi');
-const NatureApi = require('../apis/NatureApi');
-const PalParkAreaApi = require('../apis/PalParkAreaApi');
-const PokeathlonStatApi = require('../apis/PokeathlonStatApi');
-const PokedexApi = require('../apis/PokedexApi');
+const MachinesApi = require('../apis/MachinesApi');
+const MovesApi = require('../apis/MovesApi');
 const PokemonApi = require('../apis/PokemonApi');
-const PokemonColorApi = require('../apis/PokemonColorApi');
-const PokemonFormApi = require('../apis/PokemonFormApi');
-const PokemonHabitatApi = require('../apis/PokemonHabitatApi');
-const PokemonShapeApi = require('../apis/PokemonShapeApi');
-const PokemonSpeciesApi = require('../apis/PokemonSpeciesApi');
-const RegionApi = require('../apis/RegionApi');
-const StatApi = require('../apis/StatApi');
-const SuperContestEffectApi = require('../apis/SuperContestEffectApi');
-const TypeApi = require('../apis/TypeApi');
-const VersionApi = require('../apis/VersionApi');
-const VersionGroupApi = require('../apis/VersionGroupApi');
+const UtilityApi = require('../apis/UtilityApi');
 const { triggerMiddleware, isTrigger, searchMiddleware, hasSearchRequisites, isSearchAction, isCreateAction, createMiddleware } = require('../utils/utils');
 
 const actions = {
-    [AbilityApi.abilityList.key]: AbilityApi.abilityList,
-    [AbilityApi.abilityRead.key]: AbilityApi.abilityRead,
-    [BerryApi.berryList.key]: BerryApi.berryList,
-    [BerryApi.berryRead.key]: BerryApi.berryRead,
-    [BerryFirmnessApi.berryFirmnessList.key]: BerryFirmnessApi.berryFirmnessList,
-    [BerryFirmnessApi.berryFirmnessRead.key]: BerryFirmnessApi.berryFirmnessRead,
-    [BerryFlavorApi.berryFlavorList.key]: BerryFlavorApi.berryFlavorList,
-    [BerryFlavorApi.berryFlavorRead.key]: BerryFlavorApi.berryFlavorRead,
-    [CharacteristicApi.characteristicList.key]: CharacteristicApi.characteristicList,
-    [CharacteristicApi.characteristicRead.key]: CharacteristicApi.characteristicRead,
-    [ContestEffectApi.contestEffectList.key]: ContestEffectApi.contestEffectList,
-    [ContestEffectApi.contestEffectRead.key]: ContestEffectApi.contestEffectRead,
-    [ContestTypeApi.contestTypeList.key]: ContestTypeApi.contestTypeList,
-    [ContestTypeApi.contestTypeRead.key]: ContestTypeApi.contestTypeRead,
-    [EggGroupApi.eggGroupList.key]: EggGroupApi.eggGroupList,
-    [EggGroupApi.eggGroupRead.key]: EggGroupApi.eggGroupRead,
-    [EncounterConditionApi.encounterConditionList.key]: EncounterConditionApi.encounterConditionList,
-    [EncounterConditionApi.encounterConditionRead.key]: EncounterConditionApi.encounterConditionRead,
-    [EncounterConditionValueApi.encounterConditionValueList.key]: EncounterConditionValueApi.encounterConditionValueList,
-    [EncounterConditionValueApi.encounterConditionValueRead.key]: EncounterConditionValueApi.encounterConditionValueRead,
-    [EncounterMethodApi.encounterMethodList.key]: EncounterMethodApi.encounterMethodList,
-    [EncounterMethodApi.encounterMethodRead.key]: EncounterMethodApi.encounterMethodRead,
-    [EvolutionChainApi.evolutionChainList.key]: EvolutionChainApi.evolutionChainList,
-    [EvolutionChainApi.evolutionChainRead.key]: EvolutionChainApi.evolutionChainRead,
-    [EvolutionTriggerApi.evolutionTriggerList.key]: EvolutionTriggerApi.evolutionTriggerList,
-    [EvolutionTriggerApi.evolutionTriggerRead.key]: EvolutionTriggerApi.evolutionTriggerRead,
-    [GenderApi.genderList.key]: GenderApi.genderList,
-    [GenderApi.genderRead.key]: GenderApi.genderRead,
-    [GenerationApi.generationList.key]: GenerationApi.generationList,
-    [GenerationApi.generationRead.key]: GenerationApi.generationRead,
-    [GrowthRateApi.growthRateList.key]: GrowthRateApi.growthRateList,
-    [GrowthRateApi.growthRateRead.key]: GrowthRateApi.growthRateRead,
-    [ItemApi.itemList.key]: ItemApi.itemList,
-    [ItemApi.itemRead.key]: ItemApi.itemRead,
-    [ItemAttributeApi.itemAttributeList.key]: ItemAttributeApi.itemAttributeList,
-    [ItemAttributeApi.itemAttributeRead.key]: ItemAttributeApi.itemAttributeRead,
-    [ItemCategoryApi.itemCategoryList.key]: ItemCategoryApi.itemCategoryList,
-    [ItemCategoryApi.itemCategoryRead.key]: ItemCategoryApi.itemCategoryRead,
-    [ItemFlingEffectApi.itemFlingEffectList.key]: ItemFlingEffectApi.itemFlingEffectList,
-    [ItemFlingEffectApi.itemFlingEffectRead.key]: ItemFlingEffectApi.itemFlingEffectRead,
-    [ItemPocketApi.itemPocketList.key]: ItemPocketApi.itemPocketList,
-    [ItemPocketApi.itemPocketRead.key]: ItemPocketApi.itemPocketRead,
-    [LanguageApi.languageList.key]: LanguageApi.languageList,
-    [LanguageApi.languageRead.key]: LanguageApi.languageRead,
+    [BerriesApi.berryFirmnessList.key]: BerriesApi.berryFirmnessList,
+    [BerriesApi.berryFirmnessRetrieve.key]: BerriesApi.berryFirmnessRetrieve,
+    [BerriesApi.berryFlavorList.key]: BerriesApi.berryFlavorList,
+    [BerriesApi.berryFlavorRetrieve.key]: BerriesApi.berryFlavorRetrieve,
+    [BerriesApi.berryList.key]: BerriesApi.berryList,
+    [BerriesApi.berryRetrieve.key]: BerriesApi.berryRetrieve,
+    [ContestsApi.contestEffectList.key]: ContestsApi.contestEffectList,
+    [ContestsApi.contestEffectRetrieve.key]: ContestsApi.contestEffectRetrieve,
+    [ContestsApi.contestTypeList.key]: ContestsApi.contestTypeList,
+    [ContestsApi.contestTypeRetrieve.key]: ContestsApi.contestTypeRetrieve,
+    [ContestsApi.superContestEffectList.key]: ContestsApi.superContestEffectList,
+    [ContestsApi.superContestEffectRetrieve.key]: ContestsApi.superContestEffectRetrieve,
+    [EncountersApi.encounterConditionList.key]: EncountersApi.encounterConditionList,
+    [EncountersApi.encounterConditionRetrieve.key]: EncountersApi.encounterConditionRetrieve,
+    [EncountersApi.encounterConditionValueList.key]: EncountersApi.encounterConditionValueList,
+    [EncountersApi.encounterConditionValueRetrieve.key]: EncountersApi.encounterConditionValueRetrieve,
+    [EncountersApi.encounterMethodList.key]: EncountersApi.encounterMethodList,
+    [EncountersApi.encounterMethodRetrieve.key]: EncountersApi.encounterMethodRetrieve,
+    [EncountersApi.pokemonEncountersRetrieve.key]: EncountersApi.pokemonEncountersRetrieve,
+    [EvolutionApi.evolutionChainList.key]: EvolutionApi.evolutionChainList,
+    [EvolutionApi.evolutionChainRetrieve.key]: EvolutionApi.evolutionChainRetrieve,
+    [EvolutionApi.evolutionTriggerList.key]: EvolutionApi.evolutionTriggerList,
+    [EvolutionApi.evolutionTriggerRetrieve.key]: EvolutionApi.evolutionTriggerRetrieve,
+    [GamesApi.generationList.key]: GamesApi.generationList,
+    [GamesApi.generationRetrieve.key]: GamesApi.generationRetrieve,
+    [GamesApi.pokedexList.key]: GamesApi.pokedexList,
+    [GamesApi.pokedexRetrieve.key]: GamesApi.pokedexRetrieve,
+    [GamesApi.versionGroupList.key]: GamesApi.versionGroupList,
+    [GamesApi.versionGroupRetrieve.key]: GamesApi.versionGroupRetrieve,
+    [GamesApi.versionList.key]: GamesApi.versionList,
+    [GamesApi.versionRetrieve.key]: GamesApi.versionRetrieve,
+    [ItemsApi.itemAttributeList.key]: ItemsApi.itemAttributeList,
+    [ItemsApi.itemAttributeRetrieve.key]: ItemsApi.itemAttributeRetrieve,
+    [ItemsApi.itemCategoryList.key]: ItemsApi.itemCategoryList,
+    [ItemsApi.itemCategoryRetrieve.key]: ItemsApi.itemCategoryRetrieve,
+    [ItemsApi.itemFlingEffectList.key]: ItemsApi.itemFlingEffectList,
+    [ItemsApi.itemFlingEffectRetrieve.key]: ItemsApi.itemFlingEffectRetrieve,
+    [ItemsApi.itemList.key]: ItemsApi.itemList,
+    [ItemsApi.itemPocketList.key]: ItemsApi.itemPocketList,
+    [ItemsApi.itemPocketRetrieve.key]: ItemsApi.itemPocketRetrieve,
+    [ItemsApi.itemRetrieve.key]: ItemsApi.itemRetrieve,
+    [LocationApi.locationAreaList.key]: LocationApi.locationAreaList,
+    [LocationApi.locationAreaRetrieve.key]: LocationApi.locationAreaRetrieve,
     [LocationApi.locationList.key]: LocationApi.locationList,
-    [LocationApi.locationRead.key]: LocationApi.locationRead,
-    [LocationAreaApi.locationAreaList.key]: LocationAreaApi.locationAreaList,
-    [LocationAreaApi.locationAreaRead.key]: LocationAreaApi.locationAreaRead,
-    [MachineApi.machineList.key]: MachineApi.machineList,
-    [MachineApi.machineRead.key]: MachineApi.machineRead,
-    [MoveApi.moveList.key]: MoveApi.moveList,
-    [MoveApi.moveRead.key]: MoveApi.moveRead,
-    [MoveAilmentApi.moveAilmentList.key]: MoveAilmentApi.moveAilmentList,
-    [MoveAilmentApi.moveAilmentRead.key]: MoveAilmentApi.moveAilmentRead,
-    [MoveBattleStyleApi.moveBattleStyleList.key]: MoveBattleStyleApi.moveBattleStyleList,
-    [MoveBattleStyleApi.moveBattleStyleRead.key]: MoveBattleStyleApi.moveBattleStyleRead,
-    [MoveCategoryApi.moveCategoryList.key]: MoveCategoryApi.moveCategoryList,
-    [MoveCategoryApi.moveCategoryRead.key]: MoveCategoryApi.moveCategoryRead,
-    [MoveDamageClassApi.moveDamageClassList.key]: MoveDamageClassApi.moveDamageClassList,
-    [MoveDamageClassApi.moveDamageClassRead.key]: MoveDamageClassApi.moveDamageClassRead,
-    [MoveLearnMethodApi.moveLearnMethodList.key]: MoveLearnMethodApi.moveLearnMethodList,
-    [MoveLearnMethodApi.moveLearnMethodRead.key]: MoveLearnMethodApi.moveLearnMethodRead,
-    [MoveTargetApi.moveTargetList.key]: MoveTargetApi.moveTargetList,
-    [MoveTargetApi.moveTargetRead.key]: MoveTargetApi.moveTargetRead,
-    [NatureApi.natureList.key]: NatureApi.natureList,
-    [NatureApi.natureRead.key]: NatureApi.natureRead,
-    [PalParkAreaApi.palParkAreaList.key]: PalParkAreaApi.palParkAreaList,
-    [PalParkAreaApi.palParkAreaRead.key]: PalParkAreaApi.palParkAreaRead,
-    [PokeathlonStatApi.pokeathlonStatList.key]: PokeathlonStatApi.pokeathlonStatList,
-    [PokeathlonStatApi.pokeathlonStatRead.key]: PokeathlonStatApi.pokeathlonStatRead,
-    [PokedexApi.pokedexList.key]: PokedexApi.pokedexList,
-    [PokedexApi.pokedexRead.key]: PokedexApi.pokedexRead,
+    [LocationApi.locationRetrieve.key]: LocationApi.locationRetrieve,
+    [LocationApi.palParkAreaList.key]: LocationApi.palParkAreaList,
+    [LocationApi.palParkAreaRetrieve.key]: LocationApi.palParkAreaRetrieve,
+    [LocationApi.regionList.key]: LocationApi.regionList,
+    [LocationApi.regionRetrieve.key]: LocationApi.regionRetrieve,
+    [MachinesApi.machineList.key]: MachinesApi.machineList,
+    [MachinesApi.machineRetrieve.key]: MachinesApi.machineRetrieve,
+    [MovesApi.moveAilmentList.key]: MovesApi.moveAilmentList,
+    [MovesApi.moveAilmentRetrieve.key]: MovesApi.moveAilmentRetrieve,
+    [MovesApi.moveBattleStyleList.key]: MovesApi.moveBattleStyleList,
+    [MovesApi.moveBattleStyleRetrieve.key]: MovesApi.moveBattleStyleRetrieve,
+    [MovesApi.moveCategoryList.key]: MovesApi.moveCategoryList,
+    [MovesApi.moveCategoryRetrieve.key]: MovesApi.moveCategoryRetrieve,
+    [MovesApi.moveLearnMethodList.key]: MovesApi.moveLearnMethodList,
+    [MovesApi.moveLearnMethodRetrieve.key]: MovesApi.moveLearnMethodRetrieve,
+    [MovesApi.moveList.key]: MovesApi.moveList,
+    [MovesApi.moveRetrieve.key]: MovesApi.moveRetrieve,
+    [MovesApi.moveTargetList.key]: MovesApi.moveTargetList,
+    [MovesApi.moveTargetRetrieve.key]: MovesApi.moveTargetRetrieve,
+    [PokemonApi.abilityList.key]: PokemonApi.abilityList,
+    [PokemonApi.abilityRetrieve.key]: PokemonApi.abilityRetrieve,
+    [PokemonApi.characteristicList.key]: PokemonApi.characteristicList,
+    [PokemonApi.characteristicRetrieve.key]: PokemonApi.characteristicRetrieve,
+    [PokemonApi.eggGroupList.key]: PokemonApi.eggGroupList,
+    [PokemonApi.eggGroupRetrieve.key]: PokemonApi.eggGroupRetrieve,
+    [PokemonApi.genderList.key]: PokemonApi.genderList,
+    [PokemonApi.genderRetrieve.key]: PokemonApi.genderRetrieve,
+    [PokemonApi.growthRateList.key]: PokemonApi.growthRateList,
+    [PokemonApi.growthRateRetrieve.key]: PokemonApi.growthRateRetrieve,
+    [PokemonApi.moveDamageClassList.key]: PokemonApi.moveDamageClassList,
+    [PokemonApi.moveDamageClassRetrieve.key]: PokemonApi.moveDamageClassRetrieve,
+    [PokemonApi.natureList.key]: PokemonApi.natureList,
+    [PokemonApi.natureRetrieve.key]: PokemonApi.natureRetrieve,
+    [PokemonApi.pokeathlonStatList.key]: PokemonApi.pokeathlonStatList,
+    [PokemonApi.pokeathlonStatRetrieve.key]: PokemonApi.pokeathlonStatRetrieve,
+    [PokemonApi.pokemonColorList.key]: PokemonApi.pokemonColorList,
+    [PokemonApi.pokemonColorRetrieve.key]: PokemonApi.pokemonColorRetrieve,
+    [PokemonApi.pokemonFormList.key]: PokemonApi.pokemonFormList,
+    [PokemonApi.pokemonFormRetrieve.key]: PokemonApi.pokemonFormRetrieve,
+    [PokemonApi.pokemonHabitatList.key]: PokemonApi.pokemonHabitatList,
+    [PokemonApi.pokemonHabitatRetrieve.key]: PokemonApi.pokemonHabitatRetrieve,
     [PokemonApi.pokemonList.key]: PokemonApi.pokemonList,
-    [PokemonApi.pokemonRead.key]: PokemonApi.pokemonRead,
-    [PokemonColorApi.pokemonColorList.key]: PokemonColorApi.pokemonColorList,
-    [PokemonColorApi.pokemonColorRead.key]: PokemonColorApi.pokemonColorRead,
-    [PokemonFormApi.pokemonFormList.key]: PokemonFormApi.pokemonFormList,
-    [PokemonFormApi.pokemonFormRead.key]: PokemonFormApi.pokemonFormRead,
-    [PokemonHabitatApi.pokemonHabitatList.key]: PokemonHabitatApi.pokemonHabitatList,
-    [PokemonHabitatApi.pokemonHabitatRead.key]: PokemonHabitatApi.pokemonHabitatRead,
-    [PokemonShapeApi.pokemonShapeList.key]: PokemonShapeApi.pokemonShapeList,
-    [PokemonShapeApi.pokemonShapeRead.key]: PokemonShapeApi.pokemonShapeRead,
-    [PokemonSpeciesApi.pokemonSpeciesList.key]: PokemonSpeciesApi.pokemonSpeciesList,
-    [PokemonSpeciesApi.pokemonSpeciesRead.key]: PokemonSpeciesApi.pokemonSpeciesRead,
-    [RegionApi.regionList.key]: RegionApi.regionList,
-    [RegionApi.regionRead.key]: RegionApi.regionRead,
-    [StatApi.statList.key]: StatApi.statList,
-    [StatApi.statRead.key]: StatApi.statRead,
-    [SuperContestEffectApi.superContestEffectList.key]: SuperContestEffectApi.superContestEffectList,
-    [SuperContestEffectApi.superContestEffectRead.key]: SuperContestEffectApi.superContestEffectRead,
-    [TypeApi.typeList.key]: TypeApi.typeList,
-    [TypeApi.typeRead.key]: TypeApi.typeRead,
-    [VersionApi.versionList.key]: VersionApi.versionList,
-    [VersionApi.versionRead.key]: VersionApi.versionRead,
-    [VersionGroupApi.versionGroupList.key]: VersionGroupApi.versionGroupList,
-    [VersionGroupApi.versionGroupRead.key]: VersionGroupApi.versionGroupRead,
+    [PokemonApi.pokemonRetrieve.key]: PokemonApi.pokemonRetrieve,
+    [PokemonApi.pokemonShapeList.key]: PokemonApi.pokemonShapeList,
+    [PokemonApi.pokemonShapeRetrieve.key]: PokemonApi.pokemonShapeRetrieve,
+    [PokemonApi.pokemonSpeciesList.key]: PokemonApi.pokemonSpeciesList,
+    [PokemonApi.pokemonSpeciesRetrieve.key]: PokemonApi.pokemonSpeciesRetrieve,
+    [PokemonApi.statList.key]: PokemonApi.statList,
+    [PokemonApi.statRetrieve.key]: PokemonApi.statRetrieve,
+    [PokemonApi.typeList.key]: PokemonApi.typeList,
+    [PokemonApi.typeRetrieve.key]: PokemonApi.typeRetrieve,
+    [UtilityApi.languageList.key]: UtilityApi.languageList,
+    [UtilityApi.languageRetrieve.key]: UtilityApi.languageRetrieve,
 }
 
 module.exports = {

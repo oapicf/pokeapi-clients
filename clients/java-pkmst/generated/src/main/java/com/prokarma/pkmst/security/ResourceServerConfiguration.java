@@ -29,6 +29,72 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     @Override
     public void configure(HttpSecurity http) throws Exception {
     //configure security for the http methods
+        http.
+        anonymous().disable()
+        .requestMatchers().antMatchers(HttpMethod.GET, "/pokemon/**")
+        .and().authorizeRequests()
+        .antMatchers(HttpMethod.GET, "/pokemon/**").access("hasRole('ADMIN')")
+        .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
+        http.
+        anonymous().disable()
+        .requestMatchers().antMatchers(HttpMethod.GET, "/evolution/**")
+        .and().authorizeRequests()
+        .antMatchers(HttpMethod.GET, "/evolution/**").access("hasRole('ADMIN')")
+        .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
+        http.
+        anonymous().disable()
+        .requestMatchers().antMatchers(HttpMethod.GET, "/berries/**")
+        .and().authorizeRequests()
+        .antMatchers(HttpMethod.GET, "/berries/**").access("hasRole('ADMIN')")
+        .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
+        http.
+        anonymous().disable()
+        .requestMatchers().antMatchers(HttpMethod.GET, "/items/**")
+        .and().authorizeRequests()
+        .antMatchers(HttpMethod.GET, "/items/**").access("hasRole('ADMIN')")
+        .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
+        http.
+        anonymous().disable()
+        .requestMatchers().antMatchers(HttpMethod.GET, "/machines/**")
+        .and().authorizeRequests()
+        .antMatchers(HttpMethod.GET, "/machines/**").access("hasRole('ADMIN')")
+        .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
+        http.
+        anonymous().disable()
+        .requestMatchers().antMatchers(HttpMethod.GET, "/location/**")
+        .and().authorizeRequests()
+        .antMatchers(HttpMethod.GET, "/location/**").access("hasRole('ADMIN')")
+        .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
+        http.
+        anonymous().disable()
+        .requestMatchers().antMatchers(HttpMethod.GET, "/contest/**")
+        .and().authorizeRequests()
+        .antMatchers(HttpMethod.GET, "/contest/**").access("hasRole('ADMIN')")
+        .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
+        http.
+        anonymous().disable()
+        .requestMatchers().antMatchers(HttpMethod.GET, "/moves/**")
+        .and().authorizeRequests()
+        .antMatchers(HttpMethod.GET, "/moves/**").access("hasRole('ADMIN')")
+        .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
+        http.
+        anonymous().disable()
+        .requestMatchers().antMatchers(HttpMethod.GET, "/encounters/**")
+        .and().authorizeRequests()
+        .antMatchers(HttpMethod.GET, "/encounters/**").access("hasRole('ADMIN')")
+        .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
+        http.
+        anonymous().disable()
+        .requestMatchers().antMatchers(HttpMethod.GET, "/games/**")
+        .and().authorizeRequests()
+        .antMatchers(HttpMethod.GET, "/games/**").access("hasRole('ADMIN')")
+        .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
+        http.
+        anonymous().disable()
+        .requestMatchers().antMatchers(HttpMethod.GET, "/utility/**")
+        .and().authorizeRequests()
+        .antMatchers(HttpMethod.GET, "/utility/**").access("hasRole('ADMIN')")
+        .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
     }
 
 }

@@ -1,0 +1,72 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "BerryDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "growth_time",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "max_harvest",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "natural_gift_power",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "size",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "smoothness",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "soil_dryness",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "firmness",
+      "type": "model.BerryFirmnessSummary",
+      "doc": ""
+    },
+    {
+      "name": "flavors",
+      "type": {
+        "type": "array",
+        "items": "model.BerryDetailFlavorsInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "item",
+      "type": "model.ItemSummary",
+      "doc": ""
+    },
+    {
+      "name": "natural_gift_type",
+      "type": "model.TypeSummary",
+      "doc": ""
+    }
+  ]
+
+}

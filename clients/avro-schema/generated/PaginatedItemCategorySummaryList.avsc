@@ -1,0 +1,36 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PaginatedItemCategorySummaryList",
+  "fields": [
+    {
+      "name": "count",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "next",
+      "type": ["null", "model.URI"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "previous",
+      "type": ["null", "model.URI"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "results",
+      "type": ["null", {
+        "type": "array",
+        "items": "model.ItemCategorySummary"
+      }],
+      "doc": "",
+      "default": null
+    }
+  ]
+
+}

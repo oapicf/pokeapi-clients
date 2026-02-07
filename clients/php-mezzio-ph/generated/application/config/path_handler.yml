@@ -94,6 +94,7 @@ Articus\PathHandler\RouteInjectionFactory:
     - App\Handler\ApiV2PokemonSpeciesId
     - App\Handler\ApiV2Pokemon
     - App\Handler\ApiV2PokemonId
+    - App\Handler\ApiV2PokemonPokemonIdEncounters
     - App\Handler\ApiV2Region
     - App\Handler\ApiV2RegionId
     - App\Handler\ApiV2Stat
@@ -208,6 +209,7 @@ Laminas\ServiceManager\AbstractFactory\ConfigAbstractFactory:
   App\Handler\ApiV2PokemonSpeciesId: []
   App\Handler\ApiV2Pokemon: []
   App\Handler\ApiV2PokemonId: []
+  App\Handler\ApiV2PokemonPokemonIdEncounters: []
   App\Handler\ApiV2Region: []
   App\Handler\ApiV2RegionId: []
   App\Handler\ApiV2Stat: []

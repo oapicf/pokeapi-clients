@@ -1,0 +1,12 @@
+# item_flavor_text_t
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**text** | **char \*** |  | 
+**version_group** | [**version_group_summary_t**](version_group_summary.md) \* |  | 
+**language** | [**language_summary_t**](language_summary.md) \* |  | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

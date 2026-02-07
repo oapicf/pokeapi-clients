@@ -1,5 +1,5 @@
 /**
- * 
+ * PokéAPI
  *
  * Contact: blah+oapicf@cliffano.com
  *

@@ -38,54 +38,17 @@ object endpoint {
   * @return A service that contains all provided endpoints of the API.
   */
   def makeService(da: DataAccessor): Service[Request, Response] = (
-          AbilityApi.endpoints(da)  :+:
-          BerryApi.endpoints(da)  :+:
-          BerryFirmnessApi.endpoints(da)  :+:
-          BerryFlavorApi.endpoints(da)  :+:
-          CharacteristicApi.endpoints(da)  :+:
-          ContestEffectApi.endpoints(da)  :+:
-          ContestTypeApi.endpoints(da)  :+:
-          EggGroupApi.endpoints(da)  :+:
-          EncounterConditionApi.endpoints(da)  :+:
-          EncounterConditionValueApi.endpoints(da)  :+:
-          EncounterMethodApi.endpoints(da)  :+:
-          EvolutionChainApi.endpoints(da)  :+:
-          EvolutionTriggerApi.endpoints(da)  :+:
-          GenderApi.endpoints(da)  :+:
-          GenerationApi.endpoints(da)  :+:
-          GrowthRateApi.endpoints(da)  :+:
-          ItemApi.endpoints(da)  :+:
-          ItemAttributeApi.endpoints(da)  :+:
-          ItemCategoryApi.endpoints(da)  :+:
-          ItemFlingEffectApi.endpoints(da)  :+:
-          ItemPocketApi.endpoints(da)  :+:
-          LanguageApi.endpoints(da)  :+:
+          BerriesApi.endpoints(da)  :+:
+          ContestsApi.endpoints(da)  :+:
+          EncountersApi.endpoints(da)  :+:
+          EvolutionApi.endpoints(da)  :+:
+          GamesApi.endpoints(da)  :+:
+          ItemsApi.endpoints(da)  :+:
           LocationApi.endpoints(da)  :+:
-          LocationAreaApi.endpoints(da)  :+:
-          MachineApi.endpoints(da)  :+:
-          MoveApi.endpoints(da)  :+:
-          MoveAilmentApi.endpoints(da)  :+:
-          MoveBattleStyleApi.endpoints(da)  :+:
-          MoveCategoryApi.endpoints(da)  :+:
-          MoveDamageClassApi.endpoints(da)  :+:
-          MoveLearnMethodApi.endpoints(da)  :+:
-          MoveTargetApi.endpoints(da)  :+:
-          NatureApi.endpoints(da)  :+:
-          PalParkAreaApi.endpoints(da)  :+:
-          PokeathlonStatApi.endpoints(da)  :+:
-          PokedexApi.endpoints(da)  :+:
+          MachinesApi.endpoints(da)  :+:
+          MovesApi.endpoints(da)  :+:
           PokemonApi.endpoints(da)  :+:
-          PokemonColorApi.endpoints(da)  :+:
-          PokemonFormApi.endpoints(da)  :+:
-          PokemonHabitatApi.endpoints(da)  :+:
-          PokemonShapeApi.endpoints(da)  :+:
-          PokemonSpeciesApi.endpoints(da)  :+:
-          RegionApi.endpoints(da)  :+:
-          StatApi.endpoints(da)  :+:
-          SuperContestEffectApi.endpoints(da)  :+:
-          TypeApi.endpoints(da)  :+:
-          VersionApi.endpoints(da)  :+:
-          VersionGroupApi.endpoints(da) 
+          UtilityApi.endpoints(da) 
   ).handle({
       case e: CommonError => NotFound(e)
   }).toService

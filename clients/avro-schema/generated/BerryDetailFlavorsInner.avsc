@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "BerryDetailFlavorsInner",
+  "fields": [
+    {
+      "name": "potency",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "flavor",
+      "type": "model.BerryDetailFlavorsInnerFlavor",
+      "doc": ""
+    }
+  ]
+
+}

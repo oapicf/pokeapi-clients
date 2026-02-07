@@ -13,15 +13,16 @@ import AnyCodable
 open class LocationAPI {
 
     /**
-
-     - parameter limit: (query)  (optional)
-     - parameter offset: (query)  (optional)
+     List location areas
+     
+     - parameter limit: (query) Number of results to return per page. (optional)
+     - parameter offset: (query) The initial index from which to return the results. (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func locationList(limit: Int? = nil, offset: Int? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: String?, _ error: Error?) -> Void)) -> RequestTask {
-        return locationListWithRequestBuilder(limit: limit, offset: offset).execute(apiResponseQueue) { result in
+    open class func locationAreaList(limit: Int? = nil, offset: Int? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedLocationAreaSummaryList?, _ error: Error?) -> Void)) -> RequestTask {
+        return locationAreaListWithRequestBuilder(limit: limit, offset: offset).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -32,13 +33,21 @@ open class LocationAPI {
     }
 
     /**
-     - GET /api/v2/location/
-     - parameter limit: (query)  (optional)
-     - parameter offset: (query)  (optional)
-     - returns: RequestBuilder<String> 
+     List location areas
+     - GET /api/v2/location-area/
+     - Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
+     - BASIC:
+       - type: http
+       - name: basicAuth
+     - API Key:
+       - type: apiKey sessionid 
+       - name: cookieAuth
+     - parameter limit: (query) Number of results to return per page. (optional)
+     - parameter offset: (query) The initial index from which to return the results. (optional)
+     - returns: RequestBuilder<PaginatedLocationAreaSummaryList> 
      */
-    open class func locationListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil) -> RequestBuilder<String> {
-        let localVariablePath = "/api/v2/location/"
+    open class func locationAreaListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil) -> RequestBuilder<PaginatedLocationAreaSummaryList> {
+        let localVariablePath = "/api/v2/location-area/"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
 
@@ -54,20 +63,21 @@ open class LocationAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<String>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<PaginatedLocationAreaSummaryList>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 
     /**
-
-     - parameter id: (path)  
+     Get location area
+     
+     - parameter id: (path) A unique integer value identifying this location area. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func locationRead(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: String?, _ error: Error?) -> Void)) -> RequestTask {
-        return locationReadWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
+    open class func locationAreaRetrieve(id: Int, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: LocationAreaDetail?, _ error: Error?) -> Void)) -> RequestTask {
+        return locationAreaRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -78,11 +88,131 @@ open class LocationAPI {
     }
 
     /**
-     - GET /api/v2/location/{id}/
-     - parameter id: (path)  
-     - returns: RequestBuilder<String> 
+     Get location area
+     - GET /api/v2/location-area/{id}/
+     - Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
+     - BASIC:
+       - type: http
+       - name: basicAuth
+     - API Key:
+       - type: apiKey sessionid 
+       - name: cookieAuth
+     - parameter id: (path) A unique integer value identifying this location area. 
+     - returns: RequestBuilder<LocationAreaDetail> 
      */
-    open class func locationReadWithRequestBuilder(id: Int) -> RequestBuilder<String> {
+    open class func locationAreaRetrieveWithRequestBuilder(id: Int) -> RequestBuilder<LocationAreaDetail> {
+        var localVariablePath = "/api/v2/location-area/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<LocationAreaDetail>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     List locations
+     
+     - parameter limit: (query) Number of results to return per page. (optional)
+     - parameter offset: (query) The initial index from which to return the results. (optional)
+     - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func locationList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedLocationSummaryList?, _ error: Error?) -> Void)) -> RequestTask {
+        return locationListWithRequestBuilder(limit: limit, offset: offset, q: q).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     List locations
+     - GET /api/v2/location/
+     - Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
+     - BASIC:
+       - type: http
+       - name: basicAuth
+     - API Key:
+       - type: apiKey sessionid 
+       - name: cookieAuth
+     - parameter limit: (query) Number of results to return per page. (optional)
+     - parameter offset: (query) The initial index from which to return the results. (optional)
+     - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     - returns: RequestBuilder<PaginatedLocationSummaryList> 
+     */
+    open class func locationListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil, q: String? = nil) -> RequestBuilder<PaginatedLocationSummaryList> {
+        let localVariablePath = "/api/v2/location/"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "limit": (wrappedValue: limit?.encodeToJSON(), isExplode: true),
+            "offset": (wrappedValue: offset?.encodeToJSON(), isExplode: true),
+            "q": (wrappedValue: q?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedLocationSummaryList>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Get location
+     
+     - parameter id: (path) This parameter can be a string or an integer. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func locationRetrieve(id: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: LocationDetail?, _ error: Error?) -> Void)) -> RequestTask {
+        return locationRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Get location
+     - GET /api/v2/location/{id}/
+     - Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
+     - BASIC:
+       - type: http
+       - name: basicAuth
+     - API Key:
+       - type: apiKey sessionid 
+       - name: cookieAuth
+     - parameter id: (path) This parameter can be a string or an integer. 
+     - returns: RequestBuilder<LocationDetail> 
+     */
+    open class func locationRetrieveWithRequestBuilder(id: String) -> RequestBuilder<LocationDetail> {
         var localVariablePath = "/api/v2/location/{id}/"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -98,8 +228,232 @@ open class LocationAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<String>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<LocationDetail>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     List pal park areas
+     
+     - parameter limit: (query) Number of results to return per page. (optional)
+     - parameter offset: (query) The initial index from which to return the results. (optional)
+     - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func palParkAreaList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedPalParkAreaSummaryList?, _ error: Error?) -> Void)) -> RequestTask {
+        return palParkAreaListWithRequestBuilder(limit: limit, offset: offset, q: q).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     List pal park areas
+     - GET /api/v2/pal-park-area/
+     - Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.
+     - BASIC:
+       - type: http
+       - name: basicAuth
+     - API Key:
+       - type: apiKey sessionid 
+       - name: cookieAuth
+     - parameter limit: (query) Number of results to return per page. (optional)
+     - parameter offset: (query) The initial index from which to return the results. (optional)
+     - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     - returns: RequestBuilder<PaginatedPalParkAreaSummaryList> 
+     */
+    open class func palParkAreaListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil, q: String? = nil) -> RequestBuilder<PaginatedPalParkAreaSummaryList> {
+        let localVariablePath = "/api/v2/pal-park-area/"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "limit": (wrappedValue: limit?.encodeToJSON(), isExplode: true),
+            "offset": (wrappedValue: offset?.encodeToJSON(), isExplode: true),
+            "q": (wrappedValue: q?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedPalParkAreaSummaryList>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Get pal park area
+     
+     - parameter id: (path) This parameter can be a string or an integer. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func palParkAreaRetrieve(id: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: PalParkAreaDetail?, _ error: Error?) -> Void)) -> RequestTask {
+        return palParkAreaRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Get pal park area
+     - GET /api/v2/pal-park-area/{id}/
+     - Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.
+     - BASIC:
+       - type: http
+       - name: basicAuth
+     - API Key:
+       - type: apiKey sessionid 
+       - name: cookieAuth
+     - parameter id: (path) This parameter can be a string or an integer. 
+     - returns: RequestBuilder<PalParkAreaDetail> 
+     */
+    open class func palParkAreaRetrieveWithRequestBuilder(id: String) -> RequestBuilder<PalParkAreaDetail> {
+        var localVariablePath = "/api/v2/pal-park-area/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PalParkAreaDetail>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     List regions
+     
+     - parameter limit: (query) Number of results to return per page. (optional)
+     - parameter offset: (query) The initial index from which to return the results. (optional)
+     - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func regionList(limit: Int? = nil, offset: Int? = nil, q: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: PaginatedRegionSummaryList?, _ error: Error?) -> Void)) -> RequestTask {
+        return regionListWithRequestBuilder(limit: limit, offset: offset, q: q).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     List regions
+     - GET /api/v2/region/
+     - A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
+     - BASIC:
+       - type: http
+       - name: basicAuth
+     - API Key:
+       - type: apiKey sessionid 
+       - name: cookieAuth
+     - parameter limit: (query) Number of results to return per page. (optional)
+     - parameter offset: (query) The initial index from which to return the results. (optional)
+     - parameter q: (query) &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     - returns: RequestBuilder<PaginatedRegionSummaryList> 
+     */
+    open class func regionListWithRequestBuilder(limit: Int? = nil, offset: Int? = nil, q: String? = nil) -> RequestBuilder<PaginatedRegionSummaryList> {
+        let localVariablePath = "/api/v2/region/"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        var localVariableUrlComponents = URLComponents(string: localVariableURLString)
+        localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "limit": (wrappedValue: limit?.encodeToJSON(), isExplode: true),
+            "offset": (wrappedValue: offset?.encodeToJSON(), isExplode: true),
+            "q": (wrappedValue: q?.encodeToJSON(), isExplode: true),
+        ])
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<PaginatedRegionSummaryList>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
+     Get region
+     
+     - parameter id: (path) This parameter can be a string or an integer. 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func regionRetrieve(id: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: RegionDetail?, _ error: Error?) -> Void)) -> RequestTask {
+        return regionRetrieveWithRequestBuilder(id: id).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Get region
+     - GET /api/v2/region/{id}/
+     - A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
+     - BASIC:
+       - type: http
+       - name: basicAuth
+     - API Key:
+       - type: apiKey sessionid 
+       - name: cookieAuth
+     - parameter id: (path) This parameter can be a string or an integer. 
+     - returns: RequestBuilder<RegionDetail> 
+     */
+    open class func regionRetrieveWithRequestBuilder(id: String) -> RequestBuilder<RegionDetail> {
+        var localVariablePath = "/api/v2/region/{id}/"
+        let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
+        let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{id}", with: idPostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<RegionDetail>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }
 }

@@ -19,26 +19,329 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import org.openapitools.client.apis.PokemonApi
+import org.openapitools.client.models.AbilityDetail
+import org.openapitools.client.models.CharacteristicDetail
+import org.openapitools.client.models.EggGroupDetail
+import org.openapitools.client.models.GenderDetail
+import org.openapitools.client.models.GrowthRateDetail
+import org.openapitools.client.models.MoveDamageClassDetail
+import org.openapitools.client.models.NatureDetail
+import org.openapitools.client.models.PaginatedAbilitySummaryList
+import org.openapitools.client.models.PaginatedCharacteristicSummaryList
+import org.openapitools.client.models.PaginatedEggGroupSummaryList
+import org.openapitools.client.models.PaginatedGenderSummaryList
+import org.openapitools.client.models.PaginatedGrowthRateSummaryList
+import org.openapitools.client.models.PaginatedMoveDamageClassSummaryList
+import org.openapitools.client.models.PaginatedNatureSummaryList
+import org.openapitools.client.models.PaginatedPokeathlonStatSummaryList
+import org.openapitools.client.models.PaginatedPokemonColorSummaryList
+import org.openapitools.client.models.PaginatedPokemonFormSummaryList
+import org.openapitools.client.models.PaginatedPokemonHabitatSummaryList
+import org.openapitools.client.models.PaginatedPokemonShapeSummaryList
+import org.openapitools.client.models.PaginatedPokemonSpeciesSummaryList
+import org.openapitools.client.models.PaginatedPokemonSummaryList
+import org.openapitools.client.models.PaginatedStatSummaryList
+import org.openapitools.client.models.PaginatedTypeSummaryList
+import org.openapitools.client.models.PokeathlonStatDetail
+import org.openapitools.client.models.PokemonColorDetail
+import org.openapitools.client.models.PokemonDetail
+import org.openapitools.client.models.PokemonFormDetail
+import org.openapitools.client.models.PokemonHabitatDetail
+import org.openapitools.client.models.PokemonShapeDetail
+import org.openapitools.client.models.PokemonSpeciesDetail
+import org.openapitools.client.models.StatDetail
+import org.openapitools.client.models.TypeDetail
 
 class PokemonApiTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of PokemonApi
         //val apiInstance = PokemonApi()
 
-        // to test pokemonList
-        should("test pokemonList") {
-            // uncomment below to test pokemonList
-            //val limit : kotlin.Int = 56 // kotlin.Int | 
-            //val offset : kotlin.Int = 56 // kotlin.Int | 
-            //val result : kotlin.String = apiInstance.pokemonList(limit, offset)
+        // to test abilityList
+        should("test abilityList") {
+            // uncomment below to test abilityList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedAbilitySummaryList = apiInstance.abilityList(limit, offset, q)
             //result shouldBe ("TODO")
         }
 
-        // to test pokemonRead
-        should("test pokemonRead") {
-            // uncomment below to test pokemonRead
-            //val id : kotlin.Int = 56 // kotlin.Int | 
-            //val result : kotlin.String = apiInstance.pokemonRead(id)
+        // to test abilityRetrieve
+        should("test abilityRetrieve") {
+            // uncomment below to test abilityRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : AbilityDetail = apiInstance.abilityRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test characteristicList
+        should("test characteristicList") {
+            // uncomment below to test characteristicList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedCharacteristicSummaryList = apiInstance.characteristicList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test characteristicRetrieve
+        should("test characteristicRetrieve") {
+            // uncomment below to test characteristicRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : CharacteristicDetail = apiInstance.characteristicRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test eggGroupList
+        should("test eggGroupList") {
+            // uncomment below to test eggGroupList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedEggGroupSummaryList = apiInstance.eggGroupList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test eggGroupRetrieve
+        should("test eggGroupRetrieve") {
+            // uncomment below to test eggGroupRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : EggGroupDetail = apiInstance.eggGroupRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test genderList
+        should("test genderList") {
+            // uncomment below to test genderList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedGenderSummaryList = apiInstance.genderList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test genderRetrieve
+        should("test genderRetrieve") {
+            // uncomment below to test genderRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : GenderDetail = apiInstance.genderRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test growthRateList
+        should("test growthRateList") {
+            // uncomment below to test growthRateList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedGrowthRateSummaryList = apiInstance.growthRateList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test growthRateRetrieve
+        should("test growthRateRetrieve") {
+            // uncomment below to test growthRateRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : GrowthRateDetail = apiInstance.growthRateRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test moveDamageClassList
+        should("test moveDamageClassList") {
+            // uncomment below to test moveDamageClassList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedMoveDamageClassSummaryList = apiInstance.moveDamageClassList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test moveDamageClassRetrieve
+        should("test moveDamageClassRetrieve") {
+            // uncomment below to test moveDamageClassRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : MoveDamageClassDetail = apiInstance.moveDamageClassRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test natureList
+        should("test natureList") {
+            // uncomment below to test natureList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedNatureSummaryList = apiInstance.natureList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test natureRetrieve
+        should("test natureRetrieve") {
+            // uncomment below to test natureRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : NatureDetail = apiInstance.natureRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test pokeathlonStatList
+        should("test pokeathlonStatList") {
+            // uncomment below to test pokeathlonStatList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedPokeathlonStatSummaryList = apiInstance.pokeathlonStatList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test pokeathlonStatRetrieve
+        should("test pokeathlonStatRetrieve") {
+            // uncomment below to test pokeathlonStatRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : PokeathlonStatDetail = apiInstance.pokeathlonStatRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test pokemonColorList
+        should("test pokemonColorList") {
+            // uncomment below to test pokemonColorList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedPokemonColorSummaryList = apiInstance.pokemonColorList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test pokemonColorRetrieve
+        should("test pokemonColorRetrieve") {
+            // uncomment below to test pokemonColorRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : PokemonColorDetail = apiInstance.pokemonColorRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test pokemonFormList
+        should("test pokemonFormList") {
+            // uncomment below to test pokemonFormList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedPokemonFormSummaryList = apiInstance.pokemonFormList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test pokemonFormRetrieve
+        should("test pokemonFormRetrieve") {
+            // uncomment below to test pokemonFormRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : PokemonFormDetail = apiInstance.pokemonFormRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test pokemonHabitatList
+        should("test pokemonHabitatList") {
+            // uncomment below to test pokemonHabitatList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedPokemonHabitatSummaryList = apiInstance.pokemonHabitatList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test pokemonHabitatRetrieve
+        should("test pokemonHabitatRetrieve") {
+            // uncomment below to test pokemonHabitatRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : PokemonHabitatDetail = apiInstance.pokemonHabitatRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test pokemonList
+        should("test pokemonList") {
+            // uncomment below to test pokemonList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedPokemonSummaryList = apiInstance.pokemonList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test pokemonRetrieve
+        should("test pokemonRetrieve") {
+            // uncomment below to test pokemonRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : PokemonDetail = apiInstance.pokemonRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test pokemonShapeList
+        should("test pokemonShapeList") {
+            // uncomment below to test pokemonShapeList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedPokemonShapeSummaryList = apiInstance.pokemonShapeList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test pokemonShapeRetrieve
+        should("test pokemonShapeRetrieve") {
+            // uncomment below to test pokemonShapeRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : PokemonShapeDetail = apiInstance.pokemonShapeRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test pokemonSpeciesList
+        should("test pokemonSpeciesList") {
+            // uncomment below to test pokemonSpeciesList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedPokemonSpeciesSummaryList = apiInstance.pokemonSpeciesList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test pokemonSpeciesRetrieve
+        should("test pokemonSpeciesRetrieve") {
+            // uncomment below to test pokemonSpeciesRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : PokemonSpeciesDetail = apiInstance.pokemonSpeciesRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test statList
+        should("test statList") {
+            // uncomment below to test statList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedStatSummaryList = apiInstance.statList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test statRetrieve
+        should("test statRetrieve") {
+            // uncomment below to test statRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : StatDetail = apiInstance.statRetrieve(id)
+            //result shouldBe ("TODO")
+        }
+
+        // to test typeList
+        should("test typeList") {
+            // uncomment below to test typeList
+            //val limit : kotlin.Int = 56 // kotlin.Int | Number of results to return per page.
+            //val offset : kotlin.Int = 56 // kotlin.Int | The initial index from which to return the results.
+            //val q : kotlin.String = q_example // kotlin.String | > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. 
+            //val result : PaginatedTypeSummaryList = apiInstance.typeList(limit, offset, q)
+            //result shouldBe ("TODO")
+        }
+
+        // to test typeRetrieve
+        should("test typeRetrieve") {
+            // uncomment below to test typeRetrieve
+            //val id : kotlin.String = id_example // kotlin.String | This parameter can be a string or an integer.
+            //val result : TypeDetail = apiInstance.typeRetrieve(id)
             //result shouldBe ("TODO")
         }
 

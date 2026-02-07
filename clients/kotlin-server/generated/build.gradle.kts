@@ -25,7 +25,9 @@ repositories {
 dependencies {
     implementation(platform("io.ktor:ktor-bom:3.0.2"))
     implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation("com.typesafe:config:1.4.1")
     implementation("io.ktor:ktor-server-auth")
+    implementation("io.ktor:ktor-client-apache")
     implementation("io.ktor:ktor-server-auto-head-response")
     implementation("io.ktor:ktor-server-default-headers")
     implementation("io.ktor:ktor-server-content-negotiation")

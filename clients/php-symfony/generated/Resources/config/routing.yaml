@@ -2,723 +2,694 @@
 # https://github.com/openapitools/openapi-generator
 # Do not edit the class manually.
 
-# ability
-open_api_server_ability_abilitylist:
-    path:     /api/v2/ability/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.ability::abilityListAction
-
-open_api_server_ability_abilityread:
-    path:     /api/v2/ability/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.ability::abilityReadAction
-    requirements:
-        id: '\d+'
-
-# berry
-open_api_server_berry_berrylist:
-    path:     /api/v2/berry/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.berry::berryListAction
-
-open_api_server_berry_berryread:
-    path:     /api/v2/berry/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.berry::berryReadAction
-    requirements:
-        id: '\d+'
-
-# berryFirmness
-open_api_server_berryFirmness_berryfirmnesslist:
+# berries
+open_api_server_berries_berryfirmnesslist:
     path:     /api/v2/berry-firmness/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.berryFirmness::berryFirmnessListAction
+        _controller: open_api_server.controller.berries::berryFirmnessListAction
 
-open_api_server_berryFirmness_berryfirmnessread:
+open_api_server_berries_berryfirmnessretrieve:
     path:     /api/v2/berry-firmness/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.berryFirmness::berryFirmnessReadAction
+        _controller: open_api_server.controller.berries::berryFirmnessRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# berryFlavor
-open_api_server_berryFlavor_berryflavorlist:
+open_api_server_berries_berryflavorlist:
     path:     /api/v2/berry-flavor/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.berryFlavor::berryFlavorListAction
+        _controller: open_api_server.controller.berries::berryFlavorListAction
 
-open_api_server_berryFlavor_berryflavorread:
+open_api_server_berries_berryflavorretrieve:
     path:     /api/v2/berry-flavor/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.berryFlavor::berryFlavorReadAction
+        _controller: open_api_server.controller.berries::berryFlavorRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# characteristic
-open_api_server_characteristic_characteristiclist:
-    path:     /api/v2/characteristic/
+open_api_server_berries_berrylist:
+    path:     /api/v2/berry/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.characteristic::characteristicListAction
+        _controller: open_api_server.controller.berries::berryListAction
 
-open_api_server_characteristic_characteristicread:
-    path:     /api/v2/characteristic/{id}/
+open_api_server_berries_berryretrieve:
+    path:     /api/v2/berry/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.characteristic::characteristicReadAction
+        _controller: open_api_server.controller.berries::berryRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# contestEffect
-open_api_server_contestEffect_contesteffectlist:
+# contests
+open_api_server_contests_contesteffectlist:
     path:     /api/v2/contest-effect/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.contestEffect::contestEffectListAction
+        _controller: open_api_server.controller.contests::contestEffectListAction
 
-open_api_server_contestEffect_contesteffectread:
+open_api_server_contests_contesteffectretrieve:
     path:     /api/v2/contest-effect/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.contestEffect::contestEffectReadAction
+        _controller: open_api_server.controller.contests::contestEffectRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# contestType
-open_api_server_contestType_contesttypelist:
+open_api_server_contests_contesttypelist:
     path:     /api/v2/contest-type/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.contestType::contestTypeListAction
+        _controller: open_api_server.controller.contests::contestTypeListAction
 
-open_api_server_contestType_contesttyperead:
+open_api_server_contests_contesttyperetrieve:
     path:     /api/v2/contest-type/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.contestType::contestTypeReadAction
+        _controller: open_api_server.controller.contests::contestTypeRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# eggGroup
-open_api_server_eggGroup_egggrouplist:
-    path:     /api/v2/egg-group/
+open_api_server_contests_supercontesteffectlist:
+    path:     /api/v2/super-contest-effect/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.eggGroup::eggGroupListAction
+        _controller: open_api_server.controller.contests::superContestEffectListAction
 
-open_api_server_eggGroup_egggroupread:
-    path:     /api/v2/egg-group/{id}/
+open_api_server_contests_supercontesteffectretrieve:
+    path:     /api/v2/super-contest-effect/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.eggGroup::eggGroupReadAction
+        _controller: open_api_server.controller.contests::superContestEffectRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# encounterCondition
-open_api_server_encounterCondition_encounterconditionlist:
+# encounters
+open_api_server_encounters_encounterconditionlist:
     path:     /api/v2/encounter-condition/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.encounterCondition::encounterConditionListAction
+        _controller: open_api_server.controller.encounters::encounterConditionListAction
 
-open_api_server_encounterCondition_encounterconditionread:
+open_api_server_encounters_encounterconditionretrieve:
     path:     /api/v2/encounter-condition/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.encounterCondition::encounterConditionReadAction
+        _controller: open_api_server.controller.encounters::encounterConditionRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# encounterConditionValue
-open_api_server_encounterConditionValue_encounterconditionvaluelist:
+open_api_server_encounters_encounterconditionvaluelist:
     path:     /api/v2/encounter-condition-value/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.encounterConditionValue::encounterConditionValueListAction
+        _controller: open_api_server.controller.encounters::encounterConditionValueListAction
 
-open_api_server_encounterConditionValue_encounterconditionvalueread:
+open_api_server_encounters_encounterconditionvalueretrieve:
     path:     /api/v2/encounter-condition-value/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.encounterConditionValue::encounterConditionValueReadAction
+        _controller: open_api_server.controller.encounters::encounterConditionValueRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# encounterMethod
-open_api_server_encounterMethod_encountermethodlist:
+open_api_server_encounters_encountermethodlist:
     path:     /api/v2/encounter-method/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.encounterMethod::encounterMethodListAction
+        _controller: open_api_server.controller.encounters::encounterMethodListAction
 
-open_api_server_encounterMethod_encountermethodread:
+open_api_server_encounters_encountermethodretrieve:
     path:     /api/v2/encounter-method/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.encounterMethod::encounterMethodReadAction
+        _controller: open_api_server.controller.encounters::encounterMethodRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# evolutionChain
-open_api_server_evolutionChain_evolutionchainlist:
+open_api_server_encounters_pokemonencountersretrieve:
+    path:     /api/v2/pokemon/{pokemon_id}/encounters
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.encounters::pokemonEncountersRetrieveAction
+    requirements:
+        pokemonId: '^\\d+$'
+
+# evolution
+open_api_server_evolution_evolutionchainlist:
     path:     /api/v2/evolution-chain/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.evolutionChain::evolutionChainListAction
+        _controller: open_api_server.controller.evolution::evolutionChainListAction
 
-open_api_server_evolutionChain_evolutionchainread:
+open_api_server_evolution_evolutionchainretrieve:
     path:     /api/v2/evolution-chain/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.evolutionChain::evolutionChainReadAction
+        _controller: open_api_server.controller.evolution::evolutionChainRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# evolutionTrigger
-open_api_server_evolutionTrigger_evolutiontriggerlist:
+open_api_server_evolution_evolutiontriggerlist:
     path:     /api/v2/evolution-trigger/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.evolutionTrigger::evolutionTriggerListAction
+        _controller: open_api_server.controller.evolution::evolutionTriggerListAction
 
-open_api_server_evolutionTrigger_evolutiontriggerread:
+open_api_server_evolution_evolutiontriggerretrieve:
     path:     /api/v2/evolution-trigger/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.evolutionTrigger::evolutionTriggerReadAction
+        _controller: open_api_server.controller.evolution::evolutionTriggerRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# gender
-open_api_server_gender_genderlist:
-    path:     /api/v2/gender/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.gender::genderListAction
-
-open_api_server_gender_genderread:
-    path:     /api/v2/gender/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.gender::genderReadAction
-    requirements:
-        id: '\d+'
-
-# generation
-open_api_server_generation_generationlist:
+# games
+open_api_server_games_generationlist:
     path:     /api/v2/generation/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.generation::generationListAction
+        _controller: open_api_server.controller.games::generationListAction
 
-open_api_server_generation_generationread:
+open_api_server_games_generationretrieve:
     path:     /api/v2/generation/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.generation::generationReadAction
+        _controller: open_api_server.controller.games::generationRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# growthRate
-open_api_server_growthRate_growthratelist:
-    path:     /api/v2/growth-rate/
+open_api_server_games_pokedexlist:
+    path:     /api/v2/pokedex/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.growthRate::growthRateListAction
+        _controller: open_api_server.controller.games::pokedexListAction
 
-open_api_server_growthRate_growthrateread:
-    path:     /api/v2/growth-rate/{id}/
+open_api_server_games_pokedexretrieve:
+    path:     /api/v2/pokedex/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.growthRate::growthRateReadAction
+        _controller: open_api_server.controller.games::pokedexRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# item
-open_api_server_item_itemlist:
-    path:     /api/v2/item/
+open_api_server_games_versiongrouplist:
+    path:     /api/v2/version-group/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.item::itemListAction
+        _controller: open_api_server.controller.games::versionGroupListAction
 
-open_api_server_item_itemread:
-    path:     /api/v2/item/{id}/
+open_api_server_games_versiongroupretrieve:
+    path:     /api/v2/version-group/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.item::itemReadAction
+        _controller: open_api_server.controller.games::versionGroupRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# itemAttribute
-open_api_server_itemAttribute_itemattributelist:
+open_api_server_games_versionlist:
+    path:     /api/v2/version/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.games::versionListAction
+
+open_api_server_games_versionretrieve:
+    path:     /api/v2/version/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.games::versionRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
+# items
+open_api_server_items_itemattributelist:
     path:     /api/v2/item-attribute/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.itemAttribute::itemAttributeListAction
+        _controller: open_api_server.controller.items::itemAttributeListAction
 
-open_api_server_itemAttribute_itemattributeread:
+open_api_server_items_itemattributeretrieve:
     path:     /api/v2/item-attribute/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.itemAttribute::itemAttributeReadAction
+        _controller: open_api_server.controller.items::itemAttributeRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# itemCategory
-open_api_server_itemCategory_itemcategorylist:
+open_api_server_items_itemcategorylist:
     path:     /api/v2/item-category/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.itemCategory::itemCategoryListAction
+        _controller: open_api_server.controller.items::itemCategoryListAction
 
-open_api_server_itemCategory_itemcategoryread:
+open_api_server_items_itemcategoryretrieve:
     path:     /api/v2/item-category/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.itemCategory::itemCategoryReadAction
+        _controller: open_api_server.controller.items::itemCategoryRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# itemFlingEffect
-open_api_server_itemFlingEffect_itemflingeffectlist:
+open_api_server_items_itemflingeffectlist:
     path:     /api/v2/item-fling-effect/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.itemFlingEffect::itemFlingEffectListAction
+        _controller: open_api_server.controller.items::itemFlingEffectListAction
 
-open_api_server_itemFlingEffect_itemflingeffectread:
+open_api_server_items_itemflingeffectretrieve:
     path:     /api/v2/item-fling-effect/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.itemFlingEffect::itemFlingEffectReadAction
+        _controller: open_api_server.controller.items::itemFlingEffectRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# itemPocket
-open_api_server_itemPocket_itempocketlist:
+open_api_server_items_itemlist:
+    path:     /api/v2/item/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.items::itemListAction
+
+open_api_server_items_itempocketlist:
     path:     /api/v2/item-pocket/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.itemPocket::itemPocketListAction
+        _controller: open_api_server.controller.items::itemPocketListAction
 
-open_api_server_itemPocket_itempocketread:
+open_api_server_items_itempocketretrieve:
     path:     /api/v2/item-pocket/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.itemPocket::itemPocketReadAction
+        _controller: open_api_server.controller.items::itemPocketRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# language
-open_api_server_language_languagelist:
-    path:     /api/v2/language/
+open_api_server_items_itemretrieve:
+    path:     /api/v2/item/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.language::languageListAction
-
-open_api_server_language_languageread:
-    path:     /api/v2/language/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.language::languageReadAction
+        _controller: open_api_server.controller.items::itemRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
 # location
+open_api_server_location_locationarealist:
+    path:     /api/v2/location-area/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.location::locationAreaListAction
+
+open_api_server_location_locationarearetrieve:
+    path:     /api/v2/location-area/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.location::locationAreaRetrieveAction
+    requirements:
+        id: '\d+'
+
 open_api_server_location_locationlist:
     path:     /api/v2/location/
     methods:  [GET]
     defaults:
         _controller: open_api_server.controller.location::locationListAction
 
-open_api_server_location_locationread:
+open_api_server_location_locationretrieve:
     path:     /api/v2/location/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.location::locationReadAction
+        _controller: open_api_server.controller.location::locationRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# locationArea
-open_api_server_locationArea_locationarealist:
-    path:     /api/v2/location-area/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.locationArea::locationAreaListAction
-
-open_api_server_locationArea_locationarearead:
-    path:     /api/v2/location-area/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.locationArea::locationAreaReadAction
-    requirements:
-        id: '\d+'
-
-# machine
-open_api_server_machine_machinelist:
-    path:     /api/v2/machine/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.machine::machineListAction
-
-open_api_server_machine_machineread:
-    path:     /api/v2/machine/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.machine::machineReadAction
-    requirements:
-        id: '\d+'
-
-# move
-open_api_server_move_movelist:
-    path:     /api/v2/move/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.move::moveListAction
-
-open_api_server_move_moveread:
-    path:     /api/v2/move/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.move::moveReadAction
-    requirements:
-        id: '\d+'
-
-# moveAilment
-open_api_server_moveAilment_moveailmentlist:
-    path:     /api/v2/move-ailment/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.moveAilment::moveAilmentListAction
-
-open_api_server_moveAilment_moveailmentread:
-    path:     /api/v2/move-ailment/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.moveAilment::moveAilmentReadAction
-    requirements:
-        id: '\d+'
-
-# moveBattleStyle
-open_api_server_moveBattleStyle_movebattlestylelist:
-    path:     /api/v2/move-battle-style/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.moveBattleStyle::moveBattleStyleListAction
-
-open_api_server_moveBattleStyle_movebattlestyleread:
-    path:     /api/v2/move-battle-style/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.moveBattleStyle::moveBattleStyleReadAction
-    requirements:
-        id: '\d+'
-
-# moveCategory
-open_api_server_moveCategory_movecategorylist:
-    path:     /api/v2/move-category/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.moveCategory::moveCategoryListAction
-
-open_api_server_moveCategory_movecategoryread:
-    path:     /api/v2/move-category/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.moveCategory::moveCategoryReadAction
-    requirements:
-        id: '\d+'
-
-# moveDamageClass
-open_api_server_moveDamageClass_movedamageclasslist:
-    path:     /api/v2/move-damage-class/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.moveDamageClass::moveDamageClassListAction
-
-open_api_server_moveDamageClass_movedamageclassread:
-    path:     /api/v2/move-damage-class/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.moveDamageClass::moveDamageClassReadAction
-    requirements:
-        id: '\d+'
-
-# moveLearnMethod
-open_api_server_moveLearnMethod_movelearnmethodlist:
-    path:     /api/v2/move-learn-method/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.moveLearnMethod::moveLearnMethodListAction
-
-open_api_server_moveLearnMethod_movelearnmethodread:
-    path:     /api/v2/move-learn-method/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.moveLearnMethod::moveLearnMethodReadAction
-    requirements:
-        id: '\d+'
-
-# moveTarget
-open_api_server_moveTarget_movetargetlist:
-    path:     /api/v2/move-target/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.moveTarget::moveTargetListAction
-
-open_api_server_moveTarget_movetargetread:
-    path:     /api/v2/move-target/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.moveTarget::moveTargetReadAction
-    requirements:
-        id: '\d+'
-
-# nature
-open_api_server_nature_naturelist:
-    path:     /api/v2/nature/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.nature::natureListAction
-
-open_api_server_nature_natureread:
-    path:     /api/v2/nature/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.nature::natureReadAction
-    requirements:
-        id: '\d+'
-
-# palParkArea
-open_api_server_palParkArea_palparkarealist:
+open_api_server_location_palparkarealist:
     path:     /api/v2/pal-park-area/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.palParkArea::palParkAreaListAction
+        _controller: open_api_server.controller.location::palParkAreaListAction
 
-open_api_server_palParkArea_palparkarearead:
+open_api_server_location_palparkarearetrieve:
     path:     /api/v2/pal-park-area/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.palParkArea::palParkAreaReadAction
+        _controller: open_api_server.controller.location::palParkAreaRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# pokeathlonStat
-open_api_server_pokeathlonStat_pokeathlonstatlist:
+open_api_server_location_regionlist:
+    path:     /api/v2/region/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.location::regionListAction
+
+open_api_server_location_regionretrieve:
+    path:     /api/v2/region/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.location::regionRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
+# machines
+open_api_server_machines_machinelist:
+    path:     /api/v2/machine/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.machines::machineListAction
+
+open_api_server_machines_machineretrieve:
+    path:     /api/v2/machine/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.machines::machineRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
+# moves
+open_api_server_moves_moveailmentlist:
+    path:     /api/v2/move-ailment/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.moves::moveAilmentListAction
+
+open_api_server_moves_moveailmentretrieve:
+    path:     /api/v2/move-ailment/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.moves::moveAilmentRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
+open_api_server_moves_movebattlestylelist:
+    path:     /api/v2/move-battle-style/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.moves::moveBattleStyleListAction
+
+open_api_server_moves_movebattlestyleretrieve:
+    path:     /api/v2/move-battle-style/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.moves::moveBattleStyleRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
+open_api_server_moves_movecategorylist:
+    path:     /api/v2/move-category/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.moves::moveCategoryListAction
+
+open_api_server_moves_movecategoryretrieve:
+    path:     /api/v2/move-category/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.moves::moveCategoryRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
+open_api_server_moves_movelearnmethodlist:
+    path:     /api/v2/move-learn-method/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.moves::moveLearnMethodListAction
+
+open_api_server_moves_movelearnmethodretrieve:
+    path:     /api/v2/move-learn-method/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.moves::moveLearnMethodRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
+open_api_server_moves_movelist:
+    path:     /api/v2/move/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.moves::moveListAction
+
+open_api_server_moves_moveretrieve:
+    path:     /api/v2/move/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.moves::moveRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
+open_api_server_moves_movetargetlist:
+    path:     /api/v2/move-target/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.moves::moveTargetListAction
+
+open_api_server_moves_movetargetretrieve:
+    path:     /api/v2/move-target/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.moves::moveTargetRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
+# pokemon
+open_api_server_pokemon_abilitylist:
+    path:     /api/v2/ability/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::abilityListAction
+
+open_api_server_pokemon_abilityretrieve:
+    path:     /api/v2/ability/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::abilityRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
+open_api_server_pokemon_characteristiclist:
+    path:     /api/v2/characteristic/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::characteristicListAction
+
+open_api_server_pokemon_characteristicretrieve:
+    path:     /api/v2/characteristic/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::characteristicRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
+open_api_server_pokemon_egggrouplist:
+    path:     /api/v2/egg-group/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::eggGroupListAction
+
+open_api_server_pokemon_egggroupretrieve:
+    path:     /api/v2/egg-group/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::eggGroupRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
+open_api_server_pokemon_genderlist:
+    path:     /api/v2/gender/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::genderListAction
+
+open_api_server_pokemon_genderretrieve:
+    path:     /api/v2/gender/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::genderRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
+open_api_server_pokemon_growthratelist:
+    path:     /api/v2/growth-rate/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::growthRateListAction
+
+open_api_server_pokemon_growthrateretrieve:
+    path:     /api/v2/growth-rate/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::growthRateRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
+open_api_server_pokemon_movedamageclasslist:
+    path:     /api/v2/move-damage-class/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::moveDamageClassListAction
+
+open_api_server_pokemon_movedamageclassretrieve:
+    path:     /api/v2/move-damage-class/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::moveDamageClassRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
+open_api_server_pokemon_naturelist:
+    path:     /api/v2/nature/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::natureListAction
+
+open_api_server_pokemon_natureretrieve:
+    path:     /api/v2/nature/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::natureRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
+open_api_server_pokemon_pokeathlonstatlist:
     path:     /api/v2/pokeathlon-stat/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.pokeathlonStat::pokeathlonStatListAction
+        _controller: open_api_server.controller.pokemon::pokeathlonStatListAction
 
-open_api_server_pokeathlonStat_pokeathlonstatread:
+open_api_server_pokemon_pokeathlonstatretrieve:
     path:     /api/v2/pokeathlon-stat/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.pokeathlonStat::pokeathlonStatReadAction
+        _controller: open_api_server.controller.pokemon::pokeathlonStatRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# pokedex
-open_api_server_pokedex_pokedexlist:
-    path:     /api/v2/pokedex/
+open_api_server_pokemon_pokemoncolorlist:
+    path:     /api/v2/pokemon-color/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.pokedex::pokedexListAction
+        _controller: open_api_server.controller.pokemon::pokemonColorListAction
 
-open_api_server_pokedex_pokedexread:
-    path:     /api/v2/pokedex/{id}/
+open_api_server_pokemon_pokemoncolorretrieve:
+    path:     /api/v2/pokemon-color/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.pokedex::pokedexReadAction
+        _controller: open_api_server.controller.pokemon::pokemonColorRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# pokemon
+open_api_server_pokemon_pokemonformlist:
+    path:     /api/v2/pokemon-form/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::pokemonFormListAction
+
+open_api_server_pokemon_pokemonformretrieve:
+    path:     /api/v2/pokemon-form/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::pokemonFormRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
+open_api_server_pokemon_pokemonhabitatlist:
+    path:     /api/v2/pokemon-habitat/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::pokemonHabitatListAction
+
+open_api_server_pokemon_pokemonhabitatretrieve:
+    path:     /api/v2/pokemon-habitat/{id}/
+    methods:  [GET]
+    defaults:
+        _controller: open_api_server.controller.pokemon::pokemonHabitatRetrieveAction
+    requirements:
+        id: '[a-z0-9]+'
+
 open_api_server_pokemon_pokemonlist:
     path:     /api/v2/pokemon/
     methods:  [GET]
     defaults:
         _controller: open_api_server.controller.pokemon::pokemonListAction
 
-open_api_server_pokemon_pokemonread:
+open_api_server_pokemon_pokemonretrieve:
     path:     /api/v2/pokemon/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.pokemon::pokemonReadAction
+        _controller: open_api_server.controller.pokemon::pokemonRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# pokemonColor
-open_api_server_pokemonColor_pokemoncolorlist:
-    path:     /api/v2/pokemon-color/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.pokemonColor::pokemonColorListAction
-
-open_api_server_pokemonColor_pokemoncolorread:
-    path:     /api/v2/pokemon-color/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.pokemonColor::pokemonColorReadAction
-    requirements:
-        id: '\d+'
-
-# pokemonForm
-open_api_server_pokemonForm_pokemonformlist:
-    path:     /api/v2/pokemon-form/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.pokemonForm::pokemonFormListAction
-
-open_api_server_pokemonForm_pokemonformread:
-    path:     /api/v2/pokemon-form/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.pokemonForm::pokemonFormReadAction
-    requirements:
-        id: '\d+'
-
-# pokemonHabitat
-open_api_server_pokemonHabitat_pokemonhabitatlist:
-    path:     /api/v2/pokemon-habitat/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.pokemonHabitat::pokemonHabitatListAction
-
-open_api_server_pokemonHabitat_pokemonhabitatread:
-    path:     /api/v2/pokemon-habitat/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.pokemonHabitat::pokemonHabitatReadAction
-    requirements:
-        id: '\d+'
-
-# pokemonShape
-open_api_server_pokemonShape_pokemonshapelist:
+open_api_server_pokemon_pokemonshapelist:
     path:     /api/v2/pokemon-shape/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.pokemonShape::pokemonShapeListAction
+        _controller: open_api_server.controller.pokemon::pokemonShapeListAction
 
-open_api_server_pokemonShape_pokemonshaperead:
+open_api_server_pokemon_pokemonshaperetrieve:
     path:     /api/v2/pokemon-shape/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.pokemonShape::pokemonShapeReadAction
+        _controller: open_api_server.controller.pokemon::pokemonShapeRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# pokemonSpecies
-open_api_server_pokemonSpecies_pokemonspecieslist:
+open_api_server_pokemon_pokemonspecieslist:
     path:     /api/v2/pokemon-species/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.pokemonSpecies::pokemonSpeciesListAction
+        _controller: open_api_server.controller.pokemon::pokemonSpeciesListAction
 
-open_api_server_pokemonSpecies_pokemonspeciesread:
+open_api_server_pokemon_pokemonspeciesretrieve:
     path:     /api/v2/pokemon-species/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.pokemonSpecies::pokemonSpeciesReadAction
+        _controller: open_api_server.controller.pokemon::pokemonSpeciesRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# region
-open_api_server_region_regionlist:
-    path:     /api/v2/region/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.region::regionListAction
-
-open_api_server_region_regionread:
-    path:     /api/v2/region/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.region::regionReadAction
-    requirements:
-        id: '\d+'
-
-# stat
-open_api_server_stat_statlist:
+open_api_server_pokemon_statlist:
     path:     /api/v2/stat/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.stat::statListAction
+        _controller: open_api_server.controller.pokemon::statListAction
 
-open_api_server_stat_statread:
+open_api_server_pokemon_statretrieve:
     path:     /api/v2/stat/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.stat::statReadAction
+        _controller: open_api_server.controller.pokemon::statRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# superContestEffect
-open_api_server_superContestEffect_supercontesteffectlist:
-    path:     /api/v2/super-contest-effect/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.superContestEffect::superContestEffectListAction
-
-open_api_server_superContestEffect_supercontesteffectread:
-    path:     /api/v2/super-contest-effect/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.superContestEffect::superContestEffectReadAction
-    requirements:
-        id: '\d+'
-
-# type
-open_api_server_type_typelist:
+open_api_server_pokemon_typelist:
     path:     /api/v2/type/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.type::typeListAction
+        _controller: open_api_server.controller.pokemon::typeListAction
 
-open_api_server_type_typeread:
+open_api_server_pokemon_typeretrieve:
     path:     /api/v2/type/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.type::typeReadAction
+        _controller: open_api_server.controller.pokemon::typeRetrieveAction
     requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 
-# version
-open_api_server_version_versionlist:
-    path:     /api/v2/version/
+# utility
+open_api_server_utility_languagelist:
+    path:     /api/v2/language/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.version::versionListAction
+        _controller: open_api_server.controller.utility::languageListAction
 
-open_api_server_version_versionread:
-    path:     /api/v2/version/{id}/
+open_api_server_utility_languageretrieve:
+    path:     /api/v2/language/{id}/
     methods:  [GET]
     defaults:
-        _controller: open_api_server.controller.version::versionReadAction
+        _controller: open_api_server.controller.utility::languageRetrieveAction
     requirements:
-        id: '\d+'
-
-# versionGroup
-open_api_server_versionGroup_versiongrouplist:
-    path:     /api/v2/version-group/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.versionGroup::versionGroupListAction
-
-open_api_server_versionGroup_versiongroupread:
-    path:     /api/v2/version-group/{id}/
-    methods:  [GET]
-    defaults:
-        _controller: open_api_server.controller.versionGroup::versionGroupReadAction
-    requirements:
-        id: '\d+'
+        id: '[a-z0-9]+'
 

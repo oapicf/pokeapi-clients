@@ -5,5 +5,35 @@
  *
  *)
 
-val pokemon_list : ?limit:int32 -> ?offset:int32 -> unit -> string Lwt.t
-val pokemon_read : id:int32 -> string Lwt.t
+val ability_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_ability_summary_list.t Lwt.t
+val ability_retrieve : id:string -> Ability_detail.t Lwt.t
+val characteristic_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_characteristic_summary_list.t Lwt.t
+val characteristic_retrieve : id:string -> Characteristic_detail.t Lwt.t
+val egg_group_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_egg_group_summary_list.t Lwt.t
+val egg_group_retrieve : id:string -> Egg_group_detail.t Lwt.t
+val gender_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_gender_summary_list.t Lwt.t
+val gender_retrieve : id:string -> Gender_detail.t Lwt.t
+val growth_rate_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_growth_rate_summary_list.t Lwt.t
+val growth_rate_retrieve : id:string -> Growth_rate_detail.t Lwt.t
+val move_damage_class_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_move_damage_class_summary_list.t Lwt.t
+val move_damage_class_retrieve : id:string -> Move_damage_class_detail.t Lwt.t
+val nature_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_nature_summary_list.t Lwt.t
+val nature_retrieve : id:string -> Nature_detail.t Lwt.t
+val pokeathlon_stat_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_pokeathlon_stat_summary_list.t Lwt.t
+val pokeathlon_stat_retrieve : id:string -> Pokeathlon_stat_detail.t Lwt.t
+val pokemon_color_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_pokemon_color_summary_list.t Lwt.t
+val pokemon_color_retrieve : id:string -> Pokemon_color_detail.t Lwt.t
+val pokemon_form_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_pokemon_form_summary_list.t Lwt.t
+val pokemon_form_retrieve : id:string -> Pokemon_form_detail.t Lwt.t
+val pokemon_habitat_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_pokemon_habitat_summary_list.t Lwt.t
+val pokemon_habitat_retrieve : id:string -> Pokemon_habitat_detail.t Lwt.t
+val pokemon_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_pokemon_summary_list.t Lwt.t
+val pokemon_retrieve : id:string -> Pokemon_detail.t Lwt.t
+val pokemon_shape_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_pokemon_shape_summary_list.t Lwt.t
+val pokemon_shape_retrieve : id:string -> Pokemon_shape_detail.t Lwt.t
+val pokemon_species_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_pokemon_species_summary_list.t Lwt.t
+val pokemon_species_retrieve : id:string -> Pokemon_species_detail.t Lwt.t
+val stat_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_stat_summary_list.t Lwt.t
+val stat_retrieve : id:string -> Stat_detail.t Lwt.t
+val type_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_type_summary_list.t Lwt.t
+val type_retrieve : id:string -> Type_detail.t Lwt.t

@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ItemSummary",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "url",
+      "type": "model.URI",
+      "doc": ""
+    }
+  ]
+
+}

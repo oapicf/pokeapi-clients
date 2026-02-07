@@ -16,6 +16,7 @@ use Psr\Http\Message\ServerRequestInterface;
 class ApiV2Berry
 {
     /**
+     * List berries
      * @PHA\Get()
      * @PHA\Attribute(name=PHAttribute\Transfer::class, options={
      *     "type":\App\DTO\BerryListQueryData::class,
@@ -23,14 +24,14 @@ class ApiV2Berry
      *     "source": PHAttribute\Transfer::SOURCE_GET
      * })
      * TODO check if producer is valid, if it has correct priority and if it can be moved to class annotation
-     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="text/plain")
+     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="application/json")
      * @param ServerRequestInterface $request
      *
      * @throws PHException\HttpCode 501 if the method is not implemented
      *
-     * @return string
+     * @return \App\DTO\PaginatedBerrySummaryList
      */
-    public function berryList(ServerRequestInterface $request): string
+    public function berryList(ServerRequestInterface $request): \App\DTO\PaginatedBerrySummaryList
     {
         //TODO implement method
         /** @var \App\DTO\BerryListQueryData $queryData */

@@ -16,6 +16,7 @@ use Psr\Http\Message\ServerRequestInterface;
 class ApiV2Region
 {
     /**
+     * List regions
      * @PHA\Get()
      * @PHA\Attribute(name=PHAttribute\Transfer::class, options={
      *     "type":\App\DTO\RegionListQueryData::class,
@@ -23,14 +24,14 @@ class ApiV2Region
      *     "source": PHAttribute\Transfer::SOURCE_GET
      * })
      * TODO check if producer is valid, if it has correct priority and if it can be moved to class annotation
-     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="text/plain")
+     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="application/json")
      * @param ServerRequestInterface $request
      *
      * @throws PHException\HttpCode 501 if the method is not implemented
      *
-     * @return string
+     * @return \App\DTO\PaginatedRegionSummaryList
      */
-    public function regionList(ServerRequestInterface $request): string
+    public function regionList(ServerRequestInterface $request): \App\DTO\PaginatedRegionSummaryList
     {
         //TODO implement method
         /** @var \App\DTO\RegionListQueryData $queryData */

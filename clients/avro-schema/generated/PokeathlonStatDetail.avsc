@@ -1,0 +1,32 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokeathlonStatDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "affecting_natures",
+      "type": "model.PokeathlonStatDetailAffectingNatures",
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.PokeathlonStatName"
+      },
+      "doc": ""
+    }
+  ]
+
+}

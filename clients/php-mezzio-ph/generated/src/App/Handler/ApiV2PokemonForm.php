@@ -16,6 +16,7 @@ use Psr\Http\Message\ServerRequestInterface;
 class ApiV2PokemonForm
 {
     /**
+     * List pokemon forms
      * @PHA\Get()
      * @PHA\Attribute(name=PHAttribute\Transfer::class, options={
      *     "type":\App\DTO\PokemonFormListQueryData::class,
@@ -23,14 +24,14 @@ class ApiV2PokemonForm
      *     "source": PHAttribute\Transfer::SOURCE_GET
      * })
      * TODO check if producer is valid, if it has correct priority and if it can be moved to class annotation
-     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="text/plain")
+     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="application/json")
      * @param ServerRequestInterface $request
      *
      * @throws PHException\HttpCode 501 if the method is not implemented
      *
-     * @return string
+     * @return \App\DTO\PaginatedPokemonFormSummaryList
      */
-    public function pokemonFormList(ServerRequestInterface $request): string
+    public function pokemonFormList(ServerRequestInterface $request): \App\DTO\PaginatedPokemonFormSummaryList
     {
         //TODO implement method
         /** @var \App\DTO\PokemonFormListQueryData $queryData */

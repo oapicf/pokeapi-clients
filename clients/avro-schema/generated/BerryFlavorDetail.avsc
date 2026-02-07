@@ -1,0 +1,40 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "BerryFlavorDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "berries",
+      "type": {
+        "type": "array",
+        "items": "model.BerryFlavorDetailBerriesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "contest_type",
+      "type": "model.ContestTypeSummary",
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.BerryFlavorName"
+      },
+      "doc": ""
+    }
+  ]
+
+}

@@ -1,0 +1,35 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails",
+  "fields": [
+    {
+      "name": "min_level",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "max_level",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "condition_values",
+      "type": ["null", "model.AbilityDetailPokemonInnerPokemon"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "chance",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "method",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    }
+  ]
+
+}

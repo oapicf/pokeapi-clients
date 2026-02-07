@@ -1,0 +1,99 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner",
+  "fields": [
+    {
+      "name": "gender",
+      "type": "model.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender",
+      "doc": ""
+    },
+    {
+      "name": "held_item",
+      "type": "model.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender",
+      "doc": ""
+    },
+    {
+      "name": "item",
+      "type": "model.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender",
+      "doc": ""
+    },
+    {
+      "name": "known_move",
+      "type": "model.Object",
+      "doc": ""
+    },
+    {
+      "name": "known_move_type",
+      "type": "model.Object",
+      "doc": ""
+    },
+    {
+      "name": "location",
+      "type": "model.EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender",
+      "doc": ""
+    },
+    {
+      "name": "min_affection",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "min_beauty",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "min_happiness",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "min_level",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "needs_overworld_rain",
+      "type": "boolean",
+      "doc": ""
+    },
+    {
+      "name": "party_species",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "party_type",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "relative_physical_stats",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "time_of_day",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "trade_species",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "trigger",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    },
+    {
+      "name": "turn_upside_down",
+      "type": "boolean",
+      "doc": ""
+    }
+  ]
+
+}

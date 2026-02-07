@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner",
+  "fields": [
+    {
+      "name": "rate",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "version",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    }
+  ]
+
+}

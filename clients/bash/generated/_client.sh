@@ -297,55 +297,93 @@ case $state in
   ops)
     # Operations
     _values "Operations" \
-            "abilityList[]" \
-            "abilityRead[]"             "berryList[]" \
-            "berryRead[]"             "berryFirmnessList[]" \
-            "berryFirmnessRead[]"             "berryFlavorList[]" \
-            "berryFlavorRead[]"             "characteristicList[]" \
-            "characteristicRead[]"             "contestEffectList[]" \
-            "contestEffectRead[]"             "contestTypeList[]" \
-            "contestTypeRead[]"             "eggGroupList[]" \
-            "eggGroupRead[]"             "encounterConditionList[]" \
-            "encounterConditionRead[]"             "encounterConditionValueList[]" \
-            "encounterConditionValueRead[]"             "encounterMethodList[]" \
-            "encounterMethodRead[]"             "evolutionChainList[]" \
-            "evolutionChainRead[]"             "evolutionTriggerList[]" \
-            "evolutionTriggerRead[]"             "genderList[]" \
-            "genderRead[]"             "generationList[]" \
-            "generationRead[]"             "growthRateList[]" \
-            "growthRateRead[]"             "itemList[]" \
-            "itemRead[]"             "itemAttributeList[]" \
-            "itemAttributeRead[]"             "itemCategoryList[]" \
-            "itemCategoryRead[]"             "itemFlingEffectList[]" \
-            "itemFlingEffectRead[]"             "itemPocketList[]" \
-            "itemPocketRead[]"             "languageList[]" \
-            "languageRead[]"             "locationList[]" \
-            "locationRead[]"             "locationAreaList[]" \
-            "locationAreaRead[]"             "machineList[]" \
-            "machineRead[]"             "moveList[]" \
-            "moveRead[]"             "moveAilmentList[]" \
-            "moveAilmentRead[]"             "moveBattleStyleList[]" \
-            "moveBattleStyleRead[]"             "moveCategoryList[]" \
-            "moveCategoryRead[]"             "moveDamageClassList[]" \
-            "moveDamageClassRead[]"             "moveLearnMethodList[]" \
-            "moveLearnMethodRead[]"             "moveTargetList[]" \
-            "moveTargetRead[]"             "natureList[]" \
-            "natureRead[]"             "palParkAreaList[]" \
-            "palParkAreaRead[]"             "pokeathlonStatList[]" \
-            "pokeathlonStatRead[]"             "pokedexList[]" \
-            "pokedexRead[]"             "pokemonList[]" \
-            "pokemonRead[]"             "pokemonColorList[]" \
-            "pokemonColorRead[]"             "pokemonFormList[]" \
-            "pokemonFormRead[]"             "pokemonHabitatList[]" \
-            "pokemonHabitatRead[]"             "pokemonShapeList[]" \
-            "pokemonShapeRead[]"             "pokemonSpeciesList[]" \
-            "pokemonSpeciesRead[]"             "regionList[]" \
-            "regionRead[]"             "statList[]" \
-            "statRead[]"             "superContestEffectList[]" \
-            "superContestEffectRead[]"             "typeList[]" \
-            "typeRead[]"             "versionList[]" \
-            "versionRead[]"             "versionGroupList[]" \
-            "versionGroupRead[]" \
+            "berryFirmnessList[List berry firmness]" \
+            "berryFirmnessRetrieve[Get berry by firmness]" \
+            "berryFlavorList[List berry flavors]" \
+            "berryFlavorRetrieve[Get berries by flavor]" \
+            "berryList[List berries]" \
+            "berryRetrieve[Get a berry]"             "contestEffectList[List contest effects]" \
+            "contestEffectRetrieve[Get contest effect]" \
+            "contestTypeList[List contest types]" \
+            "contestTypeRetrieve[Get contest type]" \
+            "superContestEffectList[List super contest effects]" \
+            "superContestEffectRetrieve[Get super contest effect]"             "encounterConditionList[List encounter conditions]" \
+            "encounterConditionRetrieve[Get encounter condition]" \
+            "encounterConditionValueList[List encounter condition values]" \
+            "encounterConditionValueRetrieve[Get encounter condition value]" \
+            "encounterMethodList[List encounter methods]" \
+            "encounterMethodRetrieve[Get encounter method]" \
+            "pokemonEncountersRetrieve[Get pokemon encounter]"             "evolutionChainList[List evolution chains]" \
+            "evolutionChainRetrieve[Get evolution chain]" \
+            "evolutionTriggerList[List evolution triggers]" \
+            "evolutionTriggerRetrieve[Get evolution trigger]"             "generationList[List genrations]" \
+            "generationRetrieve[Get genration]" \
+            "pokedexList[List pokedex]" \
+            "pokedexRetrieve[Get pokedex]" \
+            "versionGroupList[List version groups]" \
+            "versionGroupRetrieve[Get version group]" \
+            "versionList[List versions]" \
+            "versionRetrieve[Get version]"             "itemAttributeList[List item attributes]" \
+            "itemAttributeRetrieve[Get item attribute]" \
+            "itemCategoryList[List item categories]" \
+            "itemCategoryRetrieve[Get item category]" \
+            "itemFlingEffectList[List item fling effects]" \
+            "itemFlingEffectRetrieve[Get item fling effect]" \
+            "itemList[List items]" \
+            "itemPocketList[List item pockets]" \
+            "itemPocketRetrieve[Get item pocket]" \
+            "itemRetrieve[Get item]"             "locationAreaList[List location areas]" \
+            "locationAreaRetrieve[Get location area]" \
+            "locationList[List locations]" \
+            "locationRetrieve[Get location]" \
+            "palParkAreaList[List pal park areas]" \
+            "palParkAreaRetrieve[Get pal park area]" \
+            "regionList[List regions]" \
+            "regionRetrieve[Get region]"             "machineList[List machines]" \
+            "machineRetrieve[Get machine]"             "moveAilmentList[List move meta ailments]" \
+            "moveAilmentRetrieve[Get move meta ailment]" \
+            "moveBattleStyleList[List move battle styles]" \
+            "moveBattleStyleRetrieve[Get move battle style]" \
+            "moveCategoryList[List move meta categories]" \
+            "moveCategoryRetrieve[Get move meta category]" \
+            "moveLearnMethodList[List move learn methods]" \
+            "moveLearnMethodRetrieve[Get move learn method]" \
+            "moveList[List moves]" \
+            "moveRetrieve[Get move]" \
+            "moveTargetList[List move targets]" \
+            "moveTargetRetrieve[Get move target]"             "abilityList[]" \
+            "abilityRetrieve[]" \
+            "characteristicList[List charecterictics]" \
+            "characteristicRetrieve[Get characteristic]" \
+            "eggGroupList[List egg groups]" \
+            "eggGroupRetrieve[Get egg group]" \
+            "genderList[List genders]" \
+            "genderRetrieve[Get gender]" \
+            "growthRateList[List growth rates]" \
+            "growthRateRetrieve[Get growth rate]" \
+            "moveDamageClassList[List move damage classes]" \
+            "moveDamageClassRetrieve[Get move damage class]" \
+            "natureList[List natures]" \
+            "natureRetrieve[Get nature]" \
+            "pokeathlonStatList[List pokeathlon stats]" \
+            "pokeathlonStatRetrieve[Get pokeathlon stat]" \
+            "pokemonColorList[List pokemon colors]" \
+            "pokemonColorRetrieve[Get pokemon color]" \
+            "pokemonFormList[List pokemon forms]" \
+            "pokemonFormRetrieve[Get pokemon form]" \
+            "pokemonHabitatList[List pokemom habitas]" \
+            "pokemonHabitatRetrieve[Get pokemom habita]" \
+            "pokemonList[List pokemon]" \
+            "pokemonRetrieve[Get pokemon]" \
+            "pokemonShapeList[List pokemon shapes]" \
+            "pokemonShapeRetrieve[Get pokemon shape]" \
+            "pokemonSpeciesList[List pokemon species]" \
+            "pokemonSpeciesRetrieve[Get pokemon species]" \
+            "statList[List stats]" \
+            "statRetrieve[Get stat]" \
+            "typeList[List types]" \
+            "typeRetrieve[Get types]"             "languageList[List languages]" \
+            "languageRetrieve[Get language]" \
 
     _arguments "(--help)--help[Print information about operation]"
 
@@ -353,723 +391,824 @@ case $state in
     ;;
   args)
     case $line[1] in
-      abilityList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      abilityRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      berryList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      berryRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
       berryFirmnessList)
         local -a _op_arguments
         _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      berryFirmnessRead)
+      berryFirmnessRetrieve)
         local -a _op_arguments
         _op_arguments=(
-          "id=:[PATH] "
+          "id=:[PATH] This parameter can be a string or an integer."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       berryFlavorList)
         local -a _op_arguments
         _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      berryFlavorRead)
+      berryFlavorRetrieve)
         local -a _op_arguments
         _op_arguments=(
-          "id=:[PATH] "
+          "id=:[PATH] This parameter can be a string or an integer."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      characteristicList)
+      berryList)
         local -a _op_arguments
         _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      characteristicRead)
+      berryRetrieve)
         local -a _op_arguments
         _op_arguments=(
-          "id=:[PATH] "
+          "id=:[PATH] This parameter can be a string or an integer."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       contestEffectList)
         local -a _op_arguments
         _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      contestEffectRead)
+      contestEffectRetrieve)
         local -a _op_arguments
         _op_arguments=(
-          "id=:[PATH] "
+          "id=:[PATH] This parameter can be a string or an integer."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       contestTypeList)
         local -a _op_arguments
         _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      contestTypeRead)
+      contestTypeRetrieve)
         local -a _op_arguments
         _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      eggGroupList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      eggGroupRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      encounterConditionList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      encounterConditionRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      encounterConditionValueList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      encounterConditionValueRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      encounterMethodList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      encounterMethodRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      evolutionChainList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      evolutionChainRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      evolutionTriggerList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      evolutionTriggerRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      genderList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      genderRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      generationList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      generationRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      growthRateList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      growthRateRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      itemList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      itemRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      itemAttributeList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      itemAttributeRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      itemCategoryList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      itemCategoryRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      itemFlingEffectList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      itemFlingEffectRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      itemPocketList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      itemPocketRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      languageList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      languageRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      locationList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      locationRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      locationAreaList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      locationAreaRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      machineList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      machineRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      moveList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      moveRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      moveAilmentList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      moveAilmentRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      moveBattleStyleList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      moveBattleStyleRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      moveCategoryList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      moveCategoryRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      moveDamageClassList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      moveDamageClassRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      moveLearnMethodList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      moveLearnMethodRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      moveTargetList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      moveTargetRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      natureList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      natureRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      palParkAreaList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      palParkAreaRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      pokeathlonStatList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      pokeathlonStatRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      pokedexList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      pokedexRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      pokemonList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      pokemonRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      pokemonColorList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      pokemonColorRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      pokemonFormList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      pokemonFormRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      pokemonHabitatList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      pokemonHabitatRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      pokemonShapeList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      pokemonShapeRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      pokemonSpeciesList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      pokemonSpeciesRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      regionList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      regionRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      statList)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      statRead)
-        local -a _op_arguments
-        _op_arguments=(
-          "id=:[PATH] "
+          "id=:[PATH] This parameter can be a string or an integer."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       superContestEffectList)
         local -a _op_arguments
         _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      superContestEffectRead)
+      superContestEffectRetrieve)
         local -a _op_arguments
         _op_arguments=(
-          "id=:[PATH] "
+          "id=:[PATH] This parameter can be a string or an integer."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      typeList)
+      encounterConditionList)
         local -a _op_arguments
         _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      typeRead)
+      encounterConditionRetrieve)
         local -a _op_arguments
         _op_arguments=(
-          "id=:[PATH] "
+          "id=:[PATH] This parameter can be a string or an integer."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      versionList)
+      encounterConditionValueList)
         local -a _op_arguments
         _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      versionRead)
+      encounterConditionValueRetrieve)
         local -a _op_arguments
         _op_arguments=(
-          "id=:[PATH] "
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      encounterMethodList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      encounterMethodRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      pokemonEncountersRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "pokemon_id=:[PATH] "
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      evolutionChainList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      evolutionChainRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      evolutionTriggerList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      evolutionTriggerRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      generationList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      generationRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      pokedexList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      pokedexRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       versionGroupList)
         local -a _op_arguments
         _op_arguments=(
-                    "limit=:[QUERY] "
-"offset=:[QUERY] "
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      versionGroupRead)
+      versionGroupRetrieve)
         local -a _op_arguments
         _op_arguments=(
-          "id=:[PATH] "
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      versionList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      versionRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      itemAttributeList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      itemAttributeRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      itemCategoryList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      itemCategoryRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      itemFlingEffectList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      itemFlingEffectRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      itemList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      itemPocketList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      itemPocketRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      itemRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      locationAreaList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      locationAreaRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] A unique integer value identifying this location area."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      locationList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      locationRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      palParkAreaList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      palParkAreaRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      regionList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      regionRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      machineList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      machineRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      moveAilmentList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      moveAilmentRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      moveBattleStyleList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      moveBattleStyleRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      moveCategoryList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      moveCategoryRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      moveLearnMethodList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      moveLearnMethodRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      moveList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      moveRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      moveTargetList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      moveTargetRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      abilityList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      abilityRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      characteristicList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      characteristicRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      eggGroupList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      eggGroupRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      genderList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      genderRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      growthRateList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      growthRateRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      moveDamageClassList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      moveDamageClassRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      natureList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      natureRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      pokeathlonStatList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      pokeathlonStatRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      pokemonColorList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      pokemonColorRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      pokemonFormList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      pokemonFormRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      pokemonHabitatList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      pokemonHabitatRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      pokemonList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      pokemonRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      pokemonShapeList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      pokemonShapeRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      pokemonSpeciesList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      pokemonSpeciesRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      statList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      statRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      typeList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      typeRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      languageList)
+        local -a _op_arguments
+        _op_arguments=(
+                    "limit=:[QUERY] Number of results to return per page."
+"offset=:[QUERY] The initial index from which to return the results."
+"q=:[QUERY] &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the &#39;name&#39; property."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      languageRetrieve)
+        local -a _op_arguments
+        _op_arguments=(
+          "id=:[PATH] This parameter can be a string or an integer."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;

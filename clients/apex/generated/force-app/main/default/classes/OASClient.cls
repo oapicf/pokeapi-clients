@@ -1,6 +1,7 @@
 public class OASClient extends OAS.ApiClient {
     public OASClient() {
         basePath = 'https://pokeapi.co';
-        calloutName = '';
+        calloutName = 'PokAPI';
+        authentications.put('cookieAuth', new OAS.ApiKeyHeaderAuth('sessionid'));
     }
 }

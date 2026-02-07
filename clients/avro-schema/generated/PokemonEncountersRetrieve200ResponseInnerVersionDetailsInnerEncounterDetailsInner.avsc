@@ -1,0 +1,37 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner",
+  "fields": [
+    {
+      "name": "chance",
+      "type": "double",
+      "doc": ""
+    },
+    {
+      "name": "condition_values",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "max_level",
+      "type": "double",
+      "doc": ""
+    },
+    {
+      "name": "method",
+      "type": "model.PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod",
+      "doc": ""
+    },
+    {
+      "name": "min_level",
+      "type": "double",
+      "doc": ""
+    }
+  ]
+
+}

@@ -45,153 +45,117 @@ accept_callback(Class, OperationID, Req0, Context0) ->
 -ignore_xref([prepare_validator/0, prepare_validator/1, prepare_validator/2]).
 
 -type class() ::
-    'ability'
-    | 'berry'
-    | 'berryFirmness'
-    | 'berryFlavor'
-    | 'characteristic'
-    | 'contestEffect'
-    | 'contestType'
-    | 'eggGroup'
-    | 'encounterCondition'
-    | 'encounterConditionValue'
-    | 'encounterMethod'
-    | 'evolutionChain'
-    | 'evolutionTrigger'
-    | 'gender'
-    | 'generation'
-    | 'growthRate'
-    | 'item'
-    | 'itemAttribute'
-    | 'itemCategory'
-    | 'itemFlingEffect'
-    | 'itemPocket'
-    | 'language'
+    'berries'
+    | 'contests'
+    | 'encounters'
+    | 'evolution'
+    | 'games'
+    | 'items'
     | 'location'
-    | 'locationArea'
-    | 'machine'
-    | 'move'
-    | 'moveAilment'
-    | 'moveBattleStyle'
-    | 'moveCategory'
-    | 'moveDamageClass'
-    | 'moveLearnMethod'
-    | 'moveTarget'
-    | 'nature'
-    | 'palParkArea'
-    | 'pokeathlonStat'
-    | 'pokedex'
+    | 'machines'
+    | 'moves'
     | 'pokemon'
-    | 'pokemonColor'
-    | 'pokemonForm'
-    | 'pokemonHabitat'
-    | 'pokemonShape'
-    | 'pokemonSpecies'
-    | 'region'
-    | 'stat'
-    | 'superContestEffect'
-    | 'type'
-    | 'version'
-    | 'versionGroup'.
+    | 'utility'.
 
 
 -type operation_id() ::
+    'berry_firmness_list' | %% List berry firmness
+    'berry_firmness_retrieve' | %% Get berry by firmness
+    'berry_flavor_list' | %% List berry flavors
+    'berry_flavor_retrieve' | %% Get berries by flavor
+    'berry_list' | %% List berries
+    'berry_retrieve' | %% Get a berry
+    'contest_effect_list' | %% List contest effects
+    'contest_effect_retrieve' | %% Get contest effect
+    'contest_type_list' | %% List contest types
+    'contest_type_retrieve' | %% Get contest type
+    'super_contest_effect_list' | %% List super contest effects
+    'super_contest_effect_retrieve' | %% Get super contest effect
+    'encounter_condition_list' | %% List encounter conditions
+    'encounter_condition_retrieve' | %% Get encounter condition
+    'encounter_condition_value_list' | %% List encounter condition values
+    'encounter_condition_value_retrieve' | %% Get encounter condition value
+    'encounter_method_list' | %% List encounter methods
+    'encounter_method_retrieve' | %% Get encounter method
+    'pokemon_encounters_retrieve' | %% Get pokemon encounter
+    'evolution_chain_list' | %% List evolution chains
+    'evolution_chain_retrieve' | %% Get evolution chain
+    'evolution_trigger_list' | %% List evolution triggers
+    'evolution_trigger_retrieve' | %% Get evolution trigger
+    'generation_list' | %% List genrations
+    'generation_retrieve' | %% Get genration
+    'pokedex_list' | %% List pokedex
+    'pokedex_retrieve' | %% Get pokedex
+    'version_group_list' | %% List version groups
+    'version_group_retrieve' | %% Get version group
+    'version_list' | %% List versions
+    'version_retrieve' | %% Get version
+    'item_attribute_list' | %% List item attributes
+    'item_attribute_retrieve' | %% Get item attribute
+    'item_category_list' | %% List item categories
+    'item_category_retrieve' | %% Get item category
+    'item_fling_effect_list' | %% List item fling effects
+    'item_fling_effect_retrieve' | %% Get item fling effect
+    'item_list' | %% List items
+    'item_pocket_list' | %% List item pockets
+    'item_pocket_retrieve' | %% Get item pocket
+    'item_retrieve' | %% Get item
+    'location_area_list' | %% List location areas
+    'location_area_retrieve' | %% Get location area
+    'location_list' | %% List locations
+    'location_retrieve' | %% Get location
+    'pal_park_area_list' | %% List pal park areas
+    'pal_park_area_retrieve' | %% Get pal park area
+    'region_list' | %% List regions
+    'region_retrieve' | %% Get region
+    'machine_list' | %% List machines
+    'machine_retrieve' | %% Get machine
+    'move_ailment_list' | %% List move meta ailments
+    'move_ailment_retrieve' | %% Get move meta ailment
+    'move_battle_style_list' | %% List move battle styles
+    'move_battle_style_retrieve' | %% Get move battle style
+    'move_category_list' | %% List move meta categories
+    'move_category_retrieve' | %% Get move meta category
+    'move_learn_method_list' | %% List move learn methods
+    'move_learn_method_retrieve' | %% Get move learn method
+    'move_list' | %% List moves
+    'move_retrieve' | %% Get move
+    'move_target_list' | %% List move targets
+    'move_target_retrieve' | %% Get move target
     'ability_list' | %% 
-    'ability_read' | %% 
-    'berry_list' | %% 
-    'berry_read' | %% 
-    'berry-firmness_list' | %% 
-    'berry-firmness_read' | %% 
-    'berry-flavor_list' | %% 
-    'berry-flavor_read' | %% 
-    'characteristic_list' | %% 
-    'characteristic_read' | %% 
-    'contest-effect_list' | %% 
-    'contest-effect_read' | %% 
-    'contest-type_list' | %% 
-    'contest-type_read' | %% 
-    'egg-group_list' | %% 
-    'egg-group_read' | %% 
-    'encounter-condition_list' | %% 
-    'encounter-condition_read' | %% 
-    'encounter-condition-value_list' | %% 
-    'encounter-condition-value_read' | %% 
-    'encounter-method_list' | %% 
-    'encounter-method_read' | %% 
-    'evolution-chain_list' | %% 
-    'evolution-chain_read' | %% 
-    'evolution-trigger_list' | %% 
-    'evolution-trigger_read' | %% 
-    'gender_list' | %% 
-    'gender_read' | %% 
-    'generation_list' | %% 
-    'generation_read' | %% 
-    'growth-rate_list' | %% 
-    'growth-rate_read' | %% 
-    'item_list' | %% 
-    'item_read' | %% 
-    'item-attribute_list' | %% 
-    'item-attribute_read' | %% 
-    'item-category_list' | %% 
-    'item-category_read' | %% 
-    'item-fling-effect_list' | %% 
-    'item-fling-effect_read' | %% 
-    'item-pocket_list' | %% 
-    'item-pocket_read' | %% 
-    'language_list' | %% 
-    'language_read' | %% 
-    'location_list' | %% 
-    'location_read' | %% 
-    'location-area_list' | %% 
-    'location-area_read' | %% 
-    'machine_list' | %% 
-    'machine_read' | %% 
-    'move_list' | %% 
-    'move_read' | %% 
-    'move-ailment_list' | %% 
-    'move-ailment_read' | %% 
-    'move-battle-style_list' | %% 
-    'move-battle-style_read' | %% 
-    'move-category_list' | %% 
-    'move-category_read' | %% 
-    'move-damage-class_list' | %% 
-    'move-damage-class_read' | %% 
-    'move-learn-method_list' | %% 
-    'move-learn-method_read' | %% 
-    'move-target_list' | %% 
-    'move-target_read' | %% 
-    'nature_list' | %% 
-    'nature_read' | %% 
-    'pal-park-area_list' | %% 
-    'pal-park-area_read' | %% 
-    'pokeathlon-stat_list' | %% 
-    'pokeathlon-stat_read' | %% 
-    'pokedex_list' | %% 
-    'pokedex_read' | %% 
-    'pokemon_list' | %% 
-    'pokemon_read' | %% 
-    'pokemon-color_list' | %% 
-    'pokemon-color_read' | %% 
-    'pokemon-form_list' | %% 
-    'pokemon-form_read' | %% 
-    'pokemon-habitat_list' | %% 
-    'pokemon-habitat_read' | %% 
-    'pokemon-shape_list' | %% 
-    'pokemon-shape_read' | %% 
-    'pokemon-species_list' | %% 
-    'pokemon-species_read' | %% 
-    'region_list' | %% 
-    'region_read' | %% 
-    'stat_list' | %% 
-    'stat_read' | %% 
-    'super-contest-effect_list' | %% 
-    'super-contest-effect_read' | %% 
-    'type_list' | %% 
-    'type_read' | %% 
-    'version_list' | %% 
-    'version_read' | %% 
-    'version-group_list' | %% 
-    'version-group_read' | %% 
+    'ability_retrieve' | %% 
+    'characteristic_list' | %% List charecterictics
+    'characteristic_retrieve' | %% Get characteristic
+    'egg_group_list' | %% List egg groups
+    'egg_group_retrieve' | %% Get egg group
+    'gender_list' | %% List genders
+    'gender_retrieve' | %% Get gender
+    'growth_rate_list' | %% List growth rates
+    'growth_rate_retrieve' | %% Get growth rate
+    'move_damage_class_list' | %% List move damage classes
+    'move_damage_class_retrieve' | %% Get move damage class
+    'nature_list' | %% List natures
+    'nature_retrieve' | %% Get nature
+    'pokeathlon_stat_list' | %% List pokeathlon stats
+    'pokeathlon_stat_retrieve' | %% Get pokeathlon stat
+    'pokemon_color_list' | %% List pokemon colors
+    'pokemon_color_retrieve' | %% Get pokemon color
+    'pokemon_form_list' | %% List pokemon forms
+    'pokemon_form_retrieve' | %% Get pokemon form
+    'pokemon_habitat_list' | %% List pokemom habitas
+    'pokemon_habitat_retrieve' | %% Get pokemom habita
+    'pokemon_list' | %% List pokemon
+    'pokemon_retrieve' | %% Get pokemon
+    'pokemon_shape_list' | %% List pokemon shapes
+    'pokemon_shape_retrieve' | %% Get pokemon shape
+    'pokemon_species_list' | %% List pokemon species
+    'pokemon_species_retrieve' | %% Get pokemon species
+    'stat_list' | %% List stats
+    'stat_retrieve' | %% Get stat
+    'type_list' | %% List types
+    'type_retrieve' | %% Get types
+    'language_list' | %% List languages
+    'language_retrieve' | %% Get language
     {error, unknown_operation}.
 
 -type request_param() :: atom().
@@ -264,632 +228,685 @@ for the `OperationID` operation.
         Body :: jesse:json_term(),
         ValidatorState :: jesse_state:state()) ->
     ok | {ok, term()} | [ok | {ok, term()}] | no_return().
-validate_response('ability_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('ability_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('berry_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('berry_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('berry-firmness_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('berry-firmness_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('berry-flavor_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('berry-flavor_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('characteristic_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('characteristic_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('contest-effect_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('contest-effect_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('contest-type_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('contest-type_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('egg-group_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('egg-group_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('encounter-condition_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('encounter-condition_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('encounter-condition-value_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('encounter-condition-value_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('encounter-method_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('encounter-method_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('evolution-chain_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('evolution-chain_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('evolution-trigger_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('evolution-trigger_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('gender_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('gender_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('generation_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('generation_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('growth-rate_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('growth-rate_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('item_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('item_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('item-attribute_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('item-attribute_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('item-category_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('item-category_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('item-fling-effect_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('item-fling-effect_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('item-pocket_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('item-pocket_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('language_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('language_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('location_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('location_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('location-area_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('location-area_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('machine_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('machine_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('move_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('move_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('move-ailment_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('move-ailment_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('move-battle-style_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('move-battle-style_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('move-category_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('move-category_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('move-damage-class_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('move-damage-class_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('move-learn-method_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('move-learn-method_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('move-target_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('move-target_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('nature_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('nature_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pal-park-area_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pal-park-area_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pokeathlon-stat_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pokeathlon-stat_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pokedex_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pokedex_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pokemon_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pokemon_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pokemon-color_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pokemon-color_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pokemon-form_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pokemon-form_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pokemon-habitat_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pokemon-habitat_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pokemon-shape_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pokemon-shape_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pokemon-species_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('pokemon-species_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('region_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('region_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('stat_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('stat_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('super-contest-effect_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('super-contest-effect_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('type_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('type_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('version_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('version_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('version-group_list', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
-validate_response('version-group_read', 0, Body, ValidatorState) ->
-    validate_response_body('binary', 'string', Body, ValidatorState);
+validate_response('berry_firmness_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedBerryFirmnessSummaryList', 'PaginatedBerryFirmnessSummaryList', Body, ValidatorState);
+validate_response('berry_firmness_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('BerryFirmnessDetail', 'BerryFirmnessDetail', Body, ValidatorState);
+validate_response('berry_flavor_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedBerryFlavorSummaryList', 'PaginatedBerryFlavorSummaryList', Body, ValidatorState);
+validate_response('berry_flavor_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('BerryFlavorDetail', 'BerryFlavorDetail', Body, ValidatorState);
+validate_response('berry_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedBerrySummaryList', 'PaginatedBerrySummaryList', Body, ValidatorState);
+validate_response('berry_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('BerryDetail', 'BerryDetail', Body, ValidatorState);
+validate_response('contest_effect_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedContestEffectSummaryList', 'PaginatedContestEffectSummaryList', Body, ValidatorState);
+validate_response('contest_effect_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('ContestEffectDetail', 'ContestEffectDetail', Body, ValidatorState);
+validate_response('contest_type_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedContestTypeSummaryList', 'PaginatedContestTypeSummaryList', Body, ValidatorState);
+validate_response('contest_type_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('ContestTypeDetail', 'ContestTypeDetail', Body, ValidatorState);
+validate_response('super_contest_effect_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedSuperContestEffectSummaryList', 'PaginatedSuperContestEffectSummaryList', Body, ValidatorState);
+validate_response('super_contest_effect_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('SuperContestEffectDetail', 'SuperContestEffectDetail', Body, ValidatorState);
+validate_response('encounter_condition_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedEncounterConditionSummaryList', 'PaginatedEncounterConditionSummaryList', Body, ValidatorState);
+validate_response('encounter_condition_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('EncounterConditionDetail', 'EncounterConditionDetail', Body, ValidatorState);
+validate_response('encounter_condition_value_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedEncounterConditionValueSummaryList', 'PaginatedEncounterConditionValueSummaryList', Body, ValidatorState);
+validate_response('encounter_condition_value_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('EncounterConditionValueDetail', 'EncounterConditionValueDetail', Body, ValidatorState);
+validate_response('encounter_method_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedEncounterMethodSummaryList', 'PaginatedEncounterMethodSummaryList', Body, ValidatorState);
+validate_response('encounter_method_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('EncounterMethodDetail', 'EncounterMethodDetail', Body, ValidatorState);
+validate_response('pokemon_encounters_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('list', 'pokemon_encounters_retrieve_200_response_inner', Body, ValidatorState);
+validate_response('evolution_chain_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedEvolutionChainSummaryList', 'PaginatedEvolutionChainSummaryList', Body, ValidatorState);
+validate_response('evolution_chain_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('EvolutionChainDetail', 'EvolutionChainDetail', Body, ValidatorState);
+validate_response('evolution_trigger_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedEvolutionTriggerSummaryList', 'PaginatedEvolutionTriggerSummaryList', Body, ValidatorState);
+validate_response('evolution_trigger_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('EvolutionTriggerDetail', 'EvolutionTriggerDetail', Body, ValidatorState);
+validate_response('generation_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedGenerationSummaryList', 'PaginatedGenerationSummaryList', Body, ValidatorState);
+validate_response('generation_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('GenerationDetail', 'GenerationDetail', Body, ValidatorState);
+validate_response('pokedex_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedPokedexSummaryList', 'PaginatedPokedexSummaryList', Body, ValidatorState);
+validate_response('pokedex_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('PokedexDetail', 'PokedexDetail', Body, ValidatorState);
+validate_response('version_group_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedVersionGroupSummaryList', 'PaginatedVersionGroupSummaryList', Body, ValidatorState);
+validate_response('version_group_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('VersionGroupDetail', 'VersionGroupDetail', Body, ValidatorState);
+validate_response('version_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedVersionSummaryList', 'PaginatedVersionSummaryList', Body, ValidatorState);
+validate_response('version_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('VersionDetail', 'VersionDetail', Body, ValidatorState);
+validate_response('item_attribute_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedItemAttributeSummaryList', 'PaginatedItemAttributeSummaryList', Body, ValidatorState);
+validate_response('item_attribute_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('ItemAttributeDetail', 'ItemAttributeDetail', Body, ValidatorState);
+validate_response('item_category_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedItemCategorySummaryList', 'PaginatedItemCategorySummaryList', Body, ValidatorState);
+validate_response('item_category_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('ItemCategoryDetail', 'ItemCategoryDetail', Body, ValidatorState);
+validate_response('item_fling_effect_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedItemFlingEffectSummaryList', 'PaginatedItemFlingEffectSummaryList', Body, ValidatorState);
+validate_response('item_fling_effect_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('ItemFlingEffectDetail', 'ItemFlingEffectDetail', Body, ValidatorState);
+validate_response('item_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedItemSummaryList', 'PaginatedItemSummaryList', Body, ValidatorState);
+validate_response('item_pocket_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedItemPocketSummaryList', 'PaginatedItemPocketSummaryList', Body, ValidatorState);
+validate_response('item_pocket_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('ItemPocketDetail', 'ItemPocketDetail', Body, ValidatorState);
+validate_response('item_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('ItemDetail', 'ItemDetail', Body, ValidatorState);
+validate_response('location_area_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedLocationAreaSummaryList', 'PaginatedLocationAreaSummaryList', Body, ValidatorState);
+validate_response('location_area_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('LocationAreaDetail', 'LocationAreaDetail', Body, ValidatorState);
+validate_response('location_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedLocationSummaryList', 'PaginatedLocationSummaryList', Body, ValidatorState);
+validate_response('location_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('LocationDetail', 'LocationDetail', Body, ValidatorState);
+validate_response('pal_park_area_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedPalParkAreaSummaryList', 'PaginatedPalParkAreaSummaryList', Body, ValidatorState);
+validate_response('pal_park_area_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('PalParkAreaDetail', 'PalParkAreaDetail', Body, ValidatorState);
+validate_response('region_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedRegionSummaryList', 'PaginatedRegionSummaryList', Body, ValidatorState);
+validate_response('region_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('RegionDetail', 'RegionDetail', Body, ValidatorState);
+validate_response('machine_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedMachineSummaryList', 'PaginatedMachineSummaryList', Body, ValidatorState);
+validate_response('machine_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('MachineDetail', 'MachineDetail', Body, ValidatorState);
+validate_response('move_ailment_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedMoveMetaAilmentSummaryList', 'PaginatedMoveMetaAilmentSummaryList', Body, ValidatorState);
+validate_response('move_ailment_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('MoveMetaAilmentDetail', 'MoveMetaAilmentDetail', Body, ValidatorState);
+validate_response('move_battle_style_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedMoveBattleStyleSummaryList', 'PaginatedMoveBattleStyleSummaryList', Body, ValidatorState);
+validate_response('move_battle_style_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('MoveBattleStyleDetail', 'MoveBattleStyleDetail', Body, ValidatorState);
+validate_response('move_category_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedMoveMetaCategorySummaryList', 'PaginatedMoveMetaCategorySummaryList', Body, ValidatorState);
+validate_response('move_category_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('MoveMetaCategoryDetail', 'MoveMetaCategoryDetail', Body, ValidatorState);
+validate_response('move_learn_method_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedMoveLearnMethodSummaryList', 'PaginatedMoveLearnMethodSummaryList', Body, ValidatorState);
+validate_response('move_learn_method_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('MoveLearnMethodDetail', 'MoveLearnMethodDetail', Body, ValidatorState);
+validate_response('move_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedMoveSummaryList', 'PaginatedMoveSummaryList', Body, ValidatorState);
+validate_response('move_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('MoveDetail', 'MoveDetail', Body, ValidatorState);
+validate_response('move_target_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedMoveTargetSummaryList', 'PaginatedMoveTargetSummaryList', Body, ValidatorState);
+validate_response('move_target_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('MoveTargetDetail', 'MoveTargetDetail', Body, ValidatorState);
+validate_response('ability_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedAbilitySummaryList', 'PaginatedAbilitySummaryList', Body, ValidatorState);
+validate_response('ability_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('AbilityDetail', 'AbilityDetail', Body, ValidatorState);
+validate_response('characteristic_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedCharacteristicSummaryList', 'PaginatedCharacteristicSummaryList', Body, ValidatorState);
+validate_response('characteristic_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('CharacteristicDetail', 'CharacteristicDetail', Body, ValidatorState);
+validate_response('egg_group_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedEggGroupSummaryList', 'PaginatedEggGroupSummaryList', Body, ValidatorState);
+validate_response('egg_group_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('EggGroupDetail', 'EggGroupDetail', Body, ValidatorState);
+validate_response('gender_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedGenderSummaryList', 'PaginatedGenderSummaryList', Body, ValidatorState);
+validate_response('gender_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('GenderDetail', 'GenderDetail', Body, ValidatorState);
+validate_response('growth_rate_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedGrowthRateSummaryList', 'PaginatedGrowthRateSummaryList', Body, ValidatorState);
+validate_response('growth_rate_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('GrowthRateDetail', 'GrowthRateDetail', Body, ValidatorState);
+validate_response('move_damage_class_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedMoveDamageClassSummaryList', 'PaginatedMoveDamageClassSummaryList', Body, ValidatorState);
+validate_response('move_damage_class_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('MoveDamageClassDetail', 'MoveDamageClassDetail', Body, ValidatorState);
+validate_response('nature_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedNatureSummaryList', 'PaginatedNatureSummaryList', Body, ValidatorState);
+validate_response('nature_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('NatureDetail', 'NatureDetail', Body, ValidatorState);
+validate_response('pokeathlon_stat_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedPokeathlonStatSummaryList', 'PaginatedPokeathlonStatSummaryList', Body, ValidatorState);
+validate_response('pokeathlon_stat_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('PokeathlonStatDetail', 'PokeathlonStatDetail', Body, ValidatorState);
+validate_response('pokemon_color_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedPokemonColorSummaryList', 'PaginatedPokemonColorSummaryList', Body, ValidatorState);
+validate_response('pokemon_color_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('PokemonColorDetail', 'PokemonColorDetail', Body, ValidatorState);
+validate_response('pokemon_form_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedPokemonFormSummaryList', 'PaginatedPokemonFormSummaryList', Body, ValidatorState);
+validate_response('pokemon_form_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('PokemonFormDetail', 'PokemonFormDetail', Body, ValidatorState);
+validate_response('pokemon_habitat_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedPokemonHabitatSummaryList', 'PaginatedPokemonHabitatSummaryList', Body, ValidatorState);
+validate_response('pokemon_habitat_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('PokemonHabitatDetail', 'PokemonHabitatDetail', Body, ValidatorState);
+validate_response('pokemon_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedPokemonSummaryList', 'PaginatedPokemonSummaryList', Body, ValidatorState);
+validate_response('pokemon_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('PokemonDetail', 'PokemonDetail', Body, ValidatorState);
+validate_response('pokemon_shape_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedPokemonShapeSummaryList', 'PaginatedPokemonShapeSummaryList', Body, ValidatorState);
+validate_response('pokemon_shape_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('PokemonShapeDetail', 'PokemonShapeDetail', Body, ValidatorState);
+validate_response('pokemon_species_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedPokemonSpeciesSummaryList', 'PaginatedPokemonSpeciesSummaryList', Body, ValidatorState);
+validate_response('pokemon_species_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('PokemonSpeciesDetail', 'PokemonSpeciesDetail', Body, ValidatorState);
+validate_response('stat_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedStatSummaryList', 'PaginatedStatSummaryList', Body, ValidatorState);
+validate_response('stat_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('StatDetail', 'StatDetail', Body, ValidatorState);
+validate_response('type_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedTypeSummaryList', 'PaginatedTypeSummaryList', Body, ValidatorState);
+validate_response('type_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('TypeDetail', 'TypeDetail', Body, ValidatorState);
+validate_response('language_list', 200, Body, ValidatorState) ->
+    validate_response_body('PaginatedLanguageSummaryList', 'PaginatedLanguageSummaryList', Body, ValidatorState);
+validate_response('language_retrieve', 200, Body, ValidatorState) ->
+    validate_response_body('LanguageDetail', 'LanguageDetail', Body, ValidatorState);
 validate_response(_OperationID, _Code, _Body, _ValidatorState) ->
     ok.
 
 %%%
 -spec request_params(OperationID :: operation_id()) -> [Param :: request_param()].
-request_params('ability_list') ->
+request_params('berry_firmness_list') ->
     [
         'limit',
-        'offset'
+        'offset',
+        'q'
     ];
-request_params('ability_read') ->
+request_params('berry_firmness_retrieve') ->
+    [
+        'id'
+    ];
+request_params('berry_flavor_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('berry_flavor_retrieve') ->
     [
         'id'
     ];
 request_params('berry_list') ->
     [
         'limit',
-        'offset'
+        'offset',
+        'q'
     ];
-request_params('berry_read') ->
+request_params('berry_retrieve') ->
     [
         'id'
     ];
-request_params('berry-firmness_list') ->
+request_params('contest_effect_list') ->
     [
         'limit',
-        'offset'
+        'offset',
+        'q'
     ];
-request_params('berry-firmness_read') ->
+request_params('contest_effect_retrieve') ->
     [
         'id'
     ];
-request_params('berry-flavor_list') ->
+request_params('contest_type_list') ->
     [
         'limit',
-        'offset'
+        'offset',
+        'q'
     ];
-request_params('berry-flavor_read') ->
+request_params('contest_type_retrieve') ->
     [
         'id'
     ];
-request_params('characteristic_list') ->
+request_params('super_contest_effect_list') ->
     [
         'limit',
-        'offset'
+        'offset',
+        'q'
     ];
-request_params('characteristic_read') ->
+request_params('super_contest_effect_retrieve') ->
     [
         'id'
     ];
-request_params('contest-effect_list') ->
+request_params('encounter_condition_list') ->
     [
         'limit',
-        'offset'
+        'offset',
+        'q'
     ];
-request_params('contest-effect_read') ->
+request_params('encounter_condition_retrieve') ->
     [
         'id'
     ];
-request_params('contest-type_list') ->
+request_params('encounter_condition_value_list') ->
     [
         'limit',
-        'offset'
+        'offset',
+        'q'
     ];
-request_params('contest-type_read') ->
+request_params('encounter_condition_value_retrieve') ->
     [
         'id'
     ];
-request_params('egg-group_list') ->
+request_params('encounter_method_list') ->
     [
         'limit',
-        'offset'
+        'offset',
+        'q'
     ];
-request_params('egg-group_read') ->
+request_params('encounter_method_retrieve') ->
     [
         'id'
     ];
-request_params('encounter-condition_list') ->
+request_params('pokemon_encounters_retrieve') ->
+    [
+        'pokemon_id'
+    ];
+request_params('evolution_chain_list') ->
     [
         'limit',
-        'offset'
+        'offset',
+        'q'
     ];
-request_params('encounter-condition_read') ->
+request_params('evolution_chain_retrieve') ->
     [
         'id'
     ];
-request_params('encounter-condition-value_list') ->
+request_params('evolution_trigger_list') ->
     [
         'limit',
-        'offset'
+        'offset',
+        'q'
     ];
-request_params('encounter-condition-value_read') ->
-    [
-        'id'
-    ];
-request_params('encounter-method_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('encounter-method_read') ->
-    [
-        'id'
-    ];
-request_params('evolution-chain_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('evolution-chain_read') ->
-    [
-        'id'
-    ];
-request_params('evolution-trigger_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('evolution-trigger_read') ->
-    [
-        'id'
-    ];
-request_params('gender_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('gender_read') ->
+request_params('evolution_trigger_retrieve') ->
     [
         'id'
     ];
 request_params('generation_list') ->
     [
         'limit',
-        'offset'
+        'offset',
+        'q'
     ];
-request_params('generation_read') ->
-    [
-        'id'
-    ];
-request_params('growth-rate_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('growth-rate_read') ->
-    [
-        'id'
-    ];
-request_params('item_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('item_read') ->
-    [
-        'id'
-    ];
-request_params('item-attribute_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('item-attribute_read') ->
-    [
-        'id'
-    ];
-request_params('item-category_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('item-category_read') ->
-    [
-        'id'
-    ];
-request_params('item-fling-effect_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('item-fling-effect_read') ->
-    [
-        'id'
-    ];
-request_params('item-pocket_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('item-pocket_read') ->
-    [
-        'id'
-    ];
-request_params('language_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('language_read') ->
-    [
-        'id'
-    ];
-request_params('location_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('location_read') ->
-    [
-        'id'
-    ];
-request_params('location-area_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('location-area_read') ->
-    [
-        'id'
-    ];
-request_params('machine_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('machine_read') ->
-    [
-        'id'
-    ];
-request_params('move_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('move_read') ->
-    [
-        'id'
-    ];
-request_params('move-ailment_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('move-ailment_read') ->
-    [
-        'id'
-    ];
-request_params('move-battle-style_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('move-battle-style_read') ->
-    [
-        'id'
-    ];
-request_params('move-category_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('move-category_read') ->
-    [
-        'id'
-    ];
-request_params('move-damage-class_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('move-damage-class_read') ->
-    [
-        'id'
-    ];
-request_params('move-learn-method_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('move-learn-method_read') ->
-    [
-        'id'
-    ];
-request_params('move-target_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('move-target_read') ->
-    [
-        'id'
-    ];
-request_params('nature_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('nature_read') ->
-    [
-        'id'
-    ];
-request_params('pal-park-area_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('pal-park-area_read') ->
-    [
-        'id'
-    ];
-request_params('pokeathlon-stat_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('pokeathlon-stat_read') ->
+request_params('generation_retrieve') ->
     [
         'id'
     ];
 request_params('pokedex_list') ->
     [
         'limit',
-        'offset'
+        'offset',
+        'q'
     ];
-request_params('pokedex_read') ->
+request_params('pokedex_retrieve') ->
     [
         'id'
     ];
-request_params('pokemon_list') ->
+request_params('version_group_list') ->
     [
         'limit',
-        'offset'
+        'offset',
+        'q'
     ];
-request_params('pokemon_read') ->
-    [
-        'id'
-    ];
-request_params('pokemon-color_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('pokemon-color_read') ->
-    [
-        'id'
-    ];
-request_params('pokemon-form_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('pokemon-form_read') ->
-    [
-        'id'
-    ];
-request_params('pokemon-habitat_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('pokemon-habitat_read') ->
-    [
-        'id'
-    ];
-request_params('pokemon-shape_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('pokemon-shape_read') ->
-    [
-        'id'
-    ];
-request_params('pokemon-species_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('pokemon-species_read') ->
-    [
-        'id'
-    ];
-request_params('region_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('region_read') ->
-    [
-        'id'
-    ];
-request_params('stat_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('stat_read') ->
-    [
-        'id'
-    ];
-request_params('super-contest-effect_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('super-contest-effect_read') ->
-    [
-        'id'
-    ];
-request_params('type_list') ->
-    [
-        'limit',
-        'offset'
-    ];
-request_params('type_read') ->
+request_params('version_group_retrieve') ->
     [
         'id'
     ];
 request_params('version_list') ->
     [
         'limit',
-        'offset'
+        'offset',
+        'q'
     ];
-request_params('version_read') ->
+request_params('version_retrieve') ->
     [
         'id'
     ];
-request_params('version-group_list') ->
+request_params('item_attribute_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('item_attribute_retrieve') ->
+    [
+        'id'
+    ];
+request_params('item_category_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('item_category_retrieve') ->
+    [
+        'id'
+    ];
+request_params('item_fling_effect_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('item_fling_effect_retrieve') ->
+    [
+        'id'
+    ];
+request_params('item_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('item_pocket_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('item_pocket_retrieve') ->
+    [
+        'id'
+    ];
+request_params('item_retrieve') ->
+    [
+        'id'
+    ];
+request_params('location_area_list') ->
     [
         'limit',
         'offset'
     ];
-request_params('version-group_read') ->
+request_params('location_area_retrieve') ->
+    [
+        'id'
+    ];
+request_params('location_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('location_retrieve') ->
+    [
+        'id'
+    ];
+request_params('pal_park_area_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('pal_park_area_retrieve') ->
+    [
+        'id'
+    ];
+request_params('region_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('region_retrieve') ->
+    [
+        'id'
+    ];
+request_params('machine_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('machine_retrieve') ->
+    [
+        'id'
+    ];
+request_params('move_ailment_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('move_ailment_retrieve') ->
+    [
+        'id'
+    ];
+request_params('move_battle_style_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('move_battle_style_retrieve') ->
+    [
+        'id'
+    ];
+request_params('move_category_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('move_category_retrieve') ->
+    [
+        'id'
+    ];
+request_params('move_learn_method_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('move_learn_method_retrieve') ->
+    [
+        'id'
+    ];
+request_params('move_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('move_retrieve') ->
+    [
+        'id'
+    ];
+request_params('move_target_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('move_target_retrieve') ->
+    [
+        'id'
+    ];
+request_params('ability_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('ability_retrieve') ->
+    [
+        'id'
+    ];
+request_params('characteristic_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('characteristic_retrieve') ->
+    [
+        'id'
+    ];
+request_params('egg_group_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('egg_group_retrieve') ->
+    [
+        'id'
+    ];
+request_params('gender_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('gender_retrieve') ->
+    [
+        'id'
+    ];
+request_params('growth_rate_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('growth_rate_retrieve') ->
+    [
+        'id'
+    ];
+request_params('move_damage_class_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('move_damage_class_retrieve') ->
+    [
+        'id'
+    ];
+request_params('nature_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('nature_retrieve') ->
+    [
+        'id'
+    ];
+request_params('pokeathlon_stat_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('pokeathlon_stat_retrieve') ->
+    [
+        'id'
+    ];
+request_params('pokemon_color_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('pokemon_color_retrieve') ->
+    [
+        'id'
+    ];
+request_params('pokemon_form_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('pokemon_form_retrieve') ->
+    [
+        'id'
+    ];
+request_params('pokemon_habitat_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('pokemon_habitat_retrieve') ->
+    [
+        'id'
+    ];
+request_params('pokemon_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('pokemon_retrieve') ->
+    [
+        'id'
+    ];
+request_params('pokemon_shape_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('pokemon_shape_retrieve') ->
+    [
+        'id'
+    ];
+request_params('pokemon_species_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('pokemon_species_retrieve') ->
+    [
+        'id'
+    ];
+request_params('stat_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('stat_retrieve') ->
+    [
+        'id'
+    ];
+request_params('type_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('type_retrieve') ->
+    [
+        'id'
+    ];
+request_params('language_list') ->
+    [
+        'limit',
+        'offset',
+        'q'
+    ];
+request_params('language_retrieve') ->
     [
         'id'
     ];
@@ -898,7 +915,7 @@ request_params(_) ->
 
 -spec request_param_info(OperationID :: operation_id(), Name :: request_param()) ->
     #{source => qs_val | binding | header | body, rules => [rule()]}.
-request_param_info('ability_list', 'limit') ->
+request_param_info('berry_firmness_list', 'limit') ->
     #{
         source => qs_val,
         rules => [
@@ -906,7 +923,7 @@ request_param_info('ability_list', 'limit') ->
             not_required
         ]
     };
-request_param_info('ability_list', 'offset') ->
+request_param_info('berry_firmness_list', 'offset') ->
     #{
         source => qs_val,
         rules => [
@@ -914,11 +931,51 @@ request_param_info('ability_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('ability_read', 'id') ->
+request_param_info('berry_firmness_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('berry_firmness_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('berry_flavor_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
             {type, integer},
+            not_required
+        ]
+    };
+request_param_info('berry_flavor_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('berry_flavor_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('berry_flavor_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
             required
         ]
     };
@@ -938,15 +995,23 @@ request_param_info('berry_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('berry_read', 'id') ->
+request_param_info('berry_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('berry_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
+            {type, binary},
             required
         ]
     };
-request_param_info('berry-firmness_list', 'limit') ->
+request_param_info('contest_effect_list', 'limit') ->
     #{
         source => qs_val,
         rules => [
@@ -954,7 +1019,7 @@ request_param_info('berry-firmness_list', 'limit') ->
             not_required
         ]
     };
-request_param_info('berry-firmness_list', 'offset') ->
+request_param_info('contest_effect_list', 'offset') ->
     #{
         source => qs_val,
         rules => [
@@ -962,15 +1027,23 @@ request_param_info('berry-firmness_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('berry-firmness_read', 'id') ->
+request_param_info('contest_effect_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('contest_effect_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
+            {type, binary},
             required
         ]
     };
-request_param_info('berry-flavor_list', 'limit') ->
+request_param_info('contest_type_list', 'limit') ->
     #{
         source => qs_val,
         rules => [
@@ -978,7 +1051,7 @@ request_param_info('berry-flavor_list', 'limit') ->
             not_required
         ]
     };
-request_param_info('berry-flavor_list', 'offset') ->
+request_param_info('contest_type_list', 'offset') ->
     #{
         source => qs_val,
         rules => [
@@ -986,15 +1059,23 @@ request_param_info('berry-flavor_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('berry-flavor_read', 'id') ->
+request_param_info('contest_type_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('contest_type_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
+            {type, binary},
             required
         ]
     };
-request_param_info('characteristic_list', 'limit') ->
+request_param_info('super_contest_effect_list', 'limit') ->
     #{
         source => qs_val,
         rules => [
@@ -1002,7 +1083,7 @@ request_param_info('characteristic_list', 'limit') ->
             not_required
         ]
     };
-request_param_info('characteristic_list', 'offset') ->
+request_param_info('super_contest_effect_list', 'offset') ->
     #{
         source => qs_val,
         rules => [
@@ -1010,15 +1091,23 @@ request_param_info('characteristic_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('characteristic_read', 'id') ->
+request_param_info('super_contest_effect_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('super_contest_effect_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
+            {type, binary},
             required
         ]
     };
-request_param_info('contest-effect_list', 'limit') ->
+request_param_info('encounter_condition_list', 'limit') ->
     #{
         source => qs_val,
         rules => [
@@ -1026,7 +1115,7 @@ request_param_info('contest-effect_list', 'limit') ->
             not_required
         ]
     };
-request_param_info('contest-effect_list', 'offset') ->
+request_param_info('encounter_condition_list', 'offset') ->
     #{
         source => qs_val,
         rules => [
@@ -1034,15 +1123,23 @@ request_param_info('contest-effect_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('contest-effect_read', 'id') ->
+request_param_info('encounter_condition_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('encounter_condition_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
+            {type, binary},
             required
         ]
     };
-request_param_info('contest-type_list', 'limit') ->
+request_param_info('encounter_condition_value_list', 'limit') ->
     #{
         source => qs_val,
         rules => [
@@ -1050,7 +1147,7 @@ request_param_info('contest-type_list', 'limit') ->
             not_required
         ]
     };
-request_param_info('contest-type_list', 'offset') ->
+request_param_info('encounter_condition_value_list', 'offset') ->
     #{
         source => qs_val,
         rules => [
@@ -1058,15 +1155,23 @@ request_param_info('contest-type_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('contest-type_read', 'id') ->
+request_param_info('encounter_condition_value_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('encounter_condition_value_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
+            {type, binary},
             required
         ]
     };
-request_param_info('egg-group_list', 'limit') ->
+request_param_info('encounter_method_list', 'limit') ->
     #{
         source => qs_val,
         rules => [
@@ -1074,7 +1179,7 @@ request_param_info('egg-group_list', 'limit') ->
             not_required
         ]
     };
-request_param_info('egg-group_list', 'offset') ->
+request_param_info('encounter_method_list', 'offset') ->
     #{
         source => qs_val,
         rules => [
@@ -1082,39 +1187,32 @@ request_param_info('egg-group_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('egg-group_read', 'id') ->
+request_param_info('encounter_method_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('encounter_method_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
+            {type, binary},
             required
         ]
     };
-request_param_info('encounter-condition_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('encounter-condition_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('encounter-condition_read', 'id') ->
+request_param_info('pokemon_encounters_retrieve', 'pokemon_id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
+            {type, binary},
+            {pattern, "^\\d+$"},
             required
         ]
     };
-request_param_info('encounter-condition-value_list', 'limit') ->
+request_param_info('evolution_chain_list', 'limit') ->
     #{
         source => qs_val,
         rules => [
@@ -1122,7 +1220,7 @@ request_param_info('encounter-condition-value_list', 'limit') ->
             not_required
         ]
     };
-request_param_info('encounter-condition-value_list', 'offset') ->
+request_param_info('evolution_chain_list', 'offset') ->
     #{
         source => qs_val,
         rules => [
@@ -1130,15 +1228,23 @@ request_param_info('encounter-condition-value_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('encounter-condition-value_read', 'id') ->
+request_param_info('evolution_chain_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('evolution_chain_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
+            {type, binary},
             required
         ]
     };
-request_param_info('encounter-method_list', 'limit') ->
+request_param_info('evolution_trigger_list', 'limit') ->
     #{
         source => qs_val,
         rules => [
@@ -1146,7 +1252,7 @@ request_param_info('encounter-method_list', 'limit') ->
             not_required
         ]
     };
-request_param_info('encounter-method_list', 'offset') ->
+request_param_info('evolution_trigger_list', 'offset') ->
     #{
         source => qs_val,
         rules => [
@@ -1154,83 +1260,19 @@ request_param_info('encounter-method_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('encounter-method_read', 'id') ->
+request_param_info('evolution_trigger_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('evolution_trigger_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('evolution-chain_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('evolution-chain_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('evolution-chain_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('evolution-trigger_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('evolution-trigger_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('evolution-trigger_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('gender_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('gender_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('gender_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
+            {type, binary},
             required
         ]
     };
@@ -1250,15 +1292,23 @@ request_param_info('generation_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('generation_read', 'id') ->
+request_param_info('generation_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('generation_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
+            {type, binary},
             required
         ]
     };
-request_param_info('growth-rate_list', 'limit') ->
+request_param_info('pokedex_list', 'limit') ->
     #{
         source => qs_val,
         rules => [
@@ -1266,7 +1316,7 @@ request_param_info('growth-rate_list', 'limit') ->
             not_required
         ]
     };
-request_param_info('growth-rate_list', 'offset') ->
+request_param_info('pokedex_list', 'offset') ->
     #{
         source => qs_val,
         rules => [
@@ -1274,11 +1324,179 @@ request_param_info('growth-rate_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('growth-rate_read', 'id') ->
+request_param_info('pokedex_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('pokedex_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('version_group_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
             {type, integer},
+            not_required
+        ]
+    };
+request_param_info('version_group_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('version_group_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('version_group_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('version_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('version_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('version_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('version_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('item_attribute_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('item_attribute_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('item_attribute_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('item_attribute_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('item_category_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('item_category_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('item_category_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('item_category_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('item_fling_effect_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('item_fling_effect_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('item_fling_effect_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('item_fling_effect_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
             required
         ]
     };
@@ -1298,39 +1516,55 @@ request_param_info('item_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('item_read', 'id') ->
+request_param_info('item_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('item_pocket_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('item_pocket_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('item_pocket_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('item_pocket_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
+            {type, binary},
             required
         ]
     };
-request_param_info('item-attribute_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('item-attribute_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('item-attribute_read', 'id') ->
+request_param_info('item_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
+            {type, binary},
             required
         ]
     };
-request_param_info('item-category_list', 'limit') ->
+request_param_info('location_area_list', 'limit') ->
     #{
         source => qs_val,
         rules => [
@@ -1338,7 +1572,7 @@ request_param_info('item-category_list', 'limit') ->
             not_required
         ]
     };
-request_param_info('item-category_list', 'offset') ->
+request_param_info('location_area_list', 'offset') ->
     #{
         source => qs_val,
         rules => [
@@ -1346,79 +1580,7 @@ request_param_info('item-category_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('item-category_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('item-fling-effect_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('item-fling-effect_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('item-fling-effect_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('item-pocket_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('item-pocket_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('item-pocket_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('language_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('language_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('language_read', 'id') ->
+request_param_info('location_area_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
@@ -1442,15 +1604,23 @@ request_param_info('location_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('location_read', 'id') ->
+request_param_info('location_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('location_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
+            {type, binary},
             required
         ]
     };
-request_param_info('location-area_list', 'limit') ->
+request_param_info('pal_park_area_list', 'limit') ->
     #{
         source => qs_val,
         rules => [
@@ -1458,7 +1628,7 @@ request_param_info('location-area_list', 'limit') ->
             not_required
         ]
     };
-request_param_info('location-area_list', 'offset') ->
+request_param_info('pal_park_area_list', 'offset') ->
     #{
         source => qs_val,
         rules => [
@@ -1466,443 +1636,19 @@ request_param_info('location-area_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('location-area_read', 'id') ->
+request_param_info('pal_park_area_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('pal_park_area_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('machine_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('machine_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('machine_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('move_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('move_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('move_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('move-ailment_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('move-ailment_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('move-ailment_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('move-battle-style_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('move-battle-style_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('move-battle-style_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('move-category_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('move-category_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('move-category_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('move-damage-class_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('move-damage-class_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('move-damage-class_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('move-learn-method_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('move-learn-method_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('move-learn-method_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('move-target_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('move-target_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('move-target_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('nature_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('nature_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('nature_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('pal-park-area_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pal-park-area_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pal-park-area_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('pokeathlon-stat_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pokeathlon-stat_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pokeathlon-stat_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('pokedex_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pokedex_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pokedex_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('pokemon_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pokemon_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pokemon_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('pokemon-color_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pokemon-color_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pokemon-color_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('pokemon-form_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pokemon-form_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pokemon-form_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('pokemon-habitat_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pokemon-habitat_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pokemon-habitat_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('pokemon-shape_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pokemon-shape_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pokemon-shape_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('pokemon-species_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pokemon-species_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('pokemon-species_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
+            {type, binary},
             required
         ]
     };
@@ -1922,11 +1668,691 @@ request_param_info('region_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('region_read', 'id') ->
+request_param_info('region_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('region_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('machine_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
             {type, integer},
+            not_required
+        ]
+    };
+request_param_info('machine_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('machine_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('machine_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('move_ailment_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('move_ailment_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('move_ailment_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('move_ailment_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('move_battle_style_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('move_battle_style_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('move_battle_style_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('move_battle_style_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('move_category_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('move_category_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('move_category_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('move_category_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('move_learn_method_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('move_learn_method_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('move_learn_method_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('move_learn_method_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('move_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('move_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('move_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('move_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('move_target_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('move_target_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('move_target_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('move_target_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('ability_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('ability_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('ability_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('ability_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('characteristic_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('characteristic_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('characteristic_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('characteristic_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('egg_group_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('egg_group_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('egg_group_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('egg_group_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('gender_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('gender_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('gender_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('gender_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('growth_rate_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('growth_rate_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('growth_rate_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('growth_rate_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('move_damage_class_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('move_damage_class_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('move_damage_class_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('move_damage_class_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('nature_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('nature_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('nature_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('nature_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('pokeathlon_stat_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('pokeathlon_stat_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('pokeathlon_stat_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('pokeathlon_stat_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('pokemon_color_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('pokemon_color_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('pokemon_color_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('pokemon_color_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('pokemon_form_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('pokemon_form_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('pokemon_form_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('pokemon_form_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('pokemon_habitat_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('pokemon_habitat_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('pokemon_habitat_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('pokemon_habitat_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('pokemon_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('pokemon_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('pokemon_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('pokemon_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('pokemon_shape_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('pokemon_shape_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('pokemon_shape_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('pokemon_shape_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
+            required
+        ]
+    };
+request_param_info('pokemon_species_list', 'limit') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('pokemon_species_list', 'offset') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, integer},
+            not_required
+        ]
+    };
+request_param_info('pokemon_species_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('pokemon_species_retrieve', 'id') ->
+    #{
+        source => binding,
+        rules => [
+            {type, binary},
             required
         ]
     };
@@ -1946,35 +2372,19 @@ request_param_info('stat_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('stat_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('super-contest-effect_list', 'limit') ->
+request_param_info('stat_list', 'q') ->
     #{
         source => qs_val,
         rules => [
-            {type, integer},
+            {type, binary},
             not_required
         ]
     };
-request_param_info('super-contest-effect_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('super-contest-effect_read', 'id') ->
+request_param_info('stat_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
+            {type, binary},
             required
         ]
     };
@@ -1994,15 +2404,23 @@ request_param_info('type_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('type_read', 'id') ->
+request_param_info('type_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('type_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
+            {type, binary},
             required
         ]
     };
-request_param_info('version_list', 'limit') ->
+request_param_info('language_list', 'limit') ->
     #{
         source => qs_val,
         rules => [
@@ -2010,7 +2428,7 @@ request_param_info('version_list', 'limit') ->
             not_required
         ]
     };
-request_param_info('version_list', 'offset') ->
+request_param_info('language_list', 'offset') ->
     #{
         source => qs_val,
         rules => [
@@ -2018,35 +2436,19 @@ request_param_info('version_list', 'offset') ->
             not_required
         ]
     };
-request_param_info('version_read', 'id') ->
+request_param_info('language_list', 'q') ->
+    #{
+        source => qs_val,
+        rules => [
+            {type, binary},
+            not_required
+        ]
+    };
+request_param_info('language_retrieve', 'id') ->
     #{
         source => binding,
         rules => [
-            {type, integer},
-            required
-        ]
-    };
-request_param_info('version-group_list', 'limit') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('version-group_list', 'offset') ->
-    #{
-        source => qs_val,
-        rules => [
-            {type, integer},
-            not_required
-        ]
-    };
-request_param_info('version-group_read', 'id') ->
-    #{
-        source => binding,
-        rules => [
-            {type, integer},
+            {type, binary},
             required
         ]
     };

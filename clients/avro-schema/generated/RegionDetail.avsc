@@ -1,0 +1,56 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "RegionDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "locations",
+      "type": {
+        "type": "array",
+        "items": "model.LocationSummary"
+      },
+      "doc": ""
+    },
+    {
+      "name": "main_generation",
+      "type": "model.GenerationSummary",
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.RegionName"
+      },
+      "doc": ""
+    },
+    {
+      "name": "pokedexes",
+      "type": {
+        "type": "array",
+        "items": "model.PokedexSummary"
+      },
+      "doc": ""
+    },
+    {
+      "name": "version_groups",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityDetailPokemonInnerPokemon"
+      },
+      "doc": ""
+    }
+  ]
+
+}

@@ -1,0 +1,43 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "LanguageDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "official",
+      "type": ["null", "boolean"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "iso639",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "iso3166",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.LanguageName"
+      },
+      "doc": ""
+    }
+  ]
+
+}

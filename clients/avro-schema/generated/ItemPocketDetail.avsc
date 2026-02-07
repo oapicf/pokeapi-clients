@@ -1,0 +1,35 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ItemPocketDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "categories",
+      "type": {
+        "type": "array",
+        "items": "model.ItemCategorySummary"
+      },
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.ItemPocketName"
+      },
+      "doc": ""
+    }
+  ]
+
+}

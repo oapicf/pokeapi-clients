@@ -16,6 +16,7 @@ use Psr\Http\Message\ServerRequestInterface;
 class ApiV2Generation
 {
     /**
+     * List genrations
      * @PHA\Get()
      * @PHA\Attribute(name=PHAttribute\Transfer::class, options={
      *     "type":\App\DTO\GenerationListQueryData::class,
@@ -23,14 +24,14 @@ class ApiV2Generation
      *     "source": PHAttribute\Transfer::SOURCE_GET
      * })
      * TODO check if producer is valid, if it has correct priority and if it can be moved to class annotation
-     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="text/plain")
+     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="application/json")
      * @param ServerRequestInterface $request
      *
      * @throws PHException\HttpCode 501 if the method is not implemented
      *
-     * @return string
+     * @return \App\DTO\PaginatedGenerationSummaryList
      */
-    public function generationList(ServerRequestInterface $request): string
+    public function generationList(ServerRequestInterface $request): \App\DTO\PaginatedGenerationSummaryList
     {
         //TODO implement method
         /** @var \App\DTO\GenerationListQueryData $queryData */

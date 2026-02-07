@@ -1,5 +1,13 @@
 package org.openapitools.server.api.verticle
 
+import org.openapitools.server.api.model.LocationAreaDetail
+import org.openapitools.server.api.model.LocationDetail
+import org.openapitools.server.api.model.PaginatedLocationAreaSummaryList
+import org.openapitools.server.api.model.PaginatedLocationSummaryList
+import org.openapitools.server.api.model.PaginatedPalParkAreaSummaryList
+import org.openapitools.server.api.model.PaginatedRegionSummaryList
+import org.openapitools.server.api.model.PalParkAreaDetail
+import org.openapitools.server.api.model.RegionDetail
 import io.vertx.core.Vertx
 import io.vertx.core.json.JsonObject
 import io.vertx.core.json.JsonArray
@@ -16,12 +24,30 @@ import java.util.Map
 
 interface LocationApi  {
     fun init(vertx:Vertx,config:JsonObject)
+    /* locationAreaList
+     * List location areas */
+    suspend fun locationAreaList(limit:kotlin.Int?,offset:kotlin.Int?,context:OperationRequest):Response<PaginatedLocationAreaSummaryList>
+    /* locationAreaRetrieve
+     * Get location area */
+    suspend fun locationAreaRetrieve(id:kotlin.Int?,context:OperationRequest):Response<LocationAreaDetail>
     /* locationList
-     *  */
-    suspend fun locationList(limit:kotlin.Int?,offset:kotlin.Int?,context:OperationRequest):Response<kotlin.String>
-    /* locationRead
-     *  */
-    suspend fun locationRead(id:kotlin.Int?,context:OperationRequest):Response<kotlin.String>
+     * List locations */
+    suspend fun locationList(limit:kotlin.Int?,offset:kotlin.Int?,q:kotlin.String?,context:OperationRequest):Response<PaginatedLocationSummaryList>
+    /* locationRetrieve
+     * Get location */
+    suspend fun locationRetrieve(id:kotlin.String?,context:OperationRequest):Response<LocationDetail>
+    /* palParkAreaList
+     * List pal park areas */
+    suspend fun palParkAreaList(limit:kotlin.Int?,offset:kotlin.Int?,q:kotlin.String?,context:OperationRequest):Response<PaginatedPalParkAreaSummaryList>
+    /* palParkAreaRetrieve
+     * Get pal park area */
+    suspend fun palParkAreaRetrieve(id:kotlin.String?,context:OperationRequest):Response<PalParkAreaDetail>
+    /* regionList
+     * List regions */
+    suspend fun regionList(limit:kotlin.Int?,offset:kotlin.Int?,q:kotlin.String?,context:OperationRequest):Response<PaginatedRegionSummaryList>
+    /* regionRetrieve
+     * Get region */
+    suspend fun regionRetrieve(id:kotlin.String?,context:OperationRequest):Response<RegionDetail>
     companion object {
         const val address = "LocationApi-service"
         suspend fun createRouterFactory(vertx: Vertx,path:String): io.vertx.ext.web.api.contract.openapi3.OpenAPI3RouterFactory {

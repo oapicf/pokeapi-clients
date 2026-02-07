@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "MoveDetailContestCombos",
+  "fields": [
+    {
+      "name": "normal",
+      "type": "model.MoveDetailContestCombosNormal",
+      "doc": ""
+    },
+    {
+      "name": "super",
+      "type": "model.MoveDetailContestCombosNormal",
+      "doc": ""
+    }
+  ]
+
+}

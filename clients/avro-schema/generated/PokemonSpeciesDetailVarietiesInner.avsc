@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonSpeciesDetailVarietiesInner",
+  "fields": [
+    {
+      "name": "is_default",
+      "type": "boolean",
+      "doc": ""
+    },
+    {
+      "name": "pokemon",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    }
+  ]
+
+}

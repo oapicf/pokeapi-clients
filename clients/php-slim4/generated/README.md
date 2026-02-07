@@ -1,4 +1,4 @@
-# php-base - PHP Slim 4 Server library for 
+# php-base - PHP Slim 4 Server library for PokéAPI
 
 * [OpenAPI Generator](https://openapi-generator.tech)
 * [Slim 4 Documentation](https://www.slimframework.com/docs/v4/)
@@ -162,105 +162,391 @@ For instance, when abstract class located at `./lib/Api/AbstractPetApi.php` you 
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AbstractAbilityApi* | **abilityList** | **GET** /api/v2/ability/ | 
-*AbstractAbilityApi* | **abilityRead** | **GET** /api/v2/ability/{id}/ | 
-*AbstractBerryApi* | **berryList** | **GET** /api/v2/berry/ | 
-*AbstractBerryApi* | **berryRead** | **GET** /api/v2/berry/{id}/ | 
-*AbstractBerryFirmnessApi* | **berryFirmnessList** | **GET** /api/v2/berry-firmness/ | 
-*AbstractBerryFirmnessApi* | **berryFirmnessRead** | **GET** /api/v2/berry-firmness/{id}/ | 
-*AbstractBerryFlavorApi* | **berryFlavorList** | **GET** /api/v2/berry-flavor/ | 
-*AbstractBerryFlavorApi* | **berryFlavorRead** | **GET** /api/v2/berry-flavor/{id}/ | 
-*AbstractCharacteristicApi* | **characteristicList** | **GET** /api/v2/characteristic/ | 
-*AbstractCharacteristicApi* | **characteristicRead** | **GET** /api/v2/characteristic/{id}/ | 
-*AbstractContestEffectApi* | **contestEffectList** | **GET** /api/v2/contest-effect/ | 
-*AbstractContestEffectApi* | **contestEffectRead** | **GET** /api/v2/contest-effect/{id}/ | 
-*AbstractContestTypeApi* | **contestTypeList** | **GET** /api/v2/contest-type/ | 
-*AbstractContestTypeApi* | **contestTypeRead** | **GET** /api/v2/contest-type/{id}/ | 
-*AbstractEggGroupApi* | **eggGroupList** | **GET** /api/v2/egg-group/ | 
-*AbstractEggGroupApi* | **eggGroupRead** | **GET** /api/v2/egg-group/{id}/ | 
-*AbstractEncounterConditionApi* | **encounterConditionList** | **GET** /api/v2/encounter-condition/ | 
-*AbstractEncounterConditionApi* | **encounterConditionRead** | **GET** /api/v2/encounter-condition/{id}/ | 
-*AbstractEncounterConditionValueApi* | **encounterConditionValueList** | **GET** /api/v2/encounter-condition-value/ | 
-*AbstractEncounterConditionValueApi* | **encounterConditionValueRead** | **GET** /api/v2/encounter-condition-value/{id}/ | 
-*AbstractEncounterMethodApi* | **encounterMethodList** | **GET** /api/v2/encounter-method/ | 
-*AbstractEncounterMethodApi* | **encounterMethodRead** | **GET** /api/v2/encounter-method/{id}/ | 
-*AbstractEvolutionChainApi* | **evolutionChainList** | **GET** /api/v2/evolution-chain/ | 
-*AbstractEvolutionChainApi* | **evolutionChainRead** | **GET** /api/v2/evolution-chain/{id}/ | 
-*AbstractEvolutionTriggerApi* | **evolutionTriggerList** | **GET** /api/v2/evolution-trigger/ | 
-*AbstractEvolutionTriggerApi* | **evolutionTriggerRead** | **GET** /api/v2/evolution-trigger/{id}/ | 
-*AbstractGenderApi* | **genderList** | **GET** /api/v2/gender/ | 
-*AbstractGenderApi* | **genderRead** | **GET** /api/v2/gender/{id}/ | 
-*AbstractGenerationApi* | **generationList** | **GET** /api/v2/generation/ | 
-*AbstractGenerationApi* | **generationRead** | **GET** /api/v2/generation/{id}/ | 
-*AbstractGrowthRateApi* | **growthRateList** | **GET** /api/v2/growth-rate/ | 
-*AbstractGrowthRateApi* | **growthRateRead** | **GET** /api/v2/growth-rate/{id}/ | 
-*AbstractItemApi* | **itemList** | **GET** /api/v2/item/ | 
-*AbstractItemApi* | **itemRead** | **GET** /api/v2/item/{id}/ | 
-*AbstractItemAttributeApi* | **itemAttributeList** | **GET** /api/v2/item-attribute/ | 
-*AbstractItemAttributeApi* | **itemAttributeRead** | **GET** /api/v2/item-attribute/{id}/ | 
-*AbstractItemCategoryApi* | **itemCategoryList** | **GET** /api/v2/item-category/ | 
-*AbstractItemCategoryApi* | **itemCategoryRead** | **GET** /api/v2/item-category/{id}/ | 
-*AbstractItemFlingEffectApi* | **itemFlingEffectList** | **GET** /api/v2/item-fling-effect/ | 
-*AbstractItemFlingEffectApi* | **itemFlingEffectRead** | **GET** /api/v2/item-fling-effect/{id}/ | 
-*AbstractItemPocketApi* | **itemPocketList** | **GET** /api/v2/item-pocket/ | 
-*AbstractItemPocketApi* | **itemPocketRead** | **GET** /api/v2/item-pocket/{id}/ | 
-*AbstractLanguageApi* | **languageList** | **GET** /api/v2/language/ | 
-*AbstractLanguageApi* | **languageRead** | **GET** /api/v2/language/{id}/ | 
-*AbstractLocationApi* | **locationList** | **GET** /api/v2/location/ | 
-*AbstractLocationApi* | **locationRead** | **GET** /api/v2/location/{id}/ | 
-*AbstractLocationAreaApi* | **locationAreaList** | **GET** /api/v2/location-area/ | 
-*AbstractLocationAreaApi* | **locationAreaRead** | **GET** /api/v2/location-area/{id}/ | 
-*AbstractMachineApi* | **machineList** | **GET** /api/v2/machine/ | 
-*AbstractMachineApi* | **machineRead** | **GET** /api/v2/machine/{id}/ | 
-*AbstractMoveApi* | **moveList** | **GET** /api/v2/move/ | 
-*AbstractMoveApi* | **moveRead** | **GET** /api/v2/move/{id}/ | 
-*AbstractMoveAilmentApi* | **moveAilmentList** | **GET** /api/v2/move-ailment/ | 
-*AbstractMoveAilmentApi* | **moveAilmentRead** | **GET** /api/v2/move-ailment/{id}/ | 
-*AbstractMoveBattleStyleApi* | **moveBattleStyleList** | **GET** /api/v2/move-battle-style/ | 
-*AbstractMoveBattleStyleApi* | **moveBattleStyleRead** | **GET** /api/v2/move-battle-style/{id}/ | 
-*AbstractMoveCategoryApi* | **moveCategoryList** | **GET** /api/v2/move-category/ | 
-*AbstractMoveCategoryApi* | **moveCategoryRead** | **GET** /api/v2/move-category/{id}/ | 
-*AbstractMoveDamageClassApi* | **moveDamageClassList** | **GET** /api/v2/move-damage-class/ | 
-*AbstractMoveDamageClassApi* | **moveDamageClassRead** | **GET** /api/v2/move-damage-class/{id}/ | 
-*AbstractMoveLearnMethodApi* | **moveLearnMethodList** | **GET** /api/v2/move-learn-method/ | 
-*AbstractMoveLearnMethodApi* | **moveLearnMethodRead** | **GET** /api/v2/move-learn-method/{id}/ | 
-*AbstractMoveTargetApi* | **moveTargetList** | **GET** /api/v2/move-target/ | 
-*AbstractMoveTargetApi* | **moveTargetRead** | **GET** /api/v2/move-target/{id}/ | 
-*AbstractNatureApi* | **natureList** | **GET** /api/v2/nature/ | 
-*AbstractNatureApi* | **natureRead** | **GET** /api/v2/nature/{id}/ | 
-*AbstractPalParkAreaApi* | **palParkAreaList** | **GET** /api/v2/pal-park-area/ | 
-*AbstractPalParkAreaApi* | **palParkAreaRead** | **GET** /api/v2/pal-park-area/{id}/ | 
-*AbstractPokeathlonStatApi* | **pokeathlonStatList** | **GET** /api/v2/pokeathlon-stat/ | 
-*AbstractPokeathlonStatApi* | **pokeathlonStatRead** | **GET** /api/v2/pokeathlon-stat/{id}/ | 
-*AbstractPokedexApi* | **pokedexList** | **GET** /api/v2/pokedex/ | 
-*AbstractPokedexApi* | **pokedexRead** | **GET** /api/v2/pokedex/{id}/ | 
-*AbstractPokemonApi* | **pokemonList** | **GET** /api/v2/pokemon/ | 
-*AbstractPokemonApi* | **pokemonRead** | **GET** /api/v2/pokemon/{id}/ | 
-*AbstractPokemonColorApi* | **pokemonColorList** | **GET** /api/v2/pokemon-color/ | 
-*AbstractPokemonColorApi* | **pokemonColorRead** | **GET** /api/v2/pokemon-color/{id}/ | 
-*AbstractPokemonFormApi* | **pokemonFormList** | **GET** /api/v2/pokemon-form/ | 
-*AbstractPokemonFormApi* | **pokemonFormRead** | **GET** /api/v2/pokemon-form/{id}/ | 
-*AbstractPokemonHabitatApi* | **pokemonHabitatList** | **GET** /api/v2/pokemon-habitat/ | 
-*AbstractPokemonHabitatApi* | **pokemonHabitatRead** | **GET** /api/v2/pokemon-habitat/{id}/ | 
-*AbstractPokemonShapeApi* | **pokemonShapeList** | **GET** /api/v2/pokemon-shape/ | 
-*AbstractPokemonShapeApi* | **pokemonShapeRead** | **GET** /api/v2/pokemon-shape/{id}/ | 
-*AbstractPokemonSpeciesApi* | **pokemonSpeciesList** | **GET** /api/v2/pokemon-species/ | 
-*AbstractPokemonSpeciesApi* | **pokemonSpeciesRead** | **GET** /api/v2/pokemon-species/{id}/ | 
-*AbstractRegionApi* | **regionList** | **GET** /api/v2/region/ | 
-*AbstractRegionApi* | **regionRead** | **GET** /api/v2/region/{id}/ | 
-*AbstractStatApi* | **statList** | **GET** /api/v2/stat/ | 
-*AbstractStatApi* | **statRead** | **GET** /api/v2/stat/{id}/ | 
-*AbstractSuperContestEffectApi* | **superContestEffectList** | **GET** /api/v2/super-contest-effect/ | 
-*AbstractSuperContestEffectApi* | **superContestEffectRead** | **GET** /api/v2/super-contest-effect/{id}/ | 
-*AbstractTypeApi* | **typeList** | **GET** /api/v2/type/ | 
-*AbstractTypeApi* | **typeRead** | **GET** /api/v2/type/{id}/ | 
-*AbstractVersionApi* | **versionList** | **GET** /api/v2/version/ | 
-*AbstractVersionApi* | **versionRead** | **GET** /api/v2/version/{id}/ | 
-*AbstractVersionGroupApi* | **versionGroupList** | **GET** /api/v2/version-group/ | 
-*AbstractVersionGroupApi* | **versionGroupRead** | **GET** /api/v2/version-group/{id}/ | 
+*AbstractBerriesApi* | **berryFirmnessList** | **GET** /api/v2/berry-firmness/ | List berry firmness
+*AbstractBerriesApi* | **berryFlavorList** | **GET** /api/v2/berry-flavor/ | List berry flavors
+*AbstractBerriesApi* | **berryList** | **GET** /api/v2/berry/ | List berries
+*AbstractBerriesApi* | **berryFirmnessRetrieve** | **GET** /api/v2/berry-firmness/{id}/ | Get berry by firmness
+*AbstractBerriesApi* | **berryFlavorRetrieve** | **GET** /api/v2/berry-flavor/{id}/ | Get berries by flavor
+*AbstractBerriesApi* | **berryRetrieve** | **GET** /api/v2/berry/{id}/ | Get a berry
+*AbstractContestsApi* | **contestEffectList** | **GET** /api/v2/contest-effect/ | List contest effects
+*AbstractContestsApi* | **contestTypeList** | **GET** /api/v2/contest-type/ | List contest types
+*AbstractContestsApi* | **superContestEffectList** | **GET** /api/v2/super-contest-effect/ | List super contest effects
+*AbstractContestsApi* | **contestEffectRetrieve** | **GET** /api/v2/contest-effect/{id}/ | Get contest effect
+*AbstractContestsApi* | **contestTypeRetrieve** | **GET** /api/v2/contest-type/{id}/ | Get contest type
+*AbstractContestsApi* | **superContestEffectRetrieve** | **GET** /api/v2/super-contest-effect/{id}/ | Get super contest effect
+*AbstractEncountersApi* | **encounterConditionList** | **GET** /api/v2/encounter-condition/ | List encounter conditions
+*AbstractEncountersApi* | **encounterConditionValueList** | **GET** /api/v2/encounter-condition-value/ | List encounter condition values
+*AbstractEncountersApi* | **encounterMethodList** | **GET** /api/v2/encounter-method/ | List encounter methods
+*AbstractEncountersApi* | **encounterConditionRetrieve** | **GET** /api/v2/encounter-condition/{id}/ | Get encounter condition
+*AbstractEncountersApi* | **encounterConditionValueRetrieve** | **GET** /api/v2/encounter-condition-value/{id}/ | Get encounter condition value
+*AbstractEncountersApi* | **encounterMethodRetrieve** | **GET** /api/v2/encounter-method/{id}/ | Get encounter method
+*AbstractEncountersApi* | **pokemonEncountersRetrieve** | **GET** /api/v2/pokemon/{pokemon_id}/encounters | Get pokemon encounter
+*AbstractEvolutionApi* | **evolutionChainList** | **GET** /api/v2/evolution-chain/ | List evolution chains
+*AbstractEvolutionApi* | **evolutionTriggerList** | **GET** /api/v2/evolution-trigger/ | List evolution triggers
+*AbstractEvolutionApi* | **evolutionChainRetrieve** | **GET** /api/v2/evolution-chain/{id}/ | Get evolution chain
+*AbstractEvolutionApi* | **evolutionTriggerRetrieve** | **GET** /api/v2/evolution-trigger/{id}/ | Get evolution trigger
+*AbstractGamesApi* | **generationList** | **GET** /api/v2/generation/ | List genrations
+*AbstractGamesApi* | **pokedexList** | **GET** /api/v2/pokedex/ | List pokedex
+*AbstractGamesApi* | **versionGroupList** | **GET** /api/v2/version-group/ | List version groups
+*AbstractGamesApi* | **versionList** | **GET** /api/v2/version/ | List versions
+*AbstractGamesApi* | **generationRetrieve** | **GET** /api/v2/generation/{id}/ | Get genration
+*AbstractGamesApi* | **pokedexRetrieve** | **GET** /api/v2/pokedex/{id}/ | Get pokedex
+*AbstractGamesApi* | **versionGroupRetrieve** | **GET** /api/v2/version-group/{id}/ | Get version group
+*AbstractGamesApi* | **versionRetrieve** | **GET** /api/v2/version/{id}/ | Get version
+*AbstractItemsApi* | **itemAttributeList** | **GET** /api/v2/item-attribute/ | List item attributes
+*AbstractItemsApi* | **itemCategoryList** | **GET** /api/v2/item-category/ | List item categories
+*AbstractItemsApi* | **itemFlingEffectList** | **GET** /api/v2/item-fling-effect/ | List item fling effects
+*AbstractItemsApi* | **itemList** | **GET** /api/v2/item/ | List items
+*AbstractItemsApi* | **itemPocketList** | **GET** /api/v2/item-pocket/ | List item pockets
+*AbstractItemsApi* | **itemAttributeRetrieve** | **GET** /api/v2/item-attribute/{id}/ | Get item attribute
+*AbstractItemsApi* | **itemCategoryRetrieve** | **GET** /api/v2/item-category/{id}/ | Get item category
+*AbstractItemsApi* | **itemFlingEffectRetrieve** | **GET** /api/v2/item-fling-effect/{id}/ | Get item fling effect
+*AbstractItemsApi* | **itemPocketRetrieve** | **GET** /api/v2/item-pocket/{id}/ | Get item pocket
+*AbstractItemsApi* | **itemRetrieve** | **GET** /api/v2/item/{id}/ | Get item
+*AbstractLocationApi* | **locationAreaList** | **GET** /api/v2/location-area/ | List location areas
+*AbstractLocationApi* | **locationList** | **GET** /api/v2/location/ | List locations
+*AbstractLocationApi* | **palParkAreaList** | **GET** /api/v2/pal-park-area/ | List pal park areas
+*AbstractLocationApi* | **regionList** | **GET** /api/v2/region/ | List regions
+*AbstractLocationApi* | **locationAreaRetrieve** | **GET** /api/v2/location-area/{id}/ | Get location area
+*AbstractLocationApi* | **locationRetrieve** | **GET** /api/v2/location/{id}/ | Get location
+*AbstractLocationApi* | **palParkAreaRetrieve** | **GET** /api/v2/pal-park-area/{id}/ | Get pal park area
+*AbstractLocationApi* | **regionRetrieve** | **GET** /api/v2/region/{id}/ | Get region
+*AbstractMachinesApi* | **machineList** | **GET** /api/v2/machine/ | List machines
+*AbstractMachinesApi* | **machineRetrieve** | **GET** /api/v2/machine/{id}/ | Get machine
+*AbstractMovesApi* | **moveAilmentList** | **GET** /api/v2/move-ailment/ | List move meta ailments
+*AbstractMovesApi* | **moveBattleStyleList** | **GET** /api/v2/move-battle-style/ | List move battle styles
+*AbstractMovesApi* | **moveCategoryList** | **GET** /api/v2/move-category/ | List move meta categories
+*AbstractMovesApi* | **moveLearnMethodList** | **GET** /api/v2/move-learn-method/ | List move learn methods
+*AbstractMovesApi* | **moveList** | **GET** /api/v2/move/ | List moves
+*AbstractMovesApi* | **moveTargetList** | **GET** /api/v2/move-target/ | List move targets
+*AbstractMovesApi* | **moveAilmentRetrieve** | **GET** /api/v2/move-ailment/{id}/ | Get move meta ailment
+*AbstractMovesApi* | **moveBattleStyleRetrieve** | **GET** /api/v2/move-battle-style/{id}/ | Get move battle style
+*AbstractMovesApi* | **moveCategoryRetrieve** | **GET** /api/v2/move-category/{id}/ | Get move meta category
+*AbstractMovesApi* | **moveLearnMethodRetrieve** | **GET** /api/v2/move-learn-method/{id}/ | Get move learn method
+*AbstractMovesApi* | **moveRetrieve** | **GET** /api/v2/move/{id}/ | Get move
+*AbstractMovesApi* | **moveTargetRetrieve** | **GET** /api/v2/move-target/{id}/ | Get move target
+*AbstractPokemonApi* | **abilityList** | **GET** /api/v2/ability/ | 
+*AbstractPokemonApi* | **characteristicList** | **GET** /api/v2/characteristic/ | List charecterictics
+*AbstractPokemonApi* | **eggGroupList** | **GET** /api/v2/egg-group/ | List egg groups
+*AbstractPokemonApi* | **genderList** | **GET** /api/v2/gender/ | List genders
+*AbstractPokemonApi* | **growthRateList** | **GET** /api/v2/growth-rate/ | List growth rates
+*AbstractPokemonApi* | **moveDamageClassList** | **GET** /api/v2/move-damage-class/ | List move damage classes
+*AbstractPokemonApi* | **natureList** | **GET** /api/v2/nature/ | List natures
+*AbstractPokemonApi* | **pokeathlonStatList** | **GET** /api/v2/pokeathlon-stat/ | List pokeathlon stats
+*AbstractPokemonApi* | **pokemonColorList** | **GET** /api/v2/pokemon-color/ | List pokemon colors
+*AbstractPokemonApi* | **pokemonFormList** | **GET** /api/v2/pokemon-form/ | List pokemon forms
+*AbstractPokemonApi* | **pokemonHabitatList** | **GET** /api/v2/pokemon-habitat/ | List pokemom habitas
+*AbstractPokemonApi* | **pokemonList** | **GET** /api/v2/pokemon/ | List pokemon
+*AbstractPokemonApi* | **pokemonShapeList** | **GET** /api/v2/pokemon-shape/ | List pokemon shapes
+*AbstractPokemonApi* | **pokemonSpeciesList** | **GET** /api/v2/pokemon-species/ | List pokemon species
+*AbstractPokemonApi* | **statList** | **GET** /api/v2/stat/ | List stats
+*AbstractPokemonApi* | **typeList** | **GET** /api/v2/type/ | List types
+*AbstractPokemonApi* | **abilityRetrieve** | **GET** /api/v2/ability/{id}/ | 
+*AbstractPokemonApi* | **characteristicRetrieve** | **GET** /api/v2/characteristic/{id}/ | Get characteristic
+*AbstractPokemonApi* | **eggGroupRetrieve** | **GET** /api/v2/egg-group/{id}/ | Get egg group
+*AbstractPokemonApi* | **genderRetrieve** | **GET** /api/v2/gender/{id}/ | Get gender
+*AbstractPokemonApi* | **growthRateRetrieve** | **GET** /api/v2/growth-rate/{id}/ | Get growth rate
+*AbstractPokemonApi* | **moveDamageClassRetrieve** | **GET** /api/v2/move-damage-class/{id}/ | Get move damage class
+*AbstractPokemonApi* | **natureRetrieve** | **GET** /api/v2/nature/{id}/ | Get nature
+*AbstractPokemonApi* | **pokeathlonStatRetrieve** | **GET** /api/v2/pokeathlon-stat/{id}/ | Get pokeathlon stat
+*AbstractPokemonApi* | **pokemonColorRetrieve** | **GET** /api/v2/pokemon-color/{id}/ | Get pokemon color
+*AbstractPokemonApi* | **pokemonFormRetrieve** | **GET** /api/v2/pokemon-form/{id}/ | Get pokemon form
+*AbstractPokemonApi* | **pokemonHabitatRetrieve** | **GET** /api/v2/pokemon-habitat/{id}/ | Get pokemom habita
+*AbstractPokemonApi* | **pokemonRetrieve** | **GET** /api/v2/pokemon/{id}/ | Get pokemon
+*AbstractPokemonApi* | **pokemonShapeRetrieve** | **GET** /api/v2/pokemon-shape/{id}/ | Get pokemon shape
+*AbstractPokemonApi* | **pokemonSpeciesRetrieve** | **GET** /api/v2/pokemon-species/{id}/ | Get pokemon species
+*AbstractPokemonApi* | **statRetrieve** | **GET** /api/v2/stat/{id}/ | Get stat
+*AbstractPokemonApi* | **typeRetrieve** | **GET** /api/v2/type/{id}/ | Get types
+*AbstractUtilityApi* | **languageList** | **GET** /api/v2/language/ | List languages
+*AbstractUtilityApi* | **languageRetrieve** | **GET** /api/v2/language/{id}/ | Get language
 
 
 ## Models
 
+* OpenAPIServer\Model\AbilityChange
+* OpenAPIServer\Model\AbilityChangeEffectText
+* OpenAPIServer\Model\AbilityDetail
+* OpenAPIServer\Model\AbilityDetailPokemonInner
+* OpenAPIServer\Model\AbilityDetailPokemonInnerPokemon
+* OpenAPIServer\Model\AbilityEffectText
+* OpenAPIServer\Model\AbilityFlavorText
+* OpenAPIServer\Model\AbilityName
+* OpenAPIServer\Model\AbilitySummary
+* OpenAPIServer\Model\BerryDetail
+* OpenAPIServer\Model\BerryDetailFlavorsInner
+* OpenAPIServer\Model\BerryDetailFlavorsInnerFlavor
+* OpenAPIServer\Model\BerryFirmnessDetail
+* OpenAPIServer\Model\BerryFirmnessName
+* OpenAPIServer\Model\BerryFirmnessSummary
+* OpenAPIServer\Model\BerryFlavorDetail
+* OpenAPIServer\Model\BerryFlavorDetailBerriesInner
+* OpenAPIServer\Model\BerryFlavorDetailBerriesInnerBerry
+* OpenAPIServer\Model\BerryFlavorName
+* OpenAPIServer\Model\BerryFlavorSummary
+* OpenAPIServer\Model\BerrySummary
+* OpenAPIServer\Model\CharacteristicDescription
+* OpenAPIServer\Model\CharacteristicDetail
+* OpenAPIServer\Model\CharacteristicSummary
+* OpenAPIServer\Model\ContestEffectDetail
+* OpenAPIServer\Model\ContestEffectEffectText
+* OpenAPIServer\Model\ContestEffectFlavorText
+* OpenAPIServer\Model\ContestEffectSummary
+* OpenAPIServer\Model\ContestTypeDetail
+* OpenAPIServer\Model\ContestTypeName
+* OpenAPIServer\Model\ContestTypeSummary
+* OpenAPIServer\Model\EggGroupDetail
+* OpenAPIServer\Model\EggGroupDetailPokemonSpeciesInner
+* OpenAPIServer\Model\EggGroupName
+* OpenAPIServer\Model\EggGroupSummary
+* OpenAPIServer\Model\EncounterConditionDetail
+* OpenAPIServer\Model\EncounterConditionName
+* OpenAPIServer\Model\EncounterConditionSummary
+* OpenAPIServer\Model\EncounterConditionValueDetail
+* OpenAPIServer\Model\EncounterConditionValueName
+* OpenAPIServer\Model\EncounterConditionValueSummary
+* OpenAPIServer\Model\EncounterMethodDetail
+* OpenAPIServer\Model\EncounterMethodName
+* OpenAPIServer\Model\EncounterMethodSummary
+* OpenAPIServer\Model\EvolutionChainDetail
+* OpenAPIServer\Model\EvolutionChainDetailChain
+* OpenAPIServer\Model\EvolutionChainDetailChainEvolvesToInner
+* OpenAPIServer\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner
+* OpenAPIServer\Model\EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender
+* OpenAPIServer\Model\EvolutionChainSummary
+* OpenAPIServer\Model\EvolutionTriggerDetail
+* OpenAPIServer\Model\EvolutionTriggerName
+* OpenAPIServer\Model\EvolutionTriggerSummary
+* OpenAPIServer\Model\Experience
+* OpenAPIServer\Model\GenderDetail
+* OpenAPIServer\Model\GenderDetailPokemonSpeciesDetailsInner
+* OpenAPIServer\Model\GenderSummary
+* OpenAPIServer\Model\GenerationDetail
+* OpenAPIServer\Model\GenerationName
+* OpenAPIServer\Model\GenerationSummary
+* OpenAPIServer\Model\GrowthRateDescription
+* OpenAPIServer\Model\GrowthRateDetail
+* OpenAPIServer\Model\GrowthRateSummary
+* OpenAPIServer\Model\ItemAttributeDescription
+* OpenAPIServer\Model\ItemAttributeDetail
+* OpenAPIServer\Model\ItemAttributeName
+* OpenAPIServer\Model\ItemAttributeSummary
+* OpenAPIServer\Model\ItemCategoryDetail
+* OpenAPIServer\Model\ItemCategoryName
+* OpenAPIServer\Model\ItemCategorySummary
+* OpenAPIServer\Model\ItemDetail
+* OpenAPIServer\Model\ItemDetailBabyTriggerFor
+* OpenAPIServer\Model\ItemDetailHeldByPokemonInner
+* OpenAPIServer\Model\ItemDetailHeldByPokemonInnerVersionDetailsInner
+* OpenAPIServer\Model\ItemDetailMachinesInner
+* OpenAPIServer\Model\ItemDetailSprites
+* OpenAPIServer\Model\ItemEffectText
+* OpenAPIServer\Model\ItemFlavorText
+* OpenAPIServer\Model\ItemFlingEffectDetail
+* OpenAPIServer\Model\ItemFlingEffectEffectText
+* OpenAPIServer\Model\ItemFlingEffectSummary
+* OpenAPIServer\Model\ItemGameIndex
+* OpenAPIServer\Model\ItemName
+* OpenAPIServer\Model\ItemPocketDetail
+* OpenAPIServer\Model\ItemPocketName
+* OpenAPIServer\Model\ItemPocketSummary
+* OpenAPIServer\Model\ItemSummary
+* OpenAPIServer\Model\LanguageDetail
+* OpenAPIServer\Model\LanguageName
+* OpenAPIServer\Model\LanguageSummary
+* OpenAPIServer\Model\LocationAreaDetail
+* OpenAPIServer\Model\LocationAreaDetailEncounterMethodRatesInner
+* OpenAPIServer\Model\LocationAreaDetailEncounterMethodRatesInnerVersionDetailsInner
+* OpenAPIServer\Model\LocationAreaDetailPokemonEncountersInner
+* OpenAPIServer\Model\LocationAreaDetailPokemonEncountersInnerVersionDetailsInner
+* OpenAPIServer\Model\LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails
+* OpenAPIServer\Model\LocationAreaName
+* OpenAPIServer\Model\LocationAreaSummary
+* OpenAPIServer\Model\LocationDetail
+* OpenAPIServer\Model\LocationGameIndex
+* OpenAPIServer\Model\LocationName
+* OpenAPIServer\Model\LocationSummary
+* OpenAPIServer\Model\MachineDetail
+* OpenAPIServer\Model\MachineSummary
+* OpenAPIServer\Model\MoveBattleStyleDetail
+* OpenAPIServer\Model\MoveBattleStyleName
+* OpenAPIServer\Model\MoveBattleStyleSummary
+* OpenAPIServer\Model\MoveChange
+* OpenAPIServer\Model\MoveChangeEffectEntriesInner
+* OpenAPIServer\Model\MoveDamageClassDescription
+* OpenAPIServer\Model\MoveDamageClassDetail
+* OpenAPIServer\Model\MoveDamageClassName
+* OpenAPIServer\Model\MoveDamageClassSummary
+* OpenAPIServer\Model\MoveDetail
+* OpenAPIServer\Model\MoveDetailContestCombos
+* OpenAPIServer\Model\MoveDetailContestCombosNormal
+* OpenAPIServer\Model\MoveDetailEffectChangesInner
+* OpenAPIServer\Model\MoveDetailEffectChangesInnerEffectEntriesInner
+* OpenAPIServer\Model\MoveDetailMachinesInner
+* OpenAPIServer\Model\MoveDetailMachinesInnerMachine
+* OpenAPIServer\Model\MoveDetailStatChangesInner
+* OpenAPIServer\Model\MoveFlavorText
+* OpenAPIServer\Model\MoveLearnMethodDescription
+* OpenAPIServer\Model\MoveLearnMethodDetail
+* OpenAPIServer\Model\MoveLearnMethodName
+* OpenAPIServer\Model\MoveLearnMethodSummary
+* OpenAPIServer\Model\MoveMeta
+* OpenAPIServer\Model\MoveMetaAilmentDetail
+* OpenAPIServer\Model\MoveMetaAilmentName
+* OpenAPIServer\Model\MoveMetaAilmentSummary
+* OpenAPIServer\Model\MoveMetaCategoryDescription
+* OpenAPIServer\Model\MoveMetaCategoryDetail
+* OpenAPIServer\Model\MoveMetaCategorySummary
+* OpenAPIServer\Model\MoveName
+* OpenAPIServer\Model\MoveSummary
+* OpenAPIServer\Model\MoveTargetDescription
+* OpenAPIServer\Model\MoveTargetDetail
+* OpenAPIServer\Model\MoveTargetName
+* OpenAPIServer\Model\MoveTargetSummary
+* OpenAPIServer\Model\NatureBattleStylePreference
+* OpenAPIServer\Model\NatureDetail
+* OpenAPIServer\Model\NatureDetailPokeathlonStatChangesInner
+* OpenAPIServer\Model\NatureName
+* OpenAPIServer\Model\NatureSummary
+* OpenAPIServer\Model\PaginatedAbilitySummaryList
+* OpenAPIServer\Model\PaginatedBerryFirmnessSummaryList
+* OpenAPIServer\Model\PaginatedBerryFlavorSummaryList
+* OpenAPIServer\Model\PaginatedBerrySummaryList
+* OpenAPIServer\Model\PaginatedCharacteristicSummaryList
+* OpenAPIServer\Model\PaginatedContestEffectSummaryList
+* OpenAPIServer\Model\PaginatedContestTypeSummaryList
+* OpenAPIServer\Model\PaginatedEggGroupSummaryList
+* OpenAPIServer\Model\PaginatedEncounterConditionSummaryList
+* OpenAPIServer\Model\PaginatedEncounterConditionValueSummaryList
+* OpenAPIServer\Model\PaginatedEncounterMethodSummaryList
+* OpenAPIServer\Model\PaginatedEvolutionChainSummaryList
+* OpenAPIServer\Model\PaginatedEvolutionTriggerSummaryList
+* OpenAPIServer\Model\PaginatedGenderSummaryList
+* OpenAPIServer\Model\PaginatedGenerationSummaryList
+* OpenAPIServer\Model\PaginatedGrowthRateSummaryList
+* OpenAPIServer\Model\PaginatedItemAttributeSummaryList
+* OpenAPIServer\Model\PaginatedItemCategorySummaryList
+* OpenAPIServer\Model\PaginatedItemFlingEffectSummaryList
+* OpenAPIServer\Model\PaginatedItemPocketSummaryList
+* OpenAPIServer\Model\PaginatedItemSummaryList
+* OpenAPIServer\Model\PaginatedLanguageSummaryList
+* OpenAPIServer\Model\PaginatedLocationAreaSummaryList
+* OpenAPIServer\Model\PaginatedLocationSummaryList
+* OpenAPIServer\Model\PaginatedMachineSummaryList
+* OpenAPIServer\Model\PaginatedMoveBattleStyleSummaryList
+* OpenAPIServer\Model\PaginatedMoveDamageClassSummaryList
+* OpenAPIServer\Model\PaginatedMoveLearnMethodSummaryList
+* OpenAPIServer\Model\PaginatedMoveMetaAilmentSummaryList
+* OpenAPIServer\Model\PaginatedMoveMetaCategorySummaryList
+* OpenAPIServer\Model\PaginatedMoveSummaryList
+* OpenAPIServer\Model\PaginatedMoveTargetSummaryList
+* OpenAPIServer\Model\PaginatedNatureSummaryList
+* OpenAPIServer\Model\PaginatedPalParkAreaSummaryList
+* OpenAPIServer\Model\PaginatedPokeathlonStatSummaryList
+* OpenAPIServer\Model\PaginatedPokedexSummaryList
+* OpenAPIServer\Model\PaginatedPokemonColorSummaryList
+* OpenAPIServer\Model\PaginatedPokemonFormSummaryList
+* OpenAPIServer\Model\PaginatedPokemonHabitatSummaryList
+* OpenAPIServer\Model\PaginatedPokemonShapeSummaryList
+* OpenAPIServer\Model\PaginatedPokemonSpeciesSummaryList
+* OpenAPIServer\Model\PaginatedPokemonSummaryList
+* OpenAPIServer\Model\PaginatedRegionSummaryList
+* OpenAPIServer\Model\PaginatedStatSummaryList
+* OpenAPIServer\Model\PaginatedSuperContestEffectSummaryList
+* OpenAPIServer\Model\PaginatedTypeSummaryList
+* OpenAPIServer\Model\PaginatedVersionGroupSummaryList
+* OpenAPIServer\Model\PaginatedVersionSummaryList
+* OpenAPIServer\Model\PalParkAreaDetail
+* OpenAPIServer\Model\PalParkAreaDetailPokemonEncountersInner
+* OpenAPIServer\Model\PalParkAreaName
+* OpenAPIServer\Model\PalParkAreaSummary
+* OpenAPIServer\Model\PokeathlonStatDetail
+* OpenAPIServer\Model\PokeathlonStatDetailAffectingNatures
+* OpenAPIServer\Model\PokeathlonStatDetailAffectingNaturesDecreaseInner
+* OpenAPIServer\Model\PokeathlonStatDetailAffectingNaturesIncreaseInner
+* OpenAPIServer\Model\PokeathlonStatName
+* OpenAPIServer\Model\PokeathlonStatSummary
+* OpenAPIServer\Model\PokedexDescription
+* OpenAPIServer\Model\PokedexDetail
+* OpenAPIServer\Model\PokedexDetailPokemonEntriesInner
+* OpenAPIServer\Model\PokedexName
+* OpenAPIServer\Model\PokedexSummary
+* OpenAPIServer\Model\PokemonColorDetail
+* OpenAPIServer\Model\PokemonColorName
+* OpenAPIServer\Model\PokemonColorSummary
+* OpenAPIServer\Model\PokemonDetail
+* OpenAPIServer\Model\PokemonDetailAbilitiesInner
+* OpenAPIServer\Model\PokemonDetailCries
+* OpenAPIServer\Model\PokemonDetailHeldItems
+* OpenAPIServer\Model\PokemonDetailMovesInner
+* OpenAPIServer\Model\PokemonDetailMovesInnerVersionGroupDetailsInner
+* OpenAPIServer\Model\PokemonDetailPastAbilitiesInner
+* OpenAPIServer\Model\PokemonDetailPastTypesInner
+* OpenAPIServer\Model\PokemonDetailSprites
+* OpenAPIServer\Model\PokemonDetailTypesInner
+* OpenAPIServer\Model\PokemonDexEntry
+* OpenAPIServer\Model\PokemonEncountersRetrieve200ResponseInner
+* OpenAPIServer\Model\PokemonEncountersRetrieve200ResponseInnerLocationArea
+* OpenAPIServer\Model\PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner
+* OpenAPIServer\Model\PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner
+* OpenAPIServer\Model\PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerConditionValuesInner
+* OpenAPIServer\Model\PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInnerMethod
+* OpenAPIServer\Model\PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion
+* OpenAPIServer\Model\PokemonFormDetail
+* OpenAPIServer\Model\PokemonFormDetailFormNamesInner
+* OpenAPIServer\Model\PokemonFormDetailSprites
+* OpenAPIServer\Model\PokemonFormSummary
+* OpenAPIServer\Model\PokemonGameIndex
+* OpenAPIServer\Model\PokemonHabitatDetail
+* OpenAPIServer\Model\PokemonHabitatName
+* OpenAPIServer\Model\PokemonHabitatSummary
+* OpenAPIServer\Model\PokemonShapeDetail
+* OpenAPIServer\Model\PokemonShapeDetailAwesomeNamesInner
+* OpenAPIServer\Model\PokemonShapeDetailNamesInner
+* OpenAPIServer\Model\PokemonShapeSummary
+* OpenAPIServer\Model\PokemonSpeciesDescription
+* OpenAPIServer\Model\PokemonSpeciesDetail
+* OpenAPIServer\Model\PokemonSpeciesDetailGeneraInner
+* OpenAPIServer\Model\PokemonSpeciesDetailPalParkEncountersInner
+* OpenAPIServer\Model\PokemonSpeciesDetailVarietiesInner
+* OpenAPIServer\Model\PokemonSpeciesFlavorText
+* OpenAPIServer\Model\PokemonSpeciesSummary
+* OpenAPIServer\Model\PokemonStat
+* OpenAPIServer\Model\PokemonSummary
+* OpenAPIServer\Model\RegionDetail
+* OpenAPIServer\Model\RegionName
+* OpenAPIServer\Model\RegionSummary
+* OpenAPIServer\Model\StatDetail
+* OpenAPIServer\Model\StatDetailAffectingMoves
+* OpenAPIServer\Model\StatDetailAffectingMovesIncreaseInner
+* OpenAPIServer\Model\StatDetailAffectingNatures
+* OpenAPIServer\Model\StatName
+* OpenAPIServer\Model\StatSummary
+* OpenAPIServer\Model\SuperContestEffectDetail
+* OpenAPIServer\Model\SuperContestEffectFlavorText
+* OpenAPIServer\Model\SuperContestEffectSummary
+* OpenAPIServer\Model\TypeDetail
+* OpenAPIServer\Model\TypeDetailDamageRelations
+* OpenAPIServer\Model\TypeDetailPastDamageRelationsInner
+* OpenAPIServer\Model\TypeDetailPastDamageRelationsInnerDamageRelations
+* OpenAPIServer\Model\TypeDetailPokemonInner
+* OpenAPIServer\Model\TypeDetailPokemonInnerPokemon
+* OpenAPIServer\Model\TypeDetailSpritesValueValue
+* OpenAPIServer\Model\TypeGameIndex
+* OpenAPIServer\Model\TypeSummary
+* OpenAPIServer\Model\VersionDetail
+* OpenAPIServer\Model\VersionGroupDetail
+* OpenAPIServer\Model\VersionGroupSummary
+* OpenAPIServer\Model\VersionName
+* OpenAPIServer\Model\VersionSummary
 
 
+## Authentication
+
+### Security schema `basicAuth`
+> Important! To make Basic authentication work you need to extend [\OpenAPIServer\Auth\AbstractAuthenticator](./lib/Auth/AbstractAuthenticator.php) class by [\OpenAPIServer\Auth\BasicAuthenticator](./src/Auth/BasicAuthenticator.php) class.
+
+### Security schema `cookieAuth`
+> Important! To make ApiKey authentication work you need to extend [\OpenAPIServer\Auth\AbstractAuthenticator](./lib/Auth/AbstractAuthenticator.php) class by [\OpenAPIServer\Auth\ApiKeyAuthenticator](./src/Auth/ApiKeyAuthenticator.php) class.
+
+### Advanced middleware configuration
+Ref to used Slim Token Middleware [dyorg/slim-token-authentication](https://github.com/dyorg/slim-token-authentication/tree/1.x#readme)

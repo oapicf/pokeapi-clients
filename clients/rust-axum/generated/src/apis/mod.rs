@@ -1,53 +1,42 @@
-pub mod ability;
-pub mod berry;
-pub mod berry_firmness;
-pub mod berry_flavor;
-pub mod characteristic;
-pub mod contest_effect;
-pub mod contest_type;
-pub mod egg_group;
-pub mod encounter_condition;
-pub mod encounter_condition_value;
-pub mod encounter_method;
-pub mod evolution_chain;
-pub mod evolution_trigger;
-pub mod gender;
-pub mod generation;
-pub mod growth_rate;
-pub mod item;
-pub mod item_attribute;
-pub mod item_category;
-pub mod item_fling_effect;
-pub mod item_pocket;
-pub mod language;
+pub mod berries;
+pub mod contests;
+pub mod encounters;
+pub mod evolution;
+pub mod games;
+pub mod items;
 pub mod location;
-pub mod location_area;
-pub mod machine;
-pub mod r#move;
-pub mod move_ailment;
-pub mod move_battle_style;
-pub mod move_category;
-pub mod move_damage_class;
-pub mod move_learn_method;
-pub mod move_target;
-pub mod nature;
-pub mod pal_park_area;
-pub mod pokeathlon_stat;
-pub mod pokedex;
+pub mod machines;
+pub mod moves;
 pub mod pokemon;
-pub mod pokemon_color;
-pub mod pokemon_form;
-pub mod pokemon_habitat;
-pub mod pokemon_shape;
-pub mod pokemon_species;
-pub mod region;
-pub mod stat;
-pub mod super_contest_effect;
-pub mod r#type;
-pub mod version;
-pub mod version_group;
+pub mod utility;
 
 
+
+/// Cookie Authentication.
+#[async_trait::async_trait]
+pub trait CookieAuthentication {
+    type Claims;
+
+    /// Extracting Claims from Cookie. Return None if the Claims are invalid.
+    async fn extract_claims_from_cookie(&self, cookies: &axum_extra::extract::CookieJar, key: &str) -> Option<Self::Claims>;
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[non_exhaustive]
+pub enum BasicAuthKind {
+    Basic,
+    Bearer,
+}
+
+/// API Key Authentication - Authentication Header.
+/// For `Basic token` and `Bearer token`
+#[async_trait::async_trait]
+pub trait ApiAuthBasic {
+    type Claims;
+
+    /// Extracting Claims from Header. Return None if the Claims are invalid.
+    async fn extract_claims_from_auth_header(&self, kind: BasicAuthKind, headers: &axum::http::header::HeaderMap, key: &str) -> Option<Self::Claims>;
+}
 
 
 // Error handler for unhandled errors.

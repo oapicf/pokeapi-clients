@@ -1,0 +1,57 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "TypeDetailDamageRelations",
+  "fields": [
+    {
+      "name": "no_damage_to",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityDetailPokemonInnerPokemon"
+      },
+      "doc": ""
+    },
+    {
+      "name": "half_damage_to",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityDetailPokemonInnerPokemon"
+      },
+      "doc": ""
+    },
+    {
+      "name": "double_damage_to",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityDetailPokemonInnerPokemon"
+      },
+      "doc": ""
+    },
+    {
+      "name": "no_damage_from",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityDetailPokemonInnerPokemon"
+      },
+      "doc": ""
+    },
+    {
+      "name": "half_damage_from",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityDetailPokemonInnerPokemon"
+      },
+      "doc": ""
+    },
+    {
+      "name": "double_damage_from",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityDetailPokemonInnerPokemon"
+      },
+      "doc": ""
+    }
+  ]
+
+}

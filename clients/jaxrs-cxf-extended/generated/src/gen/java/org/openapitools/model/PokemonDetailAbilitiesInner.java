@@ -1,0 +1,142 @@
+package org.openapitools.model;
+
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+
+import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+public class PokemonDetailAbilitiesInner  {
+  
+  @ApiModelProperty(required = true, value = "")
+  @Valid
+  private AbilityDetailPokemonInnerPokemon ability;
+
+  @ApiModelProperty(required = true, value = "")
+  private Boolean isHidden;
+
+  @ApiModelProperty(required = true, value = "")
+  private Integer slot;
+ /**
+  * Get ability
+  * @return ability
+  */
+  @JsonProperty("ability")
+  @NotNull
+  public AbilityDetailPokemonInnerPokemon getAbility() {
+    return ability;
+  }
+
+  /**
+   * Sets the <code>ability</code> property.
+   */
+ public void setAbility(AbilityDetailPokemonInnerPokemon ability) {
+    this.ability = ability;
+  }
+
+  /**
+   * Sets the <code>ability</code> property.
+   */
+  public PokemonDetailAbilitiesInner ability(AbilityDetailPokemonInnerPokemon ability) {
+    this.ability = ability;
+    return this;
+  }
+
+ /**
+  * Get isHidden
+  * @return isHidden
+  */
+  @JsonProperty("is_hidden")
+  @NotNull
+  public Boolean getIsHidden() {
+    return isHidden;
+  }
+
+  /**
+   * Sets the <code>isHidden</code> property.
+   */
+ public void setIsHidden(Boolean isHidden) {
+    this.isHidden = isHidden;
+  }
+
+  /**
+   * Sets the <code>isHidden</code> property.
+   */
+  public PokemonDetailAbilitiesInner isHidden(Boolean isHidden) {
+    this.isHidden = isHidden;
+    return this;
+  }
+
+ /**
+  * Get slot
+  * @return slot
+  */
+  @JsonProperty("slot")
+  @NotNull
+  public Integer getSlot() {
+    return slot;
+  }
+
+  /**
+   * Sets the <code>slot</code> property.
+   */
+ public void setSlot(Integer slot) {
+    this.slot = slot;
+  }
+
+  /**
+   * Sets the <code>slot</code> property.
+   */
+  public PokemonDetailAbilitiesInner slot(Integer slot) {
+    this.slot = slot;
+    return this;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    PokemonDetailAbilitiesInner pokemonDetailAbilitiesInner = (PokemonDetailAbilitiesInner) o;
+    return Objects.equals(this.ability, pokemonDetailAbilitiesInner.ability) &&
+        Objects.equals(this.isHidden, pokemonDetailAbilitiesInner.isHidden) &&
+        Objects.equals(this.slot, pokemonDetailAbilitiesInner.slot);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(ability, isHidden, slot);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PokemonDetailAbilitiesInner {\n");
+    
+    sb.append("    ability: ").append(toIndentedString(ability)).append("\n");
+    sb.append("    isHidden: ").append(toIndentedString(isHidden)).append("\n");
+    sb.append("    slot: ").append(toIndentedString(slot)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private static String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
+

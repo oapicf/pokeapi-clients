@@ -19,54 +19,17 @@ open System.Diagnostics
 open Giraffe.GiraffeViewEngine
 open AspNet.Security.ApiKey.Providers
 
-open AbilityApiHandlerParams
-open BerryApiHandlerParams
-open BerryFirmnessApiHandlerParams
-open BerryFlavorApiHandlerParams
-open CharacteristicApiHandlerParams
-open ContestEffectApiHandlerParams
-open ContestTypeApiHandlerParams
-open EggGroupApiHandlerParams
-open EncounterConditionApiHandlerParams
-open EncounterConditionValueApiHandlerParams
-open EncounterMethodApiHandlerParams
-open EvolutionChainApiHandlerParams
-open EvolutionTriggerApiHandlerParams
-open GenderApiHandlerParams
-open GenerationApiHandlerParams
-open GrowthRateApiHandlerParams
-open ItemApiHandlerParams
-open ItemAttributeApiHandlerParams
-open ItemCategoryApiHandlerParams
-open ItemFlingEffectApiHandlerParams
-open ItemPocketApiHandlerParams
-open LanguageApiHandlerParams
+open BerriesApiHandlerParams
+open ContestsApiHandlerParams
+open EncountersApiHandlerParams
+open EvolutionApiHandlerParams
+open GamesApiHandlerParams
+open ItemsApiHandlerParams
 open LocationApiHandlerParams
-open LocationAreaApiHandlerParams
-open MachineApiHandlerParams
-open MoveApiHandlerParams
-open MoveAilmentApiHandlerParams
-open MoveBattleStyleApiHandlerParams
-open MoveCategoryApiHandlerParams
-open MoveDamageClassApiHandlerParams
-open MoveLearnMethodApiHandlerParams
-open MoveTargetApiHandlerParams
-open NatureApiHandlerParams
-open PalParkAreaApiHandlerParams
-open PokeathlonStatApiHandlerParams
-open PokedexApiHandlerParams
+open MachinesApiHandlerParams
+open MovesApiHandlerParams
 open PokemonApiHandlerParams
-open PokemonColorApiHandlerParams
-open PokemonFormApiHandlerParams
-open PokemonHabitatApiHandlerParams
-open PokemonShapeApiHandlerParams
-open PokemonSpeciesApiHandlerParams
-open RegionApiHandlerParams
-open StatApiHandlerParams
-open SuperContestEffectApiHandlerParams
-open TypeApiHandlerParams
-open VersionApiHandlerParams
-open VersionGroupApiHandlerParams
+open UtilityApiHandlerParams
 open Giraffe
 
 module App =
@@ -93,102 +56,103 @@ module App =
 
   let webApp =
     choose (CustomHandlers.handlers @ [
-      HttpGet >=> route "/api/v2/ability/" >=>  AbilityApiHandler.AbilityList;
-      HttpGet >=> routeBind<AbilityReadPathParams> "/api/v2/ability/{id}/"  (fun x ->  AbilityApiHandler.AbilityRead x);
-      HttpGet >=> route "/api/v2/berry/" >=>  BerryApiHandler.BerryList;
-      HttpGet >=> routeBind<BerryReadPathParams> "/api/v2/berry/{id}/"  (fun x ->  BerryApiHandler.BerryRead x);
-      HttpGet >=> route "/api/v2/berry-firmness/" >=>  BerryFirmnessApiHandler.BerryFirmnessList;
-      HttpGet >=> routeBind<BerryFirmnessReadPathParams> "/api/v2/berry-firmness/{id}/"  (fun x ->  BerryFirmnessApiHandler.BerryFirmnessRead x);
-      HttpGet >=> route "/api/v2/berry-flavor/" >=>  BerryFlavorApiHandler.BerryFlavorList;
-      HttpGet >=> routeBind<BerryFlavorReadPathParams> "/api/v2/berry-flavor/{id}/"  (fun x ->  BerryFlavorApiHandler.BerryFlavorRead x);
-      HttpGet >=> route "/api/v2/characteristic/" >=>  CharacteristicApiHandler.CharacteristicList;
-      HttpGet >=> routeBind<CharacteristicReadPathParams> "/api/v2/characteristic/{id}/"  (fun x ->  CharacteristicApiHandler.CharacteristicRead x);
-      HttpGet >=> route "/api/v2/contest-effect/" >=>  ContestEffectApiHandler.ContestEffectList;
-      HttpGet >=> routeBind<ContestEffectReadPathParams> "/api/v2/contest-effect/{id}/"  (fun x ->  ContestEffectApiHandler.ContestEffectRead x);
-      HttpGet >=> route "/api/v2/contest-type/" >=>  ContestTypeApiHandler.ContestTypeList;
-      HttpGet >=> routeBind<ContestTypeReadPathParams> "/api/v2/contest-type/{id}/"  (fun x ->  ContestTypeApiHandler.ContestTypeRead x);
-      HttpGet >=> route "/api/v2/egg-group/" >=>  EggGroupApiHandler.EggGroupList;
-      HttpGet >=> routeBind<EggGroupReadPathParams> "/api/v2/egg-group/{id}/"  (fun x ->  EggGroupApiHandler.EggGroupRead x);
-      HttpGet >=> route "/api/v2/encounter-condition/" >=>  EncounterConditionApiHandler.EncounterConditionList;
-      HttpGet >=> routeBind<EncounterConditionReadPathParams> "/api/v2/encounter-condition/{id}/"  (fun x ->  EncounterConditionApiHandler.EncounterConditionRead x);
-      HttpGet >=> route "/api/v2/encounter-condition-value/" >=>  EncounterConditionValueApiHandler.EncounterConditionValueList;
-      HttpGet >=> routeBind<EncounterConditionValueReadPathParams> "/api/v2/encounter-condition-value/{id}/"  (fun x ->  EncounterConditionValueApiHandler.EncounterConditionValueRead x);
-      HttpGet >=> route "/api/v2/encounter-method/" >=>  EncounterMethodApiHandler.EncounterMethodList;
-      HttpGet >=> routeBind<EncounterMethodReadPathParams> "/api/v2/encounter-method/{id}/"  (fun x ->  EncounterMethodApiHandler.EncounterMethodRead x);
-      HttpGet >=> route "/api/v2/evolution-chain/" >=>  EvolutionChainApiHandler.EvolutionChainList;
-      HttpGet >=> routeBind<EvolutionChainReadPathParams> "/api/v2/evolution-chain/{id}/"  (fun x ->  EvolutionChainApiHandler.EvolutionChainRead x);
-      HttpGet >=> route "/api/v2/evolution-trigger/" >=>  EvolutionTriggerApiHandler.EvolutionTriggerList;
-      HttpGet >=> routeBind<EvolutionTriggerReadPathParams> "/api/v2/evolution-trigger/{id}/"  (fun x ->  EvolutionTriggerApiHandler.EvolutionTriggerRead x);
-      HttpGet >=> route "/api/v2/gender/" >=>  GenderApiHandler.GenderList;
-      HttpGet >=> routeBind<GenderReadPathParams> "/api/v2/gender/{id}/"  (fun x ->  GenderApiHandler.GenderRead x);
-      HttpGet >=> route "/api/v2/generation/" >=>  GenerationApiHandler.GenerationList;
-      HttpGet >=> routeBind<GenerationReadPathParams> "/api/v2/generation/{id}/"  (fun x ->  GenerationApiHandler.GenerationRead x);
-      HttpGet >=> route "/api/v2/growth-rate/" >=>  GrowthRateApiHandler.GrowthRateList;
-      HttpGet >=> routeBind<GrowthRateReadPathParams> "/api/v2/growth-rate/{id}/"  (fun x ->  GrowthRateApiHandler.GrowthRateRead x);
-      HttpGet >=> route "/api/v2/item/" >=>  ItemApiHandler.ItemList;
-      HttpGet >=> routeBind<ItemReadPathParams> "/api/v2/item/{id}/"  (fun x ->  ItemApiHandler.ItemRead x);
-      HttpGet >=> route "/api/v2/item-attribute/" >=>  ItemAttributeApiHandler.ItemAttributeList;
-      HttpGet >=> routeBind<ItemAttributeReadPathParams> "/api/v2/item-attribute/{id}/"  (fun x ->  ItemAttributeApiHandler.ItemAttributeRead x);
-      HttpGet >=> route "/api/v2/item-category/" >=>  ItemCategoryApiHandler.ItemCategoryList;
-      HttpGet >=> routeBind<ItemCategoryReadPathParams> "/api/v2/item-category/{id}/"  (fun x ->  ItemCategoryApiHandler.ItemCategoryRead x);
-      HttpGet >=> route "/api/v2/item-fling-effect/" >=>  ItemFlingEffectApiHandler.ItemFlingEffectList;
-      HttpGet >=> routeBind<ItemFlingEffectReadPathParams> "/api/v2/item-fling-effect/{id}/"  (fun x ->  ItemFlingEffectApiHandler.ItemFlingEffectRead x);
-      HttpGet >=> route "/api/v2/item-pocket/" >=>  ItemPocketApiHandler.ItemPocketList;
-      HttpGet >=> routeBind<ItemPocketReadPathParams> "/api/v2/item-pocket/{id}/"  (fun x ->  ItemPocketApiHandler.ItemPocketRead x);
-      HttpGet >=> route "/api/v2/language/" >=>  LanguageApiHandler.LanguageList;
-      HttpGet >=> routeBind<LanguageReadPathParams> "/api/v2/language/{id}/"  (fun x ->  LanguageApiHandler.LanguageRead x);
-      HttpGet >=> route "/api/v2/location/" >=>  LocationApiHandler.LocationList;
-      HttpGet >=> routeBind<LocationReadPathParams> "/api/v2/location/{id}/"  (fun x ->  LocationApiHandler.LocationRead x);
-      HttpGet >=> route "/api/v2/location-area/" >=>  LocationAreaApiHandler.LocationAreaList;
-      HttpGet >=> routeBind<LocationAreaReadPathParams> "/api/v2/location-area/{id}/"  (fun x ->  LocationAreaApiHandler.LocationAreaRead x);
-      HttpGet >=> route "/api/v2/machine/" >=>  MachineApiHandler.MachineList;
-      HttpGet >=> routeBind<MachineReadPathParams> "/api/v2/machine/{id}/"  (fun x ->  MachineApiHandler.MachineRead x);
-      HttpGet >=> route "/api/v2/move/" >=>  MoveApiHandler.MoveList;
-      HttpGet >=> routeBind<MoveReadPathParams> "/api/v2/move/{id}/"  (fun x ->  MoveApiHandler.MoveRead x);
-      HttpGet >=> route "/api/v2/move-ailment/" >=>  MoveAilmentApiHandler.MoveAilmentList;
-      HttpGet >=> routeBind<MoveAilmentReadPathParams> "/api/v2/move-ailment/{id}/"  (fun x ->  MoveAilmentApiHandler.MoveAilmentRead x);
-      HttpGet >=> route "/api/v2/move-battle-style/" >=>  MoveBattleStyleApiHandler.MoveBattleStyleList;
-      HttpGet >=> routeBind<MoveBattleStyleReadPathParams> "/api/v2/move-battle-style/{id}/"  (fun x ->  MoveBattleStyleApiHandler.MoveBattleStyleRead x);
-      HttpGet >=> route "/api/v2/move-category/" >=>  MoveCategoryApiHandler.MoveCategoryList;
-      HttpGet >=> routeBind<MoveCategoryReadPathParams> "/api/v2/move-category/{id}/"  (fun x ->  MoveCategoryApiHandler.MoveCategoryRead x);
-      HttpGet >=> route "/api/v2/move-damage-class/" >=>  MoveDamageClassApiHandler.MoveDamageClassList;
-      HttpGet >=> routeBind<MoveDamageClassReadPathParams> "/api/v2/move-damage-class/{id}/"  (fun x ->  MoveDamageClassApiHandler.MoveDamageClassRead x);
-      HttpGet >=> route "/api/v2/move-learn-method/" >=>  MoveLearnMethodApiHandler.MoveLearnMethodList;
-      HttpGet >=> routeBind<MoveLearnMethodReadPathParams> "/api/v2/move-learn-method/{id}/"  (fun x ->  MoveLearnMethodApiHandler.MoveLearnMethodRead x);
-      HttpGet >=> route "/api/v2/move-target/" >=>  MoveTargetApiHandler.MoveTargetList;
-      HttpGet >=> routeBind<MoveTargetReadPathParams> "/api/v2/move-target/{id}/"  (fun x ->  MoveTargetApiHandler.MoveTargetRead x);
-      HttpGet >=> route "/api/v2/nature/" >=>  NatureApiHandler.NatureList;
-      HttpGet >=> routeBind<NatureReadPathParams> "/api/v2/nature/{id}/"  (fun x ->  NatureApiHandler.NatureRead x);
-      HttpGet >=> route "/api/v2/pal-park-area/" >=>  PalParkAreaApiHandler.PalParkAreaList;
-      HttpGet >=> routeBind<PalParkAreaReadPathParams> "/api/v2/pal-park-area/{id}/"  (fun x ->  PalParkAreaApiHandler.PalParkAreaRead x);
-      HttpGet >=> route "/api/v2/pokeathlon-stat/" >=>  PokeathlonStatApiHandler.PokeathlonStatList;
-      HttpGet >=> routeBind<PokeathlonStatReadPathParams> "/api/v2/pokeathlon-stat/{id}/"  (fun x ->  PokeathlonStatApiHandler.PokeathlonStatRead x);
-      HttpGet >=> route "/api/v2/pokedex/" >=>  PokedexApiHandler.PokedexList;
-      HttpGet >=> routeBind<PokedexReadPathParams> "/api/v2/pokedex/{id}/"  (fun x ->  PokedexApiHandler.PokedexRead x);
-      HttpGet >=> route "/api/v2/pokemon/" >=>  PokemonApiHandler.PokemonList;
-      HttpGet >=> routeBind<PokemonReadPathParams> "/api/v2/pokemon/{id}/"  (fun x ->  PokemonApiHandler.PokemonRead x);
-      HttpGet >=> route "/api/v2/pokemon-color/" >=>  PokemonColorApiHandler.PokemonColorList;
-      HttpGet >=> routeBind<PokemonColorReadPathParams> "/api/v2/pokemon-color/{id}/"  (fun x ->  PokemonColorApiHandler.PokemonColorRead x);
-      HttpGet >=> route "/api/v2/pokemon-form/" >=>  PokemonFormApiHandler.PokemonFormList;
-      HttpGet >=> routeBind<PokemonFormReadPathParams> "/api/v2/pokemon-form/{id}/"  (fun x ->  PokemonFormApiHandler.PokemonFormRead x);
-      HttpGet >=> route "/api/v2/pokemon-habitat/" >=>  PokemonHabitatApiHandler.PokemonHabitatList;
-      HttpGet >=> routeBind<PokemonHabitatReadPathParams> "/api/v2/pokemon-habitat/{id}/"  (fun x ->  PokemonHabitatApiHandler.PokemonHabitatRead x);
-      HttpGet >=> route "/api/v2/pokemon-shape/" >=>  PokemonShapeApiHandler.PokemonShapeList;
-      HttpGet >=> routeBind<PokemonShapeReadPathParams> "/api/v2/pokemon-shape/{id}/"  (fun x ->  PokemonShapeApiHandler.PokemonShapeRead x);
-      HttpGet >=> route "/api/v2/pokemon-species/" >=>  PokemonSpeciesApiHandler.PokemonSpeciesList;
-      HttpGet >=> routeBind<PokemonSpeciesReadPathParams> "/api/v2/pokemon-species/{id}/"  (fun x ->  PokemonSpeciesApiHandler.PokemonSpeciesRead x);
-      HttpGet >=> route "/api/v2/region/" >=>  RegionApiHandler.RegionList;
-      HttpGet >=> routeBind<RegionReadPathParams> "/api/v2/region/{id}/"  (fun x ->  RegionApiHandler.RegionRead x);
-      HttpGet >=> route "/api/v2/stat/" >=>  StatApiHandler.StatList;
-      HttpGet >=> routeBind<StatReadPathParams> "/api/v2/stat/{id}/"  (fun x ->  StatApiHandler.StatRead x);
-      HttpGet >=> route "/api/v2/super-contest-effect/" >=>  SuperContestEffectApiHandler.SuperContestEffectList;
-      HttpGet >=> routeBind<SuperContestEffectReadPathParams> "/api/v2/super-contest-effect/{id}/"  (fun x ->  SuperContestEffectApiHandler.SuperContestEffectRead x);
-      HttpGet >=> route "/api/v2/type/" >=>  TypeApiHandler.TypeList;
-      HttpGet >=> routeBind<TypeReadPathParams> "/api/v2/type/{id}/"  (fun x ->  TypeApiHandler.TypeRead x);
-      HttpGet >=> route "/api/v2/version/" >=>  VersionApiHandler.VersionList;
-      HttpGet >=> routeBind<VersionReadPathParams> "/api/v2/version/{id}/"  (fun x ->  VersionApiHandler.VersionRead x);
-      HttpGet >=> route "/api/v2/version-group/" >=>  VersionGroupApiHandler.VersionGroupList;
-      HttpGet >=> routeBind<VersionGroupReadPathParams> "/api/v2/version-group/{id}/"  (fun x ->  VersionGroupApiHandler.VersionGroupRead x);
+      HttpGet >=> route "/api/v2/berry-firmness/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  BerriesApiHandler.BerryFirmnessList;
+      HttpGet >=> routeBind<BerryFirmnessRetrievePathParams> "/api/v2/berry-firmness/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  BerriesApiHandler.BerryFirmnessRetrieve x);
+      HttpGet >=> route "/api/v2/berry-flavor/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  BerriesApiHandler.BerryFlavorList;
+      HttpGet >=> routeBind<BerryFlavorRetrievePathParams> "/api/v2/berry-flavor/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  BerriesApiHandler.BerryFlavorRetrieve x);
+      HttpGet >=> route "/api/v2/berry/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  BerriesApiHandler.BerryList;
+      HttpGet >=> routeBind<BerryRetrievePathParams> "/api/v2/berry/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  BerriesApiHandler.BerryRetrieve x);
+      HttpGet >=> route "/api/v2/contest-effect/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  ContestsApiHandler.ContestEffectList;
+      HttpGet >=> routeBind<ContestEffectRetrievePathParams> "/api/v2/contest-effect/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  ContestsApiHandler.ContestEffectRetrieve x);
+      HttpGet >=> route "/api/v2/contest-type/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  ContestsApiHandler.ContestTypeList;
+      HttpGet >=> routeBind<ContestTypeRetrievePathParams> "/api/v2/contest-type/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  ContestsApiHandler.ContestTypeRetrieve x);
+      HttpGet >=> route "/api/v2/super-contest-effect/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  ContestsApiHandler.SuperContestEffectList;
+      HttpGet >=> routeBind<SuperContestEffectRetrievePathParams> "/api/v2/super-contest-effect/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  ContestsApiHandler.SuperContestEffectRetrieve x);
+      HttpGet >=> route "/api/v2/encounter-condition/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  EncountersApiHandler.EncounterConditionList;
+      HttpGet >=> routeBind<EncounterConditionRetrievePathParams> "/api/v2/encounter-condition/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  EncountersApiHandler.EncounterConditionRetrieve x);
+      HttpGet >=> route "/api/v2/encounter-condition-value/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  EncountersApiHandler.EncounterConditionValueList;
+      HttpGet >=> routeBind<EncounterConditionValueRetrievePathParams> "/api/v2/encounter-condition-value/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  EncountersApiHandler.EncounterConditionValueRetrieve x);
+      HttpGet >=> route "/api/v2/encounter-method/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  EncountersApiHandler.EncounterMethodList;
+      HttpGet >=> routeBind<EncounterMethodRetrievePathParams> "/api/v2/encounter-method/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  EncountersApiHandler.EncounterMethodRetrieve x);
+      HttpGet >=> routeBind<PokemonEncountersRetrievePathParams> "/api/v2/pokemon/{pokemon_id}/encounters"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  EncountersApiHandler.PokemonEncountersRetrieve x);
+      HttpGet >=> route "/api/v2/evolution-chain/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  EvolutionApiHandler.EvolutionChainList;
+      HttpGet >=> routeBind<EvolutionChainRetrievePathParams> "/api/v2/evolution-chain/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  EvolutionApiHandler.EvolutionChainRetrieve x);
+      HttpGet >=> route "/api/v2/evolution-trigger/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  EvolutionApiHandler.EvolutionTriggerList;
+      HttpGet >=> routeBind<EvolutionTriggerRetrievePathParams> "/api/v2/evolution-trigger/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  EvolutionApiHandler.EvolutionTriggerRetrieve x);
+      HttpGet >=> route "/api/v2/generation/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  GamesApiHandler.GenerationList;
+      HttpGet >=> routeBind<GenerationRetrievePathParams> "/api/v2/generation/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  GamesApiHandler.GenerationRetrieve x);
+      HttpGet >=> route "/api/v2/pokedex/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  GamesApiHandler.PokedexList;
+      HttpGet >=> routeBind<PokedexRetrievePathParams> "/api/v2/pokedex/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  GamesApiHandler.PokedexRetrieve x);
+      HttpGet >=> route "/api/v2/version-group/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  GamesApiHandler.VersionGroupList;
+      HttpGet >=> routeBind<VersionGroupRetrievePathParams> "/api/v2/version-group/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  GamesApiHandler.VersionGroupRetrieve x);
+      HttpGet >=> route "/api/v2/version/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  GamesApiHandler.VersionList;
+      HttpGet >=> routeBind<VersionRetrievePathParams> "/api/v2/version/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  GamesApiHandler.VersionRetrieve x);
+      HttpGet >=> route "/api/v2/item-attribute/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  ItemsApiHandler.ItemAttributeList;
+      HttpGet >=> routeBind<ItemAttributeRetrievePathParams> "/api/v2/item-attribute/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  ItemsApiHandler.ItemAttributeRetrieve x);
+      HttpGet >=> route "/api/v2/item-category/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  ItemsApiHandler.ItemCategoryList;
+      HttpGet >=> routeBind<ItemCategoryRetrievePathParams> "/api/v2/item-category/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  ItemsApiHandler.ItemCategoryRetrieve x);
+      HttpGet >=> route "/api/v2/item-fling-effect/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  ItemsApiHandler.ItemFlingEffectList;
+      HttpGet >=> routeBind<ItemFlingEffectRetrievePathParams> "/api/v2/item-fling-effect/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  ItemsApiHandler.ItemFlingEffectRetrieve x);
+      HttpGet >=> route "/api/v2/item/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  ItemsApiHandler.ItemList;
+      HttpGet >=> route "/api/v2/item-pocket/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  ItemsApiHandler.ItemPocketList;
+      HttpGet >=> routeBind<ItemPocketRetrievePathParams> "/api/v2/item-pocket/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  ItemsApiHandler.ItemPocketRetrieve x);
+      HttpGet >=> routeBind<ItemRetrievePathParams> "/api/v2/item/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  ItemsApiHandler.ItemRetrieve x);
+      HttpGet >=> route "/api/v2/location-area/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  LocationApiHandler.LocationAreaList;
+      HttpGet >=> routeBind<LocationAreaRetrievePathParams> "/api/v2/location-area/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  LocationApiHandler.LocationAreaRetrieve x);
+      HttpGet >=> route "/api/v2/location/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  LocationApiHandler.LocationList;
+      HttpGet >=> routeBind<LocationRetrievePathParams> "/api/v2/location/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  LocationApiHandler.LocationRetrieve x);
+      HttpGet >=> route "/api/v2/pal-park-area/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  LocationApiHandler.PalParkAreaList;
+      HttpGet >=> routeBind<PalParkAreaRetrievePathParams> "/api/v2/pal-park-area/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  LocationApiHandler.PalParkAreaRetrieve x);
+      HttpGet >=> route "/api/v2/region/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  LocationApiHandler.RegionList;
+      HttpGet >=> routeBind<RegionRetrievePathParams> "/api/v2/region/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  LocationApiHandler.RegionRetrieve x);
+      HttpGet >=> route "/api/v2/machine/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  MachinesApiHandler.MachineList;
+      HttpGet >=> routeBind<MachineRetrievePathParams> "/api/v2/machine/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  MachinesApiHandler.MachineRetrieve x);
+      HttpGet >=> route "/api/v2/move-ailment/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  MovesApiHandler.MoveAilmentList;
+      HttpGet >=> routeBind<MoveAilmentRetrievePathParams> "/api/v2/move-ailment/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  MovesApiHandler.MoveAilmentRetrieve x);
+      HttpGet >=> route "/api/v2/move-battle-style/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  MovesApiHandler.MoveBattleStyleList;
+      HttpGet >=> routeBind<MoveBattleStyleRetrievePathParams> "/api/v2/move-battle-style/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  MovesApiHandler.MoveBattleStyleRetrieve x);
+      HttpGet >=> route "/api/v2/move-category/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  MovesApiHandler.MoveCategoryList;
+      HttpGet >=> routeBind<MoveCategoryRetrievePathParams> "/api/v2/move-category/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  MovesApiHandler.MoveCategoryRetrieve x);
+      HttpGet >=> route "/api/v2/move-learn-method/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  MovesApiHandler.MoveLearnMethodList;
+      HttpGet >=> routeBind<MoveLearnMethodRetrievePathParams> "/api/v2/move-learn-method/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  MovesApiHandler.MoveLearnMethodRetrieve x);
+      HttpGet >=> route "/api/v2/move/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  MovesApiHandler.MoveList;
+      HttpGet >=> routeBind<MoveRetrievePathParams> "/api/v2/move/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  MovesApiHandler.MoveRetrieve x);
+      HttpGet >=> route "/api/v2/move-target/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  MovesApiHandler.MoveTargetList;
+      HttpGet >=> routeBind<MoveTargetRetrievePathParams> "/api/v2/move-target/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  MovesApiHandler.MoveTargetRetrieve x);
+      HttpGet >=> route "/api/v2/ability/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.AbilityList;
+      HttpGet >=> routeBind<AbilityRetrievePathParams> "/api/v2/ability/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.AbilityRetrieve x);
+      HttpGet >=> route "/api/v2/characteristic/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.CharacteristicList;
+      HttpGet >=> routeBind<CharacteristicRetrievePathParams> "/api/v2/characteristic/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.CharacteristicRetrieve x);
+      HttpGet >=> route "/api/v2/egg-group/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.EggGroupList;
+      HttpGet >=> routeBind<EggGroupRetrievePathParams> "/api/v2/egg-group/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.EggGroupRetrieve x);
+      HttpGet >=> route "/api/v2/gender/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.GenderList;
+      HttpGet >=> routeBind<GenderRetrievePathParams> "/api/v2/gender/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.GenderRetrieve x);
+      HttpGet >=> route "/api/v2/growth-rate/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.GrowthRateList;
+      HttpGet >=> routeBind<GrowthRateRetrievePathParams> "/api/v2/growth-rate/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.GrowthRateRetrieve x);
+      HttpGet >=> route "/api/v2/move-damage-class/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.MoveDamageClassList;
+      HttpGet >=> routeBind<MoveDamageClassRetrievePathParams> "/api/v2/move-damage-class/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.MoveDamageClassRetrieve x);
+      HttpGet >=> route "/api/v2/nature/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.NatureList;
+      HttpGet >=> routeBind<NatureRetrievePathParams> "/api/v2/nature/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.NatureRetrieve x);
+      HttpGet >=> route "/api/v2/pokeathlon-stat/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.PokeathlonStatList;
+      HttpGet >=> routeBind<PokeathlonStatRetrievePathParams> "/api/v2/pokeathlon-stat/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.PokeathlonStatRetrieve x);
+      HttpGet >=> route "/api/v2/pokemon-color/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.PokemonColorList;
+      HttpGet >=> routeBind<PokemonColorRetrievePathParams> "/api/v2/pokemon-color/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.PokemonColorRetrieve x);
+      HttpGet >=> route "/api/v2/pokemon-form/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.PokemonFormList;
+      HttpGet >=> routeBind<PokemonFormRetrievePathParams> "/api/v2/pokemon-form/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.PokemonFormRetrieve x);
+      HttpGet >=> route "/api/v2/pokemon-habitat/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.PokemonHabitatList;
+      HttpGet >=> routeBind<PokemonHabitatRetrievePathParams> "/api/v2/pokemon-habitat/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.PokemonHabitatRetrieve x);
+      HttpGet >=> route "/api/v2/pokemon/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.PokemonList;
+      HttpGet >=> routeBind<PokemonRetrievePathParams> "/api/v2/pokemon/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.PokemonRetrieve x);
+      HttpGet >=> route "/api/v2/pokemon-shape/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.PokemonShapeList;
+      HttpGet >=> routeBind<PokemonShapeRetrievePathParams> "/api/v2/pokemon-shape/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.PokemonShapeRetrieve x);
+      HttpGet >=> route "/api/v2/pokemon-species/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.PokemonSpeciesList;
+      HttpGet >=> routeBind<PokemonSpeciesRetrievePathParams> "/api/v2/pokemon-species/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.PokemonSpeciesRetrieve x);
+      HttpGet >=> route "/api/v2/stat/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.StatList;
+      HttpGet >=> routeBind<StatRetrievePathParams> "/api/v2/stat/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.StatRetrieve x);
+      HttpGet >=> route "/api/v2/type/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.TypeList;
+      HttpGet >=> routeBind<TypeRetrievePathParams> "/api/v2/type/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  PokemonApiHandler.TypeRetrieve x);
+      HttpGet >=> route "/api/v2/language/" >=>  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  UtilityApiHandler.LanguageList;
+      HttpGet >=> routeBind<LanguageRetrievePathParams> "/api/v2/language/{id}/"  (fun x ->  >=> challenge ApiKeyDefaults.AuthenticationScheme >=> requiresAuthentication authFailure >=>  UtilityApiHandler.LanguageRetrieve x);
       RequestErrors.notFound (text "Not Found")
     ])
   // ---------------------------------

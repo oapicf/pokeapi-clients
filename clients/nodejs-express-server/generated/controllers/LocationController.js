@@ -8,16 +8,46 @@
 
 const Controller = require('./Controller');
 const service = require('../services/LocationService');
+const location_area_list = async (request, response) => {
+  await Controller.handleRequest(request, response, service.location_area_list);
+};
+
+const location_area_retrieve = async (request, response) => {
+  await Controller.handleRequest(request, response, service.location_area_retrieve);
+};
+
 const location_list = async (request, response) => {
   await Controller.handleRequest(request, response, service.location_list);
 };
 
-const location_read = async (request, response) => {
-  await Controller.handleRequest(request, response, service.location_read);
+const location_retrieve = async (request, response) => {
+  await Controller.handleRequest(request, response, service.location_retrieve);
+};
+
+const pal_park_area_list = async (request, response) => {
+  await Controller.handleRequest(request, response, service.pal_park_area_list);
+};
+
+const pal_park_area_retrieve = async (request, response) => {
+  await Controller.handleRequest(request, response, service.pal_park_area_retrieve);
+};
+
+const region_list = async (request, response) => {
+  await Controller.handleRequest(request, response, service.region_list);
+};
+
+const region_retrieve = async (request, response) => {
+  await Controller.handleRequest(request, response, service.region_retrieve);
 };
 
 
 module.exports = {
+  location_area_list,
+  location_area_retrieve,
   location_list,
-  location_read,
+  location_retrieve,
+  pal_park_area_list,
+  pal_park_area_retrieve,
+  region_list,
+  region_retrieve,
 };

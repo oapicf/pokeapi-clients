@@ -1,0 +1,104 @@
+package apimodels;
+
+import apimodels.AbilityDetailPokemonInnerPokemon;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.*;
+import java.util.Set;
+import javax.validation.*;
+import java.util.Objects;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+/**
+ * PokemonSpeciesDetailVarietiesInner
+ */
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-02-07T04:17:12.303882205Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
+public class PokemonSpeciesDetailVarietiesInner   {
+  @JsonProperty("is_default")
+  @NotNull
+
+  private Boolean isDefault;
+
+  @JsonProperty("pokemon")
+  @NotNull
+@Valid
+
+  private AbilityDetailPokemonInnerPokemon pokemon;
+
+  public PokemonSpeciesDetailVarietiesInner isDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
+    return this;
+  }
+
+   /**
+   * Get isDefault
+   * @return isDefault
+  **/
+  public Boolean getIsDefault() {
+    return isDefault;
+  }
+
+  public void setIsDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
+  }
+
+  public PokemonSpeciesDetailVarietiesInner pokemon(AbilityDetailPokemonInnerPokemon pokemon) {
+    this.pokemon = pokemon;
+    return this;
+  }
+
+   /**
+   * Get pokemon
+   * @return pokemon
+  **/
+  public AbilityDetailPokemonInnerPokemon getPokemon() {
+    return pokemon;
+  }
+
+  public void setPokemon(AbilityDetailPokemonInnerPokemon pokemon) {
+    this.pokemon = pokemon;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    PokemonSpeciesDetailVarietiesInner pokemonSpeciesDetailVarietiesInner = (PokemonSpeciesDetailVarietiesInner) o;
+    return Objects.equals(isDefault, pokemonSpeciesDetailVarietiesInner.isDefault) &&
+        Objects.equals(pokemon, pokemonSpeciesDetailVarietiesInner.pokemon);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(isDefault, pokemon);
+  }
+
+  @SuppressWarnings("StringBufferReplaceableByString")
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PokemonSpeciesDetailVarietiesInner {\n");
+    
+    sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
+    sb.append("    pokemon: ").append(toIndentedString(pokemon)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
+

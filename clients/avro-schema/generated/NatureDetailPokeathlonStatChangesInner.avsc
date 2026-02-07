@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "NatureDetailPokeathlonStatChangesInner",
+  "fields": [
+    {
+      "name": "max_change",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "pokeathlon_stat",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    }
+  ]
+
+}

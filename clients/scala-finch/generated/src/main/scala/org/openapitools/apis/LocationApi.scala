@@ -3,6 +3,14 @@ package org.openapitools.apis
 import java.io._
 import org.openapitools._
 import org.openapitools.models._
+import org.openapitools.models.LocationAreaDetail
+import org.openapitools.models.LocationDetail
+import org.openapitools.models.PaginatedLocationAreaSummaryList
+import org.openapitools.models.PaginatedLocationSummaryList
+import org.openapitools.models.PaginatedPalParkAreaSummaryList
+import org.openapitools.models.PaginatedRegionSummaryList
+import org.openapitools.models.PalParkAreaDetail
+import org.openapitools.models.RegionDetail
 import io.finch.circe._
 import io.circe.generic.semiauto._
 import com.twitter.concurrent.AsyncStream
@@ -23,8 +31,14 @@ object LocationApi {
     * @return Bundled compilation of all service endpoints.
     */
     def endpoints(da: DataAccessor) =
+        locationAreaList(da) :+:
+        locationAreaRetrieve(da) :+:
         locationList(da) :+:
-        locationRead(da)
+        locationRetrieve(da) :+:
+        palParkAreaList(da) :+:
+        palParkAreaRetrieve(da) :+:
+        regionList(da) :+:
+        regionRetrieve(da)
 
 
     private def checkError(e: CommonError) = e match {
@@ -49,11 +63,11 @@ object LocationApi {
 
         /**
         * 
-        * @return An endpoint representing a String
+        * @return An endpoint representing a PaginatedLocationAreaSummaryList
         */
-        private def locationList(da: DataAccessor): Endpoint[String] =
-        get("api" :: "v2" :: "location" :: paramOption("limit").map(_.map(_.toInt)) :: paramOption("offset").map(_.map(_.toInt))) { (limit: Option[Int], offset: Option[Int]) =>
-          da.Location_locationList(limit, offset) match {
+        private def locationAreaList(da: DataAccessor): Endpoint[PaginatedLocationAreaSummaryList] =
+        get("api" :: "v2" :: "location-area" :: paramOption("limit").map(_.map(_.toInt)) :: paramOption("offset").map(_.map(_.toInt))) { (limit: Option[Int], offset: Option[Int], authParamcookieAuth: String) =>
+          da.Location_locationAreaList(limit, offset, authParamcookieAuth) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -63,11 +77,95 @@ object LocationApi {
 
         /**
         * 
-        * @return An endpoint representing a String
+        * @return An endpoint representing a LocationAreaDetail
         */
-        private def locationRead(da: DataAccessor): Endpoint[String] =
-        get("api" :: "v2" :: "location" :: int) { (id: Int) =>
-          da.Location_locationRead(id) match {
+        private def locationAreaRetrieve(da: DataAccessor): Endpoint[LocationAreaDetail] =
+        get("api" :: "v2" :: "location-area" :: int) { (id: Int, authParamcookieAuth: String) =>
+          da.Location_locationAreaRetrieve(id, authParamcookieAuth) match {
+            case Left(error) => checkError(error)
+            case Right(data) => Ok(data)
+          }
+        } handle {
+          case e: Exception => BadRequest(e)
+        }
+
+        /**
+        * 
+        * @return An endpoint representing a PaginatedLocationSummaryList
+        */
+        private def locationList(da: DataAccessor): Endpoint[PaginatedLocationSummaryList] =
+        get("api" :: "v2" :: "location" :: paramOption("limit").map(_.map(_.toInt)) :: paramOption("offset").map(_.map(_.toInt)) :: paramOption("q")) { (limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String) =>
+          da.Location_locationList(limit, offset, q, authParamcookieAuth) match {
+            case Left(error) => checkError(error)
+            case Right(data) => Ok(data)
+          }
+        } handle {
+          case e: Exception => BadRequest(e)
+        }
+
+        /**
+        * 
+        * @return An endpoint representing a LocationDetail
+        */
+        private def locationRetrieve(da: DataAccessor): Endpoint[LocationDetail] =
+        get("api" :: "v2" :: "location" :: string) { (id: String, authParamcookieAuth: String) =>
+          da.Location_locationRetrieve(id, authParamcookieAuth) match {
+            case Left(error) => checkError(error)
+            case Right(data) => Ok(data)
+          }
+        } handle {
+          case e: Exception => BadRequest(e)
+        }
+
+        /**
+        * 
+        * @return An endpoint representing a PaginatedPalParkAreaSummaryList
+        */
+        private def palParkAreaList(da: DataAccessor): Endpoint[PaginatedPalParkAreaSummaryList] =
+        get("api" :: "v2" :: "pal-park-area" :: paramOption("limit").map(_.map(_.toInt)) :: paramOption("offset").map(_.map(_.toInt)) :: paramOption("q")) { (limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String) =>
+          da.Location_palParkAreaList(limit, offset, q, authParamcookieAuth) match {
+            case Left(error) => checkError(error)
+            case Right(data) => Ok(data)
+          }
+        } handle {
+          case e: Exception => BadRequest(e)
+        }
+
+        /**
+        * 
+        * @return An endpoint representing a PalParkAreaDetail
+        */
+        private def palParkAreaRetrieve(da: DataAccessor): Endpoint[PalParkAreaDetail] =
+        get("api" :: "v2" :: "pal-park-area" :: string) { (id: String, authParamcookieAuth: String) =>
+          da.Location_palParkAreaRetrieve(id, authParamcookieAuth) match {
+            case Left(error) => checkError(error)
+            case Right(data) => Ok(data)
+          }
+        } handle {
+          case e: Exception => BadRequest(e)
+        }
+
+        /**
+        * 
+        * @return An endpoint representing a PaginatedRegionSummaryList
+        */
+        private def regionList(da: DataAccessor): Endpoint[PaginatedRegionSummaryList] =
+        get("api" :: "v2" :: "region" :: paramOption("limit").map(_.map(_.toInt)) :: paramOption("offset").map(_.map(_.toInt)) :: paramOption("q")) { (limit: Option[Int], offset: Option[Int], q: Option[String], authParamcookieAuth: String) =>
+          da.Location_regionList(limit, offset, q, authParamcookieAuth) match {
+            case Left(error) => checkError(error)
+            case Right(data) => Ok(data)
+          }
+        } handle {
+          case e: Exception => BadRequest(e)
+        }
+
+        /**
+        * 
+        * @return An endpoint representing a RegionDetail
+        */
+        private def regionRetrieve(da: DataAccessor): Endpoint[RegionDetail] =
+        get("api" :: "v2" :: "region" :: string) { (id: String, authParamcookieAuth: String) =>
+          da.Location_regionRetrieve(id, authParamcookieAuth) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }

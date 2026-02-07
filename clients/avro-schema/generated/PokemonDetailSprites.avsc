@@ -1,0 +1,15 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonDetailSprites",
+  "fields": [
+    {
+      "name": "front_default",
+      "type": ["null", "model.URI"],
+      "doc": "",
+      "default": null
+    }
+  ]
+
+}

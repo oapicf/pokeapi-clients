@@ -5,7 +5,66 @@
  *
  *)
 
-let location_list ?limit ?offset () =
+let location_area_list ?limit ?offset () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/location-area/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_location_area_summary_list.of_yojson) resp body
+
+let location_area_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/location-area/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Location_area_detail.of_yojson) resp body
+
+let location_list ?limit ?offset ?q () =
     let open Lwt.Infix in
     let uri = Request.build_uri "/api/v2/location/" in
     let headers = Request.default_headers in
@@ -39,14 +98,51 @@ let location_list ?limit ?offset () =
         
         
  offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
-    Request.read_json_body_as (JsonSupport.to_string) resp body
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_location_summary_list.of_yojson) resp body
 
-let location_read ~id =
+let location_retrieve ~id =
     let open Lwt.Infix in
     let uri = Request.build_uri "/api/v2/location/{id}/" in
     let headers = Request.default_headers in
     let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Location_detail.of_yojson) resp body
+
+let pal_park_area_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/pal-park-area/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
     Int32.to_string
     
     
@@ -60,7 +156,133 @@ let location_read ~id =
     
         
         
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_pal_park_area_summary_list.of_yojson) resp body
+
+let pal_park_area_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/pal-park-area/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
  id in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
-    Request.read_json_body_as (JsonSupport.to_string) resp body
+    Request.read_json_body_as (JsonSupport.unwrap Pal_park_area_detail.of_yojson) resp body
+
+let region_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/region/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_region_summary_list.of_yojson) resp body
+
+let region_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/region/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Region_detail.of_yojson) resp body
 

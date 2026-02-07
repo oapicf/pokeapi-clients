@@ -1,0 +1,25 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "StatDetailAffectingMoves",
+  "fields": [
+    {
+      "name": "increase",
+      "type": {
+        "type": "array",
+        "items": "model.StatDetailAffectingMovesIncreaseInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "decrease",
+      "type": {
+        "type": "array",
+        "items": "model.StatDetailAffectingMovesIncreaseInner"
+      },
+      "doc": ""
+    }
+  ]
+
+}

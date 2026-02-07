@@ -1,0 +1,157 @@
+package org.openapitools.model;
+
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.openapitools.model.PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner;
+import org.openapitools.model.PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+
+import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+public class PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner  {
+  
+  @ApiModelProperty(required = true, value = "")
+  @Valid
+  private List<@Valid PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner> encounterDetails = new ArrayList<>();
+
+  @ApiModelProperty(example = "100", required = true, value = "")
+  @Valid
+  private BigDecimal maxChance;
+
+  @ApiModelProperty(required = true, value = "")
+  @Valid
+  private PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion version;
+ /**
+  * Get encounterDetails
+  * @return encounterDetails
+  */
+  @JsonProperty("encounter_details")
+  @NotNull
+  public List<@Valid PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner> getEncounterDetails() {
+    return encounterDetails;
+  }
+
+  /**
+   * Sets the <code>encounterDetails</code> property.
+   */
+ public void setEncounterDetails(List<@Valid PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner> encounterDetails) {
+    this.encounterDetails = encounterDetails;
+  }
+
+  /**
+   * Sets the <code>encounterDetails</code> property.
+   */
+  public PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner encounterDetails(List<@Valid PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner> encounterDetails) {
+    this.encounterDetails = encounterDetails;
+    return this;
+  }
+
+  /**
+   * Adds a new item to the <code>encounterDetails</code> list.
+   */
+  public PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner addEncounterDetailsItem(PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner encounterDetailsItem) {
+    this.encounterDetails.add(encounterDetailsItem);
+    return this;
+  }
+
+ /**
+  * Get maxChance
+  * @return maxChance
+  */
+  @JsonProperty("max_chance")
+  @NotNull
+  public BigDecimal getMaxChance() {
+    return maxChance;
+  }
+
+  /**
+   * Sets the <code>maxChance</code> property.
+   */
+ public void setMaxChance(BigDecimal maxChance) {
+    this.maxChance = maxChance;
+  }
+
+  /**
+   * Sets the <code>maxChance</code> property.
+   */
+  public PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner maxChance(BigDecimal maxChance) {
+    this.maxChance = maxChance;
+    return this;
+  }
+
+ /**
+  * Get version
+  * @return version
+  */
+  @JsonProperty("version")
+  @NotNull
+  public PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion getVersion() {
+    return version;
+  }
+
+  /**
+   * Sets the <code>version</code> property.
+   */
+ public void setVersion(PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion version) {
+    this.version = version;
+  }
+
+  /**
+   * Sets the <code>version</code> property.
+   */
+  public PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner version(PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion version) {
+    this.version = version;
+    return this;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner pokemonEncountersRetrieve200ResponseInnerVersionDetailsInner = (PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner) o;
+    return Objects.equals(this.encounterDetails, pokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.encounterDetails) &&
+        Objects.equals(this.maxChance, pokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.maxChance) &&
+        Objects.equals(this.version, pokemonEncountersRetrieve200ResponseInnerVersionDetailsInner.version);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(encounterDetails, maxChance, version);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner {\n");
+    
+    sb.append("    encounterDetails: ").append(toIndentedString(encounterDetails)).append("\n");
+    sb.append("    maxChance: ").append(toIndentedString(maxChance)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private static String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
+

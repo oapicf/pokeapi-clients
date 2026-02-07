@@ -1,0 +1,35 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "EvolutionChainDetailChain",
+  "fields": [
+    {
+      "name": "evolution_details",
+      "type": {
+        "type": "array",
+        "items": "model.AnyType"
+      },
+      "doc": ""
+    },
+    {
+      "name": "evolves_to",
+      "type": {
+        "type": "array",
+        "items": "model.EvolutionChainDetailChainEvolvesToInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "is_baby",
+      "type": "boolean",
+      "doc": ""
+    },
+    {
+      "name": "species",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    }
+  ]
+
+}

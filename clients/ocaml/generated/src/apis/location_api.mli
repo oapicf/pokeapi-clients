@@ -5,5 +5,11 @@
  *
  *)
 
-val location_list : ?limit:int32 -> ?offset:int32 -> unit -> string Lwt.t
-val location_read : id:int32 -> string Lwt.t
+val location_area_list : ?limit:int32 -> ?offset:int32 -> unit -> Paginated_location_area_summary_list.t Lwt.t
+val location_area_retrieve : id:int32 -> Location_area_detail.t Lwt.t
+val location_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_location_summary_list.t Lwt.t
+val location_retrieve : id:string -> Location_detail.t Lwt.t
+val pal_park_area_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_pal_park_area_summary_list.t Lwt.t
+val pal_park_area_retrieve : id:string -> Pal_park_area_detail.t Lwt.t
+val region_list : ?limit:int32 -> ?offset:int32 -> ?q:string -> unit -> Paginated_region_summary_list.t Lwt.t
+val region_retrieve : id:string -> Region_detail.t Lwt.t

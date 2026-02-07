@@ -19,6 +19,14 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import org.openapitools.client.models.LocationAreaDetail
+import org.openapitools.client.models.LocationDetail
+import org.openapitools.client.models.PaginatedLocationAreaSummaryList
+import org.openapitools.client.models.PaginatedLocationSummaryList
+import org.openapitools.client.models.PaginatedPalParkAreaSummaryList
+import org.openapitools.client.models.PaginatedRegionSummaryList
+import org.openapitools.client.models.PalParkAreaDetail
+import org.openapitools.client.models.RegionDetail
 
 import com.squareup.moshi.Json
 
@@ -45,12 +53,12 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/v2/location/
-     * 
-     * 
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return kotlin.String
+     * GET /api/v2/location-area/
+     * List location areas
+     * Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @return PaginatedLocationAreaSummaryList
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -59,11 +67,11 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun locationList(limit: kotlin.Int? = null, offset: kotlin.Int? = null) : kotlin.String {
-        val localVarResponse = locationListWithHttpInfo(limit = limit, offset = offset)
+    fun locationAreaList(limit: kotlin.Int? = null, offset: kotlin.Int? = null) : PaginatedLocationAreaSummaryList {
+        val localVarResponse = locationAreaListWithHttpInfo(limit = limit, offset = offset)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.String
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedLocationAreaSummaryList
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -78,33 +86,33 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
-     * GET /api/v2/location/
-     * 
-     * 
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return ApiResponse<kotlin.String?>
+     * GET /api/v2/location-area/
+     * List location areas
+     * Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @return ApiResponse<PaginatedLocationAreaSummaryList?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun locationListWithHttpInfo(limit: kotlin.Int?, offset: kotlin.Int?) : ApiResponse<kotlin.String?> {
-        val localVariableConfig = locationListRequestConfig(limit = limit, offset = offset)
+    fun locationAreaListWithHttpInfo(limit: kotlin.Int?, offset: kotlin.Int?) : ApiResponse<PaginatedLocationAreaSummaryList?> {
+        val localVariableConfig = locationAreaListRequestConfig(limit = limit, offset = offset)
 
-        return request<Unit, kotlin.String>(
+        return request<Unit, PaginatedLocationAreaSummaryList>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation locationList
+     * To obtain the request config of the operation locationAreaList
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
      * @return RequestConfig
      */
-    fun locationListRequestConfig(limit: kotlin.Int?, offset: kotlin.Int?) : RequestConfig<Unit> {
+    fun locationAreaListRequestConfig(limit: kotlin.Int?, offset: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -116,24 +124,24 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "text/plain"
+        localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/api/v2/location/",
+            path = "/api/v2/location-area/",
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = false,
+            requiresAuthentication = true,
             body = localVariableBody
         )
     }
 
     /**
-     * GET /api/v2/location/{id}/
-     * 
-     * 
-     * @param id 
-     * @return kotlin.String
+     * GET /api/v2/location-area/{id}/
+     * Get location area
+     * Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
+     * @param id A unique integer value identifying this location area.
+     * @return LocationAreaDetail
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -142,11 +150,174 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun locationRead(id: kotlin.Int) : kotlin.String {
-        val localVarResponse = locationReadWithHttpInfo(id = id)
+    fun locationAreaRetrieve(id: kotlin.Int) : LocationAreaDetail {
+        val localVarResponse = locationAreaRetrieveWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.String
+            ResponseType.Success -> (localVarResponse as Success<*>).data as LocationAreaDetail
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /api/v2/location-area/{id}/
+     * Get location area
+     * Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
+     * @param id A unique integer value identifying this location area.
+     * @return ApiResponse<LocationAreaDetail?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun locationAreaRetrieveWithHttpInfo(id: kotlin.Int) : ApiResponse<LocationAreaDetail?> {
+        val localVariableConfig = locationAreaRetrieveRequestConfig(id = id)
+
+        return request<Unit, LocationAreaDetail>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation locationAreaRetrieve
+     *
+     * @param id A unique integer value identifying this location area.
+     * @return RequestConfig
+     */
+    fun locationAreaRetrieveRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/location-area/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /api/v2/location/
+     * List locations
+     * Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return PaginatedLocationSummaryList
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun locationList(limit: kotlin.Int? = null, offset: kotlin.Int? = null, q: kotlin.String? = null) : PaginatedLocationSummaryList {
+        val localVarResponse = locationListWithHttpInfo(limit = limit, offset = offset, q = q)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedLocationSummaryList
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /api/v2/location/
+     * List locations
+     * Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return ApiResponse<PaginatedLocationSummaryList?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun locationListWithHttpInfo(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : ApiResponse<PaginatedLocationSummaryList?> {
+        val localVariableConfig = locationListRequestConfig(limit = limit, offset = offset, q = q)
+
+        return request<Unit, PaginatedLocationSummaryList>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation locationList
+     *
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return RequestConfig
+     */
+    fun locationListRequestConfig(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (limit != null) {
+                    put("limit", listOf(limit.toString()))
+                }
+                if (offset != null) {
+                    put("offset", listOf(offset.toString()))
+                }
+                if (q != null) {
+                    put("q", listOf(q.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/location/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /api/v2/location/{id}/
+     * Get location
+     * Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
+     * @param id This parameter can be a string or an integer.
+     * @return LocationDetail
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun locationRetrieve(id: kotlin.String) : LocationDetail {
+        val localVarResponse = locationRetrieveWithHttpInfo(id = id)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as LocationDetail
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -162,41 +333,367 @@ open class LocationApi(basePath: kotlin.String = defaultBasePath, client: Call.F
 
     /**
      * GET /api/v2/location/{id}/
-     * 
-     * 
-     * @param id 
-     * @return ApiResponse<kotlin.String?>
+     * Get location
+     * Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
+     * @param id This parameter can be a string or an integer.
+     * @return ApiResponse<LocationDetail?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun locationReadWithHttpInfo(id: kotlin.Int) : ApiResponse<kotlin.String?> {
-        val localVariableConfig = locationReadRequestConfig(id = id)
+    fun locationRetrieveWithHttpInfo(id: kotlin.String) : ApiResponse<LocationDetail?> {
+        val localVariableConfig = locationRetrieveRequestConfig(id = id)
 
-        return request<Unit, kotlin.String>(
+        return request<Unit, LocationDetail>(
             localVariableConfig
         )
     }
 
     /**
-     * To obtain the request config of the operation locationRead
+     * To obtain the request config of the operation locationRetrieve
      *
-     * @param id 
+     * @param id This parameter can be a string or an integer.
      * @return RequestConfig
      */
-    fun locationReadRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
+    fun locationRetrieveRequestConfig(id: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Accept"] = "text/plain"
+        localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/api/v2/location/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
-            requiresAuthentication = false,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /api/v2/pal-park-area/
+     * List pal park areas
+     * Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habitats that are specific to Pal Park.
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return PaginatedPalParkAreaSummaryList
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun palParkAreaList(limit: kotlin.Int? = null, offset: kotlin.Int? = null, q: kotlin.String? = null) : PaginatedPalParkAreaSummaryList {
+        val localVarResponse = palParkAreaListWithHttpInfo(limit = limit, offset = offset, q = q)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedPalParkAreaSummaryList
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /api/v2/pal-park-area/
+     * List pal park areas
+     * Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habitats that are specific to Pal Park.
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return ApiResponse<PaginatedPalParkAreaSummaryList?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun palParkAreaListWithHttpInfo(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : ApiResponse<PaginatedPalParkAreaSummaryList?> {
+        val localVariableConfig = palParkAreaListRequestConfig(limit = limit, offset = offset, q = q)
+
+        return request<Unit, PaginatedPalParkAreaSummaryList>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation palParkAreaList
+     *
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return RequestConfig
+     */
+    fun palParkAreaListRequestConfig(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (limit != null) {
+                    put("limit", listOf(limit.toString()))
+                }
+                if (offset != null) {
+                    put("offset", listOf(offset.toString()))
+                }
+                if (q != null) {
+                    put("q", listOf(q.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/pal-park-area/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /api/v2/pal-park-area/{id}/
+     * Get pal park area
+     * Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habitats that are specific to Pal Park.
+     * @param id This parameter can be a string or an integer.
+     * @return PalParkAreaDetail
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun palParkAreaRetrieve(id: kotlin.String) : PalParkAreaDetail {
+        val localVarResponse = palParkAreaRetrieveWithHttpInfo(id = id)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PalParkAreaDetail
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /api/v2/pal-park-area/{id}/
+     * Get pal park area
+     * Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habitats that are specific to Pal Park.
+     * @param id This parameter can be a string or an integer.
+     * @return ApiResponse<PalParkAreaDetail?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun palParkAreaRetrieveWithHttpInfo(id: kotlin.String) : ApiResponse<PalParkAreaDetail?> {
+        val localVariableConfig = palParkAreaRetrieveRequestConfig(id = id)
+
+        return request<Unit, PalParkAreaDetail>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation palParkAreaRetrieve
+     *
+     * @param id This parameter can be a string or an integer.
+     * @return RequestConfig
+     */
+    fun palParkAreaRetrieveRequestConfig(id: kotlin.String) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/pal-park-area/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /api/v2/region/
+     * List regions
+     * A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return PaginatedRegionSummaryList
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun regionList(limit: kotlin.Int? = null, offset: kotlin.Int? = null, q: kotlin.String? = null) : PaginatedRegionSummaryList {
+        val localVarResponse = regionListWithHttpInfo(limit = limit, offset = offset, q = q)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PaginatedRegionSummaryList
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /api/v2/region/
+     * List regions
+     * A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return ApiResponse<PaginatedRegionSummaryList?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun regionListWithHttpInfo(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : ApiResponse<PaginatedRegionSummaryList?> {
+        val localVariableConfig = regionListRequestConfig(limit = limit, offset = offset, q = q)
+
+        return request<Unit, PaginatedRegionSummaryList>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation regionList
+     *
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return RequestConfig
+     */
+    fun regionListRequestConfig(limit: kotlin.Int?, offset: kotlin.Int?, q: kotlin.String?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (limit != null) {
+                    put("limit", listOf(limit.toString()))
+                }
+                if (offset != null) {
+                    put("offset", listOf(offset.toString()))
+                }
+                if (q != null) {
+                    put("q", listOf(q.toString()))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/region/",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /api/v2/region/{id}/
+     * Get region
+     * A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
+     * @param id This parameter can be a string or an integer.
+     * @return RegionDetail
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun regionRetrieve(id: kotlin.String) : RegionDetail {
+        val localVarResponse = regionRetrieveWithHttpInfo(id = id)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as RegionDetail
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /api/v2/region/{id}/
+     * Get region
+     * A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
+     * @param id This parameter can be a string or an integer.
+     * @return ApiResponse<RegionDetail?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun regionRetrieveWithHttpInfo(id: kotlin.String) : ApiResponse<RegionDetail?> {
+        val localVariableConfig = regionRetrieveRequestConfig(id = id)
+
+        return request<Unit, RegionDetail>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation regionRetrieve
+     *
+     * @param id This parameter can be a string or an integer.
+     * @return RequestConfig
+     */
+    fun regionRetrieveRequestConfig(id: kotlin.String) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/api/v2/region/{id}/".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
             body = localVariableBody
         )
     }

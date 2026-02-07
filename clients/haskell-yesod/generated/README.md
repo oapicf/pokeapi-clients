@@ -20,7 +20,7 @@ As your code changes, your site will be automatically recompiled and redeployed 
 ## Tests
 
 ```
-stack test --flag openapi-haskell-yesod-server:library-only --flag openapi-haskell-yesod-server:dev
+stack test --flag pok-api:library-only --flag pok-api:dev
 ```
 
 (Because `yesod devel` passes the `library-only` and `dev` flags, matching those flags means you don't need to recompile between tests and development, and it disables optimization to speed up your test compile times).

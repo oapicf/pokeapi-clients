@@ -16,6 +16,7 @@ use Psr\Http\Message\ServerRequestInterface;
 class ApiV2VersionGroup
 {
     /**
+     * List version groups
      * @PHA\Get()
      * @PHA\Attribute(name=PHAttribute\Transfer::class, options={
      *     "type":\App\DTO\VersionGroupListQueryData::class,
@@ -23,14 +24,14 @@ class ApiV2VersionGroup
      *     "source": PHAttribute\Transfer::SOURCE_GET
      * })
      * TODO check if producer is valid, if it has correct priority and if it can be moved to class annotation
-     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="text/plain")
+     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="application/json")
      * @param ServerRequestInterface $request
      *
      * @throws PHException\HttpCode 501 if the method is not implemented
      *
-     * @return string
+     * @return \App\DTO\PaginatedVersionGroupSummaryList
      */
-    public function versionGroupList(ServerRequestInterface $request): string
+    public function versionGroupList(ServerRequestInterface $request): \App\DTO\PaginatedVersionGroupSummaryList
     {
         //TODO implement method
         /** @var \App\DTO\VersionGroupListQueryData $queryData */

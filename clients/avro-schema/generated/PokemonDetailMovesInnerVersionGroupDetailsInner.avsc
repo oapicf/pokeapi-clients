@@ -1,0 +1,24 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonDetailMovesInnerVersionGroupDetailsInner",
+  "fields": [
+    {
+      "name": "level_learned_at",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "move_learn_method",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    },
+    {
+      "name": "version_group",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    }
+  ]
+
+}

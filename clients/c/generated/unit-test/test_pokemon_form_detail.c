@@ -1,0 +1,88 @@
+#ifndef pokemon_form_detail_TEST
+#define pokemon_form_detail_TEST
+
+// the following is to include only the main from the first c file
+#ifndef TEST_MAIN
+#define TEST_MAIN
+#define pokemon_form_detail_MAIN
+#endif // TEST_MAIN
+
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include "../external/cJSON.h"
+
+#include "../model/pokemon_form_detail.h"
+pokemon_form_detail_t* instantiate_pokemon_form_detail(int include_optional);
+
+#include "test_pokemon_summary.c"
+#include "test_version_group_summary.c"
+
+
+pokemon_form_detail_t* instantiate_pokemon_form_detail(int include_optional) {
+  pokemon_form_detail_t* pokemon_form_detail = NULL;
+  if (include_optional) {
+    pokemon_form_detail = pokemon_form_detail_create(
+      56,
+      "0",
+      56,
+      56,
+      1,
+      1,
+      1,
+      "0",
+       // false, not to have infinite recursion
+      instantiate_pokemon_summary(0),
+      list_createList(),
+       // false, not to have infinite recursion
+      instantiate_version_group_summary(0),
+      list_createList(),
+      list_createList(),
+      list_createList()
+    );
+  } else {
+    pokemon_form_detail = pokemon_form_detail_create(
+      56,
+      "0",
+      56,
+      56,
+      1,
+      1,
+      1,
+      "0",
+      NULL,
+      list_createList(),
+      NULL,
+      list_createList(),
+      list_createList(),
+      list_createList()
+    );
+  }
+
+  return pokemon_form_detail;
+}
+
+
+#ifdef pokemon_form_detail_MAIN
+
+void test_pokemon_form_detail(int include_optional) {
+    pokemon_form_detail_t* pokemon_form_detail_1 = instantiate_pokemon_form_detail(include_optional);
+
+	cJSON* jsonpokemon_form_detail_1 = pokemon_form_detail_convertToJSON(pokemon_form_detail_1);
+	printf("pokemon_form_detail :\n%s\n", cJSON_Print(jsonpokemon_form_detail_1));
+	pokemon_form_detail_t* pokemon_form_detail_2 = pokemon_form_detail_parseFromJSON(jsonpokemon_form_detail_1);
+	cJSON* jsonpokemon_form_detail_2 = pokemon_form_detail_convertToJSON(pokemon_form_detail_2);
+	printf("repeating pokemon_form_detail:\n%s\n", cJSON_Print(jsonpokemon_form_detail_2));
+}
+
+int main() {
+  test_pokemon_form_detail(1);
+  test_pokemon_form_detail(0);
+
+  printf("Hello world \n");
+  return 0;
+}
+
+#endif // pokemon_form_detail_MAIN
+#endif // pokemon_form_detail_TEST

@@ -1,0 +1,43 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "MoveTargetDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "descriptions",
+      "type": {
+        "type": "array",
+        "items": "model.MoveTargetDescription"
+      },
+      "doc": ""
+    },
+    {
+      "name": "moves",
+      "type": {
+        "type": "array",
+        "items": "model.MoveSummary"
+      },
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.MoveTargetName"
+      },
+      "doc": ""
+    }
+  ]
+
+}

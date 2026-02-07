@@ -5,7 +5,821 @@
  *
  *)
 
-let pokemon_list ?limit ?offset () =
+let ability_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/ability/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_ability_summary_list.of_yojson) resp body
+
+let ability_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/ability/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Ability_detail.of_yojson) resp body
+
+let characteristic_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/characteristic/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_characteristic_summary_list.of_yojson) resp body
+
+let characteristic_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/characteristic/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Characteristic_detail.of_yojson) resp body
+
+let egg_group_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/egg-group/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_egg_group_summary_list.of_yojson) resp body
+
+let egg_group_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/egg-group/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Egg_group_detail.of_yojson) resp body
+
+let gender_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/gender/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_gender_summary_list.of_yojson) resp body
+
+let gender_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/gender/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Gender_detail.of_yojson) resp body
+
+let growth_rate_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/growth-rate/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_growth_rate_summary_list.of_yojson) resp body
+
+let growth_rate_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/growth-rate/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Growth_rate_detail.of_yojson) resp body
+
+let move_damage_class_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/move-damage-class/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_move_damage_class_summary_list.of_yojson) resp body
+
+let move_damage_class_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/move-damage-class/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Move_damage_class_detail.of_yojson) resp body
+
+let nature_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/nature/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_nature_summary_list.of_yojson) resp body
+
+let nature_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/nature/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Nature_detail.of_yojson) resp body
+
+let pokeathlon_stat_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/pokeathlon-stat/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_pokeathlon_stat_summary_list.of_yojson) resp body
+
+let pokeathlon_stat_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/pokeathlon-stat/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Pokeathlon_stat_detail.of_yojson) resp body
+
+let pokemon_color_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/pokemon-color/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_pokemon_color_summary_list.of_yojson) resp body
+
+let pokemon_color_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/pokemon-color/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Pokemon_color_detail.of_yojson) resp body
+
+let pokemon_form_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/pokemon-form/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_pokemon_form_summary_list.of_yojson) resp body
+
+let pokemon_form_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/pokemon-form/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Pokemon_form_detail.of_yojson) resp body
+
+let pokemon_habitat_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/pokemon-habitat/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_pokemon_habitat_summary_list.of_yojson) resp body
+
+let pokemon_habitat_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/pokemon-habitat/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Pokemon_habitat_detail.of_yojson) resp body
+
+let pokemon_list ?limit ?offset ?q () =
     let open Lwt.Infix in
     let uri = Request.build_uri "/api/v2/pokemon/" in
     let headers = Request.default_headers in
@@ -39,14 +853,51 @@ let pokemon_list ?limit ?offset () =
         
         
  offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
-    Request.read_json_body_as (JsonSupport.to_string) resp body
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_pokemon_summary_list.of_yojson) resp body
 
-let pokemon_read ~id =
+let pokemon_retrieve ~id =
     let open Lwt.Infix in
     let uri = Request.build_uri "/api/v2/pokemon/{id}/" in
     let headers = Request.default_headers in
     let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Pokemon_detail.of_yojson) resp body
+
+let pokemon_shape_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/pokemon-shape/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
     Int32.to_string
     
     
@@ -60,7 +911,281 @@ let pokemon_read ~id =
     
         
         
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_pokemon_shape_summary_list.of_yojson) resp body
+
+let pokemon_shape_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/pokemon-shape/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
  id in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
-    Request.read_json_body_as (JsonSupport.to_string) resp body
+    Request.read_json_body_as (JsonSupport.unwrap Pokemon_shape_detail.of_yojson) resp body
+
+let pokemon_species_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/pokemon-species/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_pokemon_species_summary_list.of_yojson) resp body
+
+let pokemon_species_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/pokemon-species/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Pokemon_species_detail.of_yojson) resp body
+
+let stat_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/stat/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_stat_summary_list.of_yojson) resp body
+
+let stat_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/stat/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Stat_detail.of_yojson) resp body
+
+let type_list ?limit ?offset ?q () =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/type/" in
+    let headers = Request.default_headers in
+    let uri = Request.maybe_add_query_param uri "limit"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ limit in
+    let uri = Request.maybe_add_query_param uri "offset"     
+    Int32.to_string
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+ offset in
+    let uri = Request.maybe_add_query_param uri "q"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ q in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Paginated_type_summary_list.of_yojson) resp body
+
+let type_retrieve ~id =
+    let open Lwt.Infix in
+    let uri = Request.build_uri "/api/v2/type/{id}/" in
+    let headers = Request.default_headers in
+    let uri = Request.replace_path_param uri "id"     
+    
+    
+    
+    
+    
+    
+    
+    
+    (fun x -> x)
+    
+    
+        
+        
+ id in
+    Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
+    Request.read_json_body_as (JsonSupport.unwrap Type_detail.of_yojson) resp body
 

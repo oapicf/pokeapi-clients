@@ -1,0 +1,22 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ItemDetailHeldByPokemonInner",
+  "fields": [
+    {
+      "name": "pokemon",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    },
+    {
+      "name": "version-details",
+      "type": {
+        "type": "array",
+        "items": "model.ItemDetailHeldByPokemonInnerVersionDetailsInner"
+      },
+      "doc": ""
+    }
+  ]
+
+}

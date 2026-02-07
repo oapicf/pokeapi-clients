@@ -1,0 +1,43 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "MoveLearnMethodDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.MoveLearnMethodName"
+      },
+      "doc": ""
+    },
+    {
+      "name": "descriptions",
+      "type": {
+        "type": "array",
+        "items": "model.MoveLearnMethodDescription"
+      },
+      "doc": ""
+    },
+    {
+      "name": "version_groups",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityDetailPokemonInnerPokemon"
+      },
+      "doc": ""
+    }
+  ]
+
+}

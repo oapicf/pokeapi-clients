@@ -1,0 +1,71 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "NatureDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "decreased_stat",
+      "type": "model.StatSummary",
+      "doc": ""
+    },
+    {
+      "name": "increased_stat",
+      "type": "model.StatSummary",
+      "doc": ""
+    },
+    {
+      "name": "likes_flavor",
+      "type": "model.BerryFlavorSummary",
+      "doc": ""
+    },
+    {
+      "name": "hates_flavor",
+      "type": "model.BerryFlavorSummary",
+      "doc": ""
+    },
+    {
+      "name": "berries",
+      "type": {
+        "type": "array",
+        "items": "model.BerrySummary"
+      },
+      "doc": ""
+    },
+    {
+      "name": "pokeathlon_stat_changes",
+      "type": {
+        "type": "array",
+        "items": "model.NatureDetailPokeathlonStatChangesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "move_battle_style_preferences",
+      "type": {
+        "type": "array",
+        "items": "model.NatureBattleStylePreference"
+      },
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.NatureName"
+      },
+      "doc": ""
+    }
+  ]
+
+}

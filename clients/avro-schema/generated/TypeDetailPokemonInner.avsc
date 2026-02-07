@@ -1,0 +1,21 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "TypeDetailPokemonInner",
+  "fields": [
+    {
+      "name": "slot",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "pokemon",
+      "type": ["null", "model.TypeDetailPokemonInnerPokemon"],
+      "doc": "",
+      "default": null
+    }
+  ]
+
+}

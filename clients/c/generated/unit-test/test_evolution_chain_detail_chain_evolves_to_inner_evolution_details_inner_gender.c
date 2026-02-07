@@ -1,0 +1,60 @@
+#ifndef evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_TEST
+#define evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_TEST
+
+// the following is to include only the main from the first c file
+#ifndef TEST_MAIN
+#define TEST_MAIN
+#define evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_MAIN
+#endif // TEST_MAIN
+
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include "../external/cJSON.h"
+
+#include "../model/evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender.h"
+evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t* instantiate_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender(int include_optional);
+
+
+
+evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t* instantiate_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender(int include_optional) {
+  evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t* evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender = NULL;
+  if (include_optional) {
+    evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender = evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_create(
+      "0",
+      "0"
+    );
+  } else {
+    evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender = evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_create(
+      "0",
+      "0"
+    );
+  }
+
+  return evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender;
+}
+
+
+#ifdef evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_MAIN
+
+void test_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender(int include_optional) {
+    evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t* evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_1 = instantiate_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender(include_optional);
+
+	cJSON* jsonevolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_1 = evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_convertToJSON(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_1);
+	printf("evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender :\n%s\n", cJSON_Print(jsonevolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_1));
+	evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_t* evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_2 = evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_parseFromJSON(jsonevolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_1);
+	cJSON* jsonevolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_2 = evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_convertToJSON(evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_2);
+	printf("repeating evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender:\n%s\n", cJSON_Print(jsonevolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_2));
+}
+
+int main() {
+  test_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender(1);
+  test_evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender(0);
+
+  printf("Hello world \n");
+  return 0;
+}
+
+#endif // evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_MAIN
+#endif // evolution_chain_detail_chain_evolves_to_inner_evolution_details_inner_gender_TEST

@@ -1,0 +1,20 @@
+
+
+# PaginatedContestEffectSummaryList
+
+The class is defined in **[PaginatedContestEffectSummaryList.java](../../src/main/java/org/openapitools/model/PaginatedContestEffectSummaryList.java)**
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**count** | `Integer` |  |  [optional property]
+**next** | `URI` |  |  [optional property]
+**previous** | `URI` |  |  [optional property]
+**results** | [`List&lt;ContestEffectSummary&gt;`](ContestEffectSummary.md) |  |  [optional property]
+
+
+
+
+
+

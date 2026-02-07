@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonShapeDetailNamesInner",
+  "fields": [
+    {
+      "name": "url",
+      "type": "model.URI",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    }
+  ]
+
+}

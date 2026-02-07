@@ -1,0 +1,22 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "AbilityChange",
+  "fields": [
+    {
+      "name": "version_group",
+      "type": "model.VersionGroupSummary",
+      "doc": ""
+    },
+    {
+      "name": "effect_entries",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityChangeEffectText"
+      },
+      "doc": ""
+    }
+  ]
+
+}

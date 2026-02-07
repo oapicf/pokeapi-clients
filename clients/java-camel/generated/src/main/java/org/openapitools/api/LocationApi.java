@@ -20,46 +20,237 @@ public class LocationApi extends RouteBuilder {
         
 
         /**
-        GET /api/v2/location/
+        GET /api/v2/location-area/ : List location areas
         **/
         rest()
-            .get("/api/v2/location/")
-                .description("")
-                .id("locationListApi")
-                .clientRequestValidation(false)
-                .bindingMode(RestBindingMode.off)
-                .produces("text/plain")
-                .outType(String.class)
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/location-area/")
+                .description("List location areas")
+                .id("locationAreaListApi")
+                .produces("application/json")
+                .outType(PaginatedLocationAreaSummaryList.class)
                 .param()
                     .name("limit")
                     .type(RestParamType.query)
                     .required(false)
+                    .description("Number of results to return per page.")
                 .endParam()
                 .param()
                     .name("offset")
                     .type(RestParamType.query)
                     .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .to("direct:locationAreaList");
+        
+
+        /**
+        GET /api/v2/location-area/{id}/ : Get location area
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/location-area/{id}/")
+                .description("Get location area")
+                .id("locationAreaRetrieveApi")
+                .produces("application/json")
+                .outType(LocationAreaDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("A unique integer value identifying this location area.")
+                .endParam()
+                .to("direct:locationAreaRetrieve");
+        
+
+        /**
+        GET /api/v2/location/ : List locations
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/location/")
+                .description("List locations")
+                .id("locationListApi")
+                .produces("application/json")
+                .outType(PaginatedLocationSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
                 .endParam()
                 .to("direct:locationList");
         
 
         /**
-        GET /api/v2/location/{id}/
+        GET /api/v2/location/{id}/ : Get location
         **/
         rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
             .get("/api/v2/location/{id}/")
-                .description("")
-                .id("locationReadApi")
-                .clientRequestValidation(false)
-                .bindingMode(RestBindingMode.off)
-                .produces("text/plain")
-                .outType(String.class)
+                .description("Get location")
+                .id("locationRetrieveApi")
+                .produces("application/json")
+                .outType(LocationDetail.class)
                 .param()
                     .name("id")
                     .type(RestParamType.path)
                     .required(true)
+                    .description("This parameter can be a string or an integer.")
                 .endParam()
-                .to("direct:locationRead");
+                .to("direct:locationRetrieve");
+        
+
+        /**
+        GET /api/v2/pal-park-area/ : List pal park areas
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/pal-park-area/")
+                .description("List pal park areas")
+                .id("palParkAreaListApi")
+                .produces("application/json")
+                .outType(PaginatedPalParkAreaSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:palParkAreaList");
+        
+
+        /**
+        GET /api/v2/pal-park-area/{id}/ : Get pal park area
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/pal-park-area/{id}/")
+                .description("Get pal park area")
+                .id("palParkAreaRetrieveApi")
+                .produces("application/json")
+                .outType(PalParkAreaDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:palParkAreaRetrieve");
+        
+
+        /**
+        GET /api/v2/region/ : List regions
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/region/")
+                .description("List regions")
+                .id("regionListApi")
+                .produces("application/json")
+                .outType(PaginatedRegionSummaryList.class)
+                .param()
+                    .name("limit")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("Number of results to return per page.")
+                .endParam()
+                .param()
+                    .name("offset")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("The initial index from which to return the results.")
+                .endParam()
+                .param()
+                    .name("q")
+                    .type(RestParamType.query)
+                    .required(false)
+                    .description("> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ")
+                .endParam()
+                .to("direct:regionList");
+        
+
+        /**
+        GET /api/v2/region/{id}/ : Get region
+        **/
+        rest()
+            .securityDefinitions()
+                .basicAuth("basicAuth")
+                .apiKey("cookieAuth")
+                    .withCookie("cookieAuth").
+                
+            .endSecurityDefinition()
+            .get("/api/v2/region/{id}/")
+                .description("Get region")
+                .id("regionRetrieveApi")
+                .produces("application/json")
+                .outType(RegionDetail.class)
+                .param()
+                    .name("id")
+                    .type(RestParamType.path)
+                    .required(true)
+                    .description("This parameter can be a string or an integer.")
+                .endParam()
+                .to("direct:regionRetrieve");
         
     }
 }

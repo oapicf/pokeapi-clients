@@ -5,7 +5,104 @@
  */
 package org.openapitools.api;
 
+import org.openapitools.model.AbilityDetail;
+import org.openapitools.model.BerryDetail;
+import org.openapitools.model.BerryFirmnessDetail;
+import org.openapitools.model.BerryFlavorDetail;
+import org.openapitools.model.CharacteristicDetail;
+import org.openapitools.model.ContestEffectDetail;
+import org.openapitools.model.ContestTypeDetail;
+import org.openapitools.model.EggGroupDetail;
+import org.openapitools.model.EncounterConditionDetail;
+import org.openapitools.model.EncounterConditionValueDetail;
+import org.openapitools.model.EncounterMethodDetail;
+import org.openapitools.model.EvolutionChainDetail;
+import org.openapitools.model.EvolutionTriggerDetail;
+import org.openapitools.model.GenderDetail;
+import org.openapitools.model.GenerationDetail;
+import org.openapitools.model.GrowthRateDetail;
+import org.openapitools.model.ItemAttributeDetail;
+import org.openapitools.model.ItemCategoryDetail;
+import org.openapitools.model.ItemDetail;
+import org.openapitools.model.ItemFlingEffectDetail;
+import org.openapitools.model.ItemPocketDetail;
+import org.openapitools.model.LanguageDetail;
+import org.openapitools.model.LocationAreaDetail;
+import org.openapitools.model.LocationDetail;
+import org.openapitools.model.MachineDetail;
+import org.openapitools.model.MoveBattleStyleDetail;
+import org.openapitools.model.MoveDamageClassDetail;
+import org.openapitools.model.MoveDetail;
+import org.openapitools.model.MoveLearnMethodDetail;
+import org.openapitools.model.MoveMetaAilmentDetail;
+import org.openapitools.model.MoveMetaCategoryDetail;
+import org.openapitools.model.MoveTargetDetail;
+import org.openapitools.model.NatureDetail;
 import org.springframework.lang.Nullable;
+import org.openapitools.model.PaginatedAbilitySummaryList;
+import org.openapitools.model.PaginatedBerryFirmnessSummaryList;
+import org.openapitools.model.PaginatedBerryFlavorSummaryList;
+import org.openapitools.model.PaginatedBerrySummaryList;
+import org.openapitools.model.PaginatedCharacteristicSummaryList;
+import org.openapitools.model.PaginatedContestEffectSummaryList;
+import org.openapitools.model.PaginatedContestTypeSummaryList;
+import org.openapitools.model.PaginatedEggGroupSummaryList;
+import org.openapitools.model.PaginatedEncounterConditionSummaryList;
+import org.openapitools.model.PaginatedEncounterConditionValueSummaryList;
+import org.openapitools.model.PaginatedEncounterMethodSummaryList;
+import org.openapitools.model.PaginatedEvolutionChainSummaryList;
+import org.openapitools.model.PaginatedEvolutionTriggerSummaryList;
+import org.openapitools.model.PaginatedGenderSummaryList;
+import org.openapitools.model.PaginatedGenerationSummaryList;
+import org.openapitools.model.PaginatedGrowthRateSummaryList;
+import org.openapitools.model.PaginatedItemAttributeSummaryList;
+import org.openapitools.model.PaginatedItemCategorySummaryList;
+import org.openapitools.model.PaginatedItemFlingEffectSummaryList;
+import org.openapitools.model.PaginatedItemPocketSummaryList;
+import org.openapitools.model.PaginatedItemSummaryList;
+import org.openapitools.model.PaginatedLanguageSummaryList;
+import org.openapitools.model.PaginatedLocationAreaSummaryList;
+import org.openapitools.model.PaginatedLocationSummaryList;
+import org.openapitools.model.PaginatedMachineSummaryList;
+import org.openapitools.model.PaginatedMoveBattleStyleSummaryList;
+import org.openapitools.model.PaginatedMoveDamageClassSummaryList;
+import org.openapitools.model.PaginatedMoveLearnMethodSummaryList;
+import org.openapitools.model.PaginatedMoveMetaAilmentSummaryList;
+import org.openapitools.model.PaginatedMoveMetaCategorySummaryList;
+import org.openapitools.model.PaginatedMoveSummaryList;
+import org.openapitools.model.PaginatedMoveTargetSummaryList;
+import org.openapitools.model.PaginatedNatureSummaryList;
+import org.openapitools.model.PaginatedPalParkAreaSummaryList;
+import org.openapitools.model.PaginatedPokeathlonStatSummaryList;
+import org.openapitools.model.PaginatedPokedexSummaryList;
+import org.openapitools.model.PaginatedPokemonColorSummaryList;
+import org.openapitools.model.PaginatedPokemonFormSummaryList;
+import org.openapitools.model.PaginatedPokemonHabitatSummaryList;
+import org.openapitools.model.PaginatedPokemonShapeSummaryList;
+import org.openapitools.model.PaginatedPokemonSpeciesSummaryList;
+import org.openapitools.model.PaginatedPokemonSummaryList;
+import org.openapitools.model.PaginatedRegionSummaryList;
+import org.openapitools.model.PaginatedStatSummaryList;
+import org.openapitools.model.PaginatedSuperContestEffectSummaryList;
+import org.openapitools.model.PaginatedTypeSummaryList;
+import org.openapitools.model.PaginatedVersionGroupSummaryList;
+import org.openapitools.model.PaginatedVersionSummaryList;
+import org.openapitools.model.PalParkAreaDetail;
+import org.openapitools.model.PokeathlonStatDetail;
+import org.openapitools.model.PokedexDetail;
+import org.openapitools.model.PokemonColorDetail;
+import org.openapitools.model.PokemonDetail;
+import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
+import org.openapitools.model.PokemonFormDetail;
+import org.openapitools.model.PokemonHabitatDetail;
+import org.openapitools.model.PokemonShapeDetail;
+import org.openapitools.model.PokemonSpeciesDetail;
+import org.openapitools.model.RegionDetail;
+import org.openapitools.model.StatDetail;
+import org.openapitools.model.SuperContestEffectDetail;
+import org.openapitools.model.TypeDetail;
+import org.openapitools.model.VersionDetail;
+import org.openapitools.model.VersionGroupDetail;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -33,9 +130,9 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-25T00:39:34.509464186Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-02-07T04:22:27.168374474Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Validated
-@Tag(name = "ability", description = "the ability API")
+@Tag(name = "pokemon", description = "Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.")
 public interface ApiApi {
 
     default Optional<NativeWebRequest> getRequest() {
@@ -45,58 +142,90 @@ public interface ApiApi {
     String PATH_ABILITY_LIST = "/api/v2/ability/";
     /**
      * GET /api/v2/ability/
+     * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "abilityList",
-        tags = { "ability" },
+        description = "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedAbilitySummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_ABILITY_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> abilityList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedAbilitySummaryList> abilityList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_ABILITY_READ = "/api/v2/ability/{id}/";
+    String PATH_ABILITY_RETRIEVE = "/api/v2/ability/{id}/";
     /**
      * GET /api/v2/ability/{id}/
+     * Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "abilityRead",
-        tags = { "ability" },
+        operationId = "abilityRetrieve",
+        description = "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = AbilityDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_ABILITY_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_ABILITY_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> abilityRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<AbilityDetail> abilityRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"is_main_series\" : true, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"effect_entries\" : [ { \"short_effect\" : \"short_effect\", \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"short_effect\" : \"short_effect\", \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon\" : [ { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_hidden\" : true, \"slot\" : 6 }, { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_hidden\" : true, \"slot\" : 6 } ], \"flavor_text_entries\" : [ { \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"flavor_text\" : \"flavor_text\" }, { \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"flavor_text\" : \"flavor_text\" } ], \"name\" : \"name\", \"id\" : 0, \"effect_changes\" : [ { \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -104,59 +233,93 @@ public interface ApiApi {
 
     String PATH_BERRY_FIRMNESS_LIST = "/api/v2/berry-firmness/";
     /**
-     * GET /api/v2/berry-firmness/
+     * GET /api/v2/berry-firmness/ : List berry firmness
+     * Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "berryFirmnessList",
-        tags = { "berry-firmness" },
+        summary = "List berry firmness",
+        description = "Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.",
+        tags = { "berries" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedBerryFirmnessSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_BERRY_FIRMNESS_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> berryFirmnessList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedBerryFirmnessSummaryList> berryFirmnessList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_BERRY_FIRMNESS_READ = "/api/v2/berry-firmness/{id}/";
+    String PATH_BERRY_FIRMNESS_RETRIEVE = "/api/v2/berry-firmness/{id}/";
     /**
-     * GET /api/v2/berry-firmness/{id}/
+     * GET /api/v2/berry-firmness/{id}/ : Get berry by firmness
+     * Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "berryFirmnessRead",
-        tags = { "berry-firmness" },
+        operationId = "berryFirmnessRetrieve",
+        summary = "Get berry by firmness",
+        description = "Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail.",
+        tags = { "berries" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = BerryFirmnessDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_BERRY_FIRMNESS_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_BERRY_FIRMNESS_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> berryFirmnessRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<BerryFirmnessDetail> berryFirmnessRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"id\" : 0, \"berries\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -164,59 +327,93 @@ public interface ApiApi {
 
     String PATH_BERRY_FLAVOR_LIST = "/api/v2/berry-flavor/";
     /**
-     * GET /api/v2/berry-flavor/
+     * GET /api/v2/berry-flavor/ : List berry flavors
+     * Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "berryFlavorList",
-        tags = { "berry-flavor" },
+        summary = "List berry flavors",
+        description = "Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.",
+        tags = { "berries" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedBerryFlavorSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_BERRY_FLAVOR_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> berryFlavorList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedBerryFlavorSummaryList> berryFlavorList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_BERRY_FLAVOR_READ = "/api/v2/berry-flavor/{id}/";
+    String PATH_BERRY_FLAVOR_RETRIEVE = "/api/v2/berry-flavor/{id}/";
     /**
-     * GET /api/v2/berry-flavor/{id}/
+     * GET /api/v2/berry-flavor/{id}/ : Get berries by flavor
+     * Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "berryFlavorRead",
-        tags = { "berry-flavor" },
+        operationId = "berryFlavorRetrieve",
+        summary = "Get berries by flavor",
+        description = "Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail.",
+        tags = { "berries" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = BerryFlavorDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_BERRY_FLAVOR_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_BERRY_FLAVOR_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> berryFlavorRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<BerryFlavorDetail> berryFlavorRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"contest_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"id\" : 0, \"berries\" : [ { \"potency\" : 6, \"berry\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"potency\" : 6, \"berry\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -224,59 +421,93 @@ public interface ApiApi {
 
     String PATH_BERRY_LIST = "/api/v2/berry/";
     /**
-     * GET /api/v2/berry/
+     * GET /api/v2/berry/ : List berries
+     * Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "berryList",
-        tags = { "berry" },
+        summary = "List berries",
+        description = "Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.",
+        tags = { "berries" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedBerrySummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_BERRY_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> berryList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedBerrySummaryList> berryList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_BERRY_READ = "/api/v2/berry/{id}/";
+    String PATH_BERRY_RETRIEVE = "/api/v2/berry/{id}/";
     /**
-     * GET /api/v2/berry/{id}/
+     * GET /api/v2/berry/{id}/ : Get a berry
+     * Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "berryRead",
-        tags = { "berry" },
+        operationId = "berryRetrieve",
+        summary = "Get a berry",
+        description = "Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail.",
+        tags = { "berries" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = BerryDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_BERRY_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_BERRY_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> berryRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<BerryDetail> berryRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"flavors\" : [ { \"flavor\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"potency\" : 9 }, { \"flavor\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"potency\" : 9 } ], \"natural_gift_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"smoothness\" : 2, \"size\" : 5, \"natural_gift_power\" : 5, \"firmness\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"name\" : \"name\", \"growth_time\" : 6, \"soil_dryness\" : 7, \"id\" : 0, \"max_harvest\" : 1 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -284,59 +515,93 @@ public interface ApiApi {
 
     String PATH_CHARACTERISTIC_LIST = "/api/v2/characteristic/";
     /**
-     * GET /api/v2/characteristic/
+     * GET /api/v2/characteristic/ : List charecterictics
+     * Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "characteristicList",
-        tags = { "characteristic" },
+        summary = "List charecterictics",
+        description = "Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedCharacteristicSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_CHARACTERISTIC_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> characteristicList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedCharacteristicSummaryList> characteristicList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_CHARACTERISTIC_READ = "/api/v2/characteristic/{id}/";
+    String PATH_CHARACTERISTIC_RETRIEVE = "/api/v2/characteristic/{id}/";
     /**
-     * GET /api/v2/characteristic/{id}/
+     * GET /api/v2/characteristic/{id}/ : Get characteristic
+     * Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "characteristicRead",
-        tags = { "characteristic" },
+        operationId = "characteristicRetrieve",
+        summary = "Get characteristic",
+        description = "Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = CharacteristicDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_CHARACTERISTIC_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_CHARACTERISTIC_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> characteristicRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<CharacteristicDetail> characteristicRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"gene_modulo\" : 6, \"possible_values\" : [ 1, 1 ], \"highest_stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"id\" : 0, \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -344,59 +609,93 @@ public interface ApiApi {
 
     String PATH_CONTEST_EFFECT_LIST = "/api/v2/contest-effect/";
     /**
-     * GET /api/v2/contest-effect/
+     * GET /api/v2/contest-effect/ : List contest effects
+     * Contest effects refer to the effects of moves when used in contests.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "contestEffectList",
-        tags = { "contest-effect" },
+        summary = "List contest effects",
+        description = "Contest effects refer to the effects of moves when used in contests.",
+        tags = { "contests" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedContestEffectSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_CONTEST_EFFECT_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> contestEffectList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedContestEffectSummaryList> contestEffectList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_CONTEST_EFFECT_READ = "/api/v2/contest-effect/{id}/";
+    String PATH_CONTEST_EFFECT_RETRIEVE = "/api/v2/contest-effect/{id}/";
     /**
-     * GET /api/v2/contest-effect/{id}/
+     * GET /api/v2/contest-effect/{id}/ : Get contest effect
+     * Contest effects refer to the effects of moves when used in contests.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "contestEffectRead",
-        tags = { "contest-effect" },
+        operationId = "contestEffectRetrieve",
+        summary = "Get contest effect",
+        description = "Contest effects refer to the effects of moves when used in contests.",
+        tags = { "contests" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ContestEffectDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_CONTEST_EFFECT_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_CONTEST_EFFECT_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> contestEffectRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<ContestEffectDetail> contestEffectRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"jam\" : 1, \"flavor_text_entries\" : [ { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"flavor_text\" : \"flavor_text\" }, { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"flavor_text\" : \"flavor_text\" } ], \"id\" : 0, \"appeal\" : 6 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -404,59 +703,93 @@ public interface ApiApi {
 
     String PATH_CONTEST_TYPE_LIST = "/api/v2/contest-type/";
     /**
-     * GET /api/v2/contest-type/
+     * GET /api/v2/contest-type/ : List contest types
+     * Contest types are categories judges used to weigh a Pokémon&#39;s condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "contestTypeList",
-        tags = { "contest-type" },
+        summary = "List contest types",
+        description = "Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.",
+        tags = { "contests" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedContestTypeSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_CONTEST_TYPE_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> contestTypeList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedContestTypeSummaryList> contestTypeList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_CONTEST_TYPE_READ = "/api/v2/contest-type/{id}/";
+    String PATH_CONTEST_TYPE_RETRIEVE = "/api/v2/contest-type/{id}/";
     /**
-     * GET /api/v2/contest-type/{id}/
+     * GET /api/v2/contest-type/{id}/ : Get contest type
+     * Contest types are categories judges used to weigh a Pokémon&#39;s condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "contestTypeRead",
-        tags = { "contest-type" },
+        operationId = "contestTypeRetrieve",
+        summary = "Get contest type",
+        description = "Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail.",
+        tags = { "contests" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ContestTypeDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_CONTEST_TYPE_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_CONTEST_TYPE_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> contestTypeRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<ContestTypeDetail> contestTypeRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"berry_flavor\" : \"\", \"names\" : [ { \"color\" : \"color\", \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"color\" : \"color\", \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"id\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -464,59 +797,93 @@ public interface ApiApi {
 
     String PATH_EGG_GROUP_LIST = "/api/v2/egg-group/";
     /**
-     * GET /api/v2/egg-group/
+     * GET /api/v2/egg-group/ : List egg groups
+     * Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "eggGroupList",
-        tags = { "egg-group" },
+        summary = "List egg groups",
+        description = "Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedEggGroupSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_EGG_GROUP_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> eggGroupList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedEggGroupSummaryList> eggGroupList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_EGG_GROUP_READ = "/api/v2/egg-group/{id}/";
+    String PATH_EGG_GROUP_RETRIEVE = "/api/v2/egg-group/{id}/";
     /**
-     * GET /api/v2/egg-group/{id}/
+     * GET /api/v2/egg-group/{id}/ : Get egg group
+     * Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "eggGroupRead",
-        tags = { "egg-group" },
+        operationId = "eggGroupRetrieve",
+        summary = "Get egg group",
+        description = "Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = EggGroupDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_EGG_GROUP_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_EGG_GROUP_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> eggGroupRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<EggGroupDetail> eggGroupRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"id\" : 0, \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -524,59 +891,93 @@ public interface ApiApi {
 
     String PATH_ENCOUNTER_CONDITION_LIST = "/api/v2/encounter-condition/";
     /**
-     * GET /api/v2/encounter-condition/
+     * GET /api/v2/encounter-condition/ : List encounter conditions
+     * Conditions which affect what pokemon might appear in the wild, e.g., day or night.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "encounterConditionList",
-        tags = { "encounter-condition" },
+        summary = "List encounter conditions",
+        description = "Conditions which affect what pokemon might appear in the wild, e.g., day or night.",
+        tags = { "encounters" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedEncounterConditionSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_ENCOUNTER_CONDITION_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> encounterConditionList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedEncounterConditionSummaryList> encounterConditionList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_ENCOUNTER_CONDITION_READ = "/api/v2/encounter-condition/{id}/";
+    String PATH_ENCOUNTER_CONDITION_RETRIEVE = "/api/v2/encounter-condition/{id}/";
     /**
-     * GET /api/v2/encounter-condition/{id}/
+     * GET /api/v2/encounter-condition/{id}/ : Get encounter condition
+     * Conditions which affect what pokemon might appear in the wild, e.g., day or night.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "encounterConditionRead",
-        tags = { "encounter-condition" },
+        operationId = "encounterConditionRetrieve",
+        summary = "Get encounter condition",
+        description = "Conditions which affect what pokemon might appear in the wild, e.g., day or night.",
+        tags = { "encounters" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = EncounterConditionDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_ENCOUNTER_CONDITION_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_ENCOUNTER_CONDITION_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> encounterConditionRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<EncounterConditionDetail> encounterConditionRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"values\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"name\" : \"name\", \"id\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -584,59 +985,93 @@ public interface ApiApi {
 
     String PATH_ENCOUNTER_CONDITION_VALUE_LIST = "/api/v2/encounter-condition-value/";
     /**
-     * GET /api/v2/encounter-condition-value/
+     * GET /api/v2/encounter-condition-value/ : List encounter condition values
+     * Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "encounterConditionValueList",
-        tags = { "encounter-condition-value" },
+        summary = "List encounter condition values",
+        description = "Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.",
+        tags = { "encounters" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedEncounterConditionValueSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_ENCOUNTER_CONDITION_VALUE_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> encounterConditionValueList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedEncounterConditionValueSummaryList> encounterConditionValueList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_ENCOUNTER_CONDITION_VALUE_READ = "/api/v2/encounter-condition-value/{id}/";
+    String PATH_ENCOUNTER_CONDITION_VALUE_RETRIEVE = "/api/v2/encounter-condition-value/{id}/";
     /**
-     * GET /api/v2/encounter-condition-value/{id}/
+     * GET /api/v2/encounter-condition-value/{id}/ : Get encounter condition value
+     * Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "encounterConditionValueRead",
-        tags = { "encounter-condition-value" },
+        operationId = "encounterConditionValueRetrieve",
+        summary = "Get encounter condition value",
+        description = "Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night.",
+        tags = { "encounters" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = EncounterConditionValueDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_ENCOUNTER_CONDITION_VALUE_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_ENCOUNTER_CONDITION_VALUE_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> encounterConditionValueRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<EncounterConditionValueDetail> encounterConditionValueRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"condition\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"id\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -644,59 +1079,93 @@ public interface ApiApi {
 
     String PATH_ENCOUNTER_METHOD_LIST = "/api/v2/encounter-method/";
     /**
-     * GET /api/v2/encounter-method/
+     * GET /api/v2/encounter-method/ : List encounter methods
+     * Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "encounterMethodList",
-        tags = { "encounter-method" },
+        summary = "List encounter methods",
+        description = "Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.",
+        tags = { "encounters" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedEncounterMethodSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_ENCOUNTER_METHOD_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> encounterMethodList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedEncounterMethodSummaryList> encounterMethodList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_ENCOUNTER_METHOD_READ = "/api/v2/encounter-method/{id}/";
+    String PATH_ENCOUNTER_METHOD_RETRIEVE = "/api/v2/encounter-method/{id}/";
     /**
-     * GET /api/v2/encounter-method/{id}/
+     * GET /api/v2/encounter-method/{id}/ : Get encounter method
+     * Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "encounterMethodRead",
-        tags = { "encounter-method" },
+        operationId = "encounterMethodRetrieve",
+        summary = "Get encounter method",
+        description = "Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.",
+        tags = { "encounters" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = EncounterMethodDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_ENCOUNTER_METHOD_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_ENCOUNTER_METHOD_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> encounterMethodRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<EncounterMethodDetail> encounterMethodRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"id\" : 0, \"order\" : 6 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -704,59 +1173,93 @@ public interface ApiApi {
 
     String PATH_EVOLUTION_CHAIN_LIST = "/api/v2/evolution-chain/";
     /**
-     * GET /api/v2/evolution-chain/
+     * GET /api/v2/evolution-chain/ : List evolution chains
+     * Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "evolutionChainList",
-        tags = { "evolution-chain" },
+        summary = "List evolution chains",
+        description = "Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.",
+        tags = { "evolution" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedEvolutionChainSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_EVOLUTION_CHAIN_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> evolutionChainList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedEvolutionChainSummaryList> evolutionChainList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_EVOLUTION_CHAIN_READ = "/api/v2/evolution-chain/{id}/";
+    String PATH_EVOLUTION_CHAIN_RETRIEVE = "/api/v2/evolution-chain/{id}/";
     /**
-     * GET /api/v2/evolution-chain/{id}/
+     * GET /api/v2/evolution-chain/{id}/ : Get evolution chain
+     * Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "evolutionChainRead",
-        tags = { "evolution-chain" },
+        operationId = "evolutionChainRetrieve",
+        summary = "Get evolution chain",
+        description = "Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.",
+        tags = { "evolution" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = EvolutionChainDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_EVOLUTION_CHAIN_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_EVOLUTION_CHAIN_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> evolutionChainRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<EvolutionChainDetail> evolutionChainRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"chain\" : { \"evolution_details\" : [ \"\", \"\" ], \"species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"evolves_to\" : [ { \"evolution_details\" : [ { \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"relative_physical_stats\" : \"relative_physical_stats\", \"turn_upside_down\" : true, \"gender\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"min_happiness\" : 5, \"party_type\" : \"party_type\", \"held_item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move\" : \"\", \"min_beauty\" : 1, \"trade_species\" : \"trade_species\", \"trigger\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"needs_overworld_rain\" : true, \"party_species\" : \"party_species\", \"min_affection\" : 6, \"known_move_type\" : \"\", \"time_of_day\" : \"time_of_day\", \"location\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"min_level\" : 5 }, { \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"relative_physical_stats\" : \"relative_physical_stats\", \"turn_upside_down\" : true, \"gender\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"min_happiness\" : 5, \"party_type\" : \"party_type\", \"held_item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move\" : \"\", \"min_beauty\" : 1, \"trade_species\" : \"trade_species\", \"trigger\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"needs_overworld_rain\" : true, \"party_species\" : \"party_species\", \"min_affection\" : 6, \"known_move_type\" : \"\", \"time_of_day\" : \"time_of_day\", \"location\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"min_level\" : 5 } ], \"species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_baby\" : true }, { \"evolution_details\" : [ { \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"relative_physical_stats\" : \"relative_physical_stats\", \"turn_upside_down\" : true, \"gender\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"min_happiness\" : 5, \"party_type\" : \"party_type\", \"held_item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move\" : \"\", \"min_beauty\" : 1, \"trade_species\" : \"trade_species\", \"trigger\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"needs_overworld_rain\" : true, \"party_species\" : \"party_species\", \"min_affection\" : 6, \"known_move_type\" : \"\", \"time_of_day\" : \"time_of_day\", \"location\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"min_level\" : 5 }, { \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"relative_physical_stats\" : \"relative_physical_stats\", \"turn_upside_down\" : true, \"gender\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"min_happiness\" : 5, \"party_type\" : \"party_type\", \"held_item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"known_move\" : \"\", \"min_beauty\" : 1, \"trade_species\" : \"trade_species\", \"trigger\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"needs_overworld_rain\" : true, \"party_species\" : \"party_species\", \"min_affection\" : 6, \"known_move_type\" : \"\", \"time_of_day\" : \"time_of_day\", \"location\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"min_level\" : 5 } ], \"species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_baby\" : true } ], \"is_baby\" : true }, \"baby_trigger_item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"id\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -764,59 +1267,93 @@ public interface ApiApi {
 
     String PATH_EVOLUTION_TRIGGER_LIST = "/api/v2/evolution-trigger/";
     /**
-     * GET /api/v2/evolution-trigger/
+     * GET /api/v2/evolution-trigger/ : List evolution triggers
+     * Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "evolutionTriggerList",
-        tags = { "evolution-trigger" },
+        summary = "List evolution triggers",
+        description = "Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.",
+        tags = { "evolution" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedEvolutionTriggerSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_EVOLUTION_TRIGGER_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> evolutionTriggerList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedEvolutionTriggerSummaryList> evolutionTriggerList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_EVOLUTION_TRIGGER_READ = "/api/v2/evolution-trigger/{id}/";
+    String PATH_EVOLUTION_TRIGGER_RETRIEVE = "/api/v2/evolution-trigger/{id}/";
     /**
-     * GET /api/v2/evolution-trigger/{id}/
+     * GET /api/v2/evolution-trigger/{id}/ : Get evolution trigger
+     * Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "evolutionTriggerRead",
-        tags = { "evolution-trigger" },
+        operationId = "evolutionTriggerRetrieve",
+        summary = "Get evolution trigger",
+        description = "Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail.",
+        tags = { "evolution" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = EvolutionTriggerDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_EVOLUTION_TRIGGER_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_EVOLUTION_TRIGGER_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> evolutionTriggerRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<EvolutionTriggerDetail> evolutionTriggerRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"id\" : 0, \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -824,59 +1361,93 @@ public interface ApiApi {
 
     String PATH_GENDER_LIST = "/api/v2/gender/";
     /**
-     * GET /api/v2/gender/
+     * GET /api/v2/gender/ : List genders
+     * Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "genderList",
-        tags = { "gender" },
+        summary = "List genders",
+        description = "Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedGenderSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_GENDER_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> genderList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedGenderSummaryList> genderList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_GENDER_READ = "/api/v2/gender/{id}/";
+    String PATH_GENDER_RETRIEVE = "/api/v2/gender/{id}/";
     /**
-     * GET /api/v2/gender/{id}/
+     * GET /api/v2/gender/{id}/ : Get gender
+     * Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "genderRead",
-        tags = { "gender" },
+        operationId = "genderRetrieve",
+        summary = "Get gender",
+        description = "Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = GenderDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_GENDER_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_GENDER_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> genderRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<GenderDetail> genderRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"required_for_evolution\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"name\" : \"name\", \"id\" : 0, \"pokemon_species_details\" : [ { \"rate\" : 6, \"pokemon_species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"rate\" : 6, \"pokemon_species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -884,59 +1455,93 @@ public interface ApiApi {
 
     String PATH_GENERATION_LIST = "/api/v2/generation/";
     /**
-     * GET /api/v2/generation/
+     * GET /api/v2/generation/ : List genrations
+     * A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "generationList",
-        tags = { "generation" },
+        summary = "List genrations",
+        description = "A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.",
+        tags = { "games" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedGenerationSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_GENERATION_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> generationList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedGenerationSummaryList> generationList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_GENERATION_READ = "/api/v2/generation/{id}/";
+    String PATH_GENERATION_RETRIEVE = "/api/v2/generation/{id}/";
     /**
-     * GET /api/v2/generation/{id}/
+     * GET /api/v2/generation/{id}/ : Get genration
+     * A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "generationRead",
-        tags = { "generation" },
+        operationId = "generationRetrieve",
+        summary = "Get genration",
+        description = "A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.",
+        tags = { "games" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = GenerationDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_GENERATION_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_GENERATION_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> generationRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<GenerationDetail> generationRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"abilities\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"types\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"main_region\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"name\" : \"name\", \"id\" : 0, \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -944,59 +1549,93 @@ public interface ApiApi {
 
     String PATH_GROWTH_RATE_LIST = "/api/v2/growth-rate/";
     /**
-     * GET /api/v2/growth-rate/
+     * GET /api/v2/growth-rate/ : List growth rates
+     * Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "growthRateList",
-        tags = { "growth-rate" },
+        summary = "List growth rates",
+        description = "Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedGrowthRateSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_GROWTH_RATE_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> growthRateList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedGrowthRateSummaryList> growthRateList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_GROWTH_RATE_READ = "/api/v2/growth-rate/{id}/";
+    String PATH_GROWTH_RATE_RETRIEVE = "/api/v2/growth-rate/{id}/";
     /**
-     * GET /api/v2/growth-rate/{id}/
+     * GET /api/v2/growth-rate/{id}/ : Get growth rate
+     * Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "growthRateRead",
-        tags = { "growth-rate" },
+        operationId = "growthRateRetrieve",
+        summary = "Get growth rate",
+        description = "Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = GrowthRateDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_GROWTH_RATE_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_GROWTH_RATE_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> growthRateRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<GrowthRateDetail> growthRateRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"name\" : \"name\", \"formula\" : \"formula\", \"id\" : 0, \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"levels\" : [ { \"level\" : 6, \"experience\" : 1 }, { \"level\" : 6, \"experience\" : 1 } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -1004,59 +1643,93 @@ public interface ApiApi {
 
     String PATH_ITEM_ATTRIBUTE_LIST = "/api/v2/item-attribute/";
     /**
-     * GET /api/v2/item-attribute/
+     * GET /api/v2/item-attribute/ : List item attributes
+     * Item attributes define particular aspects of items, e.g.\&quot;usable in battle\&quot; or \&quot;consumable\&quot;.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "itemAttributeList",
-        tags = { "item-attribute" },
+        summary = "List item attributes",
+        description = "Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".",
+        tags = { "items" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedItemAttributeSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_ITEM_ATTRIBUTE_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> itemAttributeList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedItemAttributeSummaryList> itemAttributeList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_ITEM_ATTRIBUTE_READ = "/api/v2/item-attribute/{id}/";
+    String PATH_ITEM_ATTRIBUTE_RETRIEVE = "/api/v2/item-attribute/{id}/";
     /**
-     * GET /api/v2/item-attribute/{id}/
+     * GET /api/v2/item-attribute/{id}/ : Get item attribute
+     * Item attributes define particular aspects of items, e.g.\&quot;usable in battle\&quot; or \&quot;consumable\&quot;.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "itemAttributeRead",
-        tags = { "item-attribute" },
+        operationId = "itemAttributeRetrieve",
+        summary = "Get item attribute",
+        description = "Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\".",
+        tags = { "items" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ItemAttributeDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_ITEM_ATTRIBUTE_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_ITEM_ATTRIBUTE_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> itemAttributeRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<ItemAttributeDetail> itemAttributeRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"id\" : 0, \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"items\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -1064,59 +1737,93 @@ public interface ApiApi {
 
     String PATH_ITEM_CATEGORY_LIST = "/api/v2/item-category/";
     /**
-     * GET /api/v2/item-category/
+     * GET /api/v2/item-category/ : List item categories
+     * Item categories determine where items will be placed in the players bag.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "itemCategoryList",
-        tags = { "item-category" },
+        summary = "List item categories",
+        description = "Item categories determine where items will be placed in the players bag.",
+        tags = { "items" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedItemCategorySummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_ITEM_CATEGORY_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> itemCategoryList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedItemCategorySummaryList> itemCategoryList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_ITEM_CATEGORY_READ = "/api/v2/item-category/{id}/";
+    String PATH_ITEM_CATEGORY_RETRIEVE = "/api/v2/item-category/{id}/";
     /**
-     * GET /api/v2/item-category/{id}/
+     * GET /api/v2/item-category/{id}/ : Get item category
+     * Item categories determine where items will be placed in the players bag.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "itemCategoryRead",
-        tags = { "item-category" },
+        operationId = "itemCategoryRetrieve",
+        summary = "Get item category",
+        description = "Item categories determine where items will be placed in the players bag.",
+        tags = { "items" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ItemCategoryDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_ITEM_CATEGORY_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_ITEM_CATEGORY_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> itemCategoryRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<ItemCategoryDetail> itemCategoryRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"id\" : 0, \"items\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pocket\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -1124,59 +1831,93 @@ public interface ApiApi {
 
     String PATH_ITEM_FLING_EFFECT_LIST = "/api/v2/item-fling-effect/";
     /**
-     * GET /api/v2/item-fling-effect/
+     * GET /api/v2/item-fling-effect/ : List item fling effects
+     * The various effects of the move\&quot;Fling\&quot; when used with different items.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "itemFlingEffectList",
-        tags = { "item-fling-effect" },
+        summary = "List item fling effects",
+        description = "The various effects of the move\"Fling\" when used with different items.",
+        tags = { "items" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedItemFlingEffectSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_ITEM_FLING_EFFECT_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> itemFlingEffectList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedItemFlingEffectSummaryList> itemFlingEffectList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_ITEM_FLING_EFFECT_READ = "/api/v2/item-fling-effect/{id}/";
+    String PATH_ITEM_FLING_EFFECT_RETRIEVE = "/api/v2/item-fling-effect/{id}/";
     /**
-     * GET /api/v2/item-fling-effect/{id}/
+     * GET /api/v2/item-fling-effect/{id}/ : Get item fling effect
+     * The various effects of the move\&quot;Fling\&quot; when used with different items.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "itemFlingEffectRead",
-        tags = { "item-fling-effect" },
+        operationId = "itemFlingEffectRetrieve",
+        summary = "Get item fling effect",
+        description = "The various effects of the move\"Fling\" when used with different items.",
+        tags = { "items" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ItemFlingEffectDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_ITEM_FLING_EFFECT_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_ITEM_FLING_EFFECT_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> itemFlingEffectRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<ItemFlingEffectDetail> itemFlingEffectRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"id\" : 0, \"items\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -1184,30 +1925,48 @@ public interface ApiApi {
 
     String PATH_ITEM_LIST = "/api/v2/item/";
     /**
-     * GET /api/v2/item/
+     * GET /api/v2/item/ : List items
+     * An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "itemList",
-        tags = { "item" },
+        summary = "List items",
+        description = "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.",
+        tags = { "items" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedItemSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_ITEM_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> itemList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedItemSummaryList> itemList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -1215,88 +1974,138 @@ public interface ApiApi {
 
     String PATH_ITEM_POCKET_LIST = "/api/v2/item-pocket/";
     /**
-     * GET /api/v2/item-pocket/
+     * GET /api/v2/item-pocket/ : List item pockets
+     * Pockets within the players bag used for storing items by category.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "itemPocketList",
-        tags = { "item-pocket" },
+        summary = "List item pockets",
+        description = "Pockets within the players bag used for storing items by category.",
+        tags = { "items" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedItemPocketSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_ITEM_POCKET_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> itemPocketList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedItemPocketSummaryList> itemPocketList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_ITEM_POCKET_READ = "/api/v2/item-pocket/{id}/";
+    String PATH_ITEM_POCKET_RETRIEVE = "/api/v2/item-pocket/{id}/";
     /**
-     * GET /api/v2/item-pocket/{id}/
+     * GET /api/v2/item-pocket/{id}/ : Get item pocket
+     * Pockets within the players bag used for storing items by category.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "itemPocketRead",
-        tags = { "item-pocket" },
+        operationId = "itemPocketRetrieve",
+        summary = "Get item pocket",
+        description = "Pockets within the players bag used for storing items by category.",
+        tags = { "items" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ItemPocketDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_ITEM_POCKET_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_ITEM_POCKET_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> itemPocketRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<ItemPocketDetail> itemPocketRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"id\" : 0, \"categories\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_ITEM_READ = "/api/v2/item/{id}/";
+    String PATH_ITEM_RETRIEVE = "/api/v2/item/{id}/";
     /**
-     * GET /api/v2/item/{id}/
+     * GET /api/v2/item/{id}/ : Get item
+     * An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "itemRead",
-        tags = { "item" },
+        operationId = "itemRetrieve",
+        summary = "Get item",
+        description = "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.",
+        tags = { "items" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ItemDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_ITEM_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_ITEM_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> itemRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<ItemDetail> itemRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"cost\" : 6, \"fling_power\" : 1, \"sprites\" : { \"default\" : \"https://openapi-generator.tech\" }, \"fling_effect\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"effect_entries\" : [ { \"short_effect\" : \"short_effect\", \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"short_effect\" : \"short_effect\", \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"game_indices\" : [ { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"game_index\" : 5 }, { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"game_index\" : 5 } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"baby_trigger_for\" : { \"url\" : \"https://openapi-generator.tech\" }, \"flavor_text_entries\" : [ { \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"text\" : \"text\" }, { \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"text\" : \"text\" } ], \"name\" : \"name\", \"attributes\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"id\" : 0, \"machines\" : [ { \"machine\" : \"https://openapi-generator.tech\", \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"machine\" : \"https://openapi-generator.tech\", \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"category\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"held_by_pokemon\" : [ { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version-details\" : [ { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"rarity\" : 5 }, { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"rarity\" : 5 } ] }, { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version-details\" : [ { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"rarity\" : 5 }, { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"rarity\" : 5 } ] } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -1304,59 +2113,93 @@ public interface ApiApi {
 
     String PATH_LANGUAGE_LIST = "/api/v2/language/";
     /**
-     * GET /api/v2/language/
+     * GET /api/v2/language/ : List languages
+     * Languages for translations of API resource information.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "languageList",
-        tags = { "language" },
+        summary = "List languages",
+        description = "Languages for translations of API resource information.",
+        tags = { "utility" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedLanguageSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_LANGUAGE_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> languageList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedLanguageSummaryList> languageList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_LANGUAGE_READ = "/api/v2/language/{id}/";
+    String PATH_LANGUAGE_RETRIEVE = "/api/v2/language/{id}/";
     /**
-     * GET /api/v2/language/{id}/
+     * GET /api/v2/language/{id}/ : Get language
+     * Languages for translations of API resource information.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "languageRead",
-        tags = { "language" },
+        operationId = "languageRetrieve",
+        summary = "Get language",
+        description = "Languages for translations of API resource information.",
+        tags = { "utility" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = LanguageDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_LANGUAGE_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_LANGUAGE_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> languageRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<LanguageDetail> languageRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"iso639\" : \"iso639\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"official\" : true, \"id\" : 0, \"iso3166\" : \"iso3166\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -1364,59 +2207,91 @@ public interface ApiApi {
 
     String PATH_LOCATION_AREA_LIST = "/api/v2/location-area/";
     /**
-     * GET /api/v2/location-area/
+     * GET /api/v2/location-area/ : List location areas
+     * Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "locationAreaList",
-        tags = { "location-area" },
+        summary = "List location areas",
+        description = "Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.",
+        tags = { "location" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedLocationAreaSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_LOCATION_AREA_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> locationAreaList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedLocationAreaSummaryList> locationAreaList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_LOCATION_AREA_READ = "/api/v2/location-area/{id}/";
+    String PATH_LOCATION_AREA_RETRIEVE = "/api/v2/location-area/{id}/";
     /**
-     * GET /api/v2/location-area/{id}/
+     * GET /api/v2/location-area/{id}/ : Get location area
+     * Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id A unique integer value identifying this location area. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "locationAreaRead",
-        tags = { "location-area" },
+        operationId = "locationAreaRetrieve",
+        summary = "Get location area",
+        description = "Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.",
+        tags = { "location" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = LocationAreaDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_LOCATION_AREA_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_LOCATION_AREA_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> locationAreaRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<LocationAreaDetail> locationAreaRetrieve(
+        @NotNull @Parameter(name = "id", description = "A unique integer value identifying this location area.", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"game_index\" : 6, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_encounters\" : [ { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_details\" : [ { \"max_chance\" : 5, \"encounter_details\" : { \"condition_values\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chance\" : 7, \"method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_level\" : 2, \"min_level\" : 5 }, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"max_chance\" : 5, \"encounter_details\" : { \"condition_values\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chance\" : 7, \"method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_level\" : 2, \"min_level\" : 5 }, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_details\" : [ { \"max_chance\" : 5, \"encounter_details\" : { \"condition_values\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chance\" : 7, \"method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_level\" : 2, \"min_level\" : 5 }, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"max_chance\" : 5, \"encounter_details\" : { \"condition_values\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"chance\" : 7, \"method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_level\" : 2, \"min_level\" : 5 }, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] } ], \"name\" : \"name\", \"location\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"id\" : 0, \"encounter_method_rates\" : [ { \"version_details\" : [ { \"rate\" : 1, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"rate\" : 1, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"encounter_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"version_details\" : [ { \"rate\" : 1, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"rate\" : 1, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"encounter_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -1424,59 +2299,93 @@ public interface ApiApi {
 
     String PATH_LOCATION_LIST = "/api/v2/location/";
     /**
-     * GET /api/v2/location/
+     * GET /api/v2/location/ : List locations
+     * Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "locationList",
+        summary = "List locations",
+        description = "Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.",
         tags = { "location" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedLocationSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_LOCATION_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> locationList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedLocationSummaryList> locationList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_LOCATION_READ = "/api/v2/location/{id}/";
+    String PATH_LOCATION_RETRIEVE = "/api/v2/location/{id}/";
     /**
-     * GET /api/v2/location/{id}/
+     * GET /api/v2/location/{id}/ : Get location
+     * Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "locationRead",
+        operationId = "locationRetrieve",
+        summary = "Get location",
+        description = "Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.",
         tags = { "location" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = LocationDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_LOCATION_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_LOCATION_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> locationRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<LocationDetail> locationRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"game_indices\" : [ { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"game_index\" : 5 }, { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"game_index\" : 5 } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"areas\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"id\" : 0, \"region\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -1484,59 +2393,93 @@ public interface ApiApi {
 
     String PATH_MACHINE_LIST = "/api/v2/machine/";
     /**
-     * GET /api/v2/machine/
+     * GET /api/v2/machine/ : List machines
+     * Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "machineList",
-        tags = { "machine" },
+        summary = "List machines",
+        description = "Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.",
+        tags = { "machines" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedMachineSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_MACHINE_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> machineList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedMachineSummaryList> machineList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_MACHINE_READ = "/api/v2/machine/{id}/";
+    String PATH_MACHINE_RETRIEVE = "/api/v2/machine/{id}/";
     /**
-     * GET /api/v2/machine/{id}/
+     * GET /api/v2/machine/{id}/ : Get machine
+     * Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "machineRead",
-        tags = { "machine" },
+        operationId = "machineRetrieve",
+        summary = "Get machine",
+        description = "Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine.",
+        tags = { "machines" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = MachineDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_MACHINE_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_MACHINE_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> machineRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<MachineDetail> machineRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"id\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -1544,59 +2487,93 @@ public interface ApiApi {
 
     String PATH_MOVE_AILMENT_LIST = "/api/v2/move-ailment/";
     /**
-     * GET /api/v2/move-ailment/
+     * GET /api/v2/move-ailment/ : List move meta ailments
+     * Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "moveAilmentList",
-        tags = { "move-ailment" },
+        summary = "List move meta ailments",
+        description = "Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.",
+        tags = { "moves" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedMoveMetaAilmentSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_MOVE_AILMENT_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> moveAilmentList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedMoveMetaAilmentSummaryList> moveAilmentList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_MOVE_AILMENT_READ = "/api/v2/move-ailment/{id}/";
+    String PATH_MOVE_AILMENT_RETRIEVE = "/api/v2/move-ailment/{id}/";
     /**
-     * GET /api/v2/move-ailment/{id}/
+     * GET /api/v2/move-ailment/{id}/ : Get move meta ailment
+     * Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "moveAilmentRead",
-        tags = { "move-ailment" },
+        operationId = "moveAilmentRetrieve",
+        summary = "Get move meta ailment",
+        description = "Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail.",
+        tags = { "moves" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = MoveMetaAilmentDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_MOVE_AILMENT_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_MOVE_AILMENT_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> moveAilmentRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<MoveMetaAilmentDetail> moveAilmentRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"name\" : \"name\", \"id\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -1604,59 +2581,93 @@ public interface ApiApi {
 
     String PATH_MOVE_BATTLE_STYLE_LIST = "/api/v2/move-battle-style/";
     /**
-     * GET /api/v2/move-battle-style/
+     * GET /api/v2/move-battle-style/ : List move battle styles
+     * Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "moveBattleStyleList",
-        tags = { "move-battle-style" },
+        summary = "List move battle styles",
+        description = "Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.",
+        tags = { "moves" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedMoveBattleStyleSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_MOVE_BATTLE_STYLE_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> moveBattleStyleList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedMoveBattleStyleSummaryList> moveBattleStyleList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_MOVE_BATTLE_STYLE_READ = "/api/v2/move-battle-style/{id}/";
+    String PATH_MOVE_BATTLE_STYLE_RETRIEVE = "/api/v2/move-battle-style/{id}/";
     /**
-     * GET /api/v2/move-battle-style/{id}/
+     * GET /api/v2/move-battle-style/{id}/ : Get move battle style
+     * Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "moveBattleStyleRead",
-        tags = { "move-battle-style" },
+        operationId = "moveBattleStyleRetrieve",
+        summary = "Get move battle style",
+        description = "Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail.",
+        tags = { "moves" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = MoveBattleStyleDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_MOVE_BATTLE_STYLE_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_MOVE_BATTLE_STYLE_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> moveBattleStyleRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<MoveBattleStyleDetail> moveBattleStyleRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"id\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -1664,59 +2675,93 @@ public interface ApiApi {
 
     String PATH_MOVE_CATEGORY_LIST = "/api/v2/move-category/";
     /**
-     * GET /api/v2/move-category/
+     * GET /api/v2/move-category/ : List move meta categories
+     * Very general categories that loosely group move effects.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "moveCategoryList",
-        tags = { "move-category" },
+        summary = "List move meta categories",
+        description = "Very general categories that loosely group move effects.",
+        tags = { "moves" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedMoveMetaCategorySummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_MOVE_CATEGORY_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> moveCategoryList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedMoveMetaCategorySummaryList> moveCategoryList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_MOVE_CATEGORY_READ = "/api/v2/move-category/{id}/";
+    String PATH_MOVE_CATEGORY_RETRIEVE = "/api/v2/move-category/{id}/";
     /**
-     * GET /api/v2/move-category/{id}/
+     * GET /api/v2/move-category/{id}/ : Get move meta category
+     * Very general categories that loosely group move effects.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "moveCategoryRead",
-        tags = { "move-category" },
+        operationId = "moveCategoryRetrieve",
+        summary = "Get move meta category",
+        description = "Very general categories that loosely group move effects.",
+        tags = { "moves" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = MoveMetaCategoryDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_MOVE_CATEGORY_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_MOVE_CATEGORY_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> moveCategoryRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<MoveMetaCategoryDetail> moveCategoryRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"name\" : \"name\", \"id\" : 0, \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -1724,59 +2769,93 @@ public interface ApiApi {
 
     String PATH_MOVE_DAMAGE_CLASS_LIST = "/api/v2/move-damage-class/";
     /**
-     * GET /api/v2/move-damage-class/
+     * GET /api/v2/move-damage-class/ : List move damage classes
+     * Damage classes moves can have, e.g. physical, special, or non-damaging.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "moveDamageClassList",
-        tags = { "move-damage-class" },
+        summary = "List move damage classes",
+        description = "Damage classes moves can have, e.g. physical, special, or non-damaging.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedMoveDamageClassSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_MOVE_DAMAGE_CLASS_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> moveDamageClassList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedMoveDamageClassSummaryList> moveDamageClassList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_MOVE_DAMAGE_CLASS_READ = "/api/v2/move-damage-class/{id}/";
+    String PATH_MOVE_DAMAGE_CLASS_RETRIEVE = "/api/v2/move-damage-class/{id}/";
     /**
-     * GET /api/v2/move-damage-class/{id}/
+     * GET /api/v2/move-damage-class/{id}/ : Get move damage class
+     * Damage classes moves can have, e.g. physical, special, or non-damaging.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "moveDamageClassRead",
-        tags = { "move-damage-class" },
+        operationId = "moveDamageClassRetrieve",
+        summary = "Get move damage class",
+        description = "Damage classes moves can have, e.g. physical, special, or non-damaging.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = MoveDamageClassDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_MOVE_DAMAGE_CLASS_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_MOVE_DAMAGE_CLASS_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> moveDamageClassRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<MoveDamageClassDetail> moveDamageClassRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"name\" : \"name\", \"id\" : 0, \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -1784,59 +2863,93 @@ public interface ApiApi {
 
     String PATH_MOVE_LEARN_METHOD_LIST = "/api/v2/move-learn-method/";
     /**
-     * GET /api/v2/move-learn-method/
+     * GET /api/v2/move-learn-method/ : List move learn methods
+     * Methods by which Pokémon can learn moves.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "moveLearnMethodList",
-        tags = { "move-learn-method" },
+        summary = "List move learn methods",
+        description = "Methods by which Pokémon can learn moves.",
+        tags = { "moves" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedMoveLearnMethodSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_MOVE_LEARN_METHOD_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> moveLearnMethodList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedMoveLearnMethodSummaryList> moveLearnMethodList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_MOVE_LEARN_METHOD_READ = "/api/v2/move-learn-method/{id}/";
+    String PATH_MOVE_LEARN_METHOD_RETRIEVE = "/api/v2/move-learn-method/{id}/";
     /**
-     * GET /api/v2/move-learn-method/{id}/
+     * GET /api/v2/move-learn-method/{id}/ : Get move learn method
+     * Methods by which Pokémon can learn moves.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "moveLearnMethodRead",
-        tags = { "move-learn-method" },
+        operationId = "moveLearnMethodRetrieve",
+        summary = "Get move learn method",
+        description = "Methods by which Pokémon can learn moves.",
+        tags = { "moves" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = MoveLearnMethodDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_MOVE_LEARN_METHOD_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_MOVE_LEARN_METHOD_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> moveLearnMethodRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<MoveLearnMethodDetail> moveLearnMethodRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"name\" : \"name\", \"id\" : 0, \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -1844,59 +2957,93 @@ public interface ApiApi {
 
     String PATH_MOVE_LIST = "/api/v2/move/";
     /**
-     * GET /api/v2/move/
+     * GET /api/v2/move/ : List moves
+     * Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "moveList",
-        tags = { "move" },
+        summary = "List moves",
+        description = "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.",
+        tags = { "moves" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedMoveSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_MOVE_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> moveList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedMoveSummaryList> moveList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_MOVE_READ = "/api/v2/move/{id}/";
+    String PATH_MOVE_RETRIEVE = "/api/v2/move/{id}/";
     /**
-     * GET /api/v2/move/{id}/
+     * GET /api/v2/move/{id}/ : Get move
+     * Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "moveRead",
-        tags = { "move" },
+        operationId = "moveRetrieve",
+        summary = "Get move",
+        description = "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.",
+        tags = { "moves" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = MoveDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_MOVE_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_MOVE_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> moveRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<MoveDetail> moveRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"pp\" : 5, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"stat_changes\" : [ { \"stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"change\" : 4 }, { \"stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"change\" : 4 } ], \"accuracy\" : 6, \"contest_combos\" : { \"super\" : { \"use_after\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"use_before\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }, \"normal\" : { \"use_after\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"use_before\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] } }, \"priority\" : 5, \"super_contest_effect\" : { \"url\" : \"https://openapi-generator.tech\" }, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"effect_changes\" : [ { \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect_entries\" : [ { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"target\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"learned_by_pokemon\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"effect_entries\" : [ { \"short_effect\" : \"short_effect\", \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"short_effect\" : \"short_effect\", \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"contest_type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"past_values\" : [ { \"pp\" : 3, \"effect_entries\" : [ { \"short_effect\" : \"short_effect\", \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"short_effect\" : \"short_effect\", \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"accuracy\" : 7, \"effect_chance\" : 2, \"power\" : 9, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"pp\" : 3, \"effect_entries\" : [ { \"short_effect\" : \"short_effect\", \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"short_effect\" : \"short_effect\", \"effect\" : \"effect\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"accuracy\" : 7, \"effect_chance\" : 2, \"power\" : 9, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"meta\" : \"\", \"flavor_text_entries\" : [ { \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"flavor_text\" : \"flavor_text\" }, { \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"flavor_text\" : \"flavor_text\" } ], \"name\" : \"name\", \"damage_class\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"effect_chance\" : 1, \"id\" : 0, \"power\" : 2, \"machines\" : [ { \"machine\" : { \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"machine\" : { \"url\" : \"https://openapi-generator.tech\" }, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"contest_effect\" : { \"url\" : \"https://openapi-generator.tech\" } }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -1904,59 +3051,93 @@ public interface ApiApi {
 
     String PATH_MOVE_TARGET_LIST = "/api/v2/move-target/";
     /**
-     * GET /api/v2/move-target/
+     * GET /api/v2/move-target/ : List move targets
+     * Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "moveTargetList",
-        tags = { "move-target" },
+        summary = "List move targets",
+        description = "Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.",
+        tags = { "moves" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedMoveTargetSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_MOVE_TARGET_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> moveTargetList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedMoveTargetSummaryList> moveTargetList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_MOVE_TARGET_READ = "/api/v2/move-target/{id}/";
+    String PATH_MOVE_TARGET_RETRIEVE = "/api/v2/move-target/{id}/";
     /**
-     * GET /api/v2/move-target/{id}/
+     * GET /api/v2/move-target/{id}/ : Get move target
+     * Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "moveTargetRead",
-        tags = { "move-target" },
+        operationId = "moveTargetRetrieve",
+        summary = "Get move target",
+        description = "Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.",
+        tags = { "moves" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = MoveTargetDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_MOVE_TARGET_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_MOVE_TARGET_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> moveTargetRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<MoveTargetDetail> moveTargetRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"name\" : \"name\", \"id\" : 0, \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -1964,59 +3145,93 @@ public interface ApiApi {
 
     String PATH_NATURE_LIST = "/api/v2/nature/";
     /**
-     * GET /api/v2/nature/
+     * GET /api/v2/nature/ : List natures
+     * Natures influence how a Pokémon&#39;s stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "natureList",
-        tags = { "nature" },
+        summary = "List natures",
+        description = "Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedNatureSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_NATURE_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> natureList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedNatureSummaryList> natureList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_NATURE_READ = "/api/v2/nature/{id}/";
+    String PATH_NATURE_RETRIEVE = "/api/v2/nature/{id}/";
     /**
-     * GET /api/v2/nature/{id}/
+     * GET /api/v2/nature/{id}/ : Get nature
+     * Natures influence how a Pokémon&#39;s stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "natureRead",
-        tags = { "nature" },
+        operationId = "natureRetrieve",
+        summary = "Get nature",
+        description = "Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = NatureDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_NATURE_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_NATURE_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> natureRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<NatureDetail> natureRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"pokeathlon_stat_changes\" : [ { \"pokeathlon_stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_change\" : 6 }, { \"pokeathlon_stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_change\" : 6 } ], \"move_battle_style_preferences\" : [ { \"low_hp_preference\" : 1, \"high_hp_preference\" : 5, \"move_battle_style\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"low_hp_preference\" : 1, \"high_hp_preference\" : 5, \"move_battle_style\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"decreased_stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"likes_flavor\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"name\" : \"name\", \"increased_stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"id\" : 0, \"hates_flavor\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"berries\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -2024,59 +3239,93 @@ public interface ApiApi {
 
     String PATH_PAL_PARK_AREA_LIST = "/api/v2/pal-park-area/";
     /**
-     * GET /api/v2/pal-park-area/
+     * GET /api/v2/pal-park-area/ : List pal park areas
+     * Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habitats that are specific to Pal Park.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "palParkAreaList",
-        tags = { "pal-park-area" },
+        summary = "List pal park areas",
+        description = "Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.",
+        tags = { "location" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPalParkAreaSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_PAL_PARK_AREA_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> palParkAreaList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedPalParkAreaSummaryList> palParkAreaList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_PAL_PARK_AREA_READ = "/api/v2/pal-park-area/{id}/";
+    String PATH_PAL_PARK_AREA_RETRIEVE = "/api/v2/pal-park-area/{id}/";
     /**
-     * GET /api/v2/pal-park-area/{id}/
+     * GET /api/v2/pal-park-area/{id}/ : Get pal park area
+     * Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habitats that are specific to Pal Park.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "palParkAreaRead",
-        tags = { "pal-park-area" },
+        operationId = "palParkAreaRetrieve",
+        summary = "Get pal park area",
+        description = "Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.",
+        tags = { "location" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PalParkAreaDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_PAL_PARK_AREA_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_PAL_PARK_AREA_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> palParkAreaRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<PalParkAreaDetail> palParkAreaRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon_encounters\" : [ { \"pokemon-species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"base_score\" : 6, \"rate\" : 1 }, { \"pokemon-species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"base_score\" : 6, \"rate\" : 1 } ], \"name\" : \"name\", \"id\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -2084,59 +3333,93 @@ public interface ApiApi {
 
     String PATH_POKEATHLON_STAT_LIST = "/api/v2/pokeathlon-stat/";
     /**
-     * GET /api/v2/pokeathlon-stat/
+     * GET /api/v2/pokeathlon-stat/ : List pokeathlon stats
+     * Pokeathlon Stats are different attributes of a Pokémon&#39;s performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "pokeathlonStatList",
-        tags = { "pokeathlon-stat" },
+        summary = "List pokeathlon stats",
+        description = "Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPokeathlonStatSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_POKEATHLON_STAT_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> pokeathlonStatList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedPokeathlonStatSummaryList> pokeathlonStatList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_POKEATHLON_STAT_READ = "/api/v2/pokeathlon-stat/{id}/";
+    String PATH_POKEATHLON_STAT_RETRIEVE = "/api/v2/pokeathlon-stat/{id}/";
     /**
-     * GET /api/v2/pokeathlon-stat/{id}/
+     * GET /api/v2/pokeathlon-stat/{id}/ : Get pokeathlon stat
+     * Pokeathlon Stats are different attributes of a Pokémon&#39;s performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "pokeathlonStatRead",
-        tags = { "pokeathlon-stat" },
+        operationId = "pokeathlonStatRetrieve",
+        summary = "Get pokeathlon stat",
+        description = "Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PokeathlonStatDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_POKEATHLON_STAT_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_POKEATHLON_STAT_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> pokeathlonStatRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<PokeathlonStatDetail> pokeathlonStatRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"id\" : 0, \"affecting_natures\" : { \"increase\" : [ { \"nature\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_change\" : 1 }, { \"nature\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_change\" : 1 } ], \"decrease\" : [ { \"nature\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_change\" : 0 }, { \"nature\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"max_change\" : 0 } ] } }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -2144,59 +3427,93 @@ public interface ApiApi {
 
     String PATH_POKEDEX_LIST = "/api/v2/pokedex/";
     /**
-     * GET /api/v2/pokedex/
+     * GET /api/v2/pokedex/ : List pokedex
+     * A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "pokedexList",
-        tags = { "pokedex" },
+        summary = "List pokedex",
+        description = "A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.",
+        tags = { "games" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPokedexSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_POKEDEX_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> pokedexList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedPokedexSummaryList> pokedexList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_POKEDEX_READ = "/api/v2/pokedex/{id}/";
+    String PATH_POKEDEX_RETRIEVE = "/api/v2/pokedex/{id}/";
     /**
-     * GET /api/v2/pokedex/{id}/
+     * GET /api/v2/pokedex/{id}/ : Get pokedex
+     * A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "pokedexRead",
-        tags = { "pokedex" },
+        operationId = "pokedexRetrieve",
+        summary = "Get pokedex",
+        description = "A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail.",
+        tags = { "games" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PokedexDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_POKEDEX_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_POKEDEX_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> pokedexRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<PokedexDetail> pokedexRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"is_main_series\" : true, \"pokemon_entries\" : [ { \"entry_number\" : 6, \"pokemon_species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"entry_number\" : 6, \"pokemon_species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"name\" : \"name\", \"id\" : 0, \"region\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -2204,59 +3521,138 @@ public interface ApiApi {
 
     String PATH_POKEMON_COLOR_LIST = "/api/v2/pokemon-color/";
     /**
-     * GET /api/v2/pokemon-color/
+     * GET /api/v2/pokemon-color/ : List pokemon colors
+     * Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon&#39;s body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "pokemonColorList",
-        tags = { "pokemon-color" },
+        summary = "List pokemon colors",
+        description = "Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPokemonColorSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_POKEMON_COLOR_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> pokemonColorList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedPokemonColorSummaryList> pokemonColorList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_POKEMON_COLOR_READ = "/api/v2/pokemon-color/{id}/";
+    String PATH_POKEMON_COLOR_RETRIEVE = "/api/v2/pokemon-color/{id}/";
     /**
-     * GET /api/v2/pokemon-color/{id}/
+     * GET /api/v2/pokemon-color/{id}/ : Get pokemon color
+     * Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon&#39;s body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "pokemonColorRead",
-        tags = { "pokemon-color" },
+        operationId = "pokemonColorRetrieve",
+        summary = "Get pokemon color",
+        description = "Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PokemonColorDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_POKEMON_COLOR_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_POKEMON_COLOR_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> pokemonColorRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<PokemonColorDetail> pokemonColorRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"id\" : 0, \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    String PATH_POKEMON_ENCOUNTERS_RETRIEVE = "/api/v2/pokemon/{pokemon_id}/encounters";
+    /**
+     * GET /api/v2/pokemon/{pokemon_id}/encounters : Get pokemon encounter
+     * Handles Pokemon Encounters as a sub-resource.
+     *
+     * @param pokemonId  (required)
+     * @return  (status code 200)
+     */
+    @Operation(
+        operationId = "pokemonEncountersRetrieve",
+        summary = "Get pokemon encounter",
+        description = "Handles Pokemon Encounters as a sub-resource.",
+        tags = { "encounters" },
+        responses = {
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = PokemonEncountersRetrieve200ResponseInner.class)))
+            })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
+        }
+    )
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = ApiApi.PATH_POKEMON_ENCOUNTERS_RETRIEVE,
+        produces = { "application/json" }
+    )
+    default ResponseEntity<List<PokemonEncountersRetrieve200ResponseInner>> pokemonEncountersRetrieve(
+        @NotNull @Pattern(regexp = "^\\d+$") @Parameter(name = "pokemon_id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("pokemon_id") String pokemonId
+    ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "[ { \"version_details\" : [ { \"max_chance\" : 100, \"encounter_details\" : [ { \"condition_values\" : [ { \"name\" : \"story-progress-beat-red\", \"url\" : \"https://pokeapi.co/api/v2/encounter-condition-value/55/\" }, { \"name\" : \"story-progress-beat-red\", \"url\" : \"https://pokeapi.co/api/v2/encounter-condition-value/55/\" } ], \"chance\" : 100, \"method\" : { \"name\" : \"gift\", \"url\" : \"https://pokeapi.co/api/v2/encounter-method/18/\" }, \"max_level\" : 10, \"min_level\" : 10 }, { \"condition_values\" : [ { \"name\" : \"story-progress-beat-red\", \"url\" : \"https://pokeapi.co/api/v2/encounter-condition-value/55/\" }, { \"name\" : \"story-progress-beat-red\", \"url\" : \"https://pokeapi.co/api/v2/encounter-condition-value/55/\" } ], \"chance\" : 100, \"method\" : { \"name\" : \"gift\", \"url\" : \"https://pokeapi.co/api/v2/encounter-method/18/\" }, \"max_level\" : 10, \"min_level\" : 10 } ], \"version\" : { \"name\" : \"red\", \"url\" : \"https://pokeapi.co/api/v2/version/1/\" } }, { \"max_chance\" : 100, \"encounter_details\" : [ { \"condition_values\" : [ { \"name\" : \"story-progress-beat-red\", \"url\" : \"https://pokeapi.co/api/v2/encounter-condition-value/55/\" }, { \"name\" : \"story-progress-beat-red\", \"url\" : \"https://pokeapi.co/api/v2/encounter-condition-value/55/\" } ], \"chance\" : 100, \"method\" : { \"name\" : \"gift\", \"url\" : \"https://pokeapi.co/api/v2/encounter-method/18/\" }, \"max_level\" : 10, \"min_level\" : 10 }, { \"condition_values\" : [ { \"name\" : \"story-progress-beat-red\", \"url\" : \"https://pokeapi.co/api/v2/encounter-condition-value/55/\" }, { \"name\" : \"story-progress-beat-red\", \"url\" : \"https://pokeapi.co/api/v2/encounter-condition-value/55/\" } ], \"chance\" : 100, \"method\" : { \"name\" : \"gift\", \"url\" : \"https://pokeapi.co/api/v2/encounter-method/18/\" }, \"max_level\" : 10, \"min_level\" : 10 } ], \"version\" : { \"name\" : \"red\", \"url\" : \"https://pokeapi.co/api/v2/version/1/\" } } ], \"location_area\" : { \"name\" : \"cerulean-city-area\", \"url\" : \"https://pokeapi.co/api/v2/location-area/281/\" } }, { \"version_details\" : [ { \"max_chance\" : 100, \"encounter_details\" : [ { \"condition_values\" : [ { \"name\" : \"story-progress-beat-red\", \"url\" : \"https://pokeapi.co/api/v2/encounter-condition-value/55/\" }, { \"name\" : \"story-progress-beat-red\", \"url\" : \"https://pokeapi.co/api/v2/encounter-condition-value/55/\" } ], \"chance\" : 100, \"method\" : { \"name\" : \"gift\", \"url\" : \"https://pokeapi.co/api/v2/encounter-method/18/\" }, \"max_level\" : 10, \"min_level\" : 10 }, { \"condition_values\" : [ { \"name\" : \"story-progress-beat-red\", \"url\" : \"https://pokeapi.co/api/v2/encounter-condition-value/55/\" }, { \"name\" : \"story-progress-beat-red\", \"url\" : \"https://pokeapi.co/api/v2/encounter-condition-value/55/\" } ], \"chance\" : 100, \"method\" : { \"name\" : \"gift\", \"url\" : \"https://pokeapi.co/api/v2/encounter-method/18/\" }, \"max_level\" : 10, \"min_level\" : 10 } ], \"version\" : { \"name\" : \"red\", \"url\" : \"https://pokeapi.co/api/v2/version/1/\" } }, { \"max_chance\" : 100, \"encounter_details\" : [ { \"condition_values\" : [ { \"name\" : \"story-progress-beat-red\", \"url\" : \"https://pokeapi.co/api/v2/encounter-condition-value/55/\" }, { \"name\" : \"story-progress-beat-red\", \"url\" : \"https://pokeapi.co/api/v2/encounter-condition-value/55/\" } ], \"chance\" : 100, \"method\" : { \"name\" : \"gift\", \"url\" : \"https://pokeapi.co/api/v2/encounter-method/18/\" }, \"max_level\" : 10, \"min_level\" : 10 }, { \"condition_values\" : [ { \"name\" : \"story-progress-beat-red\", \"url\" : \"https://pokeapi.co/api/v2/encounter-condition-value/55/\" }, { \"name\" : \"story-progress-beat-red\", \"url\" : \"https://pokeapi.co/api/v2/encounter-condition-value/55/\" } ], \"chance\" : 100, \"method\" : { \"name\" : \"gift\", \"url\" : \"https://pokeapi.co/api/v2/encounter-method/18/\" }, \"max_level\" : 10, \"min_level\" : 10 } ], \"version\" : { \"name\" : \"red\", \"url\" : \"https://pokeapi.co/api/v2/version/1/\" } } ], \"location_area\" : { \"name\" : \"cerulean-city-area\", \"url\" : \"https://pokeapi.co/api/v2/location-area/281/\" } } ]";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -2264,59 +3660,93 @@ public interface ApiApi {
 
     String PATH_POKEMON_FORM_LIST = "/api/v2/pokemon-form/";
     /**
-     * GET /api/v2/pokemon-form/
+     * GET /api/v2/pokemon-form/ : List pokemon forms
+     * Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the &#39;Pokémon&#39; entity is used to represent such a variety.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "pokemonFormList",
-        tags = { "pokemon-form" },
+        summary = "List pokemon forms",
+        description = "Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPokemonFormSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_POKEMON_FORM_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> pokemonFormList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedPokemonFormSummaryList> pokemonFormList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_POKEMON_FORM_READ = "/api/v2/pokemon-form/{id}/";
+    String PATH_POKEMON_FORM_RETRIEVE = "/api/v2/pokemon-form/{id}/";
     /**
-     * GET /api/v2/pokemon-form/{id}/
+     * GET /api/v2/pokemon-form/{id}/ : Get pokemon form
+     * Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the &#39;Pokémon&#39; entity is used to represent such a variety.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "pokemonFormRead",
-        tags = { "pokemon-form" },
+        operationId = "pokemonFormRetrieve",
+        summary = "Get pokemon form",
+        description = "Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PokemonFormDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_POKEMON_FORM_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_POKEMON_FORM_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> pokemonFormRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<PokemonFormDetail> pokemonFormRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"types\" : [ { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_battle_only\" : true, \"is_default\" : true, \"sprites\" : { \"default\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"name\" : \"name\", \"form_order\" : 1, \"form_names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"id\" : 0, \"form_name\" : \"form_name\", \"is_mega\" : true, \"order\" : 6 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -2324,59 +3754,93 @@ public interface ApiApi {
 
     String PATH_POKEMON_HABITAT_LIST = "/api/v2/pokemon-habitat/";
     /**
-     * GET /api/v2/pokemon-habitat/
+     * GET /api/v2/pokemon-habitat/ : List pokemom habitas
+     * Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "pokemonHabitatList",
-        tags = { "pokemon-habitat" },
+        summary = "List pokemom habitas",
+        description = "Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPokemonHabitatSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_POKEMON_HABITAT_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> pokemonHabitatList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedPokemonHabitatSummaryList> pokemonHabitatList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_POKEMON_HABITAT_READ = "/api/v2/pokemon-habitat/{id}/";
+    String PATH_POKEMON_HABITAT_RETRIEVE = "/api/v2/pokemon-habitat/{id}/";
     /**
-     * GET /api/v2/pokemon-habitat/{id}/
+     * GET /api/v2/pokemon-habitat/{id}/ : Get pokemom habita
+     * Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "pokemonHabitatRead",
-        tags = { "pokemon-habitat" },
+        operationId = "pokemonHabitatRetrieve",
+        summary = "Get pokemom habita",
+        description = "Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PokemonHabitatDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_POKEMON_HABITAT_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_POKEMON_HABITAT_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> pokemonHabitatRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<PokemonHabitatDetail> pokemonHabitatRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"id\" : 0, \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -2384,59 +3848,93 @@ public interface ApiApi {
 
     String PATH_POKEMON_LIST = "/api/v2/pokemon/";
     /**
-     * GET /api/v2/pokemon/
+     * GET /api/v2/pokemon/ : List pokemon
+     * Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "pokemonList",
+        summary = "List pokemon",
+        description = "Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.",
         tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPokemonSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_POKEMON_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> pokemonList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedPokemonSummaryList> pokemonList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_POKEMON_READ = "/api/v2/pokemon/{id}/";
+    String PATH_POKEMON_RETRIEVE = "/api/v2/pokemon/{id}/";
     /**
-     * GET /api/v2/pokemon/{id}/
+     * GET /api/v2/pokemon/{id}/ : Get pokemon
+     * Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "pokemonRead",
+        operationId = "pokemonRetrieve",
+        summary = "Get pokemon",
+        description = "Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.",
         tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PokemonDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_POKEMON_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_POKEMON_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> pokemonRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<PokemonDetail> pokemonRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"location_area_encounters\" : \"location_area_encounters\", \"cries\" : { \"legacy\" : \"https://openapi-generator.tech\", \"latest\" : \"https://openapi-generator.tech\" }, \"types\" : [ { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"base_experience\" : 6, \"held_items\" : { \"item\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version_details\" : [ { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"rarity\" : 5 }, { \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"rarity\" : 5 } ] }, \"weight\" : 5, \"is_default\" : true, \"sprites\" : { \"front_default\" : \"https://openapi-generator.tech\" }, \"past_types\" : [ { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"types\" : [ { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] }, { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"types\" : [ { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"slot\" : 4, \"type\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ] } ], \"past_abilities\" : [ { \"abilities\" : [ { \"is_hidden\" : true, \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"slot\" : 2 }, { \"is_hidden\" : true, \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"slot\" : 2 } ], \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"abilities\" : [ { \"is_hidden\" : true, \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"slot\" : 2 }, { \"is_hidden\" : true, \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"slot\" : 2 } ], \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"abilities\" : [ { \"is_hidden\" : true, \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"slot\" : 2 }, { \"is_hidden\" : true, \"ability\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"slot\" : 2 } ], \"game_indices\" : [ { \"game_index\" : 7, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"game_index\" : 7, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"stats\" : [ { \"stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"base_stat\" : 3, \"effort\" : 2 }, { \"stat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"base_stat\" : 3, \"effort\" : 2 } ], \"moves\" : [ { \"version_group_details\" : [ { \"level_learned_at\" : 9, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"move_learn_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"level_learned_at\" : 9, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"move_learn_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"version_group_details\" : [ { \"level_learned_at\" : 9, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"move_learn_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"level_learned_at\" : 9, \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"move_learn_method\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"id\" : 0, \"forms\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"height\" : 1, \"order\" : 5 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -2444,59 +3942,93 @@ public interface ApiApi {
 
     String PATH_POKEMON_SHAPE_LIST = "/api/v2/pokemon-shape/";
     /**
-     * GET /api/v2/pokemon-shape/
+     * GET /api/v2/pokemon-shape/ : List pokemon shapes
+     * Shapes used for sorting Pokémon in a Pokédex.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "pokemonShapeList",
-        tags = { "pokemon-shape" },
+        summary = "List pokemon shapes",
+        description = "Shapes used for sorting Pokémon in a Pokédex.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPokemonShapeSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_POKEMON_SHAPE_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> pokemonShapeList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedPokemonShapeSummaryList> pokemonShapeList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_POKEMON_SHAPE_READ = "/api/v2/pokemon-shape/{id}/";
+    String PATH_POKEMON_SHAPE_RETRIEVE = "/api/v2/pokemon-shape/{id}/";
     /**
-     * GET /api/v2/pokemon-shape/{id}/
+     * GET /api/v2/pokemon-shape/{id}/ : Get pokemon shape
+     * Shapes used for sorting Pokémon in a Pokédex.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "pokemonShapeRead",
-        tags = { "pokemon-shape" },
+        operationId = "pokemonShapeRetrieve",
+        summary = "Get pokemon shape",
+        description = "Shapes used for sorting Pokémon in a Pokédex.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PokemonShapeDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_POKEMON_SHAPE_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_POKEMON_SHAPE_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> pokemonShapeRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<PokemonShapeDetail> pokemonShapeRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"awesome_names\" : [ { \"awesome_name\" : \"awesome_name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"awesome_name\" : \"awesome_name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"id\" : 0, \"pokemon_species\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -2504,59 +4036,93 @@ public interface ApiApi {
 
     String PATH_POKEMON_SPECIES_LIST = "/api/v2/pokemon-species/";
     /**
-     * GET /api/v2/pokemon-species/
+     * GET /api/v2/pokemon-species/ : List pokemon species
+     * A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "pokemonSpeciesList",
-        tags = { "pokemon-species" },
+        summary = "List pokemon species",
+        description = "A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedPokemonSpeciesSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_POKEMON_SPECIES_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> pokemonSpeciesList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedPokemonSpeciesSummaryList> pokemonSpeciesList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_POKEMON_SPECIES_READ = "/api/v2/pokemon-species/{id}/";
+    String PATH_POKEMON_SPECIES_RETRIEVE = "/api/v2/pokemon-species/{id}/";
     /**
-     * GET /api/v2/pokemon-species/{id}/
+     * GET /api/v2/pokemon-species/{id}/ : Get pokemon species
+     * A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "pokemonSpeciesRead",
-        tags = { "pokemon-species" },
+        operationId = "pokemonSpeciesRetrieve",
+        summary = "Get pokemon species",
+        description = "A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PokemonSpeciesDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_POKEMON_SPECIES_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_POKEMON_SPECIES_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> pokemonSpeciesRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<PokemonSpeciesDetail> pokemonSpeciesRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"evolution_chain\" : { \"url\" : \"https://openapi-generator.tech\" }, \"genera\" : [ { \"genus\" : \"genus\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"genus\" : \"genus\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"habitat\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"color\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"egg_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"capture_rate\" : 5, \"pokedex_numbers\" : [ { \"entry_number\" : 7, \"pokedex\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"entry_number\" : 7, \"pokedex\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"forms_switchable\" : true, \"growth_rate\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"flavor_text_entries\" : [ { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"flavor_text\" : \"flavor_text\" }, { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"version\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"flavor_text\" : \"flavor_text\" } ], \"id\" : 0, \"order\" : 6, \"is_baby\" : true, \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_legendary\" : true, \"pal_park_encounters\" : [ { \"area\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"base_score\" : 9, \"rate\" : 3 }, { \"area\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"base_score\" : 9, \"rate\" : 3 } ], \"shape\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_mythical\" : true, \"base_happiness\" : 5, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"varieties\" : [ { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_default\" : true }, { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"is_default\" : true } ], \"gender_rate\" : 1, \"name\" : \"name\", \"has_gender_differences\" : true, \"hatch_counter\" : 2, \"form_descriptions\" : [ { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"description\" : \"description\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"evolves_from_species\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -2564,59 +4130,93 @@ public interface ApiApi {
 
     String PATH_REGION_LIST = "/api/v2/region/";
     /**
-     * GET /api/v2/region/
+     * GET /api/v2/region/ : List regions
+     * A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "regionList",
-        tags = { "region" },
+        summary = "List regions",
+        description = "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.",
+        tags = { "location" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedRegionSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_REGION_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> regionList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedRegionSummaryList> regionList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_REGION_READ = "/api/v2/region/{id}/";
+    String PATH_REGION_RETRIEVE = "/api/v2/region/{id}/";
     /**
-     * GET /api/v2/region/{id}/
+     * GET /api/v2/region/{id}/ : Get region
+     * A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "regionRead",
-        tags = { "region" },
+        operationId = "regionRetrieve",
+        summary = "Get region",
+        description = "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.",
+        tags = { "location" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = RegionDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_REGION_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_REGION_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> regionRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<RegionDetail> regionRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"main_generation\" : \"\", \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokedexes\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"version_groups\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"name\" : \"name\", \"locations\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"id\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -2624,59 +4224,93 @@ public interface ApiApi {
 
     String PATH_STAT_LIST = "/api/v2/stat/";
     /**
-     * GET /api/v2/stat/
+     * GET /api/v2/stat/ : List stats
+     * Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "statList",
-        tags = { "stat" },
+        summary = "List stats",
+        description = "Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedStatSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_STAT_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> statList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedStatSummaryList> statList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_STAT_READ = "/api/v2/stat/{id}/";
+    String PATH_STAT_RETRIEVE = "/api/v2/stat/{id}/";
     /**
-     * GET /api/v2/stat/{id}/
+     * GET /api/v2/stat/{id}/ : Get stat
+     * Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "statRead",
-        tags = { "stat" },
+        operationId = "statRetrieve",
+        summary = "Get stat",
+        description = "Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = StatDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_STAT_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_STAT_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> statRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<StatDetail> statRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"game_index\" : 6, \"characteristics\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ], \"move_damage_class\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"name\" : \"name\", \"is_battle_only\" : true, \"affecting_moves\" : { \"increase\" : [ { \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"change\" : 1 }, { \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"change\" : 1 } ], \"decrease\" : [ { \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"change\" : 1 }, { \"move\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"change\" : 1 } ] }, \"id\" : 0, \"affecting_natures\" : { \"increase\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"decrease\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] } }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -2684,59 +4318,93 @@ public interface ApiApi {
 
     String PATH_SUPER_CONTEST_EFFECT_LIST = "/api/v2/super-contest-effect/";
     /**
-     * GET /api/v2/super-contest-effect/
+     * GET /api/v2/super-contest-effect/ : List super contest effects
+     * Super contest effects refer to the effects of moves when used in super contests.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "superContestEffectList",
-        tags = { "super-contest-effect" },
+        summary = "List super contest effects",
+        description = "Super contest effects refer to the effects of moves when used in super contests.",
+        tags = { "contests" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedSuperContestEffectSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_SUPER_CONTEST_EFFECT_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> superContestEffectList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedSuperContestEffectSummaryList> superContestEffectList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"url\" : \"https://openapi-generator.tech\" }, { \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_SUPER_CONTEST_EFFECT_READ = "/api/v2/super-contest-effect/{id}/";
+    String PATH_SUPER_CONTEST_EFFECT_RETRIEVE = "/api/v2/super-contest-effect/{id}/";
     /**
-     * GET /api/v2/super-contest-effect/{id}/
+     * GET /api/v2/super-contest-effect/{id}/ : Get super contest effect
+     * Super contest effects refer to the effects of moves when used in super contests.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "superContestEffectRead",
-        tags = { "super-contest-effect" },
+        operationId = "superContestEffectRetrieve",
+        summary = "Get super contest effect",
+        description = "Super contest effects refer to the effects of moves when used in super contests.",
+        tags = { "contests" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = SuperContestEffectDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_SUPER_CONTEST_EFFECT_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_SUPER_CONTEST_EFFECT_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> superContestEffectRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<SuperContestEffectDetail> superContestEffectRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"flavor_text_entries\" : [ { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"flavor_text\" : \"flavor_text\" }, { \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"flavor_text\" : \"flavor_text\" } ], \"id\" : 0, \"appeal\" : 6 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -2744,59 +4412,93 @@ public interface ApiApi {
 
     String PATH_TYPE_LIST = "/api/v2/type/";
     /**
-     * GET /api/v2/type/
+     * GET /api/v2/type/ : List types
+     * Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "typeList",
-        tags = { "type" },
+        summary = "List types",
+        description = "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedTypeSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_TYPE_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> typeList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedTypeSummaryList> typeList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_TYPE_READ = "/api/v2/type/{id}/";
+    String PATH_TYPE_RETRIEVE = "/api/v2/type/{id}/";
     /**
-     * GET /api/v2/type/{id}/
+     * GET /api/v2/type/{id}/ : Get types
+     * Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "typeRead",
-        tags = { "type" },
+        operationId = "typeRetrieve",
+        summary = "Get types",
+        description = "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.",
+        tags = { "pokemon" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = TypeDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_TYPE_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_TYPE_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> typeRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<TypeDetail> typeRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"game_indices\" : [ { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"game_index\" : 5 }, { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"game_index\" : 5 } ], \"move_damage_class\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"pokemon\" : [ { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"slot\" : 6 }, { \"pokemon\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"slot\" : 6 } ], \"damage_relations\" : { \"no_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"no_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }, \"moves\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"name\" : \"name\", \"past_damage_relations\" : [ { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"damage_relations\" : { \"no_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"no_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] } }, { \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"damage_relations\" : { \"no_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"no_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"half_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_to\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"double_damage_from\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] } } ], \"id\" : 0, \"sprites\" : { \"key\" : { \"key\" : { \"name-icon\" : \"https://openapi-generator.tech\" } } } }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -2804,59 +4506,93 @@ public interface ApiApi {
 
     String PATH_VERSION_GROUP_LIST = "/api/v2/version-group/";
     /**
-     * GET /api/v2/version-group/
+     * GET /api/v2/version-group/ : List version groups
+     * Version groups categorize highly similar versions of the games.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "versionGroupList",
-        tags = { "version-group" },
+        summary = "List version groups",
+        description = "Version groups categorize highly similar versions of the games.",
+        tags = { "games" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedVersionGroupSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_VERSION_GROUP_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> versionGroupList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedVersionGroupSummaryList> versionGroupList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_VERSION_GROUP_READ = "/api/v2/version-group/{id}/";
+    String PATH_VERSION_GROUP_RETRIEVE = "/api/v2/version-group/{id}/";
     /**
-     * GET /api/v2/version-group/{id}/
+     * GET /api/v2/version-group/{id}/ : Get version group
+     * Version groups categorize highly similar versions of the games.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "versionGroupRead",
-        tags = { "version-group" },
+        operationId = "versionGroupRetrieve",
+        summary = "Get version group",
+        description = "Version groups categorize highly similar versions of the games.",
+        tags = { "games" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = VersionGroupDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_VERSION_GROUP_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_VERSION_GROUP_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> versionGroupRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<VersionGroupDetail> versionGroupRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"generation\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"regions\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"pokedexes\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"versions\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"name\" : \"name\", \"id\" : 0, \"move_learn_methods\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ], \"order\" : 6 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -2864,59 +4600,93 @@ public interface ApiApi {
 
     String PATH_VERSION_LIST = "/api/v2/version/";
     /**
-     * GET /api/v2/version/
+     * GET /api/v2/version/ : List versions
+     * Versions of the games, e.g., Red, Blue or Yellow.
      *
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return Default response (status code 200)
+     * @param limit Number of results to return per page. (optional)
+     * @param offset The initial index from which to return the results. (optional)
+     * @param q &gt; Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the &#x60;name&#x60; property.  (optional)
+     * @return  (status code 200)
      */
     @Operation(
         operationId = "versionList",
-        tags = { "version" },
+        summary = "List versions",
+        description = "Versions of the games, e.g., Red, Blue or Yellow.",
+        tags = { "games" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PaginatedVersionSummaryList.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = ApiApi.PATH_VERSION_LIST,
-        produces = { "text/plain" }
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> versionList(
-        @Parameter(name = "limit", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
-        @Parameter(name = "offset", description = "", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset
+    default ResponseEntity<PaginatedVersionSummaryList> versionList(
+        @Parameter(name = "limit", description = "Number of results to return per page.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "limit", required = false) @Nullable Integer limit,
+        @Parameter(name = "offset", description = "The initial index from which to return the results.", in = ParameterIn.QUERY) @Valid @RequestParam(value = "offset", required = false) @Nullable Integer offset,
+        @Parameter(name = "q", description = "> Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property. ", in = ParameterIn.QUERY) @Valid @RequestParam(value = "q", required = false) @Nullable String q
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"next\" : \"http://api.example.org/accounts/?offset=400&limit=100\", \"previous\" : \"http://api.example.org/accounts/?offset=200&limit=100\", \"count\" : 123, \"results\" : [ { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
 
-    String PATH_VERSION_READ = "/api/v2/version/{id}/";
+    String PATH_VERSION_RETRIEVE = "/api/v2/version/{id}/";
     /**
-     * GET /api/v2/version/{id}/
+     * GET /api/v2/version/{id}/ : Get version
+     * Versions of the games, e.g., Red, Blue or Yellow.
      *
-     * @param id  (required)
-     * @return Default response (status code 200)
+     * @param id This parameter can be a string or an integer. (required)
+     * @return  (status code 200)
      */
     @Operation(
-        operationId = "versionRead",
-        tags = { "version" },
+        operationId = "versionRetrieve",
+        summary = "Get version",
+        description = "Versions of the games, e.g., Red, Blue or Yellow.",
+        tags = { "games" },
         responses = {
-            @ApiResponse(responseCode = "default", description = "Default response", content = {
-                @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class))
+            @ApiResponse(responseCode = "200", description = "", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = VersionDetail.class))
             })
+        },
+        security = {
+            @SecurityRequirement(name = "basicAuth"),
+            @SecurityRequirement(name = "cookieAuth")
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = ApiApi.PATH_VERSION_READ,
-        produces = { "text/plain" }
+        value = ApiApi.PATH_VERSION_RETRIEVE,
+        produces = { "application/json" }
     )
-    default ResponseEntity<String> versionRead(
-        @NotNull @Parameter(name = "id", description = "", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<VersionDetail> versionRetrieve(
+        @NotNull @Parameter(name = "id", description = "This parameter can be a string or an integer.", required = true, in = ParameterIn.PATH) @PathVariable("id") String id
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"names\" : [ { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } }, { \"name\" : \"name\", \"language\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" } } ], \"version_group\" : { \"name\" : \"name\", \"url\" : \"https://openapi-generator.tech\" }, \"name\" : \"name\", \"id\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }

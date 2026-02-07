@@ -16,6 +16,7 @@ use Psr\Http\Message\ServerRequestInterface;
 class ApiV2ItemPocket
 {
     /**
+     * List item pockets
      * @PHA\Get()
      * @PHA\Attribute(name=PHAttribute\Transfer::class, options={
      *     "type":\App\DTO\ItemPocketListQueryData::class,
@@ -23,14 +24,14 @@ class ApiV2ItemPocket
      *     "source": PHAttribute\Transfer::SOURCE_GET
      * })
      * TODO check if producer is valid, if it has correct priority and if it can be moved to class annotation
-     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="text/plain")
+     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="application/json")
      * @param ServerRequestInterface $request
      *
      * @throws PHException\HttpCode 501 if the method is not implemented
      *
-     * @return string
+     * @return \App\DTO\PaginatedItemPocketSummaryList
      */
-    public function itemPocketList(ServerRequestInterface $request): string
+    public function itemPocketList(ServerRequestInterface $request): \App\DTO\PaginatedItemPocketSummaryList
     {
         //TODO implement method
         /** @var \App\DTO\ItemPocketListQueryData $queryData */

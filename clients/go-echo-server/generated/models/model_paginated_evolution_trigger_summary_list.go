@@ -1,0 +1,12 @@
+package models
+
+type PaginatedEvolutionTriggerSummaryList struct {
+
+	Count int32 `json:"count,omitempty"`
+
+	Next string `json:"next,omitempty"`
+
+	Previous string `json:"previous,omitempty"`
+
+	Results []EvolutionTriggerSummary `json:"results,omitempty"`
+}

@@ -1,0 +1,40 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ContestEffectDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "appeal",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "jam",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "effect_entries",
+      "type": {
+        "type": "array",
+        "items": "model.ContestEffectEffectText"
+      },
+      "doc": ""
+    },
+    {
+      "name": "flavor_text_entries",
+      "type": {
+        "type": "array",
+        "items": "model.ContestEffectFlavorText"
+      },
+      "doc": ""
+    }
+  ]
+
+}

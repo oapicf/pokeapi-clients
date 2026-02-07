@@ -18,12 +18,16 @@ apiClient_t *apiClient_create() {
     apiClient->progress_func = NULL;
     apiClient->progress_data = NULL;
     apiClient->response_code = 0;
+    apiClient->username = NULL;
+    apiClient->password = NULL;
+    apiClient->apiKeys_cookieAuth = NULL;
 
     return apiClient;
 }
 
 apiClient_t *apiClient_create_with_base_path(const char *basePath
 , sslConfig_t *sslConfig
+, list_t *apiKeys_cookieAuth
 ) {
     apiClient_t *apiClient = malloc(sizeof(apiClient_t));
     if(basePath){
@@ -51,6 +55,19 @@ apiClient_t *apiClient_create_with_base_path(const char *basePath
     apiClient->progress_func = NULL;
     apiClient->progress_data = NULL;
     apiClient->response_code = 0;
+    apiClient->username = NULL;
+    apiClient->password = NULL;
+    if(apiKeys_cookieAuth!= NULL) {
+        apiClient->apiKeys_cookieAuth = list_createList();
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, apiKeys_cookieAuth) {
+            keyValuePair_t *pair = listEntry->data;
+            keyValuePair_t *pairDup = keyValuePair_create(strdup(pair->key), strdup(pair->value));
+            list_addElement(apiClient->apiKeys_cookieAuth, pairDup);
+        }
+    }else{
+        apiClient->apiKeys_cookieAuth = NULL;
+    }
 
     return apiClient;
 }
@@ -62,6 +79,26 @@ void apiClient_free(apiClient_t *apiClient) {
     apiClient->data_callback_func = NULL;
     apiClient->progress_func = NULL;
     apiClient->progress_data = NULL;
+    if(apiClient->username) {
+        free(apiClient->username);
+    }
+    if(apiClient->password) {
+        free(apiClient->password);
+    }
+    if(apiClient->apiKeys_cookieAuth) {
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, apiClient->apiKeys_cookieAuth) {
+            keyValuePair_t *pair = listEntry->data;
+            if(pair->key){
+                free(pair->key);
+            }
+            if(pair->value){
+                free(pair->value);
+            }
+            keyValuePair_free(pair);
+        }
+        list_freeList(apiClient->apiKeys_cookieAuth);
+    }
 
     if(apiClient->curlConfig) {
         free(apiClient->curlConfig);
@@ -377,6 +414,21 @@ void apiClient_invoke(apiClient_t    *apiClient,
             curl_easy_setopt(handle, CURLOPT_NOPROGRESS, 0L);
         }
 
+        // this would only be generated for apiKey authentication
+        if (apiClient->apiKeys_cookieAuth != NULL)
+        {
+        list_ForEach(listEntry, apiClient->apiKeys_cookieAuth) {
+        keyValuePair_t *apiKey = listEntry->data;
+        if((apiKey->key != NULL) &&
+           (apiKey->value != NULL) )
+        {
+            char *headerValueToWrite = assembleHeaderField(
+                apiKey->key, apiKey->value);
+            curl_slist_append(headers, headerValueToWrite);
+            free(headerValueToWrite);
+        }
+        }
+        }
 
         char *targetUrl =
             assembleTargetUrl(apiClient->basePath,
@@ -392,6 +444,29 @@ void apiClient_invoke(apiClient_t    *apiClient,
                          apiClient);
         curl_easy_setopt(handle, CURLOPT_HTTPHEADER, headers);
 
+        // this would only be generated for basic authentication:
+        char *authenticationToken;
+
+        if((apiClient->username != NULL) &&
+           (apiClient->password != NULL) )
+        {
+            authenticationToken = malloc(strlen(
+                                 apiClient->username) +
+                                         strlen(
+                                 apiClient->password) +
+                                         2);
+            sprintf(authenticationToken,
+                    "%s:%s",
+                    apiClient->username,
+                    apiClient->password);
+
+            curl_easy_setopt(handle,
+                             CURLOPT_HTTPAUTH,
+                             CURLAUTH_BASIC);
+            curl_easy_setopt(handle,
+                             CURLOPT_USERPWD,
+                             authenticationToken);
+        }
 
         if(bodyParameters != NULL) {
             postData(handle, bodyParameters, bodyParametersLength);
@@ -427,6 +502,11 @@ void apiClient_invoke(apiClient_t    *apiClient,
             curl_easy_getinfo(handle, CURLINFO_SCHEME, &scheme);
             fprintf(stderr, "curl_easy_perform() failed\n\nURL: %s\nIP: %s\nPORT: %li\nSCHEME: %s\nStrERROR: %s\n",url,ip,port,scheme,
             curl_easy_strerror(res));
+        }
+        if((apiClient->username != NULL) &&
+        (apiClient->password != NULL) )
+        {
+        free(authenticationToken);
         }
 
         curl_easy_cleanup(handle);

@@ -17,293 +17,296 @@ func main() {
 	e.Use(middleware.Recover())
 
 
+	// BerryFirmnessList - List berry firmness
+	e.GET("/api/v2/berry-firmness/", c.BerryFirmnessList)
+
+	// BerryFirmnessRetrieve - Get berry by firmness
+	e.GET("/api/v2/berry-firmness/:id/", c.BerryFirmnessRetrieve)
+
+	// BerryFlavorList - List berry flavors
+	e.GET("/api/v2/berry-flavor/", c.BerryFlavorList)
+
+	// BerryFlavorRetrieve - Get berries by flavor
+	e.GET("/api/v2/berry-flavor/:id/", c.BerryFlavorRetrieve)
+
+	// BerryList - List berries
+	e.GET("/api/v2/berry/", c.BerryList)
+
+	// BerryRetrieve - Get a berry
+	e.GET("/api/v2/berry/:id/", c.BerryRetrieve)
+
+	// ContestEffectList - List contest effects
+	e.GET("/api/v2/contest-effect/", c.ContestEffectList)
+
+	// ContestEffectRetrieve - Get contest effect
+	e.GET("/api/v2/contest-effect/:id/", c.ContestEffectRetrieve)
+
+	// ContestTypeList - List contest types
+	e.GET("/api/v2/contest-type/", c.ContestTypeList)
+
+	// ContestTypeRetrieve - Get contest type
+	e.GET("/api/v2/contest-type/:id/", c.ContestTypeRetrieve)
+
+	// SuperContestEffectList - List super contest effects
+	e.GET("/api/v2/super-contest-effect/", c.SuperContestEffectList)
+
+	// SuperContestEffectRetrieve - Get super contest effect
+	e.GET("/api/v2/super-contest-effect/:id/", c.SuperContestEffectRetrieve)
+
+	// EncounterConditionList - List encounter conditions
+	e.GET("/api/v2/encounter-condition/", c.EncounterConditionList)
+
+	// EncounterConditionRetrieve - Get encounter condition
+	e.GET("/api/v2/encounter-condition/:id/", c.EncounterConditionRetrieve)
+
+	// EncounterConditionValueList - List encounter condition values
+	e.GET("/api/v2/encounter-condition-value/", c.EncounterConditionValueList)
+
+	// EncounterConditionValueRetrieve - Get encounter condition value
+	e.GET("/api/v2/encounter-condition-value/:id/", c.EncounterConditionValueRetrieve)
+
+	// EncounterMethodList - List encounter methods
+	e.GET("/api/v2/encounter-method/", c.EncounterMethodList)
+
+	// EncounterMethodRetrieve - Get encounter method
+	e.GET("/api/v2/encounter-method/:id/", c.EncounterMethodRetrieve)
+
+	// PokemonEncountersRetrieve - Get pokemon encounter
+	e.GET("/api/v2/pokemon/:pokemon_id/encounters", c.PokemonEncountersRetrieve)
+
+	// EvolutionChainList - List evolution chains
+	e.GET("/api/v2/evolution-chain/", c.EvolutionChainList)
+
+	// EvolutionChainRetrieve - Get evolution chain
+	e.GET("/api/v2/evolution-chain/:id/", c.EvolutionChainRetrieve)
+
+	// EvolutionTriggerList - List evolution triggers
+	e.GET("/api/v2/evolution-trigger/", c.EvolutionTriggerList)
+
+	// EvolutionTriggerRetrieve - Get evolution trigger
+	e.GET("/api/v2/evolution-trigger/:id/", c.EvolutionTriggerRetrieve)
+
+	// GenerationList - List genrations
+	e.GET("/api/v2/generation/", c.GenerationList)
+
+	// GenerationRetrieve - Get genration
+	e.GET("/api/v2/generation/:id/", c.GenerationRetrieve)
+
+	// PokedexList - List pokedex
+	e.GET("/api/v2/pokedex/", c.PokedexList)
+
+	// PokedexRetrieve - Get pokedex
+	e.GET("/api/v2/pokedex/:id/", c.PokedexRetrieve)
+
+	// VersionGroupList - List version groups
+	e.GET("/api/v2/version-group/", c.VersionGroupList)
+
+	// VersionGroupRetrieve - Get version group
+	e.GET("/api/v2/version-group/:id/", c.VersionGroupRetrieve)
+
+	// VersionList - List versions
+	e.GET("/api/v2/version/", c.VersionList)
+
+	// VersionRetrieve - Get version
+	e.GET("/api/v2/version/:id/", c.VersionRetrieve)
+
+	// ItemAttributeList - List item attributes
+	e.GET("/api/v2/item-attribute/", c.ItemAttributeList)
+
+	// ItemAttributeRetrieve - Get item attribute
+	e.GET("/api/v2/item-attribute/:id/", c.ItemAttributeRetrieve)
+
+	// ItemCategoryList - List item categories
+	e.GET("/api/v2/item-category/", c.ItemCategoryList)
+
+	// ItemCategoryRetrieve - Get item category
+	e.GET("/api/v2/item-category/:id/", c.ItemCategoryRetrieve)
+
+	// ItemFlingEffectList - List item fling effects
+	e.GET("/api/v2/item-fling-effect/", c.ItemFlingEffectList)
+
+	// ItemFlingEffectRetrieve - Get item fling effect
+	e.GET("/api/v2/item-fling-effect/:id/", c.ItemFlingEffectRetrieve)
+
+	// ItemList - List items
+	e.GET("/api/v2/item/", c.ItemList)
+
+	// ItemPocketList - List item pockets
+	e.GET("/api/v2/item-pocket/", c.ItemPocketList)
+
+	// ItemPocketRetrieve - Get item pocket
+	e.GET("/api/v2/item-pocket/:id/", c.ItemPocketRetrieve)
+
+	// ItemRetrieve - Get item
+	e.GET("/api/v2/item/:id/", c.ItemRetrieve)
+
+	// LocationAreaList - List location areas
+	e.GET("/api/v2/location-area/", c.LocationAreaList)
+
+	// LocationAreaRetrieve - Get location area
+	e.GET("/api/v2/location-area/:id/", c.LocationAreaRetrieve)
+
+	// LocationList - List locations
+	e.GET("/api/v2/location/", c.LocationList)
+
+	// LocationRetrieve - Get location
+	e.GET("/api/v2/location/:id/", c.LocationRetrieve)
+
+	// PalParkAreaList - List pal park areas
+	e.GET("/api/v2/pal-park-area/", c.PalParkAreaList)
+
+	// PalParkAreaRetrieve - Get pal park area
+	e.GET("/api/v2/pal-park-area/:id/", c.PalParkAreaRetrieve)
+
+	// RegionList - List regions
+	e.GET("/api/v2/region/", c.RegionList)
+
+	// RegionRetrieve - Get region
+	e.GET("/api/v2/region/:id/", c.RegionRetrieve)
+
+	// MachineList - List machines
+	e.GET("/api/v2/machine/", c.MachineList)
+
+	// MachineRetrieve - Get machine
+	e.GET("/api/v2/machine/:id/", c.MachineRetrieve)
+
+	// MoveAilmentList - List move meta ailments
+	e.GET("/api/v2/move-ailment/", c.MoveAilmentList)
+
+	// MoveAilmentRetrieve - Get move meta ailment
+	e.GET("/api/v2/move-ailment/:id/", c.MoveAilmentRetrieve)
+
+	// MoveBattleStyleList - List move battle styles
+	e.GET("/api/v2/move-battle-style/", c.MoveBattleStyleList)
+
+	// MoveBattleStyleRetrieve - Get move battle style
+	e.GET("/api/v2/move-battle-style/:id/", c.MoveBattleStyleRetrieve)
+
+	// MoveCategoryList - List move meta categories
+	e.GET("/api/v2/move-category/", c.MoveCategoryList)
+
+	// MoveCategoryRetrieve - Get move meta category
+	e.GET("/api/v2/move-category/:id/", c.MoveCategoryRetrieve)
+
+	// MoveLearnMethodList - List move learn methods
+	e.GET("/api/v2/move-learn-method/", c.MoveLearnMethodList)
+
+	// MoveLearnMethodRetrieve - Get move learn method
+	e.GET("/api/v2/move-learn-method/:id/", c.MoveLearnMethodRetrieve)
+
+	// MoveList - List moves
+	e.GET("/api/v2/move/", c.MoveList)
+
+	// MoveRetrieve - Get move
+	e.GET("/api/v2/move/:id/", c.MoveRetrieve)
+
+	// MoveTargetList - List move targets
+	e.GET("/api/v2/move-target/", c.MoveTargetList)
+
+	// MoveTargetRetrieve - Get move target
+	e.GET("/api/v2/move-target/:id/", c.MoveTargetRetrieve)
+
 	// AbilityList - 
 	e.GET("/api/v2/ability/", c.AbilityList)
 
-	// AbilityRead - 
-	e.GET("/api/v2/ability/:id/", c.AbilityRead)
+	// AbilityRetrieve - 
+	e.GET("/api/v2/ability/:id/", c.AbilityRetrieve)
 
-	// BerryList - 
-	e.GET("/api/v2/berry/", c.BerryList)
-
-	// BerryRead - 
-	e.GET("/api/v2/berry/:id/", c.BerryRead)
-
-	// BerryFirmnessList - 
-	e.GET("/api/v2/berry-firmness/", c.BerryFirmnessList)
-
-	// BerryFirmnessRead - 
-	e.GET("/api/v2/berry-firmness/:id/", c.BerryFirmnessRead)
-
-	// BerryFlavorList - 
-	e.GET("/api/v2/berry-flavor/", c.BerryFlavorList)
-
-	// BerryFlavorRead - 
-	e.GET("/api/v2/berry-flavor/:id/", c.BerryFlavorRead)
-
-	// CharacteristicList - 
+	// CharacteristicList - List charecterictics
 	e.GET("/api/v2/characteristic/", c.CharacteristicList)
 
-	// CharacteristicRead - 
-	e.GET("/api/v2/characteristic/:id/", c.CharacteristicRead)
+	// CharacteristicRetrieve - Get characteristic
+	e.GET("/api/v2/characteristic/:id/", c.CharacteristicRetrieve)
 
-	// ContestEffectList - 
-	e.GET("/api/v2/contest-effect/", c.ContestEffectList)
-
-	// ContestEffectRead - 
-	e.GET("/api/v2/contest-effect/:id/", c.ContestEffectRead)
-
-	// ContestTypeList - 
-	e.GET("/api/v2/contest-type/", c.ContestTypeList)
-
-	// ContestTypeRead - 
-	e.GET("/api/v2/contest-type/:id/", c.ContestTypeRead)
-
-	// EggGroupList - 
+	// EggGroupList - List egg groups
 	e.GET("/api/v2/egg-group/", c.EggGroupList)
 
-	// EggGroupRead - 
-	e.GET("/api/v2/egg-group/:id/", c.EggGroupRead)
+	// EggGroupRetrieve - Get egg group
+	e.GET("/api/v2/egg-group/:id/", c.EggGroupRetrieve)
 
-	// EncounterConditionList - 
-	e.GET("/api/v2/encounter-condition/", c.EncounterConditionList)
-
-	// EncounterConditionRead - 
-	e.GET("/api/v2/encounter-condition/:id/", c.EncounterConditionRead)
-
-	// EncounterConditionValueList - 
-	e.GET("/api/v2/encounter-condition-value/", c.EncounterConditionValueList)
-
-	// EncounterConditionValueRead - 
-	e.GET("/api/v2/encounter-condition-value/:id/", c.EncounterConditionValueRead)
-
-	// EncounterMethodList - 
-	e.GET("/api/v2/encounter-method/", c.EncounterMethodList)
-
-	// EncounterMethodRead - 
-	e.GET("/api/v2/encounter-method/:id/", c.EncounterMethodRead)
-
-	// EvolutionChainList - 
-	e.GET("/api/v2/evolution-chain/", c.EvolutionChainList)
-
-	// EvolutionChainRead - 
-	e.GET("/api/v2/evolution-chain/:id/", c.EvolutionChainRead)
-
-	// EvolutionTriggerList - 
-	e.GET("/api/v2/evolution-trigger/", c.EvolutionTriggerList)
-
-	// EvolutionTriggerRead - 
-	e.GET("/api/v2/evolution-trigger/:id/", c.EvolutionTriggerRead)
-
-	// GenderList - 
+	// GenderList - List genders
 	e.GET("/api/v2/gender/", c.GenderList)
 
-	// GenderRead - 
-	e.GET("/api/v2/gender/:id/", c.GenderRead)
+	// GenderRetrieve - Get gender
+	e.GET("/api/v2/gender/:id/", c.GenderRetrieve)
 
-	// GenerationList - 
-	e.GET("/api/v2/generation/", c.GenerationList)
-
-	// GenerationRead - 
-	e.GET("/api/v2/generation/:id/", c.GenerationRead)
-
-	// GrowthRateList - 
+	// GrowthRateList - List growth rates
 	e.GET("/api/v2/growth-rate/", c.GrowthRateList)
 
-	// GrowthRateRead - 
-	e.GET("/api/v2/growth-rate/:id/", c.GrowthRateRead)
+	// GrowthRateRetrieve - Get growth rate
+	e.GET("/api/v2/growth-rate/:id/", c.GrowthRateRetrieve)
 
-	// ItemList - 
-	e.GET("/api/v2/item/", c.ItemList)
-
-	// ItemRead - 
-	e.GET("/api/v2/item/:id/", c.ItemRead)
-
-	// ItemAttributeList - 
-	e.GET("/api/v2/item-attribute/", c.ItemAttributeList)
-
-	// ItemAttributeRead - 
-	e.GET("/api/v2/item-attribute/:id/", c.ItemAttributeRead)
-
-	// ItemCategoryList - 
-	e.GET("/api/v2/item-category/", c.ItemCategoryList)
-
-	// ItemCategoryRead - 
-	e.GET("/api/v2/item-category/:id/", c.ItemCategoryRead)
-
-	// ItemFlingEffectList - 
-	e.GET("/api/v2/item-fling-effect/", c.ItemFlingEffectList)
-
-	// ItemFlingEffectRead - 
-	e.GET("/api/v2/item-fling-effect/:id/", c.ItemFlingEffectRead)
-
-	// ItemPocketList - 
-	e.GET("/api/v2/item-pocket/", c.ItemPocketList)
-
-	// ItemPocketRead - 
-	e.GET("/api/v2/item-pocket/:id/", c.ItemPocketRead)
-
-	// LanguageList - 
-	e.GET("/api/v2/language/", c.LanguageList)
-
-	// LanguageRead - 
-	e.GET("/api/v2/language/:id/", c.LanguageRead)
-
-	// LocationList - 
-	e.GET("/api/v2/location/", c.LocationList)
-
-	// LocationRead - 
-	e.GET("/api/v2/location/:id/", c.LocationRead)
-
-	// LocationAreaList - 
-	e.GET("/api/v2/location-area/", c.LocationAreaList)
-
-	// LocationAreaRead - 
-	e.GET("/api/v2/location-area/:id/", c.LocationAreaRead)
-
-	// MachineList - 
-	e.GET("/api/v2/machine/", c.MachineList)
-
-	// MachineRead - 
-	e.GET("/api/v2/machine/:id/", c.MachineRead)
-
-	// MoveList - 
-	e.GET("/api/v2/move/", c.MoveList)
-
-	// MoveRead - 
-	e.GET("/api/v2/move/:id/", c.MoveRead)
-
-	// MoveAilmentList - 
-	e.GET("/api/v2/move-ailment/", c.MoveAilmentList)
-
-	// MoveAilmentRead - 
-	e.GET("/api/v2/move-ailment/:id/", c.MoveAilmentRead)
-
-	// MoveBattleStyleList - 
-	e.GET("/api/v2/move-battle-style/", c.MoveBattleStyleList)
-
-	// MoveBattleStyleRead - 
-	e.GET("/api/v2/move-battle-style/:id/", c.MoveBattleStyleRead)
-
-	// MoveCategoryList - 
-	e.GET("/api/v2/move-category/", c.MoveCategoryList)
-
-	// MoveCategoryRead - 
-	e.GET("/api/v2/move-category/:id/", c.MoveCategoryRead)
-
-	// MoveDamageClassList - 
+	// MoveDamageClassList - List move damage classes
 	e.GET("/api/v2/move-damage-class/", c.MoveDamageClassList)
 
-	// MoveDamageClassRead - 
-	e.GET("/api/v2/move-damage-class/:id/", c.MoveDamageClassRead)
+	// MoveDamageClassRetrieve - Get move damage class
+	e.GET("/api/v2/move-damage-class/:id/", c.MoveDamageClassRetrieve)
 
-	// MoveLearnMethodList - 
-	e.GET("/api/v2/move-learn-method/", c.MoveLearnMethodList)
-
-	// MoveLearnMethodRead - 
-	e.GET("/api/v2/move-learn-method/:id/", c.MoveLearnMethodRead)
-
-	// MoveTargetList - 
-	e.GET("/api/v2/move-target/", c.MoveTargetList)
-
-	// MoveTargetRead - 
-	e.GET("/api/v2/move-target/:id/", c.MoveTargetRead)
-
-	// NatureList - 
+	// NatureList - List natures
 	e.GET("/api/v2/nature/", c.NatureList)
 
-	// NatureRead - 
-	e.GET("/api/v2/nature/:id/", c.NatureRead)
+	// NatureRetrieve - Get nature
+	e.GET("/api/v2/nature/:id/", c.NatureRetrieve)
 
-	// PalParkAreaList - 
-	e.GET("/api/v2/pal-park-area/", c.PalParkAreaList)
-
-	// PalParkAreaRead - 
-	e.GET("/api/v2/pal-park-area/:id/", c.PalParkAreaRead)
-
-	// PokeathlonStatList - 
+	// PokeathlonStatList - List pokeathlon stats
 	e.GET("/api/v2/pokeathlon-stat/", c.PokeathlonStatList)
 
-	// PokeathlonStatRead - 
-	e.GET("/api/v2/pokeathlon-stat/:id/", c.PokeathlonStatRead)
+	// PokeathlonStatRetrieve - Get pokeathlon stat
+	e.GET("/api/v2/pokeathlon-stat/:id/", c.PokeathlonStatRetrieve)
 
-	// PokedexList - 
-	e.GET("/api/v2/pokedex/", c.PokedexList)
-
-	// PokedexRead - 
-	e.GET("/api/v2/pokedex/:id/", c.PokedexRead)
-
-	// PokemonList - 
-	e.GET("/api/v2/pokemon/", c.PokemonList)
-
-	// PokemonRead - 
-	e.GET("/api/v2/pokemon/:id/", c.PokemonRead)
-
-	// PokemonColorList - 
+	// PokemonColorList - List pokemon colors
 	e.GET("/api/v2/pokemon-color/", c.PokemonColorList)
 
-	// PokemonColorRead - 
-	e.GET("/api/v2/pokemon-color/:id/", c.PokemonColorRead)
+	// PokemonColorRetrieve - Get pokemon color
+	e.GET("/api/v2/pokemon-color/:id/", c.PokemonColorRetrieve)
 
-	// PokemonFormList - 
+	// PokemonFormList - List pokemon forms
 	e.GET("/api/v2/pokemon-form/", c.PokemonFormList)
 
-	// PokemonFormRead - 
-	e.GET("/api/v2/pokemon-form/:id/", c.PokemonFormRead)
+	// PokemonFormRetrieve - Get pokemon form
+	e.GET("/api/v2/pokemon-form/:id/", c.PokemonFormRetrieve)
 
-	// PokemonHabitatList - 
+	// PokemonHabitatList - List pokemom habitas
 	e.GET("/api/v2/pokemon-habitat/", c.PokemonHabitatList)
 
-	// PokemonHabitatRead - 
-	e.GET("/api/v2/pokemon-habitat/:id/", c.PokemonHabitatRead)
+	// PokemonHabitatRetrieve - Get pokemom habita
+	e.GET("/api/v2/pokemon-habitat/:id/", c.PokemonHabitatRetrieve)
 
-	// PokemonShapeList - 
+	// PokemonList - List pokemon
+	e.GET("/api/v2/pokemon/", c.PokemonList)
+
+	// PokemonRetrieve - Get pokemon
+	e.GET("/api/v2/pokemon/:id/", c.PokemonRetrieve)
+
+	// PokemonShapeList - List pokemon shapes
 	e.GET("/api/v2/pokemon-shape/", c.PokemonShapeList)
 
-	// PokemonShapeRead - 
-	e.GET("/api/v2/pokemon-shape/:id/", c.PokemonShapeRead)
+	// PokemonShapeRetrieve - Get pokemon shape
+	e.GET("/api/v2/pokemon-shape/:id/", c.PokemonShapeRetrieve)
 
-	// PokemonSpeciesList - 
+	// PokemonSpeciesList - List pokemon species
 	e.GET("/api/v2/pokemon-species/", c.PokemonSpeciesList)
 
-	// PokemonSpeciesRead - 
-	e.GET("/api/v2/pokemon-species/:id/", c.PokemonSpeciesRead)
+	// PokemonSpeciesRetrieve - Get pokemon species
+	e.GET("/api/v2/pokemon-species/:id/", c.PokemonSpeciesRetrieve)
 
-	// RegionList - 
-	e.GET("/api/v2/region/", c.RegionList)
-
-	// RegionRead - 
-	e.GET("/api/v2/region/:id/", c.RegionRead)
-
-	// StatList - 
+	// StatList - List stats
 	e.GET("/api/v2/stat/", c.StatList)
 
-	// StatRead - 
-	e.GET("/api/v2/stat/:id/", c.StatRead)
+	// StatRetrieve - Get stat
+	e.GET("/api/v2/stat/:id/", c.StatRetrieve)
 
-	// SuperContestEffectList - 
-	e.GET("/api/v2/super-contest-effect/", c.SuperContestEffectList)
-
-	// SuperContestEffectRead - 
-	e.GET("/api/v2/super-contest-effect/:id/", c.SuperContestEffectRead)
-
-	// TypeList - 
+	// TypeList - List types
 	e.GET("/api/v2/type/", c.TypeList)
 
-	// TypeRead - 
-	e.GET("/api/v2/type/:id/", c.TypeRead)
+	// TypeRetrieve - Get types
+	e.GET("/api/v2/type/:id/", c.TypeRetrieve)
 
-	// VersionList - 
-	e.GET("/api/v2/version/", c.VersionList)
+	// LanguageList - List languages
+	e.GET("/api/v2/language/", c.LanguageList)
 
-	// VersionRead - 
-	e.GET("/api/v2/version/:id/", c.VersionRead)
-
-	// VersionGroupList - 
-	e.GET("/api/v2/version-group/", c.VersionGroupList)
-
-	// VersionGroupRead - 
-	e.GET("/api/v2/version-group/:id/", c.VersionGroupRead)
+	// LanguageRetrieve - Get language
+	e.GET("/api/v2/language/:id/", c.LanguageRetrieve)
 
 
 	// Start server

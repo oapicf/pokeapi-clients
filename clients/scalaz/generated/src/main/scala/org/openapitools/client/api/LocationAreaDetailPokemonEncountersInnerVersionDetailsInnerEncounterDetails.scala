@@ -1,0 +1,27 @@
+package org.openapitools.client.api
+
+import argonaut._
+import argonaut.EncodeJson._
+import argonaut.DecodeJson._
+
+import org.http4s.{EntityDecoder, EntityEncoder}
+import org.http4s.argonaut._
+import org.joda.time.DateTime
+
+
+import LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails._
+
+case class LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails (
+  minLevel: Integer,
+maxLevel: Integer,
+conditionValues: Option[AbilityDetailPokemonInnerPokemon],
+chance: Integer,
+method: AbilityDetailPokemonInnerPokemon)
+
+object LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails {
+  import DateTimeCodecs._
+
+  implicit val LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsCodecJson: CodecJson[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails] = CodecJson.derive[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails]
+  implicit val LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsDecoder: EntityDecoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails] = jsonOf[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails]
+  implicit val LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetailsEncoder: EntityEncoder[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails] = jsonEncoderOf[LocationAreaDetailPokemonEncountersInnerVersionDetailsInnerEncounterDetails]
+}

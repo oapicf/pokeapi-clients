@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "TypeGameIndex",
+  "fields": [
+    {
+      "name": "game_index",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "generation",
+      "type": "model.GenerationSummary",
+      "doc": ""
+    }
+  ]
+
+}

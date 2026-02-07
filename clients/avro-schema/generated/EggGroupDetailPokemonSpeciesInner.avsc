@@ -1,0 +1,21 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "EggGroupDetailPokemonSpeciesInner",
+  "fields": [
+    {
+      "name": "name",
+      "type": ["null", "string"],
+      "doc": "Pokemon species name.",
+      "default": null
+    },
+    {
+      "name": "url",
+      "type": ["null", "model.URI"],
+      "doc": "The URL to get more information about the species",
+      "default": null
+    }
+  ]
+
+}

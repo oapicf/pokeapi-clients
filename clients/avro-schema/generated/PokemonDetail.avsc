@@ -1,0 +1,138 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "base_experience",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "height",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "is_default",
+      "type": ["null", "boolean"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "order",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "weight",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "abilities",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonDetailAbilitiesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "past_abilities",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonDetailPastAbilitiesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "forms",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonFormSummary"
+      },
+      "doc": ""
+    },
+    {
+      "name": "game_indices",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonGameIndex"
+      },
+      "doc": ""
+    },
+    {
+      "name": "held_items",
+      "type": "model.PokemonDetailHeldItems",
+      "doc": ""
+    },
+    {
+      "name": "location_area_encounters",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "moves",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonDetailMovesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "species",
+      "type": "model.PokemonSpeciesSummary",
+      "doc": ""
+    },
+    {
+      "name": "sprites",
+      "type": "model.PokemonDetailSprites",
+      "doc": ""
+    },
+    {
+      "name": "cries",
+      "type": "model.PokemonDetailCries",
+      "doc": ""
+    },
+    {
+      "name": "stats",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonStat"
+      },
+      "doc": ""
+    },
+    {
+      "name": "types",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonDetailTypesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "past_types",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonDetailPastTypesInner"
+      },
+      "doc": ""
+    }
+  ]
+
+}

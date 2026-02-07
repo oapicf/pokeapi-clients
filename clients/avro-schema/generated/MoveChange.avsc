@@ -1,0 +1,50 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "MoveChange",
+  "fields": [
+    {
+      "name": "accuracy",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "power",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "pp",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "effect_chance",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "effect_entries",
+      "type": {
+        "type": "array",
+        "items": "model.MoveChangeEffectEntriesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "type",
+      "type": "model.TypeSummary",
+      "doc": ""
+    },
+    {
+      "name": "version_group",
+      "type": "model.VersionGroupSummary",
+      "doc": ""
+    }
+  ]
+
+}

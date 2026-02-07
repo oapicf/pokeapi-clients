@@ -1,0 +1,40 @@
+package org.openapitools.client.api
+
+import argonaut._
+import argonaut.EncodeJson._
+import argonaut.DecodeJson._
+
+import org.http4s.{EntityDecoder, EntityEncoder}
+import org.http4s.argonaut._
+import org.joda.time.DateTime
+
+
+import EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner._
+
+case class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner (
+  gender: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
+heldItem: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
+item: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
+knownMove: Any,
+knownMoveType: Any,
+location: EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender,
+minAffection: Integer,
+minBeauty: Integer,
+minHappiness: Integer,
+minLevel: Integer,
+needsOverworldRain: Boolean,
+partySpecies: String,
+partyType: String,
+relativePhysicalStats: String,
+timeOfDay: String,
+tradeSpecies: String,
+trigger: AbilityDetailPokemonInnerPokemon,
+turnUpsideDown: Boolean)
+
+object EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner {
+  import DateTimeCodecs._
+
+  implicit val EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerCodecJson: CodecJson[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner] = CodecJson.derive[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner]
+  implicit val EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerDecoder: EntityDecoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner] = jsonOf[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner]
+  implicit val EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerEncoder: EntityEncoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner] = jsonEncoderOf[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInner]
+}

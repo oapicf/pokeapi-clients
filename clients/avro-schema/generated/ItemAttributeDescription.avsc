@@ -1,0 +1,20 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ItemAttributeDescription",
+  "fields": [
+    {
+      "name": "description",
+      "type": ["null", "string"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "language",
+      "type": "model.LanguageSummary",
+      "doc": ""
+    }
+  ]
+
+}

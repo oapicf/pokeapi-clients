@@ -3,245 +3,135 @@
 # ~~~~
 
 
-# Routes for Ability API
+# Routes for Berries API
 
-GET /api/v2/ability/                          api.AbilityApiController.abilityList()
-GET /api/v2/ability/:id/                      api.AbilityApiController.abilityRead(id: Int)
+GET /api/v2/berry-firmness/                   api.BerriesApiController.berryFirmnessList()
+GET /api/v2/berry-flavor/                     api.BerriesApiController.berryFlavorList()
+GET /api/v2/berry/                            api.BerriesApiController.berryList()
+GET /api/v2/berry-firmness/:id/               api.BerriesApiController.berryFirmnessRetrieve(id: String)
+GET /api/v2/berry-flavor/:id/                 api.BerriesApiController.berryFlavorRetrieve(id: String)
+GET /api/v2/berry/:id/                        api.BerriesApiController.berryRetrieve(id: String)
 
-# Routes for Berry API
+# Routes for Contests API
 
-GET /api/v2/berry/                            api.BerryApiController.berryList()
-GET /api/v2/berry/:id/                        api.BerryApiController.berryRead(id: Int)
+GET /api/v2/contest-effect/                   api.ContestsApiController.contestEffectList()
+GET /api/v2/contest-type/                     api.ContestsApiController.contestTypeList()
+GET /api/v2/super-contest-effect/             api.ContestsApiController.superContestEffectList()
+GET /api/v2/contest-effect/:id/               api.ContestsApiController.contestEffectRetrieve(id: String)
+GET /api/v2/contest-type/:id/                 api.ContestsApiController.contestTypeRetrieve(id: String)
+GET /api/v2/super-contest-effect/:id/         api.ContestsApiController.superContestEffectRetrieve(id: String)
 
-# Routes for BerryFirmness API
+# Routes for Encounters API
 
-GET /api/v2/berry-firmness/                   api.BerryFirmnessApiController.berryFirmnessList()
-GET /api/v2/berry-firmness/:id/               api.BerryFirmnessApiController.berryFirmnessRead(id: Int)
+GET /api/v2/encounter-condition/              api.EncountersApiController.encounterConditionList()
+GET /api/v2/encounter-condition-value/        api.EncountersApiController.encounterConditionValueList()
+GET /api/v2/encounter-method/                 api.EncountersApiController.encounterMethodList()
+GET /api/v2/encounter-condition/:id/          api.EncountersApiController.encounterConditionRetrieve(id: String)
+GET /api/v2/encounter-condition-value/:id/    api.EncountersApiController.encounterConditionValueRetrieve(id: String)
+GET /api/v2/encounter-method/:id/             api.EncountersApiController.encounterMethodRetrieve(id: String)
+GET /api/v2/pokemon/:pokemonId/encounters     api.EncountersApiController.pokemonEncountersRetrieve(pokemonId: String)
 
-# Routes for BerryFlavor API
+# Routes for Evolution API
 
-GET /api/v2/berry-flavor/                     api.BerryFlavorApiController.berryFlavorList()
-GET /api/v2/berry-flavor/:id/                 api.BerryFlavorApiController.berryFlavorRead(id: Int)
+GET /api/v2/evolution-chain/                  api.EvolutionApiController.evolutionChainList()
+GET /api/v2/evolution-trigger/                api.EvolutionApiController.evolutionTriggerList()
+GET /api/v2/evolution-chain/:id/              api.EvolutionApiController.evolutionChainRetrieve(id: String)
+GET /api/v2/evolution-trigger/:id/            api.EvolutionApiController.evolutionTriggerRetrieve(id: String)
 
-# Routes for Characteristic API
+# Routes for Games API
 
-GET /api/v2/characteristic/                   api.CharacteristicApiController.characteristicList()
-GET /api/v2/characteristic/:id/               api.CharacteristicApiController.characteristicRead(id: Int)
+GET /api/v2/generation/                       api.GamesApiController.generationList()
+GET /api/v2/pokedex/                          api.GamesApiController.pokedexList()
+GET /api/v2/version-group/                    api.GamesApiController.versionGroupList()
+GET /api/v2/version/                          api.GamesApiController.versionList()
+GET /api/v2/generation/:id/                   api.GamesApiController.generationRetrieve(id: String)
+GET /api/v2/pokedex/:id/                      api.GamesApiController.pokedexRetrieve(id: String)
+GET /api/v2/version-group/:id/                api.GamesApiController.versionGroupRetrieve(id: String)
+GET /api/v2/version/:id/                      api.GamesApiController.versionRetrieve(id: String)
 
-# Routes for ContestEffect API
+# Routes for Items API
 
-GET /api/v2/contest-effect/                   api.ContestEffectApiController.contestEffectList()
-GET /api/v2/contest-effect/:id/               api.ContestEffectApiController.contestEffectRead(id: Int)
-
-# Routes for ContestType API
-
-GET /api/v2/contest-type/                     api.ContestTypeApiController.contestTypeList()
-GET /api/v2/contest-type/:id/                 api.ContestTypeApiController.contestTypeRead(id: Int)
-
-# Routes for EggGroup API
-
-GET /api/v2/egg-group/                        api.EggGroupApiController.eggGroupList()
-GET /api/v2/egg-group/:id/                    api.EggGroupApiController.eggGroupRead(id: Int)
-
-# Routes for EncounterCondition API
-
-GET /api/v2/encounter-condition/              api.EncounterConditionApiController.encounterConditionList()
-GET /api/v2/encounter-condition/:id/          api.EncounterConditionApiController.encounterConditionRead(id: Int)
-
-# Routes for EncounterConditionValue API
-
-GET /api/v2/encounter-condition-value/        api.EncounterConditionValueApiController.encounterConditionValueList()
-GET /api/v2/encounter-condition-value/:id/    api.EncounterConditionValueApiController.encounterConditionValueRead(id: Int)
-
-# Routes for EncounterMethod API
-
-GET /api/v2/encounter-method/                 api.EncounterMethodApiController.encounterMethodList()
-GET /api/v2/encounter-method/:id/             api.EncounterMethodApiController.encounterMethodRead(id: Int)
-
-# Routes for EvolutionChain API
-
-GET /api/v2/evolution-chain/                  api.EvolutionChainApiController.evolutionChainList()
-GET /api/v2/evolution-chain/:id/              api.EvolutionChainApiController.evolutionChainRead(id: Int)
-
-# Routes for EvolutionTrigger API
-
-GET /api/v2/evolution-trigger/                api.EvolutionTriggerApiController.evolutionTriggerList()
-GET /api/v2/evolution-trigger/:id/            api.EvolutionTriggerApiController.evolutionTriggerRead(id: Int)
-
-# Routes for Gender API
-
-GET /api/v2/gender/                           api.GenderApiController.genderList()
-GET /api/v2/gender/:id/                       api.GenderApiController.genderRead(id: Int)
-
-# Routes for Generation API
-
-GET /api/v2/generation/                       api.GenerationApiController.generationList()
-GET /api/v2/generation/:id/                   api.GenerationApiController.generationRead(id: Int)
-
-# Routes for GrowthRate API
-
-GET /api/v2/growth-rate/                      api.GrowthRateApiController.growthRateList()
-GET /api/v2/growth-rate/:id/                  api.GrowthRateApiController.growthRateRead(id: Int)
-
-# Routes for Item API
-
-GET /api/v2/item/                             api.ItemApiController.itemList()
-GET /api/v2/item/:id/                         api.ItemApiController.itemRead(id: Int)
-
-# Routes for ItemAttribute API
-
-GET /api/v2/item-attribute/                   api.ItemAttributeApiController.itemAttributeList()
-GET /api/v2/item-attribute/:id/               api.ItemAttributeApiController.itemAttributeRead(id: Int)
-
-# Routes for ItemCategory API
-
-GET /api/v2/item-category/                    api.ItemCategoryApiController.itemCategoryList()
-GET /api/v2/item-category/:id/                api.ItemCategoryApiController.itemCategoryRead(id: Int)
-
-# Routes for ItemFlingEffect API
-
-GET /api/v2/item-fling-effect/                api.ItemFlingEffectApiController.itemFlingEffectList()
-GET /api/v2/item-fling-effect/:id/            api.ItemFlingEffectApiController.itemFlingEffectRead(id: Int)
-
-# Routes for ItemPocket API
-
-GET /api/v2/item-pocket/                      api.ItemPocketApiController.itemPocketList()
-GET /api/v2/item-pocket/:id/                  api.ItemPocketApiController.itemPocketRead(id: Int)
-
-# Routes for Language API
-
-GET /api/v2/language/                         api.LanguageApiController.languageList()
-GET /api/v2/language/:id/                     api.LanguageApiController.languageRead(id: Int)
+GET /api/v2/item-attribute/                   api.ItemsApiController.itemAttributeList()
+GET /api/v2/item-category/                    api.ItemsApiController.itemCategoryList()
+GET /api/v2/item-fling-effect/                api.ItemsApiController.itemFlingEffectList()
+GET /api/v2/item/                             api.ItemsApiController.itemList()
+GET /api/v2/item-pocket/                      api.ItemsApiController.itemPocketList()
+GET /api/v2/item-attribute/:id/               api.ItemsApiController.itemAttributeRetrieve(id: String)
+GET /api/v2/item-category/:id/                api.ItemsApiController.itemCategoryRetrieve(id: String)
+GET /api/v2/item-fling-effect/:id/            api.ItemsApiController.itemFlingEffectRetrieve(id: String)
+GET /api/v2/item-pocket/:id/                  api.ItemsApiController.itemPocketRetrieve(id: String)
+GET /api/v2/item/:id/                         api.ItemsApiController.itemRetrieve(id: String)
 
 # Routes for Location API
 
+GET /api/v2/location-area/                    api.LocationApiController.locationAreaList()
 GET /api/v2/location/                         api.LocationApiController.locationList()
-GET /api/v2/location/:id/                     api.LocationApiController.locationRead(id: Int)
+GET /api/v2/pal-park-area/                    api.LocationApiController.palParkAreaList()
+GET /api/v2/region/                           api.LocationApiController.regionList()
+GET /api/v2/location-area/:id/                api.LocationApiController.locationAreaRetrieve(id: Int)
+GET /api/v2/location/:id/                     api.LocationApiController.locationRetrieve(id: String)
+GET /api/v2/pal-park-area/:id/                api.LocationApiController.palParkAreaRetrieve(id: String)
+GET /api/v2/region/:id/                       api.LocationApiController.regionRetrieve(id: String)
 
-# Routes for LocationArea API
+# Routes for Machines API
 
-GET /api/v2/location-area/                    api.LocationAreaApiController.locationAreaList()
-GET /api/v2/location-area/:id/                api.LocationAreaApiController.locationAreaRead(id: Int)
+GET /api/v2/machine/                          api.MachinesApiController.machineList()
+GET /api/v2/machine/:id/                      api.MachinesApiController.machineRetrieve(id: String)
 
-# Routes for Machine API
+# Routes for Moves API
 
-GET /api/v2/machine/                          api.MachineApiController.machineList()
-GET /api/v2/machine/:id/                      api.MachineApiController.machineRead(id: Int)
-
-# Routes for Move API
-
-GET /api/v2/move/                             api.MoveApiController.moveList()
-GET /api/v2/move/:id/                         api.MoveApiController.moveRead(id: Int)
-
-# Routes for MoveAilment API
-
-GET /api/v2/move-ailment/                     api.MoveAilmentApiController.moveAilmentList()
-GET /api/v2/move-ailment/:id/                 api.MoveAilmentApiController.moveAilmentRead(id: Int)
-
-# Routes for MoveBattleStyle API
-
-GET /api/v2/move-battle-style/                api.MoveBattleStyleApiController.moveBattleStyleList()
-GET /api/v2/move-battle-style/:id/            api.MoveBattleStyleApiController.moveBattleStyleRead(id: Int)
-
-# Routes for MoveCategory API
-
-GET /api/v2/move-category/                    api.MoveCategoryApiController.moveCategoryList()
-GET /api/v2/move-category/:id/                api.MoveCategoryApiController.moveCategoryRead(id: Int)
-
-# Routes for MoveDamageClass API
-
-GET /api/v2/move-damage-class/                api.MoveDamageClassApiController.moveDamageClassList()
-GET /api/v2/move-damage-class/:id/            api.MoveDamageClassApiController.moveDamageClassRead(id: Int)
-
-# Routes for MoveLearnMethod API
-
-GET /api/v2/move-learn-method/                api.MoveLearnMethodApiController.moveLearnMethodList()
-GET /api/v2/move-learn-method/:id/            api.MoveLearnMethodApiController.moveLearnMethodRead(id: Int)
-
-# Routes for MoveTarget API
-
-GET /api/v2/move-target/                      api.MoveTargetApiController.moveTargetList()
-GET /api/v2/move-target/:id/                  api.MoveTargetApiController.moveTargetRead(id: Int)
-
-# Routes for Nature API
-
-GET /api/v2/nature/                           api.NatureApiController.natureList()
-GET /api/v2/nature/:id/                       api.NatureApiController.natureRead(id: Int)
-
-# Routes for PalParkArea API
-
-GET /api/v2/pal-park-area/                    api.PalParkAreaApiController.palParkAreaList()
-GET /api/v2/pal-park-area/:id/                api.PalParkAreaApiController.palParkAreaRead(id: Int)
-
-# Routes for PokeathlonStat API
-
-GET /api/v2/pokeathlon-stat/                  api.PokeathlonStatApiController.pokeathlonStatList()
-GET /api/v2/pokeathlon-stat/:id/              api.PokeathlonStatApiController.pokeathlonStatRead(id: Int)
-
-# Routes for Pokedex API
-
-GET /api/v2/pokedex/                          api.PokedexApiController.pokedexList()
-GET /api/v2/pokedex/:id/                      api.PokedexApiController.pokedexRead(id: Int)
+GET /api/v2/move-ailment/                     api.MovesApiController.moveAilmentList()
+GET /api/v2/move-battle-style/                api.MovesApiController.moveBattleStyleList()
+GET /api/v2/move-category/                    api.MovesApiController.moveCategoryList()
+GET /api/v2/move-learn-method/                api.MovesApiController.moveLearnMethodList()
+GET /api/v2/move/                             api.MovesApiController.moveList()
+GET /api/v2/move-target/                      api.MovesApiController.moveTargetList()
+GET /api/v2/move-ailment/:id/                 api.MovesApiController.moveAilmentRetrieve(id: String)
+GET /api/v2/move-battle-style/:id/            api.MovesApiController.moveBattleStyleRetrieve(id: String)
+GET /api/v2/move-category/:id/                api.MovesApiController.moveCategoryRetrieve(id: String)
+GET /api/v2/move-learn-method/:id/            api.MovesApiController.moveLearnMethodRetrieve(id: String)
+GET /api/v2/move/:id/                         api.MovesApiController.moveRetrieve(id: String)
+GET /api/v2/move-target/:id/                  api.MovesApiController.moveTargetRetrieve(id: String)
 
 # Routes for Pokemon API
 
+GET /api/v2/ability/                          api.PokemonApiController.abilityList()
+GET /api/v2/characteristic/                   api.PokemonApiController.characteristicList()
+GET /api/v2/egg-group/                        api.PokemonApiController.eggGroupList()
+GET /api/v2/gender/                           api.PokemonApiController.genderList()
+GET /api/v2/growth-rate/                      api.PokemonApiController.growthRateList()
+GET /api/v2/move-damage-class/                api.PokemonApiController.moveDamageClassList()
+GET /api/v2/nature/                           api.PokemonApiController.natureList()
+GET /api/v2/pokeathlon-stat/                  api.PokemonApiController.pokeathlonStatList()
+GET /api/v2/pokemon-color/                    api.PokemonApiController.pokemonColorList()
+GET /api/v2/pokemon-form/                     api.PokemonApiController.pokemonFormList()
+GET /api/v2/pokemon-habitat/                  api.PokemonApiController.pokemonHabitatList()
 GET /api/v2/pokemon/                          api.PokemonApiController.pokemonList()
-GET /api/v2/pokemon/:id/                      api.PokemonApiController.pokemonRead(id: Int)
+GET /api/v2/pokemon-shape/                    api.PokemonApiController.pokemonShapeList()
+GET /api/v2/pokemon-species/                  api.PokemonApiController.pokemonSpeciesList()
+GET /api/v2/stat/                             api.PokemonApiController.statList()
+GET /api/v2/type/                             api.PokemonApiController.typeList()
+GET /api/v2/ability/:id/                      api.PokemonApiController.abilityRetrieve(id: String)
+GET /api/v2/characteristic/:id/               api.PokemonApiController.characteristicRetrieve(id: String)
+GET /api/v2/egg-group/:id/                    api.PokemonApiController.eggGroupRetrieve(id: String)
+GET /api/v2/gender/:id/                       api.PokemonApiController.genderRetrieve(id: String)
+GET /api/v2/growth-rate/:id/                  api.PokemonApiController.growthRateRetrieve(id: String)
+GET /api/v2/move-damage-class/:id/            api.PokemonApiController.moveDamageClassRetrieve(id: String)
+GET /api/v2/nature/:id/                       api.PokemonApiController.natureRetrieve(id: String)
+GET /api/v2/pokeathlon-stat/:id/              api.PokemonApiController.pokeathlonStatRetrieve(id: String)
+GET /api/v2/pokemon-color/:id/                api.PokemonApiController.pokemonColorRetrieve(id: String)
+GET /api/v2/pokemon-form/:id/                 api.PokemonApiController.pokemonFormRetrieve(id: String)
+GET /api/v2/pokemon-habitat/:id/              api.PokemonApiController.pokemonHabitatRetrieve(id: String)
+GET /api/v2/pokemon/:id/                      api.PokemonApiController.pokemonRetrieve(id: String)
+GET /api/v2/pokemon-shape/:id/                api.PokemonApiController.pokemonShapeRetrieve(id: String)
+GET /api/v2/pokemon-species/:id/              api.PokemonApiController.pokemonSpeciesRetrieve(id: String)
+GET /api/v2/stat/:id/                         api.PokemonApiController.statRetrieve(id: String)
+GET /api/v2/type/:id/                         api.PokemonApiController.typeRetrieve(id: String)
 
-# Routes for PokemonColor API
+# Routes for Utility API
 
-GET /api/v2/pokemon-color/                    api.PokemonColorApiController.pokemonColorList()
-GET /api/v2/pokemon-color/:id/                api.PokemonColorApiController.pokemonColorRead(id: Int)
-
-# Routes for PokemonForm API
-
-GET /api/v2/pokemon-form/                     api.PokemonFormApiController.pokemonFormList()
-GET /api/v2/pokemon-form/:id/                 api.PokemonFormApiController.pokemonFormRead(id: Int)
-
-# Routes for PokemonHabitat API
-
-GET /api/v2/pokemon-habitat/                  api.PokemonHabitatApiController.pokemonHabitatList()
-GET /api/v2/pokemon-habitat/:id/              api.PokemonHabitatApiController.pokemonHabitatRead(id: Int)
-
-# Routes for PokemonShape API
-
-GET /api/v2/pokemon-shape/                    api.PokemonShapeApiController.pokemonShapeList()
-GET /api/v2/pokemon-shape/:id/                api.PokemonShapeApiController.pokemonShapeRead(id: Int)
-
-# Routes for PokemonSpecies API
-
-GET /api/v2/pokemon-species/                  api.PokemonSpeciesApiController.pokemonSpeciesList()
-GET /api/v2/pokemon-species/:id/              api.PokemonSpeciesApiController.pokemonSpeciesRead(id: Int)
-
-# Routes for Region API
-
-GET /api/v2/region/                           api.RegionApiController.regionList()
-GET /api/v2/region/:id/                       api.RegionApiController.regionRead(id: Int)
-
-# Routes for Stat API
-
-GET /api/v2/stat/                             api.StatApiController.statList()
-GET /api/v2/stat/:id/                         api.StatApiController.statRead(id: Int)
-
-# Routes for SuperContestEffect API
-
-GET /api/v2/super-contest-effect/             api.SuperContestEffectApiController.superContestEffectList()
-GET /api/v2/super-contest-effect/:id/         api.SuperContestEffectApiController.superContestEffectRead(id: Int)
-
-# Routes for Type API
-
-GET /api/v2/type/                             api.TypeApiController.typeList()
-GET /api/v2/type/:id/                         api.TypeApiController.typeRead(id: Int)
-
-# Routes for Version API
-
-GET /api/v2/version/                          api.VersionApiController.versionList()
-GET /api/v2/version/:id/                      api.VersionApiController.versionRead(id: Int)
-
-# Routes for VersionGroup API
-
-GET /api/v2/version-group/                    api.VersionGroupApiController.versionGroupList()
-GET /api/v2/version-group/:id/                api.VersionGroupApiController.versionGroupRead(id: Int)
+GET /api/v2/language/                         api.UtilityApiController.languageList()
+GET /api/v2/language/:id/                     api.UtilityApiController.languageRetrieve(id: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET /assets/*file           controllers.Assets.at(file)

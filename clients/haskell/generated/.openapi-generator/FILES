@@ -1,7 +1,7 @@
-.cabal
 .openapi-generator-ignore
 README.md
 Setup.hs
-lib/API.hs
-lib/Types.hs
+lib/Poké/API.hs
+lib/Poké/Types.hs
+poké.cabal
 stack.yaml

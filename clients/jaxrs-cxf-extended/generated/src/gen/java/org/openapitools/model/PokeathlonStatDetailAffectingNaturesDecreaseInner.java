@@ -1,0 +1,113 @@
+package org.openapitools.model;
+
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import org.openapitools.model.AbilityDetailPokemonInnerPokemon;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+
+import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+public class PokeathlonStatDetailAffectingNaturesDecreaseInner  {
+  
+  @ApiModelProperty(required = true, value = "")
+  private Integer maxChange;
+
+  @ApiModelProperty(required = true, value = "")
+  @Valid
+  private AbilityDetailPokemonInnerPokemon nature;
+ /**
+  * Get maxChange
+  * maximum: -1
+  * @return maxChange
+  */
+  @JsonProperty("max_change")
+  @NotNull
+ @Max(-1)  public Integer getMaxChange() {
+    return maxChange;
+  }
+
+  /**
+   * Sets the <code>maxChange</code> property.
+   */
+ public void setMaxChange(Integer maxChange) {
+    this.maxChange = maxChange;
+  }
+
+  /**
+   * Sets the <code>maxChange</code> property.
+   */
+  public PokeathlonStatDetailAffectingNaturesDecreaseInner maxChange(Integer maxChange) {
+    this.maxChange = maxChange;
+    return this;
+  }
+
+ /**
+  * Get nature
+  * @return nature
+  */
+  @JsonProperty("nature")
+  @NotNull
+  public AbilityDetailPokemonInnerPokemon getNature() {
+    return nature;
+  }
+
+  /**
+   * Sets the <code>nature</code> property.
+   */
+ public void setNature(AbilityDetailPokemonInnerPokemon nature) {
+    this.nature = nature;
+  }
+
+  /**
+   * Sets the <code>nature</code> property.
+   */
+  public PokeathlonStatDetailAffectingNaturesDecreaseInner nature(AbilityDetailPokemonInnerPokemon nature) {
+    this.nature = nature;
+    return this;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    PokeathlonStatDetailAffectingNaturesDecreaseInner pokeathlonStatDetailAffectingNaturesDecreaseInner = (PokeathlonStatDetailAffectingNaturesDecreaseInner) o;
+    return Objects.equals(this.maxChange, pokeathlonStatDetailAffectingNaturesDecreaseInner.maxChange) &&
+        Objects.equals(this.nature, pokeathlonStatDetailAffectingNaturesDecreaseInner.nature);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(maxChange, nature);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PokeathlonStatDetailAffectingNaturesDecreaseInner {\n");
+    
+    sb.append("    maxChange: ").append(toIndentedString(maxChange)).append("\n");
+    sb.append("    nature: ").append(toIndentedString(nature)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private static String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
+

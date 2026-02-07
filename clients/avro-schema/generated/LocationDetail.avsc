@@ -1,0 +1,48 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "LocationDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "region",
+      "type": "model.RegionSummary",
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.LocationName"
+      },
+      "doc": ""
+    },
+    {
+      "name": "game_indices",
+      "type": {
+        "type": "array",
+        "items": "model.LocationGameIndex"
+      },
+      "doc": ""
+    },
+    {
+      "name": "areas",
+      "type": {
+        "type": "array",
+        "items": "model.LocationAreaSummary"
+      },
+      "doc": ""
+    }
+  ]
+
+}

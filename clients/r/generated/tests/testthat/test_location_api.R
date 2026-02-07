@@ -5,22 +5,104 @@ context("Test LocationApi")
 
 api_instance <- LocationApi$new()
 
-test_that("LocationList", {
-  # tests for LocationList
+test_that("LocationAreaList", {
+  # tests for LocationAreaList
   # base path: https://pokeapi.co
-  # @param limit integer  (optional)
-  # @param offset integer  (optional)
-  # @return [character]
+  # List location areas
+  # Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @return [PaginatedLocationAreaSummaryList]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("LocationRead", {
-  # tests for LocationRead
+test_that("LocationAreaRetrieve", {
+  # tests for LocationAreaRetrieve
   # base path: https://pokeapi.co
-  # @param id integer 
-  # @return [character]
+  # Get location area
+  # Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
+  # @param id integer A unique integer value identifying this location area.
+  # @return [LocationAreaDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("LocationList", {
+  # tests for LocationList
+  # base path: https://pokeapi.co
+  # List locations
+  # Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedLocationSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("LocationRetrieve", {
+  # tests for LocationRetrieve
+  # base path: https://pokeapi.co
+  # Get location
+  # Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
+  # @param id character This parameter can be a string or an integer.
+  # @return [LocationDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("PalParkAreaList", {
+  # tests for PalParkAreaList
+  # base path: https://pokeapi.co
+  # List pal park areas
+  # Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habitats that are specific to Pal Park.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedPalParkAreaSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("PalParkAreaRetrieve", {
+  # tests for PalParkAreaRetrieve
+  # base path: https://pokeapi.co
+  # Get pal park area
+  # Areas used for grouping Pokémon encounters in Pal Park. They&#39;re like habitats that are specific to Pal Park.
+  # @param id character This parameter can be a string or an integer.
+  # @return [PalParkAreaDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("RegionList", {
+  # tests for RegionList
+  # base path: https://pokeapi.co
+  # List regions
+  # A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedRegionSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("RegionRetrieve", {
+  # tests for RegionRetrieve
+  # base path: https://pokeapi.co
+  # Get region
+  # A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
+  # @param id character This parameter can be a string or an integer.
+  # @return [RegionDetail]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

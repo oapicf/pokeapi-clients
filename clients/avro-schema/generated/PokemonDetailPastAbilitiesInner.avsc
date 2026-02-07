@@ -1,0 +1,22 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonDetailPastAbilitiesInner",
+  "fields": [
+    {
+      "name": "abilities",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonDetailAbilitiesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "generation",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    }
+  ]
+
+}

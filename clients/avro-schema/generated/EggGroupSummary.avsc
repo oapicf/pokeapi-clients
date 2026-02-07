@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "EggGroupSummary",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "url",
+      "type": "model.URI",
+      "doc": ""
+    }
+  ]
+
+}

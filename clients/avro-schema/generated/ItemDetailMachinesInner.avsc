@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ItemDetailMachinesInner",
+  "fields": [
+    {
+      "name": "machine",
+      "type": "model.URI",
+      "doc": ""
+    },
+    {
+      "name": "version_group",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    }
+  ]
+
+}

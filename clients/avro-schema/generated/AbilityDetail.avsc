@@ -1,0 +1,70 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "AbilityDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "is_main_series",
+      "type": ["null", "boolean"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "generation",
+      "type": "model.GenerationSummary",
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityName"
+      },
+      "doc": ""
+    },
+    {
+      "name": "effect_entries",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityEffectText"
+      },
+      "doc": ""
+    },
+    {
+      "name": "effect_changes",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityChange"
+      },
+      "doc": ""
+    },
+    {
+      "name": "flavor_text_entries",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityFlavorText"
+      },
+      "doc": ""
+    },
+    {
+      "name": "pokemon",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityDetailPokemonInner"
+      },
+      "doc": ""
+    }
+  ]
+
+}

@@ -11,21 +11,21 @@ use Articus\PathHandler\Exception as PHException;
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
- * @PHA\Route(pattern="/api/v2/ability/{id:0|(?:-?[1-9][0-9]*)}/")
+ * @PHA\Route(pattern="/api/v2/ability/{id}/")
  */
 class ApiV2AbilityId
 {
     /**
      * @PHA\Get()
      * TODO check if producer is valid, if it has correct priority and if it can be moved to class annotation
-     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="text/plain")
+     * @PHA\Producer(name=PHProducer\Transfer::class, mediaType="application/json")
      * @param ServerRequestInterface $request
      *
      * @throws PHException\HttpCode 501 if the method is not implemented
      *
-     * @return string
+     * @return \App\DTO\AbilityDetail
      */
-    public function abilityRead(ServerRequestInterface $request): string
+    public function abilityRetrieve(ServerRequestInterface $request): \App\DTO\AbilityDetail
     {
         //TODO implement method
         throw new PHException\HttpCode(501, "Not implemented");

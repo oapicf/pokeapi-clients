@@ -5,22 +5,415 @@ context("Test PokemonApi")
 
 api_instance <- PokemonApi$new()
 
-test_that("PokemonList", {
-  # tests for PokemonList
+test_that("AbilityList", {
+  # tests for AbilityList
   # base path: https://pokeapi.co
-  # @param limit integer  (optional)
-  # @param offset integer  (optional)
-  # @return [character]
+  # Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedAbilitySummaryList]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("PokemonRead", {
-  # tests for PokemonRead
+test_that("AbilityRetrieve", {
+  # tests for AbilityRetrieve
   # base path: https://pokeapi.co
-  # @param id integer 
-  # @return [character]
+  # Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail.
+  # @param id character This parameter can be a string or an integer.
+  # @return [AbilityDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("CharacteristicList", {
+  # tests for CharacteristicList
+  # base path: https://pokeapi.co
+  # List charecterictics
+  # Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedCharacteristicSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("CharacteristicRetrieve", {
+  # tests for CharacteristicRetrieve
+  # base path: https://pokeapi.co
+  # Get characteristic
+  # Characteristics indicate which stat contains a Pokémon&#39;s highest IV. A Pokémon&#39;s Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail.
+  # @param id character This parameter can be a string or an integer.
+  # @return [CharacteristicDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("EggGroupList", {
+  # tests for EggGroupList
+  # base path: https://pokeapi.co
+  # List egg groups
+  # Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedEggGroupSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("EggGroupRetrieve", {
+  # tests for EggGroupRetrieve
+  # base path: https://pokeapi.co
+  # Get egg group
+  # Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail.
+  # @param id character This parameter can be a string or an integer.
+  # @return [EggGroupDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("GenderList", {
+  # tests for GenderList
+  # base path: https://pokeapi.co
+  # List genders
+  # Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedGenderSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("GenderRetrieve", {
+  # tests for GenderRetrieve
+  # base path: https://pokeapi.co
+  # Get gender
+  # Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail.
+  # @param id character This parameter can be a string or an integer.
+  # @return [GenderDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("GrowthRateList", {
+  # tests for GrowthRateList
+  # base path: https://pokeapi.co
+  # List growth rates
+  # Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedGrowthRateSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("GrowthRateRetrieve", {
+  # tests for GrowthRateRetrieve
+  # base path: https://pokeapi.co
+  # Get growth rate
+  # Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail.
+  # @param id character This parameter can be a string or an integer.
+  # @return [GrowthRateDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("MoveDamageClassList", {
+  # tests for MoveDamageClassList
+  # base path: https://pokeapi.co
+  # List move damage classes
+  # Damage classes moves can have, e.g. physical, special, or non-damaging.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedMoveDamageClassSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("MoveDamageClassRetrieve", {
+  # tests for MoveDamageClassRetrieve
+  # base path: https://pokeapi.co
+  # Get move damage class
+  # Damage classes moves can have, e.g. physical, special, or non-damaging.
+  # @param id character This parameter can be a string or an integer.
+  # @return [MoveDamageClassDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("NatureList", {
+  # tests for NatureList
+  # base path: https://pokeapi.co
+  # List natures
+  # Natures influence how a Pokémon&#39;s stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedNatureSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("NatureRetrieve", {
+  # tests for NatureRetrieve
+  # base path: https://pokeapi.co
+  # Get nature
+  # Natures influence how a Pokémon&#39;s stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail.
+  # @param id character This parameter can be a string or an integer.
+  # @return [NatureDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("PokeathlonStatList", {
+  # tests for PokeathlonStatList
+  # base path: https://pokeapi.co
+  # List pokeathlon stats
+  # Pokeathlon Stats are different attributes of a Pokémon&#39;s performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedPokeathlonStatSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("PokeathlonStatRetrieve", {
+  # tests for PokeathlonStatRetrieve
+  # base path: https://pokeapi.co
+  # Get pokeathlon stat
+  # Pokeathlon Stats are different attributes of a Pokémon&#39;s performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail.
+  # @param id character This parameter can be a string or an integer.
+  # @return [PokeathlonStatDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("PokemonColorList", {
+  # tests for PokemonColorList
+  # base path: https://pokeapi.co
+  # List pokemon colors
+  # Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon&#39;s body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedPokemonColorSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("PokemonColorRetrieve", {
+  # tests for PokemonColorRetrieve
+  # base path: https://pokeapi.co
+  # Get pokemon color
+  # Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon&#39;s body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.
+  # @param id character This parameter can be a string or an integer.
+  # @return [PokemonColorDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("PokemonFormList", {
+  # tests for PokemonFormList
+  # base path: https://pokeapi.co
+  # List pokemon forms
+  # Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the &#39;Pokémon&#39; entity is used to represent such a variety.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedPokemonFormSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("PokemonFormRetrieve", {
+  # tests for PokemonFormRetrieve
+  # base path: https://pokeapi.co
+  # Get pokemon form
+  # Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the &#39;Pokémon&#39; entity is used to represent such a variety.
+  # @param id character This parameter can be a string or an integer.
+  # @return [PokemonFormDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("PokemonHabitatList", {
+  # tests for PokemonHabitatList
+  # base path: https://pokeapi.co
+  # List pokemom habitas
+  # Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedPokemonHabitatSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("PokemonHabitatRetrieve", {
+  # tests for PokemonHabitatRetrieve
+  # base path: https://pokeapi.co
+  # Get pokemom habita
+  # Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.
+  # @param id character This parameter can be a string or an integer.
+  # @return [PokemonHabitatDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("PokemonList", {
+  # tests for PokemonList
+  # base path: https://pokeapi.co
+  # List pokemon
+  # Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedPokemonSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("PokemonRetrieve", {
+  # tests for PokemonRetrieve
+  # base path: https://pokeapi.co
+  # Get pokemon
+  # Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail.
+  # @param id character This parameter can be a string or an integer.
+  # @return [PokemonDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("PokemonShapeList", {
+  # tests for PokemonShapeList
+  # base path: https://pokeapi.co
+  # List pokemon shapes
+  # Shapes used for sorting Pokémon in a Pokédex.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedPokemonShapeSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("PokemonShapeRetrieve", {
+  # tests for PokemonShapeRetrieve
+  # base path: https://pokeapi.co
+  # Get pokemon shape
+  # Shapes used for sorting Pokémon in a Pokédex.
+  # @param id character This parameter can be a string or an integer.
+  # @return [PokemonShapeDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("PokemonSpeciesList", {
+  # tests for PokemonSpeciesList
+  # base path: https://pokeapi.co
+  # List pokemon species
+  # A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedPokemonSpeciesSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("PokemonSpeciesRetrieve", {
+  # tests for PokemonSpeciesRetrieve
+  # base path: https://pokeapi.co
+  # Get pokemon species
+  # A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.
+  # @param id character This parameter can be a string or an integer.
+  # @return [PokemonSpeciesDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("StatList", {
+  # tests for StatList
+  # base path: https://pokeapi.co
+  # List stats
+  # Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedStatSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("StatRetrieve", {
+  # tests for StatRetrieve
+  # base path: https://pokeapi.co
+  # Get stat
+  # Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.
+  # @param id character This parameter can be a string or an integer.
+  # @return [StatDetail]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("TypeList", {
+  # tests for TypeList
+  # base path: https://pokeapi.co
+  # List types
+  # Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.
+  # @param limit integer Number of results to return per page. (optional)
+  # @param offset integer The initial index from which to return the results. (optional)
+  # @param q character > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2) Case-insensitive query applied on the `name` property.  (optional)
+  # @return [PaginatedTypeSummaryList]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("TypeRetrieve", {
+  # tests for TypeRetrieve
+  # base path: https://pokeapi.co
+  # Get types
+  # Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.
+  # @param id character This parameter can be a string or an integer.
+  # @return [TypeDetail]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

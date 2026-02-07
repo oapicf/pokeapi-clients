@@ -1,0 +1,25 @@
+package org.openapitools.client.api
+
+import argonaut._
+import argonaut.EncodeJson._
+import argonaut.DecodeJson._
+
+import org.http4s.{EntityDecoder, EntityEncoder}
+import org.http4s.argonaut._
+import org.joda.time.DateTime
+
+import java.net.URI
+
+import EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender._
+
+case class EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender (
+  name: String,
+url: URI)
+
+object EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender {
+  import DateTimeCodecs._
+
+  implicit val EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderCodecJson: CodecJson[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender] = CodecJson.derive[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender]
+  implicit val EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderDecoder: EntityDecoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender] = jsonOf[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender]
+  implicit val EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGenderEncoder: EntityEncoder[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender] = jsonEncoderOf[EvolutionChainDetailChainEvolvesToInnerEvolutionDetailsInnerGender]
+}

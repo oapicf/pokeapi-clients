@@ -1,0 +1,22 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "MoveDetailEffectChangesInner",
+  "fields": [
+    {
+      "name": "effect_entries",
+      "type": {
+        "type": "array",
+        "items": "model.MoveDetailEffectChangesInnerEffectEntriesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "version_group",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    }
+  ]
+
+}

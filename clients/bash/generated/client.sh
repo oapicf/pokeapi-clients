@@ -13,7 +13,7 @@
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #
-# This is a Bash client for .
+# This is a Bash client for PokéAPI.
 #
 # LICENSE:
 # 
@@ -22,7 +22,7 @@
 # blah+oapicf@cliffano.com
 #
 # MORE INFORMATION:
-# 
+# https://pokeapi.co/docs/v2
 #
 
 # For improved pattern matching in case statements
@@ -96,150 +96,198 @@ declare -a result_color_table=( "$WHITE" "$WHITE" "$GREEN" "$YELLOW" "$WHITE" "$
 # 0 - optional
 # 1 - required
 declare -A operation_parameters_minimum_occurrences
-operation_parameters_minimum_occurrences["abilityList:::limit"]=0
-operation_parameters_minimum_occurrences["abilityList:::offset"]=0
-operation_parameters_minimum_occurrences["abilityRead:::id"]=1
-operation_parameters_minimum_occurrences["berryList:::limit"]=0
-operation_parameters_minimum_occurrences["berryList:::offset"]=0
-operation_parameters_minimum_occurrences["berryRead:::id"]=1
 operation_parameters_minimum_occurrences["berryFirmnessList:::limit"]=0
 operation_parameters_minimum_occurrences["berryFirmnessList:::offset"]=0
-operation_parameters_minimum_occurrences["berryFirmnessRead:::id"]=1
+operation_parameters_minimum_occurrences["berryFirmnessList:::q"]=0
+operation_parameters_minimum_occurrences["berryFirmnessRetrieve:::id"]=1
 operation_parameters_minimum_occurrences["berryFlavorList:::limit"]=0
 operation_parameters_minimum_occurrences["berryFlavorList:::offset"]=0
-operation_parameters_minimum_occurrences["berryFlavorRead:::id"]=1
-operation_parameters_minimum_occurrences["characteristicList:::limit"]=0
-operation_parameters_minimum_occurrences["characteristicList:::offset"]=0
-operation_parameters_minimum_occurrences["characteristicRead:::id"]=1
+operation_parameters_minimum_occurrences["berryFlavorList:::q"]=0
+operation_parameters_minimum_occurrences["berryFlavorRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["berryList:::limit"]=0
+operation_parameters_minimum_occurrences["berryList:::offset"]=0
+operation_parameters_minimum_occurrences["berryList:::q"]=0
+operation_parameters_minimum_occurrences["berryRetrieve:::id"]=1
 operation_parameters_minimum_occurrences["contestEffectList:::limit"]=0
 operation_parameters_minimum_occurrences["contestEffectList:::offset"]=0
-operation_parameters_minimum_occurrences["contestEffectRead:::id"]=1
+operation_parameters_minimum_occurrences["contestEffectList:::q"]=0
+operation_parameters_minimum_occurrences["contestEffectRetrieve:::id"]=1
 operation_parameters_minimum_occurrences["contestTypeList:::limit"]=0
 operation_parameters_minimum_occurrences["contestTypeList:::offset"]=0
-operation_parameters_minimum_occurrences["contestTypeRead:::id"]=1
-operation_parameters_minimum_occurrences["eggGroupList:::limit"]=0
-operation_parameters_minimum_occurrences["eggGroupList:::offset"]=0
-operation_parameters_minimum_occurrences["eggGroupRead:::id"]=1
-operation_parameters_minimum_occurrences["encounterConditionList:::limit"]=0
-operation_parameters_minimum_occurrences["encounterConditionList:::offset"]=0
-operation_parameters_minimum_occurrences["encounterConditionRead:::id"]=1
-operation_parameters_minimum_occurrences["encounterConditionValueList:::limit"]=0
-operation_parameters_minimum_occurrences["encounterConditionValueList:::offset"]=0
-operation_parameters_minimum_occurrences["encounterConditionValueRead:::id"]=1
-operation_parameters_minimum_occurrences["encounterMethodList:::limit"]=0
-operation_parameters_minimum_occurrences["encounterMethodList:::offset"]=0
-operation_parameters_minimum_occurrences["encounterMethodRead:::id"]=1
-operation_parameters_minimum_occurrences["evolutionChainList:::limit"]=0
-operation_parameters_minimum_occurrences["evolutionChainList:::offset"]=0
-operation_parameters_minimum_occurrences["evolutionChainRead:::id"]=1
-operation_parameters_minimum_occurrences["evolutionTriggerList:::limit"]=0
-operation_parameters_minimum_occurrences["evolutionTriggerList:::offset"]=0
-operation_parameters_minimum_occurrences["evolutionTriggerRead:::id"]=1
-operation_parameters_minimum_occurrences["genderList:::limit"]=0
-operation_parameters_minimum_occurrences["genderList:::offset"]=0
-operation_parameters_minimum_occurrences["genderRead:::id"]=1
-operation_parameters_minimum_occurrences["generationList:::limit"]=0
-operation_parameters_minimum_occurrences["generationList:::offset"]=0
-operation_parameters_minimum_occurrences["generationRead:::id"]=1
-operation_parameters_minimum_occurrences["growthRateList:::limit"]=0
-operation_parameters_minimum_occurrences["growthRateList:::offset"]=0
-operation_parameters_minimum_occurrences["growthRateRead:::id"]=1
-operation_parameters_minimum_occurrences["itemList:::limit"]=0
-operation_parameters_minimum_occurrences["itemList:::offset"]=0
-operation_parameters_minimum_occurrences["itemRead:::id"]=1
-operation_parameters_minimum_occurrences["itemAttributeList:::limit"]=0
-operation_parameters_minimum_occurrences["itemAttributeList:::offset"]=0
-operation_parameters_minimum_occurrences["itemAttributeRead:::id"]=1
-operation_parameters_minimum_occurrences["itemCategoryList:::limit"]=0
-operation_parameters_minimum_occurrences["itemCategoryList:::offset"]=0
-operation_parameters_minimum_occurrences["itemCategoryRead:::id"]=1
-operation_parameters_minimum_occurrences["itemFlingEffectList:::limit"]=0
-operation_parameters_minimum_occurrences["itemFlingEffectList:::offset"]=0
-operation_parameters_minimum_occurrences["itemFlingEffectRead:::id"]=1
-operation_parameters_minimum_occurrences["itemPocketList:::limit"]=0
-operation_parameters_minimum_occurrences["itemPocketList:::offset"]=0
-operation_parameters_minimum_occurrences["itemPocketRead:::id"]=1
-operation_parameters_minimum_occurrences["languageList:::limit"]=0
-operation_parameters_minimum_occurrences["languageList:::offset"]=0
-operation_parameters_minimum_occurrences["languageRead:::id"]=1
-operation_parameters_minimum_occurrences["locationList:::limit"]=0
-operation_parameters_minimum_occurrences["locationList:::offset"]=0
-operation_parameters_minimum_occurrences["locationRead:::id"]=1
-operation_parameters_minimum_occurrences["locationAreaList:::limit"]=0
-operation_parameters_minimum_occurrences["locationAreaList:::offset"]=0
-operation_parameters_minimum_occurrences["locationAreaRead:::id"]=1
-operation_parameters_minimum_occurrences["machineList:::limit"]=0
-operation_parameters_minimum_occurrences["machineList:::offset"]=0
-operation_parameters_minimum_occurrences["machineRead:::id"]=1
-operation_parameters_minimum_occurrences["moveList:::limit"]=0
-operation_parameters_minimum_occurrences["moveList:::offset"]=0
-operation_parameters_minimum_occurrences["moveRead:::id"]=1
-operation_parameters_minimum_occurrences["moveAilmentList:::limit"]=0
-operation_parameters_minimum_occurrences["moveAilmentList:::offset"]=0
-operation_parameters_minimum_occurrences["moveAilmentRead:::id"]=1
-operation_parameters_minimum_occurrences["moveBattleStyleList:::limit"]=0
-operation_parameters_minimum_occurrences["moveBattleStyleList:::offset"]=0
-operation_parameters_minimum_occurrences["moveBattleStyleRead:::id"]=1
-operation_parameters_minimum_occurrences["moveCategoryList:::limit"]=0
-operation_parameters_minimum_occurrences["moveCategoryList:::offset"]=0
-operation_parameters_minimum_occurrences["moveCategoryRead:::id"]=1
-operation_parameters_minimum_occurrences["moveDamageClassList:::limit"]=0
-operation_parameters_minimum_occurrences["moveDamageClassList:::offset"]=0
-operation_parameters_minimum_occurrences["moveDamageClassRead:::id"]=1
-operation_parameters_minimum_occurrences["moveLearnMethodList:::limit"]=0
-operation_parameters_minimum_occurrences["moveLearnMethodList:::offset"]=0
-operation_parameters_minimum_occurrences["moveLearnMethodRead:::id"]=1
-operation_parameters_minimum_occurrences["moveTargetList:::limit"]=0
-operation_parameters_minimum_occurrences["moveTargetList:::offset"]=0
-operation_parameters_minimum_occurrences["moveTargetRead:::id"]=1
-operation_parameters_minimum_occurrences["natureList:::limit"]=0
-operation_parameters_minimum_occurrences["natureList:::offset"]=0
-operation_parameters_minimum_occurrences["natureRead:::id"]=1
-operation_parameters_minimum_occurrences["palParkAreaList:::limit"]=0
-operation_parameters_minimum_occurrences["palParkAreaList:::offset"]=0
-operation_parameters_minimum_occurrences["palParkAreaRead:::id"]=1
-operation_parameters_minimum_occurrences["pokeathlonStatList:::limit"]=0
-operation_parameters_minimum_occurrences["pokeathlonStatList:::offset"]=0
-operation_parameters_minimum_occurrences["pokeathlonStatRead:::id"]=1
-operation_parameters_minimum_occurrences["pokedexList:::limit"]=0
-operation_parameters_minimum_occurrences["pokedexList:::offset"]=0
-operation_parameters_minimum_occurrences["pokedexRead:::id"]=1
-operation_parameters_minimum_occurrences["pokemonList:::limit"]=0
-operation_parameters_minimum_occurrences["pokemonList:::offset"]=0
-operation_parameters_minimum_occurrences["pokemonRead:::id"]=1
-operation_parameters_minimum_occurrences["pokemonColorList:::limit"]=0
-operation_parameters_minimum_occurrences["pokemonColorList:::offset"]=0
-operation_parameters_minimum_occurrences["pokemonColorRead:::id"]=1
-operation_parameters_minimum_occurrences["pokemonFormList:::limit"]=0
-operation_parameters_minimum_occurrences["pokemonFormList:::offset"]=0
-operation_parameters_minimum_occurrences["pokemonFormRead:::id"]=1
-operation_parameters_minimum_occurrences["pokemonHabitatList:::limit"]=0
-operation_parameters_minimum_occurrences["pokemonHabitatList:::offset"]=0
-operation_parameters_minimum_occurrences["pokemonHabitatRead:::id"]=1
-operation_parameters_minimum_occurrences["pokemonShapeList:::limit"]=0
-operation_parameters_minimum_occurrences["pokemonShapeList:::offset"]=0
-operation_parameters_minimum_occurrences["pokemonShapeRead:::id"]=1
-operation_parameters_minimum_occurrences["pokemonSpeciesList:::limit"]=0
-operation_parameters_minimum_occurrences["pokemonSpeciesList:::offset"]=0
-operation_parameters_minimum_occurrences["pokemonSpeciesRead:::id"]=1
-operation_parameters_minimum_occurrences["regionList:::limit"]=0
-operation_parameters_minimum_occurrences["regionList:::offset"]=0
-operation_parameters_minimum_occurrences["regionRead:::id"]=1
-operation_parameters_minimum_occurrences["statList:::limit"]=0
-operation_parameters_minimum_occurrences["statList:::offset"]=0
-operation_parameters_minimum_occurrences["statRead:::id"]=1
+operation_parameters_minimum_occurrences["contestTypeList:::q"]=0
+operation_parameters_minimum_occurrences["contestTypeRetrieve:::id"]=1
 operation_parameters_minimum_occurrences["superContestEffectList:::limit"]=0
 operation_parameters_minimum_occurrences["superContestEffectList:::offset"]=0
-operation_parameters_minimum_occurrences["superContestEffectRead:::id"]=1
-operation_parameters_minimum_occurrences["typeList:::limit"]=0
-operation_parameters_minimum_occurrences["typeList:::offset"]=0
-operation_parameters_minimum_occurrences["typeRead:::id"]=1
-operation_parameters_minimum_occurrences["versionList:::limit"]=0
-operation_parameters_minimum_occurrences["versionList:::offset"]=0
-operation_parameters_minimum_occurrences["versionRead:::id"]=1
+operation_parameters_minimum_occurrences["superContestEffectList:::q"]=0
+operation_parameters_minimum_occurrences["superContestEffectRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["encounterConditionList:::limit"]=0
+operation_parameters_minimum_occurrences["encounterConditionList:::offset"]=0
+operation_parameters_minimum_occurrences["encounterConditionList:::q"]=0
+operation_parameters_minimum_occurrences["encounterConditionRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["encounterConditionValueList:::limit"]=0
+operation_parameters_minimum_occurrences["encounterConditionValueList:::offset"]=0
+operation_parameters_minimum_occurrences["encounterConditionValueList:::q"]=0
+operation_parameters_minimum_occurrences["encounterConditionValueRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["encounterMethodList:::limit"]=0
+operation_parameters_minimum_occurrences["encounterMethodList:::offset"]=0
+operation_parameters_minimum_occurrences["encounterMethodList:::q"]=0
+operation_parameters_minimum_occurrences["encounterMethodRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["pokemonEncountersRetrieve:::pokemon_id"]=1
+operation_parameters_minimum_occurrences["evolutionChainList:::limit"]=0
+operation_parameters_minimum_occurrences["evolutionChainList:::offset"]=0
+operation_parameters_minimum_occurrences["evolutionChainList:::q"]=0
+operation_parameters_minimum_occurrences["evolutionChainRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["evolutionTriggerList:::limit"]=0
+operation_parameters_minimum_occurrences["evolutionTriggerList:::offset"]=0
+operation_parameters_minimum_occurrences["evolutionTriggerList:::q"]=0
+operation_parameters_minimum_occurrences["evolutionTriggerRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["generationList:::limit"]=0
+operation_parameters_minimum_occurrences["generationList:::offset"]=0
+operation_parameters_minimum_occurrences["generationList:::q"]=0
+operation_parameters_minimum_occurrences["generationRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["pokedexList:::limit"]=0
+operation_parameters_minimum_occurrences["pokedexList:::offset"]=0
+operation_parameters_minimum_occurrences["pokedexList:::q"]=0
+operation_parameters_minimum_occurrences["pokedexRetrieve:::id"]=1
 operation_parameters_minimum_occurrences["versionGroupList:::limit"]=0
 operation_parameters_minimum_occurrences["versionGroupList:::offset"]=0
-operation_parameters_minimum_occurrences["versionGroupRead:::id"]=1
+operation_parameters_minimum_occurrences["versionGroupList:::q"]=0
+operation_parameters_minimum_occurrences["versionGroupRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["versionList:::limit"]=0
+operation_parameters_minimum_occurrences["versionList:::offset"]=0
+operation_parameters_minimum_occurrences["versionList:::q"]=0
+operation_parameters_minimum_occurrences["versionRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["itemAttributeList:::limit"]=0
+operation_parameters_minimum_occurrences["itemAttributeList:::offset"]=0
+operation_parameters_minimum_occurrences["itemAttributeList:::q"]=0
+operation_parameters_minimum_occurrences["itemAttributeRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["itemCategoryList:::limit"]=0
+operation_parameters_minimum_occurrences["itemCategoryList:::offset"]=0
+operation_parameters_minimum_occurrences["itemCategoryList:::q"]=0
+operation_parameters_minimum_occurrences["itemCategoryRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["itemFlingEffectList:::limit"]=0
+operation_parameters_minimum_occurrences["itemFlingEffectList:::offset"]=0
+operation_parameters_minimum_occurrences["itemFlingEffectList:::q"]=0
+operation_parameters_minimum_occurrences["itemFlingEffectRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["itemList:::limit"]=0
+operation_parameters_minimum_occurrences["itemList:::offset"]=0
+operation_parameters_minimum_occurrences["itemList:::q"]=0
+operation_parameters_minimum_occurrences["itemPocketList:::limit"]=0
+operation_parameters_minimum_occurrences["itemPocketList:::offset"]=0
+operation_parameters_minimum_occurrences["itemPocketList:::q"]=0
+operation_parameters_minimum_occurrences["itemPocketRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["itemRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["locationAreaList:::limit"]=0
+operation_parameters_minimum_occurrences["locationAreaList:::offset"]=0
+operation_parameters_minimum_occurrences["locationAreaRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["locationList:::limit"]=0
+operation_parameters_minimum_occurrences["locationList:::offset"]=0
+operation_parameters_minimum_occurrences["locationList:::q"]=0
+operation_parameters_minimum_occurrences["locationRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["palParkAreaList:::limit"]=0
+operation_parameters_minimum_occurrences["palParkAreaList:::offset"]=0
+operation_parameters_minimum_occurrences["palParkAreaList:::q"]=0
+operation_parameters_minimum_occurrences["palParkAreaRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["regionList:::limit"]=0
+operation_parameters_minimum_occurrences["regionList:::offset"]=0
+operation_parameters_minimum_occurrences["regionList:::q"]=0
+operation_parameters_minimum_occurrences["regionRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["machineList:::limit"]=0
+operation_parameters_minimum_occurrences["machineList:::offset"]=0
+operation_parameters_minimum_occurrences["machineList:::q"]=0
+operation_parameters_minimum_occurrences["machineRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["moveAilmentList:::limit"]=0
+operation_parameters_minimum_occurrences["moveAilmentList:::offset"]=0
+operation_parameters_minimum_occurrences["moveAilmentList:::q"]=0
+operation_parameters_minimum_occurrences["moveAilmentRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["moveBattleStyleList:::limit"]=0
+operation_parameters_minimum_occurrences["moveBattleStyleList:::offset"]=0
+operation_parameters_minimum_occurrences["moveBattleStyleList:::q"]=0
+operation_parameters_minimum_occurrences["moveBattleStyleRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["moveCategoryList:::limit"]=0
+operation_parameters_minimum_occurrences["moveCategoryList:::offset"]=0
+operation_parameters_minimum_occurrences["moveCategoryList:::q"]=0
+operation_parameters_minimum_occurrences["moveCategoryRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["moveLearnMethodList:::limit"]=0
+operation_parameters_minimum_occurrences["moveLearnMethodList:::offset"]=0
+operation_parameters_minimum_occurrences["moveLearnMethodList:::q"]=0
+operation_parameters_minimum_occurrences["moveLearnMethodRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["moveList:::limit"]=0
+operation_parameters_minimum_occurrences["moveList:::offset"]=0
+operation_parameters_minimum_occurrences["moveList:::q"]=0
+operation_parameters_minimum_occurrences["moveRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["moveTargetList:::limit"]=0
+operation_parameters_minimum_occurrences["moveTargetList:::offset"]=0
+operation_parameters_minimum_occurrences["moveTargetList:::q"]=0
+operation_parameters_minimum_occurrences["moveTargetRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["abilityList:::limit"]=0
+operation_parameters_minimum_occurrences["abilityList:::offset"]=0
+operation_parameters_minimum_occurrences["abilityList:::q"]=0
+operation_parameters_minimum_occurrences["abilityRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["characteristicList:::limit"]=0
+operation_parameters_minimum_occurrences["characteristicList:::offset"]=0
+operation_parameters_minimum_occurrences["characteristicList:::q"]=0
+operation_parameters_minimum_occurrences["characteristicRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["eggGroupList:::limit"]=0
+operation_parameters_minimum_occurrences["eggGroupList:::offset"]=0
+operation_parameters_minimum_occurrences["eggGroupList:::q"]=0
+operation_parameters_minimum_occurrences["eggGroupRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["genderList:::limit"]=0
+operation_parameters_minimum_occurrences["genderList:::offset"]=0
+operation_parameters_minimum_occurrences["genderList:::q"]=0
+operation_parameters_minimum_occurrences["genderRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["growthRateList:::limit"]=0
+operation_parameters_minimum_occurrences["growthRateList:::offset"]=0
+operation_parameters_minimum_occurrences["growthRateList:::q"]=0
+operation_parameters_minimum_occurrences["growthRateRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["moveDamageClassList:::limit"]=0
+operation_parameters_minimum_occurrences["moveDamageClassList:::offset"]=0
+operation_parameters_minimum_occurrences["moveDamageClassList:::q"]=0
+operation_parameters_minimum_occurrences["moveDamageClassRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["natureList:::limit"]=0
+operation_parameters_minimum_occurrences["natureList:::offset"]=0
+operation_parameters_minimum_occurrences["natureList:::q"]=0
+operation_parameters_minimum_occurrences["natureRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["pokeathlonStatList:::limit"]=0
+operation_parameters_minimum_occurrences["pokeathlonStatList:::offset"]=0
+operation_parameters_minimum_occurrences["pokeathlonStatList:::q"]=0
+operation_parameters_minimum_occurrences["pokeathlonStatRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["pokemonColorList:::limit"]=0
+operation_parameters_minimum_occurrences["pokemonColorList:::offset"]=0
+operation_parameters_minimum_occurrences["pokemonColorList:::q"]=0
+operation_parameters_minimum_occurrences["pokemonColorRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["pokemonFormList:::limit"]=0
+operation_parameters_minimum_occurrences["pokemonFormList:::offset"]=0
+operation_parameters_minimum_occurrences["pokemonFormList:::q"]=0
+operation_parameters_minimum_occurrences["pokemonFormRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["pokemonHabitatList:::limit"]=0
+operation_parameters_minimum_occurrences["pokemonHabitatList:::offset"]=0
+operation_parameters_minimum_occurrences["pokemonHabitatList:::q"]=0
+operation_parameters_minimum_occurrences["pokemonHabitatRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["pokemonList:::limit"]=0
+operation_parameters_minimum_occurrences["pokemonList:::offset"]=0
+operation_parameters_minimum_occurrences["pokemonList:::q"]=0
+operation_parameters_minimum_occurrences["pokemonRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["pokemonShapeList:::limit"]=0
+operation_parameters_minimum_occurrences["pokemonShapeList:::offset"]=0
+operation_parameters_minimum_occurrences["pokemonShapeList:::q"]=0
+operation_parameters_minimum_occurrences["pokemonShapeRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["pokemonSpeciesList:::limit"]=0
+operation_parameters_minimum_occurrences["pokemonSpeciesList:::offset"]=0
+operation_parameters_minimum_occurrences["pokemonSpeciesList:::q"]=0
+operation_parameters_minimum_occurrences["pokemonSpeciesRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["statList:::limit"]=0
+operation_parameters_minimum_occurrences["statList:::offset"]=0
+operation_parameters_minimum_occurrences["statList:::q"]=0
+operation_parameters_minimum_occurrences["statRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["typeList:::limit"]=0
+operation_parameters_minimum_occurrences["typeList:::offset"]=0
+operation_parameters_minimum_occurrences["typeList:::q"]=0
+operation_parameters_minimum_occurrences["typeRetrieve:::id"]=1
+operation_parameters_minimum_occurrences["languageList:::limit"]=0
+operation_parameters_minimum_occurrences["languageList:::offset"]=0
+operation_parameters_minimum_occurrences["languageList:::q"]=0
+operation_parameters_minimum_occurrences["languageRetrieve:::id"]=1
 
 ##
 # This array stores the maximum number of allowed occurrences for parameter
@@ -248,299 +296,395 @@ operation_parameters_minimum_occurrences["versionGroupRead:::id"]=1
 # N - N values
 # 0 - unlimited
 declare -A operation_parameters_maximum_occurrences
-operation_parameters_maximum_occurrences["abilityList:::limit"]=0
-operation_parameters_maximum_occurrences["abilityList:::offset"]=0
-operation_parameters_maximum_occurrences["abilityRead:::id"]=0
-operation_parameters_maximum_occurrences["berryList:::limit"]=0
-operation_parameters_maximum_occurrences["berryList:::offset"]=0
-operation_parameters_maximum_occurrences["berryRead:::id"]=0
 operation_parameters_maximum_occurrences["berryFirmnessList:::limit"]=0
 operation_parameters_maximum_occurrences["berryFirmnessList:::offset"]=0
-operation_parameters_maximum_occurrences["berryFirmnessRead:::id"]=0
+operation_parameters_maximum_occurrences["berryFirmnessList:::q"]=0
+operation_parameters_maximum_occurrences["berryFirmnessRetrieve:::id"]=0
 operation_parameters_maximum_occurrences["berryFlavorList:::limit"]=0
 operation_parameters_maximum_occurrences["berryFlavorList:::offset"]=0
-operation_parameters_maximum_occurrences["berryFlavorRead:::id"]=0
-operation_parameters_maximum_occurrences["characteristicList:::limit"]=0
-operation_parameters_maximum_occurrences["characteristicList:::offset"]=0
-operation_parameters_maximum_occurrences["characteristicRead:::id"]=0
+operation_parameters_maximum_occurrences["berryFlavorList:::q"]=0
+operation_parameters_maximum_occurrences["berryFlavorRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["berryList:::limit"]=0
+operation_parameters_maximum_occurrences["berryList:::offset"]=0
+operation_parameters_maximum_occurrences["berryList:::q"]=0
+operation_parameters_maximum_occurrences["berryRetrieve:::id"]=0
 operation_parameters_maximum_occurrences["contestEffectList:::limit"]=0
 operation_parameters_maximum_occurrences["contestEffectList:::offset"]=0
-operation_parameters_maximum_occurrences["contestEffectRead:::id"]=0
+operation_parameters_maximum_occurrences["contestEffectList:::q"]=0
+operation_parameters_maximum_occurrences["contestEffectRetrieve:::id"]=0
 operation_parameters_maximum_occurrences["contestTypeList:::limit"]=0
 operation_parameters_maximum_occurrences["contestTypeList:::offset"]=0
-operation_parameters_maximum_occurrences["contestTypeRead:::id"]=0
-operation_parameters_maximum_occurrences["eggGroupList:::limit"]=0
-operation_parameters_maximum_occurrences["eggGroupList:::offset"]=0
-operation_parameters_maximum_occurrences["eggGroupRead:::id"]=0
-operation_parameters_maximum_occurrences["encounterConditionList:::limit"]=0
-operation_parameters_maximum_occurrences["encounterConditionList:::offset"]=0
-operation_parameters_maximum_occurrences["encounterConditionRead:::id"]=0
-operation_parameters_maximum_occurrences["encounterConditionValueList:::limit"]=0
-operation_parameters_maximum_occurrences["encounterConditionValueList:::offset"]=0
-operation_parameters_maximum_occurrences["encounterConditionValueRead:::id"]=0
-operation_parameters_maximum_occurrences["encounterMethodList:::limit"]=0
-operation_parameters_maximum_occurrences["encounterMethodList:::offset"]=0
-operation_parameters_maximum_occurrences["encounterMethodRead:::id"]=0
-operation_parameters_maximum_occurrences["evolutionChainList:::limit"]=0
-operation_parameters_maximum_occurrences["evolutionChainList:::offset"]=0
-operation_parameters_maximum_occurrences["evolutionChainRead:::id"]=0
-operation_parameters_maximum_occurrences["evolutionTriggerList:::limit"]=0
-operation_parameters_maximum_occurrences["evolutionTriggerList:::offset"]=0
-operation_parameters_maximum_occurrences["evolutionTriggerRead:::id"]=0
-operation_parameters_maximum_occurrences["genderList:::limit"]=0
-operation_parameters_maximum_occurrences["genderList:::offset"]=0
-operation_parameters_maximum_occurrences["genderRead:::id"]=0
-operation_parameters_maximum_occurrences["generationList:::limit"]=0
-operation_parameters_maximum_occurrences["generationList:::offset"]=0
-operation_parameters_maximum_occurrences["generationRead:::id"]=0
-operation_parameters_maximum_occurrences["growthRateList:::limit"]=0
-operation_parameters_maximum_occurrences["growthRateList:::offset"]=0
-operation_parameters_maximum_occurrences["growthRateRead:::id"]=0
-operation_parameters_maximum_occurrences["itemList:::limit"]=0
-operation_parameters_maximum_occurrences["itemList:::offset"]=0
-operation_parameters_maximum_occurrences["itemRead:::id"]=0
-operation_parameters_maximum_occurrences["itemAttributeList:::limit"]=0
-operation_parameters_maximum_occurrences["itemAttributeList:::offset"]=0
-operation_parameters_maximum_occurrences["itemAttributeRead:::id"]=0
-operation_parameters_maximum_occurrences["itemCategoryList:::limit"]=0
-operation_parameters_maximum_occurrences["itemCategoryList:::offset"]=0
-operation_parameters_maximum_occurrences["itemCategoryRead:::id"]=0
-operation_parameters_maximum_occurrences["itemFlingEffectList:::limit"]=0
-operation_parameters_maximum_occurrences["itemFlingEffectList:::offset"]=0
-operation_parameters_maximum_occurrences["itemFlingEffectRead:::id"]=0
-operation_parameters_maximum_occurrences["itemPocketList:::limit"]=0
-operation_parameters_maximum_occurrences["itemPocketList:::offset"]=0
-operation_parameters_maximum_occurrences["itemPocketRead:::id"]=0
-operation_parameters_maximum_occurrences["languageList:::limit"]=0
-operation_parameters_maximum_occurrences["languageList:::offset"]=0
-operation_parameters_maximum_occurrences["languageRead:::id"]=0
-operation_parameters_maximum_occurrences["locationList:::limit"]=0
-operation_parameters_maximum_occurrences["locationList:::offset"]=0
-operation_parameters_maximum_occurrences["locationRead:::id"]=0
-operation_parameters_maximum_occurrences["locationAreaList:::limit"]=0
-operation_parameters_maximum_occurrences["locationAreaList:::offset"]=0
-operation_parameters_maximum_occurrences["locationAreaRead:::id"]=0
-operation_parameters_maximum_occurrences["machineList:::limit"]=0
-operation_parameters_maximum_occurrences["machineList:::offset"]=0
-operation_parameters_maximum_occurrences["machineRead:::id"]=0
-operation_parameters_maximum_occurrences["moveList:::limit"]=0
-operation_parameters_maximum_occurrences["moveList:::offset"]=0
-operation_parameters_maximum_occurrences["moveRead:::id"]=0
-operation_parameters_maximum_occurrences["moveAilmentList:::limit"]=0
-operation_parameters_maximum_occurrences["moveAilmentList:::offset"]=0
-operation_parameters_maximum_occurrences["moveAilmentRead:::id"]=0
-operation_parameters_maximum_occurrences["moveBattleStyleList:::limit"]=0
-operation_parameters_maximum_occurrences["moveBattleStyleList:::offset"]=0
-operation_parameters_maximum_occurrences["moveBattleStyleRead:::id"]=0
-operation_parameters_maximum_occurrences["moveCategoryList:::limit"]=0
-operation_parameters_maximum_occurrences["moveCategoryList:::offset"]=0
-operation_parameters_maximum_occurrences["moveCategoryRead:::id"]=0
-operation_parameters_maximum_occurrences["moveDamageClassList:::limit"]=0
-operation_parameters_maximum_occurrences["moveDamageClassList:::offset"]=0
-operation_parameters_maximum_occurrences["moveDamageClassRead:::id"]=0
-operation_parameters_maximum_occurrences["moveLearnMethodList:::limit"]=0
-operation_parameters_maximum_occurrences["moveLearnMethodList:::offset"]=0
-operation_parameters_maximum_occurrences["moveLearnMethodRead:::id"]=0
-operation_parameters_maximum_occurrences["moveTargetList:::limit"]=0
-operation_parameters_maximum_occurrences["moveTargetList:::offset"]=0
-operation_parameters_maximum_occurrences["moveTargetRead:::id"]=0
-operation_parameters_maximum_occurrences["natureList:::limit"]=0
-operation_parameters_maximum_occurrences["natureList:::offset"]=0
-operation_parameters_maximum_occurrences["natureRead:::id"]=0
-operation_parameters_maximum_occurrences["palParkAreaList:::limit"]=0
-operation_parameters_maximum_occurrences["palParkAreaList:::offset"]=0
-operation_parameters_maximum_occurrences["palParkAreaRead:::id"]=0
-operation_parameters_maximum_occurrences["pokeathlonStatList:::limit"]=0
-operation_parameters_maximum_occurrences["pokeathlonStatList:::offset"]=0
-operation_parameters_maximum_occurrences["pokeathlonStatRead:::id"]=0
-operation_parameters_maximum_occurrences["pokedexList:::limit"]=0
-operation_parameters_maximum_occurrences["pokedexList:::offset"]=0
-operation_parameters_maximum_occurrences["pokedexRead:::id"]=0
-operation_parameters_maximum_occurrences["pokemonList:::limit"]=0
-operation_parameters_maximum_occurrences["pokemonList:::offset"]=0
-operation_parameters_maximum_occurrences["pokemonRead:::id"]=0
-operation_parameters_maximum_occurrences["pokemonColorList:::limit"]=0
-operation_parameters_maximum_occurrences["pokemonColorList:::offset"]=0
-operation_parameters_maximum_occurrences["pokemonColorRead:::id"]=0
-operation_parameters_maximum_occurrences["pokemonFormList:::limit"]=0
-operation_parameters_maximum_occurrences["pokemonFormList:::offset"]=0
-operation_parameters_maximum_occurrences["pokemonFormRead:::id"]=0
-operation_parameters_maximum_occurrences["pokemonHabitatList:::limit"]=0
-operation_parameters_maximum_occurrences["pokemonHabitatList:::offset"]=0
-operation_parameters_maximum_occurrences["pokemonHabitatRead:::id"]=0
-operation_parameters_maximum_occurrences["pokemonShapeList:::limit"]=0
-operation_parameters_maximum_occurrences["pokemonShapeList:::offset"]=0
-operation_parameters_maximum_occurrences["pokemonShapeRead:::id"]=0
-operation_parameters_maximum_occurrences["pokemonSpeciesList:::limit"]=0
-operation_parameters_maximum_occurrences["pokemonSpeciesList:::offset"]=0
-operation_parameters_maximum_occurrences["pokemonSpeciesRead:::id"]=0
-operation_parameters_maximum_occurrences["regionList:::limit"]=0
-operation_parameters_maximum_occurrences["regionList:::offset"]=0
-operation_parameters_maximum_occurrences["regionRead:::id"]=0
-operation_parameters_maximum_occurrences["statList:::limit"]=0
-operation_parameters_maximum_occurrences["statList:::offset"]=0
-operation_parameters_maximum_occurrences["statRead:::id"]=0
+operation_parameters_maximum_occurrences["contestTypeList:::q"]=0
+operation_parameters_maximum_occurrences["contestTypeRetrieve:::id"]=0
 operation_parameters_maximum_occurrences["superContestEffectList:::limit"]=0
 operation_parameters_maximum_occurrences["superContestEffectList:::offset"]=0
-operation_parameters_maximum_occurrences["superContestEffectRead:::id"]=0
-operation_parameters_maximum_occurrences["typeList:::limit"]=0
-operation_parameters_maximum_occurrences["typeList:::offset"]=0
-operation_parameters_maximum_occurrences["typeRead:::id"]=0
-operation_parameters_maximum_occurrences["versionList:::limit"]=0
-operation_parameters_maximum_occurrences["versionList:::offset"]=0
-operation_parameters_maximum_occurrences["versionRead:::id"]=0
+operation_parameters_maximum_occurrences["superContestEffectList:::q"]=0
+operation_parameters_maximum_occurrences["superContestEffectRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["encounterConditionList:::limit"]=0
+operation_parameters_maximum_occurrences["encounterConditionList:::offset"]=0
+operation_parameters_maximum_occurrences["encounterConditionList:::q"]=0
+operation_parameters_maximum_occurrences["encounterConditionRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["encounterConditionValueList:::limit"]=0
+operation_parameters_maximum_occurrences["encounterConditionValueList:::offset"]=0
+operation_parameters_maximum_occurrences["encounterConditionValueList:::q"]=0
+operation_parameters_maximum_occurrences["encounterConditionValueRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["encounterMethodList:::limit"]=0
+operation_parameters_maximum_occurrences["encounterMethodList:::offset"]=0
+operation_parameters_maximum_occurrences["encounterMethodList:::q"]=0
+operation_parameters_maximum_occurrences["encounterMethodRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["pokemonEncountersRetrieve:::pokemon_id"]=0
+operation_parameters_maximum_occurrences["evolutionChainList:::limit"]=0
+operation_parameters_maximum_occurrences["evolutionChainList:::offset"]=0
+operation_parameters_maximum_occurrences["evolutionChainList:::q"]=0
+operation_parameters_maximum_occurrences["evolutionChainRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["evolutionTriggerList:::limit"]=0
+operation_parameters_maximum_occurrences["evolutionTriggerList:::offset"]=0
+operation_parameters_maximum_occurrences["evolutionTriggerList:::q"]=0
+operation_parameters_maximum_occurrences["evolutionTriggerRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["generationList:::limit"]=0
+operation_parameters_maximum_occurrences["generationList:::offset"]=0
+operation_parameters_maximum_occurrences["generationList:::q"]=0
+operation_parameters_maximum_occurrences["generationRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["pokedexList:::limit"]=0
+operation_parameters_maximum_occurrences["pokedexList:::offset"]=0
+operation_parameters_maximum_occurrences["pokedexList:::q"]=0
+operation_parameters_maximum_occurrences["pokedexRetrieve:::id"]=0
 operation_parameters_maximum_occurrences["versionGroupList:::limit"]=0
 operation_parameters_maximum_occurrences["versionGroupList:::offset"]=0
-operation_parameters_maximum_occurrences["versionGroupRead:::id"]=0
+operation_parameters_maximum_occurrences["versionGroupList:::q"]=0
+operation_parameters_maximum_occurrences["versionGroupRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["versionList:::limit"]=0
+operation_parameters_maximum_occurrences["versionList:::offset"]=0
+operation_parameters_maximum_occurrences["versionList:::q"]=0
+operation_parameters_maximum_occurrences["versionRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["itemAttributeList:::limit"]=0
+operation_parameters_maximum_occurrences["itemAttributeList:::offset"]=0
+operation_parameters_maximum_occurrences["itemAttributeList:::q"]=0
+operation_parameters_maximum_occurrences["itemAttributeRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["itemCategoryList:::limit"]=0
+operation_parameters_maximum_occurrences["itemCategoryList:::offset"]=0
+operation_parameters_maximum_occurrences["itemCategoryList:::q"]=0
+operation_parameters_maximum_occurrences["itemCategoryRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["itemFlingEffectList:::limit"]=0
+operation_parameters_maximum_occurrences["itemFlingEffectList:::offset"]=0
+operation_parameters_maximum_occurrences["itemFlingEffectList:::q"]=0
+operation_parameters_maximum_occurrences["itemFlingEffectRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["itemList:::limit"]=0
+operation_parameters_maximum_occurrences["itemList:::offset"]=0
+operation_parameters_maximum_occurrences["itemList:::q"]=0
+operation_parameters_maximum_occurrences["itemPocketList:::limit"]=0
+operation_parameters_maximum_occurrences["itemPocketList:::offset"]=0
+operation_parameters_maximum_occurrences["itemPocketList:::q"]=0
+operation_parameters_maximum_occurrences["itemPocketRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["itemRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["locationAreaList:::limit"]=0
+operation_parameters_maximum_occurrences["locationAreaList:::offset"]=0
+operation_parameters_maximum_occurrences["locationAreaRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["locationList:::limit"]=0
+operation_parameters_maximum_occurrences["locationList:::offset"]=0
+operation_parameters_maximum_occurrences["locationList:::q"]=0
+operation_parameters_maximum_occurrences["locationRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["palParkAreaList:::limit"]=0
+operation_parameters_maximum_occurrences["palParkAreaList:::offset"]=0
+operation_parameters_maximum_occurrences["palParkAreaList:::q"]=0
+operation_parameters_maximum_occurrences["palParkAreaRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["regionList:::limit"]=0
+operation_parameters_maximum_occurrences["regionList:::offset"]=0
+operation_parameters_maximum_occurrences["regionList:::q"]=0
+operation_parameters_maximum_occurrences["regionRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["machineList:::limit"]=0
+operation_parameters_maximum_occurrences["machineList:::offset"]=0
+operation_parameters_maximum_occurrences["machineList:::q"]=0
+operation_parameters_maximum_occurrences["machineRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["moveAilmentList:::limit"]=0
+operation_parameters_maximum_occurrences["moveAilmentList:::offset"]=0
+operation_parameters_maximum_occurrences["moveAilmentList:::q"]=0
+operation_parameters_maximum_occurrences["moveAilmentRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["moveBattleStyleList:::limit"]=0
+operation_parameters_maximum_occurrences["moveBattleStyleList:::offset"]=0
+operation_parameters_maximum_occurrences["moveBattleStyleList:::q"]=0
+operation_parameters_maximum_occurrences["moveBattleStyleRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["moveCategoryList:::limit"]=0
+operation_parameters_maximum_occurrences["moveCategoryList:::offset"]=0
+operation_parameters_maximum_occurrences["moveCategoryList:::q"]=0
+operation_parameters_maximum_occurrences["moveCategoryRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["moveLearnMethodList:::limit"]=0
+operation_parameters_maximum_occurrences["moveLearnMethodList:::offset"]=0
+operation_parameters_maximum_occurrences["moveLearnMethodList:::q"]=0
+operation_parameters_maximum_occurrences["moveLearnMethodRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["moveList:::limit"]=0
+operation_parameters_maximum_occurrences["moveList:::offset"]=0
+operation_parameters_maximum_occurrences["moveList:::q"]=0
+operation_parameters_maximum_occurrences["moveRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["moveTargetList:::limit"]=0
+operation_parameters_maximum_occurrences["moveTargetList:::offset"]=0
+operation_parameters_maximum_occurrences["moveTargetList:::q"]=0
+operation_parameters_maximum_occurrences["moveTargetRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["abilityList:::limit"]=0
+operation_parameters_maximum_occurrences["abilityList:::offset"]=0
+operation_parameters_maximum_occurrences["abilityList:::q"]=0
+operation_parameters_maximum_occurrences["abilityRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["characteristicList:::limit"]=0
+operation_parameters_maximum_occurrences["characteristicList:::offset"]=0
+operation_parameters_maximum_occurrences["characteristicList:::q"]=0
+operation_parameters_maximum_occurrences["characteristicRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["eggGroupList:::limit"]=0
+operation_parameters_maximum_occurrences["eggGroupList:::offset"]=0
+operation_parameters_maximum_occurrences["eggGroupList:::q"]=0
+operation_parameters_maximum_occurrences["eggGroupRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["genderList:::limit"]=0
+operation_parameters_maximum_occurrences["genderList:::offset"]=0
+operation_parameters_maximum_occurrences["genderList:::q"]=0
+operation_parameters_maximum_occurrences["genderRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["growthRateList:::limit"]=0
+operation_parameters_maximum_occurrences["growthRateList:::offset"]=0
+operation_parameters_maximum_occurrences["growthRateList:::q"]=0
+operation_parameters_maximum_occurrences["growthRateRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["moveDamageClassList:::limit"]=0
+operation_parameters_maximum_occurrences["moveDamageClassList:::offset"]=0
+operation_parameters_maximum_occurrences["moveDamageClassList:::q"]=0
+operation_parameters_maximum_occurrences["moveDamageClassRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["natureList:::limit"]=0
+operation_parameters_maximum_occurrences["natureList:::offset"]=0
+operation_parameters_maximum_occurrences["natureList:::q"]=0
+operation_parameters_maximum_occurrences["natureRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["pokeathlonStatList:::limit"]=0
+operation_parameters_maximum_occurrences["pokeathlonStatList:::offset"]=0
+operation_parameters_maximum_occurrences["pokeathlonStatList:::q"]=0
+operation_parameters_maximum_occurrences["pokeathlonStatRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["pokemonColorList:::limit"]=0
+operation_parameters_maximum_occurrences["pokemonColorList:::offset"]=0
+operation_parameters_maximum_occurrences["pokemonColorList:::q"]=0
+operation_parameters_maximum_occurrences["pokemonColorRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["pokemonFormList:::limit"]=0
+operation_parameters_maximum_occurrences["pokemonFormList:::offset"]=0
+operation_parameters_maximum_occurrences["pokemonFormList:::q"]=0
+operation_parameters_maximum_occurrences["pokemonFormRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["pokemonHabitatList:::limit"]=0
+operation_parameters_maximum_occurrences["pokemonHabitatList:::offset"]=0
+operation_parameters_maximum_occurrences["pokemonHabitatList:::q"]=0
+operation_parameters_maximum_occurrences["pokemonHabitatRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["pokemonList:::limit"]=0
+operation_parameters_maximum_occurrences["pokemonList:::offset"]=0
+operation_parameters_maximum_occurrences["pokemonList:::q"]=0
+operation_parameters_maximum_occurrences["pokemonRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["pokemonShapeList:::limit"]=0
+operation_parameters_maximum_occurrences["pokemonShapeList:::offset"]=0
+operation_parameters_maximum_occurrences["pokemonShapeList:::q"]=0
+operation_parameters_maximum_occurrences["pokemonShapeRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["pokemonSpeciesList:::limit"]=0
+operation_parameters_maximum_occurrences["pokemonSpeciesList:::offset"]=0
+operation_parameters_maximum_occurrences["pokemonSpeciesList:::q"]=0
+operation_parameters_maximum_occurrences["pokemonSpeciesRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["statList:::limit"]=0
+operation_parameters_maximum_occurrences["statList:::offset"]=0
+operation_parameters_maximum_occurrences["statList:::q"]=0
+operation_parameters_maximum_occurrences["statRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["typeList:::limit"]=0
+operation_parameters_maximum_occurrences["typeList:::offset"]=0
+operation_parameters_maximum_occurrences["typeList:::q"]=0
+operation_parameters_maximum_occurrences["typeRetrieve:::id"]=0
+operation_parameters_maximum_occurrences["languageList:::limit"]=0
+operation_parameters_maximum_occurrences["languageList:::offset"]=0
+operation_parameters_maximum_occurrences["languageList:::q"]=0
+operation_parameters_maximum_occurrences["languageRetrieve:::id"]=0
 
 ##
 # The type of collection for specifying multiple values for parameter:
 # - multi, csv, ssv, tsv
 declare -A operation_parameters_collection_type
-operation_parameters_collection_type["abilityList:::limit"]=""
-operation_parameters_collection_type["abilityList:::offset"]=""
-operation_parameters_collection_type["abilityRead:::id"]=""
-operation_parameters_collection_type["berryList:::limit"]=""
-operation_parameters_collection_type["berryList:::offset"]=""
-operation_parameters_collection_type["berryRead:::id"]=""
 operation_parameters_collection_type["berryFirmnessList:::limit"]=""
 operation_parameters_collection_type["berryFirmnessList:::offset"]=""
-operation_parameters_collection_type["berryFirmnessRead:::id"]=""
+operation_parameters_collection_type["berryFirmnessList:::q"]=""
+operation_parameters_collection_type["berryFirmnessRetrieve:::id"]=""
 operation_parameters_collection_type["berryFlavorList:::limit"]=""
 operation_parameters_collection_type["berryFlavorList:::offset"]=""
-operation_parameters_collection_type["berryFlavorRead:::id"]=""
-operation_parameters_collection_type["characteristicList:::limit"]=""
-operation_parameters_collection_type["characteristicList:::offset"]=""
-operation_parameters_collection_type["characteristicRead:::id"]=""
+operation_parameters_collection_type["berryFlavorList:::q"]=""
+operation_parameters_collection_type["berryFlavorRetrieve:::id"]=""
+operation_parameters_collection_type["berryList:::limit"]=""
+operation_parameters_collection_type["berryList:::offset"]=""
+operation_parameters_collection_type["berryList:::q"]=""
+operation_parameters_collection_type["berryRetrieve:::id"]=""
 operation_parameters_collection_type["contestEffectList:::limit"]=""
 operation_parameters_collection_type["contestEffectList:::offset"]=""
-operation_parameters_collection_type["contestEffectRead:::id"]=""
+operation_parameters_collection_type["contestEffectList:::q"]=""
+operation_parameters_collection_type["contestEffectRetrieve:::id"]=""
 operation_parameters_collection_type["contestTypeList:::limit"]=""
 operation_parameters_collection_type["contestTypeList:::offset"]=""
-operation_parameters_collection_type["contestTypeRead:::id"]=""
-operation_parameters_collection_type["eggGroupList:::limit"]=""
-operation_parameters_collection_type["eggGroupList:::offset"]=""
-operation_parameters_collection_type["eggGroupRead:::id"]=""
-operation_parameters_collection_type["encounterConditionList:::limit"]=""
-operation_parameters_collection_type["encounterConditionList:::offset"]=""
-operation_parameters_collection_type["encounterConditionRead:::id"]=""
-operation_parameters_collection_type["encounterConditionValueList:::limit"]=""
-operation_parameters_collection_type["encounterConditionValueList:::offset"]=""
-operation_parameters_collection_type["encounterConditionValueRead:::id"]=""
-operation_parameters_collection_type["encounterMethodList:::limit"]=""
-operation_parameters_collection_type["encounterMethodList:::offset"]=""
-operation_parameters_collection_type["encounterMethodRead:::id"]=""
-operation_parameters_collection_type["evolutionChainList:::limit"]=""
-operation_parameters_collection_type["evolutionChainList:::offset"]=""
-operation_parameters_collection_type["evolutionChainRead:::id"]=""
-operation_parameters_collection_type["evolutionTriggerList:::limit"]=""
-operation_parameters_collection_type["evolutionTriggerList:::offset"]=""
-operation_parameters_collection_type["evolutionTriggerRead:::id"]=""
-operation_parameters_collection_type["genderList:::limit"]=""
-operation_parameters_collection_type["genderList:::offset"]=""
-operation_parameters_collection_type["genderRead:::id"]=""
-operation_parameters_collection_type["generationList:::limit"]=""
-operation_parameters_collection_type["generationList:::offset"]=""
-operation_parameters_collection_type["generationRead:::id"]=""
-operation_parameters_collection_type["growthRateList:::limit"]=""
-operation_parameters_collection_type["growthRateList:::offset"]=""
-operation_parameters_collection_type["growthRateRead:::id"]=""
-operation_parameters_collection_type["itemList:::limit"]=""
-operation_parameters_collection_type["itemList:::offset"]=""
-operation_parameters_collection_type["itemRead:::id"]=""
-operation_parameters_collection_type["itemAttributeList:::limit"]=""
-operation_parameters_collection_type["itemAttributeList:::offset"]=""
-operation_parameters_collection_type["itemAttributeRead:::id"]=""
-operation_parameters_collection_type["itemCategoryList:::limit"]=""
-operation_parameters_collection_type["itemCategoryList:::offset"]=""
-operation_parameters_collection_type["itemCategoryRead:::id"]=""
-operation_parameters_collection_type["itemFlingEffectList:::limit"]=""
-operation_parameters_collection_type["itemFlingEffectList:::offset"]=""
-operation_parameters_collection_type["itemFlingEffectRead:::id"]=""
-operation_parameters_collection_type["itemPocketList:::limit"]=""
-operation_parameters_collection_type["itemPocketList:::offset"]=""
-operation_parameters_collection_type["itemPocketRead:::id"]=""
-operation_parameters_collection_type["languageList:::limit"]=""
-operation_parameters_collection_type["languageList:::offset"]=""
-operation_parameters_collection_type["languageRead:::id"]=""
-operation_parameters_collection_type["locationList:::limit"]=""
-operation_parameters_collection_type["locationList:::offset"]=""
-operation_parameters_collection_type["locationRead:::id"]=""
-operation_parameters_collection_type["locationAreaList:::limit"]=""
-operation_parameters_collection_type["locationAreaList:::offset"]=""
-operation_parameters_collection_type["locationAreaRead:::id"]=""
-operation_parameters_collection_type["machineList:::limit"]=""
-operation_parameters_collection_type["machineList:::offset"]=""
-operation_parameters_collection_type["machineRead:::id"]=""
-operation_parameters_collection_type["moveList:::limit"]=""
-operation_parameters_collection_type["moveList:::offset"]=""
-operation_parameters_collection_type["moveRead:::id"]=""
-operation_parameters_collection_type["moveAilmentList:::limit"]=""
-operation_parameters_collection_type["moveAilmentList:::offset"]=""
-operation_parameters_collection_type["moveAilmentRead:::id"]=""
-operation_parameters_collection_type["moveBattleStyleList:::limit"]=""
-operation_parameters_collection_type["moveBattleStyleList:::offset"]=""
-operation_parameters_collection_type["moveBattleStyleRead:::id"]=""
-operation_parameters_collection_type["moveCategoryList:::limit"]=""
-operation_parameters_collection_type["moveCategoryList:::offset"]=""
-operation_parameters_collection_type["moveCategoryRead:::id"]=""
-operation_parameters_collection_type["moveDamageClassList:::limit"]=""
-operation_parameters_collection_type["moveDamageClassList:::offset"]=""
-operation_parameters_collection_type["moveDamageClassRead:::id"]=""
-operation_parameters_collection_type["moveLearnMethodList:::limit"]=""
-operation_parameters_collection_type["moveLearnMethodList:::offset"]=""
-operation_parameters_collection_type["moveLearnMethodRead:::id"]=""
-operation_parameters_collection_type["moveTargetList:::limit"]=""
-operation_parameters_collection_type["moveTargetList:::offset"]=""
-operation_parameters_collection_type["moveTargetRead:::id"]=""
-operation_parameters_collection_type["natureList:::limit"]=""
-operation_parameters_collection_type["natureList:::offset"]=""
-operation_parameters_collection_type["natureRead:::id"]=""
-operation_parameters_collection_type["palParkAreaList:::limit"]=""
-operation_parameters_collection_type["palParkAreaList:::offset"]=""
-operation_parameters_collection_type["palParkAreaRead:::id"]=""
-operation_parameters_collection_type["pokeathlonStatList:::limit"]=""
-operation_parameters_collection_type["pokeathlonStatList:::offset"]=""
-operation_parameters_collection_type["pokeathlonStatRead:::id"]=""
-operation_parameters_collection_type["pokedexList:::limit"]=""
-operation_parameters_collection_type["pokedexList:::offset"]=""
-operation_parameters_collection_type["pokedexRead:::id"]=""
-operation_parameters_collection_type["pokemonList:::limit"]=""
-operation_parameters_collection_type["pokemonList:::offset"]=""
-operation_parameters_collection_type["pokemonRead:::id"]=""
-operation_parameters_collection_type["pokemonColorList:::limit"]=""
-operation_parameters_collection_type["pokemonColorList:::offset"]=""
-operation_parameters_collection_type["pokemonColorRead:::id"]=""
-operation_parameters_collection_type["pokemonFormList:::limit"]=""
-operation_parameters_collection_type["pokemonFormList:::offset"]=""
-operation_parameters_collection_type["pokemonFormRead:::id"]=""
-operation_parameters_collection_type["pokemonHabitatList:::limit"]=""
-operation_parameters_collection_type["pokemonHabitatList:::offset"]=""
-operation_parameters_collection_type["pokemonHabitatRead:::id"]=""
-operation_parameters_collection_type["pokemonShapeList:::limit"]=""
-operation_parameters_collection_type["pokemonShapeList:::offset"]=""
-operation_parameters_collection_type["pokemonShapeRead:::id"]=""
-operation_parameters_collection_type["pokemonSpeciesList:::limit"]=""
-operation_parameters_collection_type["pokemonSpeciesList:::offset"]=""
-operation_parameters_collection_type["pokemonSpeciesRead:::id"]=""
-operation_parameters_collection_type["regionList:::limit"]=""
-operation_parameters_collection_type["regionList:::offset"]=""
-operation_parameters_collection_type["regionRead:::id"]=""
-operation_parameters_collection_type["statList:::limit"]=""
-operation_parameters_collection_type["statList:::offset"]=""
-operation_parameters_collection_type["statRead:::id"]=""
+operation_parameters_collection_type["contestTypeList:::q"]=""
+operation_parameters_collection_type["contestTypeRetrieve:::id"]=""
 operation_parameters_collection_type["superContestEffectList:::limit"]=""
 operation_parameters_collection_type["superContestEffectList:::offset"]=""
-operation_parameters_collection_type["superContestEffectRead:::id"]=""
-operation_parameters_collection_type["typeList:::limit"]=""
-operation_parameters_collection_type["typeList:::offset"]=""
-operation_parameters_collection_type["typeRead:::id"]=""
-operation_parameters_collection_type["versionList:::limit"]=""
-operation_parameters_collection_type["versionList:::offset"]=""
-operation_parameters_collection_type["versionRead:::id"]=""
+operation_parameters_collection_type["superContestEffectList:::q"]=""
+operation_parameters_collection_type["superContestEffectRetrieve:::id"]=""
+operation_parameters_collection_type["encounterConditionList:::limit"]=""
+operation_parameters_collection_type["encounterConditionList:::offset"]=""
+operation_parameters_collection_type["encounterConditionList:::q"]=""
+operation_parameters_collection_type["encounterConditionRetrieve:::id"]=""
+operation_parameters_collection_type["encounterConditionValueList:::limit"]=""
+operation_parameters_collection_type["encounterConditionValueList:::offset"]=""
+operation_parameters_collection_type["encounterConditionValueList:::q"]=""
+operation_parameters_collection_type["encounterConditionValueRetrieve:::id"]=""
+operation_parameters_collection_type["encounterMethodList:::limit"]=""
+operation_parameters_collection_type["encounterMethodList:::offset"]=""
+operation_parameters_collection_type["encounterMethodList:::q"]=""
+operation_parameters_collection_type["encounterMethodRetrieve:::id"]=""
+operation_parameters_collection_type["pokemonEncountersRetrieve:::pokemon_id"]=""
+operation_parameters_collection_type["evolutionChainList:::limit"]=""
+operation_parameters_collection_type["evolutionChainList:::offset"]=""
+operation_parameters_collection_type["evolutionChainList:::q"]=""
+operation_parameters_collection_type["evolutionChainRetrieve:::id"]=""
+operation_parameters_collection_type["evolutionTriggerList:::limit"]=""
+operation_parameters_collection_type["evolutionTriggerList:::offset"]=""
+operation_parameters_collection_type["evolutionTriggerList:::q"]=""
+operation_parameters_collection_type["evolutionTriggerRetrieve:::id"]=""
+operation_parameters_collection_type["generationList:::limit"]=""
+operation_parameters_collection_type["generationList:::offset"]=""
+operation_parameters_collection_type["generationList:::q"]=""
+operation_parameters_collection_type["generationRetrieve:::id"]=""
+operation_parameters_collection_type["pokedexList:::limit"]=""
+operation_parameters_collection_type["pokedexList:::offset"]=""
+operation_parameters_collection_type["pokedexList:::q"]=""
+operation_parameters_collection_type["pokedexRetrieve:::id"]=""
 operation_parameters_collection_type["versionGroupList:::limit"]=""
 operation_parameters_collection_type["versionGroupList:::offset"]=""
-operation_parameters_collection_type["versionGroupRead:::id"]=""
+operation_parameters_collection_type["versionGroupList:::q"]=""
+operation_parameters_collection_type["versionGroupRetrieve:::id"]=""
+operation_parameters_collection_type["versionList:::limit"]=""
+operation_parameters_collection_type["versionList:::offset"]=""
+operation_parameters_collection_type["versionList:::q"]=""
+operation_parameters_collection_type["versionRetrieve:::id"]=""
+operation_parameters_collection_type["itemAttributeList:::limit"]=""
+operation_parameters_collection_type["itemAttributeList:::offset"]=""
+operation_parameters_collection_type["itemAttributeList:::q"]=""
+operation_parameters_collection_type["itemAttributeRetrieve:::id"]=""
+operation_parameters_collection_type["itemCategoryList:::limit"]=""
+operation_parameters_collection_type["itemCategoryList:::offset"]=""
+operation_parameters_collection_type["itemCategoryList:::q"]=""
+operation_parameters_collection_type["itemCategoryRetrieve:::id"]=""
+operation_parameters_collection_type["itemFlingEffectList:::limit"]=""
+operation_parameters_collection_type["itemFlingEffectList:::offset"]=""
+operation_parameters_collection_type["itemFlingEffectList:::q"]=""
+operation_parameters_collection_type["itemFlingEffectRetrieve:::id"]=""
+operation_parameters_collection_type["itemList:::limit"]=""
+operation_parameters_collection_type["itemList:::offset"]=""
+operation_parameters_collection_type["itemList:::q"]=""
+operation_parameters_collection_type["itemPocketList:::limit"]=""
+operation_parameters_collection_type["itemPocketList:::offset"]=""
+operation_parameters_collection_type["itemPocketList:::q"]=""
+operation_parameters_collection_type["itemPocketRetrieve:::id"]=""
+operation_parameters_collection_type["itemRetrieve:::id"]=""
+operation_parameters_collection_type["locationAreaList:::limit"]=""
+operation_parameters_collection_type["locationAreaList:::offset"]=""
+operation_parameters_collection_type["locationAreaRetrieve:::id"]=""
+operation_parameters_collection_type["locationList:::limit"]=""
+operation_parameters_collection_type["locationList:::offset"]=""
+operation_parameters_collection_type["locationList:::q"]=""
+operation_parameters_collection_type["locationRetrieve:::id"]=""
+operation_parameters_collection_type["palParkAreaList:::limit"]=""
+operation_parameters_collection_type["palParkAreaList:::offset"]=""
+operation_parameters_collection_type["palParkAreaList:::q"]=""
+operation_parameters_collection_type["palParkAreaRetrieve:::id"]=""
+operation_parameters_collection_type["regionList:::limit"]=""
+operation_parameters_collection_type["regionList:::offset"]=""
+operation_parameters_collection_type["regionList:::q"]=""
+operation_parameters_collection_type["regionRetrieve:::id"]=""
+operation_parameters_collection_type["machineList:::limit"]=""
+operation_parameters_collection_type["machineList:::offset"]=""
+operation_parameters_collection_type["machineList:::q"]=""
+operation_parameters_collection_type["machineRetrieve:::id"]=""
+operation_parameters_collection_type["moveAilmentList:::limit"]=""
+operation_parameters_collection_type["moveAilmentList:::offset"]=""
+operation_parameters_collection_type["moveAilmentList:::q"]=""
+operation_parameters_collection_type["moveAilmentRetrieve:::id"]=""
+operation_parameters_collection_type["moveBattleStyleList:::limit"]=""
+operation_parameters_collection_type["moveBattleStyleList:::offset"]=""
+operation_parameters_collection_type["moveBattleStyleList:::q"]=""
+operation_parameters_collection_type["moveBattleStyleRetrieve:::id"]=""
+operation_parameters_collection_type["moveCategoryList:::limit"]=""
+operation_parameters_collection_type["moveCategoryList:::offset"]=""
+operation_parameters_collection_type["moveCategoryList:::q"]=""
+operation_parameters_collection_type["moveCategoryRetrieve:::id"]=""
+operation_parameters_collection_type["moveLearnMethodList:::limit"]=""
+operation_parameters_collection_type["moveLearnMethodList:::offset"]=""
+operation_parameters_collection_type["moveLearnMethodList:::q"]=""
+operation_parameters_collection_type["moveLearnMethodRetrieve:::id"]=""
+operation_parameters_collection_type["moveList:::limit"]=""
+operation_parameters_collection_type["moveList:::offset"]=""
+operation_parameters_collection_type["moveList:::q"]=""
+operation_parameters_collection_type["moveRetrieve:::id"]=""
+operation_parameters_collection_type["moveTargetList:::limit"]=""
+operation_parameters_collection_type["moveTargetList:::offset"]=""
+operation_parameters_collection_type["moveTargetList:::q"]=""
+operation_parameters_collection_type["moveTargetRetrieve:::id"]=""
+operation_parameters_collection_type["abilityList:::limit"]=""
+operation_parameters_collection_type["abilityList:::offset"]=""
+operation_parameters_collection_type["abilityList:::q"]=""
+operation_parameters_collection_type["abilityRetrieve:::id"]=""
+operation_parameters_collection_type["characteristicList:::limit"]=""
+operation_parameters_collection_type["characteristicList:::offset"]=""
+operation_parameters_collection_type["characteristicList:::q"]=""
+operation_parameters_collection_type["characteristicRetrieve:::id"]=""
+operation_parameters_collection_type["eggGroupList:::limit"]=""
+operation_parameters_collection_type["eggGroupList:::offset"]=""
+operation_parameters_collection_type["eggGroupList:::q"]=""
+operation_parameters_collection_type["eggGroupRetrieve:::id"]=""
+operation_parameters_collection_type["genderList:::limit"]=""
+operation_parameters_collection_type["genderList:::offset"]=""
+operation_parameters_collection_type["genderList:::q"]=""
+operation_parameters_collection_type["genderRetrieve:::id"]=""
+operation_parameters_collection_type["growthRateList:::limit"]=""
+operation_parameters_collection_type["growthRateList:::offset"]=""
+operation_parameters_collection_type["growthRateList:::q"]=""
+operation_parameters_collection_type["growthRateRetrieve:::id"]=""
+operation_parameters_collection_type["moveDamageClassList:::limit"]=""
+operation_parameters_collection_type["moveDamageClassList:::offset"]=""
+operation_parameters_collection_type["moveDamageClassList:::q"]=""
+operation_parameters_collection_type["moveDamageClassRetrieve:::id"]=""
+operation_parameters_collection_type["natureList:::limit"]=""
+operation_parameters_collection_type["natureList:::offset"]=""
+operation_parameters_collection_type["natureList:::q"]=""
+operation_parameters_collection_type["natureRetrieve:::id"]=""
+operation_parameters_collection_type["pokeathlonStatList:::limit"]=""
+operation_parameters_collection_type["pokeathlonStatList:::offset"]=""
+operation_parameters_collection_type["pokeathlonStatList:::q"]=""
+operation_parameters_collection_type["pokeathlonStatRetrieve:::id"]=""
+operation_parameters_collection_type["pokemonColorList:::limit"]=""
+operation_parameters_collection_type["pokemonColorList:::offset"]=""
+operation_parameters_collection_type["pokemonColorList:::q"]=""
+operation_parameters_collection_type["pokemonColorRetrieve:::id"]=""
+operation_parameters_collection_type["pokemonFormList:::limit"]=""
+operation_parameters_collection_type["pokemonFormList:::offset"]=""
+operation_parameters_collection_type["pokemonFormList:::q"]=""
+operation_parameters_collection_type["pokemonFormRetrieve:::id"]=""
+operation_parameters_collection_type["pokemonHabitatList:::limit"]=""
+operation_parameters_collection_type["pokemonHabitatList:::offset"]=""
+operation_parameters_collection_type["pokemonHabitatList:::q"]=""
+operation_parameters_collection_type["pokemonHabitatRetrieve:::id"]=""
+operation_parameters_collection_type["pokemonList:::limit"]=""
+operation_parameters_collection_type["pokemonList:::offset"]=""
+operation_parameters_collection_type["pokemonList:::q"]=""
+operation_parameters_collection_type["pokemonRetrieve:::id"]=""
+operation_parameters_collection_type["pokemonShapeList:::limit"]=""
+operation_parameters_collection_type["pokemonShapeList:::offset"]=""
+operation_parameters_collection_type["pokemonShapeList:::q"]=""
+operation_parameters_collection_type["pokemonShapeRetrieve:::id"]=""
+operation_parameters_collection_type["pokemonSpeciesList:::limit"]=""
+operation_parameters_collection_type["pokemonSpeciesList:::offset"]=""
+operation_parameters_collection_type["pokemonSpeciesList:::q"]=""
+operation_parameters_collection_type["pokemonSpeciesRetrieve:::id"]=""
+operation_parameters_collection_type["statList:::limit"]=""
+operation_parameters_collection_type["statList:::offset"]=""
+operation_parameters_collection_type["statList:::q"]=""
+operation_parameters_collection_type["statRetrieve:::id"]=""
+operation_parameters_collection_type["typeList:::limit"]=""
+operation_parameters_collection_type["typeList:::offset"]=""
+operation_parameters_collection_type["typeList:::q"]=""
+operation_parameters_collection_type["typeRetrieve:::id"]=""
+operation_parameters_collection_type["languageList:::limit"]=""
+operation_parameters_collection_type["languageList:::offset"]=""
+operation_parameters_collection_type["languageList:::q"]=""
+operation_parameters_collection_type["languageRetrieve:::id"]=""
 
 
 ##
@@ -898,7 +1042,7 @@ build_request_path() {
 print_help() {
 cat <<EOF
 
-${BOLD}${WHITE} command line client (API version 20220523)${OFF}
+${BOLD}${WHITE}PokéAPI command line client (API version 2.7.0)${OFF}
 
 ${BOLD}${WHITE}Usage${OFF}
 
@@ -925,341 +1069,163 @@ ${BOLD}${WHITE}Usage${OFF}
                                       JSON as '{ ..., "${YELLOW}KEY${OFF}": ${BLUE}VALUE${OFF}, ... }'
 
 EOF
+    echo -e "${BOLD}${WHITE}Authentication methods${OFF}"
+    echo -e ""
+    echo -e "  - ${BLUE}Basic AUTH${OFF} - add '-u <username>:<password>' before ${YELLOW}<operation>${OFF}"
+    
+    
+    echo ""
     echo -e "${BOLD}${WHITE}Operations (grouped by tags)${OFF}"
     echo ""
-    echo -e "${BOLD}${WHITE}[ability]${OFF}"
+    echo -e "${BOLD}${WHITE}[berries]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}abilityList${OFF};
-  ${CYAN}abilityRead${OFF};
+  ${CYAN}berryFirmnessList${OFF};List berry firmness (AUTH) (AUTH)
+  ${CYAN}berryFirmnessRetrieve${OFF};Get berry by firmness (AUTH) (AUTH)
+  ${CYAN}berryFlavorList${OFF};List berry flavors (AUTH) (AUTH)
+  ${CYAN}berryFlavorRetrieve${OFF};Get berries by flavor (AUTH) (AUTH)
+  ${CYAN}berryList${OFF};List berries (AUTH) (AUTH)
+  ${CYAN}berryRetrieve${OFF};Get a berry (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
-    echo -e "${BOLD}${WHITE}[berry]${OFF}"
+    echo -e "${BOLD}${WHITE}[contests]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}berryList${OFF};
-  ${CYAN}berryRead${OFF};
+  ${CYAN}contestEffectList${OFF};List contest effects (AUTH) (AUTH)
+  ${CYAN}contestEffectRetrieve${OFF};Get contest effect (AUTH) (AUTH)
+  ${CYAN}contestTypeList${OFF};List contest types (AUTH) (AUTH)
+  ${CYAN}contestTypeRetrieve${OFF};Get contest type (AUTH) (AUTH)
+  ${CYAN}superContestEffectList${OFF};List super contest effects (AUTH) (AUTH)
+  ${CYAN}superContestEffectRetrieve${OFF};Get super contest effect (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
-    echo -e "${BOLD}${WHITE}[berryFirmness]${OFF}"
+    echo -e "${BOLD}${WHITE}[encounters]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}berryFirmnessList${OFF};
-  ${CYAN}berryFirmnessRead${OFF};
+  ${CYAN}encounterConditionList${OFF};List encounter conditions (AUTH) (AUTH)
+  ${CYAN}encounterConditionRetrieve${OFF};Get encounter condition (AUTH) (AUTH)
+  ${CYAN}encounterConditionValueList${OFF};List encounter condition values (AUTH) (AUTH)
+  ${CYAN}encounterConditionValueRetrieve${OFF};Get encounter condition value (AUTH) (AUTH)
+  ${CYAN}encounterMethodList${OFF};List encounter methods (AUTH) (AUTH)
+  ${CYAN}encounterMethodRetrieve${OFF};Get encounter method (AUTH) (AUTH)
+  ${CYAN}pokemonEncountersRetrieve${OFF};Get pokemon encounter (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
-    echo -e "${BOLD}${WHITE}[berryFlavor]${OFF}"
+    echo -e "${BOLD}${WHITE}[evolution]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}berryFlavorList${OFF};
-  ${CYAN}berryFlavorRead${OFF};
+  ${CYAN}evolutionChainList${OFF};List evolution chains (AUTH) (AUTH)
+  ${CYAN}evolutionChainRetrieve${OFF};Get evolution chain (AUTH) (AUTH)
+  ${CYAN}evolutionTriggerList${OFF};List evolution triggers (AUTH) (AUTH)
+  ${CYAN}evolutionTriggerRetrieve${OFF};Get evolution trigger (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
-    echo -e "${BOLD}${WHITE}[characteristic]${OFF}"
+    echo -e "${BOLD}${WHITE}[games]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}characteristicList${OFF};
-  ${CYAN}characteristicRead${OFF};
+  ${CYAN}generationList${OFF};List genrations (AUTH) (AUTH)
+  ${CYAN}generationRetrieve${OFF};Get genration (AUTH) (AUTH)
+  ${CYAN}pokedexList${OFF};List pokedex (AUTH) (AUTH)
+  ${CYAN}pokedexRetrieve${OFF};Get pokedex (AUTH) (AUTH)
+  ${CYAN}versionGroupList${OFF};List version groups (AUTH) (AUTH)
+  ${CYAN}versionGroupRetrieve${OFF};Get version group (AUTH) (AUTH)
+  ${CYAN}versionList${OFF};List versions (AUTH) (AUTH)
+  ${CYAN}versionRetrieve${OFF};Get version (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
-    echo -e "${BOLD}${WHITE}[contestEffect]${OFF}"
+    echo -e "${BOLD}${WHITE}[items]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}contestEffectList${OFF};
-  ${CYAN}contestEffectRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[contestType]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}contestTypeList${OFF};
-  ${CYAN}contestTypeRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[eggGroup]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}eggGroupList${OFF};
-  ${CYAN}eggGroupRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[encounterCondition]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}encounterConditionList${OFF};
-  ${CYAN}encounterConditionRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[encounterConditionValue]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}encounterConditionValueList${OFF};
-  ${CYAN}encounterConditionValueRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[encounterMethod]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}encounterMethodList${OFF};
-  ${CYAN}encounterMethodRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[evolutionChain]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}evolutionChainList${OFF};
-  ${CYAN}evolutionChainRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[evolutionTrigger]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}evolutionTriggerList${OFF};
-  ${CYAN}evolutionTriggerRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[gender]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}genderList${OFF};
-  ${CYAN}genderRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[generation]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}generationList${OFF};
-  ${CYAN}generationRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[growthRate]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}growthRateList${OFF};
-  ${CYAN}growthRateRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[item]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}itemList${OFF};
-  ${CYAN}itemRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[itemAttribute]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}itemAttributeList${OFF};
-  ${CYAN}itemAttributeRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[itemCategory]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}itemCategoryList${OFF};
-  ${CYAN}itemCategoryRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[itemFlingEffect]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}itemFlingEffectList${OFF};
-  ${CYAN}itemFlingEffectRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[itemPocket]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}itemPocketList${OFF};
-  ${CYAN}itemPocketRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[language]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}languageList${OFF};
-  ${CYAN}languageRead${OFF};
+  ${CYAN}itemAttributeList${OFF};List item attributes (AUTH) (AUTH)
+  ${CYAN}itemAttributeRetrieve${OFF};Get item attribute (AUTH) (AUTH)
+  ${CYAN}itemCategoryList${OFF};List item categories (AUTH) (AUTH)
+  ${CYAN}itemCategoryRetrieve${OFF};Get item category (AUTH) (AUTH)
+  ${CYAN}itemFlingEffectList${OFF};List item fling effects (AUTH) (AUTH)
+  ${CYAN}itemFlingEffectRetrieve${OFF};Get item fling effect (AUTH) (AUTH)
+  ${CYAN}itemList${OFF};List items (AUTH) (AUTH)
+  ${CYAN}itemPocketList${OFF};List item pockets (AUTH) (AUTH)
+  ${CYAN}itemPocketRetrieve${OFF};Get item pocket (AUTH) (AUTH)
+  ${CYAN}itemRetrieve${OFF};Get item (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[location]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}locationList${OFF};
-  ${CYAN}locationRead${OFF};
+  ${CYAN}locationAreaList${OFF};List location areas (AUTH) (AUTH)
+  ${CYAN}locationAreaRetrieve${OFF};Get location area (AUTH) (AUTH)
+  ${CYAN}locationList${OFF};List locations (AUTH) (AUTH)
+  ${CYAN}locationRetrieve${OFF};Get location (AUTH) (AUTH)
+  ${CYAN}palParkAreaList${OFF};List pal park areas (AUTH) (AUTH)
+  ${CYAN}palParkAreaRetrieve${OFF};Get pal park area (AUTH) (AUTH)
+  ${CYAN}regionList${OFF};List regions (AUTH) (AUTH)
+  ${CYAN}regionRetrieve${OFF};Get region (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
-    echo -e "${BOLD}${WHITE}[locationArea]${OFF}"
+    echo -e "${BOLD}${WHITE}[machines]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}locationAreaList${OFF};
-  ${CYAN}locationAreaRead${OFF};
+  ${CYAN}machineList${OFF};List machines (AUTH) (AUTH)
+  ${CYAN}machineRetrieve${OFF};Get machine (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
-    echo -e "${BOLD}${WHITE}[machine]${OFF}"
+    echo -e "${BOLD}${WHITE}[moves]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}machineList${OFF};
-  ${CYAN}machineRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[move]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}moveList${OFF};
-  ${CYAN}moveRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[moveAilment]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}moveAilmentList${OFF};
-  ${CYAN}moveAilmentRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[moveBattleStyle]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}moveBattleStyleList${OFF};
-  ${CYAN}moveBattleStyleRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[moveCategory]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}moveCategoryList${OFF};
-  ${CYAN}moveCategoryRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[moveDamageClass]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}moveDamageClassList${OFF};
-  ${CYAN}moveDamageClassRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[moveLearnMethod]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}moveLearnMethodList${OFF};
-  ${CYAN}moveLearnMethodRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[moveTarget]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}moveTargetList${OFF};
-  ${CYAN}moveTargetRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[nature]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}natureList${OFF};
-  ${CYAN}natureRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[palParkArea]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}palParkAreaList${OFF};
-  ${CYAN}palParkAreaRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[pokeathlonStat]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}pokeathlonStatList${OFF};
-  ${CYAN}pokeathlonStatRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[pokedex]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}pokedexList${OFF};
-  ${CYAN}pokedexRead${OFF};
+  ${CYAN}moveAilmentList${OFF};List move meta ailments (AUTH) (AUTH)
+  ${CYAN}moveAilmentRetrieve${OFF};Get move meta ailment (AUTH) (AUTH)
+  ${CYAN}moveBattleStyleList${OFF};List move battle styles (AUTH) (AUTH)
+  ${CYAN}moveBattleStyleRetrieve${OFF};Get move battle style (AUTH) (AUTH)
+  ${CYAN}moveCategoryList${OFF};List move meta categories (AUTH) (AUTH)
+  ${CYAN}moveCategoryRetrieve${OFF};Get move meta category (AUTH) (AUTH)
+  ${CYAN}moveLearnMethodList${OFF};List move learn methods (AUTH) (AUTH)
+  ${CYAN}moveLearnMethodRetrieve${OFF};Get move learn method (AUTH) (AUTH)
+  ${CYAN}moveList${OFF};List moves (AUTH) (AUTH)
+  ${CYAN}moveRetrieve${OFF};Get move (AUTH) (AUTH)
+  ${CYAN}moveTargetList${OFF};List move targets (AUTH) (AUTH)
+  ${CYAN}moveTargetRetrieve${OFF};Get move target (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[pokemon]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}pokemonList${OFF};
-  ${CYAN}pokemonRead${OFF};
+  ${CYAN}abilityList${OFF}; (AUTH) (AUTH)
+  ${CYAN}abilityRetrieve${OFF}; (AUTH) (AUTH)
+  ${CYAN}characteristicList${OFF};List charecterictics (AUTH) (AUTH)
+  ${CYAN}characteristicRetrieve${OFF};Get characteristic (AUTH) (AUTH)
+  ${CYAN}eggGroupList${OFF};List egg groups (AUTH) (AUTH)
+  ${CYAN}eggGroupRetrieve${OFF};Get egg group (AUTH) (AUTH)
+  ${CYAN}genderList${OFF};List genders (AUTH) (AUTH)
+  ${CYAN}genderRetrieve${OFF};Get gender (AUTH) (AUTH)
+  ${CYAN}growthRateList${OFF};List growth rates (AUTH) (AUTH)
+  ${CYAN}growthRateRetrieve${OFF};Get growth rate (AUTH) (AUTH)
+  ${CYAN}moveDamageClassList${OFF};List move damage classes (AUTH) (AUTH)
+  ${CYAN}moveDamageClassRetrieve${OFF};Get move damage class (AUTH) (AUTH)
+  ${CYAN}natureList${OFF};List natures (AUTH) (AUTH)
+  ${CYAN}natureRetrieve${OFF};Get nature (AUTH) (AUTH)
+  ${CYAN}pokeathlonStatList${OFF};List pokeathlon stats (AUTH) (AUTH)
+  ${CYAN}pokeathlonStatRetrieve${OFF};Get pokeathlon stat (AUTH) (AUTH)
+  ${CYAN}pokemonColorList${OFF};List pokemon colors (AUTH) (AUTH)
+  ${CYAN}pokemonColorRetrieve${OFF};Get pokemon color (AUTH) (AUTH)
+  ${CYAN}pokemonFormList${OFF};List pokemon forms (AUTH) (AUTH)
+  ${CYAN}pokemonFormRetrieve${OFF};Get pokemon form (AUTH) (AUTH)
+  ${CYAN}pokemonHabitatList${OFF};List pokemom habitas (AUTH) (AUTH)
+  ${CYAN}pokemonHabitatRetrieve${OFF};Get pokemom habita (AUTH) (AUTH)
+  ${CYAN}pokemonList${OFF};List pokemon (AUTH) (AUTH)
+  ${CYAN}pokemonRetrieve${OFF};Get pokemon (AUTH) (AUTH)
+  ${CYAN}pokemonShapeList${OFF};List pokemon shapes (AUTH) (AUTH)
+  ${CYAN}pokemonShapeRetrieve${OFF};Get pokemon shape (AUTH) (AUTH)
+  ${CYAN}pokemonSpeciesList${OFF};List pokemon species (AUTH) (AUTH)
+  ${CYAN}pokemonSpeciesRetrieve${OFF};Get pokemon species (AUTH) (AUTH)
+  ${CYAN}statList${OFF};List stats (AUTH) (AUTH)
+  ${CYAN}statRetrieve${OFF};Get stat (AUTH) (AUTH)
+  ${CYAN}typeList${OFF};List types (AUTH) (AUTH)
+  ${CYAN}typeRetrieve${OFF};Get types (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
-    echo -e "${BOLD}${WHITE}[pokemonColor]${OFF}"
+    echo -e "${BOLD}${WHITE}[utility]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}pokemonColorList${OFF};
-  ${CYAN}pokemonColorRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[pokemonForm]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}pokemonFormList${OFF};
-  ${CYAN}pokemonFormRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[pokemonHabitat]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}pokemonHabitatList${OFF};
-  ${CYAN}pokemonHabitatRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[pokemonShape]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}pokemonShapeList${OFF};
-  ${CYAN}pokemonShapeRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[pokemonSpecies]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}pokemonSpeciesList${OFF};
-  ${CYAN}pokemonSpeciesRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[region]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}regionList${OFF};
-  ${CYAN}regionRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[stat]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}statList${OFF};
-  ${CYAN}statRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[superContestEffect]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}superContestEffectList${OFF};
-  ${CYAN}superContestEffectRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[type]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}typeList${OFF};
-  ${CYAN}typeRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[version]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}versionList${OFF};
-  ${CYAN}versionRead${OFF};
-EOF
-echo "  $ops" | column -t -s ';'
-    echo ""
-    echo -e "${BOLD}${WHITE}[versionGroup]${OFF}"
-read -r -d '' ops <<EOF
-  ${CYAN}versionGroupList${OFF};
-  ${CYAN}versionGroupRead${OFF};
+  ${CYAN}languageList${OFF};List languages (AUTH) (AUTH)
+  ${CYAN}languageRetrieve${OFF};Get language (AUTH) (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -1289,14 +1255,28 @@ echo -e "              \\t\\t\\t\\t(e.g. 'https://pokeapi.co')"
 ##############################################################################
 print_about() {
     echo ""
-    echo -e "${BOLD}${WHITE} command line client (API version 20220523)${OFF}"
+    echo -e "${BOLD}${WHITE}PokéAPI command line client (API version 2.7.0)${OFF}"
     echo ""
     echo -e "License: "
     echo -e "Contact: blah+oapicf@cliffano.com"
     echo ""
 read -r -d '' appdescription <<EOF
 
-No description provided (generated by Openapi Generator https://github.com/openapitools/openapi-generator)
+All the Pokémon data you'll ever need in one place, easily accessible through a modern free open-source RESTful API.
+
+## What is this?
+
+This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series.
+
+We've covered everything from Pokémon to Berry Flavors.
+
+## Where do I start?
+
+We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.
+
+This API will always be publicly available and will never require any extensive setup process to consume.
+
+Created by [**Paul Hallett**(]https://github.com/phalt) and other [**PokéAPI contributors***](https://github.com/PokeAPI/pokeapi#contributing) around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
 EOF
 echo "$appdescription" | paste -sd' ' - | fold -sw 80
 }
@@ -1309,80 +1289,10 @@ echo "$appdescription" | paste -sd' ' - | fold -sw 80
 ##############################################################################
 print_version() {
     echo ""
-    echo -e "${BOLD} command line client (API version 20220523)${OFF}"
+    echo -e "${BOLD}PokéAPI command line client (API version 2.7.0)${OFF}"
     echo ""
 }
 
-##############################################################################
-#
-# Print help for abilityList operation
-#
-##############################################################################
-print_abilityList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}abilityList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for abilityRead operation
-#
-##############################################################################
-print_abilityRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}abilityRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for berryList operation
-#
-##############################################################################
-print_berryList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}berryList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for berryRead operation
-#
-##############################################################################
-print_berryRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}berryRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
 ##############################################################################
 #
 # Print help for berryFirmnessList operation
@@ -1390,33 +1300,40 @@ print_berryRead_help() {
 ##############################################################################
 print_berryFirmnessList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}berryFirmnessList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}berryFirmnessList - List berry firmness${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
-# Print help for berryFirmnessRead operation
+# Print help for berryFirmnessRetrieve operation
 #
 ##############################################################################
-print_berryFirmnessRead_help() {
+print_berryFirmnessRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}berryFirmnessRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}berryFirmnessRetrieve - Get berry by firmness${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Berries can be soft or hard. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Category:Berries_by_firmness) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -1425,68 +1342,82 @@ print_berryFirmnessRead_help() {
 ##############################################################################
 print_berryFlavorList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}berryFlavorList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}berryFlavorList - List berry flavors${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
-# Print help for berryFlavorRead operation
+# Print help for berryFlavorRetrieve operation
 #
 ##############################################################################
-print_berryFlavorRead_help() {
+print_berryFlavorRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}berryFlavorRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}berryFlavorRetrieve - Get berries by flavor${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their **nature**. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Flavor) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
-# Print help for characteristicList operation
+# Print help for berryList operation
 #
 ##############################################################################
-print_characteristicList_help() {
+print_berryList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}characteristicList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}berryList - List berries${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
-# Print help for characteristicRead operation
+# Print help for berryRetrieve operation
 #
 ##############################################################################
-print_characteristicRead_help() {
+print_berryRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}characteristicRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}berryRetrieve - Get a berry${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Berry) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -1495,33 +1426,40 @@ print_characteristicRead_help() {
 ##############################################################################
 print_contestEffectList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}contestEffectList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}contestEffectList - List contest effects${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Contest effects refer to the effects of moves when used in contests." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
-# Print help for contestEffectRead operation
+# Print help for contestEffectRetrieve operation
 #
 ##############################################################################
-print_contestEffectRead_help() {
+print_contestEffectRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}contestEffectRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}contestEffectRetrieve - Get contest effect${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Contest effects refer to the effects of moves when used in contests." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -1530,1328 +1468,40 @@ print_contestEffectRead_help() {
 ##############################################################################
 print_contestTypeList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}contestTypeList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}contestTypeList - List contest types${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for contestTypeRead operation
-#
-##############################################################################
-print_contestTypeRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}contestTypeRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for eggGroupList operation
-#
-##############################################################################
-print_eggGroupList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}eggGroupList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for eggGroupRead operation
-#
-##############################################################################
-print_eggGroupRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}eggGroupRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for encounterConditionList operation
-#
-##############################################################################
-print_encounterConditionList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}encounterConditionList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for encounterConditionRead operation
-#
-##############################################################################
-print_encounterConditionRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}encounterConditionRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for encounterConditionValueList operation
-#
-##############################################################################
-print_encounterConditionValueList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}encounterConditionValueList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for encounterConditionValueRead operation
-#
-##############################################################################
-print_encounterConditionValueRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}encounterConditionValueRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for encounterMethodList operation
-#
-##############################################################################
-print_encounterMethodList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}encounterMethodList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for encounterMethodRead operation
-#
-##############################################################################
-print_encounterMethodRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}encounterMethodRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for evolutionChainList operation
-#
-##############################################################################
-print_evolutionChainList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}evolutionChainList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for evolutionChainRead operation
-#
-##############################################################################
-print_evolutionChainRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}evolutionChainRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for evolutionTriggerList operation
-#
-##############################################################################
-print_evolutionTriggerList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}evolutionTriggerList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for evolutionTriggerRead operation
-#
-##############################################################################
-print_evolutionTriggerRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}evolutionTriggerRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for genderList operation
-#
-##############################################################################
-print_genderList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}genderList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for genderRead operation
-#
-##############################################################################
-print_genderRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}genderRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for generationList operation
-#
-##############################################################################
-print_generationList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}generationList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for generationRead operation
-#
-##############################################################################
-print_generationRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}generationRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for growthRateList operation
-#
-##############################################################################
-print_growthRateList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}growthRateList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for growthRateRead operation
-#
-##############################################################################
-print_growthRateRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}growthRateRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for itemList operation
-#
-##############################################################################
-print_itemList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}itemList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for itemRead operation
-#
-##############################################################################
-print_itemRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}itemRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for itemAttributeList operation
-#
-##############################################################################
-print_itemAttributeList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}itemAttributeList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for itemAttributeRead operation
-#
-##############################################################################
-print_itemAttributeRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}itemAttributeRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for itemCategoryList operation
-#
-##############################################################################
-print_itemCategoryList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}itemCategoryList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for itemCategoryRead operation
-#
-##############################################################################
-print_itemCategoryRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}itemCategoryRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for itemFlingEffectList operation
-#
-##############################################################################
-print_itemFlingEffectList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}itemFlingEffectList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for itemFlingEffectRead operation
-#
-##############################################################################
-print_itemFlingEffectRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}itemFlingEffectRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for itemPocketList operation
-#
-##############################################################################
-print_itemPocketList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}itemPocketList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for itemPocketRead operation
-#
-##############################################################################
-print_itemPocketRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}itemPocketRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for languageList operation
-#
-##############################################################################
-print_languageList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}languageList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for languageRead operation
-#
-##############################################################################
-print_languageRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}languageRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for locationList operation
-#
-##############################################################################
-print_locationList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}locationList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for locationRead operation
-#
-##############################################################################
-print_locationRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}locationRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for locationAreaList operation
-#
-##############################################################################
-print_locationAreaList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}locationAreaList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for locationAreaRead operation
-#
-##############################################################################
-print_locationAreaRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}locationAreaRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for machineList operation
-#
-##############################################################################
-print_machineList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}machineList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for machineRead operation
-#
-##############################################################################
-print_machineRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}machineRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for moveList operation
-#
-##############################################################################
-print_moveList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}moveList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for moveRead operation
-#
-##############################################################################
-print_moveRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}moveRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for moveAilmentList operation
-#
-##############################################################################
-print_moveAilmentList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}moveAilmentList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for moveAilmentRead operation
-#
-##############################################################################
-print_moveAilmentRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}moveAilmentRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for moveBattleStyleList operation
-#
-##############################################################################
-print_moveBattleStyleList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}moveBattleStyleList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for moveBattleStyleRead operation
-#
-##############################################################################
-print_moveBattleStyleRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}moveBattleStyleRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for moveCategoryList operation
-#
-##############################################################################
-print_moveCategoryList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}moveCategoryList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for moveCategoryRead operation
-#
-##############################################################################
-print_moveCategoryRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}moveCategoryRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for moveDamageClassList operation
-#
-##############################################################################
-print_moveDamageClassList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}moveDamageClassList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for moveDamageClassRead operation
-#
-##############################################################################
-print_moveDamageClassRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}moveDamageClassRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for moveLearnMethodList operation
-#
-##############################################################################
-print_moveLearnMethodList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}moveLearnMethodList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for moveLearnMethodRead operation
-#
-##############################################################################
-print_moveLearnMethodRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}moveLearnMethodRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for moveTargetList operation
-#
-##############################################################################
-print_moveTargetList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}moveTargetList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for moveTargetRead operation
-#
-##############################################################################
-print_moveTargetRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}moveTargetRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for natureList operation
-#
-##############################################################################
-print_natureList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}natureList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for natureRead operation
-#
-##############################################################################
-print_natureRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}natureRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for palParkAreaList operation
-#
-##############################################################################
-print_palParkAreaList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}palParkAreaList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for palParkAreaRead operation
-#
-##############################################################################
-print_palParkAreaRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}palParkAreaRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for pokeathlonStatList operation
-#
-##############################################################################
-print_pokeathlonStatList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}pokeathlonStatList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for pokeathlonStatRead operation
-#
-##############################################################################
-print_pokeathlonStatRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}pokeathlonStatRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for pokedexList operation
-#
-##############################################################################
-print_pokedexList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}pokedexList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for pokedexRead operation
-#
-##############################################################################
-print_pokedexRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}pokedexRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for pokemonList operation
-#
-##############################################################################
-print_pokemonList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}pokemonList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for pokemonRead operation
-#
-##############################################################################
-print_pokemonRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}pokemonRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for pokemonColorList operation
-#
-##############################################################################
-print_pokemonColorList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}pokemonColorList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for pokemonColorRead operation
-#
-##############################################################################
-print_pokemonColorRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}pokemonColorRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for pokemonFormList operation
-#
-##############################################################################
-print_pokemonFormList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}pokemonFormList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for pokemonFormRead operation
-#
-##############################################################################
-print_pokemonFormRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}pokemonFormRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for pokemonHabitatList operation
-#
-##############################################################################
-print_pokemonHabitatList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}pokemonHabitatList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for pokemonHabitatRead operation
-#
-##############################################################################
-print_pokemonHabitatRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}pokemonHabitatRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for pokemonShapeList operation
-#
-##############################################################################
-print_pokemonShapeList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}pokemonShapeList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for pokemonShapeRead operation
-#
-##############################################################################
-print_pokemonShapeRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}pokemonShapeRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for pokemonSpeciesList operation
-#
-##############################################################################
-print_pokemonSpeciesList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}pokemonSpeciesList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for pokemonSpeciesRead operation
-#
-##############################################################################
-print_pokemonSpeciesRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}pokemonSpeciesRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for regionList operation
-#
-##############################################################################
-print_regionList_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}regionList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for regionRead operation
-#
-##############################################################################
-print_regionRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}regionRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
-# Print help for statList operation
+# Print help for contestTypeRetrieve operation
 #
 ##############################################################################
-print_statList_help() {
+print_contestTypeRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}statList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}contestTypeRetrieve - Get contest type${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for statRead operation
-#
-##############################################################################
-print_statRead_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}statRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Contest_condition) for greater detail." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -2860,103 +1510,352 @@ print_statRead_help() {
 ##############################################################################
 print_superContestEffectList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}superContestEffectList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}superContestEffectList - List super contest effects${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Super contest effects refer to the effects of moves when used in super contests." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
-# Print help for superContestEffectRead operation
+# Print help for superContestEffectRetrieve operation
 #
 ##############################################################################
-print_superContestEffectRead_help() {
+print_superContestEffectRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}superContestEffectRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}superContestEffectRetrieve - Get super contest effect${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Super contest effects refer to the effects of moves when used in super contests." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
-# Print help for typeList operation
+# Print help for encounterConditionList operation
 #
 ##############################################################################
-print_typeList_help() {
+print_encounterConditionList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}typeList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}encounterConditionList - List encounter conditions${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Conditions which affect what pokemon might appear in the wild, e.g., day or night." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
-# Print help for typeRead operation
+# Print help for encounterConditionRetrieve operation
 #
 ##############################################################################
-print_typeRead_help() {
+print_encounterConditionRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}typeRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}encounterConditionRetrieve - Get encounter condition${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Conditions which affect what pokemon might appear in the wild, e.g., day or night." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
-# Print help for versionList operation
+# Print help for encounterConditionValueList operation
 #
 ##############################################################################
-print_versionList_help() {
+print_encounterConditionValueList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}versionList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}encounterConditionValueList - List encounter condition values${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
-# Print help for versionRead operation
+# Print help for encounterConditionValueRetrieve operation
 #
 ##############################################################################
-print_versionRead_help() {
+print_encounterConditionValueRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}versionRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}encounterConditionValueRetrieve - Get encounter condition value${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Encounter condition values are the various states that an encounter condition can have, i.e., time of day can be either day or night." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for encounterMethodList operation
+#
+##############################################################################
+print_encounterMethodList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}encounterMethodList - List encounter methods${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for encounterMethodRetrieve operation
+#
+##############################################################################
+print_encounterMethodRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}encounterMethodRetrieve - Get encounter method${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for pokemonEncountersRetrieve operation
+#
+##############################################################################
+print_pokemonEncountersRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}pokemonEncountersRetrieve - Get pokemon encounter${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Handles Pokemon Encounters as a sub-resource." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}pokemon_id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: pokemon_id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for evolutionChainList operation
+#
+##############################################################################
+print_evolutionChainList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}evolutionChainList - List evolution chains${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for evolutionChainRetrieve operation
+#
+##############################################################################
+print_evolutionChainRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}evolutionChainRetrieve - Get evolution chain${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for evolutionTriggerList operation
+#
+##############################################################################
+print_evolutionTriggerList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}evolutionTriggerList - List evolution triggers${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for evolutionTriggerRetrieve operation
+#
+##############################################################################
+print_evolutionTriggerRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}evolutionTriggerRetrieve - Get evolution trigger${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Evolution triggers are the events and conditions that cause a Pokémon to evolve. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Methods_of_evolution) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for generationList operation
+#
+##############################################################################
+print_generationList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}generationList - List genrations${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for generationRetrieve operation
+#
+##############################################################################
+print_generationRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}generationRetrieve - Get genration${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for pokedexList operation
+#
+##############################################################################
+print_pokedexList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}pokedexList - List pokedex${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for pokedexRetrieve operation
+#
+##############################################################################
+print_pokedexRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}pokedexRetrieve - Get pokedex${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pokedex) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -2965,179 +1864,1467 @@ print_versionRead_help() {
 ##############################################################################
 print_versionGroupList_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}versionGroupList - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}versionGroupList - List version groups${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Version groups categorize highly similar versions of the games." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: offset=value${OFF}" \
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
         | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
-# Print help for versionGroupRead operation
+# Print help for versionGroupRetrieve operation
 #
 ##############################################################################
-print_versionGroupRead_help() {
+print_versionGroupRetrieve_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}versionGroupRead - ${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}versionGroupRetrieve - Get version group${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Version groups categorize highly similar versions of the games." | paste -sd' ' - | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;Default response${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for versionList operation
+#
+##############################################################################
+print_versionList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}versionList - List versions${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Versions of the games, e.g., Red, Blue or Yellow." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for versionRetrieve operation
+#
+##############################################################################
+print_versionRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}versionRetrieve - Get version${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Versions of the games, e.g., Red, Blue or Yellow." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for itemAttributeList operation
+#
+##############################################################################
+print_itemAttributeList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}itemAttributeList - List item attributes${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\"." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for itemAttributeRetrieve operation
+#
+##############################################################################
+print_itemAttributeRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}itemAttributeRetrieve - Get item attribute${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Item attributes define particular aspects of items, e.g.\"usable in battle\" or \"consumable\"." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for itemCategoryList operation
+#
+##############################################################################
+print_itemCategoryList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}itemCategoryList - List item categories${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Item categories determine where items will be placed in the players bag." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for itemCategoryRetrieve operation
+#
+##############################################################################
+print_itemCategoryRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}itemCategoryRetrieve - Get item category${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Item categories determine where items will be placed in the players bag." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for itemFlingEffectList operation
+#
+##############################################################################
+print_itemFlingEffectList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}itemFlingEffectList - List item fling effects${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "The various effects of the move\"Fling\" when used with different items." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for itemFlingEffectRetrieve operation
+#
+##############################################################################
+print_itemFlingEffectRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}itemFlingEffectRetrieve - Get item fling effect${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "The various effects of the move\"Fling\" when used with different items." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for itemList operation
+#
+##############################################################################
+print_itemList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}itemList - List items${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for itemPocketList operation
+#
+##############################################################################
+print_itemPocketList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}itemPocketList - List item pockets${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Pockets within the players bag used for storing items by category." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for itemPocketRetrieve operation
+#
+##############################################################################
+print_itemPocketRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}itemPocketRetrieve - Get item pocket${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Pockets within the players bag used for storing items by category." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for itemRetrieve operation
+#
+##############################################################################
+print_itemRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}itemRetrieve - Get item${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for locationAreaList operation
+#
+##############################################################################
+print_locationAreaList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}locationAreaList - List location areas${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for locationAreaRetrieve operation
+#
+##############################################################################
+print_locationAreaRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}locationAreaRetrieve - Get location area${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[integer]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - A unique integer value identifying this location area. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for locationList operation
+#
+##############################################################################
+print_locationList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}locationList - List locations${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for locationRetrieve operation
+#
+##############################################################################
+print_locationRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}locationRetrieve - Get location${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for palParkAreaList operation
+#
+##############################################################################
+print_palParkAreaList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}palParkAreaList - List pal park areas${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for palParkAreaRetrieve operation
+#
+##############################################################################
+print_palParkAreaRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}palParkAreaRetrieve - Get pal park area${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for regionList operation
+#
+##############################################################################
+print_regionList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}regionList - List regions${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for regionRetrieve operation
+#
+##############################################################################
+print_regionRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}regionRetrieve - Get region${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for machineList operation
+#
+##############################################################################
+print_machineList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}machineList - List machines${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for machineRetrieve operation
+#
+##############################################################################
+print_machineRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}machineRetrieve - Get machine${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Machines are the representation of items that teach moves to Pokémon. They vary from version to version, so it is not certain that one specific TM or HM corresponds to a single Machine." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for moveAilmentList operation
+#
+##############################################################################
+print_moveAilmentList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}moveAilmentList - List move meta ailments${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for moveAilmentRetrieve operation
+#
+##############################################################################
+print_moveAilmentRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}moveAilmentRetrieve - Get move meta ailment${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Move Ailments are status conditions caused by moves used during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Status_condition) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for moveBattleStyleList operation
+#
+##############################################################################
+print_moveBattleStyleList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}moveBattleStyleList - List move battle styles${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for moveBattleStyleRetrieve operation
+#
+##############################################################################
+print_moveBattleStyleRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}moveBattleStyleRetrieve - Get move battle style${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Styles of moves when used in the Battle Palace. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for moveCategoryList operation
+#
+##############################################################################
+print_moveCategoryList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}moveCategoryList - List move meta categories${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Very general categories that loosely group move effects." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for moveCategoryRetrieve operation
+#
+##############################################################################
+print_moveCategoryRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}moveCategoryRetrieve - Get move meta category${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Very general categories that loosely group move effects." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for moveLearnMethodList operation
+#
+##############################################################################
+print_moveLearnMethodList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}moveLearnMethodList - List move learn methods${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Methods by which Pokémon can learn moves." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for moveLearnMethodRetrieve operation
+#
+##############################################################################
+print_moveLearnMethodRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}moveLearnMethodRetrieve - Get move learn method${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Methods by which Pokémon can learn moves." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for moveList operation
+#
+##############################################################################
+print_moveList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}moveList - List moves${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for moveRetrieve operation
+#
+##############################################################################
+print_moveRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}moveRetrieve - Get move${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for moveTargetList operation
+#
+##############################################################################
+print_moveTargetList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}moveTargetList - List move targets${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for moveTargetRetrieve operation
+#
+##############################################################################
+print_moveTargetRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}moveTargetRetrieve - Get move target${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for abilityList operation
+#
+##############################################################################
+print_abilityList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}abilityList - ${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for abilityRetrieve operation
+#
+##############################################################################
+print_abilityRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}abilityRetrieve - ${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Ability) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for characteristicList operation
+#
+##############################################################################
+print_characteristicList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}characteristicList - List charecterictics${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for characteristicRetrieve operation
+#
+##############################################################################
+print_characteristicRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}characteristicRetrieve - Get characteristic${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Characteristic) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for eggGroupList operation
+#
+##############################################################################
+print_eggGroupList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}eggGroupList - List egg groups${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for eggGroupRetrieve operation
+#
+##############################################################################
+print_eggGroupRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}eggGroupRetrieve - Get egg group${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Egg_Group) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for genderList operation
+#
+##############################################################################
+print_genderList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}genderList - List genders${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for genderRetrieve operation
+#
+##############################################################################
+print_genderRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}genderRetrieve - Get gender${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Gender) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for growthRateList operation
+#
+##############################################################################
+print_growthRateList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}growthRateList - List growth rates${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for growthRateRetrieve operation
+#
+##############################################################################
+print_growthRateRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}growthRateRetrieve - Get growth rate${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Growth rates are the speed with which Pokémon gain levels through experience. Check out [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Experience) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for moveDamageClassList operation
+#
+##############################################################################
+print_moveDamageClassList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}moveDamageClassList - List move damage classes${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Damage classes moves can have, e.g. physical, special, or non-damaging." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for moveDamageClassRetrieve operation
+#
+##############################################################################
+print_moveDamageClassRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}moveDamageClassRetrieve - Get move damage class${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Damage classes moves can have, e.g. physical, special, or non-damaging." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for natureList operation
+#
+##############################################################################
+print_natureList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}natureList - List natures${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for natureRetrieve operation
+#
+##############################################################################
+print_natureRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}natureRetrieve - Get nature${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Natures influence how a Pokémon's stats grow. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Nature) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for pokeathlonStatList operation
+#
+##############################################################################
+print_pokeathlonStatList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}pokeathlonStatList - List pokeathlon stats${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for pokeathlonStatRetrieve operation
+#
+##############################################################################
+print_pokeathlonStatRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}pokeathlonStatRetrieve - Get pokeathlon stat${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for pokemonColorList operation
+#
+##############################################################################
+print_pokemonColorList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}pokemonColorList - List pokemon colors${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for pokemonColorRetrieve operation
+#
+##############################################################################
+print_pokemonColorRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}pokemonColorRetrieve - Get pokemon color${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for pokemonFormList operation
+#
+##############################################################################
+print_pokemonFormList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}pokemonFormList - List pokemon forms${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for pokemonFormRetrieve operation
+#
+##############################################################################
+print_pokemonFormRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}pokemonFormRetrieve - Get pokemon form${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for pokemonHabitatList operation
+#
+##############################################################################
+print_pokemonHabitatList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}pokemonHabitatList - List pokemom habitas${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for pokemonHabitatRetrieve operation
+#
+##############################################################################
+print_pokemonHabitatRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}pokemonHabitatRetrieve - Get pokemom habita${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for pokemonList operation
+#
+##############################################################################
+print_pokemonList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}pokemonList - List pokemon${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for pokemonRetrieve operation
+#
+##############################################################################
+print_pokemonRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}pokemonRetrieve - Get pokemon${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings. See [Bulbapedia](http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)) for greater detail." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for pokemonShapeList operation
+#
+##############################################################################
+print_pokemonShapeList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}pokemonShapeList - List pokemon shapes${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Shapes used for sorting Pokémon in a Pokédex." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for pokemonShapeRetrieve operation
+#
+##############################################################################
+print_pokemonShapeRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}pokemonShapeRetrieve - Get pokemon shape${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Shapes used for sorting Pokémon in a Pokédex." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for pokemonSpeciesList operation
+#
+##############################################################################
+print_pokemonSpeciesList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}pokemonSpeciesList - List pokemon species${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for pokemonSpeciesRetrieve operation
+#
+##############################################################################
+print_pokemonSpeciesRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}pokemonSpeciesRetrieve - Get pokemon species${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for statList operation
+#
+##############################################################################
+print_statList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}statList - List stats${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for statRetrieve operation
+#
+##############################################################################
+print_statRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}statRetrieve - Get stat${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for typeList operation
+#
+##############################################################################
+print_typeList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}typeList - List types${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for typeRetrieve operation
+#
+##############################################################################
+print_typeRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}typeRetrieve - Get types${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for languageList operation
+#
+##############################################################################
+print_languageList_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}languageList - List languages${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Languages for translations of API resource information." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}q${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - > Only available locally and not at [pokeapi.co](https://pokeapi.co/docs/v2)
+Case-insensitive query applied on the 'name' property.${YELLOW} Specify as: q=value${OFF}" \
+        | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for languageRetrieve operation
+#
+##############################################################################
+print_languageRetrieve_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}languageRetrieve - Get language${OFF}${BLUE}(AUTH - BASIC)${OFF}${BLUE}(AUTH - )${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Languages for translations of API resource information." | paste -sd' ' - | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - This parameter can be a string or an integer. ${YELLOW}Specify as: id=value${OFF}" | paste -sd' ' - | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' - | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 
-
-##############################################################################
-#
-# Call abilityList operation
-#
-##############################################################################
-call_abilityList() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
-    local path
-
-    if ! path=$(build_request_path "/api/v2/ability/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call abilityRead operation
-#
-##############################################################################
-call_abilityRead() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(id)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=()
-    local path
-
-    if ! path=$(build_request_path "/api/v2/ability/{id}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call berryList operation
-#
-##############################################################################
-call_berryList() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
-    local path
-
-    if ! path=$(build_request_path "/api/v2/berry/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call berryRead operation
-#
-##############################################################################
-call_berryRead() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(id)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=()
-    local path
-
-    if ! path=$(build_request_path "/api/v2/berry/{id}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
 
 ##############################################################################
 #
@@ -3150,7 +3337,7 @@ call_berryFirmnessList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/berry-firmness/" path_parameter_names query_parameter_names); then
@@ -3177,16 +3364,16 @@ call_berryFirmnessList() {
 
 ##############################################################################
 #
-# Call berryFirmnessRead operation
+# Call berryFirmnessRetrieve operation
 #
 ##############################################################################
-call_berryFirmnessRead() {
+call_berryFirmnessRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/berry-firmness/{id}/" path_parameter_names query_parameter_names); then
@@ -3222,7 +3409,7 @@ call_berryFlavorList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/berry-flavor/" path_parameter_names query_parameter_names); then
@@ -3249,16 +3436,16 @@ call_berryFlavorList() {
 
 ##############################################################################
 #
-# Call berryFlavorRead operation
+# Call berryFlavorRetrieve operation
 #
 ##############################################################################
-call_berryFlavorRead() {
+call_berryFlavorRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/berry-flavor/{id}/" path_parameter_names query_parameter_names); then
@@ -3285,19 +3472,19 @@ call_berryFlavorRead() {
 
 ##############################################################################
 #
-# Call characteristicList operation
+# Call berryList operation
 #
 ##############################################################################
-call_characteristicList() {
+call_berryList() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
-    if ! path=$(build_request_path "/api/v2/characteristic/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/berry/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3321,19 +3508,19 @@ call_characteristicList() {
 
 ##############################################################################
 #
-# Call characteristicRead operation
+# Call berryRetrieve operation
 #
 ##############################################################################
-call_characteristicRead() {
+call_berryRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
-    if ! path=$(build_request_path "/api/v2/characteristic/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/berry/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3366,7 +3553,7 @@ call_contestEffectList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/contest-effect/" path_parameter_names query_parameter_names); then
@@ -3393,16 +3580,16 @@ call_contestEffectList() {
 
 ##############################################################################
 #
-# Call contestEffectRead operation
+# Call contestEffectRetrieve operation
 #
 ##############################################################################
-call_contestEffectRead() {
+call_contestEffectRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/contest-effect/{id}/" path_parameter_names query_parameter_names); then
@@ -3438,7 +3625,7 @@ call_contestTypeList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/contest-type/" path_parameter_names query_parameter_names); then
@@ -3465,16 +3652,16 @@ call_contestTypeList() {
 
 ##############################################################################
 #
-# Call contestTypeRead operation
+# Call contestTypeRetrieve operation
 #
 ##############################################################################
-call_contestTypeRead() {
+call_contestTypeRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/contest-type/{id}/" path_parameter_names query_parameter_names); then
@@ -3501,19 +3688,19 @@ call_contestTypeRead() {
 
 ##############################################################################
 #
-# Call eggGroupList operation
+# Call superContestEffectList operation
 #
 ##############################################################################
-call_eggGroupList() {
+call_superContestEffectList() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
-    if ! path=$(build_request_path "/api/v2/egg-group/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/super-contest-effect/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3537,19 +3724,19 @@ call_eggGroupList() {
 
 ##############################################################################
 #
-# Call eggGroupRead operation
+# Call superContestEffectRetrieve operation
 #
 ##############################################################################
-call_eggGroupRead() {
+call_superContestEffectRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
-    if ! path=$(build_request_path "/api/v2/egg-group/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/super-contest-effect/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3582,7 +3769,7 @@ call_encounterConditionList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/encounter-condition/" path_parameter_names query_parameter_names); then
@@ -3609,16 +3796,16 @@ call_encounterConditionList() {
 
 ##############################################################################
 #
-# Call encounterConditionRead operation
+# Call encounterConditionRetrieve operation
 #
 ##############################################################################
-call_encounterConditionRead() {
+call_encounterConditionRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/encounter-condition/{id}/" path_parameter_names query_parameter_names); then
@@ -3654,7 +3841,7 @@ call_encounterConditionValueList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/encounter-condition-value/" path_parameter_names query_parameter_names); then
@@ -3681,16 +3868,16 @@ call_encounterConditionValueList() {
 
 ##############################################################################
 #
-# Call encounterConditionValueRead operation
+# Call encounterConditionValueRetrieve operation
 #
 ##############################################################################
-call_encounterConditionValueRead() {
+call_encounterConditionValueRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/encounter-condition-value/{id}/" path_parameter_names query_parameter_names); then
@@ -3726,7 +3913,7 @@ call_encounterMethodList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/encounter-method/" path_parameter_names query_parameter_names); then
@@ -3753,19 +3940,55 @@ call_encounterMethodList() {
 
 ##############################################################################
 #
-# Call encounterMethodRead operation
+# Call encounterMethodRetrieve operation
 #
 ##############################################################################
-call_encounterMethodRead() {
+call_encounterMethodRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/encounter-method/{id}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call pokemonEncountersRetrieve operation
+#
+##############################################################################
+call_pokemonEncountersRetrieve() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(pokemon_id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/pokemon/{pokemon_id}/encounters" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -3798,7 +4021,7 @@ call_evolutionChainList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/evolution-chain/" path_parameter_names query_parameter_names); then
@@ -3825,16 +4048,16 @@ call_evolutionChainList() {
 
 ##############################################################################
 #
-# Call evolutionChainRead operation
+# Call evolutionChainRetrieve operation
 #
 ##############################################################################
-call_evolutionChainRead() {
+call_evolutionChainRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/evolution-chain/{id}/" path_parameter_names query_parameter_names); then
@@ -3870,7 +4093,7 @@ call_evolutionTriggerList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/evolution-trigger/" path_parameter_names query_parameter_names); then
@@ -3897,91 +4120,19 @@ call_evolutionTriggerList() {
 
 ##############################################################################
 #
-# Call evolutionTriggerRead operation
+# Call evolutionTriggerRetrieve operation
 #
 ##############################################################################
-call_evolutionTriggerRead() {
+call_evolutionTriggerRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/evolution-trigger/{id}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call genderList operation
-#
-##############################################################################
-call_genderList() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
-    local path
-
-    if ! path=$(build_request_path "/api/v2/gender/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call genderRead operation
-#
-##############################################################################
-call_genderRead() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(id)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=()
-    local path
-
-    if ! path=$(build_request_path "/api/v2/gender/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4014,7 +4165,7 @@ call_generationList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/generation/" path_parameter_names query_parameter_names); then
@@ -4041,16 +4192,16 @@ call_generationList() {
 
 ##############################################################################
 #
-# Call generationRead operation
+# Call generationRetrieve operation
 #
 ##############################################################################
-call_generationRead() {
+call_generationRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/generation/{id}/" path_parameter_names query_parameter_names); then
@@ -4077,19 +4228,19 @@ call_generationRead() {
 
 ##############################################################################
 #
-# Call growthRateList operation
+# Call pokedexList operation
 #
 ##############################################################################
-call_growthRateList() {
+call_pokedexList() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
-    if ! path=$(build_request_path "/api/v2/growth-rate/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokedex/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4113,19 +4264,19 @@ call_growthRateList() {
 
 ##############################################################################
 #
-# Call growthRateRead operation
+# Call pokedexRetrieve operation
 #
 ##############################################################################
-call_growthRateRead() {
+call_pokedexRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
-    if ! path=$(build_request_path "/api/v2/growth-rate/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/pokedex/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4149,19 +4300,19 @@ call_growthRateRead() {
 
 ##############################################################################
 #
-# Call itemList operation
+# Call versionGroupList operation
 #
 ##############################################################################
-call_itemList() {
+call_versionGroupList() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
-    if ! path=$(build_request_path "/api/v2/item/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/version-group/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4185,19 +4336,91 @@ call_itemList() {
 
 ##############################################################################
 #
-# Call itemRead operation
+# Call versionGroupRetrieve operation
 #
 ##############################################################################
-call_itemRead() {
+call_versionGroupRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
-    if ! path=$(build_request_path "/api/v2/item/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/version-group/{id}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call versionList operation
+#
+##############################################################################
+call_versionList() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(limit offset q    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/version/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call versionRetrieve operation
+#
+##############################################################################
+call_versionRetrieve() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/version/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4230,7 +4453,7 @@ call_itemAttributeList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/item-attribute/" path_parameter_names query_parameter_names); then
@@ -4257,16 +4480,16 @@ call_itemAttributeList() {
 
 ##############################################################################
 #
-# Call itemAttributeRead operation
+# Call itemAttributeRetrieve operation
 #
 ##############################################################################
-call_itemAttributeRead() {
+call_itemAttributeRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/item-attribute/{id}/" path_parameter_names query_parameter_names); then
@@ -4302,7 +4525,7 @@ call_itemCategoryList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/item-category/" path_parameter_names query_parameter_names); then
@@ -4329,16 +4552,16 @@ call_itemCategoryList() {
 
 ##############################################################################
 #
-# Call itemCategoryRead operation
+# Call itemCategoryRetrieve operation
 #
 ##############################################################################
-call_itemCategoryRead() {
+call_itemCategoryRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/item-category/{id}/" path_parameter_names query_parameter_names); then
@@ -4374,7 +4597,7 @@ call_itemFlingEffectList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/item-fling-effect/" path_parameter_names query_parameter_names); then
@@ -4401,19 +4624,55 @@ call_itemFlingEffectList() {
 
 ##############################################################################
 #
-# Call itemFlingEffectRead operation
+# Call itemFlingEffectRetrieve operation
 #
 ##############################################################################
-call_itemFlingEffectRead() {
+call_itemFlingEffectRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/item-fling-effect/{id}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call itemList operation
+#
+##############################################################################
+call_itemList() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(limit offset q    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/item/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4446,7 +4705,7 @@ call_itemPocketList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/item-pocket/" path_parameter_names query_parameter_names); then
@@ -4473,16 +4732,16 @@ call_itemPocketList() {
 
 ##############################################################################
 #
-# Call itemPocketRead operation
+# Call itemPocketRetrieve operation
 #
 ##############################################################################
-call_itemPocketRead() {
+call_itemPocketRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/item-pocket/{id}/" path_parameter_names query_parameter_names); then
@@ -4509,127 +4768,19 @@ call_itemPocketRead() {
 
 ##############################################################################
 #
-# Call languageList operation
+# Call itemRetrieve operation
 #
 ##############################################################################
-call_languageList() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
-    local path
-
-    if ! path=$(build_request_path "/api/v2/language/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call languageRead operation
-#
-##############################################################################
-call_languageRead() {
+call_itemRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
-    if ! path=$(build_request_path "/api/v2/language/{id}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call locationList operation
-#
-##############################################################################
-call_locationList() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
-    local path
-
-    if ! path=$(build_request_path "/api/v2/location/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call locationRead operation
-#
-##############################################################################
-call_locationRead() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(id)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=()
-    local path
-
-    if ! path=$(build_request_path "/api/v2/location/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/item/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4662,7 +4813,7 @@ call_locationAreaList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset    )
     local path
 
     if ! path=$(build_request_path "/api/v2/location-area/" path_parameter_names query_parameter_names); then
@@ -4689,19 +4840,235 @@ call_locationAreaList() {
 
 ##############################################################################
 #
-# Call locationAreaRead operation
+# Call locationAreaRetrieve operation
 #
 ##############################################################################
-call_locationAreaRead() {
+call_locationAreaRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/location-area/{id}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call locationList operation
+#
+##############################################################################
+call_locationList() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(limit offset q    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/location/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call locationRetrieve operation
+#
+##############################################################################
+call_locationRetrieve() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/location/{id}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call palParkAreaList operation
+#
+##############################################################################
+call_palParkAreaList() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(limit offset q    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/pal-park-area/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call palParkAreaRetrieve operation
+#
+##############################################################################
+call_palParkAreaRetrieve() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/pal-park-area/{id}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call regionList operation
+#
+##############################################################################
+call_regionList() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(limit offset q    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/region/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call regionRetrieve operation
+#
+##############################################################################
+call_regionRetrieve() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/region/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4734,7 +5101,7 @@ call_machineList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/machine/" path_parameter_names query_parameter_names); then
@@ -4761,91 +5128,19 @@ call_machineList() {
 
 ##############################################################################
 #
-# Call machineRead operation
+# Call machineRetrieve operation
 #
 ##############################################################################
-call_machineRead() {
+call_machineRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/machine/{id}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call moveList operation
-#
-##############################################################################
-call_moveList() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
-    local path
-
-    if ! path=$(build_request_path "/api/v2/move/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call moveRead operation
-#
-##############################################################################
-call_moveRead() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(id)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=()
-    local path
-
-    if ! path=$(build_request_path "/api/v2/move/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -4878,7 +5173,7 @@ call_moveAilmentList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/move-ailment/" path_parameter_names query_parameter_names); then
@@ -4905,16 +5200,16 @@ call_moveAilmentList() {
 
 ##############################################################################
 #
-# Call moveAilmentRead operation
+# Call moveAilmentRetrieve operation
 #
 ##############################################################################
-call_moveAilmentRead() {
+call_moveAilmentRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/move-ailment/{id}/" path_parameter_names query_parameter_names); then
@@ -4950,7 +5245,7 @@ call_moveBattleStyleList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/move-battle-style/" path_parameter_names query_parameter_names); then
@@ -4977,16 +5272,16 @@ call_moveBattleStyleList() {
 
 ##############################################################################
 #
-# Call moveBattleStyleRead operation
+# Call moveBattleStyleRetrieve operation
 #
 ##############################################################################
-call_moveBattleStyleRead() {
+call_moveBattleStyleRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/move-battle-style/{id}/" path_parameter_names query_parameter_names); then
@@ -5022,7 +5317,7 @@ call_moveCategoryList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/move-category/" path_parameter_names query_parameter_names); then
@@ -5049,91 +5344,19 @@ call_moveCategoryList() {
 
 ##############################################################################
 #
-# Call moveCategoryRead operation
+# Call moveCategoryRetrieve operation
 #
 ##############################################################################
-call_moveCategoryRead() {
+call_moveCategoryRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/move-category/{id}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call moveDamageClassList operation
-#
-##############################################################################
-call_moveDamageClassList() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
-    local path
-
-    if ! path=$(build_request_path "/api/v2/move-damage-class/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call moveDamageClassRead operation
-#
-##############################################################################
-call_moveDamageClassRead() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(id)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=()
-    local path
-
-    if ! path=$(build_request_path "/api/v2/move-damage-class/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5166,7 +5389,7 @@ call_moveLearnMethodList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/move-learn-method/" path_parameter_names query_parameter_names); then
@@ -5193,19 +5416,91 @@ call_moveLearnMethodList() {
 
 ##############################################################################
 #
-# Call moveLearnMethodRead operation
+# Call moveLearnMethodRetrieve operation
 #
 ##############################################################################
-call_moveLearnMethodRead() {
+call_moveLearnMethodRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/move-learn-method/{id}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call moveList operation
+#
+##############################################################################
+call_moveList() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(limit offset q    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/move/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call moveRetrieve operation
+#
+##############################################################################
+call_moveRetrieve() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/move/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5238,7 +5533,7 @@ call_moveTargetList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/move-target/" path_parameter_names query_parameter_names); then
@@ -5265,19 +5560,451 @@ call_moveTargetList() {
 
 ##############################################################################
 #
-# Call moveTargetRead operation
+# Call moveTargetRetrieve operation
 #
 ##############################################################################
-call_moveTargetRead() {
+call_moveTargetRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/move-target/{id}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call abilityList operation
+#
+##############################################################################
+call_abilityList() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(limit offset q    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/ability/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call abilityRetrieve operation
+#
+##############################################################################
+call_abilityRetrieve() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/ability/{id}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call characteristicList operation
+#
+##############################################################################
+call_characteristicList() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(limit offset q    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/characteristic/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call characteristicRetrieve operation
+#
+##############################################################################
+call_characteristicRetrieve() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/characteristic/{id}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call eggGroupList operation
+#
+##############################################################################
+call_eggGroupList() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(limit offset q    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/egg-group/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call eggGroupRetrieve operation
+#
+##############################################################################
+call_eggGroupRetrieve() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/egg-group/{id}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call genderList operation
+#
+##############################################################################
+call_genderList() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(limit offset q    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/gender/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call genderRetrieve operation
+#
+##############################################################################
+call_genderRetrieve() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/gender/{id}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call growthRateList operation
+#
+##############################################################################
+call_growthRateList() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(limit offset q    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/growth-rate/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call growthRateRetrieve operation
+#
+##############################################################################
+call_growthRateRetrieve() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/growth-rate/{id}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call moveDamageClassList operation
+#
+##############################################################################
+call_moveDamageClassList() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(limit offset q    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/move-damage-class/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call moveDamageClassRetrieve operation
+#
+##############################################################################
+call_moveDamageClassRetrieve() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/move-damage-class/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5310,7 +6037,7 @@ call_natureList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/nature/" path_parameter_names query_parameter_names); then
@@ -5337,91 +6064,19 @@ call_natureList() {
 
 ##############################################################################
 #
-# Call natureRead operation
+# Call natureRetrieve operation
 #
 ##############################################################################
-call_natureRead() {
+call_natureRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/nature/{id}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call palParkAreaList operation
-#
-##############################################################################
-call_palParkAreaList() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
-    local path
-
-    if ! path=$(build_request_path "/api/v2/pal-park-area/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call palParkAreaRead operation
-#
-##############################################################################
-call_palParkAreaRead() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(id)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=()
-    local path
-
-    if ! path=$(build_request_path "/api/v2/pal-park-area/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5454,7 +6109,7 @@ call_pokeathlonStatList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/pokeathlon-stat/" path_parameter_names query_parameter_names); then
@@ -5481,163 +6136,19 @@ call_pokeathlonStatList() {
 
 ##############################################################################
 #
-# Call pokeathlonStatRead operation
+# Call pokeathlonStatRetrieve operation
 #
 ##############################################################################
-call_pokeathlonStatRead() {
+call_pokeathlonStatRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/pokeathlon-stat/{id}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call pokedexList operation
-#
-##############################################################################
-call_pokedexList() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
-    local path
-
-    if ! path=$(build_request_path "/api/v2/pokedex/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call pokedexRead operation
-#
-##############################################################################
-call_pokedexRead() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(id)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=()
-    local path
-
-    if ! path=$(build_request_path "/api/v2/pokedex/{id}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call pokemonList operation
-#
-##############################################################################
-call_pokemonList() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
-    local path
-
-    if ! path=$(build_request_path "/api/v2/pokemon/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call pokemonRead operation
-#
-##############################################################################
-call_pokemonRead() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(id)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=()
-    local path
-
-    if ! path=$(build_request_path "/api/v2/pokemon/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5670,7 +6181,7 @@ call_pokemonColorList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-color/" path_parameter_names query_parameter_names); then
@@ -5697,16 +6208,16 @@ call_pokemonColorList() {
 
 ##############################################################################
 #
-# Call pokemonColorRead operation
+# Call pokemonColorRetrieve operation
 #
 ##############################################################################
-call_pokemonColorRead() {
+call_pokemonColorRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-color/{id}/" path_parameter_names query_parameter_names); then
@@ -5742,7 +6253,7 @@ call_pokemonFormList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-form/" path_parameter_names query_parameter_names); then
@@ -5769,16 +6280,16 @@ call_pokemonFormList() {
 
 ##############################################################################
 #
-# Call pokemonFormRead operation
+# Call pokemonFormRetrieve operation
 #
 ##############################################################################
-call_pokemonFormRead() {
+call_pokemonFormRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-form/{id}/" path_parameter_names query_parameter_names); then
@@ -5814,7 +6325,7 @@ call_pokemonHabitatList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-habitat/" path_parameter_names query_parameter_names); then
@@ -5841,19 +6352,91 @@ call_pokemonHabitatList() {
 
 ##############################################################################
 #
-# Call pokemonHabitatRead operation
+# Call pokemonHabitatRetrieve operation
 #
 ##############################################################################
-call_pokemonHabitatRead() {
+call_pokemonHabitatRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-habitat/{id}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call pokemonList operation
+#
+##############################################################################
+call_pokemonList() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(limit offset q    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/pokemon/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call pokemonRetrieve operation
+#
+##############################################################################
+call_pokemonRetrieve() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(    )
+    local path
+
+    if ! path=$(build_request_path "/api/v2/pokemon/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -5886,7 +6469,7 @@ call_pokemonShapeList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-shape/" path_parameter_names query_parameter_names); then
@@ -5913,16 +6496,16 @@ call_pokemonShapeList() {
 
 ##############################################################################
 #
-# Call pokemonShapeRead operation
+# Call pokemonShapeRetrieve operation
 #
 ##############################################################################
-call_pokemonShapeRead() {
+call_pokemonShapeRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-shape/{id}/" path_parameter_names query_parameter_names); then
@@ -5958,7 +6541,7 @@ call_pokemonSpeciesList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-species/" path_parameter_names query_parameter_names); then
@@ -5985,91 +6568,19 @@ call_pokemonSpeciesList() {
 
 ##############################################################################
 #
-# Call pokemonSpeciesRead operation
+# Call pokemonSpeciesRetrieve operation
 #
 ##############################################################################
-call_pokemonSpeciesRead() {
+call_pokemonSpeciesRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/pokemon-species/{id}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call regionList operation
-#
-##############################################################################
-call_regionList() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
-    local path
-
-    if ! path=$(build_request_path "/api/v2/region/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call regionRead operation
-#
-##############################################################################
-call_regionRead() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(id)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=()
-    local path
-
-    if ! path=$(build_request_path "/api/v2/region/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6102,7 +6613,7 @@ call_statList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/stat/" path_parameter_names query_parameter_names); then
@@ -6129,91 +6640,19 @@ call_statList() {
 
 ##############################################################################
 #
-# Call statRead operation
+# Call statRetrieve operation
 #
 ##############################################################################
-call_statRead() {
+call_statRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/stat/{id}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call superContestEffectList operation
-#
-##############################################################################
-call_superContestEffectList() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
-    local path
-
-    if ! path=$(build_request_path "/api/v2/super-contest-effect/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call superContestEffectRead operation
-#
-##############################################################################
-call_superContestEffectRead() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(id)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=()
-    local path
-
-    if ! path=$(build_request_path "/api/v2/super-contest-effect/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6246,7 +6685,7 @@ call_typeList() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
     if ! path=$(build_request_path "/api/v2/type/" path_parameter_names query_parameter_names); then
@@ -6273,16 +6712,16 @@ call_typeList() {
 
 ##############################################################################
 #
-# Call typeRead operation
+# Call typeRetrieve operation
 #
 ##############################################################################
-call_typeRead() {
+call_typeRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
     if ! path=$(build_request_path "/api/v2/type/{id}/" path_parameter_names query_parameter_names); then
@@ -6309,19 +6748,19 @@ call_typeRead() {
 
 ##############################################################################
 #
-# Call versionList operation
+# Call languageList operation
 #
 ##############################################################################
-call_versionList() {
+call_languageList() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
+    local query_parameter_names=(limit offset q    )
     local path
 
-    if ! path=$(build_request_path "/api/v2/version/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/language/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6345,91 +6784,19 @@ call_versionList() {
 
 ##############################################################################
 #
-# Call versionRead operation
+# Call languageRetrieve operation
 #
 ##############################################################################
-call_versionRead() {
+call_languageRetrieve() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=(id)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(    )
     local path
 
-    if ! path=$(build_request_path "/api/v2/version/{id}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call versionGroupList operation
-#
-##############################################################################
-call_versionGroupList() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
-    local path
-
-    if ! path=$(build_request_path "/api/v2/version-group/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl -d '' ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call versionGroupRead operation
-#
-##############################################################################
-call_versionGroupRead() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(id)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=()
-    local path
-
-    if ! path=$(build_request_path "/api/v2/version-group/{id}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/v2/language/{id}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -6548,293 +6915,296 @@ case $key in
         OFF=""
         result_color_table=( "" "" "" "" "" "" "" )
     ;;
-    abilityList)
-    operation="abilityList"
-    ;;
-    abilityRead)
-    operation="abilityRead"
-    ;;
-    berryList)
-    operation="berryList"
-    ;;
-    berryRead)
-    operation="berryRead"
-    ;;
     berryFirmnessList)
     operation="berryFirmnessList"
     ;;
-    berryFirmnessRead)
-    operation="berryFirmnessRead"
+    berryFirmnessRetrieve)
+    operation="berryFirmnessRetrieve"
     ;;
     berryFlavorList)
     operation="berryFlavorList"
     ;;
-    berryFlavorRead)
-    operation="berryFlavorRead"
+    berryFlavorRetrieve)
+    operation="berryFlavorRetrieve"
     ;;
-    characteristicList)
-    operation="characteristicList"
+    berryList)
+    operation="berryList"
     ;;
-    characteristicRead)
-    operation="characteristicRead"
+    berryRetrieve)
+    operation="berryRetrieve"
     ;;
     contestEffectList)
     operation="contestEffectList"
     ;;
-    contestEffectRead)
-    operation="contestEffectRead"
+    contestEffectRetrieve)
+    operation="contestEffectRetrieve"
     ;;
     contestTypeList)
     operation="contestTypeList"
     ;;
-    contestTypeRead)
-    operation="contestTypeRead"
-    ;;
-    eggGroupList)
-    operation="eggGroupList"
-    ;;
-    eggGroupRead)
-    operation="eggGroupRead"
-    ;;
-    encounterConditionList)
-    operation="encounterConditionList"
-    ;;
-    encounterConditionRead)
-    operation="encounterConditionRead"
-    ;;
-    encounterConditionValueList)
-    operation="encounterConditionValueList"
-    ;;
-    encounterConditionValueRead)
-    operation="encounterConditionValueRead"
-    ;;
-    encounterMethodList)
-    operation="encounterMethodList"
-    ;;
-    encounterMethodRead)
-    operation="encounterMethodRead"
-    ;;
-    evolutionChainList)
-    operation="evolutionChainList"
-    ;;
-    evolutionChainRead)
-    operation="evolutionChainRead"
-    ;;
-    evolutionTriggerList)
-    operation="evolutionTriggerList"
-    ;;
-    evolutionTriggerRead)
-    operation="evolutionTriggerRead"
-    ;;
-    genderList)
-    operation="genderList"
-    ;;
-    genderRead)
-    operation="genderRead"
-    ;;
-    generationList)
-    operation="generationList"
-    ;;
-    generationRead)
-    operation="generationRead"
-    ;;
-    growthRateList)
-    operation="growthRateList"
-    ;;
-    growthRateRead)
-    operation="growthRateRead"
-    ;;
-    itemList)
-    operation="itemList"
-    ;;
-    itemRead)
-    operation="itemRead"
-    ;;
-    itemAttributeList)
-    operation="itemAttributeList"
-    ;;
-    itemAttributeRead)
-    operation="itemAttributeRead"
-    ;;
-    itemCategoryList)
-    operation="itemCategoryList"
-    ;;
-    itemCategoryRead)
-    operation="itemCategoryRead"
-    ;;
-    itemFlingEffectList)
-    operation="itemFlingEffectList"
-    ;;
-    itemFlingEffectRead)
-    operation="itemFlingEffectRead"
-    ;;
-    itemPocketList)
-    operation="itemPocketList"
-    ;;
-    itemPocketRead)
-    operation="itemPocketRead"
-    ;;
-    languageList)
-    operation="languageList"
-    ;;
-    languageRead)
-    operation="languageRead"
-    ;;
-    locationList)
-    operation="locationList"
-    ;;
-    locationRead)
-    operation="locationRead"
-    ;;
-    locationAreaList)
-    operation="locationAreaList"
-    ;;
-    locationAreaRead)
-    operation="locationAreaRead"
-    ;;
-    machineList)
-    operation="machineList"
-    ;;
-    machineRead)
-    operation="machineRead"
-    ;;
-    moveList)
-    operation="moveList"
-    ;;
-    moveRead)
-    operation="moveRead"
-    ;;
-    moveAilmentList)
-    operation="moveAilmentList"
-    ;;
-    moveAilmentRead)
-    operation="moveAilmentRead"
-    ;;
-    moveBattleStyleList)
-    operation="moveBattleStyleList"
-    ;;
-    moveBattleStyleRead)
-    operation="moveBattleStyleRead"
-    ;;
-    moveCategoryList)
-    operation="moveCategoryList"
-    ;;
-    moveCategoryRead)
-    operation="moveCategoryRead"
-    ;;
-    moveDamageClassList)
-    operation="moveDamageClassList"
-    ;;
-    moveDamageClassRead)
-    operation="moveDamageClassRead"
-    ;;
-    moveLearnMethodList)
-    operation="moveLearnMethodList"
-    ;;
-    moveLearnMethodRead)
-    operation="moveLearnMethodRead"
-    ;;
-    moveTargetList)
-    operation="moveTargetList"
-    ;;
-    moveTargetRead)
-    operation="moveTargetRead"
-    ;;
-    natureList)
-    operation="natureList"
-    ;;
-    natureRead)
-    operation="natureRead"
-    ;;
-    palParkAreaList)
-    operation="palParkAreaList"
-    ;;
-    palParkAreaRead)
-    operation="palParkAreaRead"
-    ;;
-    pokeathlonStatList)
-    operation="pokeathlonStatList"
-    ;;
-    pokeathlonStatRead)
-    operation="pokeathlonStatRead"
-    ;;
-    pokedexList)
-    operation="pokedexList"
-    ;;
-    pokedexRead)
-    operation="pokedexRead"
-    ;;
-    pokemonList)
-    operation="pokemonList"
-    ;;
-    pokemonRead)
-    operation="pokemonRead"
-    ;;
-    pokemonColorList)
-    operation="pokemonColorList"
-    ;;
-    pokemonColorRead)
-    operation="pokemonColorRead"
-    ;;
-    pokemonFormList)
-    operation="pokemonFormList"
-    ;;
-    pokemonFormRead)
-    operation="pokemonFormRead"
-    ;;
-    pokemonHabitatList)
-    operation="pokemonHabitatList"
-    ;;
-    pokemonHabitatRead)
-    operation="pokemonHabitatRead"
-    ;;
-    pokemonShapeList)
-    operation="pokemonShapeList"
-    ;;
-    pokemonShapeRead)
-    operation="pokemonShapeRead"
-    ;;
-    pokemonSpeciesList)
-    operation="pokemonSpeciesList"
-    ;;
-    pokemonSpeciesRead)
-    operation="pokemonSpeciesRead"
-    ;;
-    regionList)
-    operation="regionList"
-    ;;
-    regionRead)
-    operation="regionRead"
-    ;;
-    statList)
-    operation="statList"
-    ;;
-    statRead)
-    operation="statRead"
+    contestTypeRetrieve)
+    operation="contestTypeRetrieve"
     ;;
     superContestEffectList)
     operation="superContestEffectList"
     ;;
-    superContestEffectRead)
-    operation="superContestEffectRead"
+    superContestEffectRetrieve)
+    operation="superContestEffectRetrieve"
     ;;
-    typeList)
-    operation="typeList"
+    encounterConditionList)
+    operation="encounterConditionList"
     ;;
-    typeRead)
-    operation="typeRead"
+    encounterConditionRetrieve)
+    operation="encounterConditionRetrieve"
     ;;
-    versionList)
-    operation="versionList"
+    encounterConditionValueList)
+    operation="encounterConditionValueList"
     ;;
-    versionRead)
-    operation="versionRead"
+    encounterConditionValueRetrieve)
+    operation="encounterConditionValueRetrieve"
+    ;;
+    encounterMethodList)
+    operation="encounterMethodList"
+    ;;
+    encounterMethodRetrieve)
+    operation="encounterMethodRetrieve"
+    ;;
+    pokemonEncountersRetrieve)
+    operation="pokemonEncountersRetrieve"
+    ;;
+    evolutionChainList)
+    operation="evolutionChainList"
+    ;;
+    evolutionChainRetrieve)
+    operation="evolutionChainRetrieve"
+    ;;
+    evolutionTriggerList)
+    operation="evolutionTriggerList"
+    ;;
+    evolutionTriggerRetrieve)
+    operation="evolutionTriggerRetrieve"
+    ;;
+    generationList)
+    operation="generationList"
+    ;;
+    generationRetrieve)
+    operation="generationRetrieve"
+    ;;
+    pokedexList)
+    operation="pokedexList"
+    ;;
+    pokedexRetrieve)
+    operation="pokedexRetrieve"
     ;;
     versionGroupList)
     operation="versionGroupList"
     ;;
-    versionGroupRead)
-    operation="versionGroupRead"
+    versionGroupRetrieve)
+    operation="versionGroupRetrieve"
+    ;;
+    versionList)
+    operation="versionList"
+    ;;
+    versionRetrieve)
+    operation="versionRetrieve"
+    ;;
+    itemAttributeList)
+    operation="itemAttributeList"
+    ;;
+    itemAttributeRetrieve)
+    operation="itemAttributeRetrieve"
+    ;;
+    itemCategoryList)
+    operation="itemCategoryList"
+    ;;
+    itemCategoryRetrieve)
+    operation="itemCategoryRetrieve"
+    ;;
+    itemFlingEffectList)
+    operation="itemFlingEffectList"
+    ;;
+    itemFlingEffectRetrieve)
+    operation="itemFlingEffectRetrieve"
+    ;;
+    itemList)
+    operation="itemList"
+    ;;
+    itemPocketList)
+    operation="itemPocketList"
+    ;;
+    itemPocketRetrieve)
+    operation="itemPocketRetrieve"
+    ;;
+    itemRetrieve)
+    operation="itemRetrieve"
+    ;;
+    locationAreaList)
+    operation="locationAreaList"
+    ;;
+    locationAreaRetrieve)
+    operation="locationAreaRetrieve"
+    ;;
+    locationList)
+    operation="locationList"
+    ;;
+    locationRetrieve)
+    operation="locationRetrieve"
+    ;;
+    palParkAreaList)
+    operation="palParkAreaList"
+    ;;
+    palParkAreaRetrieve)
+    operation="palParkAreaRetrieve"
+    ;;
+    regionList)
+    operation="regionList"
+    ;;
+    regionRetrieve)
+    operation="regionRetrieve"
+    ;;
+    machineList)
+    operation="machineList"
+    ;;
+    machineRetrieve)
+    operation="machineRetrieve"
+    ;;
+    moveAilmentList)
+    operation="moveAilmentList"
+    ;;
+    moveAilmentRetrieve)
+    operation="moveAilmentRetrieve"
+    ;;
+    moveBattleStyleList)
+    operation="moveBattleStyleList"
+    ;;
+    moveBattleStyleRetrieve)
+    operation="moveBattleStyleRetrieve"
+    ;;
+    moveCategoryList)
+    operation="moveCategoryList"
+    ;;
+    moveCategoryRetrieve)
+    operation="moveCategoryRetrieve"
+    ;;
+    moveLearnMethodList)
+    operation="moveLearnMethodList"
+    ;;
+    moveLearnMethodRetrieve)
+    operation="moveLearnMethodRetrieve"
+    ;;
+    moveList)
+    operation="moveList"
+    ;;
+    moveRetrieve)
+    operation="moveRetrieve"
+    ;;
+    moveTargetList)
+    operation="moveTargetList"
+    ;;
+    moveTargetRetrieve)
+    operation="moveTargetRetrieve"
+    ;;
+    abilityList)
+    operation="abilityList"
+    ;;
+    abilityRetrieve)
+    operation="abilityRetrieve"
+    ;;
+    characteristicList)
+    operation="characteristicList"
+    ;;
+    characteristicRetrieve)
+    operation="characteristicRetrieve"
+    ;;
+    eggGroupList)
+    operation="eggGroupList"
+    ;;
+    eggGroupRetrieve)
+    operation="eggGroupRetrieve"
+    ;;
+    genderList)
+    operation="genderList"
+    ;;
+    genderRetrieve)
+    operation="genderRetrieve"
+    ;;
+    growthRateList)
+    operation="growthRateList"
+    ;;
+    growthRateRetrieve)
+    operation="growthRateRetrieve"
+    ;;
+    moveDamageClassList)
+    operation="moveDamageClassList"
+    ;;
+    moveDamageClassRetrieve)
+    operation="moveDamageClassRetrieve"
+    ;;
+    natureList)
+    operation="natureList"
+    ;;
+    natureRetrieve)
+    operation="natureRetrieve"
+    ;;
+    pokeathlonStatList)
+    operation="pokeathlonStatList"
+    ;;
+    pokeathlonStatRetrieve)
+    operation="pokeathlonStatRetrieve"
+    ;;
+    pokemonColorList)
+    operation="pokemonColorList"
+    ;;
+    pokemonColorRetrieve)
+    operation="pokemonColorRetrieve"
+    ;;
+    pokemonFormList)
+    operation="pokemonFormList"
+    ;;
+    pokemonFormRetrieve)
+    operation="pokemonFormRetrieve"
+    ;;
+    pokemonHabitatList)
+    operation="pokemonHabitatList"
+    ;;
+    pokemonHabitatRetrieve)
+    operation="pokemonHabitatRetrieve"
+    ;;
+    pokemonList)
+    operation="pokemonList"
+    ;;
+    pokemonRetrieve)
+    operation="pokemonRetrieve"
+    ;;
+    pokemonShapeList)
+    operation="pokemonShapeList"
+    ;;
+    pokemonShapeRetrieve)
+    operation="pokemonShapeRetrieve"
+    ;;
+    pokemonSpeciesList)
+    operation="pokemonSpeciesList"
+    ;;
+    pokemonSpeciesRetrieve)
+    operation="pokemonSpeciesRetrieve"
+    ;;
+    statList)
+    operation="statList"
+    ;;
+    statRetrieve)
+    operation="statRetrieve"
+    ;;
+    typeList)
+    operation="typeList"
+    ;;
+    typeRetrieve)
+    operation="typeRetrieve"
+    ;;
+    languageList)
+    operation="languageList"
+    ;;
+    languageRetrieve)
+    operation="languageRetrieve"
     ;;
     *==*)
     # Parse body arguments and convert them into top level
@@ -6923,293 +7293,296 @@ fi
 
 # Run cURL command based on the operation ID
 case $operation in
-    abilityList)
-    call_abilityList
-    ;;
-    abilityRead)
-    call_abilityRead
-    ;;
-    berryList)
-    call_berryList
-    ;;
-    berryRead)
-    call_berryRead
-    ;;
     berryFirmnessList)
     call_berryFirmnessList
     ;;
-    berryFirmnessRead)
-    call_berryFirmnessRead
+    berryFirmnessRetrieve)
+    call_berryFirmnessRetrieve
     ;;
     berryFlavorList)
     call_berryFlavorList
     ;;
-    berryFlavorRead)
-    call_berryFlavorRead
+    berryFlavorRetrieve)
+    call_berryFlavorRetrieve
     ;;
-    characteristicList)
-    call_characteristicList
+    berryList)
+    call_berryList
     ;;
-    characteristicRead)
-    call_characteristicRead
+    berryRetrieve)
+    call_berryRetrieve
     ;;
     contestEffectList)
     call_contestEffectList
     ;;
-    contestEffectRead)
-    call_contestEffectRead
+    contestEffectRetrieve)
+    call_contestEffectRetrieve
     ;;
     contestTypeList)
     call_contestTypeList
     ;;
-    contestTypeRead)
-    call_contestTypeRead
-    ;;
-    eggGroupList)
-    call_eggGroupList
-    ;;
-    eggGroupRead)
-    call_eggGroupRead
-    ;;
-    encounterConditionList)
-    call_encounterConditionList
-    ;;
-    encounterConditionRead)
-    call_encounterConditionRead
-    ;;
-    encounterConditionValueList)
-    call_encounterConditionValueList
-    ;;
-    encounterConditionValueRead)
-    call_encounterConditionValueRead
-    ;;
-    encounterMethodList)
-    call_encounterMethodList
-    ;;
-    encounterMethodRead)
-    call_encounterMethodRead
-    ;;
-    evolutionChainList)
-    call_evolutionChainList
-    ;;
-    evolutionChainRead)
-    call_evolutionChainRead
-    ;;
-    evolutionTriggerList)
-    call_evolutionTriggerList
-    ;;
-    evolutionTriggerRead)
-    call_evolutionTriggerRead
-    ;;
-    genderList)
-    call_genderList
-    ;;
-    genderRead)
-    call_genderRead
-    ;;
-    generationList)
-    call_generationList
-    ;;
-    generationRead)
-    call_generationRead
-    ;;
-    growthRateList)
-    call_growthRateList
-    ;;
-    growthRateRead)
-    call_growthRateRead
-    ;;
-    itemList)
-    call_itemList
-    ;;
-    itemRead)
-    call_itemRead
-    ;;
-    itemAttributeList)
-    call_itemAttributeList
-    ;;
-    itemAttributeRead)
-    call_itemAttributeRead
-    ;;
-    itemCategoryList)
-    call_itemCategoryList
-    ;;
-    itemCategoryRead)
-    call_itemCategoryRead
-    ;;
-    itemFlingEffectList)
-    call_itemFlingEffectList
-    ;;
-    itemFlingEffectRead)
-    call_itemFlingEffectRead
-    ;;
-    itemPocketList)
-    call_itemPocketList
-    ;;
-    itemPocketRead)
-    call_itemPocketRead
-    ;;
-    languageList)
-    call_languageList
-    ;;
-    languageRead)
-    call_languageRead
-    ;;
-    locationList)
-    call_locationList
-    ;;
-    locationRead)
-    call_locationRead
-    ;;
-    locationAreaList)
-    call_locationAreaList
-    ;;
-    locationAreaRead)
-    call_locationAreaRead
-    ;;
-    machineList)
-    call_machineList
-    ;;
-    machineRead)
-    call_machineRead
-    ;;
-    moveList)
-    call_moveList
-    ;;
-    moveRead)
-    call_moveRead
-    ;;
-    moveAilmentList)
-    call_moveAilmentList
-    ;;
-    moveAilmentRead)
-    call_moveAilmentRead
-    ;;
-    moveBattleStyleList)
-    call_moveBattleStyleList
-    ;;
-    moveBattleStyleRead)
-    call_moveBattleStyleRead
-    ;;
-    moveCategoryList)
-    call_moveCategoryList
-    ;;
-    moveCategoryRead)
-    call_moveCategoryRead
-    ;;
-    moveDamageClassList)
-    call_moveDamageClassList
-    ;;
-    moveDamageClassRead)
-    call_moveDamageClassRead
-    ;;
-    moveLearnMethodList)
-    call_moveLearnMethodList
-    ;;
-    moveLearnMethodRead)
-    call_moveLearnMethodRead
-    ;;
-    moveTargetList)
-    call_moveTargetList
-    ;;
-    moveTargetRead)
-    call_moveTargetRead
-    ;;
-    natureList)
-    call_natureList
-    ;;
-    natureRead)
-    call_natureRead
-    ;;
-    palParkAreaList)
-    call_palParkAreaList
-    ;;
-    palParkAreaRead)
-    call_palParkAreaRead
-    ;;
-    pokeathlonStatList)
-    call_pokeathlonStatList
-    ;;
-    pokeathlonStatRead)
-    call_pokeathlonStatRead
-    ;;
-    pokedexList)
-    call_pokedexList
-    ;;
-    pokedexRead)
-    call_pokedexRead
-    ;;
-    pokemonList)
-    call_pokemonList
-    ;;
-    pokemonRead)
-    call_pokemonRead
-    ;;
-    pokemonColorList)
-    call_pokemonColorList
-    ;;
-    pokemonColorRead)
-    call_pokemonColorRead
-    ;;
-    pokemonFormList)
-    call_pokemonFormList
-    ;;
-    pokemonFormRead)
-    call_pokemonFormRead
-    ;;
-    pokemonHabitatList)
-    call_pokemonHabitatList
-    ;;
-    pokemonHabitatRead)
-    call_pokemonHabitatRead
-    ;;
-    pokemonShapeList)
-    call_pokemonShapeList
-    ;;
-    pokemonShapeRead)
-    call_pokemonShapeRead
-    ;;
-    pokemonSpeciesList)
-    call_pokemonSpeciesList
-    ;;
-    pokemonSpeciesRead)
-    call_pokemonSpeciesRead
-    ;;
-    regionList)
-    call_regionList
-    ;;
-    regionRead)
-    call_regionRead
-    ;;
-    statList)
-    call_statList
-    ;;
-    statRead)
-    call_statRead
+    contestTypeRetrieve)
+    call_contestTypeRetrieve
     ;;
     superContestEffectList)
     call_superContestEffectList
     ;;
-    superContestEffectRead)
-    call_superContestEffectRead
+    superContestEffectRetrieve)
+    call_superContestEffectRetrieve
     ;;
-    typeList)
-    call_typeList
+    encounterConditionList)
+    call_encounterConditionList
     ;;
-    typeRead)
-    call_typeRead
+    encounterConditionRetrieve)
+    call_encounterConditionRetrieve
     ;;
-    versionList)
-    call_versionList
+    encounterConditionValueList)
+    call_encounterConditionValueList
     ;;
-    versionRead)
-    call_versionRead
+    encounterConditionValueRetrieve)
+    call_encounterConditionValueRetrieve
+    ;;
+    encounterMethodList)
+    call_encounterMethodList
+    ;;
+    encounterMethodRetrieve)
+    call_encounterMethodRetrieve
+    ;;
+    pokemonEncountersRetrieve)
+    call_pokemonEncountersRetrieve
+    ;;
+    evolutionChainList)
+    call_evolutionChainList
+    ;;
+    evolutionChainRetrieve)
+    call_evolutionChainRetrieve
+    ;;
+    evolutionTriggerList)
+    call_evolutionTriggerList
+    ;;
+    evolutionTriggerRetrieve)
+    call_evolutionTriggerRetrieve
+    ;;
+    generationList)
+    call_generationList
+    ;;
+    generationRetrieve)
+    call_generationRetrieve
+    ;;
+    pokedexList)
+    call_pokedexList
+    ;;
+    pokedexRetrieve)
+    call_pokedexRetrieve
     ;;
     versionGroupList)
     call_versionGroupList
     ;;
-    versionGroupRead)
-    call_versionGroupRead
+    versionGroupRetrieve)
+    call_versionGroupRetrieve
+    ;;
+    versionList)
+    call_versionList
+    ;;
+    versionRetrieve)
+    call_versionRetrieve
+    ;;
+    itemAttributeList)
+    call_itemAttributeList
+    ;;
+    itemAttributeRetrieve)
+    call_itemAttributeRetrieve
+    ;;
+    itemCategoryList)
+    call_itemCategoryList
+    ;;
+    itemCategoryRetrieve)
+    call_itemCategoryRetrieve
+    ;;
+    itemFlingEffectList)
+    call_itemFlingEffectList
+    ;;
+    itemFlingEffectRetrieve)
+    call_itemFlingEffectRetrieve
+    ;;
+    itemList)
+    call_itemList
+    ;;
+    itemPocketList)
+    call_itemPocketList
+    ;;
+    itemPocketRetrieve)
+    call_itemPocketRetrieve
+    ;;
+    itemRetrieve)
+    call_itemRetrieve
+    ;;
+    locationAreaList)
+    call_locationAreaList
+    ;;
+    locationAreaRetrieve)
+    call_locationAreaRetrieve
+    ;;
+    locationList)
+    call_locationList
+    ;;
+    locationRetrieve)
+    call_locationRetrieve
+    ;;
+    palParkAreaList)
+    call_palParkAreaList
+    ;;
+    palParkAreaRetrieve)
+    call_palParkAreaRetrieve
+    ;;
+    regionList)
+    call_regionList
+    ;;
+    regionRetrieve)
+    call_regionRetrieve
+    ;;
+    machineList)
+    call_machineList
+    ;;
+    machineRetrieve)
+    call_machineRetrieve
+    ;;
+    moveAilmentList)
+    call_moveAilmentList
+    ;;
+    moveAilmentRetrieve)
+    call_moveAilmentRetrieve
+    ;;
+    moveBattleStyleList)
+    call_moveBattleStyleList
+    ;;
+    moveBattleStyleRetrieve)
+    call_moveBattleStyleRetrieve
+    ;;
+    moveCategoryList)
+    call_moveCategoryList
+    ;;
+    moveCategoryRetrieve)
+    call_moveCategoryRetrieve
+    ;;
+    moveLearnMethodList)
+    call_moveLearnMethodList
+    ;;
+    moveLearnMethodRetrieve)
+    call_moveLearnMethodRetrieve
+    ;;
+    moveList)
+    call_moveList
+    ;;
+    moveRetrieve)
+    call_moveRetrieve
+    ;;
+    moveTargetList)
+    call_moveTargetList
+    ;;
+    moveTargetRetrieve)
+    call_moveTargetRetrieve
+    ;;
+    abilityList)
+    call_abilityList
+    ;;
+    abilityRetrieve)
+    call_abilityRetrieve
+    ;;
+    characteristicList)
+    call_characteristicList
+    ;;
+    characteristicRetrieve)
+    call_characteristicRetrieve
+    ;;
+    eggGroupList)
+    call_eggGroupList
+    ;;
+    eggGroupRetrieve)
+    call_eggGroupRetrieve
+    ;;
+    genderList)
+    call_genderList
+    ;;
+    genderRetrieve)
+    call_genderRetrieve
+    ;;
+    growthRateList)
+    call_growthRateList
+    ;;
+    growthRateRetrieve)
+    call_growthRateRetrieve
+    ;;
+    moveDamageClassList)
+    call_moveDamageClassList
+    ;;
+    moveDamageClassRetrieve)
+    call_moveDamageClassRetrieve
+    ;;
+    natureList)
+    call_natureList
+    ;;
+    natureRetrieve)
+    call_natureRetrieve
+    ;;
+    pokeathlonStatList)
+    call_pokeathlonStatList
+    ;;
+    pokeathlonStatRetrieve)
+    call_pokeathlonStatRetrieve
+    ;;
+    pokemonColorList)
+    call_pokemonColorList
+    ;;
+    pokemonColorRetrieve)
+    call_pokemonColorRetrieve
+    ;;
+    pokemonFormList)
+    call_pokemonFormList
+    ;;
+    pokemonFormRetrieve)
+    call_pokemonFormRetrieve
+    ;;
+    pokemonHabitatList)
+    call_pokemonHabitatList
+    ;;
+    pokemonHabitatRetrieve)
+    call_pokemonHabitatRetrieve
+    ;;
+    pokemonList)
+    call_pokemonList
+    ;;
+    pokemonRetrieve)
+    call_pokemonRetrieve
+    ;;
+    pokemonShapeList)
+    call_pokemonShapeList
+    ;;
+    pokemonShapeRetrieve)
+    call_pokemonShapeRetrieve
+    ;;
+    pokemonSpeciesList)
+    call_pokemonSpeciesList
+    ;;
+    pokemonSpeciesRetrieve)
+    call_pokemonSpeciesRetrieve
+    ;;
+    statList)
+    call_statList
+    ;;
+    statRetrieve)
+    call_statRetrieve
+    ;;
+    typeList)
+    call_typeList
+    ;;
+    typeRetrieve)
+    call_typeRetrieve
+    ;;
+    languageList)
+    call_languageList
+    ;;
+    languageRetrieve)
+    call_languageRetrieve
     ;;
     *)
     ERROR_MSG="ERROR: Unknown operation: $operation"

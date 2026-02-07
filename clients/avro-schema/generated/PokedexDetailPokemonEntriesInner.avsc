@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokedexDetailPokemonEntriesInner",
+  "fields": [
+    {
+      "name": "entry_number",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "pokemon_species",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    }
+  ]
+
+}

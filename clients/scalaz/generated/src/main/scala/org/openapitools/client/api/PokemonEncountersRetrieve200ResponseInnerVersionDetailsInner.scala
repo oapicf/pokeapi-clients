@@ -1,0 +1,25 @@
+package org.openapitools.client.api
+
+import argonaut._
+import argonaut.EncodeJson._
+import argonaut.DecodeJson._
+
+import org.http4s.{EntityDecoder, EntityEncoder}
+import org.http4s.argonaut._
+import org.joda.time.DateTime
+
+
+import PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner._
+
+case class PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner (
+  encounterDetails: List[PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncounterDetailsInner],
+maxChance: BigDecimal,
+version: PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerVersion)
+
+object PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner {
+  import DateTimeCodecs._
+
+  implicit val PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerCodecJson: CodecJson[PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner] = CodecJson.derive[PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner]
+  implicit val PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerDecoder: EntityDecoder[PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner] = jsonOf[PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner]
+  implicit val PokemonEncountersRetrieve200ResponseInnerVersionDetailsInnerEncoder: EntityEncoder[PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner] = jsonEncoderOf[PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner]
+}

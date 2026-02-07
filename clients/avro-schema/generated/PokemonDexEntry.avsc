@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonDexEntry",
+  "fields": [
+    {
+      "name": "entry_number",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "pokedex",
+      "type": "model.PokedexSummary",
+      "doc": ""
+    }
+  ]
+
+}

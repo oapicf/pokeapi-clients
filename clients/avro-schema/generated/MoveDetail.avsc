@@ -1,0 +1,157 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "MoveDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "accuracy",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "effect_chance",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "pp",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "priority",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "power",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "contest_combos",
+      "type": "model.MoveDetailContestCombos",
+      "doc": ""
+    },
+    {
+      "name": "contest_type",
+      "type": "model.ContestTypeSummary",
+      "doc": ""
+    },
+    {
+      "name": "contest_effect",
+      "type": "model.ContestEffectSummary",
+      "doc": ""
+    },
+    {
+      "name": "damage_class",
+      "type": "model.MoveDamageClassSummary",
+      "doc": ""
+    },
+    {
+      "name": "effect_entries",
+      "type": {
+        "type": "array",
+        "items": "model.MoveChangeEffectEntriesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "effect_changes",
+      "type": {
+        "type": "array",
+        "items": "model.MoveDetailEffectChangesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "generation",
+      "type": "model.GenerationSummary",
+      "doc": ""
+    },
+    {
+      "name": "meta",
+      "type": "model.MoveMeta",
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.MoveName"
+      },
+      "doc": ""
+    },
+    {
+      "name": "past_values",
+      "type": {
+        "type": "array",
+        "items": "model.MoveChange"
+      },
+      "doc": ""
+    },
+    {
+      "name": "stat_changes",
+      "type": {
+        "type": "array",
+        "items": "model.MoveDetailStatChangesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "super_contest_effect",
+      "type": "model.SuperContestEffectSummary",
+      "doc": ""
+    },
+    {
+      "name": "target",
+      "type": "model.MoveTargetSummary",
+      "doc": ""
+    },
+    {
+      "name": "type",
+      "type": "model.TypeSummary",
+      "doc": ""
+    },
+    {
+      "name": "machines",
+      "type": {
+        "type": "array",
+        "items": "model.MoveDetailMachinesInner"
+      },
+      "doc": ""
+    },
+    {
+      "name": "flavor_text_entries",
+      "type": {
+        "type": "array",
+        "items": "model.MoveFlavorText"
+      },
+      "doc": ""
+    },
+    {
+      "name": "learned_by_pokemon",
+      "type": {
+        "type": "array",
+        "items": "model.AbilityDetailPokemonInnerPokemon"
+      },
+      "doc": ""
+    }
+  ]
+
+}

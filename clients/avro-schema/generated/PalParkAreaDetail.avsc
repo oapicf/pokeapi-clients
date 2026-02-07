@@ -1,0 +1,35 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PalParkAreaDetail",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "names",
+      "type": {
+        "type": "array",
+        "items": "model.PalParkAreaName"
+      },
+      "doc": ""
+    },
+    {
+      "name": "pokemon_encounters",
+      "type": {
+        "type": "array",
+        "items": "model.PalParkAreaDetailPokemonEncountersInner"
+      },
+      "doc": ""
+    }
+  ]
+
+}

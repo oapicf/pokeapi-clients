@@ -1,0 +1,14 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ItemDetailSprites",
+  "fields": [
+    {
+      "name": "default",
+      "type": "model.URI",
+      "doc": ""
+    }
+  ]
+
+}

@@ -56,22 +56,65 @@ class LocationApiSimulation extends Simulation {
     }
 
     // Setup all the operations per second for the test to ultimately be generated from configs
+    val locationAreaListPerSecond = config.getDouble("performance.operationsPerSecond.locationAreaList") * rateMultiplier * instanceMultiplier
+    val locationAreaRetrievePerSecond = config.getDouble("performance.operationsPerSecond.locationAreaRetrieve") * rateMultiplier * instanceMultiplier
     val locationListPerSecond = config.getDouble("performance.operationsPerSecond.locationList") * rateMultiplier * instanceMultiplier
-    val locationReadPerSecond = config.getDouble("performance.operationsPerSecond.locationRead") * rateMultiplier * instanceMultiplier
+    val locationRetrievePerSecond = config.getDouble("performance.operationsPerSecond.locationRetrieve") * rateMultiplier * instanceMultiplier
+    val palParkAreaListPerSecond = config.getDouble("performance.operationsPerSecond.palParkAreaList") * rateMultiplier * instanceMultiplier
+    val palParkAreaRetrievePerSecond = config.getDouble("performance.operationsPerSecond.palParkAreaRetrieve") * rateMultiplier * instanceMultiplier
+    val regionListPerSecond = config.getDouble("performance.operationsPerSecond.regionList") * rateMultiplier * instanceMultiplier
+    val regionRetrievePerSecond = config.getDouble("performance.operationsPerSecond.regionRetrieve") * rateMultiplier * instanceMultiplier
 
     val scenarioBuilders: mutable.MutableList[PopulationBuilder] = new mutable.MutableList[PopulationBuilder]()
 
     // Set up CSV feeders
+    val location_area_listQUERYFeeder = csv(userDataDirectory + File.separator + "locationAreaList-queryParams.csv").random
+    val location_area_retrievePATHFeeder = csv(userDataDirectory + File.separator + "locationAreaRetrieve-pathParams.csv").random
     val location_listQUERYFeeder = csv(userDataDirectory + File.separator + "locationList-queryParams.csv").random
-    val location_readPATHFeeder = csv(userDataDirectory + File.separator + "locationRead-pathParams.csv").random
+    val location_retrievePATHFeeder = csv(userDataDirectory + File.separator + "locationRetrieve-pathParams.csv").random
+    val pal_park_area_listQUERYFeeder = csv(userDataDirectory + File.separator + "palParkAreaList-queryParams.csv").random
+    val pal_park_area_retrievePATHFeeder = csv(userDataDirectory + File.separator + "palParkAreaRetrieve-pathParams.csv").random
+    val region_listQUERYFeeder = csv(userDataDirectory + File.separator + "regionList-queryParams.csv").random
+    val region_retrievePATHFeeder = csv(userDataDirectory + File.separator + "regionRetrieve-pathParams.csv").random
 
     // Setup all scenarios
+
+    
+    val scnlocationAreaList = scenario("locationAreaListSimulation")
+        .feed(location_area_listQUERYFeeder)
+        .exec(http("locationAreaList")
+        .httpRequest("GET","/api/v2/location-area/")
+        .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
+)
+
+    // Run scnlocationAreaList with warm up and reach a constant rate for entire duration
+    scenarioBuilders += scnlocationAreaList.inject(
+        rampUsersPerSec(1) to(locationAreaListPerSecond) during(rampUpSeconds),
+        constantUsersPerSec(locationAreaListPerSecond) during(durationSeconds),
+        rampUsersPerSec(locationAreaListPerSecond) to(1) during(rampDownSeconds)
+    )
+
+    
+    val scnlocationAreaRetrieve = scenario("locationAreaRetrieveSimulation")
+        .feed(location_area_retrievePATHFeeder)
+        .exec(http("locationAreaRetrieve")
+        .httpRequest("GET","/api/v2/location-area/${id}/")
+)
+
+    // Run scnlocationAreaRetrieve with warm up and reach a constant rate for entire duration
+    scenarioBuilders += scnlocationAreaRetrieve.inject(
+        rampUsersPerSec(1) to(locationAreaRetrievePerSecond) during(rampUpSeconds),
+        constantUsersPerSec(locationAreaRetrievePerSecond) during(durationSeconds),
+        rampUsersPerSec(locationAreaRetrievePerSecond) to(1) during(rampDownSeconds)
+    )
 
     
     val scnlocationList = scenario("locationListSimulation")
         .feed(location_listQUERYFeeder)
         .exec(http("locationList")
         .httpRequest("GET","/api/v2/location/")
+        .queryParam("q","${q}")
         .queryParam("offset","${offset}")
         .queryParam("limit","${limit}")
 )
@@ -84,17 +127,79 @@ class LocationApiSimulation extends Simulation {
     )
 
     
-    val scnlocationRead = scenario("locationReadSimulation")
-        .feed(location_readPATHFeeder)
-        .exec(http("locationRead")
+    val scnlocationRetrieve = scenario("locationRetrieveSimulation")
+        .feed(location_retrievePATHFeeder)
+        .exec(http("locationRetrieve")
         .httpRequest("GET","/api/v2/location/${id}/")
 )
 
-    // Run scnlocationRead with warm up and reach a constant rate for entire duration
-    scenarioBuilders += scnlocationRead.inject(
-        rampUsersPerSec(1) to(locationReadPerSecond) during(rampUpSeconds),
-        constantUsersPerSec(locationReadPerSecond) during(durationSeconds),
-        rampUsersPerSec(locationReadPerSecond) to(1) during(rampDownSeconds)
+    // Run scnlocationRetrieve with warm up and reach a constant rate for entire duration
+    scenarioBuilders += scnlocationRetrieve.inject(
+        rampUsersPerSec(1) to(locationRetrievePerSecond) during(rampUpSeconds),
+        constantUsersPerSec(locationRetrievePerSecond) during(durationSeconds),
+        rampUsersPerSec(locationRetrievePerSecond) to(1) during(rampDownSeconds)
+    )
+
+    
+    val scnpalParkAreaList = scenario("palParkAreaListSimulation")
+        .feed(pal_park_area_listQUERYFeeder)
+        .exec(http("palParkAreaList")
+        .httpRequest("GET","/api/v2/pal-park-area/")
+        .queryParam("q","${q}")
+        .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
+)
+
+    // Run scnpalParkAreaList with warm up and reach a constant rate for entire duration
+    scenarioBuilders += scnpalParkAreaList.inject(
+        rampUsersPerSec(1) to(palParkAreaListPerSecond) during(rampUpSeconds),
+        constantUsersPerSec(palParkAreaListPerSecond) during(durationSeconds),
+        rampUsersPerSec(palParkAreaListPerSecond) to(1) during(rampDownSeconds)
+    )
+
+    
+    val scnpalParkAreaRetrieve = scenario("palParkAreaRetrieveSimulation")
+        .feed(pal_park_area_retrievePATHFeeder)
+        .exec(http("palParkAreaRetrieve")
+        .httpRequest("GET","/api/v2/pal-park-area/${id}/")
+)
+
+    // Run scnpalParkAreaRetrieve with warm up and reach a constant rate for entire duration
+    scenarioBuilders += scnpalParkAreaRetrieve.inject(
+        rampUsersPerSec(1) to(palParkAreaRetrievePerSecond) during(rampUpSeconds),
+        constantUsersPerSec(palParkAreaRetrievePerSecond) during(durationSeconds),
+        rampUsersPerSec(palParkAreaRetrievePerSecond) to(1) during(rampDownSeconds)
+    )
+
+    
+    val scnregionList = scenario("regionListSimulation")
+        .feed(region_listQUERYFeeder)
+        .exec(http("regionList")
+        .httpRequest("GET","/api/v2/region/")
+        .queryParam("q","${q}")
+        .queryParam("offset","${offset}")
+        .queryParam("limit","${limit}")
+)
+
+    // Run scnregionList with warm up and reach a constant rate for entire duration
+    scenarioBuilders += scnregionList.inject(
+        rampUsersPerSec(1) to(regionListPerSecond) during(rampUpSeconds),
+        constantUsersPerSec(regionListPerSecond) during(durationSeconds),
+        rampUsersPerSec(regionListPerSecond) to(1) during(rampDownSeconds)
+    )
+
+    
+    val scnregionRetrieve = scenario("regionRetrieveSimulation")
+        .feed(region_retrievePATHFeeder)
+        .exec(http("regionRetrieve")
+        .httpRequest("GET","/api/v2/region/${id}/")
+)
+
+    // Run scnregionRetrieve with warm up and reach a constant rate for entire duration
+    scenarioBuilders += scnregionRetrieve.inject(
+        rampUsersPerSec(1) to(regionRetrievePerSecond) during(rampUpSeconds),
+        constantUsersPerSec(regionRetrievePerSecond) during(durationSeconds),
+        rampUsersPerSec(regionRetrievePerSecond) to(1) during(rampDownSeconds)
     )
 
     setUp(

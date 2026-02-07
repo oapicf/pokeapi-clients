@@ -58,22 +58,22 @@ cleanup() -> ok.
 initial_state() -> #{}.
 
 %%==============================================================================
-%% version_group_list
+%% language_list
 %%==============================================================================
 
-version_group_list() ->
-  openapi_api:version_group_list().
+language_list() ->
+  openapi_api:language_list().
 
-version_group_list_args(_S) ->
+language_list_args(_S) ->
   [].
 
 %%==============================================================================
-%% version_group_read
+%% language_retrieve
 %%==============================================================================
 
-version_group_read(Id) ->
-  openapi_api:version_group_read(Id).
+language_retrieve(Id) ->
+  openapi_api:language_retrieve(Id).
 
-version_group_read_args(_S) ->
-  [integer()].
+language_retrieve_args(_S) ->
+  [binary()].
 

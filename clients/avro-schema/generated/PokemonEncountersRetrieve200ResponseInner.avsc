@@ -1,0 +1,22 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "PokemonEncountersRetrieve200ResponseInner",
+  "fields": [
+    {
+      "name": "location_area",
+      "type": "model.PokemonEncountersRetrieve200ResponseInnerLocationArea",
+      "doc": ""
+    },
+    {
+      "name": "version_details",
+      "type": {
+        "type": "array",
+        "items": "model.PokemonEncountersRetrieve200ResponseInnerVersionDetailsInner"
+      },
+      "doc": ""
+    }
+  ]
+
+}

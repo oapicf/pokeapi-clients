@@ -1,0 +1,22 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "LocationAreaDetailPokemonEncountersInner",
+  "fields": [
+    {
+      "name": "pokemon",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    },
+    {
+      "name": "version_details",
+      "type": {
+        "type": "array",
+        "items": "model.LocationAreaDetailPokemonEncountersInnerVersionDetailsInner"
+      },
+      "doc": ""
+    }
+  ]
+
+}

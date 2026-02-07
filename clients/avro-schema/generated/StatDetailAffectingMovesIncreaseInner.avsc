@@ -1,0 +1,19 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "StatDetailAffectingMovesIncreaseInner",
+  "fields": [
+    {
+      "name": "change",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "move",
+      "type": "model.AbilityDetailPokemonInnerPokemon",
+      "doc": ""
+    }
+  ]
+
+}

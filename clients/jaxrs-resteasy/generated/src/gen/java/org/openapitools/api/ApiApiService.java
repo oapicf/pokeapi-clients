@@ -5,6 +5,103 @@ import org.openapitools.model.*;
 
 
 
+import org.openapitools.model.AbilityDetail;
+import org.openapitools.model.BerryDetail;
+import org.openapitools.model.BerryFirmnessDetail;
+import org.openapitools.model.BerryFlavorDetail;
+import org.openapitools.model.CharacteristicDetail;
+import org.openapitools.model.ContestEffectDetail;
+import org.openapitools.model.ContestTypeDetail;
+import org.openapitools.model.EggGroupDetail;
+import org.openapitools.model.EncounterConditionDetail;
+import org.openapitools.model.EncounterConditionValueDetail;
+import org.openapitools.model.EncounterMethodDetail;
+import org.openapitools.model.EvolutionChainDetail;
+import org.openapitools.model.EvolutionTriggerDetail;
+import org.openapitools.model.GenderDetail;
+import org.openapitools.model.GenerationDetail;
+import org.openapitools.model.GrowthRateDetail;
+import org.openapitools.model.ItemAttributeDetail;
+import org.openapitools.model.ItemCategoryDetail;
+import org.openapitools.model.ItemDetail;
+import org.openapitools.model.ItemFlingEffectDetail;
+import org.openapitools.model.ItemPocketDetail;
+import org.openapitools.model.LanguageDetail;
+import org.openapitools.model.LocationAreaDetail;
+import org.openapitools.model.LocationDetail;
+import org.openapitools.model.MachineDetail;
+import org.openapitools.model.MoveBattleStyleDetail;
+import org.openapitools.model.MoveDamageClassDetail;
+import org.openapitools.model.MoveDetail;
+import org.openapitools.model.MoveLearnMethodDetail;
+import org.openapitools.model.MoveMetaAilmentDetail;
+import org.openapitools.model.MoveMetaCategoryDetail;
+import org.openapitools.model.MoveTargetDetail;
+import org.openapitools.model.NatureDetail;
+import org.openapitools.model.PaginatedAbilitySummaryList;
+import org.openapitools.model.PaginatedBerryFirmnessSummaryList;
+import org.openapitools.model.PaginatedBerryFlavorSummaryList;
+import org.openapitools.model.PaginatedBerrySummaryList;
+import org.openapitools.model.PaginatedCharacteristicSummaryList;
+import org.openapitools.model.PaginatedContestEffectSummaryList;
+import org.openapitools.model.PaginatedContestTypeSummaryList;
+import org.openapitools.model.PaginatedEggGroupSummaryList;
+import org.openapitools.model.PaginatedEncounterConditionSummaryList;
+import org.openapitools.model.PaginatedEncounterConditionValueSummaryList;
+import org.openapitools.model.PaginatedEncounterMethodSummaryList;
+import org.openapitools.model.PaginatedEvolutionChainSummaryList;
+import org.openapitools.model.PaginatedEvolutionTriggerSummaryList;
+import org.openapitools.model.PaginatedGenderSummaryList;
+import org.openapitools.model.PaginatedGenerationSummaryList;
+import org.openapitools.model.PaginatedGrowthRateSummaryList;
+import org.openapitools.model.PaginatedItemAttributeSummaryList;
+import org.openapitools.model.PaginatedItemCategorySummaryList;
+import org.openapitools.model.PaginatedItemFlingEffectSummaryList;
+import org.openapitools.model.PaginatedItemPocketSummaryList;
+import org.openapitools.model.PaginatedItemSummaryList;
+import org.openapitools.model.PaginatedLanguageSummaryList;
+import org.openapitools.model.PaginatedLocationAreaSummaryList;
+import org.openapitools.model.PaginatedLocationSummaryList;
+import org.openapitools.model.PaginatedMachineSummaryList;
+import org.openapitools.model.PaginatedMoveBattleStyleSummaryList;
+import org.openapitools.model.PaginatedMoveDamageClassSummaryList;
+import org.openapitools.model.PaginatedMoveLearnMethodSummaryList;
+import org.openapitools.model.PaginatedMoveMetaAilmentSummaryList;
+import org.openapitools.model.PaginatedMoveMetaCategorySummaryList;
+import org.openapitools.model.PaginatedMoveSummaryList;
+import org.openapitools.model.PaginatedMoveTargetSummaryList;
+import org.openapitools.model.PaginatedNatureSummaryList;
+import org.openapitools.model.PaginatedPalParkAreaSummaryList;
+import org.openapitools.model.PaginatedPokeathlonStatSummaryList;
+import org.openapitools.model.PaginatedPokedexSummaryList;
+import org.openapitools.model.PaginatedPokemonColorSummaryList;
+import org.openapitools.model.PaginatedPokemonFormSummaryList;
+import org.openapitools.model.PaginatedPokemonHabitatSummaryList;
+import org.openapitools.model.PaginatedPokemonShapeSummaryList;
+import org.openapitools.model.PaginatedPokemonSpeciesSummaryList;
+import org.openapitools.model.PaginatedPokemonSummaryList;
+import org.openapitools.model.PaginatedRegionSummaryList;
+import org.openapitools.model.PaginatedStatSummaryList;
+import org.openapitools.model.PaginatedSuperContestEffectSummaryList;
+import org.openapitools.model.PaginatedTypeSummaryList;
+import org.openapitools.model.PaginatedVersionGroupSummaryList;
+import org.openapitools.model.PaginatedVersionSummaryList;
+import org.openapitools.model.PalParkAreaDetail;
+import org.openapitools.model.PokeathlonStatDetail;
+import org.openapitools.model.PokedexDetail;
+import org.openapitools.model.PokemonColorDetail;
+import org.openapitools.model.PokemonDetail;
+import org.openapitools.model.PokemonEncountersRetrieve200ResponseInner;
+import org.openapitools.model.PokemonFormDetail;
+import org.openapitools.model.PokemonHabitatDetail;
+import org.openapitools.model.PokemonShapeDetail;
+import org.openapitools.model.PokemonSpeciesDetail;
+import org.openapitools.model.RegionDetail;
+import org.openapitools.model.StatDetail;
+import org.openapitools.model.SuperContestEffectDetail;
+import org.openapitools.model.TypeDetail;
+import org.openapitools.model.VersionDetail;
+import org.openapitools.model.VersionGroupDetail;
 
 import java.util.List;
 import org.openapitools.api.NotFoundException;
@@ -16,199 +113,201 @@ import javax.validation.Valid;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-01-25T00:36:42.852721756Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2026-02-07T04:17:47.675703185Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public interface ApiApiService {
-      Response abilityList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response abilityList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response abilityRead(Integer id,SecurityContext securityContext)
+      Response abilityRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response berryFirmnessList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response berryFirmnessList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response berryFirmnessRead(Integer id,SecurityContext securityContext)
+      Response berryFirmnessRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response berryFlavorList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response berryFlavorList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response berryFlavorRead(Integer id,SecurityContext securityContext)
+      Response berryFlavorRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response berryList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response berryList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response berryRead(Integer id,SecurityContext securityContext)
+      Response berryRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response characteristicList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response characteristicList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response characteristicRead(Integer id,SecurityContext securityContext)
+      Response characteristicRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response contestEffectList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response contestEffectList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response contestEffectRead(Integer id,SecurityContext securityContext)
+      Response contestEffectRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response contestTypeList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response contestTypeList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response contestTypeRead(Integer id,SecurityContext securityContext)
+      Response contestTypeRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response eggGroupList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response eggGroupList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response eggGroupRead(Integer id,SecurityContext securityContext)
+      Response eggGroupRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response encounterConditionList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response encounterConditionList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response encounterConditionRead(Integer id,SecurityContext securityContext)
+      Response encounterConditionRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response encounterConditionValueList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response encounterConditionValueList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response encounterConditionValueRead(Integer id,SecurityContext securityContext)
+      Response encounterConditionValueRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response encounterMethodList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response encounterMethodList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response encounterMethodRead(Integer id,SecurityContext securityContext)
+      Response encounterMethodRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response evolutionChainList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response evolutionChainList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response evolutionChainRead(Integer id,SecurityContext securityContext)
+      Response evolutionChainRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response evolutionTriggerList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response evolutionTriggerList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response evolutionTriggerRead(Integer id,SecurityContext securityContext)
+      Response evolutionTriggerRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response genderList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response genderList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response genderRead(Integer id,SecurityContext securityContext)
+      Response genderRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response generationList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response generationList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response generationRead(Integer id,SecurityContext securityContext)
+      Response generationRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response growthRateList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response growthRateList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response growthRateRead(Integer id,SecurityContext securityContext)
+      Response growthRateRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response itemAttributeList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response itemAttributeList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response itemAttributeRead(Integer id,SecurityContext securityContext)
+      Response itemAttributeRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response itemCategoryList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response itemCategoryList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response itemCategoryRead(Integer id,SecurityContext securityContext)
+      Response itemCategoryRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response itemFlingEffectList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response itemFlingEffectList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response itemFlingEffectRead(Integer id,SecurityContext securityContext)
+      Response itemFlingEffectRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response itemList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response itemList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response itemPocketList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response itemPocketList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response itemPocketRead(Integer id,SecurityContext securityContext)
+      Response itemPocketRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response itemRead(Integer id,SecurityContext securityContext)
+      Response itemRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response languageList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response languageList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response languageRead(Integer id,SecurityContext securityContext)
+      Response languageRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
       Response locationAreaList(Integer limit,Integer offset,SecurityContext securityContext)
       throws NotFoundException;
-      Response locationAreaRead(Integer id,SecurityContext securityContext)
+      Response locationAreaRetrieve(Integer id,SecurityContext securityContext)
       throws NotFoundException;
-      Response locationList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response locationList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response locationRead(Integer id,SecurityContext securityContext)
+      Response locationRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response machineList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response machineList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response machineRead(Integer id,SecurityContext securityContext)
+      Response machineRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response moveAilmentList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response moveAilmentList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response moveAilmentRead(Integer id,SecurityContext securityContext)
+      Response moveAilmentRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response moveBattleStyleList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response moveBattleStyleList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response moveBattleStyleRead(Integer id,SecurityContext securityContext)
+      Response moveBattleStyleRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response moveCategoryList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response moveCategoryList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response moveCategoryRead(Integer id,SecurityContext securityContext)
+      Response moveCategoryRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response moveDamageClassList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response moveDamageClassList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response moveDamageClassRead(Integer id,SecurityContext securityContext)
+      Response moveDamageClassRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response moveLearnMethodList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response moveLearnMethodList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response moveLearnMethodRead(Integer id,SecurityContext securityContext)
+      Response moveLearnMethodRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response moveList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response moveList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response moveRead(Integer id,SecurityContext securityContext)
+      Response moveRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response moveTargetList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response moveTargetList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response moveTargetRead(Integer id,SecurityContext securityContext)
+      Response moveTargetRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response natureList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response natureList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response natureRead(Integer id,SecurityContext securityContext)
+      Response natureRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response palParkAreaList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response palParkAreaList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response palParkAreaRead(Integer id,SecurityContext securityContext)
+      Response palParkAreaRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response pokeathlonStatList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response pokeathlonStatList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response pokeathlonStatRead(Integer id,SecurityContext securityContext)
+      Response pokeathlonStatRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response pokedexList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response pokedexList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response pokedexRead(Integer id,SecurityContext securityContext)
+      Response pokedexRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response pokemonColorList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response pokemonColorList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response pokemonColorRead(Integer id,SecurityContext securityContext)
+      Response pokemonColorRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response pokemonFormList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response pokemonEncountersRetrieve(String pokemonId,SecurityContext securityContext)
       throws NotFoundException;
-      Response pokemonFormRead(Integer id,SecurityContext securityContext)
+      Response pokemonFormList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response pokemonHabitatList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response pokemonFormRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response pokemonHabitatRead(Integer id,SecurityContext securityContext)
+      Response pokemonHabitatList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response pokemonList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response pokemonHabitatRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response pokemonRead(Integer id,SecurityContext securityContext)
+      Response pokemonList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response pokemonShapeList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response pokemonRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response pokemonShapeRead(Integer id,SecurityContext securityContext)
+      Response pokemonShapeList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response pokemonSpeciesList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response pokemonShapeRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response pokemonSpeciesRead(Integer id,SecurityContext securityContext)
+      Response pokemonSpeciesList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response regionList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response pokemonSpeciesRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response regionRead(Integer id,SecurityContext securityContext)
+      Response regionList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response statList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response regionRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response statRead(Integer id,SecurityContext securityContext)
+      Response statList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response superContestEffectList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response statRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response superContestEffectRead(Integer id,SecurityContext securityContext)
+      Response superContestEffectList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response typeList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response superContestEffectRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response typeRead(Integer id,SecurityContext securityContext)
+      Response typeList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response versionGroupList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response typeRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response versionGroupRead(Integer id,SecurityContext securityContext)
+      Response versionGroupList(Integer limit,Integer offset,String q,SecurityContext securityContext)
       throws NotFoundException;
-      Response versionList(Integer limit,Integer offset,SecurityContext securityContext)
+      Response versionGroupRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
-      Response versionRead(Integer id,SecurityContext securityContext)
+      Response versionList(Integer limit,Integer offset,String q,SecurityContext securityContext)
+      throws NotFoundException;
+      Response versionRetrieve(String id,SecurityContext securityContext)
       throws NotFoundException;
 
 

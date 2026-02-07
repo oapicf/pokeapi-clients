@@ -1,6 +1,6 @@
-# Auto-Generated OpenAPI Bindings to ``
+# Auto-Generated OpenAPI Bindings to `Poké`
 
-The library in `lib` provides auto-generated-from-OpenAPI bindings to the  API.
+The library in `lib` provides auto-generated-from-OpenAPI bindings to the Poké API.
 
 ## Installation
 
@@ -19,22 +19,22 @@ packages:
 
 ## Main Interface
 
-The main interface to this library is in the `.API` module, which exports the Backend type. The Backend
+The main interface to this library is in the `Poké.API` module, which exports the PokéBackend type. The PokéBackend
 type can be used to create and define servers and clients for the API.
 
 ## Creating a Client
 
-A client can be created via the `createClient` function, which will generate a function for every endpoint of the API.
-Then these functions can be invoked with `runClientWithManager` or more conveniently with `callClient`
+A client can be created via the `createPokéClient` function, which will generate a function for every endpoint of the API.
+Then these functions can be invoked with `runPokéClientWithManager` or more conveniently with `callPokéClient`
 (depending if you want an `Either` back or you want to catch) to access the API endpoint they refer to, if the API is served
 at the `url` you specified.
 
-For example, if `localhost:8080` is serving the  API, you can write:
+For example, if `localhost:8080` is serving the Poké API, you can write:
 
 ```haskell
 {-# LANGUAGE RecordWildCards #-}
 
-import .API as API
+import Poké.API as API
 
 import           Network.HTTP.Client     (newManager)
 import           Network.HTTP.Client.TLS (tlsManagerSettings)
@@ -50,42 +50,42 @@ main = do
   manager <- newManager tlsManagerSettings
 
   -- Create the client (all endpoint functions will be available)
-  let Backend{..} = API.createClient
+  let PokéBackend{..} = API.createPokéClient
 
-  -- Any  API call can go here, e.g. here we call `getSomeEndpoint`
-  API.call (mkClientEnv manager url) getSomeEndpoint
+  -- Any Poké API call can go here, e.g. here we call `getSomeEndpoint`
+  API.callPoké (mkClientEnv manager url) getSomeEndpoint
 ```
 
 ## Creating a Server
 
-In order to create a server, you must use the `runMiddlewareServer` function. However, you unlike the client, in which case you *got* a `Backend`
-from the library, you must instead *provide* a `Backend`. For example, if you have defined handler functions for all the
-functions in `.Handlers`, you can write:
+In order to create a server, you must use the `runPokéMiddlewareServer` function. However, you unlike the client, in which case you *got* a `PokéBackend`
+from the library, you must instead *provide* a `PokéBackend`. For example, if you have defined handler functions for all the
+functions in `Poké.Handlers`, you can write:
 
 ```haskell
 {-# LANGUAGE RecordWildCards #-}
 
-import .API
+import Poké.API
 -- required dependency: wai
 import Network.Wai (Middleware)
 -- required dependency: wai-extra
 import Network.Wai.Middleware.RequestLogger (logStdout)
 
--- A module you wrote yourself, containing all handlers needed for the Backend type.
-import .Handlers
+-- A module you wrote yourself, containing all handlers needed for the PokéBackend type.
+import Poké.Handlers
 
--- If you would like to not use any middlewares you could use runServer instead
+-- If you would like to not use any middlewares you could use runPokéServer instead
 
 -- Combined middlewares
 requestMiddlewares :: Middleware
 requestMiddlewares = logStdout
 
--- Run a  server on localhost:8080
+-- Run a Poké server on localhost:8080
 main :: IO ()
 main = do
-  let server = Backend{..}
+  let server = PokéBackend{..}
       config = Config "http://localhost:8080/"
-  runMiddlewareServer config requestMiddlewares server
+  runPokéMiddlewareServer config requestMiddlewares server
 ```
 
 ## Authentication
@@ -107,13 +107,13 @@ newtype Account = Account {unAccount :: Text}
 type instance AuthServerData Protected = Account
 ```
 
-Additionally, you have to provide value for the `Auth` type provided by the
-`.API` module:
+Additionally, you have to provide value for the `PokéAuth` type provided by the
+`Poké.API` module:
 
 ```
-auth :: Auth
+auth :: PokéAuth
 auth =
-  Auth
+  PokéAuth
     { lookupUser = lookupAccount,
       authError = \request -> err401 {errBody = "Missing header"}
     }
@@ -124,5 +124,5 @@ auth =
 functions:
 
 ```
-runMiddlewareServer config requestMiddlewares auth server
+runPokéMiddlewareServer config requestMiddlewares auth server
 ```
