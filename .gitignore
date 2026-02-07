@@ -1,4 +1,5 @@
 # Start of Studio gitignore
+core
 doc/
 clients/ruby/generated/bin/
 stage/
