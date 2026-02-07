@@ -7,19 +7,17 @@ describe 'PokemonColorApiClient' do
   after do
   end
 
-  describe 'test list' do
-    it 'should respond with colors list' do
-      api_instance = PokeApiClient::PokemonColorApi.new
-      opts = {
-        limit: 100,
-        offset: 1
-      }
+  describe 'test retrieve' do
+    it 'should respond with pokemon color detail' do
+      api_instance = PokeapiClient::PokemonApi.new
 
       begin
-        result = api_instance.pokemon_color_list(opts)
+        result = api_instance.pokemon_color_retrieve('black')
         p result
-      rescue PokeApiClient::ApiError => e
-        puts "Error when calling PokemonColorApi->pokemon_color_list: #{e}"
+        expect(result).to be_a(PokeapiClient::PokemonColorDetail)
+      rescue PokeapiClient::ApiError => e
+        puts "Error when calling PokemonApi->pokemon_color_retrieve: #{e}"
+        raise e
       end
 
     end
