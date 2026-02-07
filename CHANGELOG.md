@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Switch OpenAPI specification to official one from PokeAPI
 
+### Removed
+- Remove pokemon encounters endpoint which generates files with names > 100 chars #4
+
+### Fixed
+- Fix empty type fields which cause Python generator error #5
+
 ## 1.2.0 - 2026-01-25
 ### Added
 - Add Ruby test

@@ -111,8 +111,10 @@ x-init-spec:
 	  cp $(SPEC_URI) $(LOCAL_SPEC_PATH); \
 	fi
 	yq -i '.info.contact.name = "$(CONTACT_NAME)" | .info.contact.url = "$(CONTACT_URL)" | .info.contact.email = "$(CONTACT_EMAIL)"' "$(LOCAL_SPEC_PATH)"
-	# Remove pokemon encounters endpoint which generates files with names > 100 chars
+	# Remove pokemon encounters endpoint which generates files with names > 100 chars #4
 	yq -i 'del(.paths."/api/v2/pokemon/{pokemon_id}/encounters")' "$(LOCAL_SPEC_PATH)"
+	# Fix empty type fields which cause Python generator error #5
+	sed -i 's/type: ""/type: object/g' "$(LOCAL_SPEC_PATH)"
 
 # Shows a list of available generators supported by the given OPENAPI_GENERATOR_VERSION
 # Output is a space-separated list of generator names to be used in GENERATORS_ALL variable
