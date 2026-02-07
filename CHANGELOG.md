@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 2.0.0 - 2026-02-07
 ### Added
-- Add x-init-spec with removal of Pokemon Encounters to avoid generating class and doc longer than 100 chars [#3]
+- Add x-init-spec with removal of Pokemon Encounters to avoid generating class and doc longer than 100 chars [#4]
 
 ### Changed
 - Switch OpenAPI specification to official one from PokeAPI
