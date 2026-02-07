@@ -9,13 +9,14 @@ describe 'PokemonColorApiClient' do
 
   describe 'test retrieve' do
     it 'should respond with pokemon color detail' do
-      api_instance = PokeapiClient::PokemonApi.new
+      api_instance = PokeApiClient::PokemonApi.new
 
       begin
-        result = api_instance.pokemon_color_retrieve('black')
+        # Use debug_auth_names: [] to skip auth (avoids cookie auth issue)
+        result = api_instance.pokemon_color_retrieve('black', { debug_auth_names: [] })
         p result
-        expect(result).to be_a(PokeapiClient::PokemonColorDetail)
-      rescue PokeapiClient::ApiError => e
+        expect(result).to be_a(PokeApiClient::PokemonColorDetail)
+      rescue PokeApiClient::ApiError => e
         puts "Error when calling PokemonApi->pokemon_color_retrieve: #{e}"
         raise e
       end
