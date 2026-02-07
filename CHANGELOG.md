@@ -4,19 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
-
+## 2.0.0 - 2026-02-07
 ### Added
-- Add x-init-spec with removal of Pokemon Encounters to avoid generating class and doc longer than 100 chars #3
+- Add x-init-spec with removal of Pokemon Encounters to avoid generating class and doc longer than 100 chars [#3]
 
 ### Changed
 - Switch OpenAPI specification to official one from PokeAPI
 
 ### Removed
-- Remove pokemon encounters endpoint which generates files with names > 100 chars #4
+- Remove pokemon encounters endpoint which generates files with names > 100 chars [#4]
 
 ### Fixed
-- Fix empty type fields which cause Python generator error #5
+- Fix empty type fields which cause Python generator error [#5]
 
 ## 1.2.0 - 2026-01-25
 ### Added
