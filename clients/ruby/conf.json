@@ -1,7 +1,7 @@
 {
   "gemName": "pokeapi_client",
   "moduleName": "PokeApiClient",
-  "gemVersion": "2.0.0",
+  "gemVersion": "2.0.1-pre.0",
   "gemAuthor": "OpenAPI Clients Factory",
   "gemAuthorEmail": "blah+oapicf@cliffano.com",
   "gemHomepage": "https://github.com/oapicf/pokeapi-clients",
