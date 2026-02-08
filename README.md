@@ -6,7 +6,11 @@
 PokéAPI Clients
 ---------------
 
-PokéAPI Clients is a set of generated API clients for [Poké API](https://www.pokeapi.co/) from an OpenAPI v3 specification. Credit goes to [Niccolò Maltoni](https://github.com/NiccoMlt) for building [the baseline version of PokéAPI specification](https://gist.github.com/NiccoMlt/073b18934a6001fc5a2414c590e3b8ba).
+PokéAPI Clients is a set of generated API clients for [Poké API](https://www.pokeapi.co/) from an OpenAPI v3 specification.
+
+Credit goes to [Niccolò Maltoni](https://github.com/NiccoMlt) for building [the baseline version of PokéAPI specification](https://gist.github.com/NiccoMlt/073b18934a6001fc5a2414c590e3b8ba) which was used by PokéAPI Clients up to version 1.2.0 .
+
+Starting from PokéAPI Clients 2.0.0, we've started using the [official OpenAPI specification from PokéAPI project](https://github.com/PokeAPI/pokeapi/blob/master/openapi.yml).
 
 The API clients are generated using [OpenAPI Generator](https://openapi-generator.tech/).
 
