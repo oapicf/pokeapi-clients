@@ -1,10 +1,13 @@
+<!-- BEGIN:AVATAR -->
 <img align="right" src="https://raw.github.com/oapicf/pokeapi-clients/main/avatar.jpg" alt="Avatar"/>
+<!-- END:AVATAR -->
 
+<!-- BEGIN:BADGES -->
 [![Build Status](https://github.com/oapicf/pokeapi-clients/actions/workflows/ci-workflow.yaml/badge.svg)](https://github.com/oapicf/pokeapi-clients/actions/workflows/ci-workflow.yaml)
 <br/>
+<!-- END:BADGES -->
 
-PokéAPI Clients
----------------
+# PokéAPI Clients
 
 PokéAPI Clients is a set of generated API clients for [Poké API](https://www.pokeapi.co/) from an OpenAPI v3 specification.
 
@@ -14,8 +17,7 @@ Starting from PokéAPI Clients 2.0.0, we've started using the [official OpenAPI 
 
 The API clients are generated using [OpenAPI Generator](https://openapi-generator.tech/).
 
-Published packages
-------------------
+## Published packages
 
 | Language | Package | Status | Documentation |
 |----------|---------|--------|---------------|
@@ -23,8 +25,7 @@ Published packages
 | Python | [pokeapiclient]((https://pypi.python.org/pypi/pokeapiclient)) | [![Published Version](https://img.shields.io/pypi/v/pokeapiclient.svg)](https://pypi.python.org/pypi/pokeapiclient) | [README](https://github.com/oapicf/pokeapi-client/blob/main/clients/python/generated/README.md) |
 | Ruby | [pokeapi_client]((https://rubygems.org/gems/pokeapi_client)) | [![Published Version](https://img.shields.io/gem/v/pokeapi_client.svg)](https://rubygems.org/gems/pokeapi_client) | [README](https://github.com/oapicf/pokeapi-client/blob/main/clients/ruby/generated/README.md) |
 
-Version matrix
---------------
+## Version matrix
 
 Note: Version 0.9.0 returns response as String since the specification does not yet include any response schema.
 
@@ -37,8 +38,7 @@ Note: Version 0.9.0 returns response as String since the specification does not 
 | 0.10.0 | 20220523 | 3.0.0 | 6.0.1 |
 | 0.9.1 | 20220523 | 3.0.0 | 5.4.0 |
 
-Installation
-------------
+## Installation
 
 You can either use the generated clients from `clients/<lang>/generated/` directory.
 
@@ -46,17 +46,24 @@ Or you can use the published packages like below:
 
 Install JavaScript client:
 
-    npm install pokeapi-client
+```shell
+npm install pokeapi-client
+```
 
 Install Python client:
 
-    pip install pokeapiclient
+```shell
+pip install pokeapiclient
+```
 
 Install Ruby client:
 
-    gem install pokeapi_client
+```shell
+gem install pokeapi_client
+```
 
-Colophon
---------
+## Colophon
 
+<!-- BEGIN:BUILD_REPORTS -->
 * [API Documentation](https://oapicf.github.io/pokeapi-clients/api/latest/)
+<!-- END:BUILD_REPORTS -->
