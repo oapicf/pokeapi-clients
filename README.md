@@ -1,10 +1,9 @@
 <!-- BEGIN:AVATAR -->
-<img align="right" src="https://raw.github.com/oapicf/pokeapi-clients/main/avatar.jpg" alt="Avatar"/>
+![Avatar](avatar.jpg)
 <!-- END:AVATAR -->
 
 <!-- BEGIN:BADGES -->
 [![Build Status](https://github.com/oapicf/pokeapi-clients/actions/workflows/ci-workflow.yaml/badge.svg)](https://github.com/oapicf/pokeapi-clients/actions/workflows/ci-workflow.yaml)
-<br/>
 <!-- END:BADGES -->
 
 # PokéAPI Clients
@@ -63,6 +62,10 @@ gem install pokeapi_client
 ```
 
 ## Colophon
+
+<!-- BEGIN:DEVELOPERS_GUIDE -->
+[Developer's Guide](https://oapicf.github.io/developers-guide-openapi-generator.html)
+<!-- END:DEVELOPERS_GUIDE -->
 
 <!-- BEGIN:BUILD_REPORTS -->
 * [API Documentation](https://oapicf.github.io/pokeapi-clients/api/latest/)

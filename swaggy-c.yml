@@ -10,3 +10,15 @@ base_dir:
   local: /Users/cliffano/dev/workspace-oapicf/pokeapi-clients
   custom: >-
     /home/runner/work/generator-openapi-generator/generator-openapi-generator/stage/pokeapi-clients/
+generator:
+  component: oag-url-spec
+  inputs:
+    project_id: pokeapi-clients
+    project_name: PokéAPI Clients
+    project_desc: A set of generated API clients for Poké API from an OpenAPI v3 specification
+    author_name: OpenAPI Clients Factory
+    author_email: blah+oapicf@cliffano.com
+    author_url: https://github.com/oapicf
+    github_id: oapicf
+    github_repo: pokeapi-clients
+    github_token_prefix: OAPICF
