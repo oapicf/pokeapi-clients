@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Add examples
+- Add new generators: aspnet-fastendpoints, cpp-boost-beast-client, cpp-httplib-server, cpp-oatpp-client, cpp-oatpp-server, cpp-restbed-server-deprecated, csharp-functions, gdscript, java-dubbo, java-helidon-client, java-helidon-server, java-microprofile, java-wiremock, jetbrains-http-client, julia-client, julia-server, kotlin-misk, kotlin-wiremock, n4js, php-flight, php-nextgen, postgresql-schema, postman-collection, python-pydantic-v1, ruby-nextgen, rust-salvo, rust-server-deprecated, scala-cask, scala-http4s-server, scala-http4s, scala-pekko, scala-sttp4-jsoniter, scala-sttp4, swift-combine, swift6, terraform-provider, typescript-nestjs-server
 
 ### Changed
 - Upgrade Swaggy C to 6.3.0
