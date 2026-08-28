@@ -1,0 +1,5 @@
+# Patch bare nullable objects with no properties into free-form objects so the generators can handle them
+x-post-init-spec:
+	yq -i '(.. | select(has("properties") | not) | select(.type == "object")) |= (. + {"additionalProperties": true})' "$(LOCAL_SPEC_PATH)"
+
+.PHONY: x-post-init-spec
