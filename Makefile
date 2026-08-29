@@ -4,7 +4,7 @@
 ################################################################
 
 # Swaggy C info
-SWAGGY_C_VERSION = 6.3.0
+SWAGGY_C_VERSION = 6.4.0
 
 # The version of OpenAPI Generator (https://openapi-generator.tech/) used for generating the API clients
 OPENAPI_GENERATOR_VERSION = 7.24.0
@@ -115,6 +115,7 @@ init-spec: stage
 	  cp $(SPEC_URI) $(LOCAL_SPEC_PATH); \
 	fi
 	yq -i '.info.contact.name = "$(CONTACT_NAME)" | .info.contact.url = "$(CONTACT_URL)" | .info.contact.email = "$(CONTACT_EMAIL)"' "$(LOCAL_SPEC_PATH)"
+	$(call run_hook,x-post-init-spec)
 
 # Shows a list of available generators supported by the given OPENAPI_GENERATOR_VERSION
 # Output is a space-separated list of generator names to be used in GENERATORS_ALL variable

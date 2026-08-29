@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add post init spec step to handle nullable object
 
 ### Changed
-- Upgrade Swaggy C to 6.3.0
+- Upgrade Swaggy C to 6.4.0
 - Upgrade OpenAPI Generator to 7.24.0
 
 ## 2.0.0 - 2026-02-07
