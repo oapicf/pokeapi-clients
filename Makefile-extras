@@ -1,9 +1,0 @@
-# Give known_move/known_move_type the same name/url shape as their sibling fields
-# (gender, held_item, item, location) instead of leaving them as bare nullable
-# free-form objects, which crashes the Python generators (RuntimeException in
-# AbstractPythonCodegen$PydanticType.getType / getPydanticType, even with
-# additionalProperties: true added) on this OpenAPI 3.1 spec.
-x-post-init-spec:
-	yq -i '(.. | select(has("known_move"))) |= (.known_move = {"type": "object", "nullable": true, "required": ["name", "url"], "properties": {"name": {"type": "string"}, "url": {"type": "string", "format": "uri"}}} | .known_move_type = {"type": "object", "nullable": true, "required": ["name", "url"], "properties": {"name": {"type": "string"}, "url": {"type": "string", "format": "uri"}}})' stage/specification.yml
-
-.PHONY: x-post-init-spec

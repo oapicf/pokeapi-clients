@@ -4,7 +4,7 @@
 ################################################################
 
 # Swaggy C info
-SWAGGY_C_VERSION = 6.5.0
+SWAGGY_C_VERSION = 6.6.0
 
 # The version of OpenAPI Generator (https://openapi-generator.tech/) used for generating the API clients
 OPENAPI_GENERATOR_VERSION = 7.24.0
@@ -77,7 +77,7 @@ endef
 # Base targets
 
 # CI target to be executed by CI/CD tool
-ci: clean deps init-spec generate build-javascript build-python build-ruby test-javascript test-python test-ruby doc
+ci: clean deps init-spec generate-primary build-javascript build-python build-ruby test-javascript test-python test-ruby generate doc
 
 # All target as an alias for CI target
 all: ci
@@ -145,7 +145,6 @@ generate: generate-all
 # reduce the build time when processing primary generators
 # This target requires APP_BASE_DIR parameter to be supplied by user
 generate-all:
-	set -e; \
 	for generator in ${GENERATORS_ALL} ; do \
 	  echo '########################################'; \
 	  echo "# $$generator"; \
