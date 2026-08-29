@@ -4,7 +4,7 @@
 ################################################################
 
 # Swaggy C info
-SWAGGY_C_VERSION = 6.4.0
+SWAGGY_C_VERSION = 6.5.0
 
 # The version of OpenAPI Generator (https://openapi-generator.tech/) used for generating the API clients
 OPENAPI_GENERATOR_VERSION = 7.24.0
@@ -145,6 +145,7 @@ generate: generate-all
 # reduce the build time when processing primary generators
 # This target requires APP_BASE_DIR parameter to be supplied by user
 generate-all:
+	set -e; \
 	for generator in ${GENERATORS_ALL} ; do \
 	  docker \
 		  run \
@@ -161,6 +162,7 @@ generate-all:
 # Generate API clients for primary generators only
 # This target requires APP_BASE_DIR parameter to be supplied by user
 generate-primary:
+	set -e; \
 	for generator in ${GENERATORS_PRIMARY} ; do \
 	  docker \
 		  run \
