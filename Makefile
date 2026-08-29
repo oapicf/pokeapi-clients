@@ -147,6 +147,9 @@ generate: generate-all
 generate-all:
 	set -e; \
 	for generator in ${GENERATORS_ALL} ; do \
+	  echo '########################################'; \
+	  echo "# $$generator"; \
+	  echo '########################################'; \
 	  docker \
 		  run \
 		  --rm \
@@ -164,6 +167,9 @@ generate-all:
 generate-primary:
 	set -e; \
 	for generator in ${GENERATORS_PRIMARY} ; do \
+	  echo '########################################'; \
+	  echo "# $$generator"; \
+	  echo '########################################'; \
 	  docker \
 		  run \
 		  --rm \
