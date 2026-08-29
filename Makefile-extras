@@ -1,5 +1,5 @@
 # Patch bare nullable objects with no properties into free-form objects so the generators can handle them
 x-post-init-spec:
-	yq -i '(.. | select(tag == "!!map") | select(has("type")) | select(.type == "object") | select(has("properties") | not) | select(has("additionalProperties") | not)) |= (. + {"additionalProperties": true})' "$(LOCAL_SPEC_PATH)"
+	yq -i '(.. | select(tag == "!!map") | select(has("type")) | select(.type == "object") | select(has("properties") | not) | select(has("additionalProperties") | not)) |= (. + {"additionalProperties": true})' stage/specification.yml
 
 .PHONY: x-post-init-spec
