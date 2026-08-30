@@ -1,6 +1,6 @@
 ---
 spec_uri: https://raw.githubusercontent.com/PokeAPI/pokeapi/refs/tags/2.9.0/openapi.yml
-version: 2.0.1-pre.0
+version: 2.1.0
 contact:
   name: OpenAPI Clients Factory
   url: https://github.com/oapicf/pokeapi-clients
@@ -15,7 +15,9 @@ generator:
   inputs:
     project_id: pokeapi-clients
     project_name: PokéAPI Clients
-    project_desc: A set of generated API clients for Poké API from an OpenAPI v3 specification
+    project_desc: >-
+      A set of generated API clients for Poké API from an OpenAPI v3
+      specification
     author_name: OpenAPI Clients Factory
     author_email: blah+oapicf@cliffano.com
     author_url: https://github.com/oapicf
