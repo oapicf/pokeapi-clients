@@ -15,7 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Upgrade OpenAPI Generator to 7.24.0
 
 ### Fixed
-- Fix Python generation due to Pydantic incompat with nullable
+- Fix Python generation error due to Pydantic incompat with nullable
+- Fix Ruby generation error due to lengthy names
 
 ## 2.0.0 - 2026-02-07
 ### Added
